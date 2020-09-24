@@ -17,24 +17,27 @@ class Appearance {
     
     func configure() {
         
-        let backImage = UIImage(named: "navigation-bar-back")
+        let backButtonBackgroundImage = UIImage(named: "navigation-bar-back")
         let navigationBarBackgroundImage =  UIImage(color: .white, size: CGSize(width: 1, height: 1))
         
-        let navigationBar = UINavigationBar.appearance()
-        navigationBar.isTranslucent = false
-        navigationBar.shadowImage = UIImage()
-        navigationBar.backIndicatorImage = backImage
-        navigationBar.setBackgroundImage(navigationBarBackgroundImage, for: .default)
-        navigationBar.titleTextAttributes = [
+        let navigationBarAppearance = UINavigationBar.appearance()
+        navigationBarAppearance.isTranslucent = false
+        navigationBarAppearance.shadowImage = UIImage()
+        navigationBarAppearance.backIndicatorImage = backButtonBackgroundImage
+        navigationBarAppearance.backIndicatorTransitionMaskImage = backButtonBackgroundImage
+        navigationBarAppearance.setBackgroundImage(navigationBarBackgroundImage, for: .default)
+        navigationBarAppearance.titleTextAttributes = [
             .font : UIFont.navigationBarTitle,
             .foregroundColor : UIColor.titleBlack]
         
-        let barButtonItem = UIBarButtonItem.appearance()
+        let barButtonAppearance = UIBarButtonItem.appearance()
         
-        barButtonItem.tintColor = UIColor(hexString: "#333333")
+//        barButtonAppearance.setBackButtonTitlePositionAdjustment(UIOffset(horizontal: 0, vertical: -5), for: .default)
+        
+        barButtonAppearance.tintColor = UIColor(hexString: "#333333")
         
         
-        barButtonItem.setTitleTextAttributes(
+        barButtonAppearance.setTitleTextAttributes(
             [
                 .font : UIFont.title,
                 .foregroundColor : UIColor.titleBlack],

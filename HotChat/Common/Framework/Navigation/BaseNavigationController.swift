@@ -36,6 +36,7 @@ class BaseNavigationController: HBDNavigationController {
 
     /// Custom back buttons disable the interactive pop animation
     /// To enable it back we set the recognizer to `self`
+
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return topViewController?.preferredStatusBarStyle ?? .default
@@ -44,7 +45,10 @@ class BaseNavigationController: HBDNavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.viewControllers.forEach {
+            let backBarButtton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+            $0.navigationItem.backBarButtonItem = backBarButtton
+        }
     }
     
     
@@ -53,18 +57,22 @@ class BaseNavigationController: HBDNavigationController {
         
         viewController.hidesBottomBarWhenPushed =  viewControllers.count > 0 ? viewController.hidesTabBarWhenPushed : false
         
+        // Provide an empty backBarButton to hide the 'Back' text present by default in the back button.
+        let backBarButtton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        viewController.navigationItem.backBarButtonItem = backBarButtton
+        
         /// hidden NavigationBar back text
         //        let backBarButtton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         //        viewController.navigationItem.backBarButtonItem = backBarButtton
         
-        if viewControllers.count > 0 && viewController.navigationItem.leftBarButtonItems == nil {
-            
-            let backButton = BackButton(type: .custom)
-            backButton.addTarget(self, action:  #selector(pop), for: .touchUpInside)
-            backButton.setImage(viewController.backBarButtonImage, for: .normal)
-            let backBarButtton = UIBarButtonItem(customView: backButton)
-            viewController.navigationItem.leftBarButtonItem = backBarButtton
-        }
+//        if viewControllers.count > 0 && viewController.navigationItem.leftBarButtonItems == nil {
+//
+//            let backButton = BackButton(type: .custom)
+//            backButton.addTarget(self, action:  #selector(pop), for: .touchUpInside)
+//            backButton.setImage(viewController.backBarButtonImage, for: .normal)
+//            let backBarButtton = UIBarButtonItem(customView: backButton)
+//            viewController.navigationItem.leftBarButtonItem = backBarButtton
+//        }
         
         if let tableViewController = viewController as? UITableViewController, tableViewController.tableView.style == .grouped {
             tableViewController.tableView.hiddenHeader()
