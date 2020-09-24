@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="yl2-sM-qoP">
+            <objects>
+                <tabBarController id="49e-Tb-3d3" customClass="TabBarController" customModule="贪聊" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
+                        <rect key="frame" x="0.0" y="975" width="768" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Cms-sb-m6n" kind="relationship" relationship="viewControllers" id="zh3-lc-FKF"/>
+                        <segue destination="bbg-rL-H9K" kind="relationship" relationship="viewControllers" id="AZ5-Ga-SbW"/>
+                        <segue destination="WXB-hf-8mf" kind="relationship" relationship="viewControllers" id="UyO-MP-vuh"/>
+                        <segue destination="POh-Ir-R2x" kind="relationship" relationship="viewControllers" id="GQU-Jh-Y31"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3014" y="200"/>
+        </scene>
+        <!--社区-->
+        <scene sceneID="GW1-zP-ZlU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Cms-sb-m6n" customClass="BaseNavigationController" customModule="贪聊" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="社区" image="tabbar-community-normal" selectedImage="tabbar-community-selected" id="acW-dT-cKf"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NXR-mI-jme" customClass="HBDNavigationBar">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="AnT-cU-H6i" kind="relationship" relationship="rootViewController" id="pdd-DX-DV1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NL8-J4-Aag" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="564" y="-705"/>
+        </scene>
+        <!--Account-->
+        <scene sceneID="HKj-S4-8ho">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Account" id="AnT-cU-H6i" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="8oY-Rp-fBs"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="egz-45-5Nc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1830" y="-735"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="dDL-6X-Dtk">
+            <objects>
+                <viewController id="k7K-60-1xn" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oxC-yg-y4e">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="First View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="qxb-3P-CEZ">
+                                <rect key="frame" x="131.5" y="426.5" width="151" height="43"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by FirstViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dr-id-hg0">
+                                <rect key="frame" x="110" y="477.5" width="194.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="qxb-3P-CEZ" secondAttribute="centerX" id="1mG-HY-cta"/>
+                            <constraint firstItem="7dr-id-hg0" firstAttribute="centerX" secondItem="qxb-3P-CEZ" secondAttribute="centerX" id="2Sq-vj-Vfc"/>
+                            <constraint firstItem="7dr-id-hg0" firstAttribute="top" secondItem="qxb-3P-CEZ" secondAttribute="bottom" constant="8" symbolic="YES" id="Kic-s2-9wT"/>
+                            <constraint firstAttribute="centerY" secondItem="qxb-3P-CEZ" secondAttribute="centerY" id="czD-UG-60b"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eB4-yc-nNC"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="INk-vc-uD9"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ire-kk-jPh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1930" y="69"/>
+        </scene>
+        <!--发现-->
+        <scene sceneID="ex4-0Y-WXF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bbg-rL-H9K" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="发现" image="tabbar-discover-normal" selectedImage="tabbar-discover-selected" id="axf-bG-qF0"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dgo-pK-eAY">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="k7K-60-1xn" kind="relationship" relationship="rootViewController" id="as4-Wy-OaX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Jm-MT-Fcz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="564" y="69"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="AMB-cw-Gqq">
+            <objects>
+                <viewController id="zX3-ko-Kcd" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iBP-zE-Z5z">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="First View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="4Ln-O0-ppB">
+                                <rect key="frame" x="131.5" y="426.5" width="151" height="43"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by FirstViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXb-Pn-XxE">
+                                <rect key="frame" x="110" y="477.5" width="194.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="xXb-Pn-XxE" firstAttribute="top" secondItem="4Ln-O0-ppB" secondAttribute="bottom" constant="8" symbolic="YES" id="AMY-YS-qLW"/>
+                            <constraint firstAttribute="centerX" secondItem="4Ln-O0-ppB" secondAttribute="centerX" id="aZ0-aN-OQY"/>
+                            <constraint firstItem="xXb-Pn-XxE" firstAttribute="centerX" secondItem="4Ln-O0-ppB" secondAttribute="centerX" id="ccD-GO-j3h"/>
+                            <constraint firstAttribute="centerY" secondItem="4Ln-O0-ppB" secondAttribute="centerY" id="wij-i2-IQf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="B97-PD-OTH"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="0Bk-bd-gGB"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jni-lc-Rer" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1929" y="857"/>
+        </scene>
+        <!--消息-->
+        <scene sceneID="WjO-Wo-R4R">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WXB-hf-8mf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="消息" image="tabbar-message-normal" selectedImage="tabbar-message-selected" id="J5T-aG-3d4"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SkW-LH-ztd">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="zX3-ko-Kcd" kind="relationship" relationship="rootViewController" id="XM0-16-cEg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KJD-fi-err" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="564" y="856"/>
+        </scene>
+        <!--Me-->
+        <scene sceneID="emO-nu-NFS">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Me" id="POh-Ir-R2x" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="5h0-pN-J3L"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e0J-bP-Z3Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="564" y="1622"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="tabbar-community-normal" width="19" height="19"/>
+        <image name="tabbar-community-selected" width="19" height="19"/>
+        <image name="tabbar-discover-normal" width="19" height="19"/>
+        <image name="tabbar-discover-selected" width="19" height="19"/>
+        <image name="tabbar-message-normal" width="19" height="19"/>
+        <image name="tabbar-message-selected" width="19" height="19"/>
+    </resources>
+</document>

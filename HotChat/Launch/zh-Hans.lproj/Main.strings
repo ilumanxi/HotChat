@@ -1,0 +1,24 @@
+
+/* Class = "UILabel"; text = "First View"; ObjectID = "4Ln-O0-ppB"; */
+"4Ln-O0-ppB.text" = "First View";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "5h0-pN-J3L"; */
+"5h0-pN-J3L.title" = "Item";
+
+/* Class = "UILabel"; text = "Loaded by FirstViewController"; ObjectID = "7dr-id-hg0"; */
+"7dr-id-hg0.text" = "Loaded by FirstViewController";
+
+/* Class = "UITabBarItem"; title = "消息"; ObjectID = "J5T-aG-3d4"; */
+"J5T-aG-3d4.title" = "消息";
+
+/* Class = "UITabBarItem"; title = "社区"; ObjectID = "acW-dT-cKf"; */
+"acW-dT-cKf.title" = "社区";
+
+/* Class = "UITabBarItem"; title = "发现"; ObjectID = "axf-bG-qF0"; */
+"axf-bG-qF0.title" = "发现";
+
+/* Class = "UILabel"; text = "First View"; ObjectID = "qxb-3P-CEZ"; */
+"qxb-3P-CEZ.text" = "First View";
+
+/* Class = "UILabel"; text = "Loaded by FirstViewController"; ObjectID = "xXb-Pn-XxE"; */
+"xXb-Pn-XxE.text" = "Loaded by FirstViewController";

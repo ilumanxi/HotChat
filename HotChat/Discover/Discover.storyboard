@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bbg-rL-H9K">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--发现-->
+        <scene sceneID="ex4-0Y-WXF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bbg-rL-H9K" customClass="BaseNavigationController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="发现" image="tabbar-discover-normal" selectedImage="tabbar-discover-selected" id="axf-bG-qF0"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dgo-pK-eAY" customClass="HBDNavigationBar">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="jBy-WS-uSJ" kind="relationship" relationship="rootViewController" id="Ebw-It-dnk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Jm-MT-Fcz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="564" y="69"/>
+        </scene>
+        <!--发现-->
+        <scene sceneID="4Zj-sH-Fpq">
+            <objects>
+                <viewController title="发现" id="jBy-WS-uSJ" customClass="DiscoverViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gph-Vz-HDm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrj-mm-NrV">
+                                <rect key="frame" x="183.5" y="433" width="47" height="30"/>
+                                <state key="normal" title="Sign In"/>
+                                <connections>
+                                    <segue destination="zTe-CU-9eJ" kind="show" id="5Mq-9K-zJp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="wrj-mm-NrV" firstAttribute="centerX" secondItem="Gph-Vz-HDm" secondAttribute="centerX" id="8WN-dr-thR"/>
+                            <constraint firstItem="wrj-mm-NrV" firstAttribute="centerY" secondItem="Gph-Vz-HDm" secondAttribute="centerY" id="Cmb-Ei-g5h"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="TsZ-60-S8i"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="发现" id="ghP-S3-HEw"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8eR-cF-aD7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1425" y="69"/>
+        </scene>
+        <!--LoginViewController-->
+        <scene sceneID="3hj-st-Qsj">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Account" referencedIdentifier="LoginViewController" id="zTe-CU-9eJ" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="WeU-88-hdX"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5nz-eh-9OP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2227" y="59"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="tabbar-discover-normal" width="19" height="19"/>
+        <image name="tabbar-discover-selected" width="19" height="19"/>
+    </resources>
+</document>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Cms-sb-m6n">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--社区-->
+        <scene sceneID="GW1-zP-ZlU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Cms-sb-m6n" customClass="BaseNavigationController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="社区" image="tabbar-community-normal" selectedImage="tabbar-community-selected" id="acW-dT-cKf"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NXR-mI-jme" customClass="HBDNavigationBar">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7kL-bk-kMs" kind="relationship" relationship="rootViewController" id="Z0n-dE-FYe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NL8-J4-Aag" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="564" y="-705"/>
+        </scene>
+        <!--社区-->
+        <scene sceneID="UN6-4y-PUP">
+            <objects>
+                <viewController title="社区" id="7kL-bk-kMs" customClass="CommunityViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lDM-Gr-8uc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="eIY-MU-AyU"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="社区" id="54h-Rq-HML"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gaF-ai-iDJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1439" y="-692"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="tabbar-community-normal" width="19" height="19"/>
+        <image name="tabbar-community-selected" width="19" height="19"/>
+    </resources>
+</document>

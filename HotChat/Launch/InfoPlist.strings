@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  HotChat
+
+  Created by 风起兮 on 2020/9/8.
+  Copyright © 2020 风起兮. All rights reserved.
+*/
+
+CFBundleDisplayName = "贪聊";
