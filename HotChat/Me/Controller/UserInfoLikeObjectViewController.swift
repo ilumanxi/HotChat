@@ -7,9 +7,9 @@
 //
 
 import UIKit
-import Toast_Swift
+import MBProgressHUD
 
-class UserInfoLikeObjectViewController: UIViewController {
+class UserInfoLikeObjectViewController: UIViewController, Wireframe {
     
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -18,7 +18,10 @@ class UserInfoLikeObjectViewController: UIViewController {
     @IBOutlet weak var collectionViewGridLayout: CollectionViewGridLayout!
     
     
-    var tags: [String] = []
+    let API = RequestAPI<Account>()
+    
+    
+    var tags: [LikeTag] = []
     
     fileprivate let maximumSelectTagCount = 3
     
@@ -37,18 +40,23 @@ class UserInfoLikeObjectViewController: UIViewController {
         collectionViewGridLayout.itemInterval = 10
         collectionViewGridLayout.itemLineInterval = 10
         collectionViewGridLayout.sectionInsert = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        
+        let hub = MBProgressHUD.showAdded(to: view.window!, animated: true)
+        
+//        API.request(.labelList, type: HotChatResponse<[LikeTag]>.self)
+//            .subscribe(onSuccess: { [weak self] response in
+//                if response.isSuccessd {
+//                    self?.tags = response.data!
+//                    self?.collectionView.reloadData()
+//                } else {
+//                    self?.show(response.msg)
+//                }
+//                hub.hide(animated: true)
+//            }, onError: { [weak self]  error in
+//                self?.show(error.localizedDescription)
+//                hub.hide(animated: true)
+//            })
 
-        tags = [
-            "女生范",
-            "爱唱歌",
-            "逗比",
-            "声音甜",
-            "性格开朗",
-            "老司机",
-            "游戏控",
-            "小可爱",
-            "爱跳舞"
-        ]
     }
     
 }
@@ -66,7 +74,7 @@ extension UserInfoLikeObjectViewController: UICollectionViewDelegate, UICollecti
         
         let tag = tags[indexPath.item]
         
-        if selectedTags.contains(tag) {
+        if selectedTags.contains(tag.label) {
             cell.contentView.backgroundColor = .theme
             cell.titleLabel.textColor = .white
         }
@@ -75,7 +83,7 @@ extension UserInfoLikeObjectViewController: UICollectionViewDelegate, UICollecti
             cell.titleLabel.textColor = .textGray
         }
         
-        cell.titleLabel.text = tags[indexPath.item]
+        cell.titleLabel.text = tags[indexPath.item].label
         return cell
     }
     
@@ -84,15 +92,15 @@ extension UserInfoLikeObjectViewController: UICollectionViewDelegate, UICollecti
         
         let tag = tags[indexPath.item]
         
-        if selectedTags.contains(tag) {
+        if selectedTags.contains(tag.label) {
             
-            selectedTags.removeAll { $0 == tag }
+            selectedTags.removeAll { $0 == tag.label }
         }
         else if selectedTags.count >= maximumSelectTagCount {
             view.makeToast("最多选择三项", duration: 3.0, position: .bottom)
         }
         else {
-            selectedTags.append(tag)
+            selectedTags.append(tag.label)
         }
     }
     

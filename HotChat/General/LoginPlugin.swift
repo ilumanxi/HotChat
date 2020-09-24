@@ -11,6 +11,7 @@ import Moya
 final class LoginPlugin {
     
     let jsonDecoder = JSONDecoder()
+    let tokenKey = "token"
     
 }
 
@@ -37,6 +38,17 @@ extension LoginPlugin: PluginType {
     func willSend(_ request: RequestType, target: TargetType) {
         
         if !shouldHandleRequest(request.request!, prefixs: prefixs) { return }
+    }
+    
+    
+    func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
+    
+        var request = request
+        if LoginManager.shared.isAuthorized, let token = AccessTokenStore.shared.current?.value {
+            request.setValue(token, forHTTPHeaderField: tokenKey)
+        }
+        return request
+        
     }
     
     func didReceive(_ result: Result<Response, MoyaError>, target: TargetType) {

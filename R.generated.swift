@@ -89,6 +89,30 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
+  /// This `R.segue` struct is generated, and contains static references to 1 view controllers.
+  struct segue {
+    /// This struct is generated for `UserInformationViewController`, and contains static references to 1 segues.
+    struct userInformationViewController {
+      /// Segue identifier `UserInfoLikeObjectViewController`.
+      static let userInfoLikeObjectViewController: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, UserInformationViewController, UserInfoLikeObjectViewController> = Rswift.StoryboardSegueIdentifier(identifier: "UserInfoLikeObjectViewController")
+
+      #if os(iOS) || os(tvOS)
+      /// Optionally returns a typed version of segue `UserInfoLikeObjectViewController`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func userInfoLikeObjectViewController(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, UserInformationViewController, UserInfoLikeObjectViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.userInformationViewController.userInfoLikeObjectViewController, segue: segue)
+      }
+      #endif
+
+      fileprivate init() {}
+    }
+
+    fileprivate init() {}
+  }
+  #endif
+
+  #if os(iOS) || os(tvOS)
   /// This `R.storyboard` struct is generated, and contains static references to 7 storyboards.
   struct storyboard {
     /// Storyboard `Account`.
@@ -192,8 +216,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 60 images.
+  /// This `R.image` struct is generated, and contains static references to 63 images.
   struct image {
+    /// Image `account-register-succeed`.
+    static let accountRegisterSucceed = Rswift.ImageResource(bundle: R.hostingBundle, name: "account-register-succeed")
     /// Image `add-gray`.
     static let addGray = Rswift.ImageResource(bundle: R.hostingBundle, name: "add-gray")
     /// Image `arrow-down-black`.
@@ -202,6 +228,10 @@ struct R: Rswift.Validatable {
     static let arrowRightGray = Rswift.ImageResource(bundle: R.hostingBundle, name: "arrow-right-gray")
     /// Image `arrow-right-white`.
     static let arrowRightWhite = Rswift.ImageResource(bundle: R.hostingBundle, name: "arrow-right-white")
+    /// Image `box-selected`.
+    static let boxSelected = Rswift.ImageResource(bundle: R.hostingBundle, name: "box-selected")
+    /// Image `box-unselected`.
+    static let boxUnselected = Rswift.ImageResource(bundle: R.hostingBundle, name: "box-unselected")
     /// Image `chat-chummy`.
     static let chatChummy = Rswift.ImageResource(bundle: R.hostingBundle, name: "chat-chummy")
     /// Image `chat-contact`.
@@ -316,6 +346,13 @@ struct R: Rswift.Validatable {
     static let tabbarMessageSelected = Rswift.ImageResource(bundle: R.hostingBundle, name: "tabbar-message-selected")
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "account-register-succeed", bundle: ..., traitCollection: ...)`
+    static func accountRegisterSucceed(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.accountRegisterSucceed, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "add-gray", bundle: ..., traitCollection: ...)`
     static func addGray(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.addGray, compatibleWith: traitCollection)
@@ -340,6 +377,20 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "arrow-right-white", bundle: ..., traitCollection: ...)`
     static func arrowRightWhite(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.arrowRightWhite, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "box-selected", bundle: ..., traitCollection: ...)`
+    static func boxSelected(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.boxSelected, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "box-unselected", bundle: ..., traitCollection: ...)`
+    static func boxUnselected(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.boxUnselected, compatibleWith: traitCollection)
     }
     #endif
 
@@ -1228,6 +1279,10 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
+        if UIKit.UIImage(named: "account-register-succeed", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'account-register-succeed' is used in storyboard 'Account', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "add-gray", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'add-gray' is used in storyboard 'Account', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "box-selected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'box-selected' is used in storyboard 'Account', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "box-unselected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'box-unselected' is used in storyboard 'Account', but couldn't be loaded.") }
         if UIKit.UIImage(named: "form-submit-succeed", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'form-submit-succeed' is used in storyboard 'Account', but couldn't be loaded.") }
         if UIKit.UIImage(named: "launch-logo", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'launch-logo' is used in storyboard 'Account', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {

@@ -47,6 +47,8 @@ class SignupViewController: LegalLiabilityViewController, Wireframe {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         
+        return
+        
         
         let viewModel = SignupViewModel(
             input: (

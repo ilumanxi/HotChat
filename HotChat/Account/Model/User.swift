@@ -11,6 +11,11 @@ import HandyJSON
 
 struct User: HandyJSON {
     
+    enum Sex: Int {
+        case male = 1
+        case female = 2
+    }
+    
     var userId: Int = 0
     var token: String = ""
     var status: Int = 0

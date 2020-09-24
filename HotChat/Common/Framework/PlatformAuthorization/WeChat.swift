@@ -246,9 +246,9 @@ extension WeChat : WXApiDelegate {
     
     func onResp(_ resp: BaseResp) {
         
-        if let auth = resp as? SendAuthResp {
+        if let auth = resp as? SendAuthResp, let code = auth.code {
 //            login(auth: auth)
-            self.completionHandler?(.success(auth.code!))
+            self.completionHandler?(.success(code))
         }
         else if let auth = resp as? SendMessageToWXResp {
             share(auth: auth)

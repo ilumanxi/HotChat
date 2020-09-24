@@ -50,10 +50,9 @@ target 'HotChat' do
     pod 'SPAlertController'
 #    pod 'Presentr'
     pod 'MBProgressHUD'
-#    pod 'SVProgressHUD'
+    pod 'SwiftDate'
     pod 'NotificationBannerSwift'
-    pod 'BRPickerView'
-    
+#    pod 'BRPickerView'
     pod 'SegementSlide'
     pod 'FSPagerView'
     pod 'ActiveLabel'

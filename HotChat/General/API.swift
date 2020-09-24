@@ -89,6 +89,11 @@ class RequestAPI<Target: TargetType>: MoyaProvider<Target> {
 
         return rx.request(target, callbackQueue: callbackQueue).map(T.self)
    }
+    
+    func request<T: HandyJSON>(_ target: Target, type: T.Type, callbackQueue: DispatchQueue? = nil) -> Single<T> {
+
+        return rx.request(target, callbackQueue: callbackQueue).map(T.self)
+   }
 }
 
 

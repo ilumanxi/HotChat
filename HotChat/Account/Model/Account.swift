@@ -25,6 +25,8 @@ enum Account {
     case tokenSignin(token: String)
     case otherSignin(code: String, type: Int)
     case resetPassword(phone: String, password: String, code: String)
+    case editUser(headPic: String, sex: Int, nick: String, birthday: Int)
+    case labelList
 }
 
 extension Account: TargetType {
@@ -48,6 +50,10 @@ extension Account: TargetType {
             return "login/otherLogin"
         case .resetPassword:
             return "login/resetPsd"
+        case .editUser:
+            return "login/editUser"
+        case .labelList:
+            return "login/labelList"
         }
 
     }
@@ -56,7 +62,7 @@ extension Account: TargetType {
         switch self {
         case .sendCode:
             return .get
-        case  .signUp, .phoneSignin, .tokenSignin, .otherSignin, .resetPassword:
+        default:
             return .post
         }
     }
@@ -85,14 +91,14 @@ extension Account: TargetType {
             
             let params: [String : Any] = [
                 "phone": phone,
-                "password": password.data(using: .utf8)!.base64EncodedString(),
+                "password": password.md5(),
                 "timeStamp" : Int(Date().timeIntervalSince1970)
             ]
             return .requestParameters(parameters: params, encoding: URLEncoding.default)
         case .resetPassword(phone: let phone, password: let password, code: let code):
             let params: [String : Any] = [
                 "phone": phone,
-                "password": password.data(using: .utf8)!.base64EncodedString(),
+                "password": password.md5(),
                 "verifyCode" : code,
                 "timeStamp" : Int(Date().timeIntervalSince1970)
             ]
@@ -113,6 +119,17 @@ extension Account: TargetType {
             }
             
             return .requestParameters(parameters: params, encoding: URLEncoding.default)
+        case .editUser(headPic: let headPic, sex: let sex, nick: let nick, birthday: let birthday):
+            let params: [String : Any] = [
+                "headPic" : headPic,
+                "sex" : sex,
+                "nick" : nick,
+                "birthday" : birthday
+            ]
+            return .requestParameters(parameters: params, encoding: URLEncoding.default)
+            
+        case .labelList:
+            return .requestParameters(parameters: [:], encoding: URLEncoding.default)
         }
             
     }

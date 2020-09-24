@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import Toast_Swift
-
+import MBProgressHUD
 
 protocol Wireframe {
     
@@ -19,6 +18,30 @@ protocol Wireframe {
 extension Wireframe where Self: UIViewController {
     
     func show(_ message: String) {
-        view.makeToast(message, duration: 3, position: .top)
+        let hub = MBProgressHUD.showAdded(to: view, animated: true)
+        hub.mode = .text
+        hub.label.text = message
+        hub.hide(animated: true, afterDelay: 3)
     }
+    
+    
+}
+
+var HotChatHubKey = "HotChatHubKey"
+
+extension UIViewController {
+    
+    var hub: MBProgressHUD? {
+        get {
+            guard let hub = objc_getAssociatedObject(self, &HotChatHubKey) as? MBProgressHUD else {
+                return nil
+            }
+            return hub
+        }
+        set {
+            objc_setAssociatedObject(self, &HotChatHubKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+
+    
 }
