@@ -9,6 +9,8 @@
 import UIKit
 import MBProgressHUD
 
+
+
 class UserInfoLikeObjectViewController: UIViewController, Wireframe {
     
     
@@ -43,19 +45,21 @@ class UserInfoLikeObjectViewController: UIViewController, Wireframe {
         
         let hub = MBProgressHUD.showAdded(to: view.window!, animated: true)
         
-//        API.request(.labelList, type: HotChatResponse<[LikeTag]>.self)
-//            .subscribe(onSuccess: { [weak self] response in
-//                if response.isSuccessd {
-//                    self?.tags = response.data!
-//                    self?.collectionView.reloadData()
-//                } else {
-//                    self?.show(response.msg)
-//                }
-//                hub.hide(animated: true)
-//            }, onError: { [weak self]  error in
-//                self?.show(error.localizedDescription)
-//                hub.hide(animated: true)
-//            })
+        
+        API.request(.labelList, type: HotChatResponse<[LikeTag]>.self)
+            .subscribe(onSuccess: { [weak self] response in
+                if response.isSuccessd {
+                    self?.tags = response.data!
+                    self?.collectionView.reloadData()
+                } else {
+                    self?.show(response.msg)
+                }
+                hub.hide(animated: true)
+            }, onError: { [weak self]  error in
+                self?.show(error.localizedDescription)
+                hub.hide(animated: true)
+            })
+            .disposed(by: rx.disposeBag)
 
     }
     

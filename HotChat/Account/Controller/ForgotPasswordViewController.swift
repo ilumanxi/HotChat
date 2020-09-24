@@ -35,6 +35,8 @@ class ForgotPasswordViewController: LegalLiabilityViewController, Wireframe {
 
         // Do any additional setup after loading the view.
         
+        return
+        
         let viewModel = ForgotPasswordViewModel(
             input: (
                 phone: phoneTextField.rx.text.orEmpty.asDriver(),

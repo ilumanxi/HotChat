@@ -27,85 +27,8 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        observeLoginState()
-    }
-    
-
-    override func viewDidAppear(_ animated: Bool) {
-        
-        super.viewDidAppear(animated)
-        handleLogin()
-    }
-    
-    @objc func handleLogin() {
-        
-        if LoginManager.shared.isAuthorized {
-            let token = AccessTokenStore.shared.current!.value
-            SigninDefaultAPI.share.signin(token)
-                .subscribe(onSuccess:{ result in
-                    Log.print(result)
-                }, onError: { error in
-                    Log.print(error)
-                })
-                .disposed(by: rx.disposeBag)
-        
-        }
-        else {
-            self.showLoginViewController(false)
-        }
 
     }
-    
-    @available(iOS 13.0, *)
-    func observeAppleSignInState() {
-        
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(handleSignInWithAppleStateChanged(notification:)),
-            name: ASAuthorizationAppleIDProvider.credentialRevokedNotification,
-            object: nil
-        )
-    }
-    
-    
-    @objc
-    func observeLoginState() {
-        
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(userDidLogin(_:)),
-            name: .userDidLogin,
-            object: nil
-        )
-        
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(userDidLogout(_:)),
-            name: .userDidLogout,
-            object: nil
-        )
-        
-        if #available(iOS 13.0, *) {
-            observeAppleSignInState()
-        }
-    }
-    
-    @objc func userDidLogin(_ noti: Notification) {
-      dismiss(animated: false, completion: nil)
-    }
-    
-    @objc func userDidLogout(_ noti: Notification) {
-       
-//        showLoginViewController(true)
-    }
-
-    
-    @objc
-    func handleSignInWithAppleStateChanged(notification: Notification) {
-        // Sign the user out, optionally guide them to sign in again
-        showLoginViewController()
-    }
-
 
 }
 

@@ -11,7 +11,7 @@ import HandyJSON
 
 struct User: HandyJSON {
     
-    enum Sex: Int {
+    enum Sex: Int, HandyJSONEnum {
         case male = 1
         case female = 2
     }

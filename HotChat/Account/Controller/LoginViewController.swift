@@ -41,8 +41,23 @@ class LoginViewController: UIViewController {
         if #available(iOS 13.0, *) {
             setupProviderLoginView()
         }
+        
+//        observeUserResetPassword()
+        
     }
     
+    
+    func observeUserResetPassword() {
+        
+        NotificationCenter.default.rx.notification(.userDidResetPassword)
+            .subscribe(onNext: { [weak self] _ in
+                guard let self = self else {
+                    return
+                }
+                self.navigationController?.popToViewController(self, animated: true)
+            })
+            .disposed(by: rx.disposeBag)
+    }
     
     
     override func viewDidAppear(_ animated: Bool) {

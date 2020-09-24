@@ -532,10 +532,10 @@
             </objects>
             <point key="canvasLocation" x="2678" y="-133"/>
         </scene>
-        <!--View Controller-->
+        <!--Reset Password View Controller-->
         <scene sceneID="RS8-4U-FyX">
             <objects>
-                <viewController id="qng-jB-0Su" sceneMemberID="viewController">
+                <viewController id="qng-jB-0Su" customClass="ResetPasswordViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="prb-fw-dYU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -569,6 +569,9 @@
                                         <real key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="backAction:" destination="qng-jB-0Su" eventType="touchUpInside" id="cZQ-vD-Ool"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sH6-9Y-ipr"/>

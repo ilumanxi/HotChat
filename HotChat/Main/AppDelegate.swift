@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AuthenticationServices
 import SYBPush
 
 
@@ -20,14 +21,94 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         
-        
         Appearance.default.configure()
+        
+        setupWindowRootController()
         
         PlatformAuthorization.application(application, didFinishLaunchingWithOptions: launchOptions)
         
         registerANPSNotification(application, didFinishLaunchingWithOptions: launchOptions)
         
         return true
+    }
+    
+    func setupWindowRootController() {
+        
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        
+        if LoginManager.shared.isAuthorized {
+            window.setMainViewController()
+            verifyLogin()
+        }
+        else {
+            window.setLoginViewController()
+        }
+        
+        window.makeKeyAndVisible()
+        
+        self.window = window
+    }
+    
+    func verifyLogin() {
+        
+        let token = AccessTokenStore.shared.current!.value
+        SigninDefaultAPI.share.signin(token)
+            .subscribe(onSuccess:{ result in
+                Log.print(result)
+            }, onError: { error in
+                Log.print(error)
+            })
+            .disposed(by: rx.disposeBag)
+    }
+    
+    
+    @available(iOS 13.0, *)
+    func observeAppleSignInState() {
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleSignInWithAppleStateChanged(notification:)),
+            name: ASAuthorizationAppleIDProvider.credentialRevokedNotification,
+            object: nil
+        )
+    }
+    
+    
+    
+    @objc func observeLoginState() {
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(userDidLogin(_:)),
+            name: .userDidLogin,
+            object: nil
+        )
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(userDidLogout(_:)),
+            name: .userDidLogout,
+            object: nil
+        )
+        
+        if #available(iOS 13.0, *) {
+            observeAppleSignInState()
+        }
+    }
+    
+    @objc func userDidLogin(_ noti: Notification) {
+        window?.setMainViewController()
+    }
+    
+    @objc func userDidLogout(_ noti: Notification) {
+        window?.setLoginViewController()
+    }
+
+    
+    @objc
+    func handleSignInWithAppleStateChanged(notification: Notification) {
+        // Sign the user out, optionally guide them to sign in again
+        window?.setLoginViewController()
     }
     
     

@@ -9,6 +9,9 @@
 import Foundation
 import HandyJSON
 
+extension Array: HandyJSON {
+    
+}
 
 struct LikeTag: HandyJSON {
     
