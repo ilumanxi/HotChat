@@ -44,7 +44,7 @@ class UserInformationViewController: UITableViewController, Wireframe {
         }
     }
     
-    private let API = RequestAPI<Account>()
+    private let API = RequestAPI<AccountAPI>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -114,8 +114,13 @@ class UserInformationViewController: UITableViewController, Wireframe {
         
         if let datePicker = segue.destination as? DatePickerViewController {
             
-            datePicker.delegate.delegate(on: self) { (self, date) in
+            datePicker.onDateUpdated.delegate(on: self) { (self, date) in
                 self.date = date
+            }
+        }
+        else if let vc = segue.destination as? UserInfoLikeObjectViewController {
+            vc.onUpdated.delegate(on: self) { (self, _) in
+                UIApplication.shared.keyWindow?.setMainViewController()
             }
         }
     }
@@ -123,14 +128,14 @@ class UserInformationViewController: UITableViewController, Wireframe {
     func updateBirthdayDisplay() {
         
         if let date = self.date {
-            birthdayLabel.text = "\(date.toFormat("yyyy/MM/dd"))(\(date.constellation))"
+            birthdayLabel.text = date.constellationFormat
         }
         else {
             birthdayLabel.text  = "请输入生日"
         }
     }
     
-    var sex: User.Sex {
+    var sex: Sex {
         return genderSeletctedButton! == maleButton ? .male : .female
     }
 
@@ -143,14 +148,17 @@ class UserInformationViewController: UITableViewController, Wireframe {
 
         view.endEditing(true)
         
-        let headPic = "https://www.wind.com/images/user/icon.jpg"
+        let headPic = "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"
         
         let birthday =  Int(date!.timeIntervalSince1970)
         
         let hub = MBProgressHUD.showAdded(to: view.window!, animated: true)
         API.request(.editUser(headPic: headPic, sex: sex.rawValue, nick: nicknameTextField.text!, birthday: birthday), type: HotChatResponse<User>.self)
             .subscribe(onSuccess: {[weak self] response in
-                if !response.isSuccessd {
+                if response.isSuccessd {
+                    self?.performSegue(withIdentifier: "UserInfoLikeObjectViewController", sender: nil)
+                }
+                else {
                     self?.show(response.msg)
                 }
                 hub.hide(animated: true)
@@ -160,7 +168,6 @@ class UserInformationViewController: UITableViewController, Wireframe {
             })
             .disposed(by: rx.disposeBag)
     }
-    
     
     func verification() -> Bool {
         

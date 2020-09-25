@@ -89,8 +89,70 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.segue` struct is generated, and contains static references to 1 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 4 view controllers.
   struct segue {
+    /// This struct is generated for `ForgotPasswordViewController`, and contains static references to 1 segues.
+    struct forgotPasswordViewController {
+      /// Segue identifier `ResetPasswordViewController`.
+      static let resetPasswordViewController: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, ForgotPasswordViewController, ResetPasswordViewController> = Rswift.StoryboardSegueIdentifier(identifier: "ResetPasswordViewController")
+
+      #if os(iOS) || os(tvOS)
+      /// Optionally returns a typed version of segue `ResetPasswordViewController`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func resetPasswordViewController(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, ForgotPasswordViewController, ResetPasswordViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.forgotPasswordViewController.resetPasswordViewController, segue: segue)
+      }
+      #endif
+
+      fileprivate init() {}
+    }
+
+    /// This struct is generated for `SignupViewController`, and contains static references to 1 segues.
+    struct signupViewController {
+      /// Segue identifier `UserInformationViewController`.
+      static let userInformationViewController: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, SignupViewController, UserInformationViewController> = Rswift.StoryboardSegueIdentifier(identifier: "UserInformationViewController")
+
+      #if os(iOS) || os(tvOS)
+      /// Optionally returns a typed version of segue `UserInformationViewController`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func userInformationViewController(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, SignupViewController, UserInformationViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.signupViewController.userInformationViewController, segue: segue)
+      }
+      #endif
+
+      fileprivate init() {}
+    }
+
+    /// This struct is generated for `UserInfoEditingViewController`, and contains static references to 2 segues.
+    struct userInfoEditingViewController {
+      /// Segue identifier `UserInfoInputTextViewController`.
+      static let userInfoInputTextViewController: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, UserInfoEditingViewController, UserInfoInputTextViewController> = Rswift.StoryboardSegueIdentifier(identifier: "UserInfoInputTextViewController")
+      /// Segue identifier `UserInfoLikeObjectViewController`.
+      static let userInfoLikeObjectViewController: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, UserInfoEditingViewController, UserInfoLikeObjectViewController> = Rswift.StoryboardSegueIdentifier(identifier: "UserInfoLikeObjectViewController")
+
+      #if os(iOS) || os(tvOS)
+      /// Optionally returns a typed version of segue `UserInfoInputTextViewController`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func userInfoInputTextViewController(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, UserInfoEditingViewController, UserInfoInputTextViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.userInfoEditingViewController.userInfoInputTextViewController, segue: segue)
+      }
+      #endif
+
+      #if os(iOS) || os(tvOS)
+      /// Optionally returns a typed version of segue `UserInfoLikeObjectViewController`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func userInfoLikeObjectViewController(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, UserInfoEditingViewController, UserInfoLikeObjectViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.userInfoEditingViewController.userInfoLikeObjectViewController, segue: segue)
+      }
+      #endif
+
+      fileprivate init() {}
+    }
+
     /// This struct is generated for `UserInformationViewController`, and contains static references to 1 segues.
     struct userInformationViewController {
       /// Segue identifier `UserInfoLikeObjectViewController`.
@@ -1271,8 +1333,13 @@ struct _R: Rswift.Validatable {
       typealias InitialController = BaseNavigationController
 
       let bundle = R.hostingBundle
+      let datePickerViewController = StoryboardViewControllerResource<DatePickerViewController>(identifier: "DatePickerViewController")
       let loginViewController = StoryboardViewControllerResource<LoginViewController>(identifier: "LoginViewController")
       let name = "Account"
+
+      func datePickerViewController(_: Void = ()) -> DatePickerViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: datePickerViewController)
+      }
 
       func loginViewController(_: Void = ()) -> LoginViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: loginViewController)
@@ -1287,6 +1354,7 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "launch-logo", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'launch-logo' is used in storyboard 'Account', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+        if _R.storyboard.account().datePickerViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'datePickerViewController' could not be loaded from storyboard 'Account' as 'DatePickerViewController'.") }
         if _R.storyboard.account().loginViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'loginViewController' could not be loaded from storyboard 'Account' as 'LoginViewController'.") }
       }
 
@@ -1395,6 +1463,16 @@ struct _R: Rswift.Validatable {
 
       let bundle = R.hostingBundle
       let name = "Me"
+      let userBasicInformationViewController = StoryboardViewControllerResource<UserBasicInformationViewController>(identifier: "UserBasicInformationViewController")
+      let userInfoLikeObjectViewController = StoryboardViewControllerResource<UserInfoLikeObjectViewController>(identifier: "UserInfoLikeObjectViewController")
+
+      func userBasicInformationViewController(_: Void = ()) -> UserBasicInformationViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: userBasicInformationViewController)
+      }
+
+      func userInfoLikeObjectViewController(_: Void = ()) -> UserInfoLikeObjectViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: userInfoLikeObjectViewController)
+      }
 
       static func validate() throws {
         if UIKit.UIImage(named: "add-gray", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'add-gray' is used in storyboard 'Me', but couldn't be loaded.") }
@@ -1424,6 +1502,8 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "tabbar-me-selected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tabbar-me-selected' is used in storyboard 'Me', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+        if _R.storyboard.me().userBasicInformationViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'userBasicInformationViewController' could not be loaded from storyboard 'Me' as 'UserBasicInformationViewController'.") }
+        if _R.storyboard.me().userInfoLikeObjectViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'userInfoLikeObjectViewController' could not be loaded from storyboard 'Me' as 'UserInfoLikeObjectViewController'.") }
       }
 
       fileprivate init() {}

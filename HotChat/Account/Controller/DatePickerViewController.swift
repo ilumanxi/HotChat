@@ -11,7 +11,7 @@ import UIKit
 class DatePickerViewController: UIViewController {
     
     
-    let delegate = Delegate<Date, Void>()
+    let onDateUpdated = Delegate<Date, Void>()
     
     
     var date = Date()
@@ -38,7 +38,7 @@ class DatePickerViewController: UIViewController {
     
     @IBAction func doneAction(_ sender: Any) {
         
-        delegate.call(date)
+        onDateUpdated.call(date)
         dismiss(animated: false, completion: nil)
     }
     

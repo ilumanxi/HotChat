@@ -22,29 +22,7 @@ func writeImage(_ image: UIImage) -> URL! {
     return fileURL
 }
 
-enum Sex: Int, CustomStringConvertible {
-   
-    case man
-    case woman
-    
-    var image: UIImage? {
-        switch self {
-        case .man:
-            return R.image.meSexMan()
-        case .woman:
-            return R.image.meSexWoman()
-        }
-    }
-    
-    var description: String {
-        switch self {
-        case .man:
-            return "男生"
-        case .woman:
-            return "女生"
-        }
-    }
-}
+
 
 enum Section: Int, CaseIterable, CustomStringConvertible {
     case profilePhoto
@@ -449,8 +427,15 @@ class Introduce: FormEntry {
     }
     
     private func render(_ cell: UserInfoIntroduceCell) {
+        
         cell.titleLabel.text = title
-        cell.contentLabel.text = content ?? placeholder
+        
+        if let text = content, !text.isEmpty {
+            cell.contentLabel.text = text
+        }
+        else {
+            cell.contentLabel.text = placeholder
+        }
     }
 }
 

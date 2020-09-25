@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -491,9 +490,6 @@
                                                             <real key="value" value="8"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
-                                                    <connections>
-                                                        <segue destination="qng-jB-0Su" kind="show" id="Nn7-J3-jCu"/>
-                                                    </connections>
                                                 </button>
                                                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="4hO-hs-Zxv">
                                                     <rect key="frame" x="64" y="55" width="20" height="20"/>
@@ -526,6 +522,7 @@
                         <outlet property="repeatedPasswordTextField" destination="bJL-TZ-PRj" id="FCF-NS-l8Q"/>
                         <outlet property="resetActivityIndicatorView" destination="4hO-hs-Zxv" id="t7m-me-OJA"/>
                         <outlet property="resetButton" destination="drD-cd-0l8" id="uyT-AO-fsp"/>
+                        <segue destination="qng-jB-0Su" kind="show" identifier="ResetPasswordViewController" id="66l-5z-xaS"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXC-zk-Dce" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -588,7 +585,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="va7-v9-afE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3499" y="-133"/>
+            <point key="canvasLocation" x="3554" y="-133"/>
         </scene>
         <!--注册-->
         <scene sceneID="eMA-Vk-jbW">
@@ -756,9 +753,6 @@
                                                             <real key="value" value="8"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
-                                                    <connections>
-                                                        <segue destination="r0j-UD-0JP" kind="show" id="NEq-hx-26x"/>
-                                                    </connections>
                                                 </button>
                                                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="MT7-th-nxd">
                                                     <rect key="frame" x="64" y="55" width="20" height="20"/>
@@ -790,6 +784,7 @@
                         <outlet property="phoneTextField" destination="kP3-Se-cq0" id="w2Q-zo-1PW"/>
                         <outlet property="signUpActivityIndicatorView" destination="MT7-th-nxd" id="NNb-LS-89D"/>
                         <outlet property="signUpButton" destination="Zi1-po-Lps" id="Skj-Cu-Hjo"/>
+                        <segue destination="r0j-UD-0JP" kind="show" identifier="UserInformationViewController" id="uay-6A-oUA"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w5C-ip-AH2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1094,7 +1089,7 @@
                         <outlet property="maleButton" destination="XKu-n9-Ime" id="JZR-Fs-ld3"/>
                         <outlet property="nicknameTextField" destination="RJs-9F-79G" id="Fnm-kc-hCd"/>
                         <outlet property="submitButton" destination="1m7-2g-BoJ" id="cf4-ii-KBW"/>
-                        <segue destination="69B-Jq-Ey5" kind="show" identifier="UserInfoLikeObjectViewController" id="bmc-v8-anf"/>
+                        <segue destination="F42-kQ-WdL" kind="show" identifier="UserInfoLikeObjectViewController" id="dhA-5A-PqU"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lh4-Bf-eED" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1104,7 +1099,7 @@
         <!--Date Picker View Controller-->
         <scene sceneID="ytH-bm-peE">
             <objects>
-                <viewController modalPresentationStyle="overFullScreen" id="OlX-d1-3u9" customClass="DatePickerViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="DatePickerViewController" storyboardIdentifier="DatePickerViewController" modalPresentationStyle="overFullScreen" id="OlX-d1-3u9" customClass="DatePickerViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="71j-k3-ruY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1178,99 +1173,17 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IuJ-sW-jKY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4364" y="546.79802955665025"/>
+            <point key="canvasLocation" x="4478" y="547"/>
         </scene>
-        <!--特点-->
-        <scene sceneID="tVT-gY-OVK">
+        <!--UserInfoLikeObjectViewController-->
+        <scene sceneID="Ejv-nh-g1O">
             <objects>
-                <viewController title="特点" id="69B-Jq-Ey5" customClass="UserInfoLikeObjectViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="D3g-JT-dF6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="nMR-nM-o0a">
-                                <rect key="frame" x="80.666666666666671" y="154" width="213.66666666666663" height="59.666666666666657"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你想遇上什么样的女生" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axX-UX-ABy">
-                                        <rect key="frame" x="0.0" y="0.0" width="213.66666666666666" height="25.333333333333332"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
-                                        <color key="textColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.10980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(请选择最合适你的3项)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X3A-lY-q51">
-                                        <rect key="frame" x="43.333333333333329" y="45.333333333333343" width="126.99999999999999" height="14.333333333333336"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KYP-Fp-uvX">
-                                <rect key="frame" x="0.0" y="263.66666666666669" width="375" height="548.33333333333326"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9l6-ic-pdF" customClass="CollectionViewGridLayout" customModule="HotChat" customModuleProvider="target">
-                                    <size key="itemSize" width="73" height="40"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UserInfoLikeObjectCell" id="cUW-dX-aCg" customClass="UserInfoLikeObjectCell" customModule="HotChat" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="0.0" width="73" height="40"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="su5-h6-Joc">
-                                            <rect key="frame" x="0.0" y="0.0" width="73" height="40"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="爱跳舞" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2xn-2U-Mdg">
-                                                    <rect key="frame" x="18" y="13" width="37" height="14.333333333333336"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="2xn-2U-Mdg" firstAttribute="centerY" secondItem="su5-h6-Joc" secondAttribute="centerY" id="8AQ-Ve-nnl"/>
-                                                <constraint firstItem="2xn-2U-Mdg" firstAttribute="centerX" secondItem="su5-h6-Joc" secondAttribute="centerX" id="fsC-mq-7S3"/>
-                                            </constraints>
-                                        </collectionViewCellContentView>
-                                        <size key="customSize" width="73" height="40"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="14"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <outlet property="titleLabel" destination="2xn-2U-Mdg" id="dxp-DW-ovt"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="69B-Jq-Ey5" id="HwW-3P-mGe"/>
-                                    <outlet property="delegate" destination="69B-Jq-Ey5" id="YfF-mf-qa0"/>
-                                </connections>
-                            </collectionView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="uYk-3d-pIj"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="KYP-Fp-uvX" secondAttribute="bottom" id="8CK-Ma-tRn"/>
-                            <constraint firstAttribute="trailing" secondItem="KYP-Fp-uvX" secondAttribute="trailing" id="HOn-ve-2AB"/>
-                            <constraint firstItem="KYP-Fp-uvX" firstAttribute="leading" secondItem="D3g-JT-dF6" secondAttribute="leading" id="VXu-9Q-Bgg"/>
-                            <constraint firstItem="nMR-nM-o0a" firstAttribute="top" secondItem="uYk-3d-pIj" secondAttribute="top" constant="66" id="ZKr-rD-q6V"/>
-                            <constraint firstItem="KYP-Fp-uvX" firstAttribute="top" secondItem="nMR-nM-o0a" secondAttribute="bottom" constant="50" id="a2S-T0-IyE"/>
-                            <constraint firstItem="nMR-nM-o0a" firstAttribute="centerX" secondItem="D3g-JT-dF6" secondAttribute="centerX" id="foc-B4-5mn"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="特点" id="Q35-v0-DRS"/>
-                    <connections>
-                        <outlet property="collectionView" destination="KYP-Fp-uvX" id="853-6z-rHf"/>
-                        <outlet property="collectionViewGridLayout" destination="9l6-ic-pdF" id="mgE-kM-hDQ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eL1-im-gZK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Me" referencedIdentifier="UserInfoLikeObjectViewController" id="F42-kQ-WdL" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="wtz-d1-ge9"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZPd-ep-wAq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4479" y="1244"/>
+            <point key="canvasLocation" x="4252" y="944"/>
         </scene>
     </scenes>
     <designables>
@@ -1293,7 +1206,7 @@
             <size key="intrinsicContentSize" width="10000" height="35"/>
         </designable>
         <designable name="XKu-n9-Ime">
-            <size key="intrinsicContentSize" width="32.666666666666671" height="17"/>
+            <size key="intrinsicContentSize" width="37.666666666666664" height="17"/>
         </designable>
         <designable name="Zi1-po-Lps">
             <size key="intrinsicContentSize" width="66" height="32"/>
@@ -1302,7 +1215,7 @@
             <size key="intrinsicContentSize" width="82" height="32"/>
         </designable>
         <designable name="ev4-EP-8f1">
-            <size key="intrinsicContentSize" width="32.666666666666671" height="17"/>
+            <size key="intrinsicContentSize" width="37.666666666666664" height="17"/>
         </designable>
         <designable name="ope-2p-YYa">
             <size key="intrinsicContentSize" width="49" height="33"/>

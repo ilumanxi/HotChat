@@ -35,8 +35,6 @@ class ForgotPasswordViewController: LegalLiabilityViewController, Wireframe {
 
         // Do any additional setup after loading the view.
         
-        return
-        
         let viewModel = ForgotPasswordViewModel(
             input: (
                 phone: phoneTextField.rx.text.orEmpty.asDriver(),
@@ -103,7 +101,10 @@ class ForgotPasswordViewController: LegalLiabilityViewController, Wireframe {
             .disposed(by: rx.disposeBag)
         
          viewModel.reseted
-            .drive(onNext: { _ in
+            .drive(onNext: { [weak self] isSuccessed in
+                if isSuccessed {
+                    self?.performSegue(withIdentifier: "ResetPasswordViewController", sender: nil)
+                }
             })
             .disposed(by: rx.disposeBag)
     }

@@ -20,7 +20,7 @@ extension LoginPlugin: PluginType {
     
     var loginPrefixs: [String] {
         
-        return ["login/login", "login/tokenLogin", "login/otherLogin"]
+        return ["login/regis", "login/login", "login/tokenLogin", "login/otherLogin"]
     }
     
     var logoutPrefixs: [String] {

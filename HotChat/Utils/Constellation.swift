@@ -11,6 +11,10 @@ import Foundation
 
 extension Date {
     
+    var constellationFormat: String  {
+        return "\(toFormat("yyyy/MM/dd"))(\(constellation))"
+    }
+    
     var constellation: String {
         
         guard let calendar = NSCalendar(identifier: NSCalendar.Identifier.gregorian) else {

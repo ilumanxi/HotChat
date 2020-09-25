@@ -47,9 +47,6 @@ class SignupViewController: LegalLiabilityViewController, Wireframe {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         
-        return
-        
-        
         let viewModel = SignupViewModel(
             input: (
                 phone: phoneTextField.rx.text.orEmpty.asDriver(),
@@ -115,7 +112,10 @@ class SignupViewController: LegalLiabilityViewController, Wireframe {
             .disposed(by: rx.disposeBag)
         
          viewModel.signedUp
-            .drive(onNext: { _ in
+            .drive(onNext: { [weak self] isSucceed in
+                if isSucceed {
+                    self?.performSegue(withIdentifier: "UserInformationViewController", sender: nil)
+                }
             })
             .disposed(by: rx.disposeBag)
     }

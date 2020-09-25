@@ -23,7 +23,7 @@ class ForgotPasswordDefaultAPI: ForgotPasswordAPI {
     static let share = ForgotPasswordDefaultAPI()
     
     
-    let API  = RequestAPI<Account>()
+    let API  = RequestAPI<AccountAPI>()
     
     func sendCode(_ phone: String) -> Single<HotChatResponseEmptyDataType> {
         

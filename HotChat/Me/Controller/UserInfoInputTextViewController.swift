@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserInfoInputTextViewController: UIViewController {
+class UserInfoInputTextViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

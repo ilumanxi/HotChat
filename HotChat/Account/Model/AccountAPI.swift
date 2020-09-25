@@ -18,7 +18,7 @@ enum CodeType: Int {
     case resetPassword = 2
 }
 
-enum Account {
+enum AccountAPI {
     case sendCode(phone: String, type: CodeType)
     case signUp(phone: String, password: String, code: String)
     case phoneSignin(phone: String, password: String)
@@ -29,7 +29,7 @@ enum Account {
     case labelList
 }
 
-extension Account: TargetType {
+extension AccountAPI: TargetType {
 
 
     var baseURL: URL {

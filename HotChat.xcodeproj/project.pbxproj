@@ -12,6 +12,7 @@
 		26373C732502340D0066FF3B /* FormEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26373C722502340D0066FF3B /* FormEntry.swift */; };
 		26373C75250234AC0066FF3B /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26373C74250234AC0066FF3B /* Delegate.swift */; };
 		26373C77250234D00066FF3B /* FormSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26373C76250234D00066FF3B /* FormSection.swift */; };
+		26425C16251DDF64006D2F4C /* UserBasicInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26425C15251DDF64006D2F4C /* UserBasicInformationViewController.swift */; };
 		2643EB3A2500AD7D00FBBE49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643EB392500AD7D00FBBE49 /* AppDelegate.swift */; };
 		2643EB432500AD7D00FBBE49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2643EB412500AD7D00FBBE49 /* Main.storyboard */; };
 		2643EB452500AD7E00FBBE49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2643EB442500AD7E00FBBE49 /* Assets.xcassets */; };
@@ -48,7 +49,7 @@
 		2643EBC82500D4C000FBBE49 /* MeContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643EBC72500D4C000FBBE49 /* MeContactViewController.swift */; };
 		2643EBCA2500DBF500FBBE49 /* MeRelationshipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643EBC92500DBF500FBBE49 /* MeRelationshipViewController.swift */; };
 		2643EBCC2500FDA300FBBE49 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643EBCB2500FDA300FBBE49 /* UserInfoViewController.swift */; };
-		264A20CF25109B5000A264BE /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264A20CE25109B5000A264BE /* Account.swift */; };
+		264A20CF25109B5000A264BE /* AccountAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264A20CE25109B5000A264BE /* AccountAPI.swift */; };
 		26546372250B774E00398F04 /* apple-app-site-association in Resources */ = {isa = PBXBuildFile; fileRef = 26546371250B774E00398F04 /* apple-app-site-association */; };
 		265C8A3D2513316200E220BD /* SigninViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C8A3C2513316200E220BD /* SigninViewModel.swift */; };
 		265C8A42251332E900E220BD /* SigninProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C8A41251332E900E220BD /* SigninProtocols.swift */; };
@@ -78,6 +79,7 @@
 		268297492511AF5800949C7F /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268297482511AF5800949C7F /* SignupViewModel.swift */; };
 		2682974B2511B05300949C7F /* Wireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2682974A2511B05300949C7F /* Wireframe.swift */; };
 		2682974D2511B0EC00949C7F /* SignupProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2682974C2511B0EC00949C7F /* SignupProtocols.swift */; };
+		268BB25E251D9B3200001DF3 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268BB25D251D9B3200001DF3 /* UserAPI.swift */; };
 		2695903C250B16D700763061 /* InterestedCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2695903B250B16D700763061 /* InterestedCardView.swift */; };
 		2695903E250B170B00763061 /* InterestedCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2695903D250B170B00763061 /* InterestedCardView.xib */; };
 		26959040250B1D9400763061 /* InterestedCardOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2695903F250B1D9400763061 /* InterestedCardOverlayView.swift */; };
@@ -90,7 +92,6 @@
 		26A20B052518A5020061BBB8 /* HotChatError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A20B042518A5020061BBB8 /* HotChatError.swift */; };
 		26A20B0D2518BBC10061BBB8 /* HotChatResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A20B0C2518BBC10061BBB8 /* HotChatResponse.swift */; };
 		26A8D4E9251C8F3E00B736CF /* Constellation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A8D4E8251C8F3E00B736CF /* Constellation.swift */; };
-		26A8D521251CB7EC00B736CF /* LikeTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A8D520251CB7EC00B736CF /* LikeTag.swift */; };
 		26AC1E4C25060D27003EFB44 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AC1E4B25060D27003EFB44 /* LoginViewController.swift */; };
 		26AC1E4E250613B6003EFB44 /* KeychainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AC1E4D250613B5003EFB44 /* KeychainItem.swift */; };
 		26AC1E5225062568003EFB44 /* PhoneSigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AC1E5125062568003EFB44 /* PhoneSigninViewController.swift */; };
@@ -137,6 +138,7 @@
 		26373C722502340D0066FF3B /* FormEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormEntry.swift; sourceTree = "<group>"; };
 		26373C74250234AC0066FF3B /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
 		26373C76250234D00066FF3B /* FormSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormSection.swift; sourceTree = "<group>"; };
+		26425C15251DDF64006D2F4C /* UserBasicInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBasicInformationViewController.swift; sourceTree = "<group>"; };
 		2643EB362500AD7D00FBBE49 /* HotChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2643EB392500AD7D00FBBE49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2643EB422500AD7D00FBBE49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -179,7 +181,7 @@
 		2643EBC72500D4C000FBBE49 /* MeContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeContactViewController.swift; sourceTree = "<group>"; };
 		2643EBC92500DBF500FBBE49 /* MeRelationshipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeRelationshipViewController.swift; sourceTree = "<group>"; };
 		2643EBCB2500FDA300FBBE49 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
-		264A20CE25109B5000A264BE /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		264A20CE25109B5000A264BE /* AccountAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAPI.swift; sourceTree = "<group>"; };
 		26546371250B774E00398F04 /* apple-app-site-association */ = {isa = PBXFileReference; lastKnownFileType = text; path = "apple-app-site-association"; sourceTree = "<group>"; };
 		265C8A3C2513316200E220BD /* SigninViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewModel.swift; sourceTree = "<group>"; };
 		265C8A41251332E900E220BD /* SigninProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninProtocols.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 		268297482511AF5800949C7F /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		2682974A2511B05300949C7F /* Wireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wireframe.swift; sourceTree = "<group>"; };
 		2682974C2511B0EC00949C7F /* SignupProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupProtocols.swift; sourceTree = "<group>"; };
+		268BB25D251D9B3200001DF3 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		2695903B250B16D700763061 /* InterestedCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestedCardView.swift; sourceTree = "<group>"; };
 		2695903D250B170B00763061 /* InterestedCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InterestedCardView.xib; sourceTree = "<group>"; };
 		2695903F250B1D9400763061 /* InterestedCardOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestedCardOverlayView.swift; sourceTree = "<group>"; };
@@ -224,7 +227,6 @@
 		26A20B042518A5020061BBB8 /* HotChatError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotChatError.swift; sourceTree = "<group>"; };
 		26A20B0C2518BBC10061BBB8 /* HotChatResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotChatResponse.swift; sourceTree = "<group>"; };
 		26A8D4E8251C8F3E00B736CF /* Constellation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constellation.swift; sourceTree = "<group>"; };
-		26A8D520251CB7EC00B736CF /* LikeTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeTag.swift; sourceTree = "<group>"; };
 		26AC1E4B25060D27003EFB44 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		26AC1E4D250613B5003EFB44 /* KeychainItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItem.swift; sourceTree = "<group>"; };
 		26AC1E4F250619B7003EFB44 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 				2643EB772500B04100FBBE49 /* UserInfoLikeObjectViewController.swift */,
 				2643EB782500B04100FBBE49 /* UserInfoEditingViewController.swift */,
 				2643EB792500B04100FBBE49 /* UserInfoInputTextViewController.swift */,
+				26425C15251DDF64006D2F4C /* UserBasicInformationViewController.swift */,
 				2643EB7A2500B04100FBBE49 /* ApplicationSettingsViewController.swift */,
 				2643EB7B2500B04100FBBE49 /* PushSettingsViewController.swift */,
 				2643EB7C2500B04100FBBE49 /* RealNameAuthenticationViewController.swift */,
@@ -484,12 +487,12 @@
 				26AC1E4D250613B5003EFB44 /* KeychainItem.swift */,
 				26A20AF325189F730061BBB8 /* AccessToken.swift */,
 				26A20AF82518A3000061BBB8 /* AccessTokenStore.swift */,
-				264A20CE25109B5000A264BE /* Account.swift */,
+				264A20CE25109B5000A264BE /* AccountAPI.swift */,
+				268BB25D251D9B3200001DF3 /* UserAPI.swift */,
 				268297482511AF5800949C7F /* SignupViewModel.swift */,
 				265C8A3C2513316200E220BD /* SigninViewModel.swift */,
 				265C8A5A25134C3500E220BD /* ForgotPasswordViewModel.swift */,
 				26787E36251B2F8D00D511E8 /* User.swift */,
-				26A8D520251CB7EC00B736CF /* LikeTag.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -957,6 +960,7 @@
 				2643EBCC2500FDA300FBBE49 /* UserInfoViewController.swift in Sources */,
 				265C8A4A251348E200E220BD /* ForgotPasswordViewController.swift in Sources */,
 				2643EBA12500B04100FBBE49 /* MeViewController.swift in Sources */,
+				26425C16251DDF64006D2F4C /* UserBasicInformationViewController.swift in Sources */,
 				2643EBC02500B04100FBBE49 /* Bundle+App.swift in Sources */,
 				26A20AEF25189E740061BBB8 /* LoginManager.swift in Sources */,
 				267954E82507311E00A72954 /* LegalLiabilityViewController.swift in Sources */,
@@ -991,15 +995,15 @@
 				26AC1E5225062568003EFB44 /* PhoneSigninViewController.swift in Sources */,
 				26E14E63251C766900645F08 /* UserInformationViewController.swift in Sources */,
 				267954EC2507327B00A72954 /* SignupViewController.swift in Sources */,
+				268BB25E251D9B3200001DF3 /* UserAPI.swift in Sources */,
 				2643EBC32500B05300FBBE49 /* TabBarController.swift in Sources */,
 				26A20AF425189F730061BBB8 /* AccessToken.swift in Sources */,
 				26CBE3C12508EB040089A23C /* Appearance.swift in Sources */,
-				264A20CF25109B5000A264BE /* Account.swift in Sources */,
+				264A20CF25109B5000A264BE /* AccountAPI.swift in Sources */,
 				2682974D2511B0EC00949C7F /* SignupProtocols.swift in Sources */,
 				2679550C25079A1F00A72954 /* UserInfoChatView.swift in Sources */,
 				2643EBAC2500B04100FBBE49 /* UserInfoInterviewCell.swift in Sources */,
 				265C8A42251332E900E220BD /* SigninProtocols.swift in Sources */,
-				26A8D521251CB7EC00B736CF /* LikeTag.swift in Sources */,
 				26CBE3B62508A9C30089A23C /* CommunityHeaderView.swift in Sources */,
 				26A20AFF2518A47F0061BBB8 /* KeychainStore.swift in Sources */,
 				26F25C98250A359300F808EA /* InterestedViewController.swift in Sources */,

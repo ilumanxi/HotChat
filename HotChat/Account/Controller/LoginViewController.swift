@@ -72,8 +72,6 @@ class LoginViewController: UIViewController {
     
     @IBAction func weChatDidLogin(_ sender: Any) {
         
-        
-        
         PlatformAuthorization.login(.wechat) { [weak self] _, result in
             switch result {
             case .success(let userIdentifier):
