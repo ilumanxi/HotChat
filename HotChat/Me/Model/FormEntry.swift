@@ -55,22 +55,61 @@ enum Section: Int, CaseIterable, CustomStringConvertible {
 
 enum Hobby: String, CaseIterable, CustomStringConvertible {
     
-    case movement
-    case gourmet
+    case motion
+    case food
     case music
-    case books
+    case book
     case travel
     case movie
     
+//    3运动 4美食 5音乐 6书籍 7旅行 8电影 9行业
+    
+    
+    var type: Int {
+        switch self {
+        case .motion:
+            return 3
+        case .food:
+            return 4
+        case .music:
+            return 5
+        case .book:
+            return 6
+        case .travel:
+            return 7
+        case .movie:
+            return 8
+        }
+    }
+    
+    
+    var edit: String {
+        switch self {
+        case .motion:
+            return "motionList"
+        case .food:
+            return "foodList"
+        case .music:
+            return "musicList"
+        case .book:
+            return "bookList"
+        case .travel:
+            return "travelList"
+        case .movie:
+            return "movieList"
+        }
+    }
+    
+    
     var description: String {
         switch self {
-        case .movement:
+        case .motion:
             return "运动"
-        case .gourmet:
+        case .food:
             return "美食"
         case .music:
             return "音乐"
-        case .books:
+        case .book:
             return "书籍"
         case .travel:
             return "旅行"

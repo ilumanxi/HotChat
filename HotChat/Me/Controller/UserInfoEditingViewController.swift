@@ -102,7 +102,7 @@ class UserInfoEditingViewController: UITableViewController, Wireframe {
     
     private var sections: [FormSection] = []
     
-    var user: User! {
+    var user: User! = User() {
         didSet {
             refreshData()
         }
@@ -131,23 +131,24 @@ class UserInfoEditingViewController: UITableViewController, Wireframe {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        refreshData()
         
-        let hub = MBProgressHUD.showAdded(to: view, animated: true)
-        hub.show(animated: true)
-        userAPI.request(.userinfo, type: HotChatResponse<User>.self)
-            .subscribe(onSuccess: { [weak self] response in
-                hub.hide(animated: true)
-                if response.isSuccessd {
-                    self?.user = response.data
-                }
-                else {
-                    self?.show(response.msg)
-                }
-            }, onError: { [weak self] error in
-                self?.show(error.localizedDescription)
-                hub.hide(animated: true)
-            })
-            .disposed(by: rx.disposeBag)
+//        let hub = MBProgressHUD.showAdded(to: view, animated: true)
+//        hub.show(animated: true)
+//        userAPI.request(.userinfo, type: HotChatResponse<User>.self)
+//            .subscribe(onSuccess: { [weak self] response in
+//                hub.hide(animated: true)
+//                if response.isSuccessd {
+//                    self?.user = response.data
+//                }
+//                else {
+//                    self?.show(response.msg)
+//                }
+//            }, onError: { [weak self] error in
+//                self?.show(error.localizedDescription)
+//                hub.hide(animated: true)
+//            })
+//            .disposed(by: rx.disposeBag)
     }
     
     private func setupUI() {
@@ -186,6 +187,10 @@ class UserInfoEditingViewController: UITableViewController, Wireframe {
         else if indexPath.section == 4 && indexPath.row == 0 {
             self.performSegue(withIdentifier: "UserInfoInputTextViewController", sender: nil)
         }
+        else if indexPath.section == 4 && indexPath.row == 0 {
+            let vc = LabelViewController()
+            
+        }
     }
  
 }
@@ -202,10 +207,35 @@ extension UserInfoEditingViewController {
             }
         }
         else if let vc = segue.destination as? UserInfoLikeObjectViewController {
-            
             vc.onUpdated.delegate(on: self) { (self, user) in
                 self.user = user
                 self.navigationController?.popViewController(animated: true)
+            }
+        }
+        else if let vc = segue.destination as? UserInfoInputTextViewController {
+            vc.content = (introduce.title, nil, introduce.content)
+            vc.onUpdated.delegate(on: self) { (self, info) in
+                let params: [String : Any] = [
+                    "type": 2,
+                    "introduce" : info.text
+                ]
+                let hub = MBProgressHUD.showAdded(to: info.controller.view.window!, animated: true)
+                hub.show(animated: true)
+                self.userAPI.request(.editUser(value: params), type: HotChatResponse<User>.self)
+                    .subscribe(onSuccess: { response in
+                        hub.hide(animated: true)
+                        if response.isSuccessd {
+                            self.user = response.data
+                            self.navigationController?.popToViewController(self, animated: true)
+                        }
+                        else {
+                            info.controller.show(response.msg)
+                        }
+                    }, onError: { error in
+                        info.controller.show(error.localizedDescription)
+                        hub.hide(animated: true)
+                    })
+                    .disposed(by: info.controller.rx.disposeBag)
             }
         }
         

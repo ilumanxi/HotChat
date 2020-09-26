@@ -113,6 +113,7 @@
 		F370D277251CE65500C2F708 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F370D276251CE65500C2F708 /* ResetPasswordViewController.swift */; };
 		F38CB8C62507B14700049A76 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F38CB8C52507B14700049A76 /* InfoPlist.strings */; };
 		F38CB8C82507BA8A00049A76 /* ChatNotificationSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CB8C72507BA8A00049A76 /* ChatNotificationSettingCell.swift */; };
+		F3C6B919251F3117006C06CB /* LabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C6B918251F3117006C06CB /* LabelViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -256,6 +257,7 @@
 		F370D276251CE65500C2F708 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		F38CB8C52507B14700049A76 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		F38CB8C72507BA8A00049A76 /* ChatNotificationSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatNotificationSettingCell.swift; sourceTree = "<group>"; };
+		F3C6B918251F3117006C06CB /* LabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -386,6 +388,7 @@
 				2643EB7D2500B04100FBBE49 /* PushSettingsDetailViewController.swift */,
 				2643EBC72500D4C000FBBE49 /* MeContactViewController.swift */,
 				2643EBC92500DBF500FBBE49 /* MeRelationshipViewController.swift */,
+				F3C6B918251F3117006C06CB /* LabelViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -416,7 +419,6 @@
 			isa = PBXGroup;
 			children = (
 				2643EB8B2500B04100FBBE49 /* Framework */,
-				2643EB9B2500B04100FBBE49 /* Helpers.swift */,
 				2643EB9C2500B04100FBBE49 /* CollectionViewGridLayout.swift */,
 				2643EB9D2500B04100FBBE49 /* Application.swift */,
 				2643EB9E2500B04100FBBE49 /* Bundle+App.swift */,
@@ -501,7 +503,7 @@
 			isa = PBXGroup;
 			children = (
 				267954F52507579700A72954 /* Chat.storyboard */,
-				267954F7250757D500A72954 /* Model */,
+				F3C6B920251F4040006C06CB /* Model */,
 				267954F4250756B400A72954 /* View */,
 				267954F3250756A400A72954 /* Controller */,
 			);
@@ -527,13 +529,6 @@
 				26959041250B1DD900763061 /* InterestedCardOverlayView.xib */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		267954F7250757D500A72954 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		267954FA250760A700A72954 /* Discover */ = {
@@ -597,6 +592,7 @@
 		26A20AFD2518A4560061BBB8 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				2643EB9B2500B04100FBBE49 /* Helpers.swift */,
 				26A20AFE2518A47F0061BBB8 /* KeychainStore.swift */,
 				26A8D4E8251C8F3E00B736CF /* Constellation.swift */,
 			);
@@ -684,6 +680,13 @@
 				62A5C2959EC91C5D7E009463 /* Pods_HotChatTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F3C6B920251F4040006C06CB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -983,6 +986,7 @@
 				2643EBA52500B04100FBBE49 /* ApplicationSettingsViewController.swift in Sources */,
 				2643EBA42500B04100FBBE49 /* UserInfoInputTextViewController.swift in Sources */,
 				2643EBC12500B04100FBBE49 /* UITableView+App.swift in Sources */,
+				F3C6B919251F3117006C06CB /* LabelViewController.swift in Sources */,
 				26787E37251B2F8D00D511E8 /* User.swift in Sources */,
 				F370D277251CE65500C2F708 /* ResetPasswordViewController.swift in Sources */,
 				267954F9250757FE00A72954 /* ChatViewController.swift in Sources */,

@@ -19,6 +19,11 @@ struct LikeTag: HandyJSON, Equatable {
     var label: String = ""
     var type: Int = 0
     var isCheck: Bool = false
+    
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        
+        return lhs.id == rhs.id
+    }
 }
 
 struct Topic: HandyJSON {

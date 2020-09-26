@@ -26,9 +26,9 @@ class UserInfoLikeObjectViewController: UIViewController, Wireframe {
     let userAPI = RequestAPI<UserAPI>()
     
     
-    var maximumSelectTagCount = 3
+    var maximumCount = 3
     
-    var tags: [LikeTag] = []
+    var labels: [LikeTag] = []
     
     
     override func viewDidLoad() {
@@ -46,7 +46,7 @@ class UserInfoLikeObjectViewController: UIViewController, Wireframe {
         userAPI.request(.userConfig(type: 1), type: HotChatResponse<[LikeTag]>.self)
             .subscribe(onSuccess: { [weak self] response in
                 if response.isSuccessd {
-                    self?.tags = response.data!
+                    self?.labels = response.data!
                     self?.collectionView.reloadData()
                 } else {
                     self?.show(response.msg)
@@ -66,14 +66,14 @@ extension UserInfoLikeObjectViewController: UICollectionViewDelegate, UICollecti
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return tags.count
+        return labels.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: UserInfoLikeObjectCell.self)
         
-        let tag = tags[indexPath.item]
+        let tag = labels[indexPath.item]
         
         if tag.isCheck {
             cell.contentView.backgroundColor = .theme
@@ -84,36 +84,30 @@ extension UserInfoLikeObjectViewController: UICollectionViewDelegate, UICollecti
             cell.titleLabel.textColor = .textGray
         }
         
-        cell.titleLabel.text = tags[indexPath.item].label
+        cell.titleLabel.text = labels[indexPath.item].label
         return cell
     }
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        var tag = tags[indexPath.item]
+        let isCheck = !labels[indexPath.row].isCheck
+        labels.modifyElement(at: indexPath.item) { $0.isCheck  = isCheck }
         
-        tag.isCheck = !tag.isCheck
+        let selectedLabels =  labels.filter{ $0.isCheck }
         
-        tags[indexPath.item] = tag
-       
-        let selectedTags = tags.filter {$0.isCheck }
-        
-        if selectedTags.count > maximumSelectTagCount {
-            tag.isCheck = false
-            tags[indexPath.item] = tag
-            show("最多选择\(maximumSelectTagCount)项")
-            return
+        if  selectedLabels.count > maximumCount {
+            labels.modifyElement(at: indexPath.item) { $0.isCheck  = false }
+            show("最多选择\(maximumCount)项")
         }
         
         collectionView.reloadData()
-        
     }
     
     
     @IBAction func submitButtonDidTag() {
         
-        let selectedTags = tags.filter {$0.isCheck }
+        let selectedTags = labels.filter {$0.isCheck }
         
         if selectedTags.isEmpty {
             show("至少选择一项")
