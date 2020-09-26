@@ -312,6 +312,21 @@ extension Thread {
 }
 
 
+extension Array {
+    
+    mutating func modifyForEach(_ body: (_ index: Index, _ element: inout Element) -> ()) {
+        for index in indices {
+            modifyElement(at: index) { body(index, &$0) }
+        }
+    }
+
+    mutating func modifyElement(at index: Index, _ modifyElement: (_ element: inout Element) -> ()) {
+        var element = self[index]
+        modifyElement(&element)
+        self[index] = element
+    }
+}
+
 enum Log {
     static func assertionFailure(
         _ message: @autoclosure () -> String,
