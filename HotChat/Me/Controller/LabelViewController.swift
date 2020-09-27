@@ -13,16 +13,44 @@ class LabelViewController: UITableViewController, Wireframe {
     
     var labels: [LikeTag] = [] {
         didSet {
-            tableView.reloadData()
+            refreshUI()
         }
     }
     
     var maximumCount = 1
+    
+    let onSaved = Delegate<[LikeTag], Void>()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.register(cellType: UITableViewCell.self)
+        tableView.rowHeight = 50
+        tableView.register(cellType: LabelViewCell.self)
+        
+        refreshUI()
+    }
+    
+    func refreshUI() {
+        
+        if labels.isEmpty {
+            navigationItem.rightBarButtonItems = nil
+        }
+        else {
+            
+            let saveItem = UIBarButtonItem(title: "保存", style: .plain, target: self, action: #selector(saveAction))
+            navigationItem.rightBarButtonItems = [saveItem]
+        }
+        
+        tableView.reloadData()
+    }
+    
+    
+    @objc func saveAction() {
+        
+        let selectedLabels = labels.filter{ $0.isCheck }
+        
+        onSaved.call(selectedLabels)
     }
 
     // MARK: - Table view data source
@@ -37,11 +65,12 @@ class LabelViewController: UITableViewController, Wireframe {
         
         let label = labels[indexPath.row]
         
-        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: UITableViewCell.self)
-        cell.textLabel?.text = label.label
-        let image = label.isCheck ? UIImage(named: "") : UIImage(named: "")
-        let imageView = UIImageView(image: image)
-        cell.accessoryView = imageView
+        let isCheck = label.isCheck
+        
+        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: LabelViewCell.self)
+        cell.titleLabel.text = label.label
+        cell.titleLabel.isHighlighted = isCheck
+        cell.iconView.isHighlighted = isCheck
         
         return cell
     }

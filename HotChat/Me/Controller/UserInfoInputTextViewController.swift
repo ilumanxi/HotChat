@@ -25,7 +25,7 @@ class UserInfoInputTextViewController: UITableViewController, Wireframe {
     
     var maximumTextCount = 100
     
-    let onUpdated = Delegate<(controller: UserInfoInputTextViewController, text: String), Void>()
+    let onSaved = Delegate<String, Void>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +34,17 @@ class UserInfoInputTextViewController: UITableViewController, Wireframe {
         bindSignal()
         
         setupUI()
+        
+    }
+    
+    
+    static func loadFromStoryboard() -> Self {
+        
+        let storyboard = UIStoryboard(name: "Me", bundle: nil)
+        
+        let identifier = String(describing: Self.self)
+        
+        return  storyboard.instantiateViewController(withIdentifier: identifier) as! Self
         
     }
     
@@ -75,7 +86,7 @@ class UserInfoInputTextViewController: UITableViewController, Wireframe {
     }
     
     @IBAction func doneAction(_ sender: Any) {
-        onUpdated.call((self, textView.text ?? ""))
+        onSaved.call(textView.text ?? "")
     }
     
 }

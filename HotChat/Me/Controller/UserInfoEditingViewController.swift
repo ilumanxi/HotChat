@@ -19,14 +19,46 @@ class UserInfoEditingViewController: UITableViewController, Wireframe {
     
     let userAPI = RequestAPI<UserAPI>()
     
+    let uploadAPI = RequestAPI<UploadFileAPI>()
+    
     private var profilePhoto: ProfilePhoto {
         let entry = ProfilePhoto()
         entry.imageURL = URL(string: user.headPic)
         entry.onPresenting.delegate(on: self) { (self, _) in
              return self
         }
-        entry.onImageUpdated.delegate(on: self) { (self, _) in
-            self.tableView.reloadData()
+        entry.onImageUpdated.delegate(on: self) { (self, url) in
+            let hub = MBProgressHUD.showAdded(to: self.view, animated: true)
+            hub.show(animated: true)
+            self.uploadAPI.request(.upload(url), type: HotChatResponse<[RemoteFile]>.self)
+                .map{ response -> [String : Any] in
+                    if response.isSuccessd {
+                        return [
+                            "type" : 3,
+                            "headPic" : response.data!.first!.picUrl
+                        ]
+                    }
+                    else {
+                        throw HotChatError.uploadFileError(reason: .generaError(string: response.msg))
+                    }
+                }
+                .flatMap { params in
+                    return self.userAPI.request(.editUser(value: params), type: HotChatResponse<User>.self)
+                }
+                .subscribe(onSuccess: { response in
+                    hub.hide(animated: true)
+                    if response.isSuccessd {
+                        self.user = response.data!
+                    }
+                    else {
+                        self.show(response.msg)
+                    }
+                }, onError: {  error in
+                    hub.label.text = error.localizedDescription
+                    hub.show(animated: true)
+                })
+                .disposed(by: self.rx.disposeBag)
+            
         }
         
         return entry
@@ -34,12 +66,43 @@ class UserInfoEditingViewController: UITableViewController, Wireframe {
     
     private var photoAlbum: PhotoAlbum {
         let photoURLs = user.photoList.compactMap{ URL(string: $0.picUrl)}
-        let entry = PhotoAlbum(photoURLs: photoURLs, maximumSelectCount: 5)
+        let entry = PhotoAlbum(photoURLs: photoURLs, maximumSelectCount: 8)
         entry.onPresenting.delegate(on: self) { (self, _) in
              return self
         }
-        entry.onImageUpdated.delegate(on: self) { (self, _) in
-            self.tableView.reloadData()
+        entry.onImageUpdated.delegate(on: self) { (self, url) in
+            let hub = MBProgressHUD.showAdded(to: self.view, animated: true)
+            hub.show(animated: true)
+            self.uploadAPI.request(.upload(url), type: HotChatResponse<[RemoteFile]>.self)
+                .map{ response -> [String : Any] in
+                    if response.isSuccessd {
+                        let photoList = (response.data!.toJSON() as [[String: Any]?]).compactMap{ $0 }
+                        Log.print(type(of: photoList))
+                        return [
+                            "type" : 3,
+                            "photoList" : photoList
+                        ]
+                    }
+                    else {
+                        throw HotChatError.uploadFileError(reason: .generaError(string: response.msg))
+                    }
+                }
+                .flatMap { params in
+                    return self.userAPI.request(.editUser(value: params), type: HotChatResponse<User>.self)
+                }
+                .subscribe(onSuccess: { response in
+                    hub.hide(animated: true)
+                    if response.isSuccessd {
+                        self.user = response.data!
+                    }
+                    else {
+                        self.show(response.msg)
+                    }
+                }, onError: {  error in
+                    hub.label.text = error.localizedDescription
+                    hub.show(animated: true)
+                })
+                .disposed(by: self.rx.disposeBag)
         }
         return entry
     }
@@ -76,6 +139,10 @@ class UserInfoEditingViewController: UITableViewController, Wireframe {
         return entry
     }
     
+    private var tips: [InfoInterview] {
+        return  user.tipsList.compactMap{ InfoInterview(topic: $0) }
+    }
+    
     
     private var hobbyLabel: [[LikeTag]] {
         let lables = [
@@ -93,10 +160,9 @@ class UserInfoEditingViewController: UITableViewController, Wireframe {
     private var hobbys: [TagContent]  {
         let count = Hobby.allCases.count
         return (0..<count).map { i -> TagContent in
-            let imageName = "me-\(Hobby.allCases[i].rawValue)"
             let placeholder = "添加你喜欢的\(Hobby.allCases[i].description)吧～"
             let tags = hobbyLabel[i].map{ $0.label }
-            return TagContent(imageName: imageName, tags: tags, placeholder: placeholder)
+            return TagContent(imageName: Hobby.allCases[i].imageName, tags: tags, placeholder: placeholder)
         }
     }
     
@@ -111,13 +177,14 @@ class UserInfoEditingViewController: UITableViewController, Wireframe {
     func refreshData() {
         
         if let _ = user {
+            
             sections =  [
                 FormSection(entries: [profilePhoto], headerText: "头像"),
                 FormSection(entries: [photoAlbum], headerText: "相册"),
                 FormSection(entries: [basicInformation], headerText: "基础信息"),
                 FormSection(entries: [likeObject], headerText: "喜欢的女生"),
                 FormSection(entries: [introduce, industry], headerText: "我的信息"),
-                FormSection(entries: [AddContent()], headerText: "小编专访"),
+                FormSection(entries: tips + [AddContent()], headerText: "小编专访"),
                 FormSection(entries: hobbys, headerText: "我的爱好")
             ]
         }
@@ -133,22 +200,22 @@ class UserInfoEditingViewController: UITableViewController, Wireframe {
         setupUI()
         refreshData()
         
-//        let hub = MBProgressHUD.showAdded(to: view, animated: true)
-//        hub.show(animated: true)
-//        userAPI.request(.userinfo, type: HotChatResponse<User>.self)
-//            .subscribe(onSuccess: { [weak self] response in
-//                hub.hide(animated: true)
-//                if response.isSuccessd {
-//                    self?.user = response.data
-//                }
-//                else {
-//                    self?.show(response.msg)
-//                }
-//            }, onError: { [weak self] error in
-//                self?.show(error.localizedDescription)
-//                hub.hide(animated: true)
-//            })
-//            .disposed(by: rx.disposeBag)
+        let hub = MBProgressHUD.showAdded(to: view, animated: true)
+        hub.show(animated: true)
+        userAPI.request(.userinfo, type: HotChatResponse<User>.self)
+            .subscribe(onSuccess: { [weak self] response in
+                hub.hide(animated: true)
+                if response.isSuccessd {
+                    self?.user = response.data
+                }
+                else {
+                    self?.show(response.msg)
+                }
+            }, onError: { [weak self] error in
+                self?.show(error.localizedDescription)
+                hub.hide(animated: true)
+            })
+            .disposed(by: rx.disposeBag)
     }
     
     private func setupUI() {
@@ -185,12 +252,209 @@ class UserInfoEditingViewController: UITableViewController, Wireframe {
             self.performSegue(withIdentifier: "UserInfoLikeObjectViewController", sender: nil)
         }
         else if indexPath.section == 4 && indexPath.row == 0 {
-            self.performSegue(withIdentifier: "UserInfoInputTextViewController", sender: nil)
-        }
-        else if indexPath.section == 4 && indexPath.row == 0 {
-            let vc = LabelViewController()
             
+            self.performSegue(withIdentifier: "UserInfoInputTextViewController", sender: sections[indexPath.section].formEntries[indexPath.row])
         }
+        else if indexPath.section == 4 && indexPath.row == 1 {
+            industryEdit()
+        }
+        else if indexPath.section == 5 {
+            
+            if let entry = sections[indexPath.section].formEntries[indexPath.row] as? InfoInterview {
+                self.performSegue(withIdentifier: "UserInfoInputTextViewController", sender: entry)
+            }
+            else {
+                topicAdd()
+            }
+        }
+        else if indexPath.section == 6 {
+            hobbyEdit(Hobby.allCases[indexPath.row])
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        if let entry = sections[indexPath.section].formEntries[indexPath.row] as? InfoInterview {
+            
+            return [
+                UITableViewRowAction(style: .destructive, title: "删除", handler: { [weak self] (action, indexPath) in
+                    self?.topicDelete(entry.topic)
+                })
+            ]
+        }
+        
+        return nil
+    }
+        
+    func topicDelete(_ topic: Topic) {
+        
+        let hub = MBProgressHUD.showAdded(to: view, animated: true)
+        hub.show(animated: true)
+        userAPI.request(.delQuestion(labelId: topic.labelId), type: HotChatResponse<User>.self)
+            .subscribe(onSuccess: { [weak self] response in
+                hub.hide(animated: true)
+                if response.isSuccessd {
+                    self?.user = response.data
+                }
+                else {
+                    self?.show(response.msg)
+                }
+            }, onError: {  error in
+                hub.label.text = error.localizedDescription
+                hub.show(animated: true)
+            })
+            .disposed(by: rx.disposeBag)
+    }
+    
+    func topicAdd()  {
+        
+        let vc = TitleViewController()
+        vc.title = "小编专访"
+        
+        navigationController?.pushViewController(vc, animated: true)
+
+        
+        let hub = MBProgressHUD.showAdded(to: vc.view, animated: true)
+        hub.show(animated: true)
+        userAPI.request(.userConfig(type: 2), type: HotChatResponse<[Topic]>.self)
+            .subscribe(onSuccess: { response in
+                hub.hide(animated: true)
+                if response.isSuccessd {
+                    vc.tips = response.data ?? []
+                }
+                else {
+                    vc.show(response.msg)
+                }
+            }, onError: { [weak self] error in
+                self?.show(error.localizedDescription)
+                hub.hide(animated: true)
+            })
+            .disposed(by: rx.disposeBag)
+        
+        vc.onSaved.delegate(on: self) { (self, topic) in
+            self.userAPI.request(.editTips(labelId: topic.id, content: topic.content), type: HotChatResponse<User>.self)
+                .subscribe(onSuccess: { response in
+                    hub.hide(animated: true)
+                    if response.isSuccessd {
+                        self.user = response.data
+                        self.navigationController?.popToViewController(self, animated: true)
+                    }
+                    else {
+                        vc.show(response.msg)
+                    }
+                }, onError: {  error in
+                    hub.label.text = error.localizedDescription
+                    hub.show(animated: true)
+                })
+                .disposed(by: vc.rx.disposeBag)
+        }
+    }
+    
+    func hobbyEdit(_ hobby: Hobby) {
+        let vc = LabelViewController()
+        vc.title = hobby.description
+        vc.maximumCount = 10
+        vc.onSaved.delegate(on: self) { (self, labels) in
+            
+            let ids = labels.compactMap{ $0.id.description }.joined(separator: ",")
+            
+            let params: [String : Any] = [
+                "type" : 2,
+                hobby.edit : ids
+            ]
+            
+            
+            let hub = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
+            hub.show(animated: true)
+            
+            self.userAPI.request(.editUser(value: params), type: HotChatResponse<User>.self)
+                .subscribe(onSuccess: { response in
+                    hub.hide(animated: true)
+                    if response.isSuccessd {
+                        self.user = response.data
+                        self.navigationController?.popToViewController(self, animated: true)
+                    }
+                    else {
+                        vc.show(response.msg)
+                    }
+                }, onError: { [weak self] error in
+                    self?.show(error.localizedDescription)
+                    hub.hide(animated: true)
+                })
+                .disposed(by: vc.rx.disposeBag)
+        }
+        
+        navigationController?.pushViewController(vc, animated: true)
+        
+        let hub = MBProgressHUD.showAdded(to: vc.view, animated: true)
+        hub.show(animated: true)
+        userAPI.request(.userConfig(type: hobby.type), type: HotChatResponse<[LikeTag]>.self)
+            .subscribe(onSuccess: { response in
+                hub.hide(animated: true)
+                if response.isSuccessd {
+                    vc.labels = response.data ?? []
+                }
+                else {
+                    vc.show(response.msg)
+                }
+            }, onError: { [weak self] error in
+                self?.show(error.localizedDescription)
+                hub.hide(animated: true)
+            })
+            .disposed(by: rx.disposeBag)
+    }
+    
+    func industryEdit() {
+        let vc = LabelViewController()
+        vc.title = "行业"
+        vc.onSaved.delegate(on: self) { (self, labels) in
+            
+            let industry = labels.compactMap{ $0.id.description }.joined(separator: ",")
+            
+            let params: [String : Any] = [
+                "type" : 2,
+                "industry" : industry
+            ]
+            
+            
+            let hub = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
+            hub.show(animated: true)
+            
+            self.userAPI.request(.editUser(value: params), type: HotChatResponse<User>.self)
+                .subscribe(onSuccess: { response in
+                    hub.hide(animated: true)
+                    if response.isSuccessd {
+                        self.user = response.data
+                        self.navigationController?.popToViewController(self, animated: true)
+                    }
+                    else {
+                        vc.show(response.msg)
+                    }
+                }, onError: { [weak self] error in
+                    self?.show(error.localizedDescription)
+                    hub.hide(animated: true)
+                })
+                .disposed(by: vc.rx.disposeBag)
+        }
+        
+        navigationController?.pushViewController(vc, animated: true)
+        
+        let hub = MBProgressHUD.showAdded(to: vc.view, animated: true)
+        hub.show(animated: true)
+        userAPI.request(.userConfig(type: 9), type: HotChatResponse<[LikeTag]>.self)
+            .subscribe(onSuccess: { response in
+                hub.hide(animated: true)
+                if response.isSuccessd {
+                    vc.labels = response.data ?? []
+                }
+                else {
+                    vc.show(response.msg)
+                }
+            }, onError: { [weak self] error in
+                self?.show(error.localizedDescription)
+                hub.hide(animated: true)
+            })
+            .disposed(by: rx.disposeBag)
     }
  
 }
@@ -212,14 +476,14 @@ extension UserInfoEditingViewController {
                 self.navigationController?.popViewController(animated: true)
             }
         }
-        else if let vc = segue.destination as? UserInfoInputTextViewController {
+        else if let vc = segue.destination as? UserInfoInputTextViewController, let _ = sender as? Introduce {
             vc.content = (introduce.title, nil, introduce.content)
-            vc.onUpdated.delegate(on: self) { (self, info) in
+            vc.onSaved.delegate(on: self) { (self, text) in
                 let params: [String : Any] = [
                     "type": 2,
-                    "introduce" : info.text
+                    "introduce" : text
                 ]
-                let hub = MBProgressHUD.showAdded(to: info.controller.view.window!, animated: true)
+                let hub = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
                 hub.show(animated: true)
                 self.userAPI.request(.editUser(value: params), type: HotChatResponse<User>.self)
                     .subscribe(onSuccess: { response in
@@ -229,13 +493,35 @@ extension UserInfoEditingViewController {
                             self.navigationController?.popToViewController(self, animated: true)
                         }
                         else {
-                            info.controller.show(response.msg)
+                            vc.show(response.msg)
                         }
                     }, onError: { error in
-                        info.controller.show(error.localizedDescription)
+                        vc.show(error.localizedDescription)
                         hub.hide(animated: true)
                     })
-                    .disposed(by: info.controller.rx.disposeBag)
+                    .disposed(by: vc.rx.disposeBag)
+            }
+        }
+        else if let vc = segue.destination as? UserInfoInputTextViewController, let entry = sender as? InfoInterview {
+            vc.content = ("你的回答", entry.topic.label, entry.topic.content)
+            vc.onSaved.delegate(on: self) { (self, text) in
+                let hub = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
+                hub.show(animated: true)
+                self.userAPI.request(.editTips(labelId: entry.topic.labelId, content: text), type: HotChatResponse<User>.self)
+                    .subscribe(onSuccess: { response in
+                        hub.hide(animated: true)
+                        if response.isSuccessd {
+                            self.user = response.data
+                            self.navigationController?.popToViewController(self, animated: true)
+                        }
+                        else {
+                            vc.show(response.msg)
+                        }
+                    }, onError: { error in
+                        vc.show(error.localizedDescription)
+                        hub.hide(animated: true)
+                    })
+                    .disposed(by: vc.rx.disposeBag)
             }
         }
         

@@ -271,9 +271,11 @@
                                 <constraint firstAttribute="bottom" secondItem="75M-fU-YVb" secondAttribute="bottom" id="pwf-MP-iwI"/>
                             </constraints>
                             <connections>
+                                <outlet property="avatarImageView" destination="ulH-JG-DNc" id="xWK-V7-21g"/>
                                 <outlet property="backgroundView" destination="TZ6-Pg-HVL" id="FYi-hj-A51"/>
                                 <outlet property="backgroundViewHeightConstraint" destination="qKi-gf-OYE" id="Gg5-O9-U3F"/>
                                 <outlet property="contentView" destination="75M-fU-YVb" id="ZA0-YC-pfX"/>
+                                <outlet property="nicknameLabel" destination="oBl-2Q-dUM" id="PgT-x1-Xnu"/>
                             </connections>
                         </view>
                         <sections>
@@ -1584,7 +1586,7 @@
         <!--User Info Input Text View Controller-->
         <scene sceneID="Zc4-PZ-MCO">
             <objects>
-                <tableViewController id="5HW-Et-Tpf" customClass="UserInfoInputTextViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController restorationIdentifier="UserInfoInputTextViewController" storyboardIdentifier="UserInfoInputTextViewController" id="5HW-Et-Tpf" customClass="UserInfoInputTextViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Tf8-xt-zkO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1732,7 +1734,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="126.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q7Y-Bj-0BC">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q7Y-Bj-0BC">
                                             <rect key="frame" x="20" y="8" width="110" height="110"/>
                                             <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
@@ -2046,11 +2048,11 @@
                                     <outlet property="titleLabel" destination="IbW-R4-gCr" id="YLx-is-ksV"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="UserInfoInterviewCell" id="uyD-L5-NKM" customClass="UserInfoInterviewCell" customModule="HotChat" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="438" width="414" height="42"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="UserInfoInterviewCell" rowHeight="74" id="uyD-L5-NKM" customClass="UserInfoInterviewCell" customModule="HotChat" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="438" width="414" height="74"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uyD-L5-NKM" id="ASd-FQ-8l4">
-                                    <rect key="frame" x="0.0" y="0.0" width="383" height="42"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="383" height="74"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="me-topic" translatesAutoresizingMaskIntoConstraints="NO" id="vQh-oP-wQj">
@@ -2061,16 +2063,16 @@
                                             </constraints>
                                         </imageView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3PP-kt-LzO">
-                                            <rect key="frame" x="41" y="13.5" width="334" height="17.5"/>
+                                            <rect key="frame" x="41" y="13.5" width="334" height="39.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="什么样的女生/男生让你心动？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zjJ-Ed-Swu">
-                                                    <rect key="frame" x="0.0" y="0.0" width="334" height="17.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="334" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                     <color key="textColor" red="0.20392156862745098" green="0.20392156862745098" blue="0.20392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="谈吐不俗" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sX-cF-ClK">
-                                                    <rect key="frame" x="0.0" y="0.0" width="334" height="0.0"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="谈吐不俗" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sX-cF-ClK">
+                                                    <rect key="frame" x="0.0" y="25" width="334" height="14.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.60392156862745094" green="0.60392156862745094" blue="0.60392156862745094" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -2082,18 +2084,20 @@
                                         <constraint firstItem="3PP-kt-LzO" firstAttribute="leading" secondItem="vQh-oP-wQj" secondAttribute="trailing" constant="8" id="6vt-Uo-dpd"/>
                                         <constraint firstItem="vQh-oP-wQj" firstAttribute="leading" secondItem="ASd-FQ-8l4" secondAttribute="leadingMargin" id="QMb-wU-qzg"/>
                                         <constraint firstAttribute="trailing" secondItem="3PP-kt-LzO" secondAttribute="trailing" constant="8" id="cME-It-cWq"/>
-                                        <constraint firstAttribute="bottom" secondItem="3PP-kt-LzO" secondAttribute="bottom" constant="11" id="j1s-Bn-Rsn"/>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="3PP-kt-LzO" secondAttribute="bottom" constant="11" id="j1s-Bn-Rsn"/>
                                         <constraint firstItem="vQh-oP-wQj" firstAttribute="top" secondItem="3PP-kt-LzO" secondAttribute="top" constant="2" id="kcn-lu-DqS"/>
                                         <constraint firstItem="vQh-oP-wQj" firstAttribute="top" secondItem="ASd-FQ-8l4" secondAttribute="top" constant="15.5" id="mNW-eh-4PK"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <inset key="separatorInset" minX="10000" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
+                                    <outlet property="contentLabel" destination="7sX-cF-ClK" id="d0P-la-3K9"/>
                                     <outlet property="iconImageView" destination="vQh-oP-wQj" id="NhE-Rr-Sli"/>
+                                    <outlet property="titleLabel" destination="zjJ-Ed-Swu" id="JnO-IK-0FN"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" textLabel="Gal-mK-dhx" imageView="mCx-3P-vLT" style="IBUITableViewCellStyleDefault" id="WUR-Rw-SQM">
-                                <rect key="frame" x="0.0" y="480" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="512" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WUR-Rw-SQM" id="VPU-Tc-2eL">
                                     <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
@@ -2127,7 +2131,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e4h-tm-roc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="952" y="-518"/>
+            <point key="canvasLocation" x="950.72463768115949" y="-518.30357142857144"/>
         </scene>
         <!--我的认证-->
         <scene sceneID="ycp-ej-xGN">

@@ -28,6 +28,7 @@ struct LikeTag: HandyJSON, Equatable {
 
 struct Topic: HandyJSON {
     
+    var id: Int = 0
     var questionId: Int = 0
     var labelId: Int = 0
     var label: String = ""
@@ -69,7 +70,7 @@ struct User: HandyJSON {
     var userId: Int = 0
     var token: String = ""
     var status: Int = 0
-    var isInit: Int = 0
+    var isInit: Bool = false
     
     //  能量
     var userEnergy: Int = 0

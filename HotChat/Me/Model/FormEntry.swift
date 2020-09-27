@@ -82,21 +82,38 @@ enum Hobby: String, CaseIterable, CustomStringConvertible {
         }
     }
     
+    var imageName: String {
+        switch self {
+        case .motion:
+            return "me-movement"
+        case .food:
+            return "me-gourmet"
+        case .music:
+            return "me-music"
+        case .book:
+            return "me-books"
+        case .travel:
+            return "me-travel"
+        case .movie:
+            return "me-movie"
+        }
+    }
+    
     
     var edit: String {
         switch self {
         case .motion:
-            return "motionList"
+            return "likeMotion"
         case .food:
-            return "foodList"
+            return "likeFood"
         case .music:
-            return "musicList"
+            return "likeMusic"
         case .book:
-            return "bookList"
+            return "likeBook"
         case .travel:
-            return "travelList"
+            return "likeTravel"
         case .movie:
-            return "movieList"
+            return "likeMovie"
         }
     }
     
@@ -166,7 +183,9 @@ class ProfilePhoto: FormEntry {
         
         let alertController = SPAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         alertController.addAction(SPAlertAction(title: "更换", style: .default, handler: { [weak self] _ in
-            self?.imagePicker()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self?.imagePicker()
+            }
         }))
         
         let mainTitle = "如何优化头像"
@@ -210,11 +229,15 @@ class ProfilePhoto: FormEntry {
 
     private func imagePicker()  {
         
+        let config = ZLPhotoConfiguration.default()
+        config.maxSelectCount = 1
+        config.allowSelectVideo = false
+        config.maxPreviewCount = 0
+        
         let imagePickerController = ZLPhotoPreviewSheet(selectedAssets: [])
         imagePickerController.selectImageBlock = { [weak self] (images, assets, isOriginal) in
             if let image = images.first {
                 let imageURL = writeImage(image)!
-                self?.imageURL = imageURL
                 self?.onImageUpdated.call(imageURL)
             }
             debugPrint("\(images)   \(assets)   \(isOriginal)")
@@ -342,6 +365,11 @@ extension PhotoAlbum: UICollectionViewDelegate, UICollectionViewDataSource, UICo
     }
     
     private func imagePicker() {
+        
+        let config = ZLPhotoConfiguration.default()
+        config.maxSelectCount = 1
+        config.allowSelectVideo = false
+        config.maxPreviewCount = 0
                 
         let imagePickerController = ZLPhotoPreviewSheet(selectedAssets: [])
         imagePickerController.selectImageBlock = { [weak self] (images, assets, isOriginal) in
@@ -405,6 +433,29 @@ class BasicInformation: FormEntry {
     
 }
 
+class InfoInterview: FormEntry {
+
+    let topic: Topic
+    
+    init(topic: Topic) {
+        self.topic = topic
+    }
+    
+    func cell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: UserInfoInterviewCell.self)
+        render(cell)
+        
+        return cell
+        
+    }
+    
+    private func render(_ cell: UserInfoInterviewCell) {
+        
+        cell.titleLabel.text = topic.label
+        cell.contentLabel.text = topic.content
+    }
+}
 
 class TagContent: FormEntry {
 

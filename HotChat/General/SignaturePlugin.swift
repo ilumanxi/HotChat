@@ -61,16 +61,17 @@ extension SignaturePlugin: PluginType {
         let httpMethod = (request.httpMethod ?? "").uppercased()
         
         if httpMethod == "POST" {
+            
             var request = request
             
-            let bodyString = httpBodyString(request)
+            var jsonObject = requestParameters(request)
             
-            let parameters = requestParameters(request)
-                        
-            let signString = parametersSignature(parameters, salt: salt)
+            jsonObject[signKey] = parametersSignature(jsonObject, salt: salt)
             
-            let signBodyString = "\(bodyString)&\(signKey)=\(signString)"
-            request.httpBody = signBodyString.data(using: .utf8)
+            let data = try! JSONSerialization.data(withJSONObject: jsonObject, options: .fragmentsAllowed)
+            
+            request.httpBody = data
+            
             return request
         }
         else {
@@ -170,13 +171,12 @@ extension SignaturePlugin: PluginType {
         
         let httpMethod = (request.httpMethod ?? "").uppercased()
         
-        let bodyString = httpBodyString(request)
-        
-        var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)!
-        
-        if httpMethod == "POST" {
-            urlComponents.query = bodyString
+        if httpMethod == "POST", let httpBody = request.httpBody {
+           
+            return  try! JSONSerialization.jsonObject(with: httpBody, options: .allowFragments) as! [String : Any]
         }
+        
+        let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)!
                 
         guard let queryItems = urlComponents.queryItems  else {
             return parameters

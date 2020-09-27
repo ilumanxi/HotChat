@@ -15,6 +15,10 @@ class MeHeaderView: UIView {
     
     @IBOutlet weak var contentView: UIView!
     
+    @IBOutlet weak var avatarImageView: UIImageView!
+    
+    @IBOutlet weak var nicknameLabel: UILabel!
+    
     @IBOutlet var backgroundViewHeightConstraint: NSLayoutConstraint!
     
     override class var requiresConstraintBasedLayout: Bool {

@@ -1,23 +1,19 @@
 //
-//  UserInfoInterviewCell.swift
+//  LabelViewCell.swift
 //  HotChat
 //
-//  Created by 风起兮 on 2020/9/1.
+//  Created by 风起兮 on 2020/9/27.
 //  Copyright © 2020 风起兮. All rights reserved.
 //
 
 import UIKit
 
-class UserInfoInterviewCell: UITableViewCell {
-    
-    
-    @IBOutlet weak var iconImageView: UIImageView!
+class LabelViewCell: UITableViewCell {
     
     
     @IBOutlet weak var titleLabel: UILabel!
     
-    
-    @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var iconView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

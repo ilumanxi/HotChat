@@ -851,7 +851,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 5 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 7 nibs.
   struct nib {
     /// Nib `CommunityHeaderView`.
     static let communityHeaderView = _R.nib._CommunityHeaderView()
@@ -859,6 +859,10 @@ struct R: Rswift.Validatable {
     static let interestedCardOverlayView = _R.nib._InterestedCardOverlayView()
     /// Nib `InterestedCardView`.
     static let interestedCardView = _R.nib._InterestedCardView()
+    /// Nib `LabelViewCell`.
+    static let labelViewCell = _R.nib._LabelViewCell()
+    /// Nib `TitleViewCell`.
+    static let titleViewCell = _R.nib._TitleViewCell()
     /// Nib `UserInfoChatView`.
     static let userInfoChatView = _R.nib._UserInfoChatView()
     /// Nib `UserInfoHeaderView`.
@@ -889,6 +893,22 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UINib(name: "LabelViewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.labelViewCell) instead")
+    static func labelViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.labelViewCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "TitleViewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.titleViewCell) instead")
+    static func titleViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.titleViewCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UINib(name: "UserInfoChatView", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.userInfoChatView) instead")
     static func userInfoChatView(_: Void = ()) -> UIKit.UINib {
@@ -914,6 +934,14 @@ struct R: Rswift.Validatable {
 
     static func interestedCardView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> InterestedCardView? {
       return R.nib.interestedCardView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? InterestedCardView
+    }
+
+    static func labelViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> LabelViewCell? {
+      return R.nib.labelViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? LabelViewCell
+    }
+
+    static func titleViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> TitleViewCell? {
+      return R.nib.titleViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? TitleViewCell
     }
 
     static func userInfoChatView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UserInfoChatView? {
@@ -1207,6 +1235,7 @@ struct _R: Rswift.Validatable {
     static func validate() throws {
       try _CommunityHeaderView.validate()
       try _InterestedCardView.validate()
+      try _LabelViewCell.validate()
       try _UserInfoChatView.validate()
       try _UserInfoHeaderView.validate()
     }
@@ -1255,6 +1284,35 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "arrow-right-white", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'arrow-right-white' is used in nib 'InterestedCardView', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _LabelViewCell: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "LabelViewCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> LabelViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? LabelViewCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "box-selected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'box-selected' is used in nib 'LabelViewCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "box-unselected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'box-unselected' is used in nib 'LabelViewCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _TitleViewCell: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "TitleViewCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> TitleViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? TitleViewCell
       }
 
       fileprivate init() {}
@@ -1464,10 +1522,15 @@ struct _R: Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "Me"
       let userBasicInformationViewController = StoryboardViewControllerResource<UserBasicInformationViewController>(identifier: "UserBasicInformationViewController")
+      let userInfoInputTextViewController = StoryboardViewControllerResource<UserInfoInputTextViewController>(identifier: "UserInfoInputTextViewController")
       let userInfoLikeObjectViewController = StoryboardViewControllerResource<UserInfoLikeObjectViewController>(identifier: "UserInfoLikeObjectViewController")
 
       func userBasicInformationViewController(_: Void = ()) -> UserBasicInformationViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: userBasicInformationViewController)
+      }
+
+      func userInfoInputTextViewController(_: Void = ()) -> UserInfoInputTextViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: userInfoInputTextViewController)
       }
 
       func userInfoLikeObjectViewController(_: Void = ()) -> UserInfoLikeObjectViewController? {
@@ -1503,6 +1566,7 @@ struct _R: Rswift.Validatable {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.me().userBasicInformationViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'userBasicInformationViewController' could not be loaded from storyboard 'Me' as 'UserBasicInformationViewController'.") }
+        if _R.storyboard.me().userInfoInputTextViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'userInfoInputTextViewController' could not be loaded from storyboard 'Me' as 'UserInfoInputTextViewController'.") }
         if _R.storyboard.me().userInfoLikeObjectViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'userInfoLikeObjectViewController' could not be loaded from storyboard 'Me' as 'UserInfoLikeObjectViewController'.") }
       }
 

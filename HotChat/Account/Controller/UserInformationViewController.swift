@@ -11,6 +11,7 @@ import SwiftDate
 import ZLPhotoBrowser
 import Toast_Swift
 import MBProgressHUD
+import Kingfisher
 
 class UserInformationViewController: UITableViewController, Wireframe {
     
@@ -31,6 +32,8 @@ class UserInformationViewController: UITableViewController, Wireframe {
     
     @IBOutlet weak var submitButton: UIButton!
     
+    private var avatarURL: String?
+    
     private var date: Date? {
         didSet {
             updateBirthdayDisplay()
@@ -45,6 +48,7 @@ class UserInformationViewController: UITableViewController, Wireframe {
     }
     
     private let API = RequestAPI<AccountAPI>()
+    private let uploadAPI = RequestAPI<UploadFileAPI>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,14 +101,33 @@ class UserInformationViewController: UITableViewController, Wireframe {
     func photoPicker() {
         
         let config = ZLPhotoConfiguration.default()
-        
         config.maxSelectCount = 1
         config.allowSelectVideo = false
         
         let contoler = ZLPhotoPreviewSheet(selectedAssets: [])
-        contoler.selectImageBlock = { [weak self] (images, assets, isOriginal) in
+        contoler.selectImageBlock = { [unowned self] (images, assets, isOriginal) in
 
-            self?.avatarImageView.image = images.first!
+            let image = images.first!
+            
+            let url = writeImage(image)
+            
+            let hub = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
+            
+            self.uploadAPI.request(.upload(url!), type: HotChatResponse<[RemoteFile]>.self)
+                .subscribe(onSuccess: { response in
+                    hub.hide(animated: true)
+                    if response.isSuccessd {
+                        self.avatarURL = response.data!.first!.picUrl
+                        self.avatarImageView.image = image
+                    }
+                    else {
+                        self.show(response.msg)
+                    }
+                }, onError: { error in
+                    hub.hide(animated: false)
+                    self.show(error.localizedDescription)
+                })
+                .disposed(by: self.rx.disposeBag)
         }
         contoler.showPhotoLibrary(sender: self)
     }
@@ -148,12 +171,10 @@ class UserInformationViewController: UITableViewController, Wireframe {
 
         view.endEditing(true)
         
-        let headPic = "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"
-        
         let birthday =  Int(date!.timeIntervalSince1970)
         
         let hub = MBProgressHUD.showAdded(to: view.window!, animated: true)
-        API.request(.editUser(headPic: headPic, sex: sex.rawValue, nick: nicknameTextField.text!, birthday: birthday), type: HotChatResponse<User>.self)
+        API.request(.editUser(headPic: avatarURL!, sex: sex.rawValue, nick: nicknameTextField.text!, birthday: birthday), type: HotChatResponse<User>.self)
             .subscribe(onSuccess: {[weak self] response in
                 if response.isSuccessd {
                     self?.performSegue(withIdentifier: "UserInfoLikeObjectViewController", sender: nil)
@@ -171,7 +192,7 @@ class UserInformationViewController: UITableViewController, Wireframe {
     
     func verification() -> Bool {
         
-        guard let _ = avatarImageView.image else {
+        guard let _ = avatarURL else {
             show("请上传头像")
             return false
         }

@@ -22,6 +22,10 @@ enum HotChatError: Error {
         case invalidDataInKeychain
     }
     
+    enum UploadFileErrorReason {
+        case generaError(string: String)
+    }
+    
     
     public enum GeneralErrorReason {
         /// Cannot convert `string` to valid data with `encoding`. Code 4001.
@@ -41,5 +45,7 @@ enum HotChatError: Error {
     
     /// An error occurred while performing another process in the HotChat
     case generalError(reason: GeneralErrorReason)
+    
+    case uploadFileError(reason: UploadFileErrorReason)
     
 }

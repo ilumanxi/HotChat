@@ -39,16 +39,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let window = UIWindow(frame: UIScreen.main.bounds)
         
-//        if LoginManager.shared.isAuthorized {
-//            window.setMainViewController()
-//            verifyLogin()
-//        }
-//        else {
-//            window.setLoginViewController()
-//        }
-        
-        window.setMainViewController()
-        
+        if LoginManager.shared.isAuthorized {
+            window.setMainViewController()
+            verifyLogin()
+        }
+        else {
+            window.setLoginViewController()
+        }
+          
         window.makeKeyAndVisible()
         
         self.window = window

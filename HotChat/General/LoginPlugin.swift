@@ -18,9 +18,10 @@ final class LoginPlugin {
 // MARK: - PluginType
 extension LoginPlugin: PluginType {
     
+    
     var loginPrefixs: [String] {
         
-        return ["login/regis", "login/login", "login/tokenLogin", "login/otherLogin"]
+        return ["login/regist", "login/login", "login/tokenLogin", "login/otherLogin"]
     }
     
     var logoutPrefixs: [String] {
@@ -81,7 +82,13 @@ extension LoginPlugin: PluginType {
         if let user = result.data, result.isSuccessd {
             
             let token = AccessToken(value: user.token)
-            LoginManager.shared.login(token: token)
+            
+            if user.isInit {
+                LoginManager.shared.login(token: token)
+            }
+            else {
+                try? AccessTokenStore.shared.setCurrentToken(token)
+            }
         }
     }
     

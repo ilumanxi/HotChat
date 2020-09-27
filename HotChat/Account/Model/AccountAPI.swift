@@ -72,65 +72,66 @@ extension AccountAPI: TargetType {
     }
     
     var task: Task {
+        let parameters: [String : Any]
+        
         switch self {
         case .sendCode(let phone, let type):
-            let params: [String : Any] = [
+            parameters = [
                 "phone": phone,
                 "type": type.rawValue
             ]
-            return .requestParameters(parameters: params, encoding: URLEncoding.default)
         case .signUp(phone: let phone, password: let password, code: let code):
-            let params: [String : Any] = [
+            parameters = [
                 "phone": phone,
                 "password": password.md5(),
                 "verifyCode" : code,
                 "timeStamp" : Int(Date().timeIntervalSince1970)
             ]
-            return .requestParameters(parameters: params, encoding: URLEncoding.default)
         case .phoneSignin(phone: let phone, password: let password):
-            
-            let params: [String : Any] = [
+            parameters = [
                 "phone": phone,
                 "password": password.md5(),
                 "timeStamp" : Int(Date().timeIntervalSince1970)
             ]
-            return .requestParameters(parameters: params, encoding: URLEncoding.default)
         case .resetPassword(phone: let phone, password: let password, code: let code):
-            let params: [String : Any] = [
+            parameters = [
                 "phone": phone,
                 "password": password.md5(),
                 "verifyCode" : code,
                 "timeStamp" : Int(Date().timeIntervalSince1970)
             ]
-            return .requestParameters(parameters: params, encoding: URLEncoding.default)
         case .tokenSignin(token: let token):
-            let params: [String : Any] = [
+            parameters = [
                 "token": token
             ]
-            return .requestParameters(parameters: params, encoding: URLEncoding.default)
         case .otherSignin(code: let code, type: let type):
-            var params: [String : Any] = [
-                "code": code,
-                "type": type,
-            ]
-            
             if let channelId = Constant.pushChannelId {
-                params["channelId"] = channelId
+                parameters = [
+                    "code" : code,
+                    "type" : type,
+                    "channelId" : channelId
+                ]
             }
-            
-            return .requestParameters(parameters: params, encoding: URLEncoding.default)
+            else {
+                parameters = [
+                    "code": code,
+                    "type": type,
+                ]
+            }
         case .editUser(headPic: let headPic, sex: let sex, nick: let nick, birthday: let birthday):
-            let params: [String : Any] = [
+            parameters = [
                 "headPic" : headPic,
                 "sex" : sex,
                 "nick" : nick,
                 "birthday" : birthday
             ]
-            return .requestParameters(parameters: params, encoding: URLEncoding.default)
-            
         case .labelList:
-            return .requestParameters(parameters: [:], encoding: URLEncoding.default)
+            parameters = [:]
         }
+        
+        let encoding: ParameterEncoding = (self.method == .post) ? JSONEncoding.default : URLEncoding.default
+        
+        return .requestParameters(parameters: parameters, encoding: encoding)
             
     }
     

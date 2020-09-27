@@ -96,6 +96,8 @@
 		26AC1E4E250613B6003EFB44 /* KeychainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AC1E4D250613B5003EFB44 /* KeychainItem.swift */; };
 		26AC1E5225062568003EFB44 /* PhoneSigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AC1E5125062568003EFB44 /* PhoneSigninViewController.swift */; };
 		26AC1E5425062D62003EFB44 /* LegalLiabilityToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AC1E5325062D62003EFB44 /* LegalLiabilityToolBar.swift */; };
+		26AE7C2F2520309F00B55318 /* LabelViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AE7C2E2520309F00B55318 /* LabelViewCell.swift */; };
+		26AE7C342520346500B55318 /* LabelViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26AE7C332520346500B55318 /* LabelViewCell.xib */; };
 		26CBE3B42508A3FC0089A23C /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CBE3B32508A3FC0089A23C /* CommunityViewController.swift */; };
 		26CBE3B62508A9C30089A23C /* CommunityHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CBE3B52508A9C30089A23C /* CommunityHeaderView.swift */; };
 		26CBE3B82508A9F20089A23C /* CommunityHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26CBE3B72508A9F20089A23C /* CommunityHeaderView.xib */; };
@@ -108,6 +110,11 @@
 		26F25C932509C36B00F808EA /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F25C922509C36B00F808EA /* TabBarButton.swift */; };
 		26F25C96250A1B3800F808EA /* SeparatorLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F25C95250A1B3800F808EA /* SeparatorLine.swift */; };
 		26F25C98250A359300F808EA /* InterestedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F25C97250A359300F808EA /* InterestedViewController.swift */; };
+		26F8946B25203B7300A45648 /* TitleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8946925203B7300A45648 /* TitleViewCell.swift */; };
+		26F8946C25203B7300A45648 /* TitleViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26F8946A25203B7300A45648 /* TitleViewCell.xib */; };
+		26F8947125203BDD00A45648 /* TitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8947025203BDD00A45648 /* TitleViewController.swift */; };
+		26F8947625207A9A00A45648 /* UploadFileAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8947525207A9A00A45648 /* UploadFileAPI.swift */; };
+		26F8947B252083B800A45648 /* LabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8947A252083B800A45648 /* LabelView.swift */; };
 		45839F6E82D7044FA476C569 /* Pods_HotChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62A5C2959EC91C5D7E009463 /* Pods_HotChatTests.framework */; };
 		9C09877DCD7147AE4120A1A5 /* Pods_HotChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E607546C47F1A96D06D38875 /* Pods_HotChat.framework */; };
 		F370D277251CE65500C2F708 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F370D276251CE65500C2F708 /* ResetPasswordViewController.swift */; };
@@ -234,6 +241,8 @@
 		26AC1E50250619B7003EFB44 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		26AC1E5125062568003EFB44 /* PhoneSigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneSigninViewController.swift; sourceTree = "<group>"; };
 		26AC1E5325062D62003EFB44 /* LegalLiabilityToolBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegalLiabilityToolBar.swift; sourceTree = "<group>"; };
+		26AE7C2E2520309F00B55318 /* LabelViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelViewCell.swift; sourceTree = "<group>"; };
+		26AE7C332520346500B55318 /* LabelViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelViewCell.xib; sourceTree = "<group>"; };
 		26CBE3B32508A3FC0089A23C /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
 		26CBE3B52508A9C30089A23C /* CommunityHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityHeaderView.swift; sourceTree = "<group>"; };
 		26CBE3B72508A9F20089A23C /* CommunityHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityHeaderView.xib; sourceTree = "<group>"; };
@@ -246,6 +255,11 @@
 		26F25C922509C36B00F808EA /* TabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
 		26F25C95250A1B3800F808EA /* SeparatorLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorLine.swift; sourceTree = "<group>"; };
 		26F25C97250A359300F808EA /* InterestedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestedViewController.swift; sourceTree = "<group>"; };
+		26F8946925203B7300A45648 /* TitleViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewCell.swift; sourceTree = "<group>"; };
+		26F8946A25203B7300A45648 /* TitleViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleViewCell.xib; sourceTree = "<group>"; };
+		26F8947025203BDD00A45648 /* TitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewController.swift; sourceTree = "<group>"; };
+		26F8947525207A9A00A45648 /* UploadFileAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadFileAPI.swift; sourceTree = "<group>"; };
+		26F8947A252083B800A45648 /* LabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelView.swift; sourceTree = "<group>"; };
 		316CE69C043071315F0EB71A /* Pods-HotChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotChat.debug.xcconfig"; path = "Target Support Files/Pods-HotChat/Pods-HotChat.debug.xcconfig"; sourceTree = "<group>"; };
 		34F1F9780DABE0C45D5B2802 /* Pods_HotChat_HotChatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HotChat_HotChatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41171A0CC3850914D7B2BEAA /* Pods-HotChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotChat.release.xcconfig"; path = "Target Support Files/Pods-HotChat/Pods-HotChat.release.xcconfig"; sourceTree = "<group>"; };
@@ -369,6 +383,7 @@
 				2643EB752500B04100FBBE49 /* Controller */,
 				26373C71250233F50066FF3B /* Model */,
 				2643EB7E2500B04100FBBE49 /* View */,
+				26F8947525207A9A00A45648 /* UploadFileAPI.swift */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -389,6 +404,7 @@
 				2643EBC72500D4C000FBBE49 /* MeContactViewController.swift */,
 				2643EBC92500DBF500FBBE49 /* MeRelationshipViewController.swift */,
 				F3C6B918251F3117006C06CB /* LabelViewController.swift */,
+				26F8947025203BDD00A45648 /* TitleViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -411,6 +427,11 @@
 				2643EB872500B04100FBBE49 /* UserInfoBasicInformationCell.swift */,
 				2643EB882500B04100FBBE49 /* UserInfoLikeObjectCell.swift */,
 				2643EB892500B04100FBBE49 /* UserInfoIntroduceCell.swift */,
+				26AE7C2E2520309F00B55318 /* LabelViewCell.swift */,
+				26AE7C332520346500B55318 /* LabelViewCell.xib */,
+				26F8946925203B7300A45648 /* TitleViewCell.swift */,
+				26F8946A25203B7300A45648 /* TitleViewCell.xib */,
+				26F8947A252083B800A45648 /* LabelView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -802,6 +823,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				26959042250B1DD900763061 /* InterestedCardOverlayView.xib in Resources */,
+				26F8946C25203B7300A45648 /* TitleViewCell.xib in Resources */,
 				267955042507637600A72954 /* Community.storyboard in Resources */,
 				26CBE3B82508A9F20089A23C /* CommunityHeaderView.xib in Resources */,
 				2679550E25079A4A00A72954 /* UserInfoChatView.xib in Resources */,
@@ -814,6 +836,7 @@
 				267954FF250761B600A72954 /* Discover.storyboard in Resources */,
 				2679550A2507748C00A72954 /* UserInfoHeaderView.xib in Resources */,
 				F38CB8C62507B14700049A76 /* InfoPlist.strings in Resources */,
+				26AE7C342520346500B55318 /* LabelViewCell.xib in Resources */,
 				2643EB432500AD7D00FBBE49 /* Main.storyboard in Resources */,
 				2695903E250B170B00763061 /* InterestedCardView.xib in Resources */,
 			);
@@ -968,6 +991,7 @@
 				26A20AEF25189E740061BBB8 /* LoginManager.swift in Sources */,
 				267954E82507311E00A72954 /* LegalLiabilityViewController.swift in Sources */,
 				265C8A5B25134C3500E220BD /* ForgotPasswordViewModel.swift in Sources */,
+				26F8947B252083B800A45648 /* LabelView.swift in Sources */,
 				26808FDC2519D4B800C9803C /* API.swift in Sources */,
 				26F25C932509C36B00F808EA /* TabBarButton.swift in Sources */,
 				26CBE3BD2508D7920089A23C /* DiscoverViewController.swift in Sources */,
@@ -994,6 +1018,7 @@
 				26E14E68251C861A00645F08 /* DatePickerViewController.swift in Sources */,
 				26373C77250234D00066FF3B /* FormSection.swift in Sources */,
 				26373C732502340D0066FF3B /* FormEntry.swift in Sources */,
+				26F8946B25203B7300A45648 /* TitleViewCell.swift in Sources */,
 				268297492511AF5800949C7F /* SignupViewModel.swift in Sources */,
 				267955082507747400A72954 /* UserInfoHeaderView.swift in Sources */,
 				26AC1E5225062568003EFB44 /* PhoneSigninViewController.swift in Sources */,
@@ -1005,6 +1030,7 @@
 				26CBE3C12508EB040089A23C /* Appearance.swift in Sources */,
 				264A20CF25109B5000A264BE /* AccountAPI.swift in Sources */,
 				2682974D2511B0EC00949C7F /* SignupProtocols.swift in Sources */,
+				26AE7C2F2520309F00B55318 /* LabelViewCell.swift in Sources */,
 				2679550C25079A1F00A72954 /* UserInfoChatView.swift in Sources */,
 				2643EBAC2500B04100FBBE49 /* UserInfoInterviewCell.swift in Sources */,
 				265C8A42251332E900E220BD /* SigninProtocols.swift in Sources */,
@@ -1018,6 +1044,7 @@
 				2643EBC82500D4C000FBBE49 /* MeContactViewController.swift in Sources */,
 				26A20AF92518A3000061BBB8 /* AccessTokenStore.swift in Sources */,
 				2643EBB32500B04100FBBE49 /* UserInfoIntroduceCell.swift in Sources */,
+				26F8947125203BDD00A45648 /* TitleViewController.swift in Sources */,
 				26A8D4E9251C8F3E00B736CF /* Constellation.swift in Sources */,
 				2643EBB62500B04100FBBE49 /* InterfaceOrientation.swift in Sources */,
 				2682974B2511B05300949C7F /* Wireframe.swift in Sources */,
@@ -1037,6 +1064,7 @@
 				267B98772505E1AC0008C81B /* Platform.swift in Sources */,
 				267B98722505E1AC0008C81B /* WeChat.swift in Sources */,
 				267B98752505E1AC0008C81B /* PlatformAuthorization.swift in Sources */,
+				26F8947625207A9A00A45648 /* UploadFileAPI.swift in Sources */,
 				2643EBB12500B04100FBBE49 /* UserInfoBasicInformationCell.swift in Sources */,
 				26E14E00251C3E6A00645F08 /* R.generated.swift in Sources */,
 				2643EBAB2500B04100FBBE49 /* MeHeaderView.swift in Sources */,
