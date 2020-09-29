@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		10D0E37B61481859BB25781D /* Pods_HotChat_HotChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F1F9780DABE0C45D5B2802 /* Pods_HotChat_HotChatUITests.framework */; };
 		2605A4762513187900017241 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2605A4752513187900017241 /* UIImageExtensions.swift */; };
+		260A87782521932A00380FB4 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A87772521932A00380FB4 /* SettingViewController.swift */; };
+		260B96112521F15C00767076 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260B96102521F15C00767076 /* Authentication.swift */; };
+		260B96162521F2F400767076 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260B96152521F2F400767076 /* AuthenticationViewController.swift */; };
 		26373C732502340D0066FF3B /* FormEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26373C722502340D0066FF3B /* FormEntry.swift */; };
 		26373C75250234AC0066FF3B /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26373C74250234AC0066FF3B /* Delegate.swift */; };
 		26373C77250234D00066FF3B /* FormSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26373C76250234D00066FF3B /* FormSection.swift */; };
@@ -80,6 +83,8 @@
 		2682974B2511B05300949C7F /* Wireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2682974A2511B05300949C7F /* Wireframe.swift */; };
 		2682974D2511B0EC00949C7F /* SignupProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2682974C2511B0EC00949C7F /* SignupProtocols.swift */; };
 		268BB25E251D9B3200001DF3 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268BB25D251D9B3200001DF3 /* UserAPI.swift */; };
+		268E3E602521D074000E4A33 /* RelationshipViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E3E5E2521D074000E4A33 /* RelationshipViewCell.swift */; };
+		268E3E612521D074000E4A33 /* RelationshipViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 268E3E5F2521D074000E4A33 /* RelationshipViewCell.xib */; };
 		2695903C250B16D700763061 /* InterestedCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2695903B250B16D700763061 /* InterestedCardView.swift */; };
 		2695903E250B170B00763061 /* InterestedCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2695903D250B170B00763061 /* InterestedCardView.xib */; };
 		26959040250B1D9400763061 /* InterestedCardOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2695903F250B1D9400763061 /* InterestedCardOverlayView.swift */; };
@@ -143,6 +148,9 @@
 /* Begin PBXFileReference section */
 		1C32CA0070B3C7B3111B5D13 /* Pods-HotChat-HotChatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotChat-HotChatUITests.release.xcconfig"; path = "Target Support Files/Pods-HotChat-HotChatUITests/Pods-HotChat-HotChatUITests.release.xcconfig"; sourceTree = "<group>"; };
 		2605A4752513187900017241 /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
+		260A87772521932A00380FB4 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		260B96102521F15C00767076 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
+		260B96152521F2F400767076 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		26373C722502340D0066FF3B /* FormEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormEntry.swift; sourceTree = "<group>"; };
 		26373C74250234AC0066FF3B /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
 		26373C76250234D00066FF3B /* FormSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormSection.swift; sourceTree = "<group>"; };
@@ -221,6 +229,8 @@
 		2682974A2511B05300949C7F /* Wireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wireframe.swift; sourceTree = "<group>"; };
 		2682974C2511B0EC00949C7F /* SignupProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupProtocols.swift; sourceTree = "<group>"; };
 		268BB25D251D9B3200001DF3 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
+		268E3E5E2521D074000E4A33 /* RelationshipViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationshipViewCell.swift; sourceTree = "<group>"; };
+		268E3E5F2521D074000E4A33 /* RelationshipViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RelationshipViewCell.xib; sourceTree = "<group>"; };
 		2695903B250B16D700763061 /* InterestedCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestedCardView.swift; sourceTree = "<group>"; };
 		2695903D250B170B00763061 /* InterestedCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InterestedCardView.xib; sourceTree = "<group>"; };
 		2695903F250B1D9400763061 /* InterestedCardOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestedCardOverlayView.swift; sourceTree = "<group>"; };
@@ -308,6 +318,7 @@
 			children = (
 				26373C722502340D0066FF3B /* FormEntry.swift */,
 				26373C76250234D00066FF3B /* FormSection.swift */,
+				260B96102521F15C00767076 /* Authentication.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -403,8 +414,10 @@
 				2643EB7D2500B04100FBBE49 /* PushSettingsDetailViewController.swift */,
 				2643EBC72500D4C000FBBE49 /* MeContactViewController.swift */,
 				2643EBC92500DBF500FBBE49 /* MeRelationshipViewController.swift */,
+				260A87772521932A00380FB4 /* SettingViewController.swift */,
 				F3C6B918251F3117006C06CB /* LabelViewController.swift */,
 				26F8947025203BDD00A45648 /* TitleViewController.swift */,
+				260B96152521F2F400767076 /* AuthenticationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -432,6 +445,8 @@
 				26F8946925203B7300A45648 /* TitleViewCell.swift */,
 				26F8946A25203B7300A45648 /* TitleViewCell.xib */,
 				26F8947A252083B800A45648 /* LabelView.swift */,
+				268E3E5E2521D074000E4A33 /* RelationshipViewCell.swift */,
+				268E3E5F2521D074000E4A33 /* RelationshipViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -836,6 +851,7 @@
 				267954FF250761B600A72954 /* Discover.storyboard in Resources */,
 				2679550A2507748C00A72954 /* UserInfoHeaderView.xib in Resources */,
 				F38CB8C62507B14700049A76 /* InfoPlist.strings in Resources */,
+				268E3E612521D074000E4A33 /* RelationshipViewCell.xib in Resources */,
 				26AE7C342520346500B55318 /* LabelViewCell.xib in Resources */,
 				2643EB432500AD7D00FBBE49 /* Main.storyboard in Resources */,
 				2695903E250B170B00763061 /* InterestedCardView.xib in Resources */,
@@ -996,6 +1012,7 @@
 				26F25C932509C36B00F808EA /* TabBarButton.swift in Sources */,
 				26CBE3BD2508D7920089A23C /* DiscoverViewController.swift in Sources */,
 				F38CB8C82507BA8A00049A76 /* ChatNotificationSettingCell.swift in Sources */,
+				268E3E602521D074000E4A33 /* RelationshipViewCell.swift in Sources */,
 				2643EBBF2500B04100FBBE49 /* Application.swift in Sources */,
 				2605A4762513187900017241 /* UIImageExtensions.swift in Sources */,
 				2643EBCA2500DBF500FBBE49 /* MeRelationshipViewController.swift in Sources */,
@@ -1018,6 +1035,7 @@
 				26E14E68251C861A00645F08 /* DatePickerViewController.swift in Sources */,
 				26373C77250234D00066FF3B /* FormSection.swift in Sources */,
 				26373C732502340D0066FF3B /* FormEntry.swift in Sources */,
+				260B96112521F15C00767076 /* Authentication.swift in Sources */,
 				26F8946B25203B7300A45648 /* TitleViewCell.swift in Sources */,
 				268297492511AF5800949C7F /* SignupViewModel.swift in Sources */,
 				267955082507747400A72954 /* UserInfoHeaderView.swift in Sources */,
@@ -1052,6 +1070,7 @@
 				2643EBA92500B04100FBBE49 /* UserInfoMediaCell.swift in Sources */,
 				2643EBBE2500B04100FBBE49 /* CollectionViewGridLayout.swift in Sources */,
 				2643EBB22500B04100FBBE49 /* UserInfoLikeObjectCell.swift in Sources */,
+				260B96162521F2F400767076 /* AuthenticationViewController.swift in Sources */,
 				26373C75250234AC0066FF3B /* Delegate.swift in Sources */,
 				26787E2F251B228200D511E8 /* LoginPlugin.swift in Sources */,
 				26959040250B1D9400763061 /* InterestedCardOverlayView.swift in Sources */,
@@ -1069,6 +1088,7 @@
 				26E14E00251C3E6A00645F08 /* R.generated.swift in Sources */,
 				2643EBAB2500B04100FBBE49 /* MeHeaderView.swift in Sources */,
 				26AC1E5425062D62003EFB44 /* LegalLiabilityToolBar.swift in Sources */,
+				260A87782521932A00380FB4 /* SettingViewController.swift in Sources */,
 				2643EBAF2500B04100FBBE49 /* UserInfoProfilePhotoCell.swift in Sources */,
 				2643EBB02500B04100FBBE49 /* RealNameAuthenticationFooterView.swift in Sources */,
 				26CBE3B42508A3FC0089A23C /* CommunityViewController.swift in Sources */,

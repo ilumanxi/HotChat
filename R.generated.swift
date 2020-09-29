@@ -278,7 +278,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 63 images.
+  /// This `R.image` struct is generated, and contains static references to 64 images.
   struct image {
     /// Image `account-register-succeed`.
     static let accountRegisterSucceed = Rswift.ImageResource(bundle: R.hostingBundle, name: "account-register-succeed")
@@ -348,6 +348,8 @@ struct R: Rswift.Validatable {
     static let meChatVideo = Rswift.ImageResource(bundle: R.hostingBundle, name: "me-chat-video")
     /// Image `me-edit`.
     static let meEdit = Rswift.ImageResource(bundle: R.hostingBundle, name: "me-edit")
+    /// Image `me-follow-add`.
+    static let meFollowAdd = Rswift.ImageResource(bundle: R.hostingBundle, name: "me-follow-add")
     /// Image `me-follow`.
     static let meFollow = Rswift.ImageResource(bundle: R.hostingBundle, name: "me-follow")
     /// Image `me-gourmet`.
@@ -653,6 +655,13 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "me-follow-add", bundle: ..., traitCollection: ...)`
+    static func meFollowAdd(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.meFollowAdd, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "me-gourmet", bundle: ..., traitCollection: ...)`
     static func meGourmet(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.meGourmet, compatibleWith: traitCollection)
@@ -851,7 +860,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 7 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 8 nibs.
   struct nib {
     /// Nib `CommunityHeaderView`.
     static let communityHeaderView = _R.nib._CommunityHeaderView()
@@ -861,6 +870,8 @@ struct R: Rswift.Validatable {
     static let interestedCardView = _R.nib._InterestedCardView()
     /// Nib `LabelViewCell`.
     static let labelViewCell = _R.nib._LabelViewCell()
+    /// Nib `RelationshipViewCell`.
+    static let relationshipViewCell = _R.nib._RelationshipViewCell()
     /// Nib `TitleViewCell`.
     static let titleViewCell = _R.nib._TitleViewCell()
     /// Nib `UserInfoChatView`.
@@ -897,6 +908,14 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.labelViewCell) instead")
     static func labelViewCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.labelViewCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "RelationshipViewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.relationshipViewCell) instead")
+    static func relationshipViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.relationshipViewCell)
     }
     #endif
 
@@ -938,6 +957,10 @@ struct R: Rswift.Validatable {
 
     static func labelViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> LabelViewCell? {
       return R.nib.labelViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? LabelViewCell
+    }
+
+    static func relationshipViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> RelationshipViewCell? {
+      return R.nib.relationshipViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? RelationshipViewCell
     }
 
     static func titleViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> TitleViewCell? {
@@ -1236,6 +1259,7 @@ struct _R: Rswift.Validatable {
       try _CommunityHeaderView.validate()
       try _InterestedCardView.validate()
       try _LabelViewCell.validate()
+      try _RelationshipViewCell.validate()
       try _UserInfoChatView.validate()
       try _UserInfoHeaderView.validate()
     }
@@ -1300,6 +1324,24 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if UIKit.UIImage(named: "box-selected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'box-selected' is used in nib 'LabelViewCell', but couldn't be loaded.") }
         if UIKit.UIImage(named: "box-unselected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'box-unselected' is used in nib 'LabelViewCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _RelationshipViewCell: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "RelationshipViewCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> RelationshipViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? RelationshipViewCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "me-follow-add", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'me-follow-add' is used in nib 'RelationshipViewCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "me-sex-man", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'me-sex-man' is used in nib 'RelationshipViewCell', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }

@@ -53,12 +53,19 @@ class LabelView: UIView {
         }
     }
     
-    @IBInspectable var textAlignment: NSTextAlignment = .center {
+     var textAlignment: NSTextAlignment = .center {
         didSet {
             textLabel.textAlignment = textAlignment
             invalidateIntrinsicContentSize()
         }
     }
+    
+    @IBInspectable var contentInsert: UIEdgeInsets = UIEdgeInsets(top: 0, left: 4, bottom: 0, right: 4) {
+        didSet {
+            invalidateIntrinsicContentSize()
+        }
+    }
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -73,17 +80,38 @@ class LabelView: UIView {
     
     func setupUI() {
         
-        self.imageView = UIImageView(frame: .zero)
+        imageView = UIImageView(frame: .zero)
+        addSubview(imageView)
         
         textLabel = UILabel(frame: .zero)
         textLabel.font = textFont
         textLabel.textColor = textColor
         textLabel.textAlignment = textAlignment
+        addSubview(textLabel)
         
     }
     
     override func layoutSubviews() {
         
+        let imageSize = image?.size ?? .zero
+        imageView.frame = CGRect(
+            x: contentInsert.left,
+            y: (frame.height - imageSize.height) / 2 ,
+            width: imageSize.width, height: imageSize.height
+        )
+        
+        let maximumLabelWidth = frame.width - imageView.frame.maxX - 2 - contentInsert.right
+        
+        let labelSize = textLabel.sizeThatFits(CGSize(width: maximumLabelWidth, height: 0))
+        
+        
+        textLabel.frame = CGRect(
+            x: imageView.frame.maxX + 2 + (maximumLabelWidth - labelSize.width) / 2,
+            y: (frame.height - labelSize.height) / 2,
+            width: labelSize.width, height: labelSize.height
+        )
+        
+        layer.cornerRadius = frame.height / 2
         
         super.layoutSubviews()
     }

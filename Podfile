@@ -68,6 +68,7 @@ target 'HotChat' do
 #    pod 'TZImagePickerController'
     pod 'ZLPhotoBrowser'
     pod 'WechatOpenSDK'
+    pod 'SwiftyStoreKit'
     
     #pod 'SYBPush/idfa',  :git => 'https://github.com/isandboy/SYBPush.git'
     pod 'SYBPush/normal',  :git => 'https://github.com/isandboy/SYBPush.git'

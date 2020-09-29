@@ -12,14 +12,11 @@ import SegementSlide
 
 
 enum Relationship: Int, CaseIterable {
-    case buddy
-    case follow
-    case fans
+    case follow = 1
+    case fans = 2
     
     var title: String {
         switch self {
-        case .buddy:
-            return "密友"
         case .follow:
             return "关注"
         case .fans:
@@ -40,9 +37,9 @@ class MeContactViewController: SegementSlideDefaultViewController {
     
     lazy var contentViewControllers: [MeRelationshipViewController] = {
         return Relationship.allCases
-            .map { _ in
-                let vc = MeRelationshipViewController(style: .grouped)
-                vc.tableView.backgroundColor = .random
+            .map {
+                let vc = MeRelationshipViewController(style: .plain)
+                vc.relationship = $0
                 return vc
             }
     }()
@@ -64,7 +61,7 @@ class MeContactViewController: SegementSlideDefaultViewController {
         super.viewDidLoad()
         title = "我的联系人"
         
-        defaultSelectedIndex = startShowRelationship.rawValue
+        defaultSelectedIndex = startShowRelationship.rawValue - 1
         reloadData()
 
         // Do any additional setup after loading the view.

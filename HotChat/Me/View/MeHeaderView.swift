@@ -19,6 +19,15 @@ class MeHeaderView: UIView {
     
     @IBOutlet weak var nicknameLabel: UILabel!
     
+    @IBOutlet weak var sexView: LabelView!
+    
+    @IBOutlet weak var gradeView: LabelView!
+    
+    @IBOutlet weak var followButton: UIButton!
+    
+    @IBOutlet weak var fansButton: UIButton!
+    
+    
     @IBOutlet var backgroundViewHeightConstraint: NSLayoutConstraint!
     
     override class var requiresConstraintBasedLayout: Bool {

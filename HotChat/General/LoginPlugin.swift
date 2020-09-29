@@ -26,7 +26,7 @@ extension LoginPlugin: PluginType {
     
     var logoutPrefixs: [String] {
         
-        return ["login/logout"]
+        return ["login/quit"]
     }
     
     
@@ -59,6 +59,11 @@ extension LoginPlugin: PluginType {
             return
         }
         
+        if let json = try? JSONSerialization.jsonObject(with: response.data, options: .allowFragments) as? [String : Any], let code = json["code"] as? CustomStringConvertible, code.description == "-200" {
+            LoginManager.shared.logout()
+        }
+        
+        
         if !shouldHandleRequest(response.request!, prefixs: prefixs) { return }
         
         if shouldHandleRequest(response.request!, prefixs: loginPrefixs) {
@@ -84,7 +89,7 @@ extension LoginPlugin: PluginType {
             let token = AccessToken(value: user.token)
             
             if user.isInit {
-                LoginManager.shared.login(token: token)
+                
             }
             else {
                 try? AccessTokenStore.shared.setCurrentToken(token)
@@ -98,9 +103,11 @@ extension LoginPlugin: PluginType {
             return
         }
         
-        if result.isSuccessd {
-            LoginManager.shared.logout()
-        }
+//        if result.isSuccessd {
+//            LoginManager.shared.logout()
+//        }
+        
+        LoginManager.shared.logout()
     }
     
     func shouldHandleRequest(_ request: URLRequest, prefixs: [String]) -> Bool {

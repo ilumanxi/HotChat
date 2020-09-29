@@ -24,6 +24,7 @@ enum AccountAPI {
     case phoneSignin(phone: String, password: String)
     case tokenSignin(token: String)
     case otherSignin(code: String, type: Int)
+    case logout
     case resetPassword(phone: String, password: String, code: String)
     case editUser(headPic: String, sex: Int, nick: String, birthday: Int)
     case labelList
@@ -54,6 +55,8 @@ extension AccountAPI: TargetType {
             return "login/editUser"
         case .labelList:
             return "login/labelList"
+        case .logout:
+            return "login/quit"
         }
 
     }
@@ -126,6 +129,8 @@ extension AccountAPI: TargetType {
                 "birthday" : birthday
             ]
         case .labelList:
+            parameters = [:]
+        case .logout:
             parameters = [:]
         }
         

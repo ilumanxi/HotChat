@@ -67,7 +67,7 @@ struct User: HandyJSON {
         var picUrl: String = ""
     }
     
-    var userId: Int = 0
+    var userId: String = ""
     var token: String = ""
     var status: Int = 0
     var isInit: Bool = false

@@ -55,6 +55,7 @@ PODS:
   - SnapKit (5.0.1)
   - SPAlertController (4.0.0)
   - SwiftDate (6.2.0)
+  - SwiftyStoreKit (0.16.1)
   - SYBPush/normal (1.6.2)
   - TagListView (1.4.1)
   - Toast-Swift (5.0.1)
@@ -90,6 +91,7 @@ DEPENDENCIES:
   - SnapKit
   - SPAlertController
   - SwiftDate
+  - SwiftyStoreKit
   - SYBPush/normal (from `https://github.com/isandboy/SYBPush.git`)
   - TagListView
   - Toast-Swift
@@ -129,6 +131,7 @@ SPEC REPOS:
     - SnapKit
     - SPAlertController
     - SwiftDate
+    - SwiftyStoreKit
     - TagListView
     - Toast-Swift
     - WechatOpenSDK
@@ -175,12 +178,13 @@ SPEC CHECKSUMS:
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SPAlertController: b245d7a5e17d612da051f2612aca3703f21d108f
   SwiftDate: d117c3eb6beed72e47d3f4d1e3bc63fa1e66d7c3
+  SwiftyStoreKit: 6b9c08810269f030586dac1fae8e75871a82e84a
   SYBPush: 1b1c2f0cc16e4eaa68adf64910bcdf1a2d60692c
   TagListView: a1c236d17960a0cf64156725a76ce6d73ebce2be
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   WechatOpenSDK: 6a4d1436c15b3b5fe2a0bd383f3046010186da44
   ZLPhotoBrowser: 129e6ddab4031aa5217074c83db64fc6e4639f2e
 
-PODFILE CHECKSUM: 34af4e80a1aed03f5ab1201952a9cab96f1313bc
+PODFILE CHECKSUM: bf224d8061b585681563a4be0f0b038ab1493996
 
 COCOAPODS: 1.9.3

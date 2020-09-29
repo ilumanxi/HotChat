@@ -20,6 +20,11 @@ enum UserAPI {
     case userConfig(type: Int)
     
     case delQuestion(labelId: Int)
+    
+    case followList(type: Int)
+    
+    case userEditAttestation(userName: String, identityNum: String, identityPicFront: String?, identityPicFan: String?)
+    case userAttestationInfo
 }
 
 
@@ -42,6 +47,12 @@ extension UserAPI: TargetType {
             return "user/editTips"
         case .delQuestion:
             return "user/delQuestion"
+        case .followList:
+            return "user/followList"
+        case .userEditAttestation:
+            return "user/userEditAttestation"
+        case .userAttestationInfo:
+            return "user/userAttestationInfo"
         }
     }
     
@@ -73,6 +84,17 @@ extension UserAPI: TargetType {
             parameters = [
                 "labelId" : labelId
             ]
+        case .followList(type: let type):
+            parameters =  ["type" : type ]
+        case .userEditAttestation(userName: let userName, identityNum: let identityNum, identityPicFront: let identityPicFront, identityPicFan: let identityPicFan):
+            parameters = [
+                "userName" : userName,
+                "identityNum" : identityNum,
+                "identityPicFront" : identityPicFront ?? "",
+                "identityPicFan" : identityPicFan ?? ""
+            ]
+        case .userAttestationInfo:
+            parameters =  [:]
         }
         
         return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)

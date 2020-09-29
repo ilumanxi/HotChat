@@ -27,9 +27,9 @@ class UserInfoViewController: SegementSlideDefaultViewController {
     
     lazy var contentViewControllers: [MeRelationshipViewController] = {
         return Relationship.allCases
-            .map { _ in
-                let vc = MeRelationshipViewController(style: .grouped)
-                vc.tableView.backgroundColor = .random
+            .map {  
+                let vc = MeRelationshipViewController(style: .plain)
+                vc.relationship = $0
                 return vc
             }
     }()
