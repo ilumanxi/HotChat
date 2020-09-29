@@ -264,20 +264,6 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 1 files.
-  struct file {
-    /// Resource file `apple-app-site-association`.
-    static let appleAppSiteAssociation = Rswift.FileResource(bundle: R.hostingBundle, name: "apple-app-site-association", pathExtension: "")
-
-    /// `bundle.url(forResource: "apple-app-site-association", withExtension: "")`
-    static func appleAppSiteAssociation(_: Void = ()) -> Foundation.URL? {
-      let fileResource = R.file.appleAppSiteAssociation
-      return fileResource.bundle.url(forResource: fileResource)
-    }
-
-    fileprivate init() {}
-  }
-
   /// This `R.image` struct is generated, and contains static references to 64 images.
   struct image {
     /// Image `account-register-succeed`.
@@ -860,7 +846,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 8 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 10 nibs.
   struct nib {
     /// Nib `CommunityHeaderView`.
     static let communityHeaderView = _R.nib._CommunityHeaderView()
@@ -878,6 +864,10 @@ struct R: Rswift.Validatable {
     static let userInfoChatView = _R.nib._UserInfoChatView()
     /// Nib `UserInfoHeaderView`.
     static let userInfoHeaderView = _R.nib._UserInfoHeaderView()
+    /// Nib `WalletEnergyViewCell`.
+    static let walletEnergyViewCell = _R.nib._WalletEnergyViewCell()
+    /// Nib `WalletProductViewCell`.
+    static let walletProductViewCell = _R.nib._WalletProductViewCell()
 
     #if os(iOS) || os(tvOS)
     /// `UINib(name: "CommunityHeaderView", in: bundle)`
@@ -943,6 +933,22 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "WalletEnergyViewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.walletEnergyViewCell) instead")
+    static func walletEnergyViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.walletEnergyViewCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "WalletProductViewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.walletProductViewCell) instead")
+    static func walletProductViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.walletProductViewCell)
+    }
+    #endif
+
     static func communityHeaderView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> CommunityHeaderView? {
       return R.nib.communityHeaderView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? CommunityHeaderView
     }
@@ -973,6 +979,14 @@ struct R: Rswift.Validatable {
 
     static func userInfoHeaderView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UserInfoHeaderView? {
       return R.nib.userInfoHeaderView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UserInfoHeaderView
+    }
+
+    static func walletEnergyViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WalletEnergyViewCell? {
+      return R.nib.walletEnergyViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WalletEnergyViewCell
+    }
+
+    static func walletProductViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WalletProductViewCell? {
+      return R.nib.walletProductViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WalletProductViewCell
     }
 
     fileprivate init() {}
@@ -1393,6 +1407,28 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "me-sex-man", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'me-sex-man' is used in nib 'UserInfoHeaderView', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _WalletEnergyViewCell: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "WalletEnergyViewCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WalletEnergyViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WalletEnergyViewCell
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _WalletProductViewCell: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "WalletProductViewCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> WalletProductViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? WalletProductViewCell
       }
 
       fileprivate init() {}

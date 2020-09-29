@@ -177,7 +177,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="消息" id="A3l-uW-gIy">
                         <rightBarButtonItems>
-                            <barButtonItem title="Item" image="chat-more" id="va5-Rf-Txc"/>
+                            <barButtonItem title="Item" image="chat-more" id="va5-Rf-Txc">
+                                <connections>
+                                    <action selector="moreAction:" destination="csS-6k-fQY" id="Wo1-F4-Cc0"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem title="Item" image="chat-contact" id="wq2-pV-DR1"/>
                         </rightBarButtonItems>
                     </navigationItem>

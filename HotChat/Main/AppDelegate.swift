@@ -9,6 +9,8 @@
 import UIKit
 import AuthenticationServices
 import SYBPush
+import TXIMSDK_TUIKit_iOS
+import SwiftyStoreKit
 
 
 @UIApplicationMain
@@ -31,6 +33,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PlatformAuthorization.application(application, didFinishLaunchingWithOptions: launchOptions)
         
         registerANPSNotification(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        // see notes below for the meaning of Atomic / Non-Atomic
+            SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
+                for purchase in purchases {
+                    switch purchase.transaction.transactionState {
+                    case .purchased, .restored:
+                        if purchase.needsFinishTransaction {
+                            // Deliver content from server, then:
+                            SwiftyStoreKit.finishTransaction(purchase.transaction)
+                        }
+                        // Unlock content
+                    case .failed, .purchasing, .deferred:
+                        break // do nothing
+                    }
+                }
+            }
         
         return true
     }
@@ -56,8 +74,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let token = AccessTokenStore.shared.current!.value
         SigninDefaultAPI.share.signin(token)
-            .subscribe(onSuccess:{ result in
-                Log.print(result)
+            .subscribe(onSuccess:{ response in
+                if response.isSuccessd, let user = response.data {
+                    TUIKit.sharedInstance()?.setup(withAppId: 1400424749, logLevel: .LOG_DEBUG)
+                    TUIKit.sharedInstance()?.login(user.userId, userSig: user.imUserSig, succ: {
+                        Log.print("succ")
+                    }, fail: { (code, msg) in
+                        Log.print("\(code)__\(msg ?? "")")
+                    })
+                }
             }, onError: { error in
                 Log.print(error)
             })

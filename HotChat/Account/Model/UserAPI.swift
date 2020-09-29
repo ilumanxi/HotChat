@@ -25,6 +25,9 @@ enum UserAPI {
     
     case userEditAttestation(userName: String, identityNum: String, identityPicFront: String?, identityPicFan: String?)
     case userAttestationInfo
+    
+    /// 平台类型 1支付宝微信 2苹果
+    case amountList(type: Int)
 }
 
 
@@ -53,6 +56,8 @@ extension UserAPI: TargetType {
             return "user/userEditAttestation"
         case .userAttestationInfo:
             return "user/userAttestationInfo"
+        case .amountList:
+            return "user/amountList"
         }
     }
     
@@ -74,7 +79,7 @@ extension UserAPI: TargetType {
         case .userinfo:
             parameters =  [:]
         case .userConfig(type: let type):
-            parameters =  ["type" : type ]
+            parameters =  ["type" : type]
         case .editTips(labelId: let labelId, content: let content):
             parameters = [
                 "labelId" : labelId,
@@ -95,6 +100,8 @@ extension UserAPI: TargetType {
             ]
         case .userAttestationInfo:
             parameters =  [:]
+        case .amountList(type: let type):
+            parameters =  ["type" : type]
         }
         
         return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)

@@ -6,18 +6,20 @@ PODS:
   - CollectionKit/Core (2.4.0)
   - CryptoSwift (1.3.2)
   - DynamicColor (4.2.0)
+  - DZNEmptyDataSet (1.8.1)
   - FSPagerView (0.8.3)
   - HandyJSON (5.0.3-beta)
   - HBDNavigationBar (1.7.7)
   - IBAnimatable (6.1.0)
-  - Kingfisher (5.15.1):
-    - Kingfisher/Core (= 5.15.1)
-  - Kingfisher/Core (5.15.1)
+  - Kingfisher (5.15.4):
+    - Kingfisher/Core (= 5.15.4)
+  - Kingfisher/Core (5.15.4)
   - Koloda (5.0.1):
     - pop (~> 1.0)
   - LGButton (1.1.6)
-  - MarqueeLabel (4.0.2)
+  - MarqueeLabel (4.0.3)
   - MBProgressHUD (1.2.0)
+  - MMLayout (0.2.0)
   - Moya/Core (14.0.0):
     - Alamofire (~> 5.0)
   - Moya/RxSwift (14.0.0):
@@ -33,6 +35,12 @@ PODS:
     - R.swift.Library (~> 5.2.0)
   - R.swift.Library (5.2.0)
   - ReachabilitySwift (4.3.1)
+  - ReactiveObjC (3.1.1)
+  - Realm (5.4.4):
+    - Realm/Headers (= 5.4.4)
+  - Realm/Headers (5.4.4)
+  - RealmSwift (5.4.4):
+    - Realm (= 5.4.4)
   - Reusable (4.1.1):
     - Reusable/Storyboard (= 4.1.1)
     - Reusable/View (= 4.1.1)
@@ -51,6 +59,9 @@ PODS:
   - RxSwiftUtilities (2.2.0):
     - RxCocoa (~> 5.1)
     - RxSwift (~> 5.1)
+  - SDWebImage (5.9.0):
+    - SDWebImage/Core (= 5.9.0)
+  - SDWebImage/Core (5.9.0)
   - SegementSlide (3.0.1)
   - SnapKit (5.0.1)
   - SPAlertController (4.0.0)
@@ -58,19 +69,30 @@ PODS:
   - SwiftyStoreKit (0.16.1)
   - SYBPush/normal (1.6.2)
   - TagListView (1.4.1)
+  - Toast (4.0.0)
   - Toast-Swift (5.0.1)
+  - TXIMSDK_iOS (5.0.6)
+  - TXIMSDK_TUIKit_iOS (5.0.7):
+    - MMLayout (= 0.2.0)
+    - ReactiveObjC (= 3.1.1)
+    - SDWebImage (= 5.9.0)
+    - Toast (= 4.0.0)
+    - TXIMSDK_iOS (= 5.0.6)
+    - TXLiteAVSDK_TRTC (= 7.7.9458)
+  - TXLiteAVSDK_TRTC (7.7.9458)
   - WechatOpenSDK (1.8.7.1)
-  - ZLPhotoBrowser (4.0.4):
-    - ZLPhotoBrowser/Core (= 4.0.4)
-  - ZLPhotoBrowser/Core (4.0.4)
+  - ZLPhotoBrowser (4.0.7):
+    - ZLPhotoBrowser/Core (= 4.0.7)
+  - ZLPhotoBrowser/Core (4.0.7)
 
 DEPENDENCIES:
   - ActiveLabel
   - CollectionKit
   - CryptoSwift
   - DynamicColor
+  - DZNEmptyDataSet
   - FSPagerView
-  - HandyJSON (= 5.0.3-beta)
+  - HandyJSON (~> 5.0.3-beta)
   - HBDNavigationBar
   - IBAnimatable
   - Kingfisher
@@ -82,6 +104,7 @@ DEPENDENCIES:
   - NotificationBannerSwift
   - "NSObject+Rx"
   - R.swift
+  - RealmSwift
   - Reusable
   - RxCocoa
   - RxReachability
@@ -95,6 +118,7 @@ DEPENDENCIES:
   - SYBPush/normal (from `https://github.com/isandboy/SYBPush.git`)
   - TagListView
   - Toast-Swift
+  - TXIMSDK_TUIKit_iOS
   - WechatOpenSDK
   - ZLPhotoBrowser
 
@@ -105,6 +129,7 @@ SPEC REPOS:
     - CollectionKit
     - CryptoSwift
     - DynamicColor
+    - DZNEmptyDataSet
     - FSPagerView
     - HandyJSON
     - HBDNavigationBar
@@ -114,6 +139,7 @@ SPEC REPOS:
     - LGButton
     - MarqueeLabel
     - MBProgressHUD
+    - MMLayout
     - Moya
     - NotificationBannerSwift
     - "NSObject+Rx"
@@ -121,19 +147,27 @@ SPEC REPOS:
     - R.swift
     - R.swift.Library
     - ReachabilitySwift
+    - ReactiveObjC
+    - Realm
+    - RealmSwift
     - Reusable
     - RxCocoa
     - RxReachability
     - RxRelay
     - RxSwift
     - RxSwiftUtilities
+    - SDWebImage
     - SegementSlide
     - SnapKit
     - SPAlertController
     - SwiftDate
     - SwiftyStoreKit
     - TagListView
+    - Toast
     - Toast-Swift
+    - TXIMSDK_iOS
+    - TXIMSDK_TUIKit_iOS
+    - TXLiteAVSDK_TRTC
     - WechatOpenSDK
     - ZLPhotoBrowser
 
@@ -152,15 +186,17 @@ SPEC CHECKSUMS:
   CollectionKit: 8f01e7629185bb81072c4aa734d105df5c2d1c8b
   CryptoSwift: 093499be1a94b0cae36e6c26b70870668cb56060
   DynamicColor: c475f66bda1cabf602f2c54ac1171c0c07148a5a
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
   HandyJSON: 88e8ea5f66ab65c3b8768499a1935d0509c460d4
   HBDNavigationBar: 6ba38b99637039c831ce460364d5398f29fa0685
   IBAnimatable: 99dddd4c0625884a301ba3ecbc1615f8a390368e
-  Kingfisher: 3260a05e78a17fdbeb2f14dd8e66ffc768491231
+  Kingfisher: 657dc1077e5bbbfff864194c79f29e35b722d062
   Koloda: d07b9199a383abc5898b62aa945a599f5e7c0c4b
   LGButton: 9f0a7f9d3030e3f504108342f6b66d64a429371b
-  MarqueeLabel: f762aa681ae201f66c1d511858b171f75d83013a
+  MarqueeLabel: a1ea597e347506640a5b00fda9c07b572753f45e
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  MMLayout: 3fb59d58eeb8656c64e61d550fb0088e10666c11
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   NotificationBannerSwift: 713e20f21b6105f4a36a00e5d9fa414a930d3d8e
   "NSObject+Rx": fa6bbcc1ab1faa06b01466bc09b1e0692bbc5946
@@ -168,12 +204,16 @@ SPEC CHECKSUMS:
   R.swift: 7c52cdc57a66840ffe6cbd8a823d732059d42a32
   R.swift.Library: 5ba4f1631300caf9a4d890186930da85d540769d
   ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
+  ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
+  Realm: b845bf406e03b9c52a53e0de2394480288aa532a
+  RealmSwift: b524ff07e4e92a34f4aecbe6ed1a613979a08bb9
   Reusable: 53a9acf5c536f229b31b5865782414b508252ddb
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxReachability: 21d3e96f39bc166a21c357e923f47dec148ca97b
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   RxSwiftUtilities: 59e2d82daf74b9962f732b09e6da85a26281cfc0
+  SDWebImage: 62ae4a18473520c67b79e9724c31a63599cc9423
   SegementSlide: 83b56ffb66b9c0edc4e4f2a74229309c62915db3
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SPAlertController: b245d7a5e17d612da051f2612aca3703f21d108f
@@ -181,10 +221,14 @@ SPEC CHECKSUMS:
   SwiftyStoreKit: 6b9c08810269f030586dac1fae8e75871a82e84a
   SYBPush: 1b1c2f0cc16e4eaa68adf64910bcdf1a2d60692c
   TagListView: a1c236d17960a0cf64156725a76ce6d73ebce2be
+  Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
+  TXIMSDK_iOS: cc65f97fb454811757f0d71d54a15726b995c0d7
+  TXIMSDK_TUIKit_iOS: 47d61d60bbe50f1d557ccf17dcef4c85a0a6d456
+  TXLiteAVSDK_TRTC: 87facf366c7d073d8ab4d6249be9291f4d599b83
   WechatOpenSDK: 6a4d1436c15b3b5fe2a0bd383f3046010186da44
-  ZLPhotoBrowser: 129e6ddab4031aa5217074c83db64fc6e4639f2e
+  ZLPhotoBrowser: f85662753ea4cfebff08b3512b17467467634fb2
 
-PODFILE CHECKSUM: bf224d8061b585681563a4be0f0b038ab1493996
+PODFILE CHECKSUM: f5b56bb11cec4fef2fc4bed8deef63881322ec11
 
 COCOAPODS: 1.9.3

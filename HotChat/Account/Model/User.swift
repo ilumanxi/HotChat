@@ -72,6 +72,12 @@ struct User: HandyJSON {
     var status: Int = 0
     var isInit: Bool = false
     
+    /// IM
+    
+    var imUserSig: String = ""
+    var imExpire: TimeInterval = 0
+    
+    
     //  能量
     var userEnergy: Int = 0
     

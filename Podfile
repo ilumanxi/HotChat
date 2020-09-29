@@ -15,7 +15,7 @@ install! 'cocoapods', disable_input_output_paths: true
 
 target 'HotChat' do
   # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
+#  use_frameworks!
 
   # Pods for HotChat
     pod 'RxSwift'
@@ -29,7 +29,7 @@ target 'HotChat' do
     pod 'IBAnimatable'
     pod 'DynamicColor'
 
-    pod 'HandyJSON', "5.0.3-beta"
+    pod 'HandyJSON', "~> 5.0.3-beta"
     
     pod 'Reusable'
     pod 'Kingfisher'
@@ -41,7 +41,7 @@ target 'HotChat' do
 #    pod 'SwifterSwift'
     pod 'Toast-Swift'
     pod "CollectionKit"
-#    pod 'RealmSwift'
+    pod 'RealmSwift'
     pod 'HBDNavigationBar'
 #    pod 'HXPageViewController'
 #    pod 'WKWebViewJavascriptBridge'
@@ -60,7 +60,7 @@ target 'HotChat' do
     pod "Koloda"
 #    pod 'IBAnimatable'
     #列表视图空视图
-#    pod 'DZNEmptyDataSet'
+    pod 'DZNEmptyDataSet'
     #图片浏览器
 #    pod 'SKPhotoBrowser'
 #    pod 'MediaBrowser'
@@ -72,7 +72,7 @@ target 'HotChat' do
     
     #pod 'SYBPush/idfa',  :git => 'https://github.com/isandboy/SYBPush.git'
     pod 'SYBPush/normal',  :git => 'https://github.com/isandboy/SYBPush.git'
-#    pod 'TXIMSDK_TUIKit_iOS'
+    pod 'TXIMSDK_TUIKit_iOS'
   #  pod 'MJRefresh', '~> 3.2.0', :modular_headers => true # 刷新，以后可以考虑用UIRefreshControl
   #  pod 'TYPagerController', :modular_headers => true
 
@@ -85,4 +85,14 @@ target 'HotChat' do
     # Pods for testing
   end
 
+end
+
+
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '10.0'
+        end
+    end
 end

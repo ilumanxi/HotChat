@@ -111,6 +111,12 @@ class MeViewController: UITableViewController, Autorotate {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        if indexPath.section ==  0 {
+            let vc = WalletViewController()
+            
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     fileprivate func config(cell: UITableViewCell, for indexPath: IndexPath) {
