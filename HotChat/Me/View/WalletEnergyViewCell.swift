@@ -9,6 +9,9 @@
 import UIKit
 
 class WalletEnergyViewCell: UITableViewCell {
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

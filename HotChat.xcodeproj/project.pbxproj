@@ -117,6 +117,7 @@
 		26E14E5E251C6E8800645F08 /* HotChatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E14E5D251C6E8800645F08 /* HotChatButton.swift */; };
 		26E14E63251C766900645F08 /* UserInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E14E62251C766900645F08 /* UserInformationViewController.swift */; };
 		26E14E68251C861A00645F08 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E14E67251C861A00645F08 /* DatePickerViewController.swift */; };
+		26EE0E4C25245BD800233ED5 /* PayAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EE0E4B25245BD800233ED5 /* PayAPI.swift */; };
 		26F25C932509C36B00F808EA /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F25C922509C36B00F808EA /* TabBarButton.swift */; };
 		26F25C96250A1B3800F808EA /* SeparatorLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F25C95250A1B3800F808EA /* SeparatorLine.swift */; };
 		26F25C98250A359300F808EA /* InterestedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F25C97250A359300F808EA /* InterestedViewController.swift */; };
@@ -275,6 +276,7 @@
 		26E14E5D251C6E8800645F08 /* HotChatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotChatButton.swift; sourceTree = "<group>"; };
 		26E14E62251C766900645F08 /* UserInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformationViewController.swift; sourceTree = "<group>"; };
 		26E14E67251C861A00645F08 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		26EE0E4B25245BD800233ED5 /* PayAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayAPI.swift; sourceTree = "<group>"; };
 		26F25C922509C36B00F808EA /* TabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
 		26F25C95250A1B3800F808EA /* SeparatorLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorLine.swift; sourceTree = "<group>"; };
 		26F25C97250A359300F808EA /* InterestedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestedViewController.swift; sourceTree = "<group>"; };
@@ -411,6 +413,7 @@
 				26373C71250233F50066FF3B /* Model */,
 				2643EB7E2500B04100FBBE49 /* View */,
 				26F8947525207A9A00A45648 /* UploadFileAPI.swift */,
+				26EE0E4B25245BD800233ED5 /* PayAPI.swift */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -1082,6 +1085,7 @@
 				26425C16251DDF64006D2F4C /* UserBasicInformationViewController.swift in Sources */,
 				2643EBC02500B04100FBBE49 /* Bundle+App.swift in Sources */,
 				26A20AEF25189E740061BBB8 /* LoginManager.swift in Sources */,
+				26EE0E4C25245BD800233ED5 /* PayAPI.swift in Sources */,
 				267954E82507311E00A72954 /* LegalLiabilityViewController.swift in Sources */,
 				265C8A5B25134C3500E220BD /* ForgotPasswordViewModel.swift in Sources */,
 				26F8947B252083B800A45648 /* LabelView.swift in Sources */,
@@ -1282,7 +1286,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1338,7 +1342,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1359,7 +1363,7 @@
 				DEVELOPMENT_TEAM = TJ99XNWKL5;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = HotChat/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1384,7 +1388,7 @@
 				DEVELOPMENT_TEAM = TJ99XNWKL5;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = HotChat/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

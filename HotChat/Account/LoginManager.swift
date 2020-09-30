@@ -27,7 +27,9 @@ class LoginManager {
         case token(token: String, tokenType: TokenIdentifier)
         
     }
+
     
+    var user: User?
     
     private init() {}
     
@@ -47,6 +49,7 @@ class LoginManager {
     
     func logout() {
         try! AccessTokenStore.shared.removeCurrentAccessToken()
+        user = nil
         NotificationCenter.default.post(name: .userDidLogout, object: nil)
     }
     

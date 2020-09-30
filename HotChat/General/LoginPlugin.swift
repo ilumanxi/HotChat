@@ -38,7 +38,7 @@ extension LoginPlugin: PluginType {
     
     func willSend(_ request: RequestType, target: TargetType) {
         
-        if !shouldHandleRequest(request.request!, prefixs: prefixs) { return }
+//        if !shouldHandleRequest(request.request!, prefixs: prefixs) { return }
     }
     
     
@@ -64,7 +64,7 @@ extension LoginPlugin: PluginType {
         }
         
         
-        if !shouldHandleRequest(response.request!, prefixs: prefixs) { return }
+//        if !shouldHandleRequest(response.request!, prefixs: prefixs) { return }
         
         if shouldHandleRequest(response.request!, prefixs: loginPrefixs) {
             handleLogin(response)
@@ -87,6 +87,8 @@ extension LoginPlugin: PluginType {
         if let user = result.data, result.isSuccessd {
             
             let token = AccessToken(value: user.token)
+            
+            LoginManager.shared.user = user
             
             if user.isInit {
                 
@@ -116,9 +118,9 @@ extension LoginPlugin: PluginType {
             return false
         }
         
-        let path = urlComponents.path.replacingOccurrences(of: "/gateway.php/", with: "")
+        let path = urlComponents.path
                 
-        for prefix in prefixs where path.hasPrefix(prefix) {
+        for prefix in prefixs where path.contains(prefix) {
             
             return  true
         }

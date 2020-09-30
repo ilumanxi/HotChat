@@ -7,10 +7,24 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import StoreKit
 import SwiftyStoreKit
 
+// MARK: - SKProduct
+extension SKProduct {
+    /// - returns: The cost of the product formatted in the local currency.
+    var regularPrice: String? {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = self.priceLocale
+        return formatter.string(from: self.price)
+    }
+}
 
-class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, Wireframe {
     
     
     // com.friday.Chat.energy.6
@@ -53,6 +67,8 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
+    let payAPI = RequestAPI<PayAPI>()
+    
     override func loadView() {
         super.loadView()
         tableView.frame = view.bounds
@@ -65,23 +81,73 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(UINib(nibName: "WalletProductViewCell", bundle: nil), forCellReuseIdentifier: "WalletProductViewCell")
-
+        title = "我的钱包"
         
-        API.request(.amountList(type: 2), type: HotChatResponse<[Product]>.self)
-            .subscribe(onSuccess: {[weak self] response in
-                if response.isSuccessd {
-                    let section = Section(type: .product, elements: response.data!)
-                    self?.data.append(section)
-                }
+        tableView.register(UINib(nibName: "WalletEnergyViewCell", bundle: nil), forCellReuseIdentifier: "WalletEnergyViewCell")
+        tableView.register(UINib(nibName: "WalletProductViewCell", bundle: nil), forCellReuseIdentifier: "WalletProductViewCell")
+        
+        productInfo()
+            .subscribe(onSuccess: { [weak self] products in
                 
-            }, onError: { error in
+                let energySection = Section(type: .energy, elements: [LoginManager.shared.user!])
+                let productSection = Section(type: .product, elements: products)
                 
+                self?.data = [energySection, productSection]
+                
+            }, onError: { [weak self] error in
+                self?.show(error.localizedDescription)
             })
             .disposed(by: rx.disposeBag)
         
     }
     
+    func productInfo() -> Single<[(Product, SKProduct)]> {
+        
+        return API.request(.amountList(type: 2), type: HotChatResponse<[Product]>.self)
+            .flatMap{ response -> Single<([Product], [SKProduct])> in
+
+                guard let data = response.data else {
+                    throw HotChatError.generalError(reason: HotChatError.GeneralErrorReason.conversionError(string: response.msg, encoding: .utf8))
+                }
+
+                let productIds = data.compactMap{ "com.friday.Chat.energy.\($0.money.intValue)" }
+               
+                return Single.create { single in
+                    
+                    SwiftyStoreKit.retrieveProductsInfo(Set(productIds)) { result in
+                        
+                        if let error = result.error {
+                            single(.error(error))
+                        }
+                        else {
+                            single(.success((data, Array(result.retrievedProducts))))
+                        }
+                    }
+
+                   return Disposables.create()
+                }
+
+            }
+            .map(productSorted)
+        
+    }
+    
+    
+    func productSorted(_ product: ([Product], [SKProduct])) -> [(Product, SKProduct)] {
+        let sourceProduct = product.0
+        let appleProduct = product.1
+        
+        func findProduct(_ product: SKProduct) -> Product {
+            return sourceProduct.first {
+                "com.friday.Chat.energy.\($0.money.intValue)" == product.productIdentifier
+            }!
+        }
+        return appleProduct
+            .compactMap{ (findProduct($0), $0) }
+            .sorted { (l, r) -> Bool in
+                l.1.price.intValue < r.1.price.intValue
+            }
+    }
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -112,18 +178,103 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         if section.type == .energy {
             let cell = tableView.dequeueReusableCell(for: indexPath, cellType: WalletEnergyViewCell.self)
+            cell.titleLabel.text = "能量：\(LoginManager.shared.user?.userEnergy.description ?? "0")"
             return cell
         }
         else {
-            let content = section.elements as! [Product]
+            let content = section.elements as! [(Product, SKProduct)]
             
             let product = content[indexPath.row]
-            
+           
             let cell = tableView.dequeueReusableCell(for: indexPath, cellType: WalletProductViewCell.self)
-            cell.titleLabel.text = "\(product.energy) 能量"
-            cell.priceButton.setTitle("¥ \(Int(product.money))", for: .normal)
+            cell.titleLabel.text = product.1.localizedTitle
+            cell.priceButton.setTitle( product.1.regularPrice?.replacingOccurrences(of: ".00", with: ""), for: .normal)
             return cell
         }
     }
+    
+    /// Starts a purchase when the user taps an available product row.
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let section = data[indexPath.section]
+        
+        // Only available products can be bought.
+        if section.type == .product, let content = section.elements as? [(Product, SKProduct)] {
+            let product = content[indexPath.row]
+            createOrder(product)
+                .flatMap(payOrder)
+                .subscribe(onSuccess: { response in
+                    print(response)
+                    
+                }, onError: { error in
+                    print(error)
+                })
+                .disposed(by: rx.disposeBag)
+            
+        }
+    }
+    
+    func payOrder(_ order: (Ordrer, Product, SKProduct)) -> Single<HotChatResponseEmptyDataType> {
+        return Single.create { single in
+            
+            // Attempt to purchase the tapped product.
+            SwiftyStoreKit.purchaseProduct(order.2, atomically: true, applicationUsername: order.0.outTradeNo) { result in
+                switch result {
+                case .success(let purchase):
+                    
+                    let receipt =  try! Data(contentsOf: Bundle.main.appStoreReceiptURL!)
+                    
+                    var orderId: String =  order.0.outTradeNo
+                    if let transaction = purchase.transaction as? SKPaymentTransaction, let applicationUsername =  transaction.payment.applicationUsername {
+                        orderId =  applicationUsername
+                    }
+                    
+                    let transactionId = purchase.transaction.transactionIdentifier ?? ""
+                    let parameters: [String : Any] = [
+                        "tradeNo" : transactionId,
+                        "outTradeNo" : orderId,
+                        "receiptData" : receipt.base64EncodedString()
+                    ]
+                    
+                    single(.success(parameters))
+                    
+                case .error(let error):
+                    single(.error(error))
+                }
+            }
+           
+           return Disposables.create()
+        }
+        .flatMap(payStatus)
+    }
+    
+    func payStatus(_ parameters: [String : Any]) -> Single<HotChatResponseEmptyDataType> {
+        return payAPI.request(.notify(parameters), type: HotChatResponseEmptyDataType.self)
+    }
+    
+    func createOrder(_ product: (Product, SKProduct)) -> Single<(Ordrer, Product, SKProduct)> {
+        
+        let parameters: [String : Any] =  [
+            "subject" : product.1.localizedTitle,
+            "body": product.1.localizedDescription,
+            "amount" : product.1.price.doubleValue,
+            "moneyId" : product.0.moneyId,
+            "energy" : product.0.energy
+        ]
+        
+        return payAPI.request(.ceateOrder(parameters), type: HotChatResponse<[String : Any]>.self)
+            .map { response in
+                if response.isSuccessd {
+                    let order =  Ordrer.deserialize(from: response.data, designatedPath: "params")!
+                    return (order, product.0, product.1)
+                }
+                else {
+                    throw HotChatError.generalError(reason: HotChatError.GeneralErrorReason.conversionError(string: response.msg, encoding: .utf8))
+                }
+               
+            }
+    }
 
 }
+
+
+

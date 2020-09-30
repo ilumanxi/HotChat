@@ -23,7 +23,7 @@ extension ObservableType where Element == Response {
 public extension PrimitiveSequence where Trait == SingleTrait, Element == Response {
 
     /// Maps received data at key path into a Decodable object. If the conversion fails, the signal errors.
-    func map<D: HandyJSON>(_ type: D.Type, atKeyPath keyPath: String? = nil, using decoder: JSONDecoder = JSONDecoder(), failsOnEmptyData: Bool = true) -> Single<D> {
+    func map<D: HandyJSON>(_ type: D.Type, atKeyPath keyPath: String? = nil) -> Single<D> {
         return flatMap { .just( try $0.map(D.self)) }
     }
 }

@@ -45,9 +45,9 @@ extension SignaturePlugin: PluginType {
             return false
         }
         
-        let path = urlComponents.path.replacingOccurrences(of: "/gateway.php/", with: "")
+        let path = urlComponents.path
                 
-        for prefix in prefixs where path.hasPrefix(prefix) {
+        for prefix in prefixs where path.contains(prefix) {
             
             return  true
         }

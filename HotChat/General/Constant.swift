@@ -29,7 +29,10 @@ struct Constant {
 
 
 extension Constant {
-    static let APIHost = "192.168.0.251/gateway.php"
+//    static let APIHost = "192.168.0.251/gateway.php"
+    static let APIHost = "pic.zhouwu5.com"
+    
+    
     static let salt: String = "AJ265TT96e930d4d0YUddbcbPjc39CFK"
     static let hotChatScheme = "hotchatauth2"
 }
