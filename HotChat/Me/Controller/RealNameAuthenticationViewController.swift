@@ -11,7 +11,7 @@ import ZLPhotoBrowser
 import MBProgressHUD
 import Kingfisher
 
-class RealNameAuthenticationViewController: UITableViewController, Wireframe {
+class RealNameAuthenticationViewController: UITableViewController, IndicatorDisplay {
     
 
     fileprivate var isShowUploadCard: Bool = false {

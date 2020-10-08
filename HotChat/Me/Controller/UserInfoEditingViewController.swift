@@ -14,7 +14,7 @@ import RxCocoa
 import MBProgressHUD
 
 
-class UserInfoEditingViewController: UITableViewController, Wireframe {
+class UserInfoEditingViewController: UITableViewController, IndicatorDisplay {
     
     
     let userAPI = RequestAPI<UserAPI>()

@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class UserInfoInputTextViewController: UITableViewController, Wireframe {
+class UserInfoInputTextViewController: UITableViewController, IndicatorDisplay {
     
     var content: (title: String, topic: String?, text: String?)!
     

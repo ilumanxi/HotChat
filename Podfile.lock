@@ -11,9 +11,9 @@ PODS:
   - HandyJSON (5.0.3-beta)
   - HBDNavigationBar (1.7.7)
   - IBAnimatable (6.1.0)
-  - Kingfisher (5.15.4):
-    - Kingfisher/Core (= 5.15.4)
-  - Kingfisher/Core (5.15.4)
+  - Kingfisher (5.15.5):
+    - Kingfisher/Core (= 5.15.5)
+  - Kingfisher/Core (5.15.5)
   - Koloda (5.0.1):
     - pop (~> 1.0)
   - LGButton (1.1.6)
@@ -36,11 +36,11 @@ PODS:
   - R.swift.Library (5.2.0)
   - ReachabilitySwift (4.3.1)
   - ReactiveObjC (3.1.1)
-  - Realm (5.4.4):
-    - Realm/Headers (= 5.4.4)
-  - Realm/Headers (5.4.4)
-  - RealmSwift (5.4.4):
-    - Realm (= 5.4.4)
+  - Realm (5.4.6):
+    - Realm/Headers (= 5.4.6)
+  - Realm/Headers (5.4.6)
+  - RealmSwift (5.4.6):
+    - Realm (= 5.4.6)
   - Reusable (4.1.1):
     - Reusable/Storyboard (= 4.1.1)
     - Reusable/View (= 4.1.1)
@@ -191,7 +191,7 @@ SPEC CHECKSUMS:
   HandyJSON: 88e8ea5f66ab65c3b8768499a1935d0509c460d4
   HBDNavigationBar: 6ba38b99637039c831ce460364d5398f29fa0685
   IBAnimatable: 99dddd4c0625884a301ba3ecbc1615f8a390368e
-  Kingfisher: 657dc1077e5bbbfff864194c79f29e35b722d062
+  Kingfisher: e3ec347a5ab8817b7585ef46923a2d2b9a7d8fbe
   Koloda: d07b9199a383abc5898b62aa945a599f5e7c0c4b
   LGButton: 9f0a7f9d3030e3f504108342f6b66d64a429371b
   MarqueeLabel: a1ea597e347506640a5b00fda9c07b572753f45e
@@ -205,8 +205,8 @@ SPEC CHECKSUMS:
   R.swift.Library: 5ba4f1631300caf9a4d890186930da85d540769d
   ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
-  Realm: b845bf406e03b9c52a53e0de2394480288aa532a
-  RealmSwift: b524ff07e4e92a34f4aecbe6ed1a613979a08bb9
+  Realm: bb8d7be40d0bc92f139c47095124513c489c0baf
+  RealmSwift: c469118d55feccd985f1de12973c6ef5587213ca
   Reusable: 53a9acf5c536f229b31b5865782414b508252ddb
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxReachability: 21d3e96f39bc166a21c357e923f47dec148ca97b

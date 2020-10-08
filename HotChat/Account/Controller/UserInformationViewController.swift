@@ -13,7 +13,7 @@ import Toast_Swift
 import MBProgressHUD
 import Kingfisher
 
-class UserInformationViewController: UITableViewController, Wireframe {
+class UserInformationViewController: UITableViewController, IndicatorDisplay {
     
     
     @IBOutlet weak var avatarImageView: UIImageView!

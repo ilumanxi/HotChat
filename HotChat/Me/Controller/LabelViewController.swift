@@ -9,7 +9,7 @@
 import UIKit
 
 
-class LabelViewController: UITableViewController, Wireframe {
+class LabelViewController: UITableViewController, IndicatorDisplay {
     
     var labels: [LikeTag] = [] {
         didSet {

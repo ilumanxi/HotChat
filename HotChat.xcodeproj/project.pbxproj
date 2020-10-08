@@ -84,7 +84,7 @@
 		26808FDC2519D4B800C9803C /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26808FDB2519D4B800C9803C /* API.swift */; };
 		26808FE12519D5BE00C9803C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26808FE02519D5BE00C9803C /* Constant.swift */; };
 		268297492511AF5800949C7F /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268297482511AF5800949C7F /* SignupViewModel.swift */; };
-		2682974B2511B05300949C7F /* Wireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2682974A2511B05300949C7F /* Wireframe.swift */; };
+		2682974B2511B05300949C7F /* IndicatorDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2682974A2511B05300949C7F /* IndicatorDisplay.swift */; };
 		2682974D2511B0EC00949C7F /* SignupProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2682974C2511B0EC00949C7F /* SignupProtocols.swift */; };
 		268BB25E251D9B3200001DF3 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268BB25D251D9B3200001DF3 /* UserAPI.swift */; };
 		268E3E602521D074000E4A33 /* RelationshipViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E3E5E2521D074000E4A33 /* RelationshipViewCell.swift */; };
@@ -239,7 +239,7 @@
 		26808FDB2519D4B800C9803C /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		26808FE02519D5BE00C9803C /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		268297482511AF5800949C7F /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
-		2682974A2511B05300949C7F /* Wireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wireframe.swift; sourceTree = "<group>"; };
+		2682974A2511B05300949C7F /* IndicatorDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorDisplay.swift; sourceTree = "<group>"; };
 		2682974C2511B0EC00949C7F /* SignupProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupProtocols.swift; sourceTree = "<group>"; };
 		268BB25D251D9B3200001DF3 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		268E3E5E2521D074000E4A33 /* RelationshipViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationshipViewCell.swift; sourceTree = "<group>"; };
@@ -489,7 +489,7 @@
 				26E14E5D251C6E8800645F08 /* HotChatButton.swift */,
 				2605A4752513187900017241 /* UIImageExtensions.swift */,
 				26F25C95250A1B3800F808EA /* SeparatorLine.swift */,
-				2682974A2511B05300949C7F /* Wireframe.swift */,
+				2682974A2511B05300949C7F /* IndicatorDisplay.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1149,7 +1149,7 @@
 				26F8947125203BDD00A45648 /* TitleViewController.swift in Sources */,
 				26A8D4E9251C8F3E00B736CF /* Constellation.swift in Sources */,
 				2643EBB62500B04100FBBE49 /* InterfaceOrientation.swift in Sources */,
-				2682974B2511B05300949C7F /* Wireframe.swift in Sources */,
+				2682974B2511B05300949C7F /* IndicatorDisplay.swift in Sources */,
 				26AC1E4C25060D27003EFB44 /* LoginViewController.swift in Sources */,
 				2643EBA92500B04100FBBE49 /* UserInfoMediaCell.swift in Sources */,
 				2643EBBE2500B04100FBBE49 /* CollectionViewGridLayout.swift in Sources */,

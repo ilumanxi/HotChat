@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ForgotPasswordViewController: LegalLiabilityViewController, Wireframe {
+class ForgotPasswordViewController: LegalLiabilityViewController, IndicatorDisplay {
     
     
     @IBOutlet weak var phoneTextField: UITextField!

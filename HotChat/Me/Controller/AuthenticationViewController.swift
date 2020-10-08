@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AuthenticationViewController: UITableViewController, Wireframe {
+class AuthenticationViewController: UITableViewController, IndicatorDisplay {
     
 
     @IBOutlet weak var realNameStatuaLabel: UILabel!

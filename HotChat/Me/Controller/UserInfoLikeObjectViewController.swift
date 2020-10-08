@@ -11,7 +11,7 @@ import MBProgressHUD
 
 
 
-class UserInfoLikeObjectViewController: UIViewController, Wireframe {
+class UserInfoLikeObjectViewController: UIViewController, IndicatorDisplay {
     
     
     @IBOutlet weak var collectionView: UICollectionView!

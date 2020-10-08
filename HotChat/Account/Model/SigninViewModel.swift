@@ -41,7 +41,7 @@ class SigninViewModel {
         dependency: (
             API: SigninAPI,
             validationService: ValidationService,
-            wireframe: Wireframe
+            wireframe: IndicatorDisplay
         )
          
     ) {

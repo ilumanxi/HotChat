@@ -12,7 +12,7 @@ import RxSwift
 import RxCocoa
 
 
-class PhoneSigninViewController: LegalLiabilityViewController, Wireframe {
+class PhoneSigninViewController: LegalLiabilityViewController, IndicatorDisplay {
     
     @IBOutlet weak var phoneTextField: UITextField!
     

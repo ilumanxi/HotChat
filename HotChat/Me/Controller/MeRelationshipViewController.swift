@@ -10,7 +10,7 @@ import UIKit
 import SegementSlide
 import Kingfisher
 
-class MeRelationshipViewController: UITableViewController, SegementSlideContentScrollViewDelegate, Wireframe {
+class MeRelationshipViewController: UITableViewController, SegementSlideContentScrollViewDelegate, IndicatorDisplay {
         
     @objc
     var scrollView: UIScrollView {

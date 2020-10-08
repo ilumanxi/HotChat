@@ -60,7 +60,7 @@ class SignupViewModel {
         dependency: (
             API: SignupAPI,
             validationService: ValidationService,
-            wireframe: Wireframe
+            wireframe: IndicatorDisplay
         )
          
     ) {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TitleViewController: UITableViewController, Wireframe {
+class TitleViewController: UITableViewController, IndicatorDisplay {
     
     
     let onSaved = Delegate<Topic, Void>()

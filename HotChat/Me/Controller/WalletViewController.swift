@@ -24,7 +24,7 @@ extension SKProduct {
 }
 
 
-class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, Wireframe {
+class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, IndicatorDisplay {
     
     
     // com.friday.Chat.energy.6

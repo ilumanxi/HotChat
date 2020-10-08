@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import MBProgressHUD
 
-class UserBasicInformationViewController: UITableViewController, Wireframe {
+class UserBasicInformationViewController: UITableViewController, IndicatorDisplay {
     
     
     @IBOutlet weak var nicknameTextField: UITextField!

@@ -61,7 +61,7 @@ class ForgotPasswordViewModel {
         dependency: (
             API: ForgotPasswordAPI,
             validationService: ValidationService,
-            wireframe: Wireframe
+            wireframe: IndicatorDisplay
         )
          
     ) {

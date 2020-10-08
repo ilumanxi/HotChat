@@ -13,7 +13,7 @@ import NSObject_Rx
 import RxSwiftUtilities
 import Moya
 
-class SignupViewController: LegalLiabilityViewController, Wireframe {
+class SignupViewController: LegalLiabilityViewController, IndicatorDisplay {
 
     @IBOutlet weak var phoneTextField: UITextField!
     
