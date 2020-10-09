@@ -106,7 +106,7 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func productInfo() -> Single<[(Product, SKProduct)]> {
         
-        return API.request(.amountList(type: 2), type: HotChatResponse<[Product]>.self)
+        return API.request(.amountList(type: 2), type: Response<[Product]>.self)
             .flatMap{ response -> Single<([Product], [SKProduct])> in
 
                 guard let data = response.data else {
@@ -266,7 +266,7 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
             "energy" : product.0.energy
         ]
         
-        return payAPI.request(.ceateOrder(parameters), type: HotChatResponse<[String : Any]>.self)
+        return payAPI.request(.ceateOrder(parameters), type: Response<[String : Any]>.self)
             .map { response in
                 if response.isSuccessd {
                     let order =  Ordrer.deserialize(from: response.data, designatedPath: "params")!

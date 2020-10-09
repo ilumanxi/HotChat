@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChatActionViewController: UITableViewController {
+class ConversationActionViewController: UITableViewController {
     
     static func loadFromStoryboard() -> Self {
         

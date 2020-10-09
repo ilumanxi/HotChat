@@ -116,7 +116,7 @@ class RealNameAuthenticationViewController: UITableViewController, IndicatorDisp
             
             let hub = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
             
-            self.uploadAPI.request(.upload(url!), type: HotChatResponse<[RemoteFile]>.self)
+            self.uploadAPI.request(.upload(url!), type: Response<[RemoteFile]>.self)
                 .subscribe(onSuccess: { response in
                     hub.hide(animated: true)
                     if response.isSuccessd {

@@ -2,75 +2,74 @@
 //  ChatViewController.swift
 //  HotChat
 //
-//  Created by 风起兮 on 2020/9/8.
+//  Created by 风起兮 on 2020/10/9.
 //  Copyright © 2020 风起兮. All rights reserved.
 //
 
 import UIKit
 import TXIMSDK_TUIKit_iOS
+import SPAlertController
 
-class ChatViewController: UIViewController {
-    
-    
+class ChatViewController: TUIChatController {
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 创建会话列表
-        let conversationListController = TUIConversationListController()
-        conversationListController.delegate = self
-        addChild(conversationListController)
-        
-        view.addSubview(conversationListController.view)
-        
-        conversationListController.didMove(toParent: self)
-        
-        
-        let chatActionViewController = ChatActionViewController.loadFromStoryboard()
-        conversationListController.addChild(chatActionViewController)
-        chatActionViewController.view.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: chatActionViewController.contentHeight)
-        chatActionViewController.tableView.isScrollEnabled = false
-        conversationListController.tableView.tableHeaderView = chatActionViewController.view
-        chatActionViewController.didMove(toParent: conversationListController)
-        
-        
-       
+        setupNavigationItem()
+
     }
     
-    @IBAction func moreAction(_ sender: Any) {
+    
+    func setupNavigationItem() {
         
-//        let vc =  TUIConversationListController()
-//        vc.delegate = self
-//        navigationController?.pushViewController(vc, animated: true)
+        let setting = UIBarButtonItem(image: UIImage(named: "chat-setting"), style: .plain, target: self, action: #selector(userSetting))
+        
+        let call = UIBarButtonItem(image: UIImage(named: "chat-call"), style: .plain, target: self, action: #selector(chatCall))
+        
+        navigationItem.rightBarButtonItems = [setting, call]
+        
+    }
+    
+    
+    @objc func userSetting() {
+        
+    }
+    
+    @objc func chatCall() {
+        chatCallAlert()
+    }
+    
+    private func chatCallAlert() {
+        
+        let alertController = SPAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+ 
+        
+        let video = SPAlertAction(title: nil, style: .default) { _ in
+            
+        }
+        video.attributedTitle = attributedText(text: "视频聊", detailText: "(2500能量/分钟)")
+        alertController.addAction(video)
+        
+        let audio = SPAlertAction(title: nil, style: .default) { _ in
+            
+        }
+        audio.attributedTitle = attributedText(text: "语音聊", detailText: "(2500能量/分钟)")
+        alertController.addAction(audio)
+        
+        alertController.addAction(SPAlertAction(title: "取消", style: .cancel, handler: nil))
+        
+        present(alertController, animated: true, completion: nil)
+ 
+    }
+    
+    func attributedText(text: String, detailText: String) -> NSAttributedString {
+        
+        let string = "\(text)\(detailText)" as NSString
+        let attributedString = NSMutableAttributedString(string: string as String)
+        attributedString.addAttributes([.foregroundColor: UIColor.textBlack, .font : UIFont.systemFont(ofSize: 14)], range: string.range(of: text))
+        attributedString.addAttributes([.foregroundColor: UIColor.textBlack, .font : UIFont.systemFont(ofSize: 12)], range: string.range(of: detailText))
+        return attributedString
     }
     
 
-}
-
-extension ChatViewController: TUIConversationListControllerDelegate {
-    
-    func conversationListController(_ conversationController: TUIConversationListController, didSelectConversation conversation: TUIConversationCell) {
-        
-        let convData = conversation.convData
-        
-//        data.groupID = @"groupID";  // 如果是群会话，传入对应的群 ID
-//        data.userID = @"userID";    // 如果是单聊会话，传入对方用户 ID
-        
-        let data = TUIConversationCellData()
-        data.userID = convData.userID
-        
-        let vc  = TUIChatController(conversation: data)!
-//        vc.inputController.moreView.delegate = self
-        vc.title = convData.userID.description
-        navigationController?.pushViewController(vc, animated: true)
-        
-    }
-}
-
-extension ChatViewController: TMoreViewDelegate {
-    
-    func moreView(_ moreView: TUIMoreView!, didSelect cell: TUIInputMoreCell!) {
-        
-    }
 }

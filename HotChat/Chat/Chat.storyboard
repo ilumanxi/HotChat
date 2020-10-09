@@ -31,7 +31,7 @@
         <!--消息-->
         <scene sceneID="LG7-Q7-2uw">
             <objects>
-                <viewController id="4MT-37-6xD" customClass="ChatViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4MT-37-6xD" customClass="ConversationViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hl5-WZ-VaQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -56,7 +56,7 @@
         <!--消息-->
         <scene sceneID="RYM-vb-c0b">
             <objects>
-                <tableViewController storyboardIdentifier="ChatActionViewController" title="消息" useStoryboardIdentifierAsRestorationIdentifier="YES" id="csS-6k-fQY" customClass="ChatActionViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ConversationActionViewController" title="消息" useStoryboardIdentifierAsRestorationIdentifier="YES" id="csS-6k-fQY" customClass="ConversationActionViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="faA-v8-32q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

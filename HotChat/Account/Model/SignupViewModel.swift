@@ -96,9 +96,9 @@ class SignupViewModel {
                         if result.isSuccessd {
                             countdownTrigger.onNext(())
                         }
-                        wireframe.show(result.msg)
+                        wireframe.show(result.msg, in: UIApplication.shared.keyWindow!)
                     }, onError: { error in
-                        wireframe.show(error.localizedDescription)
+                        wireframe.show(error.localizedDescription, in: UIApplication.shared.keyWindow!)
                     })
                     .map { result in
                         return result.isSuccessd
@@ -141,9 +141,9 @@ class SignupViewModel {
             .flatMapLatest { tuple in
                 return API.signup(tuple.phone, password: tuple.password, code: tuple.code)
                     .do(onSuccess: { result in
-                        wireframe.show(result.msg)
+                        wireframe.show(result.msg, in: UIApplication.shared.keyWindow!)
                     }, onError: { error in
-                        wireframe.show(error.localizedDescription)
+                        wireframe.show(error.localizedDescription, in: UIApplication.shared.keyWindow!)
                     })
                     .map { result in
                         return result.isSuccessd

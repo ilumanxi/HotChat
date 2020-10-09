@@ -33,7 +33,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="X3a-fq-rsw">
-                                <rect key="frame" x="30" y="582" width="315" height="115"/>
+                                <rect key="frame" x="30" y="548" width="315" height="115"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DzQ-D1-5Hh" customClass="AnimatableButton" customModule="IBAnimatable">
                                         <rect key="frame" x="0.0" y="0.0" width="315" height="50"/>
@@ -73,7 +73,7 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WrV-bB-6ju" customClass="LegalLiabilityToolBar" customModule="HotChat" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="737" width="375" height="35"/>
+                                <rect key="frame" x="0.0" y="703" width="375" height="69"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
@@ -794,7 +794,7 @@
         <!--完善资料-->
         <scene sceneID="Ld2-ui-FEm">
             <objects>
-                <tableViewController title="完善资料" id="r0j-UD-0JP" customClass="UserInformationViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="UserInformationViewController" title="完善资料" useStoryboardIdentifierAsRestorationIdentifier="YES" id="r0j-UD-0JP" customClass="UserInformationViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="10" id="QoI-ca-qID">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -73,7 +73,7 @@ class MeViewController: UITableViewController, Autorotate {
     
     func requestData() {
         
-        userAPI.request(.userinfo, type: HotChatResponse<User>.self)
+        userAPI.request(.userinfo, type: Response<User>.self)
             .subscribe(onSuccess: { [weak self] response in
                 if response.isSuccessd {
                     self?.user = response.data

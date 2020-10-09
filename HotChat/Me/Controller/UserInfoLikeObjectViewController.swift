@@ -43,7 +43,7 @@ class UserInfoLikeObjectViewController: UIViewController, IndicatorDisplay {
         
         let hub = MBProgressHUD.showAdded(to: view, animated: true)
         
-        userAPI.request(.userConfig(type: 1), type: HotChatResponse<[LikeTag]>.self)
+        userAPI.request(.userConfig(type: 1), type: Response<[LikeTag]>.self)
             .subscribe(onSuccess: { [weak self] response in
                 if response.isSuccessd {
                     self?.labels = response.data!
@@ -126,7 +126,7 @@ extension UserInfoLikeObjectViewController: UICollectionViewDelegate, UICollecti
         ]
         
         let hub = MBProgressHUD.showAdded(to: view, animated: true)
-        userAPI.request(.editUser(value: params), type: HotChatResponse<User>.self)
+        userAPI.request(.editUser(value: params), type: Response<User>.self)
             .subscribe(onSuccess: { [weak self] response in
                 if response.isSuccessd {
                     self?.onUpdated.call(response.data!)

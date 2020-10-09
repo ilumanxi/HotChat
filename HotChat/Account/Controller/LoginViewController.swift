@@ -19,6 +19,8 @@ extension Notification.Name {
     
     static let userDidLogout = NSNotification.Name("com.friday.Chat.userDidLogout")
     
+    static let userDidSignedUp = NSNotification.Name("com.friday.Chat.userDidSignedUp")
+    
 }
 
 class LoginViewController: UIViewController {
@@ -42,19 +44,26 @@ class LoginViewController: UIViewController {
             setupProviderLoginView()
         }
         
-//        observeUserResetPassword()
+        observeAccountState()
         
     }
     
     
-    func observeUserResetPassword() {
+    func observeAccountState() {
         
-        NotificationCenter.default.rx.notification(.userDidResetPassword)
+//        NotificationCenter.default.rx.notification(.userDidResetPassword)
+//            .subscribe(onNext: { [weak self] _ in
+//                guard let self = self else {
+//                    return
+//                }
+//                self.navigationController?.popToViewController(self, animated: true)
+//            })
+//            .disposed(by: rx.disposeBag)
+        
+        NotificationCenter.default.rx.notification(.userDidSignedUp)
             .subscribe(onNext: { [weak self] _ in
-                guard let self = self else {
-                    return
-                }
-                self.navigationController?.popToViewController(self, animated: true)
+                let vc = UserInformationViewController.loadFromStoryboard()
+                self?.navigationController?.pushViewController(vc, animated: true)
             })
             .disposed(by: rx.disposeBag)
     }

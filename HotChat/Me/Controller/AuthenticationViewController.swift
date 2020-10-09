@@ -44,7 +44,7 @@ class AuthenticationViewController: UITableViewController, IndicatorDisplay {
 
     func requestData() {
         
-        API.request(.userAttestationInfo, type: HotChatResponse<Authentication>.self)
+        API.request(.userAttestationInfo, type: Response<Authentication>.self)
             .subscribe(onSuccess: { [weak self] response in
                 if response.isSuccessd {
                     self?.authentication = response.data

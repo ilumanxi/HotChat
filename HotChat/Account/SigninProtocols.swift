@@ -13,11 +13,11 @@ import Moya
 
 protocol SigninAPI {
     
-    func signin(_ phone: String, password: String) -> Single<HotChatResponse<User>>
+    func signin(_ phone: String, password: String) -> Single<Response<User>>
     
-    func signin(_ token: String) -> Single<HotChatResponse<User>>
+    func signin(_ token: String) -> Single<Response<User>>
     
-    func signin(_ code: String, type: Int) -> Single<HotChatResponse<User>>
+    func signin(_ code: String, type: Int) -> Single<Response<User>>
 }
 
 
@@ -27,15 +27,15 @@ class SigninDefaultAPI: SigninAPI {
     
     let API  = RequestAPI<AccountAPI>()
     
-    func signin(_ phone: String, password: String) -> Single<HotChatResponse<User>> {
+    func signin(_ phone: String, password: String) -> Single<Response<User>> {
         return API.request(.phoneSignin(phone: phone, password: password))
     }
     
-    func signin(_ token: String) -> Single<HotChatResponse<User>> {
+    func signin(_ token: String) -> Single<Response<User>> {
         return API.request(.tokenSignin(token: token))
     }
     
-    func signin(_ code: String, type: Int) -> Single<HotChatResponse<User>> {
+    func signin(_ code: String, type: Int) -> Single<Response<User>> {
         return API.request(.otherSignin(code: code, type: type))
     }
 }

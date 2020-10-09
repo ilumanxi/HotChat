@@ -19,6 +19,10 @@ final class LoginPlugin {
 extension LoginPlugin: PluginType {
     
     
+    var signInPrefixs:  [String] { //  手机注册 、 其他注册
+        return ["login/regist", "login/otherLogin"]
+    }
+    
     var loginPrefixs: [String] {
         
         return ["login/regist", "login/login", "login/tokenLogin", "login/otherLogin"]
@@ -52,7 +56,7 @@ extension LoginPlugin: PluginType {
         
     }
     
-    func didReceive(_ result: Result<Response, MoyaError>, target: TargetType) {
+    func didReceive(_ result: Result<Moya.Response, MoyaError>, target: TargetType) {
         
         
         guard case .success(let response)  = result else {
@@ -66,21 +70,35 @@ extension LoginPlugin: PluginType {
         
 //        if !shouldHandleRequest(response.request!, prefixs: prefixs) { return }
         
+        if shouldHandleRequest(response.request!, prefixs: signInPrefixs) {
+            handleSignIn(response)
+        }
+        
         if shouldHandleRequest(response.request!, prefixs: loginPrefixs) {
             handleLogin(response)
         }
-        
         
         if shouldHandleRequest(response.request!, prefixs: logoutPrefixs) {
             handleLogout(response)
         }
     }
     
+    func handleSignIn(_ response: Moya.Response) {
+        
+        guard let json = String(data: response.data, encoding: .utf8), let result = Response<User>.deserialize(from: json) else {
+            return
+        }
+        
+        if result.isSuccessd, let user = result.data, user.isInit == false {
+            NotificationCenter.default.post(name: .userDidSignedUp, object: nil, userInfo: nil)
+        }
+    }
     
-    func handleLogin(_ response: Response) {
+    
+    func handleLogin(_ response: Moya.Response) {
         
   
-        guard let json = String(data: response.data, encoding: .utf8), let result = HotChatResponse<User>.deserialize(from: json) else {
+        guard let json = String(data: response.data, encoding: .utf8), let result = Response<User>.deserialize(from: json) else {
             return
         }
         
@@ -90,20 +108,20 @@ extension LoginPlugin: PluginType {
             
             LoginManager.shared.user = user
             
-            if user.isInit {
+            if user.isInit { // 用户信息初始化完毕
                 LoginManager.shared.login(token: token)
             }
-            else {
+            else { // 刚注册未填写用户信息
                 try? AccessTokenStore.shared.setCurrentToken(token)
             }
         }
     }
     
-    func handleLogout(_ response: Response) {
+    func handleLogout(_ response: Moya.Response) {
         
-        guard let json = String(data: response.data, encoding: .utf8), let result = HotChatResponse<User>.deserialize(from: json) else {
-            return
-        }
+//        guard let json = String(data: response.data, encoding: .utf8), let result = HotChatResponse<User>.deserialize(from: json) else {
+//            return
+//        }
         
 //        if result.isSuccessd {
 //            LoginManager.shared.logout()

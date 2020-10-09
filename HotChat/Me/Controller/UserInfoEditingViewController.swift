@@ -30,7 +30,7 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay {
         entry.onImageUpdated.delegate(on: self) { (self, url) in
             let hub = MBProgressHUD.showAdded(to: self.view, animated: true)
             hub.show(animated: true)
-            self.uploadAPI.request(.upload(url), type: HotChatResponse<[RemoteFile]>.self)
+            self.uploadAPI.request(.upload(url), type: Response<[RemoteFile]>.self)
                 .map{ response -> [String : Any] in
                     if response.isSuccessd {
                         return [
@@ -43,7 +43,7 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay {
                     }
                 }
                 .flatMap { params in
-                    return self.userAPI.request(.editUser(value: params), type: HotChatResponse<User>.self)
+                    return self.userAPI.request(.editUser(value: params), type: Response<User>.self)
                 }
                 .subscribe(onSuccess: { response in
                     hub.hide(animated: true)
@@ -71,9 +71,8 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay {
              return self
         }
         entry.onImageUpdated.delegate(on: self) { (self, url) in
-            let hub = MBProgressHUD.showAdded(to: self.view, animated: true)
-            hub.show(animated: true)
-            self.uploadAPI.request(.upload(url), type: HotChatResponse<[RemoteFile]>.self)
+            self.showIndicatorOnWindow()
+            self.uploadAPI.request(.upload(url), type: Response<[RemoteFile]>.self)
                 .map{ response -> [String : Any] in
                     if response.isSuccessd {
                         let photoList = (response.data!.toJSON() as [[String: Any]?]).compactMap{ $0 }
@@ -88,19 +87,19 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay {
                     }
                 }
                 .flatMap { params in
-                    return self.userAPI.request(.editUser(value: params), type: HotChatResponse<User>.self)
+                    return self.userAPI.request(.editUser(value: params), type: Response<User>.self)
                 }
-                .subscribe(onSuccess: { response in
-                    hub.hide(animated: true)
+                .subscribe(onSuccess: { [weak self] response in
+                    self?.hideIndicatorFromWindow()
                     if response.isSuccessd {
-                        self.user = response.data!
+                        self?.user = response.data!
                     }
                     else {
-                        self.show(response.msg)
+                        self?.showMessageOnWindow(response.msg)
                     }
-                }, onError: {  error in
-                    hub.label.text = error.localizedDescription
-                    hub.show(animated: true)
+                }, onError: { [weak self]  error in
+                    self?.hideIndicatorFromWindow()
+                    self?.showMessageOnWindow(error.localizedDescription)
                 })
                 .disposed(by: self.rx.disposeBag)
         }
@@ -202,7 +201,7 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay {
         
         let hub = MBProgressHUD.showAdded(to: view, animated: true)
         hub.show(animated: true)
-        userAPI.request(.userinfo, type: HotChatResponse<User>.self)
+        userAPI.request(.userinfo, type: Response<User>.self)
             .subscribe(onSuccess: { [weak self] response in
                 hub.hide(animated: true)
                 if response.isSuccessd {
@@ -290,7 +289,7 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay {
         
         let hub = MBProgressHUD.showAdded(to: view, animated: true)
         hub.show(animated: true)
-        userAPI.request(.delQuestion(labelId: topic.labelId), type: HotChatResponse<User>.self)
+        userAPI.request(.delQuestion(labelId: topic.labelId), type: Response<User>.self)
             .subscribe(onSuccess: { [weak self] response in
                 hub.hide(animated: true)
                 if response.isSuccessd {
@@ -316,7 +315,7 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay {
         
         let hub = MBProgressHUD.showAdded(to: vc.view, animated: true)
         hub.show(animated: true)
-        userAPI.request(.userConfig(type: 2), type: HotChatResponse<[Topic]>.self)
+        userAPI.request(.userConfig(type: 2), type: Response<[Topic]>.self)
             .subscribe(onSuccess: { response in
                 hub.hide(animated: true)
                 if response.isSuccessd {
@@ -332,7 +331,7 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay {
             .disposed(by: rx.disposeBag)
         
         vc.onSaved.delegate(on: self) { (self, topic) in
-            self.userAPI.request(.editTips(labelId: topic.id, content: topic.content), type: HotChatResponse<User>.self)
+            self.userAPI.request(.editTips(labelId: topic.id, content: topic.content), type: Response<User>.self)
                 .subscribe(onSuccess: { response in
                     hub.hide(animated: true)
                     if response.isSuccessd {
@@ -367,7 +366,7 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay {
             let hub = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
             hub.show(animated: true)
             
-            self.userAPI.request(.editUser(value: params), type: HotChatResponse<User>.self)
+            self.userAPI.request(.editUser(value: params), type: Response<User>.self)
                 .subscribe(onSuccess: { response in
                     hub.hide(animated: true)
                     if response.isSuccessd {
@@ -388,7 +387,7 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay {
         
         let hub = MBProgressHUD.showAdded(to: vc.view, animated: true)
         hub.show(animated: true)
-        userAPI.request(.userConfig(type: hobby.type), type: HotChatResponse<[LikeTag]>.self)
+        userAPI.request(.userConfig(type: hobby.type), type: Response<[LikeTag]>.self)
             .subscribe(onSuccess: { response in
                 hub.hide(animated: true)
                 if response.isSuccessd {
@@ -420,7 +419,7 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay {
             let hub = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
             hub.show(animated: true)
             
-            self.userAPI.request(.editUser(value: params), type: HotChatResponse<User>.self)
+            self.userAPI.request(.editUser(value: params), type: Response<User>.self)
                 .subscribe(onSuccess: { response in
                     hub.hide(animated: true)
                     if response.isSuccessd {
@@ -441,7 +440,7 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay {
         
         let hub = MBProgressHUD.showAdded(to: vc.view, animated: true)
         hub.show(animated: true)
-        userAPI.request(.userConfig(type: 9), type: HotChatResponse<[LikeTag]>.self)
+        userAPI.request(.userConfig(type: 9), type: Response<[LikeTag]>.self)
             .subscribe(onSuccess: { response in
                 hub.hide(animated: true)
                 if response.isSuccessd {
@@ -485,7 +484,7 @@ extension UserInfoEditingViewController {
                 ]
                 let hub = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
                 hub.show(animated: true)
-                self.userAPI.request(.editUser(value: params), type: HotChatResponse<User>.self)
+                self.userAPI.request(.editUser(value: params), type: Response<User>.self)
                     .subscribe(onSuccess: { response in
                         hub.hide(animated: true)
                         if response.isSuccessd {
@@ -507,7 +506,7 @@ extension UserInfoEditingViewController {
             vc.onSaved.delegate(on: self) { (self, text) in
                 let hub = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
                 hub.show(animated: true)
-                self.userAPI.request(.editTips(labelId: entry.topic.labelId, content: text), type: HotChatResponse<User>.self)
+                self.userAPI.request(.editTips(labelId: entry.topic.labelId, content: text), type: Response<User>.self)
                     .subscribe(onSuccess: { response in
                         hub.hide(animated: true)
                         if response.isSuccessd {

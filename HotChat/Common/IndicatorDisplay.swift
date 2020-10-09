@@ -12,7 +12,7 @@ import Toast_Swift
 
 protocol IndicatorDisplay {
     
-    func show(_ message: String?)
+    func show(_ message: String?, in view: UIView)
     
     func showIndicator(in view: UIView)
     func hideIndicator(from view: UIView)
@@ -22,7 +22,7 @@ protocol IndicatorDisplay {
 extension IndicatorDisplay where Self: UIViewController {
     
     func show(_ message: String?) {
-        show(in: view, message: message)
+        show(message, in: view)
     }
     
     func showIndicator() {
@@ -33,6 +33,10 @@ extension IndicatorDisplay where Self: UIViewController {
         hideIndicator(from: view)
     }
     
+    func showMessageOnWindow(_ message: String?) {
+        show(message, in: UIApplication.shared.keyWindow ?? view)
+    }
+    
     func showIndicatorOnWindow() {
         showIndicator(in: UIApplication.shared.keyWindow ?? view)
     }
@@ -41,8 +45,9 @@ extension IndicatorDisplay where Self: UIViewController {
         hideIndicator(from: UIApplication.shared.keyWindow ?? view)
     }
     
-    func show(in view: UIView, message: String?) {
-        view.makeToast(message)
+    func show(_ message: String?, in view: UIView) {
+        view.endEditing(true)
+        view.makeToast(message, position: .center)
     }
     
     func showIndicator(in view: UIView) {

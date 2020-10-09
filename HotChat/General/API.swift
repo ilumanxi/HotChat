@@ -12,7 +12,7 @@ import RxCocoa
 import HandyJSON
 
 
-extension ObservableType where Element == Response {
+extension ObservableType where Element == Moya.Response {
     public func map<T: HandyJSON>(_ type: T.Type) -> Observable<T> {
         return flatMap { response -> Observable<T> in
             return Observable.just(try response.map(T.self))
@@ -20,7 +20,7 @@ extension ObservableType where Element == Response {
     }
 }
 
-public extension PrimitiveSequence where Trait == SingleTrait, Element == Response {
+public extension PrimitiveSequence where Trait == SingleTrait, Element == Moya.Response {
 
     /// Maps received data at key path into a Decodable object. If the conversion fails, the signal errors.
     func map<D: HandyJSON>(_ type: D.Type, atKeyPath keyPath: String? = nil) -> Single<D> {
@@ -32,7 +32,7 @@ public extension PrimitiveSequence where Trait == SingleTrait, Element == Respon
 
 
 
-extension Response {
+extension Moya.Response {
     
     func map<D: HandyJSON>(_ type: D.Type, atKeyPath keyPath: String? = nil) throws -> D {
         do {

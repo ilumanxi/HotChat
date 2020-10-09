@@ -34,7 +34,7 @@ class MeRelationshipViewController: UITableViewController, SegementSlideContentS
         tableView.rowHeight = 70
         tableView.register(cellType: RelationshipViewCell.self)
         
-        API.request(.followList(type: relationship.rawValue), type: HotChatResponse<[User]>.self)
+        API.request(.followList(type: relationship.rawValue), type: Response<[User]>.self)
             .subscribe(onSuccess: { [weak self] response in
                 if response.isSuccessd {
                     self?.users = response.data ?? []

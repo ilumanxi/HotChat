@@ -409,8 +409,8 @@ class Information: FormEntry {
     
     private func render(_ cell: InformationCell) {
         cell.idLabel.attributedText = attributedText(text: "ID：", detailText: user.userId.description)
-        cell.industryLabel.attributedText = attributedText(text: "职业：", detailText: user.industryList.first?.label ?? "")
-        cell.introduceLabel.attributedText = attributedText(text: "个性签名：", detailText: user.introduce)
+        cell.industryLabel.attributedText = attributedText(text: "职业：", detailText: user.industryList.first?.label ?? "未知职业")
+        cell.introduceLabel.attributedText = attributedText(text: "个性签名：", detailText: user.introduce.isEmpty ? "此用户很懒，什么都没有写" : user.introduce)
 
     }
     

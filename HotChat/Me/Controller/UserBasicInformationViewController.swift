@@ -67,7 +67,7 @@ class UserBasicInformationViewController: UITableViewController, IndicatorDispla
             "birthday" : user.birthday
         ]
         
-        userAPI.request(.editUser(value: params), type: HotChatResponse<User>.self)
+        userAPI.request(.editUser(value: params), type: Response<User>.self)
             .subscribe(onSuccess: { [weak self] response in
                 hub.hide(animated: true)
                 guard let self = self else {

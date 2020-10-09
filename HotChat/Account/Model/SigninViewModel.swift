@@ -70,9 +70,9 @@ class SigninViewModel {
             .flatMapLatest { pair in
                 return API.signin(pair.phone, password: pair.password)
                     .do(onSuccess: { result in
-                        wireframe.show(result.msg)
+                        wireframe.show(result.msg, in: UIApplication.shared.keyWindow!)
                     }, onError: { error in
-                        wireframe.show(error.localizedDescription)
+                        wireframe.show(error.localizedDescription, in: UIApplication.shared.keyWindow!)
                     })
                     .map { result in
                         return result.isSuccessd

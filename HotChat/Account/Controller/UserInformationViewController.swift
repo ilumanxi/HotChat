@@ -50,6 +50,15 @@ class UserInformationViewController: UITableViewController, IndicatorDisplay {
     private let API = RequestAPI<AccountAPI>()
     private let uploadAPI = RequestAPI<UploadFileAPI>()
     
+    static func loadFromStoryboard() -> Self {
+        
+        let storyboard = UIStoryboard(name: "Account", bundle: nil)
+        
+        let identifier = String(describing: Self.self)
+        
+        return  storyboard.instantiateViewController(withIdentifier: identifier) as! Self
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -113,7 +122,7 @@ class UserInformationViewController: UITableViewController, IndicatorDisplay {
             
             let hub = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
             
-            self.uploadAPI.request(.upload(url!), type: HotChatResponse<[RemoteFile]>.self)
+            self.uploadAPI.request(.upload(url!), type: Response<[RemoteFile]>.self)
                 .subscribe(onSuccess: { response in
                     hub.hide(animated: true)
                     if response.isSuccessd {
@@ -174,7 +183,7 @@ class UserInformationViewController: UITableViewController, IndicatorDisplay {
         let birthday =  Int(date!.timeIntervalSince1970)
         
         let hub = MBProgressHUD.showAdded(to: view.window!, animated: true)
-        API.request(.editUser(headPic: avatarURL!, sex: sex.rawValue, nick: nicknameTextField.text!, birthday: birthday), type: HotChatResponse<User>.self)
+        API.request(.editUser(headPic: avatarURL!, sex: sex.rawValue, nick: nicknameTextField.text!, birthday: birthday), type: Response<User>.self)
             .subscribe(onSuccess: {[weak self] response in
                 if response.isSuccessd {
                     self?.performSegue(withIdentifier: "UserInfoLikeObjectViewController", sender: nil)

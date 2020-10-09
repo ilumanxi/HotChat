@@ -264,7 +264,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 64 images.
+  /// This `R.image` struct is generated, and contains static references to 66 images.
   struct image {
     /// Image `account-register-succeed`.
     static let accountRegisterSucceed = Rswift.ImageResource(bundle: R.hostingBundle, name: "account-register-succeed")
@@ -280,6 +280,8 @@ struct R: Rswift.Validatable {
     static let boxSelected = Rswift.ImageResource(bundle: R.hostingBundle, name: "box-selected")
     /// Image `box-unselected`.
     static let boxUnselected = Rswift.ImageResource(bundle: R.hostingBundle, name: "box-unselected")
+    /// Image `chat-call`.
+    static let chatCall = Rswift.ImageResource(bundle: R.hostingBundle, name: "chat-call")
     /// Image `chat-chummy`.
     static let chatChummy = Rswift.ImageResource(bundle: R.hostingBundle, name: "chat-chummy")
     /// Image `chat-contact`.
@@ -290,6 +292,8 @@ struct R: Rswift.Validatable {
     static let chatInterested = Rswift.ImageResource(bundle: R.hostingBundle, name: "chat-interested")
     /// Image `chat-more`.
     static let chatMore = Rswift.ImageResource(bundle: R.hostingBundle, name: "chat-more")
+    /// Image `chat-setting`.
+    static let chatSetting = Rswift.ImageResource(bundle: R.hostingBundle, name: "chat-setting")
     /// Image `chat-skip`.
     static let chatSkip = Rswift.ImageResource(bundle: R.hostingBundle, name: "chat-skip")
     /// Image `common-close`.
@@ -445,6 +449,13 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "chat-call", bundle: ..., traitCollection: ...)`
+    static func chatCall(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.chatCall, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "chat-chummy", bundle: ..., traitCollection: ...)`
     static func chatChummy(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.chatChummy, compatibleWith: traitCollection)
@@ -476,6 +487,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "chat-more", bundle: ..., traitCollection: ...)`
     static func chatMore(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.chatMore, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "chat-setting", bundle: ..., traitCollection: ...)`
+    static func chatSetting(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.chatSetting, compatibleWith: traitCollection)
     }
     #endif
 
@@ -1473,6 +1491,7 @@ struct _R: Rswift.Validatable {
       let datePickerViewController = StoryboardViewControllerResource<DatePickerViewController>(identifier: "DatePickerViewController")
       let loginViewController = StoryboardViewControllerResource<LoginViewController>(identifier: "LoginViewController")
       let name = "Account"
+      let userInformationViewController = StoryboardViewControllerResource<UserInformationViewController>(identifier: "UserInformationViewController")
 
       func datePickerViewController(_: Void = ()) -> DatePickerViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: datePickerViewController)
@@ -1480,6 +1499,10 @@ struct _R: Rswift.Validatable {
 
       func loginViewController(_: Void = ()) -> LoginViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: loginViewController)
+      }
+
+      func userInformationViewController(_: Void = ()) -> UserInformationViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: userInformationViewController)
       }
 
       static func validate() throws {
@@ -1493,6 +1516,7 @@ struct _R: Rswift.Validatable {
         }
         if _R.storyboard.account().datePickerViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'datePickerViewController' could not be loaded from storyboard 'Account' as 'DatePickerViewController'.") }
         if _R.storyboard.account().loginViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'loginViewController' could not be loaded from storyboard 'Account' as 'LoginViewController'.") }
+        if _R.storyboard.account().userInformationViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'userInformationViewController' could not be loaded from storyboard 'Account' as 'UserInformationViewController'.") }
       }
 
       fileprivate init() {}
@@ -1504,11 +1528,11 @@ struct _R: Rswift.Validatable {
       typealias InitialController = BaseNavigationController
 
       let bundle = R.hostingBundle
-      let chatActionViewController = StoryboardViewControllerResource<ChatActionViewController>(identifier: "ChatActionViewController")
+      let conversationActionViewController = StoryboardViewControllerResource<ConversationActionViewController>(identifier: "ConversationActionViewController")
       let name = "Chat"
 
-      func chatActionViewController(_: Void = ()) -> ChatActionViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: chatActionViewController)
+      func conversationActionViewController(_: Void = ()) -> ConversationActionViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: conversationActionViewController)
       }
 
       static func validate() throws {
@@ -1522,7 +1546,7 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "tabbar-message-selected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tabbar-message-selected' is used in storyboard 'Chat', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
-        if _R.storyboard.chat().chatActionViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'chatActionViewController' could not be loaded from storyboard 'Chat' as 'ChatActionViewController'.") }
+        if _R.storyboard.chat().conversationActionViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'conversationActionViewController' could not be loaded from storyboard 'Chat' as 'ConversationActionViewController'.") }
       }
 
       fileprivate init() {}

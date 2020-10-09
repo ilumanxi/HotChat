@@ -13,9 +13,9 @@ struct HotChatResponseEmptyData: HandyJSON {
     
 }
 
-typealias HotChatResponseEmptyDataType = HotChatResponse<HotChatResponseEmptyData>
+typealias HotChatResponseEmptyDataType = Response<HotChatResponseEmptyData>
 
-struct HotChatResponse<T: HandyJSON>: HandyJSON {
+struct Response<T: HandyJSON>: HandyJSON {
 
     var code: Int!
     var msg: String = ""

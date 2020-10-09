@@ -45,7 +45,6 @@ class UserInfoInputTextViewController: UITableViewController, IndicatorDisplay {
         let identifier = String(describing: Self.self)
         
         return  storyboard.instantiateViewController(withIdentifier: identifier) as! Self
-        
     }
     
     
