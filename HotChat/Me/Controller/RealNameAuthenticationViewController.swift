@@ -68,7 +68,7 @@ class RealNameAuthenticationViewController: UITableViewController, IndicatorDisp
         let hub = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
         userAPI.request(
             .userEditAttestation(userName: userName, identityNum: identityNum, identityPicFront: authentication.identityPicFront, identityPicFan: authentication.identityPicFan),
-            type: HotChatResponseEmptyDataType.self
+            type: ResponseEmpty.self
         )
         .subscribe(onSuccess: { [weak self] response in
             hub.hide(animated: false)

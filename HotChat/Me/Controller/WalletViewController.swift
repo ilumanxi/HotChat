@@ -218,7 +218,7 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    func payOrder(_ order: (Ordrer, Product, SKProduct)) -> Single<HotChatResponseEmptyDataType> {
+    func payOrder(_ order: (Ordrer, Product, SKProduct)) -> Single<ResponseEmpty> {
         return Single.create { single in
             
             // Attempt to purchase the tapped product.
@@ -252,8 +252,8 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
         .flatMap(payStatus)
     }
     
-    func payStatus(_ parameters: [String : Any]) -> Single<HotChatResponseEmptyDataType> {
-        return payAPI.request(.notify(parameters), type: HotChatResponseEmptyDataType.self)
+    func payStatus(_ parameters: [String : Any]) -> Single<ResponseEmpty> {
+        return payAPI.request(.notify(parameters), type: ResponseEmpty.self)
     }
     
     func createOrder(_ product: (Product, SKProduct)) -> Single<(Ordrer, Product, SKProduct)> {

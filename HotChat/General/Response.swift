@@ -9,11 +9,11 @@
 import Foundation
 import HandyJSON
 
-struct HotChatResponseEmptyData: HandyJSON {
+struct ResponseEmptyType: HandyJSON {
     
 }
 
-typealias HotChatResponseEmptyDataType = Response<HotChatResponseEmptyData>
+typealias ResponseEmpty = Response<ResponseEmptyType>
 
 struct Response<T: HandyJSON>: HandyJSON {
 

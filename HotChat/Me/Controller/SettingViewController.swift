@@ -34,7 +34,7 @@ class SettingViewController: UITableViewController {
     }
 
     func logout() {
-        API.request(.logout, type: HotChatResponseEmptyDataType.self)
+        API.request(.logout, type: ResponseEmpty.self)
             .subscribe(onSuccess: { response in
                 Log.print(response)
             }, onError: { error in

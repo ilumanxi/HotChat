@@ -13,8 +13,8 @@ import Moya
 
 protocol ForgotPasswordAPI {
     
-    func sendCode(_ phone: String) -> Single<HotChatResponseEmptyDataType>
-    func resetPassword(_ phone: String, password: String, code: String) -> Single<HotChatResponseEmptyDataType>
+    func sendCode(_ phone: String) -> Single<ResponseEmpty>
+    func resetPassword(_ phone: String, password: String, code: String) -> Single<ResponseEmpty>
 }
 
 
@@ -25,12 +25,12 @@ class ForgotPasswordDefaultAPI: ForgotPasswordAPI {
     
     let API  = RequestAPI<AccountAPI>()
     
-    func sendCode(_ phone: String) -> Single<HotChatResponseEmptyDataType> {
+    func sendCode(_ phone: String) -> Single<ResponseEmpty> {
         
         return API.request(.sendCode(phone:phone, type: .resetPassword))
     }
     
-    func resetPassword(_ phone: String, password: String, code: String) -> Single<HotChatResponseEmptyDataType> {
+    func resetPassword(_ phone: String, password: String, code: String) -> Single<ResponseEmpty> {
         return API.request(.resetPassword(phone: phone, password: password, code: code))
     }
 }
