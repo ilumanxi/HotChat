@@ -91,7 +91,7 @@ extension LoginPlugin: PluginType {
             LoginManager.shared.user = user
             
             if user.isInit {
-                
+                LoginManager.shared.login(token: token)
             }
             else {
                 try? AccessTokenStore.shared.setCurrentToken(token)

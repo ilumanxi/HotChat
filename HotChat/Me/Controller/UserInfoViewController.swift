@@ -16,6 +16,11 @@ import SnapKit
 
 class UserInfoViewController: SegementSlideDefaultViewController {
     
+    var user: User! {
+        didSet {
+            refreshData()
+        }
+    }
 
     override var bouncesType: BouncesType {
         return .child
@@ -25,11 +30,11 @@ class UserInfoViewController: SegementSlideDefaultViewController {
         return ["资料", "小视频", "动态"]
     }()
     
-    lazy var contentViewControllers: [MeRelationshipViewController] = {
-        return Relationship.allCases
-            .map {  
-                let vc = MeRelationshipViewController(style: .plain)
-                vc.relationship = $0
+    lazy var contentViewControllers: [SegementSlideContentScrollViewDelegate] = {
+        return contentTitles
+            .map { _ in
+                let vc = InformationViewController.loadFromStoryboard()
+                vc.user = user
                 return vc
             }
     }()
@@ -65,8 +70,10 @@ class UserInfoViewController: SegementSlideDefaultViewController {
         updateNavigationBarStyle(scrollView)
         setupChatView()
         reloadData()
+        refreshData()
     }
     
+    private let chatViewHeight: CGFloat = 48
     
     private var chatView: UserInfoChatView!
     
@@ -84,6 +91,9 @@ class UserInfoViewController: SegementSlideDefaultViewController {
             maker.bottom.equalToSuperview().offset(-34)
         }
         
+        if #available(iOS 11.0, *) {
+            additionalSafeAreaInsets = UIEdgeInsets(top: 0, left: 0, bottom: 48, right: 0)
+        }
     }
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView, isParent: Bool) {
@@ -108,6 +118,10 @@ class UserInfoViewController: SegementSlideDefaultViewController {
         hbd_titleTextAttributes = [
             NSAttributedString.Key.foregroundColor : color]
           hbd_setNeedsUpdateNavigationBar()
+    }
+    
+    func refreshData() {
+        userInfoHeaderView.user = user
     }
     
 }

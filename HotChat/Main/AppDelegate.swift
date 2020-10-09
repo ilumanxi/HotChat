@@ -78,9 +78,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SigninDefaultAPI.share.signin(token)
             .subscribe(onSuccess:{ response in
                 if response.isSuccessd, let user = response.data {
-                    TUIKit.sharedInstance()?.setup(withAppId: 1400424749, logLevel: .LOG_DEBUG)
+                    TUIKit.sharedInstance()?.setup(withAppId: IM.appID, logLevel: .LOG_DEBUG)
                     TUIKit.sharedInstance()?.login(user.userId, userSig: user.imUserSig, succ: {
-                        Log.print("succ")
+                        IM.setSelfInfo(user)
                     }, fail: { (code, msg) in
                         Log.print("\(code)__\(msg ?? "")")
                     })

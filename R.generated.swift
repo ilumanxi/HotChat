@@ -992,8 +992,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 9 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 10 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `InformationCell`.
+    static let informationCell: Rswift.ReuseIdentifier<InformationCell> = Rswift.ReuseIdentifier(identifier: "InformationCell")
     /// Reuse identifier `UserInfoBasicInformationCell`.
     static let userInfoBasicInformationCell: Rswift.ReuseIdentifier<UserInfoBasicInformationCell> = Rswift.ReuseIdentifier(identifier: "UserInfoBasicInformationCell")
     /// Reuse identifier `UserInfoInterviewCell`.
@@ -1404,7 +1406,6 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "me-attention", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'me-attention' is used in nib 'UserInfoHeaderView', but couldn't be loaded.") }
         if UIKit.UIImage(named: "me-certified", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'me-certified' is used in nib 'UserInfoHeaderView', but couldn't be loaded.") }
         if UIKit.UIImage(named: "me-follow", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'me-follow' is used in nib 'UserInfoHeaderView', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "me-sex-man", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'me-sex-man' is used in nib 'UserInfoHeaderView', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }
@@ -1503,10 +1504,14 @@ struct _R: Rswift.Validatable {
       typealias InitialController = BaseNavigationController
 
       let bundle = R.hostingBundle
+      let chatActionViewController = StoryboardViewControllerResource<ChatActionViewController>(identifier: "ChatActionViewController")
       let name = "Chat"
 
+      func chatActionViewController(_: Void = ()) -> ChatActionViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: chatActionViewController)
+      }
+
       static func validate() throws {
-        if UIKit.UIImage(named: "chat-chummy", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'chat-chummy' is used in storyboard 'Chat', but couldn't be loaded.") }
         if UIKit.UIImage(named: "chat-contact", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'chat-contact' is used in storyboard 'Chat', but couldn't be loaded.") }
         if UIKit.UIImage(named: "chat-conversation", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'chat-conversation' is used in storyboard 'Chat', but couldn't be loaded.") }
         if UIKit.UIImage(named: "chat-interested", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'chat-interested' is used in storyboard 'Chat', but couldn't be loaded.") }
@@ -1517,6 +1522,7 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "tabbar-message-selected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tabbar-message-selected' is used in storyboard 'Chat', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+        if _R.storyboard.chat().chatActionViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'chatActionViewController' could not be loaded from storyboard 'Chat' as 'ChatActionViewController'.") }
       }
 
       fileprivate init() {}
@@ -1598,10 +1604,15 @@ struct _R: Rswift.Validatable {
       typealias InitialController = BaseNavigationController
 
       let bundle = R.hostingBundle
+      let informationViewController = StoryboardViewControllerResource<InformationViewController>(identifier: "InformationViewController")
       let name = "Me"
       let userBasicInformationViewController = StoryboardViewControllerResource<UserBasicInformationViewController>(identifier: "UserBasicInformationViewController")
       let userInfoInputTextViewController = StoryboardViewControllerResource<UserInfoInputTextViewController>(identifier: "UserInfoInputTextViewController")
       let userInfoLikeObjectViewController = StoryboardViewControllerResource<UserInfoLikeObjectViewController>(identifier: "UserInfoLikeObjectViewController")
+
+      func informationViewController(_: Void = ()) -> InformationViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: informationViewController)
+      }
 
       func userBasicInformationViewController(_: Void = ()) -> UserBasicInformationViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: userBasicInformationViewController)
@@ -1643,6 +1654,7 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "tabbar-me-selected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tabbar-me-selected' is used in storyboard 'Me', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+        if _R.storyboard.me().informationViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'informationViewController' could not be loaded from storyboard 'Me' as 'InformationViewController'.") }
         if _R.storyboard.me().userBasicInformationViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'userBasicInformationViewController' could not be loaded from storyboard 'Me' as 'UserBasicInformationViewController'.") }
         if _R.storyboard.me().userInfoInputTextViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'userInfoInputTextViewController' could not be loaded from storyboard 'Me' as 'UserInfoInputTextViewController'.") }
         if _R.storyboard.me().userInfoLikeObjectViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'userInfoLikeObjectViewController' could not be loaded from storyboard 'Me' as 'UserInfoLikeObjectViewController'.") }

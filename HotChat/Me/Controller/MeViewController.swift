@@ -23,6 +23,7 @@ extension LabelView {
             image = UIImage(named: "me-sex-woman")
             backgroundColor = UIColor(hexString: "#FB64F9")
         }
+        text = Date(timeIntervalSince1970: user.birthday).age.description
         
     }
 }
@@ -134,4 +135,13 @@ class MeViewController: UITableViewController, Autorotate {
         navigationController?.pushViewController(meContact, animated: true)
     }
     
+    
+   
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let vc = segue.destination as? UserInfoViewController {
+            vc.user = user
+        }
+        
+    }
 }

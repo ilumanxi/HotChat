@@ -86,6 +86,7 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.register(UINib(nibName: "WalletEnergyViewCell", bundle: nil), forCellReuseIdentifier: "WalletEnergyViewCell")
         tableView.register(UINib(nibName: "WalletProductViewCell", bundle: nil), forCellReuseIdentifier: "WalletProductViewCell")
         
+        showIndicator()
         productInfo()
             .subscribe(onSuccess: { [weak self] products in
                 
@@ -93,8 +94,10 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 let productSection = Section(type: .product, elements: products)
                 
                 self?.data = [energySection, productSection]
+                self?.hideIndicator()
                 
             }, onError: { [weak self] error in
+                self?.hideIndicator()
                 self?.show(error.localizedDescription)
             })
             .disposed(by: rx.disposeBag)
@@ -200,13 +203,15 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Only available products can be bought.
         if section.type == .product, let content = section.elements as? [(Product, SKProduct)] {
             let product = content[indexPath.row]
+            showIndicator()
             createOrder(product)
                 .flatMap(payOrder)
-                .subscribe(onSuccess: { response in
-                    print(response)
+                .subscribe(onSuccess: { [weak self] response in
+                    self?.hideIndicator()
+                }, onError: { [weak self] error in
+                    self?.hideIndicator()
+                    self?.show(error.localizedDescription)
                     
-                }, onError: { error in
-                    print(error)
                 })
                 .disposed(by: rx.disposeBag)
             

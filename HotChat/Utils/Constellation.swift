@@ -70,4 +70,11 @@ extension Date {
         }
         
     }
+    
+    var age: Int {
+        let calendar = Calendar.current
+        let dateComponents = calendar.dateComponents([.year], from: self, to: Date())
+        return dateComponents.year!
+    }
+    
 }

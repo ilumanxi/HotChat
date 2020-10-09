@@ -7,15 +7,16 @@
 inhibit_all_warnings!
 
 #use_frameworks!
-use_modular_headers!
+#use_modular_headers!
 
 #install! 'cocoapods', generate_multiple_pod_projects: true
 
-install! 'cocoapods', disable_input_output_paths: true
+#install! 'cocoapods', disable_input_output_paths: true
 
 target 'HotChat' do
   # Comment the next line if you don't want to use dynamic frameworks
 #  use_frameworks!
+   use_modular_headers!
 
   # Pods for HotChat
     pod 'RxSwift'
@@ -89,10 +90,10 @@ end
 
 
 
-post_install do |installer|
-    installer.pods_project.targets.each do |target|
-        target.build_configurations.each do |config|
-            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '10.0'
-        end
-    end
-end
+#post_install do |installer|
+#    installer.pods_project.targets.each do |target|
+#        target.build_configurations.each do |config|
+#            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '10.0'
+#        end
+#    end
+#end

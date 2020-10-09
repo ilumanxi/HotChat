@@ -21,31 +21,50 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="csS-6k-fQY" kind="relationship" relationship="rootViewController" id="tJM-9a-L4G"/>
+                        <segue destination="4MT-37-6xD" kind="relationship" relationship="rootViewController" id="Yei-Ka-z5C"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KJD-fi-err" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="564" y="856"/>
+            <point key="canvasLocation" x="361" y="856"/>
+        </scene>
+        <!--消息-->
+        <scene sceneID="LG7-Q7-2uw">
+            <objects>
+                <viewController id="4MT-37-6xD" customClass="ChatViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hl5-WZ-VaQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="DOT-5B-Xfj"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="消息" id="fcL-3R-Z4u">
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" image="chat-more" id="J7T-U3-y96">
+                                <connections>
+                                    <action selector="moreAction:" destination="csS-6k-fQY" id="b6W-Dt-VoR"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="chat-contact" id="SUb-jM-Hy0"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gMR-3J-JZD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1045" y="1538"/>
         </scene>
         <!--消息-->
         <scene sceneID="RYM-vb-c0b">
             <objects>
-                <tableViewController title="消息" id="csS-6k-fQY" customClass="ChatViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="10" id="faA-v8-32q">
+                <tableViewController storyboardIdentifier="ChatActionViewController" title="消息" useStoryboardIdentifierAsRestorationIdentifier="YES" id="csS-6k-fQY" customClass="ChatActionViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="faA-v8-32q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="p5Q-y7-TVx">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        </view>
                         <sections>
                             <tableViewSection id="DQF-vZ-AkW">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="112" id="49e-gY-JJE" customClass="ChatNotificationSettingCell" customModule="HotChat" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="2" width="414" height="112"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="112"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="49e-gY-JJE" id="eQl-GV-pX5">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="112"/>
@@ -116,34 +135,8 @@
                                             <outlet property="settingView" destination="cB7-6a-BRN" id="bcC-B3-IVv"/>
                                         </connections>
                                     </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection id="0Ux-pq-Glg">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="PCE-Px-aJr" imageView="qSp-Ly-LOM" rowHeight="80" style="IBUITableViewCellStyleDefault" id="Me1-b1-eQZ">
-                                        <rect key="frame" x="0.0" y="125" width="414" height="80"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Me1-b1-eQZ" id="PW0-NK-wIv">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="80"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="密友圈" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PCE-Px-aJr">
-                                                    <rect key="frame" x="85" y="0.0" width="290" height="80"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="chat-chummy" id="qSp-Ly-LOM">
-                                                    <rect key="frame" x="20" y="15" width="50" height="50"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </imageView>
-                                            </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="90O-T6-N5s" imageView="X4e-4s-Nv9" rowHeight="80" style="IBUITableViewCellStyleDefault" id="cQg-Xc-1lG">
-                                        <rect key="frame" x="0.0" y="205" width="414" height="80"/>
+                                        <rect key="frame" x="0.0" y="140" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cQg-Xc-1lG" id="g2X-bh-kTn">
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="80"/>
@@ -195,23 +188,23 @@
             <objects>
                 <viewController title="想认识你的人" id="kp4-zB-vdz" customClass="InterestedViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jjh-m0-1pA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2/21" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3h-ho-Q7N">
-                                <rect key="frame" x="196" y="103" width="22" height="13.5"/>
+                                <rect key="frame" x="196" y="15" width="22" height="13.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="96O-yC-Z5D" customClass="KolodaView" customModule="Koloda">
-                                <rect key="frame" x="20" y="126.5" width="374" height="464"/>
+                                <rect key="frame" x="20" y="38.5" width="374" height="464"/>
                                 <constraints>
                                     <constraint firstAttribute="height" secondItem="96O-yC-Z5D" secondAttribute="width" multiplier="1:1" constant="90" id="IAg-RI-ZOQ"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="V1N-me-lhO">
-                                <rect key="frame" x="122" y="620.5" width="170" height="60"/>
+                                <rect key="frame" x="122" y="532.5" width="170" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBH-YE-4u2">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
@@ -271,7 +264,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chat-chummy" width="50" height="50"/>
         <image name="chat-contact" width="24.5" height="17"/>
         <image name="chat-conversation" width="22" height="22"/>
         <image name="chat-interested" width="50" height="50"/>
@@ -280,9 +272,6 @@
         <image name="common-close" width="12" height="12"/>
         <image name="tabbar-message-normal" width="19" height="19"/>
         <image name="tabbar-message-selected" width="19" height="19"/>
-        <systemColor name="groupTableViewBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="groupTableViewBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

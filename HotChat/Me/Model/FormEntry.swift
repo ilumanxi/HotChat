@@ -391,6 +391,42 @@ extension PhotoAlbum: UICollectionViewDelegate, UICollectionViewDataSource, UICo
         
 }
 
+class Information: FormEntry {
+    
+    let user: User
+    
+    init(user: User) {
+        self.user = user
+    }
+    
+    func cell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: InformationCell.self)
+        render(cell)
+        
+        return cell
+    }
+    
+    private func render(_ cell: InformationCell) {
+        cell.idLabel.attributedText = attributedText(text: "ID：", detailText: user.userId.description)
+        cell.industryLabel.attributedText = attributedText(text: "职业：", detailText: user.industryList.first?.label ?? "")
+        cell.introduceLabel.attributedText = attributedText(text: "个性签名：", detailText: user.introduce)
+
+    }
+    
+    func attributedText(text: String, detailText: String) -> NSAttributedString {
+        
+        let string = "\(text)\(detailText)" as NSString
+        let attributedString = NSMutableAttributedString(string: string as String)
+        attributedString.addAttributes([.foregroundColor: UIColor.textBlack], range: string.range(of: text))
+        attributedString.addAttributes([.foregroundColor: UIColor.textGray], range: string.range(of: detailText))
+        
+        return attributedString
+    }
+    
+    
+}
+
 class BasicInformation: FormEntry {
 
     var name: String
