@@ -13,9 +13,9 @@ import HandyJSON
 
 
 extension ObservableType where Element == Moya.Response {
-    public func map<T: HandyJSON>(_ type: T.Type) -> Observable<T> {
+    public func map<T: HandyJSON>(_ type: T.Type, atKeyPath keyPath: String? = nil) -> Observable<T> {
         return flatMap { response -> Observable<T> in
-            return Observable.just(try response.map(T.self))
+            return Observable.just(try response.map(T.self, atKeyPath: keyPath))
         }
     }
 }
@@ -24,9 +24,8 @@ public extension PrimitiveSequence where Trait == SingleTrait, Element == Moya.R
 
     /// Maps received data at key path into a Decodable object. If the conversion fails, the signal errors.
     func map<D: HandyJSON>(_ type: D.Type, atKeyPath keyPath: String? = nil) -> Single<D> {
-        return flatMap { .just( try $0.map(D.self)) }
-    }
-}
+        return flatMap { .just( try $0.map(D.self, atKeyPath: keyPath)) }
+    } }
 
 
 

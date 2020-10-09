@@ -375,7 +375,7 @@ extension PhotoAlbum: UICollectionViewDelegate, UICollectionViewDataSource, UICo
         imagePickerController.selectImageBlock = { [weak self] (images, assets, isOriginal) in
             if let image = images.first {
                 let imageURL = writeImage(image)!
-                self?.photoURLs.append(imageURL)
+//                self?.photoURLs.append(imageURL)
                 self?.onImageUpdated.call(imageURL)
             }
             debugPrint("\(images)   \(assets)   \(isOriginal)")
