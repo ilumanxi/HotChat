@@ -258,7 +258,7 @@ class PhotoAlbum: NSObject, FormEntry {
 
     let maximumSelectCount: Int
     
-    var photoURLs: [URL]
+    var medias: [Media]
     
     let contentInsert: UIEdgeInsets = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
     
@@ -266,8 +266,8 @@ class PhotoAlbum: NSObject, FormEntry {
     
     let onImageUpdated = Delegate<URL, Void>()
     
-    init(photoURLs: [URL], maximumSelectCount: Int) {
-        self.photoURLs = photoURLs
+    init(medias: [Media], maximumSelectCount: Int) {
+        self.medias = medias
         self.maximumSelectCount = maximumSelectCount
     }
     
@@ -290,7 +290,7 @@ class PhotoAlbum: NSObject, FormEntry {
 extension PhotoAlbum: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     var photoAlbumCount: Int {
-        return min(photoURLs.count + 1, maximumSelectCount)
+        return min(medias.count + 1, maximumSelectCount)
     }
     
     var photoAlbumHeight: CGFloat {
@@ -342,16 +342,15 @@ extension PhotoAlbum: UICollectionViewDelegate, UICollectionViewDataSource, UICo
         
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: UserInfoMediaCell.self)
         
-        if indexPath.item == photoURLs.count { // add photo
+        if indexPath.item == medias.count { // add photo
             let image = UIImage(named: "add-gray")
             cell.imageView.contentMode = .center
             cell.imageView.image =  image
         }
         else {
-            let url = photoURLs[indexPath.item]
-                       
+            let media = medias[indexPath.item]
             cell.imageView.contentMode = .scaleAspectFill
-            cell.imageView.kf.setImage(with: url)
+            cell.imageView.kf.setImage(with: media.local ?? media.remote)
         }
         
         return cell
@@ -359,7 +358,7 @@ extension PhotoAlbum: UICollectionViewDelegate, UICollectionViewDataSource, UICo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-         if indexPath.item == photoURLs.count { // add photo
+         if indexPath.item == medias.count { // add photo
             imagePicker()
          }
     }
@@ -375,7 +374,6 @@ extension PhotoAlbum: UICollectionViewDelegate, UICollectionViewDataSource, UICo
         imagePickerController.selectImageBlock = { [weak self] (images, assets, isOriginal) in
             if let image = images.first {
                 let imageURL = writeImage(image)!
-//                self?.photoURLs.append(imageURL)
                 self?.onImageUpdated.call(imageURL)
             }
             debugPrint("\(images)   \(assets)   \(isOriginal)")

@@ -206,7 +206,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="V1N-me-lhO">
                                 <rect key="frame" x="122" y="532.5" width="170" height="60"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBH-YE-4u2">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBH-YE-4u2" customClass="AnimatableButton" customModule="IBAnimatable">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -220,7 +220,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WVd-M9-VnV">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WVd-M9-VnV" customClass="AnimatableButton" customModule="IBAnimatable">
                                         <rect key="frame" x="110" y="0.0" width="60" height="60"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -263,6 +263,14 @@
             <point key="canvasLocation" x="2158" y="856"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="WVd-M9-VnV">
+            <size key="intrinsicContentSize" width="22" height="22"/>
+        </designable>
+        <designable name="cBH-YE-4u2">
+            <size key="intrinsicContentSize" width="22" height="22"/>
+        </designable>
+    </designables>
     <resources>
         <image name="chat-contact" width="24.5" height="17"/>
         <image name="chat-conversation" width="22" height="22"/>

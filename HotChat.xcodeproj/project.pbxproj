@@ -230,6 +230,7 @@
 		26959040250B1D9400763061 /* InterestedCardOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2695903F250B1D9400763061 /* InterestedCardOverlayView.swift */; };
 		26959042250B1DD900763061 /* InterestedCardOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26959041250B1DD900763061 /* InterestedCardOverlayView.xib */; };
 		269590BF250B5FE900763061 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 269590BE250B5FE900763061 /* StoreKit.framework */; };
+		2696341F2531942000493C3D /* DynamicAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2696341E2531942000493C3D /* DynamicAPI.swift */; };
 		26A20AEF25189E740061BBB8 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A20AEE25189E740061BBB8 /* LoginManager.swift */; };
 		26A20AF425189F730061BBB8 /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A20AF325189F730061BBB8 /* AccessToken.swift */; };
 		26A20AF92518A3000061BBB8 /* AccessTokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A20AF82518A3000061BBB8 /* AccessTokenStore.swift */; };
@@ -259,6 +260,9 @@
 		26F25C932509C36B00F808EA /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F25C922509C36B00F808EA /* TabBarButton.swift */; };
 		26F25C96250A1B3800F808EA /* SeparatorLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F25C95250A1B3800F808EA /* SeparatorLine.swift */; };
 		26F25C98250A359300F808EA /* InterestedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F25C97250A359300F808EA /* InterestedViewController.swift */; };
+		26F889352531854B001A14F2 /* TextInputViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F889342531854B001A14F2 /* TextInputViewCell.swift */; };
+		26F8893A25318681001A14F2 /* DynamicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8893925318681001A14F2 /* DynamicViewController.swift */; };
+		26F8893F253187BD001A14F2 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8893E253187BD001A14F2 /* Dynamic.swift */; };
 		26F8946B25203B7300A45648 /* TitleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8946925203B7300A45648 /* TitleViewCell.swift */; };
 		26F8946C25203B7300A45648 /* TitleViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26F8946A25203B7300A45648 /* TitleViewCell.xib */; };
 		26F8947125203BDD00A45648 /* TitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8947025203BDD00A45648 /* TitleViewController.swift */; };
@@ -668,6 +672,7 @@
 		269590BD250B5FC300763061 /* HotChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HotChat.entitlements; sourceTree = "<group>"; };
 		269590BE250B5FE900763061 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		269590C0250B5FF900763061 /* HotChatRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HotChatRelease.entitlements; sourceTree = "<group>"; };
+		2696341E2531942000493C3D /* DynamicAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicAPI.swift; sourceTree = "<group>"; };
 		26A20AEE25189E740061BBB8 /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		26A20AF325189F730061BBB8 /* AccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessToken.swift; sourceTree = "<group>"; };
 		26A20AF82518A3000061BBB8 /* AccessTokenStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenStore.swift; sourceTree = "<group>"; };
@@ -699,6 +704,9 @@
 		26F25C922509C36B00F808EA /* TabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
 		26F25C95250A1B3800F808EA /* SeparatorLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorLine.swift; sourceTree = "<group>"; };
 		26F25C97250A359300F808EA /* InterestedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestedViewController.swift; sourceTree = "<group>"; };
+		26F889342531854B001A14F2 /* TextInputViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputViewCell.swift; sourceTree = "<group>"; };
+		26F8893925318681001A14F2 /* DynamicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicViewController.swift; sourceTree = "<group>"; };
+		26F8893E253187BD001A14F2 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
 		26F8946925203B7300A45648 /* TitleViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewCell.swift; sourceTree = "<group>"; };
 		26F8946A25203B7300A45648 /* TitleViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleViewCell.xib; sourceTree = "<group>"; };
 		26F8947025203BDD00A45648 /* TitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewController.swift; sourceTree = "<group>"; };
@@ -915,7 +923,6 @@
 				26E14E5D251C6E8800645F08 /* HotChatButton.swift */,
 				2605A4752513187900017241 /* UIImageExtensions.swift */,
 				26F25C95250A1B3800F808EA /* SeparatorLine.swift */,
-				2682974A2511B05300949C7F /* IndicatorDisplay.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1701,6 +1708,7 @@
 		26A20B032518A4E30061BBB8 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				2682974A2511B05300949C7F /* IndicatorDisplay.swift */,
 				26A20B042518A5020061BBB8 /* HotChatError.swift */,
 				26A20B0C2518BBC10061BBB8 /* Response.swift */,
 				26808FDB2519D4B800C9803C /* API.swift */,
@@ -1715,6 +1723,7 @@
 			isa = PBXGroup;
 			children = (
 				26CBE3B32508A3FC0089A23C /* CommunityViewController.swift */,
+				26F8893925318681001A14F2 /* DynamicViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1724,6 +1733,7 @@
 			children = (
 				26CBE3B52508A9C30089A23C /* CommunityHeaderView.swift */,
 				26CBE3B72508A9F20089A23C /* CommunityHeaderView.xib */,
+				26F889342531854B001A14F2 /* TextInputViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1731,6 +1741,8 @@
 		26CBE3B22508A3DA0089A23C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				26F8893E253187BD001A14F2 /* Dynamic.swift */,
+				2696341E2531942000493C3D /* DynamicAPI.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2071,6 +2083,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26F8893F253187BD001A14F2 /* Dynamic.swift in Sources */,
 				2643EBAE2500B04100FBBE49 /* UserInfoPhotoAlbumCell.swift in Sources */,
 				2643EBCC2500FDA300FBBE49 /* UserInfoViewController.swift in Sources */,
 				265C8A4A251348E200E220BD /* ForgotPasswordViewController.swift in Sources */,
@@ -2129,6 +2142,7 @@
 				2643EBA52500B04100FBBE49 /* ApplicationSettingsViewController.swift in Sources */,
 				26930EB025317052008C5CF8 /* TUIConversationCell.m in Sources */,
 				26930E4425317051008C5CF8 /* THelper.m in Sources */,
+				26F889352531854B001A14F2 /* TextInputViewCell.swift in Sources */,
 				26930E4825317051008C5CF8 /* TUIVideoViewController.m in Sources */,
 				26930E5225317051008C5CF8 /* TCommonSwitchCell.m in Sources */,
 				2643EBA42500B04100FBBE49 /* UserInfoInputTextViewController.swift in Sources */,
@@ -2147,6 +2161,7 @@
 				26930E9125317052008C5CF8 /* TUISelectMemberViewController.m in Sources */,
 				26930E4D25317051008C5CF8 /* TScrollView.m in Sources */,
 				267954F9250757FE00A72954 /* ConversationViewController.swift in Sources */,
+				2696341F2531942000493C3D /* DynamicAPI.swift in Sources */,
 				2643EBBD2500B04100FBBE49 /* Helpers.swift in Sources */,
 				26930E4A25317051008C5CF8 /* TDateEditController.m in Sources */,
 				26930E9B25317052008C5CF8 /* TUICallUtils.m in Sources */,
@@ -2280,6 +2295,7 @@
 				26930E7D25317051008C5CF8 /* TUIGroupPendencyController.m in Sources */,
 				26377FBE25303D2200D5A03D /* ConversationActionViewController.swift in Sources */,
 				26930E8325317052008C5CF8 /* TUIInputMoreCell.m in Sources */,
+				26F8893A25318681001A14F2 /* DynamicViewController.swift in Sources */,
 				267B98752505E1AC0008C81B /* PlatformAuthorization.swift in Sources */,
 				26930E5625317051008C5CF8 /* TUITabBarController.m in Sources */,
 				26F8947625207A9A00A45648 /* UploadFileAPI.swift in Sources */,

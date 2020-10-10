@@ -77,8 +77,7 @@ extension InterestedViewController: KolodaViewDataSource {
     func koloda(_ koloda: KolodaView, viewForCardOverlayAt index: Int) -> OverlayView? {
         
         let view = InterestedCardOverlayView.loadFromNib()
-        view.backgroundColor = UIColor.darkGray.withAlphaComponent(0.3)
-        view.ib.cornerRadius = 8
+        view.backgroundColor = UIColor.red.withAlphaComponent(0.3)
         return view
     }
 }

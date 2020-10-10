@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import IBAnimatable
 
-class InterestedCardView: UIView {
+class InterestedCardView: AnimatableView {
 
     /*
     // Only override draw() if you perform custom drawing.

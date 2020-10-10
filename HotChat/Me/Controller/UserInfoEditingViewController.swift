@@ -65,8 +65,8 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay {
     }
     
     private var photoAlbum: PhotoAlbum {
-        let photoURLs = user.photoList.compactMap{ URL(string: $0.picUrl)}
-        let entry = PhotoAlbum(photoURLs: photoURLs, maximumSelectCount: 8)
+        let medias = user.photoList.compactMap{ Media(remote: URL(string: $0.picUrl)!, local: nil) }
+        let entry = PhotoAlbum(medias: medias, maximumSelectCount: 8)
         entry.onPresenting.delegate(on: self) { (self, _) in
              return self
         }

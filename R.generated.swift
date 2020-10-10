@@ -1049,10 +1049,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 10 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 11 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `InformationCell`.
     static let informationCell: Rswift.ReuseIdentifier<InformationCell> = Rswift.ReuseIdentifier(identifier: "InformationCell")
+    /// Reuse identifier `TextInputViewCell`.
+    static let textInputViewCell: Rswift.ReuseIdentifier<TextInputViewCell> = Rswift.ReuseIdentifier(identifier: "TextInputViewCell")
     /// Reuse identifier `UserInfoBasicInformationCell`.
     static let userInfoBasicInformationCell: Rswift.ReuseIdentifier<UserInfoBasicInformationCell> = Rswift.ReuseIdentifier(identifier: "UserInfoBasicInformationCell")
     /// Reuse identifier `UserInfoInterviewCell`.
@@ -1330,6 +1332,7 @@ struct _R: Rswift.Validatable {
   struct nib: Rswift.Validatable {
     static func validate() throws {
       try _CommunityHeaderView.validate()
+      try _InterestedCardOverlayView.validate()
       try _InterestedCardView.validate()
       try _LabelViewCell.validate()
       try _RelationshipViewCell.validate()
@@ -1358,12 +1361,18 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    struct _InterestedCardOverlayView: Rswift.NibResourceType {
+    struct _InterestedCardOverlayView: Rswift.NibResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "InterestedCardOverlayView"
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> InterestedCardOverlayView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? InterestedCardOverlayView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "chat-conversation", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'chat-conversation' is used in nib 'InterestedCardOverlayView', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
       }
 
       fileprivate init() {}
