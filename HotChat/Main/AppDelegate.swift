@@ -9,7 +9,6 @@
 import UIKit
 import AuthenticationServices
 import SYBPush
-import TXIMSDK_TUIKit_iOS
 import SwiftyStoreKit
 
 

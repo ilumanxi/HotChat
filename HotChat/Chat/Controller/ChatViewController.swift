@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import TXIMSDK_TUIKit_iOS
 import SPAlertController
 
 class ChatViewController: TUIChatController {

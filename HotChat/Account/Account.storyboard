@@ -32,8 +32,8 @@
                                 <color key="textColor" red="0.20392156859999999" green="0.20392156859999999" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="X3a-fq-rsw">
-                                <rect key="frame" x="30" y="548" width="315" height="115"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="X3a-fq-rsw">
+                                <rect key="frame" x="30" y="582" width="315" height="115"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DzQ-D1-5Hh" customClass="AnimatableButton" customModule="IBAnimatable">
                                         <rect key="frame" x="0.0" y="0.0" width="315" height="50"/>
@@ -72,8 +72,8 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WrV-bB-6ju" customClass="LegalLiabilityToolBar" customModule="HotChat" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="703" width="375" height="69"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WrV-bB-6ju" customClass="LegalLiabilityToolBar" customModule="HotChat" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="737" width="375" height="35"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
@@ -973,10 +973,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="t3S-7d-b0J">
-                                                    <rect key="frame" x="267.66666666666669" y="16.666666666666668" width="91.333333333333314" height="17.000000000000004"/>
+                                                    <rect key="frame" x="257.66666666666669" y="16.666666666666668" width="101.33333333333331" height="17.000000000000004"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XKu-n9-Ime" customClass="HotChatButton" customModule="HotChat" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="27.666666666666668" height="17"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="32.666666666666664" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                             <state key="normal" title="男" image="box-unselected">
@@ -988,7 +988,7 @@
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ev4-EP-8f1" customClass="HotChatButton" customModule="HotChat" customModuleProvider="target">
-                                                            <rect key="frame" x="63.666666666666622" y="0.0" width="27.666666666666664" height="17"/>
+                                                            <rect key="frame" x="68.666666666666629" y="0.0" width="32.666666666666657" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                             <state key="normal" title="女" image="box-unselected">
@@ -1202,8 +1202,11 @@
         <designable name="Uxi-vW-6XW">
             <size key="intrinsicContentSize" width="30" height="29"/>
         </designable>
+        <designable name="WrV-bB-6ju">
+            <size key="intrinsicContentSize" width="10000" height="35"/>
+        </designable>
         <designable name="XKu-n9-Ime">
-            <size key="intrinsicContentSize" width="32.666666666666664" height="17"/>
+            <size key="intrinsicContentSize" width="32.666666666666671" height="17"/>
         </designable>
         <designable name="Zi1-po-Lps">
             <size key="intrinsicContentSize" width="66" height="32"/>
@@ -1212,7 +1215,7 @@
             <size key="intrinsicContentSize" width="82" height="32"/>
         </designable>
         <designable name="ev4-EP-8f1">
-            <size key="intrinsicContentSize" width="32.666666666666664" height="17"/>
+            <size key="intrinsicContentSize" width="32.666666666666671" height="17"/>
         </designable>
         <designable name="ope-2p-YYa">
             <size key="intrinsicContentSize" width="49" height="33"/>

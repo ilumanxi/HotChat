@@ -4,3 +4,4 @@
 #import "WechatAuthSDK.h"
 #import "WXApi.h"
 #import "WXApiObject.h"
+#import "TXIMSDK_TUIKit_iOS-umbrella.h"

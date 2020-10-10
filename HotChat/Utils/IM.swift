@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import TXIMSDK_TUIKit_iOS
+//import TXIMSDK_TUIKit_iOS
 
 class IM {
     

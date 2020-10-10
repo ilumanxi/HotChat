@@ -49,3 +49,30 @@ enum HotChatError: Error {
     case uploadFileError(reason: UploadFileErrorReason)
     
 }
+
+
+// MARK: - Error description
+extension HotChatError: LocalizedError {
+    /// Describes the cause of an error in human-readable text.
+    public var localizedDescription: String {
+        switch self {
+        case .generalError(reason: let reason):
+            return reason.localizedDescription
+        default:
+            return "发生错误"
+        }
+    }
+}
+
+
+extension HotChatError.GeneralErrorReason: LocalizedError {
+    
+    public var localizedDescription: String {
+        switch self {
+        case .conversionError(string: let string, encoding: let encoding):
+            return string
+        default:
+            return "发生错误"
+        }
+    }
+}

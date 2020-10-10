@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Cms-sb-m6n">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Cms-sb-m6n">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -34,10 +36,53 @@
                     <view key="view" contentMode="scaleToFill" id="lDM-Gr-8uc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1ga-r6-SZX">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="EOu-uc-Gd9">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="BEU-F8-aAP">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="il6-0n-aXF">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYm-Ia-B2O">
+                                <rect key="frame" x="312" y="817" width="92" height="30"/>
+                                <color key="backgroundColor" red="0.31764705882352939" green="0.34901960784313724" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Dqq-G2-s6d"/>
+                                    <constraint firstAttribute="width" constant="92" id="gg8-Bu-CDX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <inset key="titleEdgeInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="发布动态" image="community-dynamic"/>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="eIY-MU-AyU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="1ga-r6-SZX" secondAttribute="trailing" id="Afh-bi-ktW"/>
+                            <constraint firstItem="eIY-MU-AyU" firstAttribute="bottom" secondItem="yYm-Ia-B2O" secondAttribute="bottom" constant="15" id="BUa-Og-sPS"/>
+                            <constraint firstItem="eIY-MU-AyU" firstAttribute="trailing" secondItem="yYm-Ia-B2O" secondAttribute="trailing" constant="10" id="MJR-xf-X15"/>
+                            <constraint firstItem="1ga-r6-SZX" firstAttribute="leading" secondItem="lDM-Gr-8uc" secondAttribute="leading" id="QJ1-hM-LzN"/>
+                            <constraint firstAttribute="bottom" secondItem="1ga-r6-SZX" secondAttribute="bottom" id="dRM-vm-LlJ"/>
+                            <constraint firstItem="1ga-r6-SZX" firstAttribute="top" secondItem="lDM-Gr-8uc" secondAttribute="top" id="uPH-Xj-Ngj"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="社区" id="54h-Rq-HML"/>
+                    <navigationItem key="navigationItem" title="社区" id="54h-Rq-HML">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="common-search" id="YSI-fH-HHZ"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gaF-ai-iDJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -45,7 +90,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="common-search" width="17" height="17"/>
+        <image name="community-dynamic" width="17" height="16"/>
         <image name="tabbar-community-normal" width="19" height="19"/>
         <image name="tabbar-community-selected" width="19" height="19"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

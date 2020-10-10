@@ -264,7 +264,37 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 66 images.
+  /// This `R.file` struct is generated, and contains static references to 3 files.
+  struct file {
+    /// Resource file `README.md`.
+    static let readmeMd = Rswift.FileResource(bundle: R.hostingBundle, name: "README", pathExtension: "md")
+    /// Resource file `TUIKitFace.bundle`.
+    static let tuiKitFaceBundle = Rswift.FileResource(bundle: R.hostingBundle, name: "TUIKitFace", pathExtension: "bundle")
+    /// Resource file `TUIKitResource.bundle`.
+    static let tuiKitResourceBundle = Rswift.FileResource(bundle: R.hostingBundle, name: "TUIKitResource", pathExtension: "bundle")
+
+    /// `bundle.url(forResource: "README", withExtension: "md")`
+    static func readmeMd(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.readmeMd
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "TUIKitFace", withExtension: "bundle")`
+    static func tuiKitFaceBundle(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.tuiKitFaceBundle
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "TUIKitResource", withExtension: "bundle")`
+    static func tuiKitResourceBundle(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.tuiKitResourceBundle
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    fileprivate init() {}
+  }
+
+  /// This `R.image` struct is generated, and contains static references to 67 images.
   struct image {
     /// Image `account-register-succeed`.
     static let accountRegisterSucceed = Rswift.ImageResource(bundle: R.hostingBundle, name: "account-register-succeed")
@@ -302,6 +332,8 @@ struct R: Rswift.Validatable {
     static let commonLeaderboard = Rswift.ImageResource(bundle: R.hostingBundle, name: "common-leaderboard")
     /// Image `common-search`.
     static let commonSearch = Rswift.ImageResource(bundle: R.hostingBundle, name: "common-search")
+    /// Image `community-dynamic`.
+    static let communityDynamic = Rswift.ImageResource(bundle: R.hostingBundle, name: "community-dynamic")
     /// Image `community-live`.
     static let communityLive = Rswift.ImageResource(bundle: R.hostingBundle, name: "community-live")
     /// Image `community-location`.
@@ -522,6 +554,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "common-search", bundle: ..., traitCollection: ...)`
     static func commonSearch(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.commonSearch, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "community-dynamic", bundle: ..., traitCollection: ...)`
+    static func communityDynamic(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.communityDynamic, compatibleWith: traitCollection)
     }
     #endif
 
@@ -1561,6 +1600,8 @@ struct _R: Rswift.Validatable {
       let name = "Community"
 
       static func validate() throws {
+        if UIKit.UIImage(named: "common-search", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'common-search' is used in storyboard 'Community', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "community-dynamic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'community-dynamic' is used in storyboard 'Community', but couldn't be loaded.") }
         if UIKit.UIImage(named: "tabbar-community-normal", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tabbar-community-normal' is used in storyboard 'Community', but couldn't be loaded.") }
         if UIKit.UIImage(named: "tabbar-community-selected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tabbar-community-selected' is used in storyboard 'Community', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {

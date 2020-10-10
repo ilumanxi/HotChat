@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import TXIMSDK_TUIKit_iOS
+
 
 class ConversationViewController: UIViewController {
     
