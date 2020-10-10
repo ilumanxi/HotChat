@@ -48,51 +48,8 @@ class DemoViewController: UITableViewController, SegementSlideContentScrollViewD
 class CommunityViewController: UIViewController {
     
 
-//    override var bouncesType: BouncesType {
-//        return .child
-//    }
-//
-//    private lazy var contentViewControllers: [DemoViewController] =  {
-//
-//        let recommend = DemoViewController()
-//        recommend.title = "推荐"
-//
-//        let vlog = DemoViewController()
-//        vlog.title = "小视频"
-//
-//        return [recommend, vlog]
-//    }()
-//
-//    private var contentTitles: [String] {
-//        contentViewControllers.compactMap { $0.title }
-//    }
-//
-//    override var titlesInSwitcher: [String] {
-//        return contentTitles
-//    }
-    
-    
-//    private lazy var communityHeaderView: CommunityHeaderView =  {
-//        
-//        let headerView = CommunityHeaderView.loadFromNib()
-//        headerView.translatesAutoresizingMaskIntoConstraints = false
-//        headerView.contentView.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-//        let size = headerView.contentView.systemLayoutSizeFitting(UIView.layoutFittingExpandedSize)
-//        headerView.heightAnchor.constraint(equalToConstant: size.height + UIApplication.shared.statusBarFrame.height).isActive = true
-//        headerView.contentView.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = false
-//        
-//        return headerView
-//    }()
-//    
-//    override func segementSlideHeaderView() -> UIView {
-//       
-//        return communityHeaderView
-//    }
-//    
-//    override func segementSlideContentViewController(at index: Int) -> SegementSlideContentScrollViewDelegate? {
-//        
-//        return contentViewControllers[index]
-//    }
+
+    let dynamicAPI = RequestAPI<DynamicAPI>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,7 +57,62 @@ class CommunityViewController: UIViewController {
         
 //        defaultSelectedIndex = 0
 //        reloadData()
+        
+        dynamicAPI.request(.recommendList, type: Response<[Dynamic]>.self)
+            .subscribe(onSuccess: { response in
+                Log.print(response)
+            }, onError: { error in
+                Log.print(error)
+            })
+            .disposed(by: rx.disposeBag)
+        
     }
+    
+    //    override var bouncesType: BouncesType {
+    //        return .child
+    //    }
+    //
+    //    private lazy var contentViewControllers: [DemoViewController] =  {
+    //
+    //        let recommend = DemoViewController()
+    //        recommend.title = "推荐"
+    //
+    //        let vlog = DemoViewController()
+    //        vlog.title = "小视频"
+    //
+    //        return [recommend, vlog]
+    //    }()
+    //
+    //    private var contentTitles: [String] {
+    //        contentViewControllers.compactMap { $0.title }
+    //    }
+    //
+    //    override var titlesInSwitcher: [String] {
+    //        return contentTitles
+    //    }
+        
+        
+    //    private lazy var communityHeaderView: CommunityHeaderView =  {
+    //
+    //        let headerView = CommunityHeaderView.loadFromNib()
+    //        headerView.translatesAutoresizingMaskIntoConstraints = false
+    //        headerView.contentView.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
+    //        let size = headerView.contentView.systemLayoutSizeFitting(UIView.layoutFittingExpandedSize)
+    //        headerView.heightAnchor.constraint(equalToConstant: size.height + UIApplication.shared.statusBarFrame.height).isActive = true
+    //        headerView.contentView.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = false
+    //
+    //        return headerView
+    //    }()
+    //
+    //    override func segementSlideHeaderView() -> UIView {
+    //
+    //        return communityHeaderView
+    //    }
+    //
+    //    override func segementSlideContentViewController(at index: Int) -> SegementSlideContentScrollViewDelegate? {
+    //
+    //        return contentViewControllers[index]
+    //    }
     
 //    override func scrollViewDidScroll(_ scrollView: UIScrollView, isParent: Bool) {
 //        super.scrollViewDidScroll(scrollView, isParent: isParent)

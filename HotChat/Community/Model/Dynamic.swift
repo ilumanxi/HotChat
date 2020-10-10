@@ -7,6 +7,18 @@
 //
 
 import UIKit
+import HandyJSON
+
+
+struct Dynamic: HandyJSON {
+    var dynamicId: String = ""
+    var content: String = ""
+    var isSelfZan: Bool = false
+    var zanNum: Int = 0
+    var type: Int = 0
+    var coverUrl: String = ""
+    var userInfo: User!
+}
 
 
 class TextIput: FormEntry {

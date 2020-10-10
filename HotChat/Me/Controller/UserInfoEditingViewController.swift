@@ -28,8 +28,7 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay {
              return self
         }
         entry.onImageUpdated.delegate(on: self) { (self, url) in
-            let hub = MBProgressHUD.showAdded(to: self.view, animated: true)
-            hub.show(animated: true)
+            self.showIndicatorOnWindow()
             self.uploadAPI.request(.upload(url), type: Response<[RemoteFile]>.self)
                 .map{ response -> [String : Any] in
                     if response.isSuccessd {
@@ -45,17 +44,17 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay {
                 .flatMap { params in
                     return self.userAPI.request(.editUser(value: params), type: Response<User>.self)
                 }
-                .subscribe(onSuccess: { response in
-                    hub.hide(animated: true)
+                .subscribe(onSuccess: { [weak self] response in
+                    self?.hideIndicatorFromWindow()
                     if response.isSuccessd {
-                        self.user = response.data!
+                        self?.user = response.data!
                     }
                     else {
-                        self.show(response.msg)
+                        self?.showMessageOnWindow(response.msg)
                     }
-                }, onError: {  error in
-                    hub.label.text = error.localizedDescription
-                    hub.show(animated: true)
+                }, onError: { [weak self]  error in
+                    self?.hideIndicatorFromWindow()
+                    self?.showMessageOnWindow(error.localizedDescription)
                 })
                 .disposed(by: self.rx.disposeBag)
             

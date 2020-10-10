@@ -11,6 +11,7 @@ import Moya
 
 enum DynamicAPI{
     case releaseDynamic([String : Any])
+    case recommendList
 }
 
 
@@ -23,6 +24,8 @@ extension DynamicAPI: TargetType {
         switch self {
         case .releaseDynamic:
             return "Dynamic/releaseDynamic"
+        case .recommendList:
+            return "Dynamic/recommendList"
         }
     }
     
@@ -40,6 +43,8 @@ extension DynamicAPI: TargetType {
         switch self {
         case .releaseDynamic(let value):
             parameters = value
+        case .recommendList:
+            parameters = [:]
         }
         
         let encoding: ParameterEncoding = (method == .post) ? JSONEncoding.default : URLEncoding.default

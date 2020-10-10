@@ -30,14 +30,15 @@ class MeHeaderView: UIView {
     
     @IBOutlet var backgroundViewHeightConstraint: NSLayoutConstraint!
     
-    override class var requiresConstraintBasedLayout: Bool {
-        return true
-    }
+//    override class var requiresConstraintBasedLayout: Bool {
+//        return true
+//    }
 
     
     override func awakeFromNib() {
         
-        translatesAutoresizingMaskIntoConstraints = false
+//        translatesAutoresizingMaskIntoConstraints = false
+        
         widthAnchor.constraint(equalTo: superview!.widthAnchor).isActive = true
         
         // 可以根据 srollview offset 改变高度
