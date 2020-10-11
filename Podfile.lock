@@ -1,6 +1,7 @@
 PODS:
   - ActiveLabel (1.1.0)
   - Alamofire (5.2.2)
+  - Blueprints (0.13.1)
   - CollectionKit (2.4.0):
     - CollectionKit/Core (= 2.4.0)
   - CollectionKit/Core (2.4.0)
@@ -17,6 +18,7 @@ PODS:
   - Koloda (5.0.1):
     - pop (~> 1.0)
   - LGButton (1.1.6)
+  - MagazineLayout (1.6.3)
   - MarqueeLabel (4.0.3)
   - MBProgressHUD (1.2.0)
   - MMLayout (0.2.0)
@@ -80,6 +82,7 @@ PODS:
 
 DEPENDENCIES:
   - ActiveLabel
+  - Blueprints
   - CollectionKit
   - CryptoSwift
   - DynamicColor
@@ -91,6 +94,7 @@ DEPENDENCIES:
   - Kingfisher
   - Koloda
   - LGButton
+  - MagazineLayout
   - MBProgressHUD
   - MMLayout (= 0.2.0)
   - Moya/Core
@@ -124,6 +128,7 @@ SPEC REPOS:
   trunk:
     - ActiveLabel
     - Alamofire
+    - Blueprints
     - CollectionKit
     - CryptoSwift
     - DynamicColor
@@ -135,6 +140,7 @@ SPEC REPOS:
     - Kingfisher
     - Koloda
     - LGButton
+    - MagazineLayout
     - MarqueeLabel
     - MBProgressHUD
     - MMLayout
@@ -180,6 +186,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   ActiveLabel: 5e3f4de79a1952d4604b845a0610d4776e4b82b3
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  Blueprints: ddd6ab1e455c98471aaef2fdd0b09b5f9b53af5b
   CollectionKit: 8f01e7629185bb81072c4aa734d105df5c2d1c8b
   CryptoSwift: 093499be1a94b0cae36e6c26b70870668cb56060
   DynamicColor: c475f66bda1cabf602f2c54ac1171c0c07148a5a
@@ -191,6 +198,7 @@ SPEC CHECKSUMS:
   Kingfisher: e3ec347a5ab8817b7585ef46923a2d2b9a7d8fbe
   Koloda: d07b9199a383abc5898b62aa945a599f5e7c0c4b
   LGButton: 9f0a7f9d3030e3f504108342f6b66d64a429371b
+  MagazineLayout: 159da0d4d874e04e6b17e580b990cccd00328c5b
   MarqueeLabel: a1ea597e347506640a5b00fda9c07b572753f45e
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MMLayout: 3fb59d58eeb8656c64e61d550fb0088e10666c11
@@ -225,6 +233,6 @@ SPEC CHECKSUMS:
   WechatOpenSDK: 6a4d1436c15b3b5fe2a0bd383f3046010186da44
   ZLPhotoBrowser: f85662753ea4cfebff08b3512b17467467634fb2
 
-PODFILE CHECKSUM: 7cc3abd3d98703adad20f0c48288ac7d4f007b31
+PODFILE CHECKSUM: fcbb01240344990eb7ecfb01b13703c150e3e2ce
 
 COCOAPODS: 1.9.3

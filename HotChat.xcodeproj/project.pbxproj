@@ -271,6 +271,7 @@
 		4018CB5002D0F1A0F4A364B0 /* Pods_HotChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40ECD5CDB6E8BD7D041BB7FA /* Pods_HotChat.framework */; };
 		7DF459FD444C84F25BD7E1A6 /* Pods_HotChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D56D4F598B62AA562FD51A43 /* Pods_HotChatTests.framework */; };
 		B02E97270FFF64D3567D1CC5 /* Pods_HotChat_HotChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 977581F58CE300513467406F /* Pods_HotChat_HotChatUITests.framework */; };
+		F305482B2532BC0800844D00 /* DynamicViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F305482A2532BC0800844D00 /* DynamicViewCell.swift */; };
 		F370D277251CE65500C2F708 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F370D276251CE65500C2F708 /* ResetPasswordViewController.swift */; };
 		F38CB8C62507B14700049A76 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F38CB8C52507B14700049A76 /* InfoPlist.strings */; };
 		F38CB8C82507BA8A00049A76 /* ChatNotificationSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CB8C72507BA8A00049A76 /* ChatNotificationSettingCell.swift */; };
@@ -721,6 +722,7 @@
 		AA99308DBA66754EEB4E33C2 /* Pods-HotChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotChatTests.debug.xcconfig"; path = "Target Support Files/Pods-HotChatTests/Pods-HotChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D56D4F598B62AA562FD51A43 /* Pods_HotChatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HotChatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D867E19108FF78BD6462E0F7 /* Pods-HotChat-HotChatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotChat-HotChatUITests.debug.xcconfig"; path = "Target Support Files/Pods-HotChat-HotChatUITests/Pods-HotChat-HotChatUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F305482A2532BC0800844D00 /* DynamicViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicViewCell.swift; sourceTree = "<group>"; };
 		F370D276251CE65500C2F708 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		F38CB8C52507B14700049A76 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		F38CB8C72507BA8A00049A76 /* ChatNotificationSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatNotificationSettingCell.swift; sourceTree = "<group>"; };
@@ -1734,6 +1736,7 @@
 				26CBE3B52508A9C30089A23C /* CommunityHeaderView.swift */,
 				26CBE3B72508A9F20089A23C /* CommunityHeaderView.xib */,
 				26F889342531854B001A14F2 /* TextInputViewCell.swift */,
+				F305482A2532BC0800844D00 /* DynamicViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2168,6 +2171,7 @@
 				26E14E68251C861A00645F08 /* DatePickerViewController.swift in Sources */,
 				26373C77250234D00066FF3B /* FormSection.swift in Sources */,
 				26373C732502340D0066FF3B /* FormEntry.swift in Sources */,
+				F305482B2532BC0800844D00 /* DynamicViewCell.swift in Sources */,
 				26930E5425317051008C5CF8 /* TCommonCell.m in Sources */,
 				26930E9F25317052008C5CF8 /* TUIFaceView.m in Sources */,
 				26930EA825317052008C5CF8 /* UIColor+TUIDarkMode.m in Sources */,

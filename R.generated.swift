@@ -294,7 +294,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 67 images.
+  /// This `R.image` struct is generated, and contains static references to 69 images.
   struct image {
     /// Image `account-register-succeed`.
     static let accountRegisterSucceed = Rswift.ImageResource(bundle: R.hostingBundle, name: "account-register-succeed")
@@ -348,6 +348,10 @@ struct R: Rswift.Validatable {
     static let launchScreenLogo = Rswift.ImageResource(bundle: R.hostingBundle, name: "launch-screen-logo")
     /// Image `launch-screen-message`.
     static let launchScreenMessage = Rswift.ImageResource(bundle: R.hostingBundle, name: "launch-screen-message")
+    /// Image `like-normal`.
+    static let likeNormal = Rswift.ImageResource(bundle: R.hostingBundle, name: "like-normal")
+    /// Image `like-selected`.
+    static let likeSelected = Rswift.ImageResource(bundle: R.hostingBundle, name: "like-selected")
     /// Image `me-anti-fraud`.
     static let meAntiFraud = Rswift.ImageResource(bundle: R.hostingBundle, name: "me-anti-fraud")
     /// Image `me-attention`.
@@ -610,6 +614,20 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "launch-screen-message", bundle: ..., traitCollection: ...)`
     static func launchScreenMessage(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.launchScreenMessage, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "like-normal", bundle: ..., traitCollection: ...)`
+    static func likeNormal(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.likeNormal, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "like-selected", bundle: ..., traitCollection: ...)`
+    static func likeSelected(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.likeSelected, compatibleWith: traitCollection)
     }
     #endif
 
@@ -1049,8 +1067,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 11 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 12 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `DynamicViewCell`.
+    static let dynamicViewCell: Rswift.ReuseIdentifier<DynamicViewCell> = Rswift.ReuseIdentifier(identifier: "DynamicViewCell")
     /// Reuse identifier `InformationCell`.
     static let informationCell: Rswift.ReuseIdentifier<InformationCell> = Rswift.ReuseIdentifier(identifier: "InformationCell")
     /// Reuse identifier `TextInputViewCell`.
@@ -1611,6 +1631,8 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if UIKit.UIImage(named: "common-search", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'common-search' is used in storyboard 'Community', but couldn't be loaded.") }
         if UIKit.UIImage(named: "community-dynamic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'community-dynamic' is used in storyboard 'Community', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "like-normal", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'like-normal' is used in storyboard 'Community', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "like-selected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'like-selected' is used in storyboard 'Community', but couldn't be loaded.") }
         if UIKit.UIImage(named: "tabbar-community-normal", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tabbar-community-normal' is used in storyboard 'Community', but couldn't be loaded.") }
         if UIKit.UIImage(named: "tabbar-community-selected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tabbar-community-selected' is used in storyboard 'Community', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {

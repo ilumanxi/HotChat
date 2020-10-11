@@ -73,6 +73,8 @@ target 'HotChat' do
     pod 'ZLPhotoBrowser'
     pod 'WechatOpenSDK'
     pod 'SwiftyStoreKit'
+    pod 'MagazineLayout'
+    pod 'Blueprints'
     
     pod 'SYBPush/normal',  :git => 'https://github.com/isandboy/SYBPush.git'
 
