@@ -66,10 +66,10 @@
     </objects>
     <designables>
         <designable name="Gbo-kE-z1z">
-            <size key="intrinsicContentSize" width="48" height="19"/>
+            <size key="intrinsicContentSize" width="58" height="19"/>
         </designable>
         <designable name="zyP-Ll-ZhF">
-            <size key="intrinsicContentSize" width="159" height="19"/>
+            <size key="intrinsicContentSize" width="169" height="19"/>
         </designable>
     </designables>
     <resources>

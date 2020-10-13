@@ -11,13 +11,16 @@ import IBAnimatable
 
 class InterestedCardView: AnimatableView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-
+  
+    @IBOutlet weak var avatarImageView: UIImageView!
+    
+    @IBOutlet weak var nicknameLabel: UILabel!
+    
+    
+    @IBOutlet weak var infoLabel: UILabel!
+    
+    
+    @IBOutlet weak var contentLabel: UILabel!
+    
 }
 

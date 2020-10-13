@@ -7,16 +7,19 @@
 //
 
 import UIKit
+import SnapKit
 import MBProgressHUD
 import Toast_Swift
 
 protocol IndicatorDisplay {
     
     func show(_ message: String?, in view: UIView)
-    
     func showIndicator(in view: UIView)
+    func showOrHideIndicator(loadingState: LoadingState, in view: UIView, text: String?, image: UIImage?)
     func hideIndicator(from view: UIView)
 }
+
+class IndicatorHolderView: UIView {}
 
 
 extension IndicatorDisplay where Self: UIViewController {
@@ -55,9 +58,86 @@ extension IndicatorDisplay where Self: UIViewController {
         hub.show(animated: true)
     }
     
+    func showOrHideIndicator(loadingState: LoadingState, text: String? = nil, image: UIImage? = nil) {
+        showOrHideIndicator(loadingState: loadingState, in: view, text: text, image: image)
+    }
+    
+    
+    func showOrHideIndicator(loadingState: LoadingState, in view: UIView, text: String? = nil, image: UIImage? = nil) {
+        
+        func showImageText(text: String, image: UIImage) -> UIStackView {
+            let imageView = UIImageView(image: image)
+            
+            let label = UILabel()
+            label.font = UIFont.systemFont(ofSize: 14)
+            label.textColor = UIColor(hexString: "#999999")
+            label.text = text
+            
+            let stackView =  UIStackView(arrangedSubviews: [imageView, label])
+            stackView.spacing = 16
+            stackView.alignment  = .center
+            stackView.distribution = .fill
+            stackView.axis = .vertical
+            return stackView
+        }
+        
+        let findHolderView = view.subviews.first { $0 is IndicatorHolderView }
+        
+        if loadingState == .contentLoaded {
+            findHolderView?.removeFromSuperview()
+            return
+        }
+        let holderView = findHolderView ?? IndicatorHolderView()
+        holderView.backgroundColor = .groupTableViewBackground
+        
+        switch loadingState {
+        case .initial:
+            let indicator = UIActivityIndicatorView(style: .gray)
+            indicator.hidesWhenStopped = true
+            indicator.startAnimating()
+            
+            let label = UILabel()
+            label.font = UIFont.systemFont(ofSize: 14)
+            label.textColor = UIColor(hexString: "#999999")
+            label.text = text ?? "加载中"
+            
+            let stackView =  UIStackView(arrangedSubviews: [indicator, label])
+            stackView.spacing = 16
+            stackView.alignment  = .center
+            stackView.distribution = .fill
+            stackView.axis = .vertical
+            
+            holderView.addSubview(stackView)
+            stackView.snp.makeConstraints { maker in
+                maker.center.equalToSuperview()
+            }
+        case .noContent:
+            let stackView = showImageText(text: text ?? "暂时没有数据!", image: image ??  UIImage(named: "no-content")!)
+            holderView.addSubview(stackView)
+            stackView.snp.makeConstraints { maker in
+                maker.center.equalToSuperview()
+            }
+        case .error:
+            let stackView = showImageText(text: text ?? "数据加载失败、请刷新!", image: image ??  UIImage(named: "load-error")!)
+            holderView.addSubview(stackView)
+            stackView.snp.makeConstraints { maker in
+                maker.center.equalToSuperview()
+            }
+            
+        default:
+            break
+        }
+         
+        view.addSubview(holderView)
+        holderView.snp.makeConstraints { maker in
+            maker.leading.trailing.top.bottom.equalToSuperview()
+        }
+    }
+    
     func hideIndicator(from view: UIView) {
         let hub = view.subviews.first { $0 is MBProgressHUD } as? MBProgressHUD
         hub?.hide(animated: true)
     }
+    
     
 }

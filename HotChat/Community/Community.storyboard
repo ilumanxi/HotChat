@@ -38,7 +38,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1ga-r6-SZX">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1ga-r6-SZX">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="EOu-uc-Gd9">
@@ -332,7 +332,7 @@
                                                             <rect key="frame" x="32" y="13.5" width="323" height="15"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VWE-82-X28" customClass="HotChatButton" customModule="HotChat" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="26" height="15"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="21" height="15"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
                                                                     <state key="normal" title="0" image="like-normal">
@@ -344,7 +344,7 @@
                                                                     </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ym-wM-ALV" customClass="HotChatButton" customModule="HotChat" customModuleProvider="target">
-                                                                    <rect key="frame" x="127.5" y="0.0" width="26" height="15"/>
+                                                                    <rect key="frame" x="130" y="0.0" width="21" height="15"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
                                                                     <state key="normal" title="0" image="give">
@@ -355,7 +355,7 @@
                                                                     </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fVI-hq-0Fh" customClass="HotChatButton" customModule="HotChat" customModuleProvider="target">
-                                                                    <rect key="frame" x="255" y="0.0" width="68" height="15"/>
+                                                                    <rect key="frame" x="260" y="0.0" width="63" height="15"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
                                                                     <state key="normal" title="私密评论" image="comment">
@@ -580,23 +580,6 @@
             <point key="canvasLocation" x="2488.4057971014495" y="-699.10714285714278"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="4Ym-wM-ALV">
-            <size key="intrinsicContentSize" width="26" height="15"/>
-        </designable>
-        <designable name="DV3-tg-zJ1">
-            <size key="intrinsicContentSize" width="30" height="34"/>
-        </designable>
-        <designable name="VWE-82-X28">
-            <size key="intrinsicContentSize" width="26" height="15"/>
-        </designable>
-        <designable name="fVI-hq-0Fh">
-            <size key="intrinsicContentSize" width="68" height="15"/>
-        </designable>
-        <designable name="yYm-Ia-B2O">
-            <size key="intrinsicContentSize" width="67" height="16"/>
-        </designable>
-    </designables>
     <resources>
         <image name="comment" width="13" height="13"/>
         <image name="common-search" width="17" height="17"/>

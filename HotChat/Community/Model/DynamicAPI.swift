@@ -11,9 +11,10 @@ import Moya
 
 enum DynamicAPI{
     case releaseDynamic([String : Any])
-    case recommendList
+    case recommendList(Int)
     case zan(String)
     case dynamicList([String : Any])
+    case follow(String)
 }
 
 
@@ -32,6 +33,8 @@ extension DynamicAPI: TargetType {
             return "Dynamic/zan"
         case .dynamicList:
             return "Dynamic/dynamicList"
+        case .follow:
+            return "Dynamic/follow"
         }
     }
     
@@ -49,12 +52,14 @@ extension DynamicAPI: TargetType {
         switch self {
         case .releaseDynamic(let value):
             parameters = value
-        case .recommendList:
-            parameters = [:]
+        case .recommendList(let page):
+            parameters = ["page" : page]
         case .zan(let dynamicId):
             parameters = [ "dynamicId" : dynamicId]
         case .dynamicList(let value):
             parameters = value
+        case .follow(let followUserId):
+            parameters = [ "followUserId" : followUserId]
         }
         
         let encoding: ParameterEncoding = (method == .post) ? JSONEncoding.default : URLEncoding.default

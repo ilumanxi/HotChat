@@ -91,6 +91,10 @@
 		268458E225342B7D002B9C6E /* DynamicDetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268458E025342B7D002B9C6E /* DynamicDetailViewCell.swift */; };
 		268458E825343FA8002B9C6E /* DynamicDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268458E725343FA8002B9C6E /* DynamicDetailViewController.swift */; };
 		268458F025345352002B9C6E /* MediaViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268458EF25345352002B9C6E /* MediaViewCell.swift */; };
+		268458F525354481002B9C6E /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268458F425354481002B9C6E /* LoadingState.swift */; };
+		2684593925354EDB002B9C6E /* Reload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2684593825354EDB002B9C6E /* Reload.swift */; };
+		2684598E25359A8A002B9C6E /* MesssageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2684598D25359A8A002B9C6E /* MesssageAPI.swift */; };
+		2684599325359B91002B9C6E /* Messsage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2684599225359B91002B9C6E /* Messsage.swift */; };
 		268BB25E251D9B3200001DF3 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268BB25D251D9B3200001DF3 /* UserAPI.swift */; };
 		268E3E602521D074000E4A33 /* RelationshipViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E3E5E2521D074000E4A33 /* RelationshipViewCell.swift */; };
 		268E3E612521D074000E4A33 /* RelationshipViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 268E3E5F2521D074000E4A33 /* RelationshipViewCell.xib */; };
@@ -394,6 +398,10 @@
 		268458E025342B7D002B9C6E /* DynamicDetailViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicDetailViewCell.swift; sourceTree = "<group>"; };
 		268458E725343FA8002B9C6E /* DynamicDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicDetailViewController.swift; sourceTree = "<group>"; };
 		268458EF25345352002B9C6E /* MediaViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewCell.swift; sourceTree = "<group>"; };
+		268458F425354481002B9C6E /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
+		2684593825354EDB002B9C6E /* Reload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reload.swift; sourceTree = "<group>"; };
+		2684598D25359A8A002B9C6E /* MesssageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesssageAPI.swift; sourceTree = "<group>"; };
+		2684599225359B91002B9C6E /* Messsage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messsage.swift; sourceTree = "<group>"; };
 		268BB25D251D9B3200001DF3 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		268E3E5E2521D074000E4A33 /* RelationshipViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationshipViewCell.swift; sourceTree = "<group>"; };
 		268E3E5F2521D074000E4A33 /* RelationshipViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RelationshipViewCell.xib; sourceTree = "<group>"; };
@@ -1723,6 +1731,8 @@
 				26787E2E251B228200D511E8 /* LoginPlugin.swift */,
 				26808FE02519D5BE00C9803C /* Constant.swift */,
 				26373C74250234AC0066FF3B /* Delegate.swift */,
+				268458F425354481002B9C6E /* LoadingState.swift */,
+				2684593825354EDB002B9C6E /* Reload.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -1810,6 +1820,8 @@
 		F3C6B920251F4040006C06CB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2684598D25359A8A002B9C6E /* MesssageAPI.swift */,
+				2684599225359B91002B9C6E /* Messsage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2117,6 +2129,7 @@
 				26930EAC25317052008C5CF8 /* TUIMessageDataProviderService.m in Sources */,
 				26EE0E4C25245BD800233ED5 /* PayAPI.swift in Sources */,
 				267954E82507311E00A72954 /* LegalLiabilityViewController.swift in Sources */,
+				2684593925354EDB002B9C6E /* Reload.swift in Sources */,
 				265C8A5B25134C3500E220BD /* ForgotPasswordViewModel.swift in Sources */,
 				26F8947B252083B800A45648 /* LabelView.swift in Sources */,
 				26930E6425317051008C5CF8 /* TUIBlackListController.m in Sources */,
@@ -2128,6 +2141,7 @@
 				268E3E602521D074000E4A33 /* RelationshipViewCell.swift in Sources */,
 				2643EBBF2500B04100FBBE49 /* Application.swift in Sources */,
 				2605A4762513187900017241 /* UIImageExtensions.swift in Sources */,
+				268458F525354481002B9C6E /* LoadingState.swift in Sources */,
 				26930EB825317052008C5CF8 /* TIMMessage+DataProvider.m in Sources */,
 				26930E9525317052008C5CF8 /* TUIVideoCallViewController.m in Sources */,
 				26930E7025317051008C5CF8 /* TUIFaceMessageCellData.m in Sources */,
@@ -2146,6 +2160,7 @@
 				26930E9925317052008C5CF8 /* TUICallManager.m in Sources */,
 				26930E9E25317052008C5CF8 /* TUICallModel.m in Sources */,
 				265C8A63251352A800E220BD /* ForgotPasswordProtocols.swift in Sources */,
+				2684599325359B91002B9C6E /* Messsage.swift in Sources */,
 				26A20B052518A5020061BBB8 /* HotChatError.swift in Sources */,
 				26930E8F25317052008C5CF8 /* TUIBubbleMessageCell.m in Sources */,
 				26930EAE25317052008C5CF8 /* TConversationListViewModel.m in Sources */,
@@ -2258,6 +2273,7 @@
 				26A20B0D2518BBC10061BBB8 /* Response.swift in Sources */,
 				26930E6025317051008C5CF8 /* TUINewFriendViewModel.m in Sources */,
 				26F25C96250A1B3800F808EA /* SeparatorLine.swift in Sources */,
+				2684598E25359A8A002B9C6E /* MesssageAPI.swift in Sources */,
 				2643EBC82500D4C000FBBE49 /* MeContactViewController.swift in Sources */,
 				26A20AF92518A3000061BBB8 /* AccessTokenStore.swift in Sources */,
 				26930E5325317051008C5CF8 /* TCommonAvatarCell.m in Sources */,

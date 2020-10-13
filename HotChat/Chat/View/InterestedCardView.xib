@@ -121,6 +121,12 @@
                     <real key="value" value="8"/>
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="avatarImageView" destination="ImF-bv-ULV" id="qkw-c2-iWe"/>
+                <outlet property="contentLabel" destination="HGJ-LV-1h3" id="z5j-hV-JhX"/>
+                <outlet property="infoLabel" destination="KIi-Zh-bZG" id="Ykj-9T-Gzo"/>
+                <outlet property="nicknameLabel" destination="Hrd-y3-d7E" id="v6d-WT-YOY"/>
+            </connections>
             <point key="canvasLocation" x="797" y="64"/>
         </view>
     </objects>

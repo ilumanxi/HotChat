@@ -25,7 +25,7 @@ class InterestedCardOverlayView: OverlayView {
             case .left? :
                 overlayImageView.image = UIImage(named: "chat-skip")
             case .right? :
-                overlayImageView.image = UIImage(named: "chat-conversation")
+                overlayImageView.image = UIImage(named: "chat-follow")
             default:
                 overlayImageView.image = nil
             }

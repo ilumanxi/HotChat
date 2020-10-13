@@ -66,7 +66,8 @@ target 'HotChat' do
     pod "Koloda"
 #    pod 'IBAnimatable'
     #列表视图空视图
-    pod 'DZNEmptyDataSet'
+#    pod 'DZNEmptyDataSet'
+    pod 'MJRefresh', :modular_headers => true
     #图片浏览器
 #    pod 'SKPhotoBrowser'
 #    pod 'MediaBrowser'

@@ -294,7 +294,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 72 images.
+  /// This `R.image` struct is generated, and contains static references to 77 images.
   struct image {
     /// Image `account-register-succeed`.
     static let accountRegisterSucceed = Rswift.ImageResource(bundle: R.hostingBundle, name: "account-register-succeed")
@@ -318,14 +318,20 @@ struct R: Rswift.Validatable {
     static let chatContact = Rswift.ImageResource(bundle: R.hostingBundle, name: "chat-contact")
     /// Image `chat-conversation`.
     static let chatConversation = Rswift.ImageResource(bundle: R.hostingBundle, name: "chat-conversation")
+    /// Image `chat-follow`.
+    static let chatFollow = Rswift.ImageResource(bundle: R.hostingBundle, name: "chat-follow")
     /// Image `chat-interested`.
     static let chatInterested = Rswift.ImageResource(bundle: R.hostingBundle, name: "chat-interested")
     /// Image `chat-more`.
     static let chatMore = Rswift.ImageResource(bundle: R.hostingBundle, name: "chat-more")
+    /// Image `chat-no-content`.
+    static let chatNoContent = Rswift.ImageResource(bundle: R.hostingBundle, name: "chat-no-content")
     /// Image `chat-setting`.
     static let chatSetting = Rswift.ImageResource(bundle: R.hostingBundle, name: "chat-setting")
     /// Image `chat-skip`.
     static let chatSkip = Rswift.ImageResource(bundle: R.hostingBundle, name: "chat-skip")
+    /// Image `chat-unfollow`.
+    static let chatUnfollow = Rswift.ImageResource(bundle: R.hostingBundle, name: "chat-unfollow")
     /// Image `comment`.
     static let comment = Rswift.ImageResource(bundle: R.hostingBundle, name: "comment")
     /// Image `common-close`.
@@ -356,6 +362,8 @@ struct R: Rswift.Validatable {
     static let likeNormal = Rswift.ImageResource(bundle: R.hostingBundle, name: "like-normal")
     /// Image `like-selected`.
     static let likeSelected = Rswift.ImageResource(bundle: R.hostingBundle, name: "like-selected")
+    /// Image `load-error`.
+    static let loadError = Rswift.ImageResource(bundle: R.hostingBundle, name: "load-error")
     /// Image `me-anti-fraud`.
     static let meAntiFraud = Rswift.ImageResource(bundle: R.hostingBundle, name: "me-anti-fraud")
     /// Image `me-attention`.
@@ -422,6 +430,8 @@ struct R: Rswift.Validatable {
     static let more = Rswift.ImageResource(bundle: R.hostingBundle, name: "more")
     /// Image `navigation-bar-back`.
     static let navigationBarBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "navigation-bar-back")
+    /// Image `no-content`.
+    static let noContent = Rswift.ImageResource(bundle: R.hostingBundle, name: "no-content")
     /// Image `remind-white`.
     static let remindWhite = Rswift.ImageResource(bundle: R.hostingBundle, name: "remind-white")
     /// Image `tabbar-community-normal`.
@@ -519,6 +529,13 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "chat-follow", bundle: ..., traitCollection: ...)`
+    static func chatFollow(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.chatFollow, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "chat-interested", bundle: ..., traitCollection: ...)`
     static func chatInterested(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.chatInterested, compatibleWith: traitCollection)
@@ -533,6 +550,13 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "chat-no-content", bundle: ..., traitCollection: ...)`
+    static func chatNoContent(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.chatNoContent, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "chat-setting", bundle: ..., traitCollection: ...)`
     static func chatSetting(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.chatSetting, compatibleWith: traitCollection)
@@ -543,6 +567,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "chat-skip", bundle: ..., traitCollection: ...)`
     static func chatSkip(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.chatSkip, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "chat-unfollow", bundle: ..., traitCollection: ...)`
+    static func chatUnfollow(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.chatUnfollow, compatibleWith: traitCollection)
     }
     #endif
 
@@ -648,6 +679,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "like-selected", bundle: ..., traitCollection: ...)`
     static func likeSelected(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.likeSelected, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "load-error", bundle: ..., traitCollection: ...)`
+    static func loadError(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.loadError, compatibleWith: traitCollection)
     }
     #endif
 
@@ -879,6 +917,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "navigation-bar-back", bundle: ..., traitCollection: ...)`
     static func navigationBarBack(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.navigationBarBack, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "no-content", bundle: ..., traitCollection: ...)`
+    static func noContent(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.noContent, compatibleWith: traitCollection)
     }
     #endif
 
@@ -1421,7 +1466,7 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
-        if UIKit.UIImage(named: "chat-conversation", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'chat-conversation' is used in nib 'InterestedCardOverlayView', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "chat-follow", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'chat-follow' is used in nib 'InterestedCardOverlayView', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }
@@ -1636,7 +1681,7 @@ struct _R: Rswift.Validatable {
 
       static func validate() throws {
         if UIKit.UIImage(named: "chat-contact", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'chat-contact' is used in storyboard 'Chat', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "chat-conversation", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'chat-conversation' is used in storyboard 'Chat', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "chat-follow", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'chat-follow' is used in storyboard 'Chat', but couldn't be loaded.") }
         if UIKit.UIImage(named: "chat-interested", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'chat-interested' is used in storyboard 'Chat', but couldn't be loaded.") }
         if UIKit.UIImage(named: "chat-more", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'chat-more' is used in storyboard 'Chat', but couldn't be loaded.") }
         if UIKit.UIImage(named: "chat-skip", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'chat-skip' is used in storyboard 'Chat', but couldn't be loaded.") }

@@ -15,8 +15,25 @@ import NSObject_Rx
 import Reusable
 import Blueprints
 import Kingfisher
+import MJRefresh
+import HandyJSON
+import RxSwiftUtilities
+
+
+class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisplay {
     
-class CommunityViewController: UIViewController {
+    
+    var state: LoadingState = .initial {
+        didSet {
+            if isViewLoaded {
+                showOrHideIndicator(loadingState: state)
+            }
+        }
+    }
+    
+    var pageIndex: Int = 1
+    
+    let refreshPageIndex: Int = 1
     
     let dynamicAPI = Request<DynamicAPI>()
     
@@ -28,24 +45,102 @@ class CommunityViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    let loadSignal = PublishSubject<Int>()
+    
+    let loading = ActivityIndicator()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.backgroundColor = UIColor.groupTableViewBackground
+        collectionView.backgroundColor = .groupTableViewBackground
         
         configureVerticalLayout()
         
-        
-        dynamicAPI.request(.recommendList, type: Response<Pagination<Dynamic>>.self)
-            .subscribe(onSuccess: { [weak self] response in
-                self?.dynamics = response.data?.list ?? []
-                Log.print(response)
-                
-            }, onError: { error in
-                Log.print(error)
-            })
+        loadSignal
+            .flatMapLatest(loadData)
+            .trackActivity(loading)
+            .checkResponse()
+            .subscribe(onNext: handlerReponse, onError: handlerError)
             .disposed(by: rx.disposeBag)
+            
+         
+        collectionView.mj_header = MJRefreshNormalHeader { [weak self] in
+            self?.refreshData()
+        }
         
+        collectionView.mj_footer = MJRefreshAutoNormalFooter{ [weak self] in
+            self?.loadMoreData()
+        }
+        
+        view.setNeedsLayout()
+        view.layoutIfNeeded()
+        refreshData()
+        
+        state = .initial
+    }
+    
+    func endRefreshing() {
+        collectionView.mj_header?.endRefreshing()
+        collectionView.mj_footer?.endRefreshing()
+        collectionView.reloadData()
+    }
+    
+    func refreshData() {
+        loadSignal.on(.next(refreshPageIndex))
+    }
+    
+    func loadMoreData() {
+        loadSignal.on(.next(pageIndex))
+    }
+    
+    func loadData(_ page: Int) -> Single<Response<Pagination<Dynamic>>> {
+         
+        return dynamicAPI.request(.recommendList(page), type: Response<Pagination<Dynamic>>.self)
+    }
+    
+    func handlerReponse(_ response: Response<Pagination<Dynamic>>){
+
+        guard let page = response.data, let data = page.list else {
+            return
+        }
+        
+        if page.page == 1 {
+            refreshData(data)
+        }
+        else {
+            appendData(data)
+        }
+        
+        if page.page == 1 && dynamics.isEmpty {
+            state = .noContent
+        } else if !dynamics.isEmpty {
+            state = .contentLoaded
+        }
+        
+        if !data.isEmpty {
+            pageIndex = page.page + 1
+        }
+       
+        endRefreshing()
+        
+    }
+    
+    func refreshData(_ data: [Dynamic]) {
+        if !data.isEmpty {
+            dynamics = data
+        }
+    }
+    
+    func appendData(_ data: [Dynamic]) {
+        dynamics = dynamics + data
+    }
+    
+    func handlerError(_ error: Error) {
+        if dynamics.isEmpty {
+            state = .error
+        }
+        endRefreshing()
+       
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

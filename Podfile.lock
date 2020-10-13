@@ -7,7 +7,6 @@ PODS:
   - CollectionKit/Core (2.4.0)
   - CryptoSwift (1.3.2)
   - DynamicColor (4.2.0)
-  - DZNEmptyDataSet (1.8.1)
   - FSPagerView (0.8.3)
   - HandyJSON (5.0.3-beta)
   - HBDNavigationBar (1.7.7)
@@ -21,6 +20,7 @@ PODS:
   - MagazineLayout (1.6.3)
   - MarqueeLabel (4.0.3)
   - MBProgressHUD (1.2.0)
+  - MJRefresh (3.5.0)
   - MMLayout (0.2.0)
   - Moya/Core (14.0.0):
     - Alamofire (~> 5.0)
@@ -86,7 +86,6 @@ DEPENDENCIES:
   - CollectionKit
   - CryptoSwift
   - DynamicColor
-  - DZNEmptyDataSet
   - FSPagerView
   - HandyJSON (~> 5.0.3-beta)
   - HBDNavigationBar
@@ -96,6 +95,7 @@ DEPENDENCIES:
   - LGButton
   - MagazineLayout
   - MBProgressHUD
+  - MJRefresh
   - MMLayout (= 0.2.0)
   - Moya/Core
   - Moya/RxSwift
@@ -132,7 +132,6 @@ SPEC REPOS:
     - CollectionKit
     - CryptoSwift
     - DynamicColor
-    - DZNEmptyDataSet
     - FSPagerView
     - HandyJSON
     - HBDNavigationBar
@@ -143,6 +142,7 @@ SPEC REPOS:
     - MagazineLayout
     - MarqueeLabel
     - MBProgressHUD
+    - MJRefresh
     - MMLayout
     - Moya
     - NotificationBannerSwift
@@ -190,7 +190,6 @@ SPEC CHECKSUMS:
   CollectionKit: 8f01e7629185bb81072c4aa734d105df5c2d1c8b
   CryptoSwift: 093499be1a94b0cae36e6c26b70870668cb56060
   DynamicColor: c475f66bda1cabf602f2c54ac1171c0c07148a5a
-  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
   HandyJSON: 88e8ea5f66ab65c3b8768499a1935d0509c460d4
   HBDNavigationBar: 6ba38b99637039c831ce460364d5398f29fa0685
@@ -201,6 +200,7 @@ SPEC CHECKSUMS:
   MagazineLayout: 159da0d4d874e04e6b17e580b990cccd00328c5b
   MarqueeLabel: a1ea597e347506640a5b00fda9c07b572753f45e
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   MMLayout: 3fb59d58eeb8656c64e61d550fb0088e10666c11
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   NotificationBannerSwift: 713e20f21b6105f4a36a00e5d9fa414a930d3d8e
@@ -233,6 +233,6 @@ SPEC CHECKSUMS:
   WechatOpenSDK: 6a4d1436c15b3b5fe2a0bd383f3046010186da44
   ZLPhotoBrowser: f85662753ea4cfebff08b3512b17467467634fb2
 
-PODFILE CHECKSUM: fcbb01240344990eb7ecfb01b13703c150e3e2ce
+PODFILE CHECKSUM: af30f3c3ae5a7403d3e88c353bbe8d68011afbec
 
 COCOAPODS: 1.9.3

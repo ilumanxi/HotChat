@@ -14,18 +14,8 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="128" image="chat-conversation" translatesAutoresizingMaskIntoConstraints="NO" id="yUo-ys-Mkn" customClass="AnimatableImageView" customModule="IBAnimatable">
-                    <rect key="frame" x="177" y="360" width="60" height="60"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="yUo-ys-Mkn" secondAttribute="height" multiplier="1:1" id="2JH-o7-WkQ"/>
-                        <constraint firstAttribute="width" constant="60" id="DkI-rm-l1q"/>
-                    </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="30"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="128" image="chat-follow" translatesAutoresizingMaskIntoConstraints="NO" id="yUo-ys-Mkn">
+                    <rect key="frame" x="87" y="326" width="240" height="128"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -44,13 +34,8 @@
             <point key="canvasLocation" x="-10" y="98"/>
         </view>
     </objects>
-    <designables>
-        <designable name="yUo-ys-Mkn">
-            <size key="intrinsicContentSize" width="240" height="128"/>
-        </designable>
-    </designables>
     <resources>
-        <image name="chat-conversation" width="22" height="22"/>
+        <image name="chat-follow" width="74.5" height="74.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

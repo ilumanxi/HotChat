@@ -56,7 +56,7 @@
         <!--消息-->
         <scene sceneID="RYM-vb-c0b">
             <objects>
-                <tableViewController storyboardIdentifier="ConversationActionViewController" title="消息" useStoryboardIdentifierAsRestorationIdentifier="YES" id="csS-6k-fQY" customClass="ConversationActionViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ConversationActionViewController" title="消息" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="csS-6k-fQY" customClass="ConversationActionViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="faA-v8-32q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -186,53 +186,47 @@
         <!--想认识你的人-->
         <scene sceneID="69N-PI-SAt">
             <objects>
-                <viewController title="想认识你的人" id="kp4-zB-vdz" customClass="InterestedViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="想认识你的人" modalPresentationStyle="fullScreen" id="kp4-zB-vdz" customClass="InterestedViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jjh-m0-1pA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2/21" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3h-ho-Q7N">
-                                <rect key="frame" x="196" y="15" width="22" height="13.5"/>
+                                <rect key="frame" x="196" y="59" width="22" height="13.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="96O-yC-Z5D" customClass="KolodaView" customModule="Koloda">
-                                <rect key="frame" x="20" y="38.5" width="374" height="464"/>
+                                <rect key="frame" x="20" y="82.5" width="374" height="464"/>
                                 <constraints>
                                     <constraint firstAttribute="height" secondItem="96O-yC-Z5D" secondAttribute="width" multiplier="1:1" constant="90" id="IAg-RI-ZOQ"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="V1N-me-lhO">
-                                <rect key="frame" x="122" y="532.5" width="170" height="60"/>
+                                <rect key="frame" x="122" y="576.5" width="170" height="60"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBH-YE-4u2" customClass="AnimatableButton" customModule="IBAnimatable">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBH-YE-4u2">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="OFb-BS-GTC"/>
                                             <constraint firstAttribute="width" secondItem="cBH-YE-4u2" secondAttribute="height" multiplier="1:1" id="pwF-qn-0Ci"/>
                                         </constraints>
                                         <state key="normal" image="chat-skip"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="30"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="skipButtonTapped:" destination="kp4-zB-vdz" eventType="touchUpInside" id="jZw-PV-X40"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WVd-M9-VnV" customClass="AnimatableButton" customModule="IBAnimatable">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WVd-M9-VnV">
                                         <rect key="frame" x="110" y="0.0" width="60" height="60"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="mK9-HM-85V"/>
                                             <constraint firstAttribute="width" secondItem="WVd-M9-VnV" secondAttribute="height" multiplier="1:1" id="vfo-9z-yU7"/>
                                         </constraints>
-                                        <state key="normal" image="chat-conversation"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="30"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
+                                        <state key="normal" image="chat-follow"/>
+                                        <connections>
+                                            <action selector="followButtonTapped:" destination="kp4-zB-vdz" eventType="touchUpInside" id="bgn-yL-XCq"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -263,20 +257,12 @@
             <point key="canvasLocation" x="2158" y="856"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="WVd-M9-VnV">
-            <size key="intrinsicContentSize" width="22" height="22"/>
-        </designable>
-        <designable name="cBH-YE-4u2">
-            <size key="intrinsicContentSize" width="22" height="22"/>
-        </designable>
-    </designables>
     <resources>
         <image name="chat-contact" width="24.5" height="17"/>
-        <image name="chat-conversation" width="22" height="22"/>
+        <image name="chat-follow" width="74.5" height="74.5"/>
         <image name="chat-interested" width="50" height="50"/>
         <image name="chat-more" width="3.5" height="16.5"/>
-        <image name="chat-skip" width="22" height="22"/>
+        <image name="chat-skip" width="74.5" height="74.5"/>
         <image name="common-close" width="12" height="12"/>
         <image name="tabbar-message-normal" width="19" height="19"/>
         <image name="tabbar-message-selected" width="19" height="19"/>
