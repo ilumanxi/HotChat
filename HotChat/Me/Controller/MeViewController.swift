@@ -53,7 +53,7 @@ class MeViewController: UITableViewController, Autorotate {
     @IBOutlet weak var meHeaderView: MeHeaderView!
     
     
-    let userAPI = RequestAPI<UserAPI>()
+    let userAPI = Request<UserAPI>()
     
     private var user: User! {
         didSet {

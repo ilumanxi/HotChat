@@ -51,7 +51,7 @@ extension Moya.Response {
 
 
 
-class RequestAPI<Target: TargetType>: MoyaProvider<Target> {
+class Request<Target: TargetType>: MoyaProvider<Target> {
 
     convenience init() {
         let plugins: [PluginType] = [

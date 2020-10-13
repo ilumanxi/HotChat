@@ -17,9 +17,9 @@ import MBProgressHUD
 class UserInfoEditingViewController: UITableViewController, IndicatorDisplay {
     
     
-    let userAPI = RequestAPI<UserAPI>()
+    let userAPI = Request<UserAPI>()
     
-    let uploadAPI = RequestAPI<UploadFileAPI>()
+    let uploadAPI = Request<UploadFileAPI>()
     
     private var profilePhoto: ProfilePhoto {
         let entry = ProfilePhoto()

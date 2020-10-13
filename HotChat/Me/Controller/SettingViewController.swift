@@ -11,7 +11,7 @@ import UIKit
 class SettingViewController: UITableViewController {
     
     
-    let API = RequestAPI<AccountAPI>()
+    let API = Request<AccountAPI>()
 
     override func viewDidLoad() {
         super.viewDidLoad()

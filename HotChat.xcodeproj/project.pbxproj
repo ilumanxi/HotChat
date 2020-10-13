@@ -83,11 +83,14 @@
 		267B98752505E1AC0008C81B /* PlatformAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267B986D2505E1AC0008C81B /* PlatformAuthorization.swift */; };
 		267B98772505E1AC0008C81B /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267B986F2505E1AC0008C81B /* Platform.swift */; };
 		267B98802506012F0008C81B /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 267B987F2506012F0008C81B /* Account.storyboard */; };
-		26808FDC2519D4B800C9803C /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26808FDB2519D4B800C9803C /* API.swift */; };
+		26808FDC2519D4B800C9803C /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26808FDB2519D4B800C9803C /* Request.swift */; };
 		26808FE12519D5BE00C9803C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26808FE02519D5BE00C9803C /* Constant.swift */; };
 		268297492511AF5800949C7F /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268297482511AF5800949C7F /* SignupViewModel.swift */; };
 		2682974B2511B05300949C7F /* IndicatorDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2682974A2511B05300949C7F /* IndicatorDisplay.swift */; };
 		2682974D2511B0EC00949C7F /* SignupProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2682974C2511B0EC00949C7F /* SignupProtocols.swift */; };
+		268458E225342B7D002B9C6E /* DynamicDetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268458E025342B7D002B9C6E /* DynamicDetailViewCell.swift */; };
+		268458E825343FA8002B9C6E /* DynamicDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268458E725343FA8002B9C6E /* DynamicDetailViewController.swift */; };
+		268458F025345352002B9C6E /* MediaViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268458EF25345352002B9C6E /* MediaViewCell.swift */; };
 		268BB25E251D9B3200001DF3 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268BB25D251D9B3200001DF3 /* UserAPI.swift */; };
 		268E3E602521D074000E4A33 /* RelationshipViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E3E5E2521D074000E4A33 /* RelationshipViewCell.swift */; };
 		268E3E612521D074000E4A33 /* RelationshipViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 268E3E5F2521D074000E4A33 /* RelationshipViewCell.xib */; };
@@ -383,11 +386,14 @@
 		267B986F2505E1AC0008C81B /* Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 		267B987A2505E5BB0008C81B /* HotChat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HotChat-Bridging-Header.h"; sourceTree = "<group>"; };
 		267B987F2506012F0008C81B /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
-		26808FDB2519D4B800C9803C /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		26808FDB2519D4B800C9803C /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		26808FE02519D5BE00C9803C /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		268297482511AF5800949C7F /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		2682974A2511B05300949C7F /* IndicatorDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorDisplay.swift; sourceTree = "<group>"; };
 		2682974C2511B0EC00949C7F /* SignupProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupProtocols.swift; sourceTree = "<group>"; };
+		268458E025342B7D002B9C6E /* DynamicDetailViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicDetailViewCell.swift; sourceTree = "<group>"; };
+		268458E725343FA8002B9C6E /* DynamicDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicDetailViewController.swift; sourceTree = "<group>"; };
+		268458EF25345352002B9C6E /* MediaViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewCell.swift; sourceTree = "<group>"; };
 		268BB25D251D9B3200001DF3 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		268E3E5E2521D074000E4A33 /* RelationshipViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationshipViewCell.swift; sourceTree = "<group>"; };
 		268E3E5F2521D074000E4A33 /* RelationshipViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RelationshipViewCell.xib; sourceTree = "<group>"; };
@@ -919,7 +925,6 @@
 				2643EB9D2500B04100FBBE49 /* Application.swift */,
 				2643EB9E2500B04100FBBE49 /* Bundle+App.swift */,
 				2643EB9F2500B04100FBBE49 /* UITableView+App.swift */,
-				26373C74250234AC0066FF3B /* Delegate.swift */,
 				26CBE3C02508EB040089A23C /* Appearance.swift */,
 				26F25C922509C36B00F808EA /* TabBarButton.swift */,
 				26E14E5D251C6E8800645F08 /* HotChatButton.swift */,
@@ -1713,10 +1718,11 @@
 				2682974A2511B05300949C7F /* IndicatorDisplay.swift */,
 				26A20B042518A5020061BBB8 /* HotChatError.swift */,
 				26A20B0C2518BBC10061BBB8 /* Response.swift */,
-				26808FDB2519D4B800C9803C /* API.swift */,
+				26808FDB2519D4B800C9803C /* Request.swift */,
 				26787E29251B21A400D511E8 /* SignaturePlugin.swift */,
 				26787E2E251B228200D511E8 /* LoginPlugin.swift */,
 				26808FE02519D5BE00C9803C /* Constant.swift */,
+				26373C74250234AC0066FF3B /* Delegate.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -1726,6 +1732,7 @@
 			children = (
 				26CBE3B32508A3FC0089A23C /* CommunityViewController.swift */,
 				26F8893925318681001A14F2 /* DynamicViewController.swift */,
+				268458E725343FA8002B9C6E /* DynamicDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1737,6 +1744,8 @@
 				26CBE3B72508A9F20089A23C /* CommunityHeaderView.xib */,
 				26F889342531854B001A14F2 /* TextInputViewCell.swift */,
 				F305482A2532BC0800844D00 /* DynamicViewCell.swift */,
+				268458E025342B7D002B9C6E /* DynamicDetailViewCell.swift */,
+				268458EF25345352002B9C6E /* MediaViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2111,7 +2120,7 @@
 				265C8A5B25134C3500E220BD /* ForgotPasswordViewModel.swift in Sources */,
 				26F8947B252083B800A45648 /* LabelView.swift in Sources */,
 				26930E6425317051008C5CF8 /* TUIBlackListController.m in Sources */,
-				26808FDC2519D4B800C9803C /* API.swift in Sources */,
+				26808FDC2519D4B800C9803C /* Request.swift in Sources */,
 				26930EC025317052008C5CF8 /* TUIError.m in Sources */,
 				26F25C932509C36B00F808EA /* TabBarButton.swift in Sources */,
 				26CBE3BD2508D7920089A23C /* DiscoverViewController.swift in Sources */,
@@ -2129,6 +2138,7 @@
 				2643EBA82500B04100FBBE49 /* PushSettingsDetailViewController.swift in Sources */,
 				26930EBE25317052008C5CF8 /* amrFileCodec.mm in Sources */,
 				2643EBBB2500B04100FBBE49 /* BaseNavigationController.swift in Sources */,
+				268458F025345352002B9C6E /* MediaViewCell.swift in Sources */,
 				26808FE12519D5BE00C9803C /* Constant.swift in Sources */,
 				2643EBA72500B04100FBBE49 /* RealNameAuthenticationViewController.swift in Sources */,
 				26930EB525317052008C5CF8 /* TIMConversation+DataProvider.m in Sources */,
@@ -2143,6 +2153,7 @@
 				26930E8B25317052008C5CF8 /* TUISystemMessageCell.m in Sources */,
 				2643EBA32500B04100FBBE49 /* UserInfoEditingViewController.swift in Sources */,
 				2643EBA52500B04100FBBE49 /* ApplicationSettingsViewController.swift in Sources */,
+				268458E225342B7D002B9C6E /* DynamicDetailViewCell.swift in Sources */,
 				26930EB025317052008C5CF8 /* TUIConversationCell.m in Sources */,
 				26930E4425317051008C5CF8 /* THelper.m in Sources */,
 				26F889352531854B001A14F2 /* TextInputViewCell.swift in Sources */,
@@ -2156,6 +2167,7 @@
 				26930E6525317051008C5CF8 /* TCommonPendencyCell.m in Sources */,
 				F3C6B919251F3117006C06CB /* LabelViewController.swift in Sources */,
 				26930EA625317052008C5CF8 /* TUIGroupMembersCell.m in Sources */,
+				268458E825343FA8002B9C6E /* DynamicDetailViewController.swift in Sources */,
 				26787E37251B2F8D00D511E8 /* User.swift in Sources */,
 				26930E5925317051008C5CF8 /* TPopCell.m in Sources */,
 				26930E4625317051008C5CF8 /* TUIFileViewController.m in Sources */,

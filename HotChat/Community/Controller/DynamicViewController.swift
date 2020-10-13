@@ -42,9 +42,9 @@ extension Media {
 
 class DynamicViewController: UITableViewController, IndicatorDisplay {
     
-    let uploadAPI = RequestAPI<UploadFileAPI>()
+    let uploadAPI = Request<UploadFileAPI>()
     
-    let dynamicAPI = RequestAPI<DynamicAPI>()
+    let dynamicAPI = Request<DynamicAPI>()
     
     fileprivate var formEntries: [FormEntry] = []
     

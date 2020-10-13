@@ -19,7 +19,7 @@ class MeRelationshipViewController: UITableViewController, SegementSlideContentS
     
     var relationship: Relationship!
     
-    let API = RequestAPI<UserAPI>()
+    let API = Request<UserAPI>()
     
     
     var users: [User] = [] {

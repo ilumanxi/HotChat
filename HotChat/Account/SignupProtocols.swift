@@ -52,7 +52,7 @@ class SignupDefaultAPI: SignupAPI {
     
     static let share = SignupDefaultAPI()
     
-    let API  = RequestAPI<AccountAPI>()
+    let API  = Request<AccountAPI>()
     
     func sendCode(_ phone: String) -> Single<ResponseEmpty> {
         return API.request(.sendCode(phone: phone, type: .signUp))

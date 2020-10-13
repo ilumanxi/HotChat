@@ -25,7 +25,7 @@ class SigninDefaultAPI: SigninAPI {
 
     static let share = SigninDefaultAPI()
     
-    let API  = RequestAPI<AccountAPI>()
+    let API  = Request<AccountAPI>()
     
     func signin(_ phone: String, password: String) -> Single<Response<User>> {
         return API.request(.phoneSignin(phone: phone, password: password))

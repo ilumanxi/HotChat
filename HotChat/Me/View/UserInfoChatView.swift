@@ -10,12 +10,27 @@ import UIKit
 
 class UserInfoChatView: UIView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    let onPushing = Delegate<(), (User, UINavigationController)>()
+    
+    var user: User!
+    
+    @IBAction func chatButtonTapped(_ sender: Any) {
+        
+        guard let data = onPushing.call() else { return }
+        
+        let user = data.0
+        let navigationController = data.1
+        
+        let info = TUIConversationCellData()
+        info.userID = user.userId
+        let vc  = ChatViewController(conversation: info)!
+        vc.title = user.nick
+        navigationController.pushViewController(vc, animated: true)
+        
     }
-    */
-
+    
+    
+    @IBAction func videoButtonTapped(_ sender: Any) {
+    }
+    
 }

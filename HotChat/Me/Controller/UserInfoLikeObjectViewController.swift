@@ -23,7 +23,7 @@ class UserInfoLikeObjectViewController: UIViewController, IndicatorDisplay {
     let onUpdated = Delegate<User, Void>()
      
     
-    let userAPI = RequestAPI<UserAPI>()
+    let userAPI = Request<UserAPI>()
     
     
     var maximumCount = 3

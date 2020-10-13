@@ -13,7 +13,7 @@ class AuthenticationViewController: UITableViewController, IndicatorDisplay {
 
     @IBOutlet weak var realNameStatuaLabel: UILabel!
     
-    let API = RequestAPI<UserAPI>()
+    let API = Request<UserAPI>()
     
     
     var authentication: Authentication! {

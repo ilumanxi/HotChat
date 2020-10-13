@@ -91,9 +91,12 @@ class InformationViewController: UITableViewController, SegementSlideContentScro
         if let _ = user {
             
             var sections: [FormSection] = [
-                FormSection(entries: [information], headerText: "ta的信息"),
-                FormSection(entries: [likeObject], headerText: "ta的类型")
+                FormSection(entries: [information], headerText: "ta的信息")
             ]
+            
+            if !user.labelList.isEmpty {
+                sections.append(FormSection(entries: [likeObject], headerText: "ta的类型"))
+            }
             
             if !user.tipsList.isEmpty {
                 sections.append(FormSection(entries: tips , headerText: "小编专访"))

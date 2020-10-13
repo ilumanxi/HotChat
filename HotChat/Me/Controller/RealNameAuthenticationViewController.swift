@@ -40,9 +40,9 @@ class RealNameAuthenticationViewController: UITableViewController, IndicatorDisp
     
     var authentication: Authentication!
     
-    let uploadAPI = RequestAPI<UploadFileAPI>()
+    let uploadAPI = Request<UploadFileAPI>()
     
-    let userAPI = RequestAPI<UserAPI>()
+    let userAPI = Request<UserAPI>()
     
     override func viewDidLoad() {
         super.viewDidLoad()

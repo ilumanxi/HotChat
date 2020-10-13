@@ -24,4 +24,11 @@ class DynamicViewCell: UICollectionViewCell {
     @IBOutlet weak var likeButton: UIButton!
     
     @IBOutlet weak var likeLabel: UILabel!
+    
+    let onLikeClicked = Delegate<DynamicViewCell, Void>()
+    
+    @IBAction func likeAction(_ sender: Any) {
+        onLikeClicked.call(self)
+    }
+    
 }

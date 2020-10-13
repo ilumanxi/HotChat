@@ -33,10 +33,10 @@
                             <rect key="frame" x="0.0" y="44" width="414" height="112"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="WTg-WB-w7K">
-                                    <rect key="frame" x="0.0" y="30" width="414" height="67"/>
+                                    <rect key="frame" x="0.0" y="87" width="414" height="10"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LiZ-UK-Tot" customClass="LGButton" customModule="LGButton">
-                                            <rect key="frame" x="0.0" y="0.0" width="103.5" height="67"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="103.5" height="10"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="titleString" value="缘分配对"/>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="verticalOrientation" value="YES"/>
@@ -80,7 +80,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nX5-DX-Fu0" customClass="LGButton" customModule="LGButton">
-                                            <rect key="frame" x="103.5" y="0.0" width="103.5" height="67"/>
+                                            <rect key="frame" x="103.5" y="0.0" width="103.5" height="10"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="titleString" value="精彩直播"/>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="verticalOrientation" value="YES"/>
@@ -118,7 +118,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1nY-tu-SEo" customClass="LGButton" customModule="LGButton">
-                                            <rect key="frame" x="207" y="0.0" width="103.5" height="67"/>
+                                            <rect key="frame" x="207" y="0.0" width="103.5" height="10"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="titleString" value="话题广场"/>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="verticalOrientation" value="YES"/>
@@ -156,7 +156,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3RH-uX-DzZ" customClass="LGButton" customModule="LGButton">
-                                            <rect key="frame" x="310.5" y="0.0" width="103.5" height="67"/>
+                                            <rect key="frame" x="310.5" y="0.0" width="103.5" height="10"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="titleString" value="附近动态"/>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="verticalOrientation" value="YES"/>

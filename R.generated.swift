@@ -294,7 +294,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 69 images.
+  /// This `R.image` struct is generated, and contains static references to 72 images.
   struct image {
     /// Image `account-register-succeed`.
     static let accountRegisterSucceed = Rswift.ImageResource(bundle: R.hostingBundle, name: "account-register-succeed")
@@ -326,6 +326,8 @@ struct R: Rswift.Validatable {
     static let chatSetting = Rswift.ImageResource(bundle: R.hostingBundle, name: "chat-setting")
     /// Image `chat-skip`.
     static let chatSkip = Rswift.ImageResource(bundle: R.hostingBundle, name: "chat-skip")
+    /// Image `comment`.
+    static let comment = Rswift.ImageResource(bundle: R.hostingBundle, name: "comment")
     /// Image `common-close`.
     static let commonClose = Rswift.ImageResource(bundle: R.hostingBundle, name: "common-close")
     /// Image `common-leaderboard`.
@@ -342,6 +344,8 @@ struct R: Rswift.Validatable {
     static let communityTopic = Rswift.ImageResource(bundle: R.hostingBundle, name: "community-topic")
     /// Image `form-submit-succeed`.
     static let formSubmitSucceed = Rswift.ImageResource(bundle: R.hostingBundle, name: "form-submit-succeed")
+    /// Image `give`.
+    static let give = Rswift.ImageResource(bundle: R.hostingBundle, name: "give")
     /// Image `launch-logo`.
     static let launchLogo = Rswift.ImageResource(bundle: R.hostingBundle, name: "launch-logo")
     /// Image `launch-screen-logo`.
@@ -414,6 +418,8 @@ struct R: Rswift.Validatable {
     static let meTravel = Rswift.ImageResource(bundle: R.hostingBundle, name: "me-travel")
     /// Image `me-wallet`.
     static let meWallet = Rswift.ImageResource(bundle: R.hostingBundle, name: "me-wallet")
+    /// Image `more`.
+    static let more = Rswift.ImageResource(bundle: R.hostingBundle, name: "more")
     /// Image `navigation-bar-back`.
     static let navigationBarBack = Rswift.ImageResource(bundle: R.hostingBundle, name: "navigation-bar-back")
     /// Image `remind-white`.
@@ -541,6 +547,13 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "comment", bundle: ..., traitCollection: ...)`
+    static func comment(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.comment, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "common-close", bundle: ..., traitCollection: ...)`
     static func commonClose(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.commonClose, compatibleWith: traitCollection)
@@ -593,6 +606,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "form-submit-succeed", bundle: ..., traitCollection: ...)`
     static func formSubmitSucceed(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.formSubmitSucceed, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "give", bundle: ..., traitCollection: ...)`
+    static func give(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.give, compatibleWith: traitCollection)
     }
     #endif
 
@@ -849,6 +869,13 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "more", bundle: ..., traitCollection: ...)`
+    static func more(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.more, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "navigation-bar-back", bundle: ..., traitCollection: ...)`
     static func navigationBarBack(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.navigationBarBack, compatibleWith: traitCollection)
@@ -1067,12 +1094,16 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 12 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 14 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `DynamicDetailViewCell`.
+    static let dynamicDetailViewCell: Rswift.ReuseIdentifier<DynamicDetailViewCell> = Rswift.ReuseIdentifier(identifier: "DynamicDetailViewCell")
     /// Reuse identifier `DynamicViewCell`.
     static let dynamicViewCell: Rswift.ReuseIdentifier<DynamicViewCell> = Rswift.ReuseIdentifier(identifier: "DynamicViewCell")
     /// Reuse identifier `InformationCell`.
     static let informationCell: Rswift.ReuseIdentifier<InformationCell> = Rswift.ReuseIdentifier(identifier: "InformationCell")
+    /// Reuse identifier `MediaViewCell`.
+    static let mediaViewCell: Rswift.ReuseIdentifier<MediaViewCell> = Rswift.ReuseIdentifier(identifier: "MediaViewCell")
     /// Reuse identifier `TextInputViewCell`.
     static let textInputViewCell: Rswift.ReuseIdentifier<TextInputViewCell> = Rswift.ReuseIdentifier(identifier: "TextInputViewCell")
     /// Reuse identifier `UserInfoBasicInformationCell`.
@@ -1629,10 +1660,13 @@ struct _R: Rswift.Validatable {
       let name = "Community"
 
       static func validate() throws {
+        if UIKit.UIImage(named: "comment", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'comment' is used in storyboard 'Community', but couldn't be loaded.") }
         if UIKit.UIImage(named: "common-search", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'common-search' is used in storyboard 'Community', but couldn't be loaded.") }
         if UIKit.UIImage(named: "community-dynamic", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'community-dynamic' is used in storyboard 'Community', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "give", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'give' is used in storyboard 'Community', but couldn't be loaded.") }
         if UIKit.UIImage(named: "like-normal", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'like-normal' is used in storyboard 'Community', but couldn't be loaded.") }
         if UIKit.UIImage(named: "like-selected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'like-selected' is used in storyboard 'Community', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "more", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'more' is used in storyboard 'Community', but couldn't be loaded.") }
         if UIKit.UIImage(named: "tabbar-community-normal", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tabbar-community-normal' is used in storyboard 'Community', but couldn't be loaded.") }
         if UIKit.UIImage(named: "tabbar-community-selected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tabbar-community-selected' is used in storyboard 'Community', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {

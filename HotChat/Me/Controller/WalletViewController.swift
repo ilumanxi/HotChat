@@ -67,7 +67,7 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    let payAPI = RequestAPI<PayAPI>()
+    let payAPI = Request<PayAPI>()
     
     override func loadView() {
         super.loadView()
@@ -76,7 +76,7 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
         view.addSubview(tableView)
     }
     
-    let API = RequestAPI<UserAPI>()
+    let API = Request<UserAPI>()
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -69,7 +69,7 @@ extension String {
 extension UITableViewCell: Reusable { }
 
 
-extension UICollectionViewCell: Reusable { }
+extension UICollectionReusableView: Reusable { }
 
 extension UITableViewHeaderFooterView: Reusable { }
 

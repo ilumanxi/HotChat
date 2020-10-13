@@ -47,8 +47,8 @@ class UserInformationViewController: UITableViewController, IndicatorDisplay {
         }
     }
     
-    private let API = RequestAPI<AccountAPI>()
-    private let uploadAPI = RequestAPI<UploadFileAPI>()
+    private let API = Request<AccountAPI>()
+    private let uploadAPI = Request<UploadFileAPI>()
     
     static func loadFromStoryboard() -> Self {
         

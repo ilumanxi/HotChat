@@ -71,6 +71,10 @@ class UserInfoViewController: SegementSlideDefaultViewController {
         setupChatView()
         reloadData()
         refreshData()
+        
+        chatView.onPushing.delegate(on: self) { (self, _) -> (User, UINavigationController) in
+            return (self.user, self.navigationController!)
+        }
     }
     
     private let chatViewHeight: CGFloat = 48

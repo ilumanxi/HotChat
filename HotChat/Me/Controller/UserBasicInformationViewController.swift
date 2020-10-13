@@ -29,7 +29,7 @@ class UserBasicInformationViewController: UITableViewController, IndicatorDispla
     let onUpdated = Delegate<User, Void>()
     
     
-    let userAPI = RequestAPI<UserAPI>()
+    let userAPI = Request<UserAPI>()
     
     override func viewDidLoad() {
         super.viewDidLoad()

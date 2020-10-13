@@ -18,7 +18,7 @@ import Kingfisher
     
 class CommunityViewController: UIViewController {
     
-    let dynamicAPI = RequestAPI<DynamicAPI>()
+    let dynamicAPI = Request<DynamicAPI>()
     
     var dynamics: [Dynamic] = [] {
         didSet {
@@ -35,15 +35,29 @@ class CommunityViewController: UIViewController {
         
         configureVerticalLayout()
         
-        dynamicAPI.request(.recommendList, type: Response<[Dynamic]>.self)
+        
+        dynamicAPI.request(.recommendList, type: Response<Pagination<Dynamic>>.self)
             .subscribe(onSuccess: { [weak self] response in
-                self?.dynamics = response.data ?? []
+                self?.dynamics = response.data?.list ?? []
                 Log.print(response)
                 
             }, onError: { error in
                 Log.print(error)
             })
             .disposed(by: rx.disposeBag)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let cell = sender as? UICollectionViewCell, let indexPath = collectionView.indexPath(for: cell) else {
+            return
+        }
+        
+        if let vc = segue.destination as? DynamicDetailViewController {
+            
+            vc.user = dynamics[indexPath.item].userInfo
+        }
         
     }
     
@@ -98,11 +112,11 @@ extension CommunityViewController: UICollectionViewDataSource, UICollectionViewD
         layoutCellForSize.layoutIfNeeded()
         let cellWidth = widthForCellInCurrentLayout()
         let cellHeight: CGFloat = 0
-        let cellTargetSize = CGSize(width: cellWidth,
-                                    height: cellHeight)
-        let cellSize = layoutCellForSize.contentView.systemLayoutSizeFitting(cellTargetSize,
-                                                                                    withHorizontalFittingPriority: .defaultHigh,
-                                                                                    verticalFittingPriority: .fittingSizeLevel)
+        let cellTargetSize = CGSize(width: cellWidth, height: cellHeight)
+        let cellSize = layoutCellForSize.contentView.systemLayoutSizeFitting(
+            cellTargetSize,
+            withHorizontalFittingPriority: UILayoutPriority(900),
+            verticalFittingPriority: .fittingSizeLevel)
         return cellSize
     }
 
@@ -134,16 +148,45 @@ extension CommunityViewController: UICollectionViewDataSource, UICollectionViewD
         cell.profileImageView.kf.setImage(with: URL(string: data.userInfo.headPic))
         cell.likeLabel.text = data.zanNum.description
         cell.likeButton.isSelected = data.isSelfZan
-        
         cell.layer.cornerRadius = 8
+        
+        cell.onLikeClicked.delegate(on: self) { (self, _) in
+            self.like(data)
+        }
         
         return cell
     }
+    
+
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         return layoutCellCalculatedSize(forItemAt: indexPath)
     }
     
+    func like(_ dynamic: Dynamic)  {
+        
+        dynamicAPI.request(.zan(dynamic.dynamicId), type: Response<[String : Any]>.self)
+            .subscribe(onSuccess: {[weak self] response in
+               
+                guard let index = self?.dynamics.lastIndex(where: { $0.dynamicId == dynamic.dynamicId }),
+                      let zanNum = response.data?["zanNum"] as? Int,
+                      let isSelfZan = response.data?["type"] as? Bool else {
+                    return
+                }
+                
+                self?.dynamics.modifyElement(at: index, { element in
+                    element.zanNum = zanNum
+                    element.isSelfZan = isSelfZan
+                })
+                self?.collectionView.reloadData()
+                
+                Log.print(response)
+            }, onError: { error in
+                Log.print(error)
+            })
+            .disposed(by: rx.disposeBag)
+        
+    }
     
 }

@@ -9,15 +9,26 @@
 import UIKit
 import HandyJSON
 
+struct Pagination<T: HandyJSON>: HandyJSON {
+
+    var hasNext: Bool = false
+    var page: Int = 0
+    var list: [T]?
+}
+
 
 struct Dynamic: HandyJSON {
     var dynamicId: String = ""
     var content: String = ""
+    var photoList: [RemoteFile] = []
     var isSelfZan: Bool = false
     var zanNum: Int = 0
+    var giftNum: Int = 0
     var type: Int = 0
     var coverUrl: String = ""
     var userInfo: User!
+    var commentCount: Int = 0
+    var commentList: [[String: Any]]?
 }
 
 
