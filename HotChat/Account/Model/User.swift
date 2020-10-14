@@ -43,9 +43,9 @@ enum Sex: Int, HandyJSONEnum, CustomStringConvertible {
     var image: UIImage? {
         switch self {
         case .male:
-            return R.image.meSexMan()
+            return UIImage(named: "me-sex-man")
         case .female:
-            return R.image.meSexWoman()
+            return UIImage(named: "me-sex-woman")
         }
     }
     

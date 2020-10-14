@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Rswift
 
 class DiscoverViewController: UIViewController {
 

@@ -35,9 +35,6 @@ PODS:
   - "NSObject+Rx (5.1.0)":
     - RxSwift (~> 5.1)
   - pop (1.0.12)
-  - R.swift (5.2.2):
-    - R.swift.Library (~> 5.2.0)
-  - R.swift.Library (5.2.0)
   - ReachabilitySwift (4.3.1)
   - ReactiveObjC (3.1.1)
   - Reusable (4.1.1):
@@ -105,7 +102,6 @@ DEPENDENCIES:
   - Moya/RxSwift
   - NotificationBannerSwift
   - "NSObject+Rx"
-  - R.swift
   - Reusable
   - RxCocoa
   - RxReachability
@@ -148,8 +144,6 @@ SPEC REPOS:
     - NotificationBannerSwift
     - "NSObject+Rx"
     - pop
-    - R.swift
-    - R.swift.Library
     - ReachabilitySwift
     - ReactiveObjC
     - Reusable
@@ -206,8 +200,6 @@ SPEC CHECKSUMS:
   NotificationBannerSwift: 713e20f21b6105f4a36a00e5d9fa414a930d3d8e
   "NSObject+Rx": fa6bbcc1ab1faa06b01466bc09b1e0692bbc5946
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
-  R.swift: 7c52cdc57a66840ffe6cbd8a823d732059d42a32
-  R.swift.Library: 5ba4f1631300caf9a4d890186930da85d540769d
   ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
   Reusable: 53a9acf5c536f229b31b5865782414b508252ddb
@@ -232,6 +224,6 @@ SPEC CHECKSUMS:
   WechatOpenSDK: 6a4d1436c15b3b5fe2a0bd383f3046010186da44
   ZLPhotoBrowser: e22cabd36d03240003668d72cb733581a6da0b0d
 
-PODFILE CHECKSUM: 98d3d6197cf2888189a8d8f704a94e2eeac763f0
+PODFILE CHECKSUM: d71e78a2ae3355d2b08262c05fae214306195b39
 
 COCOAPODS: 1.9.3

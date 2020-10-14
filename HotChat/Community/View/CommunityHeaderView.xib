@@ -31,176 +31,7 @@
                         </navigationBar>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LF7-t4-5dG" userLabel="Tool Bar View">
                             <rect key="frame" x="0.0" y="44" width="414" height="112"/>
-                            <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="WTg-WB-w7K">
-                                    <rect key="frame" x="0.0" y="87" width="414" height="10"/>
-                                    <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LiZ-UK-Tot" customClass="LGButton" customModule="LGButton">
-                                            <rect key="frame" x="0.0" y="0.0" width="103.5" height="10"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="titleString" value="缘分配对"/>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="verticalOrientation" value="YES"/>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
-                                                    <color key="value" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="leftImageWidth">
-                                                    <real key="value" value="65"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="leftImageHeight">
-                                                    <real key="value" value="42.5"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="spacingTitleIcon">
-                                                    <real key="value" value="10"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
-                                                    <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="titleFontSize">
-                                                    <real key="value" value="12"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="spacingTop">
-                                                    <real key="value" value="0.0"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="spacingBottom">
-                                                    <real key="value" value="0.0"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="spacingLeading">
-                                                    <real key="value" value="0.0"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="spacingTrailing">
-                                                    <real key="value" value="0.0"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="leftIconColor">
-                                                    <color key="value" systemColor="groupTableViewBackgroundColor"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="image" keyPath="leftImageSrc" value="community-topic"/>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="leftImageColor">
-                                                    <color key="value" systemColor="groupTableViewBackgroundColor"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nX5-DX-Fu0" customClass="LGButton" customModule="LGButton">
-                                            <rect key="frame" x="103.5" y="0.0" width="103.5" height="10"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="titleString" value="精彩直播"/>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="verticalOrientation" value="YES"/>
-                                                <userDefinedRuntimeAttribute type="image" keyPath="leftImageSrc" value="community-live"/>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
-                                                    <color key="value" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="leftImageWidth">
-                                                    <real key="value" value="65"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="leftImageHeight">
-                                                    <real key="value" value="42.5"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="spacingTitleIcon">
-                                                    <real key="value" value="10"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
-                                                    <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="titleFontSize">
-                                                    <real key="value" value="12"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="spacingTop">
-                                                    <real key="value" value="0.0"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="spacingBottom">
-                                                    <real key="value" value="0.0"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="spacingLeading">
-                                                    <real key="value" value="0.0"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="spacingTrailing">
-                                                    <real key="value" value="0.0"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1nY-tu-SEo" customClass="LGButton" customModule="LGButton">
-                                            <rect key="frame" x="207" y="0.0" width="103.5" height="10"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="titleString" value="话题广场"/>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="verticalOrientation" value="YES"/>
-                                                <userDefinedRuntimeAttribute type="image" keyPath="leftImageSrc" value="community-topic"/>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
-                                                    <color key="value" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="leftImageWidth">
-                                                    <real key="value" value="65"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="leftImageHeight">
-                                                    <real key="value" value="42.5"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="spacingTitleIcon">
-                                                    <real key="value" value="10"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
-                                                    <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="titleFontSize">
-                                                    <real key="value" value="12"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="spacingTop">
-                                                    <real key="value" value="0.0"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="spacingBottom">
-                                                    <real key="value" value="0.0"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="spacingLeading">
-                                                    <real key="value" value="0.0"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="spacingTrailing">
-                                                    <real key="value" value="0.0"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3RH-uX-DzZ" customClass="LGButton" customModule="LGButton">
-                                            <rect key="frame" x="310.5" y="0.0" width="103.5" height="10"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="titleString" value="附近动态"/>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="verticalOrientation" value="YES"/>
-                                                <userDefinedRuntimeAttribute type="image" keyPath="leftImageSrc" value="community-location"/>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
-                                                    <color key="value" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="leftImageWidth">
-                                                    <real key="value" value="65"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="leftImageHeight">
-                                                    <real key="value" value="42.5"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="spacingTitleIcon">
-                                                    <real key="value" value="10"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
-                                                    <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="titleFontSize">
-                                                    <real key="value" value="12"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="spacingTop">
-                                                    <real key="value" value="0.0"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="spacingBottom">
-                                                    <real key="value" value="0.0"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="spacingLeading">
-                                                    <real key="value" value="0.0"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="spacingTrailing">
-                                                    <real key="value" value="0.0"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </view>
-                                    </subviews>
-                                </stackView>
-                            </subviews>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="WTg-WB-w7K" secondAttribute="trailing" id="8iB-P3-3Ct"/>
-                                <constraint firstItem="WTg-WB-w7K" firstAttribute="leading" secondItem="LF7-t4-5dG" secondAttribute="leading" id="TKt-0K-LUb"/>
-                                <constraint firstAttribute="bottom" secondItem="WTg-WB-w7K" secondAttribute="bottom" constant="15" id="dUF-2e-xdG"/>
-                                <constraint firstItem="WTg-WB-w7K" firstAttribute="top" relation="greaterThanOrEqual" secondItem="LF7-t4-5dG" secondAttribute="top" id="eZP-hu-HPJ"/>
                                 <constraint firstAttribute="height" constant="112" id="v2o-bK-ghT"/>
                             </constraints>
                         </view>
@@ -228,38 +59,14 @@
             </constraints>
             <connections>
                 <outlet property="contentView" destination="ly8-fu-7qA" id="YNy-Ed-Yfr"/>
-                <outlet property="toolBarStackView" destination="WTg-WB-w7K" id="bxL-mD-HGb"/>
                 <outlet property="toolBarView" destination="LF7-t4-5dG" id="g2Z-9N-0Ua"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="-79.6875"/>
         </view>
     </objects>
-    <designables>
-        <designable name="1nY-tu-SEo">
-            <size key="intrinsicContentSize" width="10" height="10"/>
-        </designable>
-        <designable name="3RH-uX-DzZ">
-            <size key="intrinsicContentSize" width="10" height="10"/>
-        </designable>
-        <designable name="LiZ-UK-Tot">
-            <size key="intrinsicContentSize" width="10" height="10"/>
-        </designable>
-        <designable name="nX5-DX-Fu0">
-            <size key="intrinsicContentSize" width="10" height="10"/>
-        </designable>
-    </designables>
     <resources>
         <image name="common-leaderboard" width="17.5" height="17"/>
         <image name="common-search" width="17" height="17"/>
-        <image name="community-live" width="66" height="42.5"/>
-        <image name="community-location" width="66" height="42.5"/>
-        <image name="community-topic" width="66" height="42.5"/>
-        <systemColor name="groupTableViewBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="groupTableViewBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

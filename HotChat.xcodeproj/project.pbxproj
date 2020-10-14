@@ -127,7 +127,6 @@
 		26CBE3B82508A9F20089A23C /* CommunityHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26CBE3B72508A9F20089A23C /* CommunityHeaderView.xib */; };
 		26CBE3BD2508D7920089A23C /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CBE3BC2508D7920089A23C /* DiscoverViewController.swift */; };
 		26CBE3C12508EB040089A23C /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CBE3C02508EB040089A23C /* Appearance.swift */; };
-		26E14E00251C3E6A00645F08 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E14DFF251C3E6A00645F08 /* R.generated.swift */; };
 		26E14E5E251C6E8800645F08 /* HotChatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E14E5D251C6E8800645F08 /* HotChatButton.swift */; };
 		26E14E63251C766900645F08 /* UserInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E14E62251C766900645F08 /* UserInformationViewController.swift */; };
 		26E14E68251C861A00645F08 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E14E67251C861A00645F08 /* DatePickerViewController.swift */; };
@@ -305,7 +304,6 @@
 		26CBE3B72508A9F20089A23C /* CommunityHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityHeaderView.xib; sourceTree = "<group>"; };
 		26CBE3BC2508D7920089A23C /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		26CBE3C02508EB040089A23C /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
-		26E14DFF251C3E6A00645F08 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		26E14E5D251C6E8800645F08 /* HotChatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotChatButton.swift; sourceTree = "<group>"; };
 		26E14E62251C766900645F08 /* UserInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformationViewController.swift; sourceTree = "<group>"; };
 		26E14E67251C861A00645F08 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
@@ -420,7 +418,6 @@
 				F38CB8C52507B14700049A76 /* InfoPlist.strings */,
 				26546371250B774E00398F04 /* apple-app-site-association */,
 				267B987A2505E5BB0008C81B /* HotChat-Bridging-Header.h */,
-				26E14DFF251C3E6A00645F08 /* R.generated.swift */,
 				26BB186F2522F4B50019BBFD /* Cartfile */,
 				2633EC5125315706009F0F27 /* carthage-build.sh */,
 			);
@@ -817,7 +814,6 @@
 			buildConfigurationList = 2643EB622500AD7E00FBBE49 /* Build configuration list for PBXNativeTarget "HotChat" */;
 			buildPhases = (
 				C3E903E504D1D99E6089502F /* [CP] Check Pods Manifest.lock */,
-				2643EBC42500D33600FBBE49 /* R.swift */,
 				2643EB322500AD7D00FBBE49 /* Sources */,
 				2643EB332500AD7D00FBBE49 /* Frameworks */,
 				2643EB342500AD7D00FBBE49 /* Resources */,
@@ -989,26 +985,6 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
-		};
-		2643EBC42500D33600FBBE49 /* R.swift */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$TEMP_DIR/rswift-lastrun",
-			);
-			name = R.swift;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				$SRCROOT/R.generated.swift,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n\n";
 		};
 		5C62613C886FDA87662A76D3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1237,7 +1213,6 @@
 				267B98752505E1AC0008C81B /* PlatformAuthorization.swift in Sources */,
 				26F8947625207A9A00A45648 /* UploadFileAPI.swift in Sources */,
 				2643EBB12500B04100FBBE49 /* UserInfoBasicInformationCell.swift in Sources */,
-				26E14E00251C3E6A00645F08 /* R.generated.swift in Sources */,
 				2643EBAB2500B04100FBBE49 /* MeHeaderView.swift in Sources */,
 				26AC1E5425062D62003EFB44 /* LegalLiabilityToolBar.swift in Sources */,
 				260A87782521932A00380FB4 /* SettingViewController.swift in Sources */,
