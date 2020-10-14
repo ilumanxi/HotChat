@@ -17,7 +17,7 @@ import Blueprints
 import Kingfisher
 import MJRefresh
 import HandyJSON
-import RxSwiftUtilities
+
 
 
 class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisplay {
@@ -47,8 +47,6 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     
     let loadSignal = PublishSubject<Int>()
     
-    let loading = ActivityIndicator()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,13 +55,9 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
         configureVerticalLayout()
         
         loadSignal
-            .flatMapLatest(loadData)
-            .trackActivity(loading)
-            .checkResponse()
-            .subscribe(onNext: handlerReponse, onError: handlerError)
+            .subscribe(onNext: requestData)
             .disposed(by: rx.disposeBag)
-            
-         
+        
         collectionView.mj_header = MJRefreshNormalHeader { [weak self] in
             self?.refreshData()
         }
@@ -76,7 +70,7 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
         view.layoutIfNeeded()
         refreshData()
         
-        state = .initial
+        state = .loadingContent
     }
     
     func endRefreshing() {
@@ -86,11 +80,22 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     }
     
     func refreshData() {
-        loadSignal.on(.next(refreshPageIndex))
+        loadSignal.onNext(refreshPageIndex)
     }
     
     func loadMoreData() {
-        loadSignal.on(.next(pageIndex))
+        loadSignal.onNext(pageIndex)
+    }
+    
+    func requestData(_ page: Int) {
+        if dynamics.isEmpty {
+            state = .refreshingContent
+        }
+        loadData(page)
+            .checkResponse()
+            .subscribe(onSuccess: handlerReponse, onError: handlerError)
+            .disposed(by: rx.disposeBag)
+            
     }
     
     func loadData(_ page: Int) -> Single<Response<Pagination<Dynamic>>> {

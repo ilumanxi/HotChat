@@ -51,24 +51,10 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
         }
         
         loadSignal
-            .debug()
-            .flatMapLatest(loadData)
-            .checkResponse()
-            .subscribe(onNext: handlerReponse, onError: handlerError)
+            .subscribe(onNext: requestData)
             .disposed(by: rx.disposeBag)
-        
-        loadSignal.subscribe(onNext: {
-            print($0)
-        }, onError: {
-            print($0)
-        }, onCompleted: {
-            print("onCompleted")
-        }, onDisposed: {
-            print("onDisposed")
-        })
-        .disposed(by: rx.disposeBag)
-        
-        state = .initial
+
+        state = .loadingContent
         refreshData()
         
     }
@@ -112,6 +98,16 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
             parameters["handleType"] = 2
         }
         loadSignal.onNext(parameters)
+    }
+    
+    func requestData(_ parameters: [String : Any]) {
+        if dynamics.isEmpty {
+            state = .refreshingContent
+        }
+        loadData(parameters)
+            .checkResponse()
+            .subscribe(onSuccess: handlerReponse, onError: handlerError)
+            .disposed(by: rx.disposeBag)
     }
     
     func loadData(_ parameters: [String : Any]) -> Single<Response<Pagination<Dynamic>>> {

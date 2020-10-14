@@ -104,7 +104,7 @@ extension IndicatorDisplay where Self: UIViewController {
         holderView.backgroundColor = .groupTableViewBackground
         
         switch loadingState {
-        case .initial:
+        case .initial, .loadingContent, .refreshingContent:
             let indicator = UIActivityIndicatorView(style: .gray)
             indicator.hidesWhenStopped = true
             indicator.startAnimating()
