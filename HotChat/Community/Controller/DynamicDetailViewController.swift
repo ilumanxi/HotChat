@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import GKPhotoBrowser
+import SPAlertController
 
 class DynamicDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -74,17 +76,64 @@ class DynamicDetailViewController: UIViewController, UITableViewDataSource, UITa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        let dynamic = dynamics[indexPath.item]
+        
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: DynamicDetailViewCell.self)
-        cell.dynamic = dynamics[indexPath.item]
+        cell.dynamic = dynamic
         
         cell.onAvatarTapped.delegate(on: self) { (self, sender) in
             let vc = UserInfoViewController()
-            vc.user  = sender.dynamic.userInfo
+            vc.user  = dynamic.userInfo
             self.navigationController?.pushViewController(vc, animated: true)
         }
         
         cell.onLikeTapped.delegate(on: self) { (self, sender) in
-            self.like(sender.dynamic)
+            self.like(dynamic)
+        }
+        cell.onCommentTapped.delegate(on: self) { (self, _) in
+            let info = TUIConversationCellData()
+            info.userID = dynamic.userInfo.userId
+            let vc  = ChatViewController(conversation: info)!
+            vc.title = dynamic.userInfo.nick
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        cell.onImageTapped.delegate(on: self) { (self, sender) in
+            
+            let (_, index, imageViews) = sender
+            
+            let photos = (0..<imageViews.count)
+                .compactMap { index -> GKPhoto? in
+                    let photo = GKPhoto()
+                    photo.url = URL(string: dynamic.photoList[index].picUrl)
+                    photo.sourceImageView = imageViews[index]
+                    return photo
+                }
+            
+            let browser = GKPhotoBrowser(photos: photos, currentIndex: index)
+            browser.showStyle = .zoom
+            browser.hideStyle = .zoomScale
+            browser.loadStyle = .indeterminateMask
+            browser.maxZoomScale = 20
+            browser.doubleZoomScale = 2
+            
+            browser.show(fromVC: self)
+        }
+        
+        cell.onMoreButtonTapped.delegate(on: self) { (self, _) in
+            let alertController = SPAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+     
+            alertController.addAction(SPAlertAction(title: "不看Ta的动态", style: .default, handler: { _ in
+                
+            }))
+            
+            alertController.addAction(SPAlertAction(title: "举报这条动态", style: .default, handler: { _ in
+                
+            }))
+            
+            alertController.addAction(SPAlertAction(title: "取消", style: .cancel, handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
         }
         
         return cell

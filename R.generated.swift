@@ -264,36 +264,6 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 3 files.
-  struct file {
-    /// Resource file `README.md`.
-    static let readmeMd = Rswift.FileResource(bundle: R.hostingBundle, name: "README", pathExtension: "md")
-    /// Resource file `TUIKitFace.bundle`.
-    static let tuiKitFaceBundle = Rswift.FileResource(bundle: R.hostingBundle, name: "TUIKitFace", pathExtension: "bundle")
-    /// Resource file `TUIKitResource.bundle`.
-    static let tuiKitResourceBundle = Rswift.FileResource(bundle: R.hostingBundle, name: "TUIKitResource", pathExtension: "bundle")
-
-    /// `bundle.url(forResource: "README", withExtension: "md")`
-    static func readmeMd(_: Void = ()) -> Foundation.URL? {
-      let fileResource = R.file.readmeMd
-      return fileResource.bundle.url(forResource: fileResource)
-    }
-
-    /// `bundle.url(forResource: "TUIKitFace", withExtension: "bundle")`
-    static func tuiKitFaceBundle(_: Void = ()) -> Foundation.URL? {
-      let fileResource = R.file.tuiKitFaceBundle
-      return fileResource.bundle.url(forResource: fileResource)
-    }
-
-    /// `bundle.url(forResource: "TUIKitResource", withExtension: "bundle")`
-    static func tuiKitResourceBundle(_: Void = ()) -> Foundation.URL? {
-      let fileResource = R.file.tuiKitResourceBundle
-      return fileResource.bundle.url(forResource: fileResource)
-    }
-
-    fileprivate init() {}
-  }
-
   /// This `R.image` struct is generated, and contains static references to 77 images.
   struct image {
     /// Image `account-register-succeed`.

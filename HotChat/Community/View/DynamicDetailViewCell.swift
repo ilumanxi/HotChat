@@ -49,6 +49,10 @@ class DynamicDetailViewCell: UITableViewCell {
     
     let onCommentTapped = Delegate<DynamicDetailViewCell, Void>()
     
+    let onImageTapped = Delegate<(DynamicDetailViewCell, Int, [UIImageView]), Void>()
+    
+    let onMoreButtonTapped = Delegate<DynamicDetailViewCell, Void>()
+    
     @IBAction func avatarButtonTapped(_ sender: Any) {
         onAvatarTapped.call(self)
     }
@@ -65,6 +69,9 @@ class DynamicDetailViewCell: UITableViewCell {
         onCommentTapped.call(self)
     }
     
+    @IBAction func moreButtonTapped(_ sender: Any) {
+        onMoreButtonTapped.call(self)
+    }
     
     
     var dynamic: Dynamic! {
@@ -106,6 +113,24 @@ class DynamicDetailViewCell: UITableViewCell {
         let height = sectionInset.top + sectionInset.bottom +  itemSize.height * rows + (rows - 1) * verticalSpacing
         
         return height
+    }
+        
+}
+
+extension DynamicDetailViewCell: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let imageViews = collectionView.visibleCells
+            .sorted {
+                collectionView.indexPath(for: $0)!.item < collectionView.indexPath(for: $1)!.item
+            }
+            .compactMap {
+                ($0 as? MediaViewCell)?.imageView
+            }
+        
+        
+        onImageTapped.call((self, indexPath.item, imageViews))
     }
     
 }

@@ -82,6 +82,7 @@ extension IndicatorDisplay where Self: UIViewController {
         }
         
         let findHolderView = view.subviews.first { $0 is IndicatorHolderView }
+        findHolderView?.subviews.forEach{ $0.removeFromSuperview() }
         
         if loadingState == .contentLoaded {
             findHolderView?.removeFromSuperview()

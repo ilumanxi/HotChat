@@ -4,25 +4,12 @@
 # ignore all warnings from all pods
 inhibit_all_warnings!
 
-# IM  解决 'TXIMSDK_TUIKit_iOS'
-def pods
-    pod 'MMLayout',  '0.2.0'
-    pod 'SDWebImage',  '5.9.0'
-    pod 'ReactiveObjC',  '3.1.1'
-    pod 'Toast',  '4.0.0'
-    pod 'TXLiteAVSDK_TRTC'
-    pod 'TXIMSDK_iOS'
-end
-
-
 target 'HotChat' do
   # Comment the next line if you don't want to use dynamic frameworks
-    use_frameworks!
-#   use_modular_headers!
+#    use_frameworks!
+   use_modular_headers!
 
   # Pods for HotChat
-  
-    pods
     
     pod 'RxSwift'
     pod 'RxCocoa'
@@ -32,7 +19,7 @@ target 'HotChat' do
     
     pod 'CryptoSwift'
     
-    pod 'IBAnimatable'
+#    pod 'IBAnimatable'
     pod 'DynamicColor'
 
     pod 'HandyJSON', "~> 5.0.3-beta"
@@ -64,10 +51,11 @@ target 'HotChat' do
     pod 'ActiveLabel'
     pod 'LGButton'
     pod "Koloda"
-#    pod 'IBAnimatable'
     #列表视图空视图
 #    pod 'DZNEmptyDataSet'
-    pod 'MJRefresh', :modular_headers => true
+    pod 'MJRefresh'
+    pod 'GKPhotoBrowser'
+    pod 'Cache'
     #图片浏览器
 #    pod 'SKPhotoBrowser'
 #    pod 'MediaBrowser'
@@ -78,11 +66,8 @@ target 'HotChat' do
     pod 'Blueprints'
     
     pod 'SYBPush/normal',  :git => 'https://github.com/isandboy/SYBPush.git'
-
+    pod 'TXIMSDK_TUIKit_iOS'
   
-  #  pod 'TYPagerController', :modular_headers => true
-  
-
   target 'HotChatTests' do
     inherit! :search_paths
     # Pods for testing

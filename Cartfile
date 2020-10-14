@@ -1,2 +1,8 @@
 
-#github "onevcat/Kingfisher"
+# carthage update --platform iOS
+
+# carthage update --no-use-binaries
+
+github "IBAnimatable/IBAnimatable"
+
+

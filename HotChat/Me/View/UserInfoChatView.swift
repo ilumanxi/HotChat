@@ -18,8 +18,7 @@ class UserInfoChatView: UIView {
         
         guard let data = onPushing.call() else { return }
         
-        let user = data.0
-        let navigationController = data.1
+        let (user, navigationController) = data
         
         let info = TUIConversationCellData()
         info.userID = user.userId

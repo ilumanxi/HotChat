@@ -327,6 +327,9 @@
                                                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L1n-eC-vfB" userLabel="More Button" customClass="MinimumHitButton" customModule="HotChat" customModuleProvider="target">
                                                             <rect key="frame" x="391" y="10" width="3" height="22"/>
                                                             <state key="normal" image="more"/>
+                                                            <connections>
+                                                                <action selector="moreButtonTapped:" destination="6Fc-Hx-zI4" eventType="touchUpInside" id="YTW-tj-KPH"/>
+                                                            </connections>
                                                         </button>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VKS-Ei-3xh">
                                                             <rect key="frame" x="32" y="13.5" width="323" height="15"/>
@@ -580,6 +583,23 @@
             <point key="canvasLocation" x="2488.4057971014495" y="-699.10714285714278"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="4Ym-wM-ALV">
+            <size key="intrinsicContentSize" width="26" height="15"/>
+        </designable>
+        <designable name="DV3-tg-zJ1">
+            <size key="intrinsicContentSize" width="30" height="34"/>
+        </designable>
+        <designable name="VWE-82-X28">
+            <size key="intrinsicContentSize" width="26" height="15"/>
+        </designable>
+        <designable name="fVI-hq-0Fh">
+            <size key="intrinsicContentSize" width="68" height="15"/>
+        </designable>
+        <designable name="yYm-Ia-B2O">
+            <size key="intrinsicContentSize" width="70" height="16"/>
+        </designable>
+    </designables>
     <resources>
         <image name="comment" width="13" height="13"/>
         <image name="common-search" width="17" height="17"/>
