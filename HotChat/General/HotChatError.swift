@@ -69,7 +69,7 @@ extension HotChatError.GeneralErrorReason: LocalizedError {
     
     public var localizedDescription: String {
         switch self {
-        case .conversionError(string: let string, encoding: let encoding):
+        case .conversionError(string: let string, encoding: _):
             return string
         default:
             return "发生错误"

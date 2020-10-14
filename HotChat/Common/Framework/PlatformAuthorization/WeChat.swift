@@ -255,29 +255,29 @@ extension WeChat : WXApiDelegate {
         }
     }
     
-    private func login(auth: SendAuthResp) {
-        if auth.errCode == WXSuccess.rawValue {
-            WeChat.accessToken(appid: Config.appId, secret: Config.appSecret, code: auth.code!) { result in
-                switch result {
-                case .success(let json):
-                    let accessToken = json["access_token"] as! String
-                    let openId = json["openid"] as! String
-                    self.userInfo(accessToken: accessToken, openId: openId)
-                case .failure(let error):
-                    self.completionHandler?(.failure(.failed(reason: error)))
-                    self.completionHandler = nil
-                }
-            }
-        }
-        else if auth.errCode == WXErrCodeUserCancel.rawValue {
-            self.completionHandler?(.failure(.cancel))
-            self.completionHandler = nil
-        }
-        else if auth.errCode == WXErrCodeAuthDeny.rawValue {
-            self.completionHandler?(.failure(.authorize))
-            self.completionHandler = nil
-        }
-    }
+//    private func login(auth: SendAuthResp) {
+//        if auth.errCode == WXSuccess.rawValue {
+//            WeChat.accessToken(appid: Config.appId, secret: Config.appSecret, code: auth.code!) { result in
+//                switch result {
+//                case .success(let json):
+//                    let accessToken = json["access_token"] as! String
+//                    let openId = json["openid"] as! String
+//                    self.userInfo(accessToken: accessToken, openId: openId)
+//                case .failure(let error):
+//                    self.completionHandler?(.failure(.failed(reason: error)))
+//                    self.completionHandler = nil
+//                }
+//            }
+//        }
+//        else if auth.errCode == WXErrCodeUserCancel.rawValue {
+//            self.completionHandler?(.failure(.cancel))
+//            self.completionHandler = nil
+//        }
+//        else if auth.errCode == WXErrCodeAuthDeny.rawValue {
+//            self.completionHandler?(.failure(.authorize))
+//            self.completionHandler = nil
+//        }
+//    }
     
     private func share(auth: SendMessageToWXResp) {
         if auth.errCode == WXSuccess.rawValue {
@@ -290,27 +290,27 @@ extension WeChat : WXApiDelegate {
         }
     }
     
-    private func userInfo(accessToken: String, openId: String) {
-        WeChat.userInfo(accessToken: accessToken, openId: openId) { result in
-            switch result {
-            case .success(let json):
-                let accessToken = accessToken
-                let userID = json["unionid"] as? String ?? ""
-                let displayName = json["nickname"] as? String ?? ""
-                let headimgurl = json["headimgurl"] as? String ?? ""
-                let pictureURL = URL(string: headimgurl)
-                let sex = json["sex"] as? Int ?? 0
-                let gender =  AuthorizationUser.Gender(rawValue: sex)!
-                let user = AuthorizationUser(nickname: displayName, gender: gender, birthday: nil, userID: userID, accessToken: accessToken, pictureURL: pictureURL)
+//    private func userInfo(accessToken: String, openId: String) {
+//        WeChat.userInfo(accessToken: accessToken, openId: openId) { result in
+//            switch result {
+//            case .success(let json):
+//                let accessToken = accessToken
+//                let userID = json["unionid"] as? String ?? ""
+//                let displayName = json["nickname"] as? String ?? ""
+//                let headimgurl = json["headimgurl"] as? String ?? ""
+//                let pictureURL = URL(string: headimgurl)
+//                let sex = json["sex"] as? Int ?? 0
+//                let gender =  AuthorizationUser.Gender(rawValue: sex)!
+//                let user = AuthorizationUser(nickname: displayName, gender: gender, birthday: nil, userID: userID, accessToken: accessToken, pictureURL: pictureURL)
 //                self.completionHandler?(.success(user))
-                self.completionHandler = nil
-            case .failure(let error):
-                self.completionHandler?(.failure(.failed(reason: error)))
-                self.completionHandler = nil
-            }
-        
-        }
-    }
+//                self.completionHandler = nil
+//            case .failure(let error):
+//                self.completionHandler?(.failure(.failed(reason: error)))
+//                self.completionHandler = nil
+//            }
+//
+//        }
+//    }
 }
 
 

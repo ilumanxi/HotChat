@@ -17,7 +17,6 @@ PODS:
   - Kingfisher/Core (5.15.6)
   - Koloda (5.0.1):
     - pop (~> 1.0)
-  - LGButton (1.1.6)
   - MagazineLayout (1.6.3)
   - MBProgressHUD (1.2.0)
   - MJRefresh (3.5.0)
@@ -88,7 +87,6 @@ DEPENDENCIES:
   - HBDNavigationBar
   - Kingfisher
   - Koloda
-  - LGButton
   - MagazineLayout
   - MBProgressHUD
   - MJRefresh
@@ -126,7 +124,6 @@ SPEC REPOS:
     - HBDNavigationBar
     - Kingfisher
     - Koloda
-    - LGButton
     - MagazineLayout
     - MBProgressHUD
     - MJRefresh
@@ -179,7 +176,6 @@ SPEC CHECKSUMS:
   HBDNavigationBar: 6ba38b99637039c831ce460364d5398f29fa0685
   Kingfisher: b3554e7bf6106115b44e8795300bad580ef2fdc7
   Koloda: d07b9199a383abc5898b62aa945a599f5e7c0c4b
-  LGButton: 9f0a7f9d3030e3f504108342f6b66d64a429371b
   MagazineLayout: 159da0d4d874e04e6b17e580b990cccd00328c5b
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
@@ -211,6 +207,6 @@ SPEC CHECKSUMS:
   WechatOpenSDK: 6a4d1436c15b3b5fe2a0bd383f3046010186da44
   ZLPhotoBrowser: e22cabd36d03240003668d72cb733581a6da0b0d
 
-PODFILE CHECKSUM: 10b110ddb0457e0de1745397393ff7cce615b004
+PODFILE CHECKSUM: 38acc3c1b58da85cee48b4de6dffc5f1bf70a44c
 
 COCOAPODS: 1.9.3
