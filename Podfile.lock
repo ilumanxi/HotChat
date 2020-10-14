@@ -3,11 +3,9 @@ PODS:
   - Alamofire (5.2.2)
   - Blueprints (0.13.1)
   - Cache (5.3.0)
-  - CollectionKit (2.4.0):
-    - CollectionKit/Core (= 2.4.0)
-  - CollectionKit/Core (2.4.0)
   - CryptoSwift (1.3.2)
   - DynamicColor (4.2.0)
+  - ESPullToRefresh (2.9.3)
   - FSPagerView (0.8.3)
   - GKPhotoBrowser (2.1.0):
     - GKPhotoBrowser/SD (= 2.1.0)
@@ -42,11 +40,6 @@ PODS:
   - R.swift.Library (5.2.0)
   - ReachabilitySwift (4.3.1)
   - ReactiveObjC (3.1.1)
-  - Realm (5.5.0):
-    - Realm/Headers (= 5.5.0)
-  - Realm/Headers (5.5.0)
-  - RealmSwift (5.5.0):
-    - Realm (= 5.5.0)
   - Reusable (4.1.1):
     - Reusable/Storyboard (= 4.1.1)
     - Reusable/View (= 4.1.1)
@@ -95,9 +88,9 @@ DEPENDENCIES:
   - ActiveLabel
   - Blueprints
   - Cache
-  - CollectionKit
   - CryptoSwift
   - DynamicColor
+  - ESPullToRefresh
   - FSPagerView
   - GKPhotoBrowser
   - HandyJSON (~> 5.0.3-beta)
@@ -113,7 +106,6 @@ DEPENDENCIES:
   - NotificationBannerSwift
   - "NSObject+Rx"
   - R.swift
-  - RealmSwift
   - Reusable
   - RxCocoa
   - RxReachability
@@ -137,9 +129,9 @@ SPEC REPOS:
     - Alamofire
     - Blueprints
     - Cache
-    - CollectionKit
     - CryptoSwift
     - DynamicColor
+    - ESPullToRefresh
     - FSPagerView
     - GKPhotoBrowser
     - HandyJSON
@@ -160,8 +152,6 @@ SPEC REPOS:
     - R.swift.Library
     - ReachabilitySwift
     - ReactiveObjC
-    - Realm
-    - RealmSwift
     - Reusable
     - RxCocoa
     - RxReachability
@@ -197,9 +187,9 @@ SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
   Blueprints: ddd6ab1e455c98471aaef2fdd0b09b5f9b53af5b
   Cache: 48762993ec44e1d93483c4d4a13edd18452326f4
-  CollectionKit: 8f01e7629185bb81072c4aa734d105df5c2d1c8b
   CryptoSwift: 093499be1a94b0cae36e6c26b70870668cb56060
   DynamicColor: c475f66bda1cabf602f2c54ac1171c0c07148a5a
+  ESPullToRefresh: 0d68daa602b343c81753a1b95e09fd0bfcddfd40
   FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
   GKPhotoBrowser: 5faf2b641765940c082d33b58f7a21b68ecd8f3b
   HandyJSON: 88e8ea5f66ab65c3b8768499a1935d0509c460d4
@@ -220,8 +210,6 @@ SPEC CHECKSUMS:
   R.swift.Library: 5ba4f1631300caf9a4d890186930da85d540769d
   ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
-  Realm: fb399d76f44042e5cdfc630f33828fdb4d077345
-  RealmSwift: 3b7e62356207ef16d34de4e55d475163bd2062bb
   Reusable: 53a9acf5c536f229b31b5865782414b508252ddb
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxReachability: 21d3e96f39bc166a21c357e923f47dec148ca97b
@@ -244,6 +232,6 @@ SPEC CHECKSUMS:
   WechatOpenSDK: 6a4d1436c15b3b5fe2a0bd383f3046010186da44
   ZLPhotoBrowser: e22cabd36d03240003668d72cb733581a6da0b0d
 
-PODFILE CHECKSUM: 8126804b3603d4cbabe6aa8192963214e4bcc94d
+PODFILE CHECKSUM: 98d3d6197cf2888189a8d8f704a94e2eeac763f0
 
 COCOAPODS: 1.9.3

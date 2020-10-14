@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2605A4762513187900017241 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2605A4752513187900017241 /* UIImageExtensions.swift */; };
+		2607319B2536DD1B00B1093C /* ReportAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2607319A2536DD1B00B1093C /* ReportAPI.swift */; };
 		260A87782521932A00380FB4 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A87772521932A00380FB4 /* SettingViewController.swift */; };
 		260B96112521F15C00767076 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260B96102521F15C00767076 /* Authentication.swift */; };
 		260B96162521F2F400767076 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260B96152521F2F400767076 /* AuthenticationViewController.swift */; };
@@ -111,6 +112,7 @@
 		26A20AFF2518A47F0061BBB8 /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A20AFE2518A47F0061BBB8 /* KeychainStore.swift */; };
 		26A20B052518A5020061BBB8 /* HotChatError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A20B042518A5020061BBB8 /* HotChatError.swift */; };
 		26A20B0D2518BBC10061BBB8 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A20B0C2518BBC10061BBB8 /* Response.swift */; };
+		26A731B22536D6B600CCECE5 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A731B12536D6B600CCECE5 /* ReportViewController.swift */; };
 		26A8D4E9251C8F3E00B736CF /* Constellation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A8D4E8251C8F3E00B736CF /* Constellation.swift */; };
 		26AC1E4C25060D27003EFB44 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AC1E4B25060D27003EFB44 /* LoginViewController.swift */; };
 		26AC1E4E250613B6003EFB44 /* KeychainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AC1E4D250613B5003EFB44 /* KeychainItem.swift */; };
@@ -172,6 +174,7 @@
 /* Begin PBXFileReference section */
 		1C32CA0070B3C7B3111B5D13 /* Pods-HotChat-HotChatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotChat-HotChatUITests.release.xcconfig"; path = "Target Support Files/Pods-HotChat-HotChatUITests/Pods-HotChat-HotChatUITests.release.xcconfig"; sourceTree = "<group>"; };
 		2605A4752513187900017241 /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
+		2607319A2536DD1B00B1093C /* ReportAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAPI.swift; sourceTree = "<group>"; };
 		260A87772521932A00380FB4 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		260B96102521F15C00767076 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		260B96152521F2F400767076 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
@@ -286,6 +289,7 @@
 		26A20AFE2518A47F0061BBB8 /* KeychainStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainStore.swift; sourceTree = "<group>"; };
 		26A20B042518A5020061BBB8 /* HotChatError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotChatError.swift; sourceTree = "<group>"; };
 		26A20B0C2518BBC10061BBB8 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		26A731B12536D6B600CCECE5 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		26A8D4E8251C8F3E00B736CF /* Constellation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constellation.swift; sourceTree = "<group>"; };
 		26AC1E4B25060D27003EFB44 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		26AC1E4D250613B5003EFB44 /* KeychainItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItem.swift; sourceTree = "<group>"; };
@@ -723,6 +727,7 @@
 				26CBE3B32508A3FC0089A23C /* CommunityViewController.swift */,
 				26F8893925318681001A14F2 /* DynamicViewController.swift */,
 				268458E725343FA8002B9C6E /* DynamicDetailViewController.swift */,
+				26A731B12536D6B600CCECE5 /* ReportViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -745,6 +750,7 @@
 			children = (
 				26F8893E253187BD001A14F2 /* Dynamic.swift */,
 				2696341E2531942000493C3D /* DynamicAPI.swift */,
+				2607319A2536DD1B00B1093C /* ReportAPI.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1240,8 +1246,10 @@
 				26AC1E5425062D62003EFB44 /* LegalLiabilityToolBar.swift in Sources */,
 				260A87782521932A00380FB4 /* SettingViewController.swift in Sources */,
 				2643EBAF2500B04100FBBE49 /* UserInfoProfilePhotoCell.swift in Sources */,
+				2607319B2536DD1B00B1093C /* ReportAPI.swift in Sources */,
 				2643EBB02500B04100FBBE49 /* RealNameAuthenticationFooterView.swift in Sources */,
 				26CBE3B42508A3FC0089A23C /* CommunityViewController.swift in Sources */,
+				26A731B22536D6B600CCECE5 /* ReportViewController.swift in Sources */,
 				26795506250773D700A72954 /* UserInfoEditingHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

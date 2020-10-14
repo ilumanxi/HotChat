@@ -14,6 +14,9 @@ struct Pagination<T: HandyJSON>: HandyJSON {
     var hasNext: Bool = false
     var page: Int = 0
     var list: [T]?
+    
+    /// 操作类型  0全新  1向下加载更多  2向上加载更多
+    var handleType: Int = 1
 }
 
 

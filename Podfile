@@ -27,25 +27,20 @@ target 'HotChat' do
     pod 'Reusable'
     pod 'Kingfisher'
     pod 'TagListView'
-#    pod 'Reusable'
     pod 'R.swift'
-#    pod 'SwiftLint'
     pod 'SnapKit'
 #    pod 'SwifterSwift'
     pod 'Toast-Swift'
-    pod "CollectionKit"
-    pod 'RealmSwift'
+#    pod "CollectionKit"
+#    pod 'RealmSwift'
     pod 'HBDNavigationBar'
 #    pod 'HXPageViewController'
 #    pod 'WKWebViewJavascriptBridge'
     pod 'Moya', :subspecs => ['Core', 'RxSwift']
-#    pod 'Alamofire'
     pod 'SPAlertController'
-#    pod 'Presentr'
     pod 'MBProgressHUD'
     pod 'SwiftDate'
     pod 'NotificationBannerSwift'
-#    pod 'BRPickerView'
     pod 'SegementSlide'
     pod 'FSPagerView'
     pod 'ActiveLabel'
@@ -54,6 +49,7 @@ target 'HotChat' do
     #列表视图空视图
 #    pod 'DZNEmptyDataSet'
     pod 'MJRefresh'
+    pod 'ESPullToRefresh'
     pod 'GKPhotoBrowser'
     pod 'Cache'
     #图片浏览器

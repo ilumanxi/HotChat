@@ -9,8 +9,19 @@
 import UIKit
 import GKPhotoBrowser
 import SPAlertController
+import MJRefresh
+import RxSwift
+import RxCocoa
 
-class DynamicDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableViewDataSource, UITableViewDelegate {
+    
+    var state: LoadingState = .initial {
+        didSet {
+            if isViewLoaded {
+                showOrHideIndicator(loadingState: state)
+            }
+        }
+    }
 
     let dynamicAPI = Request<DynamicAPI>()
     
@@ -26,22 +37,125 @@ class DynamicDetailViewController: UIViewController, UITableViewDataSource, UITa
     
     var user: User!
     
+    let loadSignal = PublishSubject<[String : Any]>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let parameters: [String : Any] = [
-            "userId" : user.userId
-        ]
+        tableView.mj_header = MJRefreshNormalHeader { [weak self] in
+            self?.refreshData()
+        }
         
-        dynamicAPI.request(.dynamicList(parameters), type:Response<Pagination<Dynamic>>.self)
-            .subscribe(onSuccess: { [weak self] response in
-                self?.dynamics = response.data?.list ?? []
-                Log.print(response)
-            }, onError: { error in
-                Log.print(error)
-            })
+        tableView.mj_footer = MJRefreshAutoNormalFooter{ [weak self] in
+            self?.loadMoreData()
+        }
+        
+        loadSignal
+            .debug()
+            .flatMapLatest(loadData)
+            .checkResponse()
+            .subscribe(onNext: handlerReponse, onError: handlerError)
             .disposed(by: rx.disposeBag)
+        
+        loadSignal.subscribe(onNext: {
+            print($0)
+        }, onError: {
+            print($0)
+        }, onCompleted: {
+            print("onCompleted")
+        }, onDisposed: {
+            print("onDisposed")
+        })
+        .disposed(by: rx.disposeBag)
+        
+        state = .initial
+        refreshData()
+        
+    }
+    
+    func endRefreshing(noContent: Bool = false) {
+        tableView.reloadData()
+        tableView.mj_header?.endRefreshing()
+        if noContent {
+            tableView.mj_footer?.endRefreshingWithNoMoreData()
+        }
+        else {
+            tableView.mj_footer?.endRefreshing()
+        }
+        
+    }
+    
+    func refreshData() {
+        
+        var parameters: [String : Any] = [:]
+        parameters["userId"] = user.userId
+        if dynamics.isEmpty {
+            parameters["currentDynamicId"] = "0"
+            parameters["handleType"] = 0
+        }
+        else {
+            parameters["handleType"] = 1
+            parameters["currentDynamicId"] = dynamics.first?.dynamicId ?? "0"
+        }
+        
+        loadSignal.onNext(parameters)
+    }
+    
+    func loadMoreData() {
+        var parameters: [String : Any] = [:]
+        parameters["userId"] = user.userId
+        parameters["currentDynamicId"] = dynamics.last?.dynamicId ?? "0"
+        if dynamics.isEmpty {
+            parameters["handleType"] = 0
+        }
+        else {
+            parameters["handleType"] = 2
+        }
+        loadSignal.onNext(parameters)
+    }
+    
+    func loadData(_ parameters: [String : Any]) -> Single<Response<Pagination<Dynamic>>> {
+         
+        return dynamicAPI.request(.dynamicList(parameters))
+    }
+    
+    func handlerReponse(_ response: Response<Pagination<Dynamic>>){
+
+        guard let page = response.data, let data = page.list else {
+            return
+        }
+        
+        if page.handleType == 0 || page.handleType == 1 {
+            refreshData(data)
+        }
+        else {
+            appendData(data)
+        }
+        
+        if page.page == 1 && dynamics.isEmpty {
+            state = .noContent
+        } else if !dynamics.isEmpty {
+            state = .contentLoaded
+        }
+        endRefreshing(noContent: !page.hasNext)
+        
+    }
+    
+    func refreshData(_ data: [Dynamic]) {
+        
+        dynamics = data +  dynamics
+    }
+    
+    func appendData(_ data: [Dynamic]) {
+        dynamics = dynamics + data
+    }
+    
+    func handlerError(_ error: Error) {
+        if dynamics.isEmpty {
+            state = .error
+        }
+        endRefreshing()
+       
     }
     
     func like(_ dynamic: Dynamic)  {
@@ -127,8 +241,10 @@ class DynamicDetailViewController: UIViewController, UITableViewDataSource, UITa
                 
             }))
             
-            alertController.addAction(SPAlertAction(title: "举报这条动态", style: .default, handler: { _ in
-                
+            alertController.addAction(SPAlertAction(title: "举报这条动态", style: .default, handler: { [weak self] _ in
+                let vc = ReportViewController.loadFromStoryboard()
+                vc.user = dynamic.userInfo
+                self?.present(vc, animated: false, completion: nil)
             }))
             
             alertController.addAction(SPAlertAction(title: "取消", style: .cancel, handler: nil))

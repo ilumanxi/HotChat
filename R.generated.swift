@@ -264,7 +264,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 77 images.
+  /// This `R.image` struct is generated, and contains static references to 78 images.
   struct image {
     /// Image `account-register-succeed`.
     static let accountRegisterSucceed = Rswift.ImageResource(bundle: R.hostingBundle, name: "account-register-succeed")
@@ -396,6 +396,8 @@ struct R: Rswift.Validatable {
     static let meTravel = Rswift.ImageResource(bundle: R.hostingBundle, name: "me-travel")
     /// Image `me-wallet`.
     static let meWallet = Rswift.ImageResource(bundle: R.hostingBundle, name: "me-wallet")
+    /// Image `modal-close`.
+    static let modalClose = Rswift.ImageResource(bundle: R.hostingBundle, name: "modal-close")
     /// Image `more`.
     static let more = Rswift.ImageResource(bundle: R.hostingBundle, name: "more")
     /// Image `navigation-bar-back`.
@@ -873,6 +875,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "me-wallet", bundle: ..., traitCollection: ...)`
     static func meWallet(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.meWallet, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "modal-close", bundle: ..., traitCollection: ...)`
+    static func modalClose(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.modalClose, compatibleWith: traitCollection)
     }
     #endif
 
@@ -1673,6 +1682,11 @@ struct _R: Rswift.Validatable {
 
       let bundle = R.hostingBundle
       let name = "Community"
+      let reportViewController = StoryboardViewControllerResource<ReportViewController>(identifier: "ReportViewController")
+
+      func reportViewController(_: Void = ()) -> ReportViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: reportViewController)
+      }
 
       static func validate() throws {
         if UIKit.UIImage(named: "comment", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'comment' is used in storyboard 'Community', but couldn't be loaded.") }
@@ -1681,11 +1695,13 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "give", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'give' is used in storyboard 'Community', but couldn't be loaded.") }
         if UIKit.UIImage(named: "like-normal", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'like-normal' is used in storyboard 'Community', but couldn't be loaded.") }
         if UIKit.UIImage(named: "like-selected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'like-selected' is used in storyboard 'Community', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "modal-close", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'modal-close' is used in storyboard 'Community', but couldn't be loaded.") }
         if UIKit.UIImage(named: "more", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'more' is used in storyboard 'Community', but couldn't be loaded.") }
         if UIKit.UIImage(named: "tabbar-community-normal", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tabbar-community-normal' is used in storyboard 'Community', but couldn't be loaded.") }
         if UIKit.UIImage(named: "tabbar-community-selected", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tabbar-community-selected' is used in storyboard 'Community', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+        if _R.storyboard.community().reportViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'reportViewController' could not be loaded from storyboard 'Community' as 'ReportViewController'.") }
       }
 
       fileprivate init() {}

@@ -11,12 +11,14 @@ import SnapKit
 import MBProgressHUD
 import Toast_Swift
 
-protocol IndicatorDisplay {
+protocol IndicatorDisplay: NSObject {
     
     func show(_ message: String?, in view: UIView)
     func showIndicator(in view: UIView)
     func showOrHideIndicator(loadingState: LoadingState, in view: UIView, text: String?, image: UIImage?)
     func hideIndicator(from view: UIView)
+    
+    func refreshData()
 }
 
 class IndicatorHolderView: UIView {}
@@ -81,9 +83,19 @@ extension IndicatorDisplay where Self: UIViewController {
             return stackView
         }
         
+        func viewAddRefreshDataTap(_ view: UIView) {
+            let refreshDataTap = UITapGestureRecognizer()
+            refreshDataTap.rx.event
+                .subscribe(onNext: { [weak self] _ in
+                    self?.refreshData()
+                })
+                .disposed(by: rx.disposeBag)
+            view.addGestureRecognizer(refreshDataTap)
+        }
+        
         let findHolderView = view.subviews.first { $0 is IndicatorHolderView }
         findHolderView?.subviews.forEach{ $0.removeFromSuperview() }
-        
+        findHolderView?.gestureRecognizers?.forEach{ findHolderView?.removeGestureRecognizer($0) }
         if loadingState == .contentLoaded {
             findHolderView?.removeFromSuperview()
             return
@@ -118,13 +130,15 @@ extension IndicatorDisplay where Self: UIViewController {
             stackView.snp.makeConstraints { maker in
                 maker.center.equalToSuperview()
             }
+            
+            viewAddRefreshDataTap(holderView)
         case .error:
             let stackView = showImageText(text: text ?? "数据加载失败、请刷新!", image: image ??  UIImage(named: "load-error")!)
             holderView.addSubview(stackView)
             stackView.snp.makeConstraints { maker in
                 maker.center.equalToSuperview()
             }
-            
+            viewAddRefreshDataTap(holderView)
         default:
             break
         }
@@ -140,5 +154,7 @@ extension IndicatorDisplay where Self: UIViewController {
         hub?.hide(animated: true)
     }
     
-    
+    func refreshData() {
+        
+    }
 }

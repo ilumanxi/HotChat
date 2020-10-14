@@ -80,9 +80,9 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     }
     
     func endRefreshing() {
+        collectionView.reloadData()
         collectionView.mj_header?.endRefreshing()
         collectionView.mj_footer?.endRefreshing()
-        collectionView.reloadData()
     }
     
     func refreshData() {
