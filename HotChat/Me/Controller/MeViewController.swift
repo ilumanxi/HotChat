@@ -67,6 +67,7 @@ class MeViewController: UITableViewController, Autorotate {
         self.hbd_barHidden = true
         
         requestData()
+        user = LoginManager.shared.user
         
     }
     

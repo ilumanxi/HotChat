@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Cache
 
 typealias TokenType = LoginManager.Parameters.TokenIdentifier
 
@@ -27,29 +28,49 @@ class LoginManager {
         case token(token: String, tokenType: TokenIdentifier)
         
     }
+    
+
+    lazy var storage: Storage<String> = {
+        let diskConfig = DiskConfig(name: "UserCache")
+        let memoryConfig = MemoryConfig(expiry: .never, countLimit: 10, totalCostLimit: 10)
+        let transformer = TransformerFactory.forCodable(ofType: String.self)
+        let storage = try! Storage<String>(diskConfig: diskConfig, memoryConfig: memoryConfig, transformer: transformer)
+        return storage
+    }()
 
     
     var user: User?
     
-    private init() {}
+    private let userCacheKey = "sharedUser"
+    
+    private init() {
+        let json = try? storage.object(forKey: userCacheKey)
+        self.user = User.deserialize(from: json)
+    }
     
     /// Checks and returns whether the user was authorized and an access token exists locally. This method
     /// does not check whether the access token has been expired. To verify an access token, use the
     /// `API.Auth.verifyAccessToken` method.
     public var isAuthorized: Bool {
-        return AccessTokenStore.shared.current != nil
+        return user != nil
     }
     
-    
-    func login(token: AccessToken) {
-        try! AccessTokenStore.shared.setCurrentToken(token)
-        NotificationCenter.default.post(name: .userDidLogin, object: token)
+
+    func login(user: User) {
+        self.user = user
+        try! storage.setObject( user.toJSONString()!, forKey: userCacheKey)
+        NotificationCenter.default.post(name: .userDidLogin, object: nil)
     }
     
+    func update(user: User){
+        self.user = user
+        try! storage.setObject( user.toJSONString()!, forKey: userCacheKey)
+    }
     
+
     func logout() {
-        try! AccessTokenStore.shared.removeCurrentAccessToken()
         user = nil
+        try! storage.removeObject(forKey: userCacheKey)
         NotificationCenter.default.post(name: .userDidLogout, object: nil)
     }
     

@@ -68,7 +68,7 @@
 		2668B0AA2523432A0073E25D /* WalletProductViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2668B0A82523432A0073E25D /* WalletProductViewCell.xib */; };
 		2668B0AF2523479F0073E25D /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2668B0AE2523479F0073E25D /* Product.swift */; };
 		26787E2A251B21A400D511E8 /* SignaturePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26787E29251B21A400D511E8 /* SignaturePlugin.swift */; };
-		26787E2F251B228200D511E8 /* LoginPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26787E2E251B228200D511E8 /* LoginPlugin.swift */; };
+		26787E2F251B228200D511E8 /* AccountPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26787E2E251B228200D511E8 /* AccountPlugin.swift */; };
 		26787E37251B2F8D00D511E8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26787E36251B2F8D00D511E8 /* User.swift */; };
 		267954E82507311E00A72954 /* LegalLiabilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267954E72507311E00A72954 /* LegalLiabilityViewController.swift */; };
 		267954EC2507327B00A72954 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267954EB2507327B00A72954 /* SignupViewController.swift */; };
@@ -108,7 +108,6 @@
 		2696341F2531942000493C3D /* DynamicAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2696341E2531942000493C3D /* DynamicAPI.swift */; };
 		26A20AEF25189E740061BBB8 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A20AEE25189E740061BBB8 /* LoginManager.swift */; };
 		26A20AF425189F730061BBB8 /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A20AF325189F730061BBB8 /* AccessToken.swift */; };
-		26A20AF92518A3000061BBB8 /* AccessTokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A20AF82518A3000061BBB8 /* AccessTokenStore.swift */; };
 		26A20AFF2518A47F0061BBB8 /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A20AFE2518A47F0061BBB8 /* KeychainStore.swift */; };
 		26A20B052518A5020061BBB8 /* HotChatError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A20B042518A5020061BBB8 /* HotChatError.swift */; };
 		26A20B0D2518BBC10061BBB8 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A20B0C2518BBC10061BBB8 /* Response.swift */; };
@@ -242,7 +241,7 @@
 		2668B0A82523432A0073E25D /* WalletProductViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletProductViewCell.xib; sourceTree = "<group>"; };
 		2668B0AE2523479F0073E25D /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		26787E29251B21A400D511E8 /* SignaturePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignaturePlugin.swift; sourceTree = "<group>"; };
-		26787E2E251B228200D511E8 /* LoginPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPlugin.swift; sourceTree = "<group>"; };
+		26787E2E251B228200D511E8 /* AccountPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPlugin.swift; sourceTree = "<group>"; };
 		26787E36251B2F8D00D511E8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		267954E72507311E00A72954 /* LegalLiabilityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalLiabilityViewController.swift; sourceTree = "<group>"; };
 		267954EB2507327B00A72954 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -285,7 +284,6 @@
 		2696341E2531942000493C3D /* DynamicAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicAPI.swift; sourceTree = "<group>"; };
 		26A20AEE25189E740061BBB8 /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		26A20AF325189F730061BBB8 /* AccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessToken.swift; sourceTree = "<group>"; };
-		26A20AF82518A3000061BBB8 /* AccessTokenStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenStore.swift; sourceTree = "<group>"; };
 		26A20AFE2518A47F0061BBB8 /* KeychainStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainStore.swift; sourceTree = "<group>"; };
 		26A20B042518A5020061BBB8 /* HotChatError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotChatError.swift; sourceTree = "<group>"; };
 		26A20B0C2518BBC10061BBB8 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
@@ -590,7 +588,6 @@
 			children = (
 				26AC1E4D250613B5003EFB44 /* KeychainItem.swift */,
 				26A20AF325189F730061BBB8 /* AccessToken.swift */,
-				26A20AF82518A3000061BBB8 /* AccessTokenStore.swift */,
 				264A20CE25109B5000A264BE /* AccountAPI.swift */,
 				268BB25D251D9B3200001DF3 /* UserAPI.swift */,
 				268297482511AF5800949C7F /* SignupViewModel.swift */,
@@ -712,7 +709,7 @@
 				26A20B0C2518BBC10061BBB8 /* Response.swift */,
 				26808FDB2519D4B800C9803C /* Request.swift */,
 				26787E29251B21A400D511E8 /* SignaturePlugin.swift */,
-				26787E2E251B228200D511E8 /* LoginPlugin.swift */,
+				26787E2E251B228200D511E8 /* AccountPlugin.swift */,
 				26808FE02519D5BE00C9803C /* Constant.swift */,
 				26373C74250234AC0066FF3B /* Delegate.swift */,
 				268458F425354481002B9C6E /* LoadingState.swift */,
@@ -1212,7 +1209,6 @@
 				26F25C96250A1B3800F808EA /* SeparatorLine.swift in Sources */,
 				2684598E25359A8A002B9C6E /* MesssageAPI.swift in Sources */,
 				2643EBC82500D4C000FBBE49 /* MeContactViewController.swift in Sources */,
-				26A20AF92518A3000061BBB8 /* AccessTokenStore.swift in Sources */,
 				2643EBB32500B04100FBBE49 /* UserInfoIntroduceCell.swift in Sources */,
 				26F8947125203BDD00A45648 /* TitleViewController.swift in Sources */,
 				26A8D4E9251C8F3E00B736CF /* Constellation.swift in Sources */,
@@ -1225,7 +1221,7 @@
 				2643EBB22500B04100FBBE49 /* UserInfoLikeObjectCell.swift in Sources */,
 				260B96162521F2F400767076 /* AuthenticationViewController.swift in Sources */,
 				26373C75250234AC0066FF3B /* Delegate.swift in Sources */,
-				26787E2F251B228200D511E8 /* LoginPlugin.swift in Sources */,
+				26787E2F251B228200D511E8 /* AccountPlugin.swift in Sources */,
 				26959040250B1D9400763061 /* InterestedCardOverlayView.swift in Sources */,
 				2643EB3A2500AD7D00FBBE49 /* AppDelegate.swift in Sources */,
 				26787E2A251B21A400D511E8 /* SignaturePlugin.swift in Sources */,

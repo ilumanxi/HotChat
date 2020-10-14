@@ -56,7 +56,7 @@ class Request<Target: TargetType>: MoyaProvider<Target> {
     convenience init() {
         let plugins: [PluginType] = [
             SignaturePlugin(salt: Constant.salt),
-            LoginPlugin(),
+            AccountPlugin(),
             NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))
         ]
         self.init(plugins: plugins)

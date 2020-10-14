@@ -73,7 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func verifyLogin() {
         
-        let token = AccessTokenStore.shared.current!.value
+        let token = LoginManager.shared.user!.token
         SigninDefaultAPI.share.signin(token)
             .subscribe(onSuccess:{ response in
                 if response.isSuccessd, let user = response.data {

@@ -8,7 +8,7 @@
 
 import Moya
 
-final class LoginPlugin {
+final class AccountPlugin {
     
     let jsonDecoder = JSONDecoder()
     let tokenKey = "token"
@@ -16,7 +16,7 @@ final class LoginPlugin {
 }
 
 // MARK: - PluginType
-extension LoginPlugin: PluginType {
+extension AccountPlugin: PluginType {
     
     
     var signInPrefixs:  [String] { //  手机注册 、 其他注册
@@ -49,7 +49,7 @@ extension LoginPlugin: PluginType {
     func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
     
         var request = request
-        if LoginManager.shared.isAuthorized, let token = AccessTokenStore.shared.current?.value {
+        if let token = LoginManager.shared.user?.token {
             request.setValue(token, forHTTPHeaderField: tokenKey)
         }
         return request
@@ -104,15 +104,13 @@ extension LoginPlugin: PluginType {
         
         if let user = result.data, result.isSuccessd {
             
-            let token = AccessToken(value: user.token)
-            
             LoginManager.shared.user = user
             
             if user.isInit { // 用户信息初始化完毕
-                LoginManager.shared.login(token: token)
+                LoginManager.shared.login(user: user)
             }
             else { // 刚注册未填写用户信息
-                try? AccessTokenStore.shared.setCurrentToken(token)
+                LoginManager.shared.update(user: user)
             }
         }
     }
