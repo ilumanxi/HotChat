@@ -28,20 +28,16 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay {
         }
         entry.onImageUpdated.delegate(on: self) { (self, url) in
             self.showIndicatorOnWindow()
-            self.uploadAPI.request(.upload(url), type: Response<[RemoteFile]>.self)
+            
+            self.upload(url)
                 .map{ response -> [String : Any] in
-                    if response.isSuccessd {
-                        return [
-                            "type" : 3,
-                            "headPic" : response.data!.first!.picUrl
-                        ]
-                    }
-                    else {
-                        throw HotChatError.uploadFileError(reason: .generaError(string: response.msg))
-                    }
+                    return [
+                        "type" : 3,
+                        "headPic" : response.data!.first!.picUrl
+                    ]
                 }
-                .flatMap { params in
-                    return self.userAPI.request(.editUser(value: params), type: Response<User>.self)
+                .flatMap { [unowned self] in
+                    return self.editUserInfo($0)
                 }
                 .subscribe(onSuccess: { [weak self] response in
                     self?.hideIndicatorFromWindow()

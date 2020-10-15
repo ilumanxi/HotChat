@@ -35,6 +35,8 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     
     let refreshPageIndex: Int = 1
     
+    let loadSignal = PublishSubject<Int>()
+    
     let dynamicAPI = Request<DynamicAPI>()
     
     var dynamics: [Dynamic] = [] {
@@ -45,7 +47,7 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let loadSignal = PublishSubject<Int>()
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,10 +75,16 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
         state = .loadingContent
     }
     
-    func endRefreshing() {
+    func endRefreshing(noContent: Bool = false) {
         collectionView.reloadData()
         collectionView.mj_header?.endRefreshing()
-        collectionView.mj_footer?.endRefreshing()
+        if noContent {
+            collectionView.mj_footer?.endRefreshingWithNoMoreData()
+        }
+        else {
+            collectionView.mj_footer?.endRefreshing()
+        }
+        
     }
     
     func refreshData() {
@@ -126,7 +134,7 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
             pageIndex = page.page + 1
         }
        
-        endRefreshing()
+        endRefreshing(noContent: !page.hasNext)
         
     }
     

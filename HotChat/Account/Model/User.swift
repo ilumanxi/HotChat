@@ -78,69 +78,82 @@ struct User: HandyJSON {
     var imExpire: TimeInterval = 0
     
     
-    //  能量
+    ///  能量
     var userEnergy: Int = 0
     
-    // 贪币
+    /// 贪币
     var userTanbi: Int = 0
     
-    //  甜豆
+    ///  甜豆
     var userSweetpea: Int = 0
     
-    //  关注
+    ///  关注
     var userFollowNum: Int = 0
     
-    //  房间ID  IM
+    ///  房间ID  IM
     var roomID: String = ""
     
-    // 粉数
+    /// 粉数
     var userFansNum: Int = 0
     
-    // 介绍
+    /// 介绍
     var introduce: String = ""
     
-    // 行业
+    /// 行业
     var industryList: [LikeTag] = []
     
-    //  昵称
+    ///  昵称
     var nick: String = ""
     
-    //  头像
+    /// 在线状态 1在线 2直播中
+
+    var onlineStatus: Int = 0
+    
+    /// 认证状态 1在线 0未认证
+    var authenticationStatus: Int = 0
+    
+    /// 位置
+    var region: String = ""
+    
+    ///  头像
     var headPic: String = ""
     
     //  相册
     var photoList: [Photo] = []
     
-    //  生日
+    ///  生日
     var birthday: TimeInterval = 0
+    
+    /// 年龄
+    var age: Int = 0
     
     var sex: Sex?
     
-    //  喜欢的ta
+    ///  喜欢的ta
     var labelList: [LikeTag] = []
     
-    // 小编专访
+    /// 小编专访
     var tipsList: [Topic] = []
     
     
     // 我的爱好
     
-    // 运动
+    /// 运动
     var motionList: [LikeTag] = []
     
-    // 食物
+    /// 食物
     var foodList: [LikeTag] = []
     
-    // 音乐
+    /// 音乐
     var musicList: [LikeTag] = []
     
-    // 书籍
+    /// 书籍
     var bookList: [LikeTag] = []
     
-    // 旅行
+    /// 旅行
     var travelList: [LikeTag] = []
     
-    // 电影
+    /// 电影
     var movieList: [LikeTag] = []
     
     

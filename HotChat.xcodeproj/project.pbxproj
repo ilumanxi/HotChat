@@ -122,6 +122,10 @@
 		26BB187D2522F5810019BBFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2643EB412500AD7D00FBBE49 /* Main.storyboard */; };
 		26C65FAE25300C47006B9B7E /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C65FAD25300C47006B9B7E /* InformationViewController.swift */; };
 		26C65FB325301737006B9B7E /* InformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C65FB225301737006B9B7E /* InformationCell.swift */; };
+		26CA6EDD2538215D0023E27B /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CA6EDC2538215D0023E27B /* Channel.swift */; };
+		26CA6EE2253825920023E27B /* DiscoverAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CA6EE1253825920023E27B /* DiscoverAPI.swift */; };
+		26CA6EE7253829A70023E27B /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CA6EE6253829A70023E27B /* ChannelViewController.swift */; };
+		26CA6EEC25382DC40023E27B /* ChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CA6EEB25382DC40023E27B /* ChannelCell.swift */; };
 		26CBE3B42508A3FC0089A23C /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CBE3B32508A3FC0089A23C /* CommunityViewController.swift */; };
 		26CBE3B62508A9C30089A23C /* CommunityHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CBE3B52508A9C30089A23C /* CommunityHeaderView.swift */; };
 		26CBE3B82508A9F20089A23C /* CommunityHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26CBE3B72508A9F20089A23C /* CommunityHeaderView.xib */; };
@@ -299,6 +303,10 @@
 		26BB186F2522F4B50019BBFD /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		26C65FAD25300C47006B9B7E /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		26C65FB225301737006B9B7E /* InformationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCell.swift; sourceTree = "<group>"; };
+		26CA6EDC2538215D0023E27B /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		26CA6EE1253825920023E27B /* DiscoverAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverAPI.swift; sourceTree = "<group>"; };
+		26CA6EE6253829A70023E27B /* ChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
+		26CA6EEB25382DC40023E27B /* ChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCell.swift; sourceTree = "<group>"; };
 		26CBE3B32508A3FC0089A23C /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
 		26CBE3B52508A9C30089A23C /* CommunityHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityHeaderView.swift; sourceTree = "<group>"; };
 		26CBE3B72508A9F20089A23C /* CommunityHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityHeaderView.xib; sourceTree = "<group>"; };
@@ -753,6 +761,7 @@
 			isa = PBXGroup;
 			children = (
 				26CBE3BC2508D7920089A23C /* DiscoverViewController.swift */,
+				26CA6EE6253829A70023E27B /* ChannelViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -760,6 +769,7 @@
 		26CBE3BA2508D73B0089A23C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				26CA6EEB25382DC40023E27B /* ChannelCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -767,6 +777,8 @@
 		26CBE3BB2508D7410089A23C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				26CA6EDC2538215D0023E27B /* Channel.swift */,
+				26CA6EE1253825920023E27B /* DiscoverAPI.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1116,6 +1128,7 @@
 				26EE0E4C25245BD800233ED5 /* PayAPI.swift in Sources */,
 				267954E82507311E00A72954 /* LegalLiabilityViewController.swift in Sources */,
 				2684593925354EDB002B9C6E /* Reload.swift in Sources */,
+				26CA6EE2253825920023E27B /* DiscoverAPI.swift in Sources */,
 				265C8A5B25134C3500E220BD /* ForgotPasswordViewModel.swift in Sources */,
 				26F8947B252083B800A45648 /* LabelView.swift in Sources */,
 				26808FDC2519D4B800C9803C /* Request.swift in Sources */,
@@ -1146,6 +1159,7 @@
 				F3C6B919251F3117006C06CB /* LabelViewController.swift in Sources */,
 				268458E825343FA8002B9C6E /* DynamicDetailViewController.swift in Sources */,
 				26787E37251B2F8D00D511E8 /* User.swift in Sources */,
+				26CA6EDD2538215D0023E27B /* Channel.swift in Sources */,
 				F370D277251CE65500C2F708 /* ResetPasswordViewController.swift in Sources */,
 				267954F9250757FE00A72954 /* ConversationViewController.swift in Sources */,
 				2696341F2531942000493C3D /* DynamicAPI.swift in Sources */,
@@ -1161,6 +1175,7 @@
 				268297492511AF5800949C7F /* SignupViewModel.swift in Sources */,
 				267955082507747400A72954 /* UserInfoHeaderView.swift in Sources */,
 				26AC1E5225062568003EFB44 /* PhoneSigninViewController.swift in Sources */,
+				26CA6EEC25382DC40023E27B /* ChannelCell.swift in Sources */,
 				26E14E63251C766900645F08 /* UserInformationViewController.swift in Sources */,
 				267954EC2507327B00A72954 /* SignupViewController.swift in Sources */,
 				26C65FAE25300C47006B9B7E /* InformationViewController.swift in Sources */,
@@ -1197,6 +1212,7 @@
 				2643EBB22500B04100FBBE49 /* UserInfoLikeObjectCell.swift in Sources */,
 				260B96162521F2F400767076 /* AuthenticationViewController.swift in Sources */,
 				26373C75250234AC0066FF3B /* Delegate.swift in Sources */,
+				26CA6EE7253829A70023E27B /* ChannelViewController.swift in Sources */,
 				26787E2F251B228200D511E8 /* AccountPlugin.swift in Sources */,
 				26959040250B1D9400763061 /* InterestedCardOverlayView.swift in Sources */,
 				2643EB3A2500AD7D00FBBE49 /* AppDelegate.swift in Sources */,
