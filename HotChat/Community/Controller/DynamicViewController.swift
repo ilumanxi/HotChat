@@ -75,7 +75,7 @@ class DynamicViewController: UITableViewController, IndicatorDisplay {
         entry.onPresenting.delegate(on: self) { (self, _) -> UIViewController in
             return self
         }
-        entry.onImageUpdated.delegate(on: self) { (self, url) in
+        entry.onImageAdded.delegate(on: self) { (self, url) in
             self.showIndicatorOnWindow()
             self.uploadAPI.request(.upload(url), type: Response<[RemoteFile]>.self)
                 .subscribe(onSuccess: { [weak self] response in

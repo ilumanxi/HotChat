@@ -11,7 +11,6 @@ import Photos
 import Kingfisher
 import RxSwift
 import RxCocoa
-import MBProgressHUD
 
 
 class UserInfoEditingViewController: UITableViewController, IndicatorDisplay {
@@ -69,40 +68,92 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay {
         entry.onPresenting.delegate(on: self) { (self, _) in
              return self
         }
-        entry.onImageUpdated.delegate(on: self) { (self, url) in
+        entry.onImageAdded.delegate(on: self) { (self, url) in
             self.showIndicatorOnWindow()
-            self.uploadAPI.request(.upload(url), type: Response<[RemoteFile]>.self)
+            self.upload(url)
                 .map{ response -> [String : Any] in
-                    if response.isSuccessd {
-                        let photoList = (response.data!.toJSON() as [[String: Any]?]).compactMap{ $0 }
-                        Log.print(type(of: photoList))
-                        return [
-                            "type" : 3,
-                            "photoList" : photoList
-                        ]
-                    }
-                    else {
-                        throw HotChatError.uploadFileError(reason: .generaError(string: response.msg))
-                    }
+                    let photoList = (response.data!.toJSON() as [[String: Any]?]).compactMap{ $0 }
+                    Log.print(type(of: photoList))
+                    return [
+                        "type" : 3,
+                        "photoList" : photoList
+                    ]
                 }
-                .flatMap { params in
-                    return self.userAPI.request(.editUser(value: params), type: Response<User>.self)
+                .flatMap{ [unowned self] in
+                    self.editUserInfo($0)
                 }
                 .subscribe(onSuccess: { [weak self] response in
+                    self?.user = response.data!
                     self?.hideIndicatorFromWindow()
-                    if response.isSuccessd {
-                        self?.user = response.data!
-                    }
-                    else {
-                        self?.showMessageOnWindow(response.msg)
-                    }
                 }, onError: { [weak self]  error in
                     self?.hideIndicatorFromWindow()
                     self?.showMessageOnWindow(error.localizedDescription)
                 })
                 .disposed(by: self.rx.disposeBag)
         }
+        
+        entry.onImageUpdated.delegate(on: self) { (self, info) in
+           let (url, index) = info
+            self.upload(url)
+                .map { response -> [String : Any]  in
+                    let photos =  self.user.photoList
+                    var photoList = photos.compactMap { photo -> [String : Any] in
+                        return ["picId" : photo.picId, "picUrl" : photo.picUrl ]
+                    }
+                    
+                    let photo = response.data!.first!
+                    let picId =  photoList[index]["picId"] as! Int
+                    photoList[index] = ["picId" : picId, "picUrl" : photo.picUrl ]
+                    
+                    let parameters: [String : Any] = [
+                        "type" : 3,
+                        "photoList" : photoList
+                    ]
+                    return parameters
+                }
+                .flatMap{ [unowned self] in
+                    self.editUserInfo($0)
+                }
+                .subscribe(onSuccess: { [weak self] response in
+                    self?.user = response.data!
+                    self?.hideIndicatorFromWindow()
+                }, onError: { [weak self]  error in
+                    self?.hideIndicatorFromWindow()
+                    self?.showMessageOnWindow(error.localizedDescription)
+                })
+                .disposed(by: self.rx.disposeBag)
+        }
+        
+        entry.onImageDeleted.delegate(on: self) { (self, index) in
+            
+            let photo =  self.user.photoList[index]
+    
+            self.showIndicatorOnWindow()
+            self.delPhoto(photo.picId)
+                .subscribe(onSuccess: { [weak self] response in
+                    self?.user = response.data!
+                    self?.hideIndicatorFromWindow()
+                }, onError: { [weak self]  error in
+                    self?.hideIndicatorFromWindow()
+                    self?.showMessageOnWindow(error.localizedDescription)
+                })
+                .disposed(by: self.rx.disposeBag)
+        }
+        
         return entry
+    }
+    
+    
+    func upload(_ url: URL) -> Single<Response<[RemoteFile]>> {
+        return uploadAPI.request(.upload(url)).checkResponse()
+    }
+    
+    func editUserInfo(_ parameters: [String : Any]) -> Single<Response<User>> {
+        return userAPI.request(.editUser(value: parameters)).checkResponse()
+    }
+    
+    func delPhoto(_ picId: Int) -> Single<Response<User>> {
+        return userAPI.request(.delPhoto(picId: picId)).checkResponse()
     }
     
     private var basicInformation: BasicInformation {
@@ -198,20 +249,15 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay {
         setupUI()
         refreshData()
         
-        let hub = MBProgressHUD.showAdded(to: view, animated: true)
-        hub.show(animated: true)
+        self.showIndicatorOnWindow()
         userAPI.request(.userinfo, type: Response<User>.self)
+            .checkResponse()
             .subscribe(onSuccess: { [weak self] response in
-                hub.hide(animated: true)
-                if response.isSuccessd {
-                    self?.user = response.data
-                }
-                else {
-                    self?.show(response.msg)
-                }
+                self?.user = response.data
+                self?.hideIndicatorFromWindow()
             }, onError: { [weak self] error in
-                self?.show(error.localizedDescription)
-                hub.hide(animated: true)
+                self?.hideIndicatorFromWindow()
+                self?.showMessageOnWindow(error.localizedDescription)
             })
             .disposed(by: rx.disposeBag)
     }
@@ -286,20 +332,15 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay {
         
     func topicDelete(_ topic: Topic) {
         
-        let hub = MBProgressHUD.showAdded(to: view, animated: true)
-        hub.show(animated: true)
+        self.showIndicatorOnWindow()
         userAPI.request(.delQuestion(labelId: topic.labelId), type: Response<User>.self)
+            .checkResponse()
             .subscribe(onSuccess: { [weak self] response in
-                hub.hide(animated: true)
-                if response.isSuccessd {
-                    self?.user = response.data
-                }
-                else {
-                    self?.show(response.msg)
-                }
-            }, onError: {  error in
-                hub.label.text = error.localizedDescription
-                hub.show(animated: true)
+                self?.user = response.data
+                self?.hideIndicatorFromWindow()
+            }, onError: { [weak self]  error in
+                self?.hideIndicatorFromWindow()
+                self?.showMessageOnWindow(error.localizedDescription)
             })
             .disposed(by: rx.disposeBag)
     }
@@ -312,37 +353,26 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay {
         navigationController?.pushViewController(vc, animated: true)
 
         
-        let hub = MBProgressHUD.showAdded(to: vc.view, animated: true)
-        hub.show(animated: true)
+        self.showIndicatorOnWindow()
         userAPI.request(.userConfig(type: 2), type: Response<[Topic]>.self)
-            .subscribe(onSuccess: { response in
-                hub.hide(animated: true)
-                if response.isSuccessd {
-                    vc.tips = response.data ?? []
-                }
-                else {
-                    vc.show(response.msg)
-                }
+            .subscribe(onSuccess: { [weak self] response in
+                vc.tips = response.data ?? []
+                self?.hideIndicatorFromWindow()
             }, onError: { [weak self] error in
-                self?.show(error.localizedDescription)
-                hub.hide(animated: true)
+                self?.hideIndicatorFromWindow()
+                self?.showMessageOnWindow(error.localizedDescription)
             })
             .disposed(by: rx.disposeBag)
         
         vc.onSaved.delegate(on: self) { (self, topic) in
             self.userAPI.request(.editTips(labelId: topic.id, content: topic.content), type: Response<User>.self)
                 .subscribe(onSuccess: { response in
-                    hub.hide(animated: true)
-                    if response.isSuccessd {
-                        self.user = response.data
-                        self.navigationController?.popToViewController(self, animated: true)
-                    }
-                    else {
-                        vc.show(response.msg)
-                    }
-                }, onError: {  error in
-                    hub.label.text = error.localizedDescription
-                    hub.show(animated: true)
+                    self.user = response.data
+                    self.navigationController?.popToViewController(self, animated: true)
+                    self.hideIndicatorFromWindow()
+                }, onError: { error in
+                    self.hideIndicatorFromWindow()
+                    self.showMessageOnWindow(error.localizedDescription)
                 })
                 .disposed(by: vc.rx.disposeBag)
         }
@@ -361,43 +391,31 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay {
                 hobby.edit : ids
             ]
             
-            
-            let hub = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
-            hub.show(animated: true)
-            
-            self.userAPI.request(.editUser(value: params), type: Response<User>.self)
-                .subscribe(onSuccess: { response in
-                    hub.hide(animated: true)
-                    if response.isSuccessd {
-                        self.user = response.data
-                        self.navigationController?.popToViewController(self, animated: true)
-                    }
-                    else {
-                        vc.show(response.msg)
-                    }
+            self.showIndicatorOnWindow()
+            self.editUserInfo(params)
+                .subscribe(onSuccess: { [unowned self] response in
+                    self.user = response.data
+                    self.navigationController?.popToViewController(self, animated: true)
+                    self.hideIndicatorFromWindow()
                 }, onError: { [weak self] error in
-                    self?.show(error.localizedDescription)
-                    hub.hide(animated: true)
+                    self?.hideIndicatorFromWindow()
+                    self?.showMessageOnWindow(error.localizedDescription)
                 })
                 .disposed(by: vc.rx.disposeBag)
         }
         
         navigationController?.pushViewController(vc, animated: true)
         
-        let hub = MBProgressHUD.showAdded(to: vc.view, animated: true)
-        hub.show(animated: true)
+        
+        self.showIndicatorOnWindow()
         userAPI.request(.userConfig(type: hobby.type), type: Response<[LikeTag]>.self)
-            .subscribe(onSuccess: { response in
-                hub.hide(animated: true)
-                if response.isSuccessd {
-                    vc.labels = response.data ?? []
-                }
-                else {
-                    vc.show(response.msg)
-                }
+            .checkResponse()
+            .subscribe(onSuccess: { [weak self] response in
+                vc.labels = response.data ?? []
+                self?.hideIndicatorFromWindow()
             }, onError: { [weak self] error in
+                self?.hideIndicatorFromWindow()
                 self?.show(error.localizedDescription)
-                hub.hide(animated: true)
             })
             .disposed(by: rx.disposeBag)
     }
@@ -415,42 +433,31 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay {
             ]
             
             
-            let hub = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
-            hub.show(animated: true)
-            
-            self.userAPI.request(.editUser(value: params), type: Response<User>.self)
-                .subscribe(onSuccess: { response in
-                    hub.hide(animated: true)
-                    if response.isSuccessd {
-                        self.user = response.data
-                        self.navigationController?.popToViewController(self, animated: true)
-                    }
-                    else {
-                        vc.show(response.msg)
-                    }
+            self.showIndicatorOnWindow()
+            self.editUserInfo(params)
+                .subscribe(onSuccess: { [unowned self] response in
+                    self.user = response.data
+                    self.navigationController?.popToViewController(self, animated: true)
+                    self.hideIndicatorFromWindow()
+                    
                 }, onError: { [weak self] error in
-                    self?.show(error.localizedDescription)
-                    hub.hide(animated: true)
+                    self?.hideIndicatorFromWindow()
+                    self?.showMessageOnWindow(error.localizedDescription)
                 })
                 .disposed(by: vc.rx.disposeBag)
         }
         
         navigationController?.pushViewController(vc, animated: true)
         
-        let hub = MBProgressHUD.showAdded(to: vc.view, animated: true)
-        hub.show(animated: true)
+        self.showIndicatorOnWindow()
         userAPI.request(.userConfig(type: 9), type: Response<[LikeTag]>.self)
-            .subscribe(onSuccess: { response in
-                hub.hide(animated: true)
-                if response.isSuccessd {
-                    vc.labels = response.data ?? []
-                }
-                else {
-                    vc.show(response.msg)
-                }
+            .checkResponse()
+            .subscribe(onSuccess: { [weak  self] response in
+                vc.labels = response.data ?? []
+                self?.hideIndicatorFromWindow()
             }, onError: { [weak self] error in
-                self?.show(error.localizedDescription)
-                hub.hide(animated: true)
+                self?.hideIndicatorFromWindow()
+                self?.showMessageOnWindow(error.localizedDescription)
             })
             .disposed(by: rx.disposeBag)
     }
@@ -481,21 +488,17 @@ extension UserInfoEditingViewController {
                     "type": 2,
                     "introduce" : text
                 ]
-                let hub = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
-                hub.show(animated: true)
-                self.userAPI.request(.editUser(value: params), type: Response<User>.self)
-                    .subscribe(onSuccess: { response in
-                        hub.hide(animated: true)
-                        if response.isSuccessd {
-                            self.user = response.data
-                            self.navigationController?.popToViewController(self, animated: true)
-                        }
-                        else {
-                            vc.show(response.msg)
-                        }
-                    }, onError: { error in
-                        vc.show(error.localizedDescription)
-                        hub.hide(animated: true)
+                
+                self.showIndicatorOnWindow()
+                self.editUserInfo(params)
+                    .subscribe(onSuccess: { [unowned self] response in
+                        self.user = response.data
+                        self.navigationController?.popToViewController(self, animated: true)
+                        self.hideIndicatorFromWindow()
+                    }, onError: { [weak self] error in
+                        self?.hideIndicatorFromWindow()
+                        self?.showMessageOnWindow(error.localizedDescription)
+                       
                     })
                     .disposed(by: vc.rx.disposeBag)
             }
@@ -503,21 +506,17 @@ extension UserInfoEditingViewController {
         else if let vc = segue.destination as? UserInfoInputTextViewController, let entry = sender as? InfoInterview {
             vc.content = ("你的回答", entry.topic.label, entry.topic.content)
             vc.onSaved.delegate(on: self) { (self, text) in
-                let hub = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
-                hub.show(animated: true)
+                
+                self.showIndicatorOnWindow()
                 self.userAPI.request(.editTips(labelId: entry.topic.labelId, content: text), type: Response<User>.self)
-                    .subscribe(onSuccess: { response in
-                        hub.hide(animated: true)
-                        if response.isSuccessd {
-                            self.user = response.data
-                            self.navigationController?.popToViewController(self, animated: true)
-                        }
-                        else {
-                            vc.show(response.msg)
-                        }
-                    }, onError: { error in
-                        vc.show(error.localizedDescription)
-                        hub.hide(animated: true)
+                    .checkResponse()
+                    .subscribe(onSuccess: { [unowned self] response in
+                        self.user = response.data
+                        self.navigationController?.popToViewController(self, animated: true)
+                        self.hideIndicatorFromWindow()
+                    }, onError: { [weak self] error in
+                        self?.hideIndicatorFromWindow()
+                        self?.show(error.localizedDescription)
                     })
                     .disposed(by: vc.rx.disposeBag)
             }

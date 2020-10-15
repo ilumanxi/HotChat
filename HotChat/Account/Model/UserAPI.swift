@@ -25,6 +25,7 @@ enum UserAPI {
     
     case userEditAttestation(userName: String, identityNum: String, identityPicFront: String?, identityPicFan: String?)
     case userAttestationInfo
+    case delPhoto(picId: Int)
     
     /// 平台类型 1支付宝微信 2苹果
     case amountList(type: Int)
@@ -58,6 +59,8 @@ extension UserAPI: TargetType {
             return "user/userAttestationInfo"
         case .amountList:
             return "user/amountList"
+        case .delPhoto:
+            return "user/delPhoto"
         }
     }
     
@@ -74,22 +77,22 @@ extension UserAPI: TargetType {
         let parameters: [String : Any]
         
         switch self {
-        case .editUser(value: let value):
+        case .editUser(let value):
             parameters = value
         case .userinfo:
             parameters =  [:]
-        case .userConfig(type: let type):
+        case .userConfig(let type):
             parameters =  ["type" : type]
-        case .editTips(labelId: let labelId, content: let content):
+        case .editTips(let labelId,let content):
             parameters = [
                 "labelId" : labelId,
                 "content" : content
             ]
-        case .delQuestion(labelId: let labelId):
+        case .delQuestion(let labelId):
             parameters = [
                 "labelId" : labelId
             ]
-        case .followList(type: let type):
+        case .followList(let type):
             parameters =  ["type" : type ]
         case .userEditAttestation(userName: let userName, identityNum: let identityNum, identityPicFront: let identityPicFront, identityPicFan: let identityPicFan):
             parameters = [
@@ -100,8 +103,10 @@ extension UserAPI: TargetType {
             ]
         case .userAttestationInfo:
             parameters =  [:]
-        case .amountList(type: let type):
+        case .amountList(let type):
             parameters =  ["type" : type]
+        case .delPhoto(let picId):
+            parameters =  ["picId" : picId]
         }
         
         return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
