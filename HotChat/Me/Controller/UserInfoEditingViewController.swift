@@ -246,7 +246,7 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay {
         refreshData()
         
         self.showIndicatorOnWindow()
-        userAPI.request(.userinfo, type: Response<User>.self)
+        userAPI.request(.userinfo(userId: nil), type: Response<User>.self)
             .checkResponse()
             .subscribe(onSuccess: { [weak self] response in
                 self?.user = response.data

@@ -12,7 +12,11 @@ import SegementSlide
 class InformationViewController: UITableViewController, SegementSlideContentScrollViewDelegate {
     
     
-    var user: User!
+    var user: User! {
+        didSet {
+            refreshData()
+        }
+    }
     
     static func loadFromStoryboard() -> Self {
         

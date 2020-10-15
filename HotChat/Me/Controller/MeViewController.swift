@@ -74,7 +74,7 @@ class MeViewController: UITableViewController, Autorotate {
     
     func requestData() {
         
-        userAPI.request(.userinfo, type: Response<User>.self)
+        userAPI.request(.userinfo(userId: nil), type: Response<User>.self)
             .subscribe(onSuccess: { [weak self] response in
                 if response.isSuccessd {
                     self?.user = response.data

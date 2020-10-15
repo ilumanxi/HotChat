@@ -12,7 +12,7 @@ import Moya
 
 enum UserAPI {
     
-    case userinfo
+    case userinfo(userId: String?)
     case editUser(value: [String : Any])
     case editTips(labelId: Int, content: String)
     
@@ -79,8 +79,8 @@ extension UserAPI: TargetType {
         switch self {
         case .editUser(let value):
             parameters = value
-        case .userinfo:
-            parameters =  [:]
+        case .userinfo(let userId):
+            parameters =  (userId != nil) ? [ "userId": userId!] : [:]
         case .userConfig(let type):
             parameters =  ["type" : type]
         case .editTips(let labelId,let content):

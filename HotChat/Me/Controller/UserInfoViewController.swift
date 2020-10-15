@@ -14,11 +14,14 @@ import RxSwift
 import NSObject_Rx
 import SnapKit
 
-class UserInfoViewController: SegementSlideDefaultViewController {
+class UserInfoViewController: SegementSlideDefaultViewController, LoadingStateType, IndicatorDisplay {
+    
+    var state: LoadingState = .initial
+    
     
     var user: User! {
         didSet {
-            refreshData()
+            userInfoHeaderView.user = user
         }
     }
 
@@ -60,8 +63,7 @@ class UserInfoViewController: SegementSlideDefaultViewController {
         return contentViewControllers[index]
     }
     
-    
-    let dispose = DisposeBag.init()
+    let userAPI = Request<UserAPI>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +77,21 @@ class UserInfoViewController: SegementSlideDefaultViewController {
         chatView.onPushing.delegate(on: self) { (self, _) -> (User, UINavigationController) in
             return (self.user, self.navigationController!)
         }
+        state = .loadingContent
+        refreshData()
+    }
+    
+    func refreshData() {
+        state = .refreshingContent
+        userAPI.request(.userinfo(userId: user.userId),type: Response<User>.self)
+            .checkResponse()
+            .subscribe(onSuccess: { [weak self] response in
+                self?.user = response.data
+                self?.state = .contentLoaded
+            }, onError: { [weak self] error in
+                self?.state = .error
+            })
+            .disposed(by: rx.disposeBag)
     }
     
     private let chatViewHeight: CGFloat = 48
@@ -124,8 +141,5 @@ class UserInfoViewController: SegementSlideDefaultViewController {
           hbd_setNeedsUpdateNavigationBar()
     }
     
-    func refreshData() {
-        userInfoHeaderView.user = user
-    }
     
 }

@@ -70,9 +70,6 @@ class ChannelViewController: UIViewController, LoadingStateType, IndicatorDispla
             self?.loadMoreData()
         }
         
-        view.setNeedsLayout()
-        view.layoutIfNeeded()
-        
         state = .loadingContent
         refreshData()
     }
@@ -190,6 +187,12 @@ extension ChannelViewController: UITableViewDataSource, UITableViewDelegate {
         
         return cell
         
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = UserInfoViewController()
+        vc.user  = data[indexPath.row]
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     

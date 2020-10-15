@@ -21,21 +21,19 @@ class DiscoverViewController: SegementSlideDefaultViewController, LoadingStateTy
     
     var channels: [Channel] = [] {
         didSet {
+            defaultSelectedIndex = 0
             reloadData()
+            selectItem(at: 0, animated: false)
         }
     }
-    
     
     let cache = NSCache<NSString, UIViewController>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        defaultSelectedIndex = 0
-//        reloadData()
-
+       
         state = .loadingContent
         requestData()
-        
     }
     
     func requestData() {
@@ -74,14 +72,10 @@ class DiscoverViewController: SegementSlideDefaultViewController, LoadingStateTy
     }
     
     override var bouncesType: BouncesType {
-        return .parent
+        return .child
     }
     
-    override func showBadgeInSwitcher(at index: Int) -> BadgeType {
-        return .none
-    }
-    
-    
+
     override func segementSlideHeaderView() -> UIView? {
         return nil
     }
@@ -94,5 +88,4 @@ class DiscoverViewController: SegementSlideDefaultViewController, LoadingStateTy
         return viewController(at: index)
     }
 
-    
 }
