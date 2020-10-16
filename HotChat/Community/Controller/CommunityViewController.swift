@@ -39,11 +39,7 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     
     let dynamicAPI = Request<DynamicAPI>()
     
-    var dynamics: [Dynamic] = [] {
-        didSet {
-            collectionView.reloadData()
-        }
-    }
+    var dynamics: [Dynamic] = []
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -68,11 +64,9 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
             self?.loadMoreData()
         }
         
-        view.setNeedsLayout()
-        view.layoutIfNeeded()
-        refreshData()
-        
         state = .loadingContent
+        collectionView.mj_header?.beginRefreshing()
+      
     }
     
     func endRefreshing(noContent: Bool = false) {
@@ -123,19 +117,14 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
         else {
             appendData(data)
         }
-        
-        if page.page == 1 && dynamics.isEmpty {
-            state = .noContent
-        } else if !dynamics.isEmpty {
-            state = .contentLoaded
-        }
+                
+        state = dynamics.isEmpty ? .noContent : .contentLoaded
         
         if !data.isEmpty {
             pageIndex = page.page + 1
         }
        
         endRefreshing(noContent: !page.hasNext)
-        
     }
     
     func refreshData(_ data: [Dynamic]) {
@@ -168,8 +157,6 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
         }
         
     }
-    
-    let layoutCellIdentifier = "DynamicViewCell"
 }
 
 
@@ -211,9 +198,7 @@ extension CommunityViewController: UICollectionViewDataSource, UICollectionViewD
     
     func layoutCellCalculatedSize(forItemAt indexPath: IndexPath) -> CGSize {
         
-        guard let layoutCellForSize = collectionView.dequeueReusableCell(withReuseIdentifier: layoutCellIdentifier, for: indexPath) as? DynamicViewCell else {
-            fatalError("Failed to load Xib from bundle named: \(layoutCellIdentifier)")
-        }
+        let layoutCellForSize = collectionView.dequeueReusableCell(for: indexPath, cellType: DynamicViewCell.self)
         let data =  dynamics[indexPath.item]
         layoutCellForSize.textLabel.text = data.content
         layoutCellForSize.setNeedsLayout()
@@ -244,9 +229,7 @@ extension CommunityViewController: UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: layoutCellIdentifier, for: indexPath) as? DynamicViewCell else {
-            fatalError("Failed to load Xib from bundle named: \(layoutCellIdentifier)")
-        }
+        let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: DynamicViewCell.self)
         
         let data =  dynamics[indexPath.item]
         

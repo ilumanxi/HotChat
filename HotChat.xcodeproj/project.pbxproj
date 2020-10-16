@@ -135,6 +135,8 @@
 		26E14E63251C766900645F08 /* UserInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E14E62251C766900645F08 /* UserInformationViewController.swift */; };
 		26E14E68251C861A00645F08 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E14E67251C861A00645F08 /* DatePickerViewController.swift */; };
 		26EE0E4C25245BD800233ED5 /* PayAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EE0E4B25245BD800233ED5 /* PayAPI.swift */; };
+		26EF524825398E0300E73774 /* CallManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EF524725398E0300E73774 /* CallManager.swift */; };
+		26EF52502539962A00E73774 /* VideoCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EF524F2539962900E73774 /* VideoCallViewController.swift */; };
 		26F25C932509C36B00F808EA /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F25C922509C36B00F808EA /* TabBarButton.swift */; };
 		26F25C96250A1B3800F808EA /* SeparatorLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F25C95250A1B3800F808EA /* SeparatorLine.swift */; };
 		26F25C98250A359300F808EA /* InterestedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F25C97250A359300F808EA /* InterestedViewController.swift */; };
@@ -316,6 +318,8 @@
 		26E14E62251C766900645F08 /* UserInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformationViewController.swift; sourceTree = "<group>"; };
 		26E14E67251C861A00645F08 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		26EE0E4B25245BD800233ED5 /* PayAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayAPI.swift; sourceTree = "<group>"; };
+		26EF524725398E0300E73774 /* CallManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallManager.swift; sourceTree = "<group>"; };
+		26EF524F2539962900E73774 /* VideoCallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCallViewController.swift; sourceTree = "<group>"; };
 		26F25C922509C36B00F808EA /* TabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
 		26F25C95250A1B3800F808EA /* SeparatorLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorLine.swift; sourceTree = "<group>"; };
 		26F25C97250A359300F808EA /* InterestedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestedViewController.swift; sourceTree = "<group>"; };
@@ -412,6 +416,7 @@
 			children = (
 				269590C0250B5FF900763061 /* HotChatRelease.entitlements */,
 				269590BD250B5FC300763061 /* HotChat.entitlements */,
+				26EF524625398DC700E73774 /* IM */,
 				26A20B032518A4E30061BBB8 /* General */,
 				26A20AFD2518A4560061BBB8 /* Utils */,
 				267955002507626D00A72954 /* Community */,
@@ -701,7 +706,6 @@
 				2643EB9B2500B04100FBBE49 /* Helpers.swift */,
 				26A20AFE2518A47F0061BBB8 /* KeychainStore.swift */,
 				26A8D4E8251C8F3E00B736CF /* Constellation.swift */,
-				26377FC2253042E300D5A03D /* IM.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -781,6 +785,16 @@
 				26CA6EE1253825920023E27B /* DiscoverAPI.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		26EF524625398DC700E73774 /* IM */ = {
+			isa = PBXGroup;
+			children = (
+				26377FC2253042E300D5A03D /* IM.swift */,
+				26EF524725398E0300E73774 /* CallManager.swift */,
+				26EF524F2539962900E73774 /* VideoCallViewController.swift */,
+			);
+			path = IM;
 			sourceTree = "<group>";
 		};
 		33453710F2502FE30C8C98CD /* Pods */ = {
@@ -1004,11 +1018,9 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HotChat/Pods-HotChat-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HotChat/Pods-HotChat-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1021,11 +1033,9 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HotChat/Pods-HotChat-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HotChat/Pods-HotChat-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1082,11 +1092,9 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HotChat-HotChatUITests/Pods-HotChat-HotChatUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HotChat-HotChatUITests/Pods-HotChat-HotChatUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1099,11 +1107,9 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HotChat-HotChatUITests/Pods-HotChat-HotChatUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HotChat-HotChatUITests/Pods-HotChat-HotChatUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1122,6 +1128,7 @@
 				2643EBCC2500FDA300FBBE49 /* UserInfoViewController.swift in Sources */,
 				265C8A4A251348E200E220BD /* ForgotPasswordViewController.swift in Sources */,
 				2643EBA12500B04100FBBE49 /* MeViewController.swift in Sources */,
+				26EF52502539962A00E73774 /* VideoCallViewController.swift in Sources */,
 				26425C16251DDF64006D2F4C /* UserBasicInformationViewController.swift in Sources */,
 				2643EBC02500B04100FBBE49 /* Bundle+App.swift in Sources */,
 				26A20AEF25189E740061BBB8 /* LoginManager.swift in Sources */,
@@ -1220,6 +1227,7 @@
 				2643EBAD2500B04100FBBE49 /* UserInfoTagCell.swift in Sources */,
 				2643EBA22500B04100FBBE49 /* UserInfoLikeObjectViewController.swift in Sources */,
 				26AC1E4E250613B6003EFB44 /* KeychainItem.swift in Sources */,
+				26EF524825398E0300E73774 /* CallManager.swift in Sources */,
 				2695903C250B16D700763061 /* InterestedCardView.swift in Sources */,
 				267B98772505E1AC0008C81B /* Platform.swift in Sources */,
 				2668B0A92523432A0073E25D /* WalletProductViewCell.swift in Sources */,

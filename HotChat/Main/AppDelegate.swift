@@ -21,7 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-//        LoginManager.shared.logout()
+
+        let config = TUIKitConfig.default()!
+        config.avatarType = .TAvatarTypeRadiusCorner
+        config.avatarCornerRadius = 5
         
         Appearance.default.configure()
         
@@ -79,7 +82,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if response.isSuccessd, let user = response.data {
                     TUIKit.sharedInstance()?.setup(withAppId: IM.appID, logLevel: .LOG_NONE)
                     TUIKit.sharedInstance()?.login(user.userId, userSig: user.imUserSig, succ: {
-                        IM.setSelfInfo(user)
                     }, fail: { (code, msg) in
                         Log.print("\(code)__\(msg ?? "")")
                     })

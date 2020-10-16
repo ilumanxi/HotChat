@@ -50,7 +50,7 @@ extension UIWindow {
     }
 }
 
-extension UIViewController {
+extension UIWindow {
     static var topMost: UIViewController? {
         let keyWindow = UIWindow.findKeyWindow()
         if let window = keyWindow, !window.isKeyWindow {
