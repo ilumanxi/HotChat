@@ -81,7 +81,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .subscribe(onSuccess:{ response in
                 if response.isSuccessd, let user = response.data {
                     TUIKit.sharedInstance()?.setup(withAppId: IM.appID, logLevel: .LOG_NONE)
+//                    CallManager.shareInstance()?.initCall()
                     TUIKit.sharedInstance()?.login(user.userId, userSig: user.imUserSig, succ: {
+                        CallManager.shareInstance()?.initCall()
                     }, fail: { (code, msg) in
                         Log.print("\(code)__\(msg ?? "")")
                     })

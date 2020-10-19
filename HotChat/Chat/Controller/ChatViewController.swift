@@ -10,12 +10,55 @@ import UIKit
 import SPAlertController
 
 class ChatViewController: TUIChatController {
+    
+    var conversationData: TUIConversationCellData!
+    override init!(conversation conversationData: TUIConversationCellData!) {
+        self.conversationData = conversationData
+        super.init(conversation: conversationData)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    lazy var video: TUIInputMoreCellData = {
+        let data = TUIInputMoreCellData()
+        data.image = UIImage(named: "video")
+        data.title = "视频聊天"
+        
+        return data
+    }()
+    
+    lazy var audio: TUIInputMoreCellData = {
+        let data = TUIInputMoreCellData()
+        data.image = UIImage(named: "audio")
+        data.title = "语音聊天"
+        
+        return data
+    }()
+    
+    lazy var camera: TUIInputMoreCellData = {
+        let data = TUIInputMoreCellData.photo!
+        data.image = UIImage(named: "camera")
+        return data
+    }()
+    
+    lazy var photos: TUIInputMoreCellData = {
+        let data = TUIInputMoreCellData.picture!
+        data.image = UIImage(named: "photos")
+        return data
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupNavigationItem()
+        
+        self.delegate = self
+        
 
+        self.moreMenus = [video, audio, camera, photos]
     }
     
     
@@ -71,4 +114,41 @@ class ChatViewController: TUIChatController {
     }
     
 
+}
+
+extension ChatViewController: TUIChatControllerDelegate {
+    
+    
+    func chatController(_ controller: TUIChatController!, didSendMessage msgCellData: TUIMessageCellData!) {
+
+    }
+    
+    func chatController(_ controller: TUIChatController!, onNewMessage msg: V2TIMMessage!) -> TUIMessageCellData! {
+        return nil
+    }
+    
+    func chatController(_ controller: TUIChatController!, onShowMessageData cellData: TUIMessageCellData!) -> TUIMessageCell! {
+        return nil
+    }
+    
+    func chatController(_ chatController: TUIChatController!, onSelect cell: TUIInputMoreCell!) {
+        if cell.data.title == video.title {
+            CallManager.shareInstance()?.call(self.conversationData.groupID, userID: self.conversationData.userID, callType: .video)
+        }
+        else if cell.data.title == audio.title {
+            CallManager.shareInstance()?.call(self.conversationData.groupID, userID: self.conversationData.userID, callType: .audio)
+        }
+    }
+    
+    func chatController(_ controller: TUIChatController!, onSelectMessageAvatar cell: TUIMessageCell!) {
+        
+    }
+    
+    func chatController(_ controller: TUIChatController!, onSelectMessageContent cell: TUIMessageCell!) {
+        
+
+    }
+    
+    
+    
 }

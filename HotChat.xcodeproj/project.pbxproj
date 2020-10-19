@@ -131,12 +131,13 @@
 		26CBE3B82508A9F20089A23C /* CommunityHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26CBE3B72508A9F20089A23C /* CommunityHeaderView.xib */; };
 		26CBE3BD2508D7920089A23C /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CBE3BC2508D7920089A23C /* DiscoverViewController.swift */; };
 		26CBE3C12508EB040089A23C /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CBE3C02508EB040089A23C /* Appearance.swift */; };
+		26D1E58B253D5F17004B9B29 /* CallManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D1E58A253D5F17004B9B29 /* CallManager.m */; };
+		26D1E594253D6000004B9B29 /* VideoCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D1E593253D6000004B9B29 /* VideoCallViewController.m */; };
+		26DBC373253D89DF0083BDFB /* AudioCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DBC372253D89DF0083BDFB /* AudioCallViewController.m */; };
 		26E14E5E251C6E8800645F08 /* HotChatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E14E5D251C6E8800645F08 /* HotChatButton.swift */; };
 		26E14E63251C766900645F08 /* UserInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E14E62251C766900645F08 /* UserInformationViewController.swift */; };
 		26E14E68251C861A00645F08 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E14E67251C861A00645F08 /* DatePickerViewController.swift */; };
 		26EE0E4C25245BD800233ED5 /* PayAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EE0E4B25245BD800233ED5 /* PayAPI.swift */; };
-		26EF524825398E0300E73774 /* CallManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EF524725398E0300E73774 /* CallManager.swift */; };
-		26EF52502539962A00E73774 /* VideoCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EF524F2539962900E73774 /* VideoCallViewController.swift */; };
 		26F25C932509C36B00F808EA /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F25C922509C36B00F808EA /* TabBarButton.swift */; };
 		26F25C96250A1B3800F808EA /* SeparatorLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F25C95250A1B3800F808EA /* SeparatorLine.swift */; };
 		26F25C98250A359300F808EA /* InterestedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F25C97250A359300F808EA /* InterestedViewController.swift */; };
@@ -314,12 +315,16 @@
 		26CBE3B72508A9F20089A23C /* CommunityHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityHeaderView.xib; sourceTree = "<group>"; };
 		26CBE3BC2508D7920089A23C /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		26CBE3C02508EB040089A23C /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
+		26D1E589253D5F17004B9B29 /* CallManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CallManager.h; sourceTree = "<group>"; };
+		26D1E58A253D5F17004B9B29 /* CallManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CallManager.m; sourceTree = "<group>"; };
+		26D1E592253D6000004B9B29 /* VideoCallViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoCallViewController.h; sourceTree = "<group>"; };
+		26D1E593253D6000004B9B29 /* VideoCallViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoCallViewController.m; sourceTree = "<group>"; };
+		26DBC371253D89DF0083BDFB /* AudioCallViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioCallViewController.h; sourceTree = "<group>"; };
+		26DBC372253D89DF0083BDFB /* AudioCallViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioCallViewController.m; sourceTree = "<group>"; };
 		26E14E5D251C6E8800645F08 /* HotChatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotChatButton.swift; sourceTree = "<group>"; };
 		26E14E62251C766900645F08 /* UserInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformationViewController.swift; sourceTree = "<group>"; };
 		26E14E67251C861A00645F08 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		26EE0E4B25245BD800233ED5 /* PayAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayAPI.swift; sourceTree = "<group>"; };
-		26EF524725398E0300E73774 /* CallManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallManager.swift; sourceTree = "<group>"; };
-		26EF524F2539962900E73774 /* VideoCallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCallViewController.swift; sourceTree = "<group>"; };
 		26F25C922509C36B00F808EA /* TabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
 		26F25C95250A1B3800F808EA /* SeparatorLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorLine.swift; sourceTree = "<group>"; };
 		26F25C97250A359300F808EA /* InterestedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestedViewController.swift; sourceTree = "<group>"; };
@@ -791,8 +796,12 @@
 			isa = PBXGroup;
 			children = (
 				26377FC2253042E300D5A03D /* IM.swift */,
-				26EF524725398E0300E73774 /* CallManager.swift */,
-				26EF524F2539962900E73774 /* VideoCallViewController.swift */,
+				26D1E589253D5F17004B9B29 /* CallManager.h */,
+				26D1E58A253D5F17004B9B29 /* CallManager.m */,
+				26D1E592253D6000004B9B29 /* VideoCallViewController.h */,
+				26D1E593253D6000004B9B29 /* VideoCallViewController.m */,
+				26DBC371253D89DF0083BDFB /* AudioCallViewController.h */,
+				26DBC372253D89DF0083BDFB /* AudioCallViewController.m */,
 			);
 			path = IM;
 			sourceTree = "<group>";
@@ -1128,7 +1137,6 @@
 				2643EBCC2500FDA300FBBE49 /* UserInfoViewController.swift in Sources */,
 				265C8A4A251348E200E220BD /* ForgotPasswordViewController.swift in Sources */,
 				2643EBA12500B04100FBBE49 /* MeViewController.swift in Sources */,
-				26EF52502539962A00E73774 /* VideoCallViewController.swift in Sources */,
 				26425C16251DDF64006D2F4C /* UserBasicInformationViewController.swift in Sources */,
 				2643EBC02500B04100FBBE49 /* Bundle+App.swift in Sources */,
 				26A20AEF25189E740061BBB8 /* LoginManager.swift in Sources */,
@@ -1138,6 +1146,7 @@
 				26CA6EE2253825920023E27B /* DiscoverAPI.swift in Sources */,
 				265C8A5B25134C3500E220BD /* ForgotPasswordViewModel.swift in Sources */,
 				26F8947B252083B800A45648 /* LabelView.swift in Sources */,
+				26D1E594253D6000004B9B29 /* VideoCallViewController.m in Sources */,
 				26808FDC2519D4B800C9803C /* Request.swift in Sources */,
 				26F25C932509C36B00F808EA /* TabBarButton.swift in Sources */,
 				26CBE3BD2508D7920089A23C /* DiscoverViewController.swift in Sources */,
@@ -1185,6 +1194,7 @@
 				26CA6EEC25382DC40023E27B /* ChannelCell.swift in Sources */,
 				26E14E63251C766900645F08 /* UserInformationViewController.swift in Sources */,
 				267954EC2507327B00A72954 /* SignupViewController.swift in Sources */,
+				26D1E58B253D5F17004B9B29 /* CallManager.m in Sources */,
 				26C65FAE25300C47006B9B7E /* InformationViewController.swift in Sources */,
 				268BB25E251D9B3200001DF3 /* UserAPI.swift in Sources */,
 				2643EBC32500B05300FBBE49 /* TabBarController.swift in Sources */,
@@ -1211,6 +1221,7 @@
 				26F8947125203BDD00A45648 /* TitleViewController.swift in Sources */,
 				26A8D4E9251C8F3E00B736CF /* Constellation.swift in Sources */,
 				26377FCE2530526800D5A03D /* ChatViewController.swift in Sources */,
+				26DBC373253D89DF0083BDFB /* AudioCallViewController.m in Sources */,
 				2643EBB62500B04100FBBE49 /* InterfaceOrientation.swift in Sources */,
 				2682974B2511B05300949C7F /* IndicatorDisplay.swift in Sources */,
 				26AC1E4C25060D27003EFB44 /* LoginViewController.swift in Sources */,
@@ -1227,7 +1238,6 @@
 				2643EBAD2500B04100FBBE49 /* UserInfoTagCell.swift in Sources */,
 				2643EBA22500B04100FBBE49 /* UserInfoLikeObjectViewController.swift in Sources */,
 				26AC1E4E250613B6003EFB44 /* KeychainItem.swift in Sources */,
-				26EF524825398E0300E73774 /* CallManager.swift in Sources */,
 				2695903C250B16D700763061 /* InterestedCardView.swift in Sources */,
 				267B98772505E1AC0008C81B /* Platform.swift in Sources */,
 				2668B0A92523432A0073E25D /* WalletProductViewCell.swift in Sources */,

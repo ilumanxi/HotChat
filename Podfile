@@ -50,6 +50,7 @@ target 'HotChat' do
     
     pod 'SYBPush/normal',  :git => 'https://github.com/isandboy/SYBPush.git'
     pod 'TXIMSDK_TUIKit_iOS'
+    pod 'Masonry'
   
   target 'HotChatTests' do
     inherit! :search_paths

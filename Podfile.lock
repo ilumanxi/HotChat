@@ -18,6 +18,7 @@ PODS:
   - Koloda (5.0.1):
     - pop (~> 1.0)
   - MagazineLayout (1.6.3)
+  - Masonry (1.1.0)
   - MBProgressHUD (1.2.0)
   - MJRefresh (3.5.0)
   - MMLayout (0.2.0)
@@ -88,6 +89,7 @@ DEPENDENCIES:
   - Kingfisher
   - Koloda
   - MagazineLayout
+  - Masonry
   - MBProgressHUD
   - MJRefresh
   - Moya/Core
@@ -125,6 +127,7 @@ SPEC REPOS:
     - Kingfisher
     - Koloda
     - MagazineLayout
+    - Masonry
     - MBProgressHUD
     - MJRefresh
     - MMLayout
@@ -177,6 +180,7 @@ SPEC CHECKSUMS:
   Kingfisher: b3554e7bf6106115b44e8795300bad580ef2fdc7
   Koloda: d07b9199a383abc5898b62aa945a599f5e7c0c4b
   MagazineLayout: 159da0d4d874e04e6b17e580b990cccd00328c5b
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   MMLayout: 3fb59d58eeb8656c64e61d550fb0088e10666c11
@@ -207,6 +211,6 @@ SPEC CHECKSUMS:
   WechatOpenSDK: 6a4d1436c15b3b5fe2a0bd383f3046010186da44
   ZLPhotoBrowser: e22cabd36d03240003668d72cb733581a6da0b0d
 
-PODFILE CHECKSUM: dd1f6ef54f55061f0ab4de7b1ad48d865eea097e
+PODFILE CHECKSUM: e7d5bb867777899ec4f70260c21f625dd9829539
 
 COCOAPODS: 1.9.3
