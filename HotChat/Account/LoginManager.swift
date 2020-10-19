@@ -7,11 +7,13 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 import Cache
 
 typealias TokenType = LoginManager.Parameters.TokenIdentifier
 
-class LoginManager {
+class LoginManager: NSObject {
     
     
     static let shared = LoginManager()
@@ -43,8 +45,9 @@ class LoginManager {
     
     private let userCacheKey = "sharedUser"
     
-    private init() {
-        let json = try? storage.object(forKey: userCacheKey)
+    private override init() {
+        super.init()
+        let json = try? self.storage.object(forKey: userCacheKey)
         self.user = User.deserialize(from: json)
     }
     
@@ -56,10 +59,19 @@ class LoginManager {
     }
     
 
-    func login(user: User) {
+    func login(user: User, sendNotification: Bool) {
         self.user = user
         try! storage.setObject( user.toJSONString()!, forKey: userCacheKey)
-        NotificationCenter.default.post(name: .userDidLogin, object: nil)
+        
+        TUIKit.sharedInstance()?.login(user.userId, userSig: user.imUserSig, succ: {
+            TUILocalStorage.sharedInstance().saveLogin(user.userId, withAppId: UInt(IM.appID), withUserSig: user.imUserSig)
+        }, fail: { (_, _) in
+            Log.print("检查IM配置是否正确")
+        })
+
+        if sendNotification {
+            NotificationCenter.default.post(name: .userDidLogin, object: nil)
+        }
     }
     
     func update(user: User){
@@ -67,10 +79,40 @@ class LoginManager {
         try! storage.setObject( user.toJSONString()!, forKey: userCacheKey)
     }
     
-
+    func autoLogin() {
+        guard let user = LoginManager.shared.user else {
+            return
+        }
+        
+        TUILocalStorage.sharedInstance().login { (userID, appId, userSig) in
+            if appId == IM.appID && !userID.isEmpty && !userSig.isEmpty {
+                TUIKit.sharedInstance()?.login(userID, userSig: userSig, succ: {
+                    
+                }, fail: { (_, _) in
+                    Log.print("检查IM配置是否正确")
+                })
+            }
+        }
+        
+        SigninDefaultAPI.share.signin(user.token)
+            .subscribe(onSuccess:{ response in
+                Log.print(response)
+            }, onError: { error in
+                Log.print(error)
+            })
+            .disposed(by: rx.disposeBag)
+    }
+    
     func logout() {
         user = nil
         try! storage.removeObject(forKey: userCacheKey)
+        
+        V2TIMManager.sharedInstance()?.logout({
+            TUILocalStorage.sharedInstance().logout()
+        }, fail: { (_, _) in
+            Log.print("IM 退出登录失败")
+        })
+        
         NotificationCenter.default.post(name: .userDidLogout, object: nil)
     }
     

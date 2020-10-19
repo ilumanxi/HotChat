@@ -21,12 +21,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-
+        TUIKit.sharedInstance()?.setup(withAppId: IM.appID, logLevel: .LOG_NONE)
         let config = TUIKitConfig.default()!
         config.avatarType = .TAvatarTypeRadiusCorner
         config.avatarCornerRadius = 5
+        CallManager.shareInstance()?.initCall()
+        
         
         Appearance.default.configure()
+        
         
         setupWindowRootController()
         
@@ -63,7 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if LoginManager.shared.isAuthorized {
             window.setMainViewController()
-            verifyLogin()
+            LoginManager.shared.autoLogin()
         }
         else {
             window.setLoginViewController()
@@ -73,27 +76,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window = window
     }
-    
-    func verifyLogin() {
-        
-        let token = LoginManager.shared.user!.token
-        SigninDefaultAPI.share.signin(token)
-            .subscribe(onSuccess:{ response in
-                if response.isSuccessd, let user = response.data {
-                    TUIKit.sharedInstance()?.setup(withAppId: IM.appID, logLevel: .LOG_NONE)
-//                    CallManager.shareInstance()?.initCall()
-                    TUIKit.sharedInstance()?.login(user.userId, userSig: user.imUserSig, succ: {
-                        CallManager.shareInstance()?.initCall()
-                    }, fail: { (code, msg) in
-                        Log.print("\(code)__\(msg ?? "")")
-                    })
-                }
-            }, onError: { error in
-                Log.print(error)
-            })
-            .disposed(by: rx.disposeBag)
-    }
-    
     
     @available(iOS 13.0, *)
     func observeAppleSignInState() {

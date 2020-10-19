@@ -104,14 +104,7 @@ extension AccountPlugin: PluginType {
         
         if let user = result.data, result.isSuccessd {
             
-            LoginManager.shared.user = user
-            
-            if user.isInit { // 用户信息初始化完毕
-                LoginManager.shared.login(user: user)
-            }
-            else { // 刚注册未填写用户信息
-                LoginManager.shared.update(user: user)
-            }
+            LoginManager.shared.login(user: user,sendNotification: user.isInit)
         }
     }
     
