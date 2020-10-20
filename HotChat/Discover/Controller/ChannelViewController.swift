@@ -13,7 +13,7 @@ import RxCocoa
 import MJRefresh
 import Kingfisher
 
-class ChannelViewController: UIViewController, LoadingStateType, IndicatorDisplay, SegementSlideContentScrollViewDelegate {
+class ChannelViewController: UIViewController, LoadingStateType, IndicatorDisplay, SegementSlideContentScrollViewDelegate, StoryboardCreate {
     
     var state: LoadingState = .initial {
         didSet {
@@ -45,14 +45,7 @@ class ChannelViewController: UIViewController, LoadingStateType, IndicatorDispla
         return tableView
     }
     
-    static func loadFromStoryboard() -> Self {
-        
-        let storyboard = UIStoryboard(name: "Discover", bundle: nil)
-        
-        let identifier = String(describing: Self.self)
-        
-        return  storyboard.instantiateViewController(withIdentifier: identifier) as! Self
-    }
+    static var storyboardNamed: String { return "Discover" }
     
     override func viewDidLoad() {
         super.viewDidLoad()

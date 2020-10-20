@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class UserInfoInputTextViewController: UITableViewController, IndicatorDisplay {
+class UserInfoInputTextViewController: UITableViewController, IndicatorDisplay, StoryboardCreate {
     
     var content: (title: String, topic: String?, text: String?)!
     
@@ -37,16 +37,7 @@ class UserInfoInputTextViewController: UITableViewController, IndicatorDisplay {
         
     }
     
-    
-    static func loadFromStoryboard() -> Self {
-        
-        let storyboard = UIStoryboard(name: "Me", bundle: nil)
-        
-        let identifier = String(describing: Self.self)
-        
-        return  storyboard.instantiateViewController(withIdentifier: identifier) as! Self
-    }
-    
+    static var storyboardNamed: String { return "Me" }
     
     func bindSignal() {
         let textSignal = textView.rx.text.orEmpty.asDriver()

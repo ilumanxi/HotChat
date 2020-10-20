@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,7 +12,6 @@
 		260A87782521932A00380FB4 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A87772521932A00380FB4 /* SettingViewController.swift */; };
 		260B96112521F15C00767076 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260B96102521F15C00767076 /* Authentication.swift */; };
 		260B96162521F2F400767076 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260B96152521F2F400767076 /* AuthenticationViewController.swift */; };
-		261D367C25369EBB002D5CF6 /* IBAnimatable in Frameworks */ = {isa = PBXBuildFile; productRef = 261D367B25369EBB002D5CF6 /* IBAnimatable */; };
 		26373C732502340D0066FF3B /* FormEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26373C722502340D0066FF3B /* FormEntry.swift */; };
 		26373C75250234AC0066FF3B /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26373C74250234AC0066FF3B /* Delegate.swift */; };
 		26373C77250234D00066FF3B /* FormSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26373C76250234D00066FF3B /* FormSection.swift */; };
@@ -149,6 +148,9 @@
 		26F8947125203BDD00A45648 /* TitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8947025203BDD00A45648 /* TitleViewController.swift */; };
 		26F8947625207A9A00A45648 /* UploadFileAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8947525207A9A00A45648 /* UploadFileAPI.swift */; };
 		26F8947B252083B800A45648 /* LabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8947A252083B800A45648 /* LabelView.swift */; };
+		26FC88F0253ECFBB00E4D82F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FC88EF253ECFBB00E4D82F /* SearchViewController.swift */; };
+		26FC88F5253ED49000E4D82F /* SearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FC88F4253ED49000E4D82F /* SearchAPI.swift */; };
+		26FC88FA253ED66600E4D82F /* SearchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FC88F9253ED66600E4D82F /* SearchViewCell.swift */; };
 		2AEA6285B15814310E3B0C09 /* libPods-HotChat-HotChatUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 685BC0639EB2C6B79D6008A0 /* libPods-HotChat-HotChatUITests.a */; };
 		49FD36444F546D4571259AA6 /* libPods-HotChatTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78879627913C3D660899171B /* libPods-HotChatTests.a */; };
 		569A62C017EE594D27BBDD0C /* libPods-HotChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1A4E29DD020804E913333F /* libPods-HotChat.a */; };
@@ -336,6 +338,9 @@
 		26F8947025203BDD00A45648 /* TitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewController.swift; sourceTree = "<group>"; };
 		26F8947525207A9A00A45648 /* UploadFileAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadFileAPI.swift; sourceTree = "<group>"; };
 		26F8947A252083B800A45648 /* LabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelView.swift; sourceTree = "<group>"; };
+		26FC88EF253ECFBB00E4D82F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		26FC88F4253ED49000E4D82F /* SearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPI.swift; sourceTree = "<group>"; };
+		26FC88F9253ED66600E4D82F /* SearchViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewCell.swift; sourceTree = "<group>"; };
 		316CE69C043071315F0EB71A /* Pods-HotChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotChat.debug.xcconfig"; path = "Target Support Files/Pods-HotChat/Pods-HotChat.debug.xcconfig"; sourceTree = "<group>"; };
 		41171A0CC3850914D7B2BEAA /* Pods-HotChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotChat.release.xcconfig"; path = "Target Support Files/Pods-HotChat/Pods-HotChat.release.xcconfig"; sourceTree = "<group>"; };
 		522E8568C8A04E2A38789863 /* Pods-HotChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotChatTests.release.xcconfig"; path = "Target Support Files/Pods-HotChatTests/Pods-HotChatTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -359,7 +364,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				269590BF250B5FE900763061 /* StoreKit.framework in Frameworks */,
-				261D367C25369EBB002D5CF6 /* IBAnimatable in Frameworks */,
 				569A62C017EE594D27BBDD0C /* libPods-HotChat.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -739,6 +743,7 @@
 				26F8893925318681001A14F2 /* DynamicViewController.swift */,
 				268458E725343FA8002B9C6E /* DynamicDetailViewController.swift */,
 				26A731B12536D6B600CCECE5 /* ReportViewController.swift */,
+				26FC88EF253ECFBB00E4D82F /* SearchViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -752,6 +757,7 @@
 				F305482A2532BC0800844D00 /* DynamicViewCell.swift */,
 				268458E025342B7D002B9C6E /* DynamicDetailViewCell.swift */,
 				268458EF25345352002B9C6E /* MediaViewCell.swift */,
+				26FC88F9253ED66600E4D82F /* SearchViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -762,6 +768,7 @@
 				26F8893E253187BD001A14F2 /* Dynamic.swift */,
 				2696341E2531942000493C3D /* DynamicAPI.swift */,
 				2607319A2536DD1B00B1093C /* ReportAPI.swift */,
+				26FC88F4253ED49000E4D82F /* SearchAPI.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -861,7 +868,6 @@
 			);
 			name = HotChat;
 			packageProductDependencies = (
-				261D367B25369EBB002D5CF6 /* IBAnimatable */,
 			);
 			productName = HotChat;
 			productReference = 2643EB362500AD7D00FBBE49 /* HotChat.app */;
@@ -942,7 +948,6 @@
 			);
 			mainGroup = 2643EB2D2500AD7D00FBBE49;
 			packageReferences = (
-				261D367A25369EBB002D5CF6 /* XCRemoteSwiftPackageReference "IBAnimatable" */,
 			);
 			productRefGroup = 2643EB372500AD7D00FBBE49 /* Products */;
 			projectDirPath = "";
@@ -1140,6 +1145,7 @@
 				26425C16251DDF64006D2F4C /* UserBasicInformationViewController.swift in Sources */,
 				2643EBC02500B04100FBBE49 /* Bundle+App.swift in Sources */,
 				26A20AEF25189E740061BBB8 /* LoginManager.swift in Sources */,
+				26FC88F5253ED49000E4D82F /* SearchAPI.swift in Sources */,
 				26EE0E4C25245BD800233ED5 /* PayAPI.swift in Sources */,
 				267954E82507311E00A72954 /* LegalLiabilityViewController.swift in Sources */,
 				2684593925354EDB002B9C6E /* Reload.swift in Sources */,
@@ -1168,6 +1174,7 @@
 				2643EBA32500B04100FBBE49 /* UserInfoEditingViewController.swift in Sources */,
 				2643EBA52500B04100FBBE49 /* ApplicationSettingsViewController.swift in Sources */,
 				268458E225342B7D002B9C6E /* DynamicDetailViewCell.swift in Sources */,
+				26FC88FA253ED66600E4D82F /* SearchViewCell.swift in Sources */,
 				26F889352531854B001A14F2 /* TextInputViewCell.swift in Sources */,
 				2643EBA42500B04100FBBE49 /* UserInfoInputTextViewController.swift in Sources */,
 				2643EBC12500B04100FBBE49 /* UITableView+App.swift in Sources */,
@@ -1222,6 +1229,7 @@
 				26A8D4E9251C8F3E00B736CF /* Constellation.swift in Sources */,
 				26377FCE2530526800D5A03D /* ChatViewController.swift in Sources */,
 				26DBC373253D89DF0083BDFB /* AudioCallViewController.m in Sources */,
+				26FC88F0253ECFBB00E4D82F /* SearchViewController.swift in Sources */,
 				2643EBB62500B04100FBBE49 /* InterfaceOrientation.swift in Sources */,
 				2682974B2511B05300949C7F /* IndicatorDisplay.swift in Sources */,
 				26AC1E4C25060D27003EFB44 /* LoginViewController.swift in Sources */,
@@ -1609,25 +1617,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		261D367A25369EBB002D5CF6 /* XCRemoteSwiftPackageReference "IBAnimatable" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/IBAnimatable/IBAnimatable.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.1.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		261D367B25369EBB002D5CF6 /* IBAnimatable */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 261D367A25369EBB002D5CF6 /* XCRemoteSwiftPackageReference "IBAnimatable" */;
-			productName = IBAnimatable;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2643EB2E2500AD7D00FBBE49 /* Project object */;
 }

@@ -16,7 +16,13 @@ import SnapKit
 
 class UserInfoViewController: SegementSlideDefaultViewController, LoadingStateType, IndicatorDisplay {
     
-    var state: LoadingState = .initial
+    var state: LoadingState = .initial {
+        didSet {
+            if isViewLoaded {
+                showOrHideIndicator(loadingState: state)
+            }
+        }
+    }
     
     
     var user: User! {
@@ -29,27 +35,45 @@ class UserInfoViewController: SegementSlideDefaultViewController, LoadingStateTy
         return .child
     }
     
-    lazy var contentTitles: [String] =  {
-        return ["资料", "小视频", "动态"]
+    lazy var viewControllers: [UIViewController & SegementSlideContentScrollViewDelegate] =  {
+        let information = InformationViewController.loadFromStoryboard()
+        information.title = "资料"
+        information.user = user
+        
+        let dynamic = DynamicDetailViewController.loadFromStoryboard()
+        dynamic.title = "动态"
+        dynamic.user = user
+        
+        return [
+            information,
+            dynamic
+        ]
     }()
     
-    lazy var contentViewControllers: [SegementSlideContentScrollViewDelegate] = {
-        return contentTitles
-            .map { _ in
-                let vc = InformationViewController.loadFromStoryboard()
-                vc.user = user
-                return vc
-            }
-    }()
     
     override var titlesInSwitcher: [String] {
-        return contentTitles
+        return viewControllers.compactMap{ $0.title }
     }
     
     
     private lazy var userInfoHeaderView: UserInfoHeaderView = {
-        
         let headerView = UserInfoHeaderView.loadFromNib()
+        headerView.onFollowButtonTapped.delegate(on: self) { (self, sender) in
+            sender.followButton.isUserInteractionEnabled = false
+            self.dynamicAPI.request(.follow(self.user.userId), type: ResponseEmpty.self)
+                .checkResponse()
+                .subscribe(onSuccess: { response in
+                    sender.followButton.isUserInteractionEnabled = true
+                    var user = self.user
+                    user?.isFollow = true
+                    self.user = user
+                    self.show(response.msg)
+                }, onError: { error in
+                    sender.followButton.isUserInteractionEnabled = true
+                    self.show(error.localizedDescription)
+                })
+                .disposed(by: self.rx.disposeBag)
+        }
         return headerView
     }()
     
@@ -60,23 +84,26 @@ class UserInfoViewController: SegementSlideDefaultViewController, LoadingStateTy
     
     override func segementSlideContentViewController(at index: Int) -> SegementSlideContentScrollViewDelegate? {
         
-        return contentViewControllers[index]
+        return viewControllers[index]
     }
     
     let userAPI = Request<UserAPI>()
     
+    let dynamicAPI = Request<DynamicAPI>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         defaultSelectedIndex = 0
         updateNavigationBarStyle(scrollView)
-        setupChatView()
+        navigationItem.title = user.nick
+        
+        if user.userId != LoginManager.shared.user!.userId {
+            setupChatView()
+        }
         reloadData()
         refreshData()
         
-        chatView.onPushing.delegate(on: self) { (self, _) -> (User, UINavigationController) in
-            return (self.user, self.navigationController!)
-        }
+
         state = .loadingContent
         refreshData()
     }
@@ -102,6 +129,9 @@ class UserInfoViewController: SegementSlideDefaultViewController, LoadingStateTy
     private func setupChatView() {
         
         chatView = UserInfoChatView.loadFromNib()
+        chatView.onPushing.delegate(on: self) { (self, _) -> (User, UINavigationController) in
+            return (self.user, self.navigationController!)
+        }
         chatView.backgroundColor = .clear
         view.addSubview(chatView)
         

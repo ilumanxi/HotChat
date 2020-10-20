@@ -13,8 +13,8 @@ import Toast_Swift
 import MBProgressHUD
 import Kingfisher
 
-class UserInformationViewController: UITableViewController, IndicatorDisplay {
-    
+class UserInformationViewController: UITableViewController, IndicatorDisplay, StoryboardCreate {
+   
     
     @IBOutlet weak var avatarImageView: UIImageView!
     
@@ -50,14 +50,7 @@ class UserInformationViewController: UITableViewController, IndicatorDisplay {
     private let API = Request<AccountAPI>()
     private let uploadAPI = Request<UploadFileAPI>()
     
-    static func loadFromStoryboard() -> Self {
-        
-        let storyboard = UIStoryboard(name: "Account", bundle: nil)
-        
-        let identifier = String(describing: Self.self)
-        
-        return  storyboard.instantiateViewController(withIdentifier: identifier) as! Self
-    }
+    static var storyboardNamed: String { return "Account" }
     
     override func viewDidLoad() {
         super.viewDidLoad()

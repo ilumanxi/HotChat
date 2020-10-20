@@ -22,6 +22,7 @@ struct Pagination<T: HandyJSON>: HandyJSON {
 
 struct Dynamic: HandyJSON {
     var dynamicId: String = ""
+    var timeFormat: String = ""
     var content: String = ""
     var photoList: [RemoteFile] = []
     var isSelfZan: Bool = false

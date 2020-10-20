@@ -30,6 +30,9 @@ class UserInfoHeaderView: UIView, FSPagerViewDataSource, FSPagerViewDelegate {
     @IBOutlet weak var statusLabel: UILabel!
     
     
+    @IBOutlet weak var stackView: UIStackView!
+    
+    
     @IBOutlet weak var authenticationButton: UIButton!
     
     
@@ -41,6 +44,8 @@ class UserInfoHeaderView: UIView, FSPagerViewDataSource, FSPagerViewDelegate {
     
     @IBOutlet weak var followView: LabelView!
     
+    
+    let onFollowButtonTapped = Delegate<UserInfoHeaderView, Void>()
     
     var user: User! {
         didSet {
@@ -92,10 +97,8 @@ class UserInfoHeaderView: UIView, FSPagerViewDataSource, FSPagerViewDelegate {
     
     func pagerViewWillEndDragging(_ pagerView: FSPagerView, targetIndex: Int) {
         pageControl.currentPage = targetIndex
-        
         let isHidden = targetIndex != 0
-        authenticationButton.isHidden = isHidden
-        followButton.isHidden = isHidden
+        stackView.isHidden = isHidden
     }
     
     
@@ -105,9 +108,13 @@ class UserInfoHeaderView: UIView, FSPagerViewDataSource, FSPagerViewDelegate {
         nicknameLabel.text = user.nick
         sexView.setUser(user)
         followView.text = user.userFollowNum.description
+        
+        authenticationButton.alpha = 0
+        followButton.alpha = user.isFollow ? 1 : 0
     }
     
     @IBAction func followAction(_ sender: Any) {
+        onFollowButtonTapped.call(self)
     }
     
 }

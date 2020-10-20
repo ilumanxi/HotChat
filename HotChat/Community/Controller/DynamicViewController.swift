@@ -72,8 +72,13 @@ class DynamicViewController: UITableViewController, IndicatorDisplay {
     
     var photoAlbum: PhotoAlbum {
         let entry = PhotoAlbum(medias: medias, maximumSelectCount: 8)
+        entry.imageChangedShow = false
         entry.onPresenting.delegate(on: self) { (self, _) -> UIViewController in
             return self
+        }
+        
+        entry.onImageDeleted.delegate(on: self) { (self, index) in
+            self.medias.remove(at: index)
         }
         entry.onImageAdded.delegate(on: self) { (self, url) in
             self.showIndicatorOnWindow()

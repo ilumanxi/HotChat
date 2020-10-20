@@ -238,9 +238,12 @@ class PhotoAlbum: NSObject, FormEntry {
     
     let onImageAdded = Delegate<URL, Void>()
     
-    let onImageUpdated = Delegate<(URL, Int), Void>()
+    let onImageChanged = Delegate<(URL, Int), Void>()
     
     let onImageDeleted = Delegate<Int, Void>()
+    
+    var imageChangedShow = true
+    
     
     init(medias: [Media], maximumSelectCount: Int) {
         self.medias = medias
@@ -344,17 +347,19 @@ extension PhotoAlbum: UICollectionViewDelegate, UICollectionViewDataSource, UICo
          }
          else {
             let alertController = SPAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-            alertController.addAction(SPAlertAction(title: "更换", style: .default, handler: { [weak self] _ in
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    self?.imagePicker{ [weak self] images, _, _ in
-                        if let image = images.first {
-                            let imageURL = writeImage(image)!
-                            self?.onImageUpdated.call((imageURL, indexPath.item))
+            
+            if imageChangedShow {
+                alertController.addAction(SPAlertAction(title: "更换", style: .default, handler: { [weak self] _ in
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        self?.imagePicker{ [weak self] images, _, _ in
+                            if let image = images.first {
+                                let imageURL = writeImage(image)!
+                                self?.onImageChanged.call((imageURL, indexPath.item))
+                            }
                         }
                     }
-                }
-            }))
-            
+                }))
+            }
             alertController.addAction(SPAlertAction(title: "删除", style: .default, handler: { [weak self] _ in
                 self?.onImageDeleted.call(indexPath.item)
                 

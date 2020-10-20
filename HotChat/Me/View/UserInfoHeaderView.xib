@@ -194,6 +194,7 @@
                 <outlet property="pageControl" destination="7tt-qf-xLN" id="yHD-QE-CoJ"/>
                 <outlet property="pagerView" destination="Vsh-w8-5B7" id="5NP-0A-Pn4"/>
                 <outlet property="sexView" destination="tcs-A8-dDk" id="pjj-i6-Spo"/>
+                <outlet property="stackView" destination="fDa-HB-qdz" id="Qan-KC-ECQ"/>
                 <outlet property="statusLabel" destination="jTa-K1-gMO" id="VD4-RB-zzt"/>
             </connections>
             <point key="canvasLocation" x="-30.9375" y="48.063380281690144"/>

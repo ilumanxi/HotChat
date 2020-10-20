@@ -15,7 +15,13 @@ import RxCocoa
 class DiscoverViewController: SegementSlideDefaultViewController, LoadingStateType, IndicatorDisplay {
     
     
-    var state: LoadingState = .initial
+    var state: LoadingState = .initial {
+        didSet {
+            if isViewLoaded {
+                showOrHideIndicator(loadingState: state)
+            }
+        }
+    }
     
     let discoverAPI = Request<DiscoverAPI>()
     
@@ -38,9 +44,9 @@ class DiscoverViewController: SegementSlideDefaultViewController, LoadingStateTy
     
     func requestData() {
         loadData()
-            .subscribe(onSuccess: { [weak self] response in
-                self?.channels = response.data ?? []
-                self?.state = .contentLoaded
+            .subscribe(onSuccess: { [unowned self] response in
+                self.channels = response.data ?? []
+                self.state = self.channels.isEmpty ? .noContent : .contentLoaded
             }, onError: { [weak self] error in
                 self?.state = .error
             })

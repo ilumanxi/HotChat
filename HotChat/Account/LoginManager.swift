@@ -41,7 +41,7 @@ class LoginManager: NSObject {
     }()
 
     
-    var user: User?
+    private(set) var user: User?
     
     private let userCacheKey = "sharedUser"
     

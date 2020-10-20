@@ -30,6 +30,21 @@ class UserInfoChatView: UIView {
     
     
     @IBAction func videoButtonTapped(_ sender: Any) {
+        
+        guard let data = onPushing.call() else { return }
+        
+        let (user, _) = data
+        
+        CallManager.shareInstance()?.call(nil, userID: user.userId, callType: .video)
+    }
+    
+    @IBAction func audioButtonTapped(_ sender: Any) {
+        
+        guard let data = onPushing.call() else { return }
+        
+        let (user, _) = data
+        
+        CallManager.shareInstance()?.call(nil, userID: user.userId, callType: .audio)
     }
     
 }

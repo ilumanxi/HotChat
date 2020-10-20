@@ -9,7 +9,7 @@
 import UIKit
 import SegementSlide
 
-class InformationViewController: UITableViewController, SegementSlideContentScrollViewDelegate {
+class InformationViewController: UITableViewController, SegementSlideContentScrollViewDelegate, StoryboardCreate {
     
     
     var user: User! {
@@ -18,14 +18,7 @@ class InformationViewController: UITableViewController, SegementSlideContentScro
         }
     }
     
-    static func loadFromStoryboard() -> Self {
-        
-        let storyboard = UIStoryboard(name: "Me", bundle: nil)
-        
-        let identifier = String(describing: Self.self)
-        
-        return  storyboard.instantiateViewController(withIdentifier: identifier) as! Self
-    }
+    static var storyboardNamed: String { return "Me" }
     
     var scrollView: UIScrollView {
         return tableView

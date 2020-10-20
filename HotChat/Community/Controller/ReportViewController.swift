@@ -7,16 +7,16 @@
 //
 
 import UIKit
+import Reusable
 
-class ReportViewController: UIViewController, IndicatorDisplay {
+
+
+
+class ReportViewController: UIViewController, IndicatorDisplay, StoryboardCreate {
     
-    static func loadFromStoryboard() -> Self {
-        
-        let storyboard = UIStoryboard(name: "Community", bundle: nil)
-        
-        let identifier = String(describing: Self.self)
-        
-        return  storyboard.instantiateViewController(withIdentifier: identifier) as! Self
+    
+    static var storyboardNamed: String {
+        return "Community"
     }
     
     var user: User!

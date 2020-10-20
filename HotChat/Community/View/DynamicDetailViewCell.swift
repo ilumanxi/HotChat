@@ -88,7 +88,7 @@ class DynamicDetailViewCell: UITableViewCell {
         likeButton.setTitle(dynamic.zanNum.description, for: .normal)
         likeButton.isSelected = dynamic.isSelfZan
         giveButton.setTitle(dynamic.giftNum.description, for: .normal)
-        
+        dateLabel.text = dynamic.timeFormat
         collectionViewHeightConstraint.constant = collectionViewHeight(for: CGFloat(dynamic.photoList.count))
         setNeedsLayout()
         layoutIfNeeded()

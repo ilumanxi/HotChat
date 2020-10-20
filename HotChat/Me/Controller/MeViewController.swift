@@ -65,12 +65,15 @@ class MeViewController: UITableViewController, Autorotate {
         super.viewDidLoad()
         
         self.hbd_barHidden = true
-        
-        requestData()
         user = LoginManager.shared.user
-        
+
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        requestData()
+    }
     
     func requestData() {
         
@@ -95,7 +98,8 @@ class MeViewController: UITableViewController, Autorotate {
         meHeaderView.sexView.setUser(user)
         meHeaderView.followButton.setTitle("\(user.userFollowNum) 关注", for: .normal)
         meHeaderView.fansButton.setTitle("\(user.userFansNum) 粉丝", for: .normal)
-        
+        meHeaderView.setNeedsLayout()
+        meHeaderView.layoutIfNeeded()
     }
     
     

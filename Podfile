@@ -47,6 +47,7 @@ target 'HotChat' do
     pod 'SwiftyStoreKit'
     pod 'MagazineLayout'
     pod 'Blueprints'
+    pod 'IBAnimatable'
     
     pod 'SYBPush/normal',  :git => 'https://github.com/isandboy/SYBPush.git'
     pod 'TXIMSDK_TUIKit_iOS'
@@ -71,4 +72,10 @@ post_install do |installer|
             config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '10.0'
         end
     end
+    installer.pods_project.build_configurations.each do |config|
+      config.build_settings['LD_RUNPATH_SEARCH_PATHS'] = [
+        '$(FRAMEWORK_SEARCH_PATHS)'
+      ]
+    end
 end
+

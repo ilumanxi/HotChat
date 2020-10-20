@@ -12,8 +12,11 @@ import SPAlertController
 import MJRefresh
 import RxSwift
 import RxCocoa
+import SegementSlide
 
-class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableViewDataSource, UITableViewDelegate {
+class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableViewDataSource, UITableViewDelegate, SegementSlideContentScrollViewDelegate, StoryboardCreate {
+    
+    static var storyboardNamed: String { return "Community" }
     
     var state: LoadingState = .initial {
         didSet {
@@ -31,6 +34,10 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
                 tableView.reloadData()
             }
         }
+    }
+    
+    @objc var scrollView: UIScrollView {
+        return tableView
     }
     
     @IBOutlet weak var tableView: UITableView!

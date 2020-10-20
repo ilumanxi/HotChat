@@ -7,32 +7,116 @@
 //
 
 import UIKit
+import UserNotifications
 
-class ConversationActionViewController: UITableViewController {
+class ConversationActionViewController: UITableViewController, StoryboardCreate {
     
-    static func loadFromStoryboard() -> Self {
-        
-        let storyboard = UIStoryboard(name: "Chat", bundle: nil)
-        
-        let identifier = String(describing: Self.self)
-        
-        return  storyboard.instantiateViewController(withIdentifier: identifier) as! Self
+    enum Row: Int, CaseIterable  {
+        case settings
+        case interested
     }
+    
+    static var storyboardNamed: String { return "Chat" }
     
     var contentHeight: CGFloat {
-        return 192
+        
+        var height =  Row.allCases
+            .compactMap{ $0.height }
+            .reduce(0, +)
+        
+        if !isShowSettings {
+            height -= Row.settings.height
+        }
+        
+        return height
     }
+    
+    var isShowSettings: Bool {
+        
+        return  !(isOperationed || isAuthorization)
+    }
+    
+    
+    let onContentHeightUpaded = Delegate<ConversationActionViewController, Void>()
+    
+    private let key = "isOperationed"
+    
+    var isOperationed: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: key)
+        }
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: key)
+        }
+    }
+    
+    
+    private var isAuthorization: Bool {
+        let semaphore = DispatchSemaphore(value: 0)
+        var authorization: Bool = false
+        UNUserNotificationCenter.current().getNotificationSettings { settings in
+            switch settings.authorizationStatus {
+            case .authorized:
+                authorization = true
+            default:
+                authorization = false
+            }
+            semaphore.signal()
+        }
+        
+        _ = semaphore.wait(timeout: DispatchTime.distantFuture)
+        return authorization
+        
+    }
+
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        let row = Row(rawValue: indexPath.row)!
+        
+        if row == .settings && !isShowSettings {
+            return 0
+        }
+        
+        return row.height
+        
+    }
+    
+    
+    @IBAction func settingButtonTapped(_ sender: Any) {
+        let url = URL(string: UIApplication.openSettingsURLString)!
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        isOperationed = true
+        tableView.reloadData()
+        onContentHeightUpaded.call(self)
+    }
+    
+    
+    @IBAction func closeButtonTapped(_ sender: Any) {
+        isOperationed = true
+        tableView.reloadData()
+        onContentHeightUpaded.call(self)
+    }
+    
+}
 
-   
 
+extension ConversationActionViewController.Row {
+    
+    var height: CGFloat {
+        switch self {
+        case .settings:
+            return 112
+        case .interested:
+            return 80
+        }
+    }
 }

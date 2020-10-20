@@ -88,7 +88,7 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay {
                 .disposed(by: self.rx.disposeBag)
         }
         
-        entry.onImageUpdated.delegate(on: self) { (self, info) in
+        entry.onImageChanged.delegate(on: self) { (self, info) in
            let (url, index) = info
             self.upload(url)
                 .map { response -> [String : Any]  in

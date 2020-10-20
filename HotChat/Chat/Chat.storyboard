@@ -73,10 +73,6 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cB7-6a-BRN">
                                                     <rect key="frame" x="20" y="12" width="374" height="88"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7bo-nv-6Ps">
-                                                            <rect key="frame" x="352" y="33" width="12" height="22"/>
-                                                            <state key="normal" image="common-close"/>
-                                                        </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Y5-W1-BeU">
                                                             <rect key="frame" x="265" y="30" width="75" height="28"/>
                                                             <color key="backgroundColor" red="0.31764705882352939" green="0.34901960784313724" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
@@ -93,6 +89,16 @@
                                                                     <real key="value" value="14"/>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="settingButtonTapped:" destination="csS-6k-fQY" eventType="touchUpInside" id="ghU-VU-yBJ"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7bo-nv-6Ps">
+                                                            <rect key="frame" x="352" y="33" width="12" height="22"/>
+                                                            <state key="normal" image="common-close"/>
+                                                            <connections>
+                                                                <action selector="closeButtonTapped:" destination="csS-6k-fQY" eventType="touchUpInside" id="TD8-0p-seL"/>
+                                                            </connections>
                                                         </button>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="v7a-zw-BwF">
                                                             <rect key="frame" x="20" y="24.5" width="157.5" height="39"/>

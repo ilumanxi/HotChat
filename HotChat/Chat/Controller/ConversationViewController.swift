@@ -28,6 +28,10 @@ class ConversationViewController: UIViewController {
         
         
         let chatActionViewController = ConversationActionViewController.loadFromStoryboard()
+        chatActionViewController.onContentHeightUpaded.delegate(on: self) { (self, sender) in
+            sender.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: chatActionViewController.contentHeight)
+            conversationListController.tableView.tableHeaderView = sender.view
+        }
         conversationListController.addChild(chatActionViewController)
         chatActionViewController.view.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: chatActionViewController.contentHeight)
         chatActionViewController.tableView.isScrollEnabled = false

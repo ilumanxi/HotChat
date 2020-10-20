@@ -362,3 +362,37 @@ enum Log {
         Swift.print("[HotChat] \(s)")
     }
 }
+
+
+protocol StoryboardCreate: class {
+    static var bundle: Bundle? { get }
+    static var storyboardNamed: String { get }
+    static var controllerIdentifier: String? { get }
+    static func loadFromStoryboard() -> Self
+   
+}
+
+extension StoryboardCreate where Self: UIViewController {
+    
+    static var bundle: Bundle? { return nil }
+    
+    static var identifier: String? { return nil }
+    
+    static var controllerIdentifier: String? { return nil }
+    
+    static func loadFromStoryboard() -> Self {
+        let bundle = self.bundle ?? .main
+        
+        let storyboard = UIStoryboard(name: storyboardNamed, bundle: bundle)
+        let identifier = controllerIdentifier ?? String(describing: Self.self)
+        
+        guard let viewControler = storyboard.instantiateViewController(withIdentifier: identifier) as? Self else {
+            fatalError(
+              "Failed to dequeue a Controler with identifier \(identifier) matching type \(Self.self). "
+                + "Check that the controllerIdentifier is set properly in your \(storyboardNamed) .Storyboard "
+                + "and that you registered the \(bundle) storyboard beforehand")
+        }
+        
+        return viewControler
+    }
+}

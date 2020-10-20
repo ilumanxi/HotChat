@@ -30,6 +30,91 @@
             </objects>
             <point key="canvasLocation" x="564" y="-705"/>
         </scene>
+        <!--Search View Controller-->
+        <scene sceneID="sbg-mc-JhI">
+            <objects>
+                <viewController id="yEt-Qr-Qof" customClass="SearchViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ttw-ch-IK8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="s6k-Og-ehd">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchViewCell" rowHeight="106" id="OGY-ci-oYa" customClass="SearchViewCell" customModule="HotChat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="106"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OGY-ci-oYa" id="vjm-IF-2dh">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="106"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q57-ts-9Th" customClass="AnimatableImageView" customModule="IBAnimatable">
+                                                    <rect key="frame" x="20" y="16" width="74" height="74"/>
+                                                    <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="74" id="20h-s0-RhX"/>
+                                                        <constraint firstAttribute="width" secondItem="Q57-ts-9Th" secondAttribute="height" multiplier="1:1" id="e2H-zo-ckl"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="37"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Hx-ap-R8x">
+                                                    <rect key="frame" x="104" y="44.5" width="37.5" height="17"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H7a-sY-trY">
+                                                    <rect key="frame" x="363" y="46" width="31" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="0.098039215686274508" green="0.82745098039215681" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Q57-ts-9Th" firstAttribute="centerY" secondItem="vjm-IF-2dh" secondAttribute="centerY" id="38R-B9-BV6"/>
+                                                <constraint firstItem="H7a-sY-trY" firstAttribute="centerY" secondItem="vjm-IF-2dh" secondAttribute="centerY" id="3SI-uG-FLH"/>
+                                                <constraint firstItem="Q57-ts-9Th" firstAttribute="leading" secondItem="vjm-IF-2dh" secondAttribute="leadingMargin" id="U6G-P5-U2z"/>
+                                                <constraint firstItem="H7a-sY-trY" firstAttribute="trailing" secondItem="vjm-IF-2dh" secondAttribute="trailingMargin" id="aGg-d7-dJ5"/>
+                                                <constraint firstItem="6Hx-ap-R8x" firstAttribute="centerY" secondItem="vjm-IF-2dh" secondAttribute="centerY" id="cJ2-8h-joj"/>
+                                                <constraint firstItem="6Hx-ap-R8x" firstAttribute="leading" secondItem="Q57-ts-9Th" secondAttribute="trailing" constant="10" id="sPC-QI-FPU"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="avatarImageView" destination="Q57-ts-9Th" id="JIO-aO-YKy"/>
+                                            <outlet property="nicknameLabel" destination="6Hx-ap-R8x" id="71L-iA-iYv"/>
+                                            <outlet property="statusLabel" destination="H7a-sY-trY" id="eLB-D3-Tn1"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="yEt-Qr-Qof" id="0Te-8J-QFu"/>
+                                    <outlet property="delegate" destination="yEt-Qr-Qof" id="0TE-ic-18y"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="rhq-dD-Re0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="s6k-Og-ehd" secondAttribute="bottom" id="MT6-9t-8Ad"/>
+                            <constraint firstAttribute="trailing" secondItem="s6k-Og-ehd" secondAttribute="trailing" id="aKD-08-0AR"/>
+                            <constraint firstItem="s6k-Og-ehd" firstAttribute="leading" secondItem="ttw-ch-IK8" secondAttribute="leading" id="cpU-ho-KOz"/>
+                            <constraint firstItem="s6k-Og-ehd" firstAttribute="top" secondItem="ttw-ch-IK8" secondAttribute="top" id="sVg-uE-yZp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="3YS-rQ-T1d"/>
+                    <connections>
+                        <outlet property="tableView" destination="s6k-Og-ehd" id="Ewb-j5-iP7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6W5-z7-4XZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2189.8550724637685" y="-1449.1071428571429"/>
+        </scene>
         <!--社区-->
         <scene sceneID="UN6-4y-PUP">
             <objects>
@@ -208,7 +293,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="社区" id="54h-Rq-HML">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="common-search" id="YSI-fH-HHZ"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="common-search" id="YSI-fH-HHZ">
+                            <connections>
+                                <segue destination="yEt-Qr-Qof" kind="show" id="fnw-hb-WU6"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="1ga-r6-SZX" id="XwY-Ju-lsE"/>
@@ -221,7 +310,7 @@
         <!--动态详情-->
         <scene sceneID="PRB-89-Duf">
             <objects>
-                <viewController title="动态详情" id="709-N9-IVE" customClass="DynamicDetailViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DynamicDetailViewController" title="动态详情" useStoryboardIdentifierAsRestorationIdentifier="YES" id="709-N9-IVE" customClass="DynamicDetailViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="n7R-xe-dZj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
