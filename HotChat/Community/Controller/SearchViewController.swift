@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import Kingfisher
+import MJRefresh
 
 
 
@@ -41,9 +42,11 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     var data: [User] = [] {
         didSet {
             tableView.reloadData()
+            tableView.mj_footer?.isHidden = data.isEmpty
         }
     }
     
+    let loadSignal = PublishSubject<Void>()
     
     let searchAPI = Request<SearchAPI>()
     
@@ -54,6 +57,11 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         navigationItem.titleView = searchBar
         
         navigationItem.hidesBackButton = true
+        
+        tableView.mj_footer = MJRefreshAutoNormalFooter{ [weak self] in
+            self?.loadSignal.onNext(())
+        }
+        tableView.mj_footer?.isHidden = true
 
         
         searchBar.rx.text.orEmpty
@@ -63,8 +71,12 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             })
             .disposed(by: rx.disposeBag)
         
-        searchBar.rx.searchButtonClicked
+        
+        
+        Observable.of(searchBar.rx.searchButtonClicked.asObservable(), loadSignal.asObserver())
+            .merge()
             .do(onNext: { [weak self] in
+                self?.data = []
                 self?.searchBar.resignFirstResponder()
             })
             .map(parameters)
