@@ -11,11 +11,11 @@ import UIKit
 class FormSection {
     
     var formEntries: [FormEntry]
-    let headerText: String
+    let headerText: String?
     
     var renderer: FormSectionRenderer!
     
-    init(entries: [FormEntry], headerText: String) {
+    init(entries: [FormEntry], headerText: String?) {
         self.formEntries = entries
         self.headerText = headerText
         

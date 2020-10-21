@@ -105,6 +105,10 @@ struct User: HandyJSON {
     ///  昵称
     var nick: String = ""
     
+    /// 备注
+    var friendNick: String = ""
+    
+    
     /// 在线状态 1在线 2直播中
 
     var onlineStatus: Int = 0
@@ -113,7 +117,7 @@ struct User: HandyJSON {
     var authenticationStatus: Int = 0
     
     /// 位置
-    var region: String = ""
+    var region: String = "未知距离"
     
     ///  头像
     var headPic: String = ""

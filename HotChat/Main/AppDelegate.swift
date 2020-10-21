@@ -8,7 +8,7 @@
 
 import UIKit
 import AuthenticationServices
-import SYBPush
+import SYBPush_normal
 import SwiftyStoreKit
 
 

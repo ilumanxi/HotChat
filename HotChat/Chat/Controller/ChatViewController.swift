@@ -74,7 +74,12 @@ class ChatViewController: TUIChatController {
     
     
     @objc func userSetting() {
+        var user = User()
+        user.userId = conversationData.userID
         
+        let vc = UserSettingViewController.loadFromStoryboard()
+        vc.user = user
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func chatCall() {
@@ -87,13 +92,13 @@ class ChatViewController: TUIChatController {
  
         
         let video = SPAlertAction(title: nil, style: .default) { _ in
-            
+            CallManager.shareInstance()?.call(nil, userID: self.conversationData.userID, callType: .video)
         }
         video.attributedTitle = attributedText(text: "视频聊", detailText: "(2500能量/分钟)")
         alertController.addAction(video)
         
         let audio = SPAlertAction(title: nil, style: .default) { _ in
-            
+            CallManager.shareInstance()?.call(nil, userID: self.conversationData.userID, callType: .audio)
         }
         audio.attributedTitle = attributedText(text: "语音聊", detailText: "(2500能量/分钟)")
         alertController.addAction(audio)

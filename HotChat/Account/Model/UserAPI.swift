@@ -29,6 +29,8 @@ enum UserAPI {
     
     /// 平台类型 1支付宝微信 2苹果
     case amountList(type: Int)
+    
+    case remark(friendNick: String, userId: String)
 }
 
 
@@ -61,6 +63,8 @@ extension UserAPI: TargetType {
             return "user/amountList"
         case .delPhoto:
             return "user/delPhoto"
+        case .remark:
+            return "User/editFriend"
         }
     }
     
@@ -107,6 +111,11 @@ extension UserAPI: TargetType {
             parameters =  ["type" : type]
         case .delPhoto(let picId):
             parameters =  ["picId" : picId]
+        case .remark(let friendNick,let userId):
+            parameters =  [
+                "friendNick" : friendNick,
+                "userId" : userId
+            ]
         }
         
         return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)

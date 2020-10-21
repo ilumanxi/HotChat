@@ -65,7 +65,7 @@ extension ConversationViewController: TUIConversationListControllerDelegate {
         data.userID = convData.userID
         
         let vc  = ChatViewController(conversation: data)!
-        vc.title = convData.userID.description
+        vc.title = convData.title
         navigationController?.pushViewController(vc, animated: true)
         
     }

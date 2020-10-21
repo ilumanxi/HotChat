@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import SYBPush
+import SYBPush_normal
 
 
 struct Constant {

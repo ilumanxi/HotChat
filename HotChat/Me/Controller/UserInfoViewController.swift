@@ -117,7 +117,9 @@ class UserInfoViewController: SegementSlideDefaultViewController, LoadingStateTy
     
     
     @objc func moreItemTapped() {
-        
+        let vc  = UserSettingViewController.loadFromStoryboard()
+        vc.user = user
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func refreshData() {
