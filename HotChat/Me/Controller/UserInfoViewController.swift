@@ -108,12 +108,25 @@ class UserInfoViewController: SegementSlideDefaultViewController, LoadingStateTy
         refreshData()
     }
     
+    func setupNavigationItem() {
+        
+        let more = UIBarButtonItem(image: UIImage(named: "more-gray"), style: .plain, target: self, action: #selector(moreItemTapped))
+        self.navigationItem.rightBarButtonItems = [more]
+        
+    }
+    
+    
+    @objc func moreItemTapped() {
+        
+    }
+    
     func refreshData() {
         state = .refreshingContent
         userAPI.request(.userinfo(userId: user.userId),type: Response<User>.self)
             .checkResponse()
             .subscribe(onSuccess: { [weak self] response in
                 self?.user = response.data
+                self?.setupNavigationItem()
                 self?.state = .contentLoaded
             }, onError: { [weak self] error in
                 self?.state = .error

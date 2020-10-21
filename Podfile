@@ -47,7 +47,7 @@ target 'HotChat' do
     pod 'SwiftyStoreKit'
     pod 'MagazineLayout'
     pod 'Blueprints'
-    pod 'IBAnimatable'
+    
     
     pod 'SYBPush/normal',  :git => 'https://github.com/isandboy/SYBPush.git'
     pod 'TXIMSDK_TUIKit_iOS'

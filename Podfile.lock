@@ -12,7 +12,6 @@ PODS:
     - SDWebImage (~> 5.0)
   - HandyJSON (5.0.3-beta)
   - HBDNavigationBar (1.7.7)
-  - IBAnimatable (6.1.0)
   - Kingfisher (5.15.6):
     - Kingfisher/Core (= 5.15.6)
   - Kingfisher/Core (5.15.6)
@@ -87,7 +86,6 @@ DEPENDENCIES:
   - GKPhotoBrowser
   - HandyJSON (~> 5.0.3-beta)
   - HBDNavigationBar
-  - IBAnimatable
   - Kingfisher
   - Koloda
   - MagazineLayout
@@ -126,7 +124,6 @@ SPEC REPOS:
     - GKPhotoBrowser
     - HandyJSON
     - HBDNavigationBar
-    - IBAnimatable
     - Kingfisher
     - Koloda
     - MagazineLayout
@@ -180,7 +177,6 @@ SPEC CHECKSUMS:
   GKPhotoBrowser: 5faf2b641765940c082d33b58f7a21b68ecd8f3b
   HandyJSON: 88e8ea5f66ab65c3b8768499a1935d0509c460d4
   HBDNavigationBar: 6ba38b99637039c831ce460364d5398f29fa0685
-  IBAnimatable: 99dddd4c0625884a301ba3ecbc1615f8a390368e
   Kingfisher: b3554e7bf6106115b44e8795300bad580ef2fdc7
   Koloda: d07b9199a383abc5898b62aa945a599f5e7c0c4b
   MagazineLayout: 159da0d4d874e04e6b17e580b990cccd00328c5b
@@ -215,6 +211,6 @@ SPEC CHECKSUMS:
   WechatOpenSDK: 6a4d1436c15b3b5fe2a0bd383f3046010186da44
   ZLPhotoBrowser: e22cabd36d03240003668d72cb733581a6da0b0d
 
-PODFILE CHECKSUM: 191dc48fde64a8f4084402852755232514adff90
+PODFILE CHECKSUM: eada8943b13af02743633f2962d75298b968e62e
 
 COCOAPODS: 1.9.3

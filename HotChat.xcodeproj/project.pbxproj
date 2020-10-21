@@ -99,6 +99,7 @@
 		268BB25E251D9B3200001DF3 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268BB25D251D9B3200001DF3 /* UserAPI.swift */; };
 		268E3E602521D074000E4A33 /* RelationshipViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E3E5E2521D074000E4A33 /* RelationshipViewCell.swift */; };
 		268E3E612521D074000E4A33 /* RelationshipViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 268E3E5F2521D074000E4A33 /* RelationshipViewCell.xib */; };
+		26945806253FE32900EBCABB /* IBAnimatable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26945805253FE32900EBCABB /* IBAnimatable.framework */; };
 		2695903C250B16D700763061 /* InterestedCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2695903B250B16D700763061 /* InterestedCardView.swift */; };
 		2695903E250B170B00763061 /* InterestedCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2695903D250B170B00763061 /* InterestedCardView.xib */; };
 		26959040250B1D9400763061 /* InterestedCardOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2695903F250B1D9400763061 /* InterestedCardOverlayView.swift */; };
@@ -185,7 +186,7 @@
 		260A87772521932A00380FB4 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		260B96102521F15C00767076 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		260B96152521F2F400767076 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
-		2633EC5125315706009F0F27 /* carthage-build.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "carthage-build.sh"; sourceTree = SOURCE_ROOT; };
+		2633EC5125315706009F0F27 /* carthage.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = carthage.sh; sourceTree = SOURCE_ROOT; };
 		26373C722502340D0066FF3B /* FormEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormEntry.swift; sourceTree = "<group>"; };
 		26373C74250234AC0066FF3B /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
 		26373C76250234D00066FF3B /* FormSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormSection.swift; sourceTree = "<group>"; };
@@ -282,6 +283,7 @@
 		268BB25D251D9B3200001DF3 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		268E3E5E2521D074000E4A33 /* RelationshipViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationshipViewCell.swift; sourceTree = "<group>"; };
 		268E3E5F2521D074000E4A33 /* RelationshipViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RelationshipViewCell.xib; sourceTree = "<group>"; };
+		26945805253FE32900EBCABB /* IBAnimatable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IBAnimatable.framework; path = Carthage/Build/iOS/IBAnimatable.framework; sourceTree = "<group>"; };
 		2695903B250B16D700763061 /* InterestedCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestedCardView.swift; sourceTree = "<group>"; };
 		2695903D250B170B00763061 /* InterestedCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InterestedCardView.xib; sourceTree = "<group>"; };
 		2695903F250B1D9400763061 /* InterestedCardOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestedCardOverlayView.swift; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26945806253FE32900EBCABB /* IBAnimatable.framework in Frameworks */,
 				269590BF250B5FE900763061 /* StoreKit.framework in Frameworks */,
 				569A62C017EE594D27BBDD0C /* libPods-HotChat.a in Frameworks */,
 			);
@@ -441,7 +444,7 @@
 				26546371250B774E00398F04 /* apple-app-site-association */,
 				267B987A2505E5BB0008C81B /* HotChat-Bridging-Header.h */,
 				26BB186F2522F4B50019BBFD /* Cartfile */,
-				2633EC5125315706009F0F27 /* carthage-build.sh */,
+				2633EC5125315706009F0F27 /* carthage.sh */,
 			);
 			path = HotChat;
 			sourceTree = "<group>";
@@ -831,6 +834,7 @@
 		482F3E2EE2B9C253FF5015B3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				26945805253FE32900EBCABB /* IBAnimatable.framework */,
 				269590BE250B5FE900763061 /* StoreKit.framework */,
 				CE1A4E29DD020804E913333F /* libPods-HotChat.a */,
 				685BC0639EB2C6B79D6008A0 /* libPods-HotChat-HotChatUITests.a */,
@@ -861,6 +865,7 @@
 				2643EB342500AD7D00FBBE49 /* Resources */,
 				5C62613C886FDA87662A76D3 /* [CP] Embed Pods Frameworks */,
 				65E1731636F77F71257BF696 /* [CP] Copy Pods Resources */,
+				269457F7253FD65B00EBCABB /* Carthage Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1025,6 +1030,26 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		269457F7253FD65B00EBCABB /* Carthage Copy Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/IBAnimatable.framework",
+			);
+			name = "Carthage Copy Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/IBAnimatable.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/Carthage copy-frameworks\n";
 		};
 		5C62613C886FDA87662A76D3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1448,6 +1473,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TJ99XNWKL5;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = HotChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1474,6 +1503,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TJ99XNWKL5;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = HotChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
