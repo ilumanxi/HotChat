@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -86,6 +86,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="avatarImageView" destination="gCc-6l-IE9" id="5r3-xk-Kh2"/>
+                <outlet property="followButton" destination="bjs-71-dkD" id="QT7-sT-ihk"/>
                 <outlet property="introduceLabel" destination="AuJ-Xg-zdN" id="qiQ-uy-RbV"/>
                 <outlet property="nicknameLabel" destination="vwQ-Ke-XnG" id="NMY-On-u0Q"/>
                 <outlet property="sexView" destination="IG8-W4-BCl" id="bjv-55-nL7"/>

@@ -145,7 +145,7 @@ extension IndicatorDisplay where Self: UIViewController {
          
         view.addSubview(holderView)
         holderView.snp.makeConstraints { maker in
-            maker.leading.trailing.top.bottom.equalToSuperview()
+            maker.edges.size.equalToSuperview()
         }
     }
     

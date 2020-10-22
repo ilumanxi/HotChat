@@ -10,7 +10,17 @@ import UIKit
 import SegementSlide
 import Kingfisher
 
-class MeRelationshipViewController: UITableViewController, SegementSlideContentScrollViewDelegate, IndicatorDisplay {
+class MeRelationshipViewController: UITableViewController, SegementSlideContentScrollViewDelegate, IndicatorDisplay, LoadingStateType {
+    
+    
+    var state: LoadingState = .initial {
+        didSet {
+            if isViewLoaded {
+                showOrHideIndicator(loadingState: state)
+            }
+        }
+    }
+    
         
     @objc
     var scrollView: UIScrollView {
@@ -20,6 +30,8 @@ class MeRelationshipViewController: UITableViewController, SegementSlideContentS
     var relationship: Relationship!
     
     let API = Request<UserAPI>()
+    
+    let dynamicAPI = Request<DynamicAPI>()
     
     
     var users: [User] = [] {
@@ -33,19 +45,23 @@ class MeRelationshipViewController: UITableViewController, SegementSlideContentS
 
         tableView.rowHeight = 70
         tableView.register(cellType: RelationshipViewCell.self)
-        
+        refreshData()
+    }
+    
+    
+    func refreshData() {
+        state = (state == .initial) ? .loadingContent : .refreshingContent
         API.request(.followList(type: relationship.rawValue), type: Response<[User]>.self)
-            .subscribe(onSuccess: { [weak self] response in
-                if response.isSuccessd {
-                    self?.users = response.data ?? []
-                }
+            .checkResponse()
+            .subscribe(onSuccess: { [unowned self] response in
+                self.users = response.data ?? []
+                self.state = self.users.isEmpty ? .noContent : .contentLoaded
                 
             }, onError: { [weak self] error in
-                self?.show(error.localizedDescription)
+                self?.state = .error
             })
             .disposed(by: rx.disposeBag)
     }
-    
 
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,8 +77,40 @@ class MeRelationshipViewController: UITableViewController, SegementSlideContentS
         cell.nicknameLabel.text = user.nick
         cell.sexView.setUser(user)
         cell.introduceLabel.text = user.introduce
+        cell.followButton.isHidden = user.isFollow
+        
+        cell.onFollowButtonTapped.delegate(on: self) { (self, _) in
+            self.follow(user: user)
+        }
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        defer {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+        
+        let user = users[indexPath.row]
+        
+        let vc = UserInfoViewController()
+        vc.user = user
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func follow(user: User) {
+        
+        if let index = users.firstIndex(where: { $0.userId == user.userId }) {
+            users.modifyElement(at: index) { user in
+                user.isFollow = !user.isFollow
+            }
+            tableView.reloadData()
+        }
+        
+        dynamicAPI.request(.follow(user.userId), type: ResponseEmpty.self)
+            .checkResponse()
+            .subscribe(onSuccess: nil, onError: nil)
+            .disposed(by: rx.disposeBag)
     }
 
 }

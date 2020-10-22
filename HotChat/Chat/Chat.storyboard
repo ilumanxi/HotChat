@@ -42,10 +42,14 @@
                         <rightBarButtonItems>
                             <barButtonItem title="Item" image="chat-more" id="J7T-U3-y96">
                                 <connections>
-                                    <action selector="moreAction:" destination="csS-6k-fQY" id="b6W-Dt-VoR"/>
+                                    <action selector="moreAction:" destination="4MT-37-6xD" id="BCI-RW-7Kv"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Item" image="chat-contact" id="SUb-jM-Hy0"/>
+                            <barButtonItem title="Item" image="chat-contact" id="SUb-jM-Hy0">
+                                <connections>
+                                    <action selector="contactItemTapped:" destination="4MT-37-6xD" id="hYy-A2-eLf"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                 </viewController>

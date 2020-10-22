@@ -23,6 +23,11 @@ class RelationshipViewCell: UITableViewCell {
     
     @IBOutlet weak var introduceLabel: UILabel!
     
+    
+    @IBOutlet weak var followButton: UIButton!
+    
+    let onFollowButtonTapped = Delegate<RelationshipViewCell, Void>()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -30,6 +35,8 @@ class RelationshipViewCell: UITableViewCell {
 
 
     @IBAction func followAction(_ sender: Any) {
+        
+        onFollowButtonTapped.call(self)
     }
     
     
