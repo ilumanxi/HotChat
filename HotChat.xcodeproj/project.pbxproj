@@ -18,6 +18,12 @@
 		26377FBE25303D2200D5A03D /* ConversationActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26377FBD25303D2200D5A03D /* ConversationActionViewController.swift */; };
 		26377FC3253042E300D5A03D /* IM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26377FC2253042E300D5A03D /* IM.swift */; };
 		26377FCE2530526800D5A03D /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26377FCD2530526800D5A03D /* ChatViewController.swift */; };
+		2639535D254187F100B5E3C0 /* WalletViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2639535C254187F100B5E3C0 /* WalletViewCell.swift */; };
+		26395362254198DB00B5E3C0 /* RightDetailViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26395361254198DB00B5E3C0 /* RightDetailViewCell.xib */; };
+		2639536825419E8300B5E3C0 /* CardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2639536625419E8300B5E3C0 /* CardViewCell.swift */; };
+		2639536925419E8300B5E3C0 /* CardViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2639536725419E8300B5E3C0 /* CardViewCell.xib */; };
+		2639536F2541A38B00B5E3C0 /* FiledViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2639536D2541A38B00B5E3C0 /* FiledViewCell.swift */; };
+		263953702541A38B00B5E3C0 /* FiledViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2639536E2541A38B00B5E3C0 /* FiledViewCell.xib */; };
 		26425C16251DDF64006D2F4C /* UserBasicInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26425C15251DDF64006D2F4C /* UserBasicInformationViewController.swift */; };
 		2643EB3A2500AD7D00FBBE49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643EB392500AD7D00FBBE49 /* AppDelegate.swift */; };
 		2643EB452500AD7E00FBBE49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2643EB442500AD7E00FBBE49 /* Assets.xcassets */; };
@@ -201,6 +207,12 @@
 		26377FBD25303D2200D5A03D /* ConversationActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationActionViewController.swift; sourceTree = "<group>"; };
 		26377FC2253042E300D5A03D /* IM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IM.swift; sourceTree = "<group>"; };
 		26377FCD2530526800D5A03D /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		2639535C254187F100B5E3C0 /* WalletViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewCell.swift; sourceTree = "<group>"; };
+		26395361254198DB00B5E3C0 /* RightDetailViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RightDetailViewCell.xib; sourceTree = "<group>"; };
+		2639536625419E8300B5E3C0 /* CardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewCell.swift; sourceTree = "<group>"; };
+		2639536725419E8300B5E3C0 /* CardViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardViewCell.xib; sourceTree = "<group>"; };
+		2639536D2541A38B00B5E3C0 /* FiledViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiledViewCell.swift; sourceTree = "<group>"; };
+		2639536E2541A38B00B5E3C0 /* FiledViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FiledViewCell.xib; sourceTree = "<group>"; };
 		26425C15251DDF64006D2F4C /* UserBasicInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBasicInformationViewController.swift; sourceTree = "<group>"; };
 		2643EB362500AD7D00FBBE49 /* HotChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2643EB392500AD7D00FBBE49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -551,6 +563,12 @@
 				2668B0A72523432A0073E25D /* WalletProductViewCell.swift */,
 				2668B0A82523432A0073E25D /* WalletProductViewCell.xib */,
 				26C65FB225301737006B9B7E /* InformationCell.swift */,
+				2639535C254187F100B5E3C0 /* WalletViewCell.swift */,
+				26395361254198DB00B5E3C0 /* RightDetailViewCell.xib */,
+				2639536625419E8300B5E3C0 /* CardViewCell.swift */,
+				2639536725419E8300B5E3C0 /* CardViewCell.xib */,
+				2639536D2541A38B00B5E3C0 /* FiledViewCell.swift */,
+				2639536E2541A38B00B5E3C0 /* FiledViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -994,6 +1012,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26395362254198DB00B5E3C0 /* RightDetailViewCell.xib in Resources */,
 				26959042250B1DD900763061 /* InterestedCardOverlayView.xib in Resources */,
 				26F8946C25203B7300A45648 /* TitleViewCell.xib in Resources */,
 				267955042507637600A72954 /* Community.storyboard in Resources */,
@@ -1008,9 +1027,11 @@
 				2643EBA02500B04100FBBE49 /* Me.storyboard in Resources */,
 				2668B0A3252341F70073E25D /* WalletEnergyViewCell.xib in Resources */,
 				267954FF250761B600A72954 /* Discover.storyboard in Resources */,
+				2639536925419E8300B5E3C0 /* CardViewCell.xib in Resources */,
 				2679550A2507748C00A72954 /* UserInfoHeaderView.xib in Resources */,
 				F38CB8C62507B14700049A76 /* InfoPlist.strings in Resources */,
 				268E3E612521D074000E4A33 /* RelationshipViewCell.xib in Resources */,
+				263953702541A38B00B5E3C0 /* FiledViewCell.xib in Resources */,
 				26AE7C342520346500B55318 /* LabelViewCell.xib in Resources */,
 				2695903E250B170B00763061 /* InterestedCardView.xib in Resources */,
 			);
@@ -1195,6 +1216,7 @@
 				2643EBC02500B04100FBBE49 /* Bundle+App.swift in Sources */,
 				26A20AEF25189E740061BBB8 /* LoginManager.swift in Sources */,
 				26FC88F5253ED49000E4D82F /* SearchAPI.swift in Sources */,
+				2639536F2541A38B00B5E3C0 /* FiledViewCell.swift in Sources */,
 				26EE0E4C25245BD800233ED5 /* PayAPI.swift in Sources */,
 				267954E82507311E00A72954 /* LegalLiabilityViewController.swift in Sources */,
 				2684593925354EDB002B9C6E /* Reload.swift in Sources */,
@@ -1301,6 +1323,7 @@
 				26787E2A251B21A400D511E8 /* SignaturePlugin.swift in Sources */,
 				2643EBAD2500B04100FBBE49 /* UserInfoTagCell.swift in Sources */,
 				2643EBA22500B04100FBBE49 /* UserInfoLikeObjectViewController.swift in Sources */,
+				2639535D254187F100B5E3C0 /* WalletViewCell.swift in Sources */,
 				26AC1E4E250613B6003EFB44 /* KeychainItem.swift in Sources */,
 				26945815253FF81E00EBCABB /* UserViewCell.swift in Sources */,
 				2695903C250B16D700763061 /* InterestedCardView.swift in Sources */,
@@ -1318,6 +1341,7 @@
 				2643EBAF2500B04100FBBE49 /* UserInfoProfilePhotoCell.swift in Sources */,
 				2607319B2536DD1B00B1093C /* ReportAPI.swift in Sources */,
 				2643EBB02500B04100FBBE49 /* RealNameAuthenticationFooterView.swift in Sources */,
+				2639536825419E8300B5E3C0 /* CardViewCell.swift in Sources */,
 				26CBE3B42508A3FC0089A23C /* CommunityViewController.swift in Sources */,
 				26A731B22536D6B600CCECE5 /* ReportViewController.swift in Sources */,
 				26795506250773D700A72954 /* UserInfoEditingHeaderView.swift in Sources */,

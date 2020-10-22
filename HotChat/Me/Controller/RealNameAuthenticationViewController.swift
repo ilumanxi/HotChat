@@ -11,7 +11,11 @@ import ZLPhotoBrowser
 import MBProgressHUD
 import Kingfisher
 
-class RealNameAuthenticationViewController: UITableViewController, IndicatorDisplay {
+class RealNameAuthenticationViewController: UITableViewController, IndicatorDisplay, StoryboardCreate {
+    
+    
+    static var storyboardNamed: String { return "Me"}
+    
     
 
     fileprivate var isShowUploadCard: Bool = false {

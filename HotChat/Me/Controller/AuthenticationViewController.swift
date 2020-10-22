@@ -7,68 +7,123 @@
 //
 
 import UIKit
+import SnapKit
 
-class AuthenticationViewController: UITableViewController, IndicatorDisplay {
-    
-
-    @IBOutlet weak var realNameStatuaLabel: UILabel!
-    
-    let API = Request<UserAPI>()
+class AuthenticationViewController: UIViewController, IndicatorDisplay, LoadingStateType {
     
     
-    var authentication: Authentication! {
+    var state: LoadingState = .initial {
         didSet {
-            refreshDisplay()
+            if isViewLoaded {
+                showOrHideIndicator(loadingState: state)
+            }
         }
     }
     
+    let API = Request<UserAPI>()
+    
+    var authentication: Authentication! {
+        didSet {
+            setupSections()
+        }
+    }
+    
+    var tableView: UITableView!
+    
+    private var sections: [FormSection] = []
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       
+        title = "我的认证"
+        setupUI()
+    }
+    
+    func setupUI() {
+        tableView = UITableView(frame: .zero, style: .plain)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(UINib(nibName: "RightDetailViewCell", bundle: nil), forCellReuseIdentifier: "UITableViewCell")
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints { maker in
+            maker.edges.equalToSuperview()
+        }
+        
+    }
+    
+    func setupSections()  {
+        
+        let section = FormSection(
+            entries: [RightDetailFormEntry(image: nil, text: "实名认证", detailText: authentication.certificationStatus.description, onTapped: pushRealName)],
+            headerText: nil
+        )
+        
+        self.sections = [section]
+        
+        tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        requestData()
+        refreshData()
     }
     
-    func refreshDisplay() {
-        guard let authentication = self.authentication  else {
-            return
-        }
-        
-        realNameStatuaLabel.text = authentication.certificationStatus.description
-        tableView.reloadData()
-    }
-
-    func requestData() {
-        
+    func refreshData() {
+        state = .refreshingContent
         API.request(.userAttestationInfo, type: Response<Authentication>.self)
+            .checkResponse()
             .subscribe(onSuccess: { [weak self] response in
-                if response.isSuccessd {
-                    self?.authentication = response.data
-                }
+                self?.authentication = response.data
+                self?.state = .contentLoaded
             }, onError: { [weak self] error in
-                self?.show(error.localizedDescription)
+                self?.state = .error
             })
             .disposed(by: rx.disposeBag)
     }
+
+
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func pushRealName() {
+        let vc = RealNameAuthenticationViewController.loadFromStoryboard()
+        vc.authentication = authentication
         
-        if authentication == nil {
-            return 0
-        }
-        
-        return super.tableView(tableView, numberOfRowsInSection: section)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if let vc = segue.destination as? RealNameAuthenticationViewController {
-            vc.authentication = authentication
-        }
+        navigationController?.pushViewController(vc, animated: true)
     }
 
+}
+
+extension AuthenticationViewController: UITableViewDelegate {
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        defer {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+        
+        if let rightDetail =  sections[indexPath.section].formEntries[indexPath.row] as? RightDetailFormEntry {
+            rightDetail.onTapped?()
+        }
+    }
+    
+    
+}
+
+
+extension AuthenticationViewController: UITableViewDataSource {
+    
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sections.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return sections[section].formEntries.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        return sections[indexPath.section].formEntries[indexPath.row].cell(tableView, indexPath: indexPath)
+    }
+    
 }

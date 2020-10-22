@@ -33,6 +33,7 @@ struct Authentication: HandyJSON {
        
     }
     
+    /// 实名认证
     var certificationStatus: CertificationStatus = .unauthorized
     
     var userName: String = ""

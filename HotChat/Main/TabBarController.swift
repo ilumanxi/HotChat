@@ -27,7 +27,9 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        if LoginManager.shared.isAuthorized && !LoginManager.shared.user!.isInit {//更新用户信息
+            LoginManager.shared.autoLogin()
+        }
     }
 
 }
