@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -35,7 +36,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="X3a-fq-rsw">
                                 <rect key="frame" x="30" y="582" width="315" height="115"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DzQ-D1-5Hh" customClass="AnimatableButton" customModule="IBAnimatable">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DzQ-D1-5Hh" customClass="AnimatableButton">
                                         <rect key="frame" x="0.0" y="0.0" width="315" height="50"/>
                                         <color key="backgroundColor" red="0.32156862745098036" green="0.3529411764705882" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -973,10 +974,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="t3S-7d-b0J">
-                                                    <rect key="frame" x="257.66666666666669" y="16.666666666666668" width="101.33333333333331" height="17.000000000000004"/>
+                                                    <rect key="frame" x="267.66666666666669" y="16.666666666666668" width="91.333333333333314" height="17.000000000000004"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XKu-n9-Ime" customClass="HotChatButton" customModule="HotChat" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="32.666666666666664" height="17"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="27.666666666666668" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                             <state key="normal" title="男" image="box-unselected">
@@ -988,7 +989,7 @@
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ev4-EP-8f1" customClass="HotChatButton" customModule="HotChat" customModuleProvider="target">
-                                                            <rect key="frame" x="68.666666666666629" y="0.0" width="32.666666666666657" height="17"/>
+                                                            <rect key="frame" x="63.666666666666622" y="0.0" width="27.666666666666664" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                             <state key="normal" title="女" image="box-unselected">
@@ -1185,6 +1186,107 @@
             </objects>
             <point key="canvasLocation" x="4252" y="944"/>
         </scene>
+        <!--For You View Controller-->
+        <scene sceneID="z27-6h-hVz">
+            <objects>
+                <viewController storyboardIdentifier="ForYouViewController" id="l5S-Y9-sro" customClass="ForYouViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kDE-p9-FUB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择你喜欢的女生" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XvP-ij-F8X">
+                                <rect key="frame" x="122.33333333333333" y="109" width="130.66666666666669" height="19.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eMF-KS-Mye">
+                                <rect key="frame" x="0.0" y="152.33333333333331" width="375" height="551.66666666666674"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aPj-cq-ViV">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ForYouCell" id="dd5-wf-B1G" customClass="ForYouCell" customModule="HotChat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="bvh-rK-7oj">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fYO-FG-tRx">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                    <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                                </imageView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="for-you-unselected" highlightedImage="for-you-selected" translatesAutoresizingMaskIntoConstraints="NO" id="NSK-g2-Qrg">
+                                                    <rect key="frame" x="110.33333333333333" y="4.9999999999999991" width="12.666666666666671" height="12.666666666666664"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="fYO-FG-tRx" secondAttribute="trailing" id="2T1-ng-o8v"/>
+                                                <constraint firstAttribute="trailing" secondItem="NSK-g2-Qrg" secondAttribute="trailing" constant="5" id="3gc-fg-T6z"/>
+                                                <constraint firstItem="NSK-g2-Qrg" firstAttribute="top" secondItem="bvh-rK-7oj" secondAttribute="top" constant="5" id="FdA-8J-uFC"/>
+                                                <constraint firstAttribute="bottom" secondItem="fYO-FG-tRx" secondAttribute="bottom" id="OPe-JS-fSv"/>
+                                                <constraint firstItem="fYO-FG-tRx" firstAttribute="top" secondItem="bvh-rK-7oj" secondAttribute="top" id="UiD-zQ-u5E"/>
+                                                <constraint firstItem="fYO-FG-tRx" firstAttribute="leading" secondItem="bvh-rK-7oj" secondAttribute="leading" id="gqx-l6-WHf"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="avatarImageView" destination="fYO-FG-tRx" id="kmH-9r-Vu5"/>
+                                            <outlet property="boxImageView" destination="NSK-g2-Qrg" id="1j7-CZ-dmV"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="l5S-Y9-sro" id="Dln-tu-qCK"/>
+                                    <outlet property="delegate" destination="l5S-Y9-sro" id="vDB-Hh-a6f"/>
+                                </connections>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T6m-RP-Kgy" customClass="AnimatableButton">
+                                <rect key="frame" x="30" y="728" width="315" height="50"/>
+                                <color key="backgroundColor" red="0.31764705882352939" green="0.34901960784313724" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Ffw-hf-jQW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="关注并进入首页"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="followButtonTapped:" destination="l5S-Y9-sro" eventType="touchUpInside" id="cFQ-Y7-UZI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fL8-Un-ro0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="XvP-ij-F8X" firstAttribute="centerX" secondItem="kDE-p9-FUB" secondAttribute="centerX" id="9Cp-qw-h5S"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="T6m-RP-Kgy" secondAttribute="bottom" constant="34" id="CAT-gO-nHf"/>
+                            <constraint firstItem="XvP-ij-F8X" firstAttribute="top" secondItem="fL8-Un-ro0" secondAttribute="top" constant="65" id="CPi-Vo-GzU"/>
+                            <constraint firstItem="eMF-KS-Mye" firstAttribute="leading" secondItem="fL8-Un-ro0" secondAttribute="leading" id="CVx-vT-H5d"/>
+                            <constraint firstItem="eMF-KS-Mye" firstAttribute="top" secondItem="XvP-ij-F8X" secondAttribute="bottom" constant="24" id="I9c-CR-eBL"/>
+                            <constraint firstItem="fL8-Un-ro0" firstAttribute="trailing" secondItem="eMF-KS-Mye" secondAttribute="trailing" id="J2x-ZM-JAF"/>
+                            <constraint firstItem="T6m-RP-Kgy" firstAttribute="top" secondItem="eMF-KS-Mye" secondAttribute="bottom" constant="24" id="Kuj-G8-R0F"/>
+                            <constraint firstItem="fL8-Un-ro0" firstAttribute="trailing" secondItem="T6m-RP-Kgy" secondAttribute="trailing" constant="30" id="NK6-6q-atN"/>
+                            <constraint firstItem="fL8-Un-ro0" firstAttribute="bottom" secondItem="T6m-RP-Kgy" secondAttribute="bottom" priority="900" id="Qhi-h0-8ZU"/>
+                            <constraint firstItem="T6m-RP-Kgy" firstAttribute="leading" secondItem="fL8-Un-ro0" secondAttribute="leading" constant="30" id="vz3-MQ-se6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="eMF-KS-Mye" id="6ca-XL-bWw"/>
+                        <outlet property="titleLabel" destination="XvP-ij-F8X" id="CcR-v0-VVg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fuR-9P-mqS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5221.6000000000004" y="986.45320197044339"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="1m7-2g-BoJ">
@@ -1199,6 +1301,9 @@
         <designable name="HqQ-Oc-JE8">
             <size key="intrinsicContentSize" width="33" height="32"/>
         </designable>
+        <designable name="T6m-RP-Kgy">
+            <size key="intrinsicContentSize" width="115" height="32"/>
+        </designable>
         <designable name="Uxi-vW-6XW">
             <size key="intrinsicContentSize" width="30" height="29"/>
         </designable>
@@ -1206,7 +1311,7 @@
             <size key="intrinsicContentSize" width="375" height="35"/>
         </designable>
         <designable name="XKu-n9-Ime">
-            <size key="intrinsicContentSize" width="32.666666666666671" height="17"/>
+            <size key="intrinsicContentSize" width="32.666666666666664" height="17"/>
         </designable>
         <designable name="Zi1-po-Lps">
             <size key="intrinsicContentSize" width="66" height="32"/>
@@ -1215,7 +1320,7 @@
             <size key="intrinsicContentSize" width="82" height="32"/>
         </designable>
         <designable name="ev4-EP-8f1">
-            <size key="intrinsicContentSize" width="32.666666666666671" height="17"/>
+            <size key="intrinsicContentSize" width="32.666666666666664" height="17"/>
         </designable>
         <designable name="ope-2p-YYa">
             <size key="intrinsicContentSize" width="49" height="33"/>
@@ -1229,6 +1334,8 @@
         <image name="add-gray" width="25" height="25"/>
         <image name="box-selected" width="12.666666984558105" height="12.666666984558105"/>
         <image name="box-unselected" width="12.666666984558105" height="12.666666984558105"/>
+        <image name="for-you-selected" width="12.666666984558105" height="12.666666984558105"/>
+        <image name="for-you-unselected" width="12.666666984558105" height="12.666666984558105"/>
         <image name="form-submit-succeed" width="91" height="91"/>
         <image name="launch-logo" width="40" height="40"/>
         <systemColor name="systemBackgroundColor">

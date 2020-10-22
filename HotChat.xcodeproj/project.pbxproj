@@ -126,6 +126,8 @@
 		26AE7C342520346500B55318 /* LabelViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26AE7C332520346500B55318 /* LabelViewCell.xib */; };
 		26BB187D2522F5810019BBFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2643EB412500AD7D00FBBE49 /* Main.storyboard */; };
 		26C31F2625403A9E0000D09D /* ReportUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C31F2525403A9E0000D09D /* ReportUserViewController.swift */; };
+		26C31F2B25404D280000D09D /* ForYouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C31F2A25404D280000D09D /* ForYouViewController.swift */; };
+		26C31F3025404FE90000D09D /* ForYouCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C31F2F25404FE90000D09D /* ForYouCell.swift */; };
 		26C65FAE25300C47006B9B7E /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C65FAD25300C47006B9B7E /* InformationViewController.swift */; };
 		26C65FB325301737006B9B7E /* InformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C65FB225301737006B9B7E /* InformationCell.swift */; };
 		26CA6EDD2538215D0023E27B /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CA6EDC2538215D0023E27B /* Channel.swift */; };
@@ -320,6 +322,8 @@
 		26AE7C332520346500B55318 /* LabelViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelViewCell.xib; sourceTree = "<group>"; };
 		26BB186F2522F4B50019BBFD /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		26C31F2525403A9E0000D09D /* ReportUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportUserViewController.swift; sourceTree = "<group>"; };
+		26C31F2A25404D280000D09D /* ForYouViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouViewController.swift; sourceTree = "<group>"; };
+		26C31F2F25404FE90000D09D /* ForYouCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouCell.swift; sourceTree = "<group>"; };
 		26C65FAD25300C47006B9B7E /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		26C65FB225301737006B9B7E /* InformationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCell.swift; sourceTree = "<group>"; };
 		26CA6EDC2538215D0023E27B /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
@@ -599,6 +603,7 @@
 			children = (
 				26AC1E4B25060D27003EFB44 /* LoginViewController.swift */,
 				267954E72507311E00A72954 /* LegalLiabilityViewController.swift */,
+				26C31F2A25404D280000D09D /* ForYouViewController.swift */,
 				267954EB2507327B00A72954 /* SignupViewController.swift */,
 				26AC1E5125062568003EFB44 /* PhoneSigninViewController.swift */,
 				265C8A49251348E200E220BD /* ForgotPasswordViewController.swift */,
@@ -613,6 +618,7 @@
 			isa = PBXGroup;
 			children = (
 				26AC1E5325062D62003EFB44 /* LegalLiabilityToolBar.swift */,
+				26C31F2F25404FE90000D09D /* ForYouCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1209,6 +1215,7 @@
 				2643EBBB2500B04100FBBE49 /* BaseNavigationController.swift in Sources */,
 				268458F025345352002B9C6E /* MediaViewCell.swift in Sources */,
 				26808FE12519D5BE00C9803C /* Constant.swift in Sources */,
+				26C31F3025404FE90000D09D /* ForYouCell.swift in Sources */,
 				2643EBA72500B04100FBBE49 /* RealNameAuthenticationViewController.swift in Sources */,
 				26E14E5E251C6E8800645F08 /* HotChatButton.swift in Sources */,
 				265C8A63251352A800E220BD /* ForgotPasswordProtocols.swift in Sources */,
@@ -1286,6 +1293,7 @@
 				2643EBB22500B04100FBBE49 /* UserInfoLikeObjectCell.swift in Sources */,
 				260B96162521F2F400767076 /* AuthenticationViewController.swift in Sources */,
 				26373C75250234AC0066FF3B /* Delegate.swift in Sources */,
+				26C31F2B25404D280000D09D /* ForYouViewController.swift in Sources */,
 				26CA6EE7253829A70023E27B /* ChannelViewController.swift in Sources */,
 				26787E2F251B228200D511E8 /* AccountPlugin.swift in Sources */,
 				26959040250B1D9400763061 /* InterestedCardOverlayView.swift in Sources */,

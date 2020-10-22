@@ -11,8 +11,16 @@ import MBProgressHUD
 
 
 
-class UserInfoLikeObjectViewController: UIViewController, IndicatorDisplay {
+class UserInfoLikeObjectViewController: UIViewController, IndicatorDisplay, LoadingStateType {
     
+    
+    var state: LoadingState = .initial {
+        didSet {
+            if isViewLoaded {
+                showOrHideIndicator(loadingState: state)
+            }
+        }
+    }
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -30,34 +38,45 @@ class UserInfoLikeObjectViewController: UIViewController, IndicatorDisplay {
     
     var labels: [LikeTag] = []
     
+    var sex: Sex = .male
+    
+    
+    
+    @IBOutlet weak var titleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        if sex == .male {
+            titleLabel.text = "你想遇上什么样的女生"
+        }
+        else {
+            titleLabel.text = "请选择你的类型"
+        }
         
         collectionViewGridLayout.itemHeight = 28
         collectionViewGridLayout.itemInterval = 10
         collectionViewGridLayout.itemLineInterval = 10
         collectionViewGridLayout.sectionInsert = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         
-        let hub = MBProgressHUD.showAdded(to: view, animated: true)
-        
+        refreshData()
+    }
+    
+    func refreshData() {
+        state = (state == .initial) ? .loadingContent : .refreshingContent
         userAPI.request(.userConfig(type: 1), type: Response<[LikeTag]>.self)
+            .checkResponse()
             .subscribe(onSuccess: { [weak self] response in
-                if response.isSuccessd {
-                    self?.labels = response.data!
-                    self?.collectionView.reloadData()
-                } else {
-                    self?.show(response.msg)
-                }
-                hub.hide(animated: true)
+                self?.labels = response.data!
+                self?.collectionView.reloadData()
+                self?.state = .contentLoaded
+                
             }, onError: { [weak self]  error in
+                self?.state = .error
                 self?.show(error.localizedDescription)
-                hub.hide(animated: true)
             })
             .disposed(by: rx.disposeBag)
-
     }
     
 }
@@ -125,18 +144,15 @@ extension UserInfoLikeObjectViewController: UICollectionViewDelegate, UICollecti
             "label" : label
         ]
         
-        let hub = MBProgressHUD.showAdded(to: view, animated: true)
+        showIndicator()
         userAPI.request(.editUser(value: params), type: Response<User>.self)
+            .checkResponse()
             .subscribe(onSuccess: { [weak self] response in
-                if response.isSuccessd {
-                    self?.onUpdated.call(response.data!)
-                } else {
-                    self?.show(response.msg)
-                }
-                hub.hide(animated: true)
+                self?.onUpdated.call(response.data!)
+                self?.hideIndicator()
             }, onError: { [weak self]  error in
+                self?.hideIndicator()
                 self?.show(error.localizedDescription)
-                hub.hide(animated: true)
             })
             .disposed(by: rx.disposeBag)
     }

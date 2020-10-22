@@ -31,6 +31,7 @@ enum UserAPI {
     case amountList(type: Int)
     
     case remark(friendNick: String, userId: String)
+    case batchFollow(followList: [Any])
 }
 
 
@@ -65,6 +66,8 @@ extension UserAPI: TargetType {
             return "user/delPhoto"
         case .remark:
             return "User/editFriend"
+        case .batchFollow:
+            return "Follow/batchFollow"
         }
     }
     
@@ -116,6 +119,8 @@ extension UserAPI: TargetType {
                 "friendNick" : friendNick,
                 "userId" : userId
             ]
+        case .batchFollow(let followList):
+            parameters =  ["followList" : followList]
         }
         
         return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)

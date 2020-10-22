@@ -54,7 +54,7 @@ class UserInformationViewController: UITableViewController, IndicatorDisplay, St
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        navigationItem.hidesBackButton = true
         updateBirthdayDisplay()
     }
     
@@ -144,8 +144,13 @@ class UserInformationViewController: UITableViewController, IndicatorDisplay, St
             }
         }
         else if let vc = segue.destination as? UserInfoLikeObjectViewController {
+            vc.title = nil
+            vc.navigationItem.title = nil
+            vc.navigationItem.hidesBackButton = true
+            vc.sex = sex
             vc.onUpdated.delegate(on: self) { (self, _) in
-                UIApplication.shared.keyWindow?.setMainViewController()
+                let vc = ForYouViewController.loadFromStoryboard()
+                self.navigationController?.pushViewController(vc, animated: true)
             }
         }
     }

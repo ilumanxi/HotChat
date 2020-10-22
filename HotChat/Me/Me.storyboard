@@ -91,19 +91,19 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="L0c-dR-Rc2">
-                                                    <rect key="frame" x="106" y="17" width="89" height="54.5"/>
+                                                    <rect key="frame" x="106" y="-0.5" width="113" height="89"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="9ly-3B-ZFM">
-                                                            <rect key="frame" x="0.0" y="0.0" width="89" height="25.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="89" height="26"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="风起兮" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBl-2Q-dUM">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="64.5" height="25.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="64.5" height="26"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cw6-LF-vrM">
-                                                                    <rect key="frame" x="76.5" y="1.5" width="12.5" height="22"/>
+                                                                    <rect key="frame" x="76.5" y="2" width="12.5" height="22"/>
                                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <state key="normal" image="me-edit">
                                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -115,10 +115,10 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Fbe-XS-0z5">
-                                                            <rect key="frame" x="0.0" y="38.5" width="77" height="16"/>
+                                                            <rect key="frame" x="0.0" y="39" width="113" height="50"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CaK-gA-Efm" customClass="LabelView" customModule="HotChat" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="32" height="16"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                                     <color key="backgroundColor" red="0.56862745098039214" green="0.82352941176470584" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="image" keyPath="image" value="me-sex-man"/>
@@ -126,7 +126,7 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fvU-8j-pCb" customClass="LabelView" customModule="HotChat" customModuleProvider="target">
-                                                                    <rect key="frame" x="45" y="0.0" width="32" height="16"/>
+                                                                    <rect key="frame" x="63" y="0.0" width="50" height="50"/>
                                                                     <color key="backgroundColor" red="0.43137254901960786" green="0.87058823529411766" blue="0.63137254901960782" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="image" keyPath="image" value="me-attention"/>
@@ -2754,6 +2754,7 @@
                     <connections>
                         <outlet property="collectionView" destination="SVn-pw-C6X" id="fFo-Jc-vZl"/>
                         <outlet property="collectionViewGridLayout" destination="Yk1-ir-08P" id="duO-NH-nFe"/>
+                        <outlet property="titleLabel" destination="Bdh-tW-HA4" id="vVC-Ic-fmi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mqi-LW-vrm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2925,12 +2926,6 @@
     <designables>
         <designable name="BhR-56-whh">
             <size key="intrinsicContentSize" width="37" height="34"/>
-        </designable>
-        <designable name="CaK-gA-Efm">
-            <size key="intrinsicContentSize" width="32" height="16"/>
-        </designable>
-        <designable name="fvU-8j-pCb">
-            <size key="intrinsicContentSize" width="32" height="16"/>
         </designable>
         <designable name="g9f-Qc-N1f">
             <size key="intrinsicContentSize" width="58" height="29"/>

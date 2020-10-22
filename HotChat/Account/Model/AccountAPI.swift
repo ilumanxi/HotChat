@@ -28,6 +28,7 @@ enum AccountAPI {
     case resetPassword(phone: String, password: String, code: String)
     case editUser(headPic: String, sex: Int, nick: String, birthday: Int)
     case labelList
+    case recommendList
 }
 
 extension AccountAPI: TargetType {
@@ -57,6 +58,8 @@ extension AccountAPI: TargetType {
             return "login/labelList"
         case .logout:
             return "login/quit"
+        case .recommendList:
+            return "login/recommendList"
         }
 
     }
@@ -131,6 +134,8 @@ extension AccountAPI: TargetType {
         case .labelList:
             parameters = [:]
         case .logout:
+            parameters = [:]
+        case .recommendList:
             parameters = [:]
         }
         
