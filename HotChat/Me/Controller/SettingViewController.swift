@@ -8,7 +8,11 @@
 
 import UIKit
 
-class SettingViewController: UITableViewController {
+class SettingViewController: UITableViewController, StoryboardCreate {
+    
+    
+    static var storyboardNamed: String { return "Me" }
+    
     
     
     let API = Request<AccountAPI>()

@@ -142,7 +142,7 @@ class MeViewController: UITableViewController, Autorotate {
                  RightDetailFormEntry(image: UIImage(named: "me-authentication"), text: "认证", onTapped: pushAuthentication),
                  RightDetailFormEntry(image: UIImage(named: "me-notification"), text: "通知", detailText: "未开启"),
                  RightDetailFormEntry(image: UIImage(named: "me-help"), text: "帮助"),
-                 RightDetailFormEntry(image: UIImage(named: "me-setting"), text: "设置")
+                 RightDetailFormEntry(image: UIImage(named: "me-setting"), text: "设置", onTapped: pushSetting)
              ],
              headerText: nil
          )
@@ -191,6 +191,12 @@ class MeViewController: UITableViewController, Autorotate {
     
     func pushWallet()  {
         let vc = WalletViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func pushSetting() {
+        
+        let vc = SettingViewController.loadFromStoryboard()
         navigationController?.pushViewController(vc, animated: true)
     }
     
