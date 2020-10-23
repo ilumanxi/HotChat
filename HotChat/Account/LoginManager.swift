@@ -138,7 +138,7 @@ class LoginManager: NSObject {
     
     func logout() {
         user = nil
-        try! storage.removeObject(forKey: userCacheKey)
+        try? storage.removeObject(forKey: userCacheKey)
         
         V2TIMManager.sharedInstance()?.logout({
             TUILocalStorage.sharedInstance().logout()
