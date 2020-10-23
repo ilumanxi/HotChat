@@ -13,7 +13,7 @@ import Reusable
 import Photos
 
 
-func writeImage(_ image: UIImage) -> URL! {
+func writeImage(_ image: UIImage) -> URL {
     
     let fileName =  ProcessInfo.processInfo.globallyUniqueString.appending(".png").replacingOccurrences(of: "-", with: "")
     let fileURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
@@ -209,7 +209,7 @@ class ProfilePhoto: FormEntry {
         let imagePickerController = ZLPhotoPreviewSheet(selectedAssets: [])
         imagePickerController.selectImageBlock = { [weak self] (images, assets, isOriginal) in
             if let image = images.first {
-                let imageURL = writeImage(image)!
+                let imageURL = writeImage(image)
                 self?.onImageUpdated.call(imageURL)
             }
             debugPrint("\(images)   \(assets)   \(isOriginal)")
@@ -340,7 +340,7 @@ extension PhotoAlbum: UICollectionViewDelegate, UICollectionViewDataSource, UICo
          if indexPath.item == medias.count { // add photo
             imagePicker { [weak self] images, _, _ in
                 if let image = images.first {
-                    let imageURL = writeImage(image)!
+                    let imageURL = writeImage(image)
                     self?.onImageAdded.call(imageURL)
                 }
             }
@@ -353,7 +353,7 @@ extension PhotoAlbum: UICollectionViewDelegate, UICollectionViewDataSource, UICo
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                         self?.imagePicker{ [weak self] images, _, _ in
                             if let image = images.first {
-                                let imageURL = writeImage(image)!
+                                let imageURL = writeImage(image)
                                 self?.onImageChanged.call((imageURL, indexPath.item))
                             }
                         }

@@ -84,10 +84,19 @@ class AuthenticationViewController: UIViewController, IndicatorDisplay, LoadingS
 
     
     func pushRealName() {
-        let vc = RealNameAuthenticationViewController.loadFromStoryboard()
-        vc.authentication = authentication
         
-        navigationController?.pushViewController(vc, animated: true)
+        
+        if LoginManager.shared.user!.sex! == .female  {
+            let vc = AnchorAuthenticationViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        else {
+            let vc = RealNameAuthenticationViewController.loadFromStoryboard()
+            vc.authentication = authentication
+            
+            navigationController?.pushViewController(vc, animated: true)
+        }
+
     }
 
 }

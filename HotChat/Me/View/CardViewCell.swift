@@ -9,16 +9,19 @@
 import UIKit
 
 class CardViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+    
+    
+    @IBOutlet weak var exampleImageView: UIImageView!
+    
+    
+    @IBOutlet weak var exampleLabel: UILabel!
+    
+    @IBOutlet weak var cardImageView: UIImageView!
+    
+    
+    @IBOutlet weak var cardLabel: UILabel!
+    
+    
+    @IBOutlet weak var cardButton: UIButton!
     
 }

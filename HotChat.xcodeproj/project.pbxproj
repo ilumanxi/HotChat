@@ -134,6 +134,8 @@
 		26C31F2625403A9E0000D09D /* ReportUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C31F2525403A9E0000D09D /* ReportUserViewController.swift */; };
 		26C31F2B25404D280000D09D /* ForYouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C31F2A25404D280000D09D /* ForYouViewController.swift */; };
 		26C31F3025404FE90000D09D /* ForYouCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C31F2F25404FE90000D09D /* ForYouCell.swift */; };
+		26C3F3302542764F00CDD533 /* AnchorAuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C3F32E2542764F00CDD533 /* AnchorAuthenticationViewController.swift */; };
+		26C3F3312542764F00CDD533 /* AnchorAuthenticationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26C3F32F2542764F00CDD533 /* AnchorAuthenticationViewController.xib */; };
 		26C65FAE25300C47006B9B7E /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C65FAD25300C47006B9B7E /* InformationViewController.swift */; };
 		26C65FB325301737006B9B7E /* InformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C65FB225301737006B9B7E /* InformationCell.swift */; };
 		26CA6EDD2538215D0023E27B /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CA6EDC2538215D0023E27B /* Channel.swift */; };
@@ -155,6 +157,7 @@
 		26F25C932509C36B00F808EA /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F25C922509C36B00F808EA /* TabBarButton.swift */; };
 		26F25C96250A1B3800F808EA /* SeparatorLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F25C95250A1B3800F808EA /* SeparatorLine.swift */; };
 		26F25C98250A359300F808EA /* InterestedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F25C97250A359300F808EA /* InterestedViewController.swift */; };
+		26F70FFF2542B3A900797E87 /* AuthenticationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F70FFE2542B3A900797E87 /* AuthenticationAPI.swift */; };
 		26F889352531854B001A14F2 /* TextInputViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F889342531854B001A14F2 /* TextInputViewCell.swift */; };
 		26F8893A25318681001A14F2 /* DynamicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8893925318681001A14F2 /* DynamicViewController.swift */; };
 		26F8893F253187BD001A14F2 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8893E253187BD001A14F2 /* Dynamic.swift */; };
@@ -336,6 +339,8 @@
 		26C31F2525403A9E0000D09D /* ReportUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportUserViewController.swift; sourceTree = "<group>"; };
 		26C31F2A25404D280000D09D /* ForYouViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouViewController.swift; sourceTree = "<group>"; };
 		26C31F2F25404FE90000D09D /* ForYouCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouCell.swift; sourceTree = "<group>"; };
+		26C3F32E2542764F00CDD533 /* AnchorAuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorAuthenticationViewController.swift; sourceTree = "<group>"; };
+		26C3F32F2542764F00CDD533 /* AnchorAuthenticationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnchorAuthenticationViewController.xib; sourceTree = "<group>"; };
 		26C65FAD25300C47006B9B7E /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		26C65FB225301737006B9B7E /* InformationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCell.swift; sourceTree = "<group>"; };
 		26CA6EDC2538215D0023E27B /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
@@ -360,6 +365,7 @@
 		26F25C922509C36B00F808EA /* TabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
 		26F25C95250A1B3800F808EA /* SeparatorLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorLine.swift; sourceTree = "<group>"; };
 		26F25C97250A359300F808EA /* InterestedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestedViewController.swift; sourceTree = "<group>"; };
+		26F70FFE2542B3A900797E87 /* AuthenticationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationAPI.swift; sourceTree = "<group>"; };
 		26F889342531854B001A14F2 /* TextInputViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputViewCell.swift; sourceTree = "<group>"; };
 		26F8893925318681001A14F2 /* DynamicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicViewController.swift; sourceTree = "<group>"; };
 		26F8893E253187BD001A14F2 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
@@ -503,6 +509,7 @@
 				26373C71250233F50066FF3B /* Model */,
 				2643EB7E2500B04100FBBE49 /* View */,
 				26F8947525207A9A00A45648 /* UploadFileAPI.swift */,
+				26F70FFE2542B3A900797E87 /* AuthenticationAPI.swift */,
 				26EE0E4B25245BD800233ED5 /* PayAPI.swift */,
 			);
 			path = Me;
@@ -529,6 +536,8 @@
 				260B96152521F2F400767076 /* AuthenticationViewController.swift */,
 				2668B09B25233C410073E25D /* WalletViewController.swift */,
 				26C65FAD25300C47006B9B7E /* InformationViewController.swift */,
+				26C3F32E2542764F00CDD533 /* AnchorAuthenticationViewController.swift */,
+				26C3F32F2542764F00CDD533 /* AnchorAuthenticationViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1012,6 +1021,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26C3F3312542764F00CDD533 /* AnchorAuthenticationViewController.xib in Resources */,
 				26395362254198DB00B5E3C0 /* RightDetailViewCell.xib in Resources */,
 				26959042250B1DD900763061 /* InterestedCardOverlayView.xib in Resources */,
 				26F8946C25203B7300A45648 /* TitleViewCell.xib in Resources */,
@@ -1220,6 +1230,7 @@
 				26EE0E4C25245BD800233ED5 /* PayAPI.swift in Sources */,
 				267954E82507311E00A72954 /* LegalLiabilityViewController.swift in Sources */,
 				2684593925354EDB002B9C6E /* Reload.swift in Sources */,
+				26C3F3302542764F00CDD533 /* AnchorAuthenticationViewController.swift in Sources */,
 				26CA6EE2253825920023E27B /* DiscoverAPI.swift in Sources */,
 				265C8A5B25134C3500E220BD /* ForgotPasswordViewModel.swift in Sources */,
 				26F8947B252083B800A45648 /* LabelView.swift in Sources */,
@@ -1234,6 +1245,7 @@
 				268458F525354481002B9C6E /* LoadingState.swift in Sources */,
 				2643EBCA2500DBF500FBBE49 /* MeRelationshipViewController.swift in Sources */,
 				2643EBA82500B04100FBBE49 /* PushSettingsDetailViewController.swift in Sources */,
+				26F70FFF2542B3A900797E87 /* AuthenticationAPI.swift in Sources */,
 				2643EBBB2500B04100FBBE49 /* BaseNavigationController.swift in Sources */,
 				268458F025345352002B9C6E /* MediaViewCell.swift in Sources */,
 				26808FE12519D5BE00C9803C /* Constant.swift in Sources */,

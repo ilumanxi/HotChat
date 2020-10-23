@@ -44,4 +44,6 @@ struct Authentication: HandyJSON {
     
     var identityPicFan: String = ""
     
+    var handIdentityPic: String = ""
+    
 }

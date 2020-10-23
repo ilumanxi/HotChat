@@ -9,7 +9,13 @@
 import UIKit
 
 class FiledViewCell: UITableViewCell {
-
+    
+    
+    @IBOutlet weak var fieldTextLabel: UILabel!
+    
+    
+    @IBOutlet weak var textField: UITextField!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

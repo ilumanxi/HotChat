@@ -9,9 +9,18 @@
 import UIKit
 
 struct Media {
-    var remote: URL
+    var remote: URL?
     var local: URL?
     
+    var display: URL? {
+        if local != nil {
+            return local
+        }
+        else {
+            return remote
+        }
+        
+    }
 }
 
 extension Media {
@@ -154,7 +163,7 @@ class DynamicViewController: UITableViewController, IndicatorDisplay {
         
         let mediaList = medias
             .compactMap {
-                ["picUrl": $0.remote.absoluteString]
+                ["picUrl": $0.remote!.absoluteString]
             }
         
         if medias.first!.isImage {

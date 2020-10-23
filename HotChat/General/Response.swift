@@ -37,7 +37,7 @@ struct Response<T: HandyJSON>: HandyJSON, State {
         if isSuccessd {
             return nil
         }
-        return HotChatError.generalError(reason: .conversionError(string: msg, encoding: .utf8))
+        return NSError(domain: "HotChatError", code: 1, userInfo: [NSLocalizedDescriptionKey: msg])
     }
 }
 
