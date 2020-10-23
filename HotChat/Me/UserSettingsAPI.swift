@@ -7,10 +7,12 @@
 //
 
 import Moya
+import CoreLocation
 
 enum UserSettingsAPI {
     case infoSettings
     case editSettings(type: Int,value: Int)
+    case location(CLLocation)
 }
 
 
@@ -26,6 +28,8 @@ extension UserSettingsAPI: TargetType {
             return "UserSettings/infoSettings"
         case .editSettings:
             return "UserSettings/editSettings"
+        case .location:
+            return "UserSettings/baiduMap"
         }
     }
     
@@ -48,6 +52,11 @@ extension UserSettingsAPI: TargetType {
             parameters = [
                 "type" : type,
                 "value" : value
+            ]
+        case .location(let location):
+            parameters = [
+                "lat" : location.coordinate.latitude.description,
+                "lng" : location.coordinate.longitude.description
             ]
         }
         

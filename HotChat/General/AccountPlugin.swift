@@ -8,6 +8,18 @@
 
 import Moya
 
+/*
+ 
+ deviceType:操作系统：1安卓 2 IOS
+ appVersion:app版本
+ phoneModel:手机型号
+ longitude：地理位置：经度
+ latitude：地理位置：纬度
+ channelId:推送设备ID
+
+
+ */
+
 final class AccountPlugin {
     
     let jsonDecoder = JSONDecoder()
@@ -48,12 +60,39 @@ extension AccountPlugin: PluginType {
     
     func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
     
+        return setHTTPHeaderFields(request)
+        
+    }
+    
+    func setHTTPHeaderFields(_ request: URLRequest) -> URLRequest {
         var request = request
+        request.setValue(Bundle.main.appVersion, forHTTPHeaderField: "appVersion")
+        var systemInfo = utsname()
+        uname(&systemInfo)
+               
+        let phoneModel = withUnsafePointer(to: &systemInfo.machine.0) { ptr in
+            return String(cString: ptr)
+        }
+        
+        request.setValue(phoneModel, forHTTPHeaderField: "phoneModel")
+        
+        request.setValue(Constant.pushChannelId, forHTTPHeaderField: "channelId")
+        
+        request.setValue("2", forHTTPHeaderField: "deviceType")
+        
         if let token = LoginManager.shared.user?.token {
             request.setValue(token, forHTTPHeaderField: tokenKey)
         }
-        return request
         
+        if let location = LoginManager.shared.location {
+            
+            request.setValue(location.coordinate.longitude.description, forHTTPHeaderField: "longitude")
+            request.setValue(location.coordinate.latitude.description, forHTTPHeaderField: "latitude")
+            
+        }
+
+        
+        return request
     }
     
     func didReceive(_ result: Result<Moya.Response, MoyaError>, target: TargetType) {

@@ -10,6 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 import Cache
+import RxCoreLocation
 
 typealias TokenType = LoginManager.Parameters.TokenIdentifier
 
@@ -42,6 +43,37 @@ class LoginManager: NSObject {
 
     
     private(set) var user: User?
+    
+    let manager = CLLocationManager()
+    
+    private(set) var location: CLLocation?
+    
+    let userSettingsAPI = Request<UserSettingsAPI>()
+    
+    func getLocation(block: @escaping (CLLocation?) -> Void) {
+        
+        manager.requestAlwaysAuthorization()
+        manager.startUpdatingLocation()
+        
+        manager.rx
+            .location
+            .subscribe(onNext: { [weak self] location in
+
+                self?.manager.stopUpdatingLocation()
+                if let location = location {
+                    self?.location = location
+                    self?.uploadLocation(location)
+                }
+                block(location)
+            })
+            .disposed(by: rx.disposeBag)
+    }
+    
+    private func uploadLocation (_ location: CLLocation) {
+        userSettingsAPI.request(.location(location), type: ResponseEmpty.self)
+            .subscribe(onSuccess: nil, onError: nil)
+            .disposed(by: rx.disposeBag)
+    }
     
     private let userCacheKey = "sharedUser"
     

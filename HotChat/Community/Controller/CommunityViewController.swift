@@ -66,6 +66,14 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
         
         state = .loadingContent
         collectionView.mj_header?.beginRefreshing()
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            LoginManager.shared.getLocation { _ in
+                
+            }
+
+        }
       
     }
     

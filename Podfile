@@ -22,6 +22,7 @@ target 'HotChat' do
     pod 'NSObject+Rx'
     pod 'RxReachability'
     pod 'RxSwiftUtilities'
+    pod 'RxCoreLocation'
     pod 'CryptoSwift'
     pod 'DynamicColor'
     pod 'HandyJSON', "~> 5.0.3-beta"

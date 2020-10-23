@@ -53,6 +53,10 @@
 	<string></string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string></string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>附近需要地址位置信息</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>附近需要地址位置信息</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
