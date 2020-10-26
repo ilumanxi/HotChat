@@ -9,7 +9,7 @@
 import UIKit
 import SPAlertController
 
-class ChatViewController: TUIChatController {
+class ChatViewController2: ChatController {
     
     var conversationData: TUIConversationCellData!
     override init!(conversation conversationData: TUIConversationCellData!) {
@@ -121,22 +121,22 @@ class ChatViewController: TUIChatController {
 
 }
 
-extension ChatViewController: TUIChatControllerDelegate {
+extension ChatViewController2: ChatControllerDelegate {
     
     
-    func chatController(_ controller: TUIChatController!, didSendMessage msgCellData: TUIMessageCellData!) {
+    func chatController(_ controller: ChatController!, didSendMessage msgCellData: TUIMessageCellData!) {
 
     }
     
-    func chatController(_ controller: TUIChatController!, onNewMessage msg: V2TIMMessage!) -> TUIMessageCellData! {
+    func chatController(_ controller: ChatController!, onNewMessage msg: V2TIMMessage!) -> TUIMessageCellData! {
         return nil
     }
     
-    func chatController(_ controller: TUIChatController!, onShowMessageData cellData: TUIMessageCellData!) -> TUIMessageCell! {
+    func chatController(_ controller: ChatController!, onShowMessageData cellData: TUIMessageCellData!) -> TUIMessageCell! {
         return nil
     }
     
-    func chatController(_ chatController: TUIChatController!, onSelect cell: TUIInputMoreCell!) {
+    func chatController(_ chatController: ChatController!, onSelect cell: TUIInputMoreCell!) {
         if cell.data.title == video.title {
             CallManager.shareInstance()?.call(self.conversationData.groupID, userID: self.conversationData.userID, callType: .video)
         }
@@ -145,11 +145,11 @@ extension ChatViewController: TUIChatControllerDelegate {
         }
     }
     
-    func chatController(_ controller: TUIChatController!, onSelectMessageAvatar cell: TUIMessageCell!) {
+    func chatController(_ controller: ChatController!, onSelectMessageAvatar cell: TUIMessageCell!) {
         
     }
     
-    func chatController(_ controller: TUIChatController!, onSelectMessageContent cell: TUIMessageCell!) {
+    func chatController(_ controller: ChatController!, onSelectMessageContent cell: TUIMessageCell!) {
         
 
     }

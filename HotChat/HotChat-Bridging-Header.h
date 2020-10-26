@@ -6,3 +6,4 @@
 #import "WXApiObject.h"
 #import "TXIMSDK_TUIKit_iOS-umbrella.h"
 #import "CallManager.h"
+#import "ChatController.h"
