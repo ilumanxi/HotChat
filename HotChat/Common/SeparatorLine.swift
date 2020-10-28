@@ -14,11 +14,14 @@ import UIKit
  1. Default height is 1 pixel
  2. Default backgroundColor is UIColor.lightGray
  */
+
+@IBDesignable
 class SeparatorLine: UIView {
     
     // MARK: - Properties
     
     /// The height of the line
+    @IBInspectable
    var pixel: CGFloat = 1.0 / UIScreen.main.scale {
         didSet {
             constraints.filter { $0.identifier == "height" }.forEach { $0.constant = pixel } // Assumes constraint was given an identifier

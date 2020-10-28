@@ -41,6 +41,7 @@ target 'HotChat' do
     pod 'ActiveLabel'
     pod "Koloda"
     pod 'MJRefresh'
+    pod 'MJExtension'
     pod 'GKPhotoBrowser'
     pod 'Cache'
     pod 'ZLPhotoBrowser'

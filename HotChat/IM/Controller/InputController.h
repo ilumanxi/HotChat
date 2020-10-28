@@ -13,6 +13,8 @@
 #import "TUIMenuView.h"
 #import "TUIMoreView.h"
 #import "TUIMessageCell.h"
+#import "GiftView.h"
+#import "VoiceView.h"
 
 @class InputController;
 
@@ -110,6 +112,10 @@
 *  详细信息请参考 Section\Chat\TUIFaceView.h
 */
 @property (nonatomic, strong) TUIFaceView *faceView;
+
+@property (nonatomic, strong) GiftView *giftView;
+
+@property (nonatomic, strong) VoiceView *voiceView;
 
 /**
 *  菜单视图

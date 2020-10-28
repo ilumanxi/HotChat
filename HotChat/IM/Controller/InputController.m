@@ -17,6 +17,10 @@
 #import "TUIKit.h"
 #import "UIColor+TUIDarkMode.h"
 #import <AVFoundation/AVFoundation.h>
+#import "GiftCellData.h"
+#import <MJExtension/MJExtension.h>
+#import "IMData.h"
+#import "TUICallUtils.h"
 
 
 typedef NS_ENUM(NSUInteger, InputStatus) {
@@ -25,9 +29,10 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
     Input_Status_Input_More,
     Input_Status_Input_Keyboard,
     Input_Status_Input_Talk,
+    Input_Status_Input_Gift
 };
 
-@interface InputController () <TextViewDelegate, TMenuViewDelegate, TFaceViewDelegate, TMoreViewDelegate>
+@interface InputController () <TextViewDelegate, TMenuViewDelegate, TFaceViewDelegate, TMoreViewDelegate, VoiceViewDelegate, GiftViewViewDelegate>
 @property (nonatomic, assign) InputStatus status;
 @end
 
@@ -86,6 +91,10 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
     else if(_status == Input_Status_Input_More){
         [self hideMoreAnimation];
     }
+    
+    else if(_status == Input_Status_Input_Gift){
+        [self hideGiftAnimation];
+    }
     else{
         //[self hideFaceAnimation:NO];
         //[self hideMoreAnimation:NO];
@@ -121,6 +130,36 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
     }];
 }
 
+- (void)hideGiftAnimation
+{
+    self.giftView.hidden = NO;
+    self.giftView.alpha = 1.0;
+
+    __weak typeof(self) ws = self;
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        ws.giftView.alpha = 0.0;
+    } completion:^(BOOL finished) {
+        ws.giftView.hidden = YES;
+        ws.giftView.alpha = 1.0;
+        [ws.giftView removeFromSuperview];
+    }];
+}
+
+- (void)hideVoiceAnimation
+{
+    self.voiceView.hidden = NO;
+    self.voiceView.alpha = 1.0;
+
+    __weak typeof(self) ws = self;
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        ws.voiceView.alpha = 0.0;
+    } completion:^(BOOL finished) {
+        ws.voiceView.hidden = YES;
+        ws.voiceView.alpha = 1.0;
+        [ws.voiceView removeFromSuperview];
+    }];
+}
+
 - (void)showFaceAnimation
 {
     [self.view addSubview:self.faceView];
@@ -145,6 +184,41 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
         newFrame = ws.menuView.frame;
         newFrame.origin.y = ws.faceView.frame.origin.y + ws.faceView.frame.size.height;
         ws.menuView.frame = newFrame;
+    } completion:nil];
+}
+
+- (void)showGiftAnimation {
+    [self.view addSubview:self.giftView];
+
+    self.giftView.hidden = NO;
+    CGRect frame = self.giftView.frame;
+    frame.origin.y = Screen_Height;
+    self.giftView.frame = frame;
+
+
+    __weak typeof(self) ws = self;
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        CGRect newFrame = ws.giftView.frame;
+        newFrame.origin.y = ws.inputBar.frame.origin.y + ws.inputBar.frame.size.height;
+        ws.giftView.frame = newFrame;
+    } completion:nil];
+}
+
+
+- (void)showVoiceAnimation {
+    [self.view addSubview:self.voiceView];
+
+    self.voiceView.hidden = NO;
+    CGRect frame = self.voiceView.frame;
+    frame.origin.y = Screen_Height;
+    self.voiceView.frame = frame;
+
+
+    __weak typeof(self) ws = self;
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        CGRect newFrame = ws.voiceView.frame;
+        newFrame.origin.y = ws.inputBar.frame.origin.y + ws.inputBar.frame.size.height;
+        ws.voiceView.frame = newFrame;
     } completion:nil];
 }
 
@@ -186,9 +260,12 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
     [_inputBar.inputTextView resignFirstResponder];
     [self hideFaceAnimation];
     [self hideMoreAnimation];
+    [self hideGiftAnimation];
+    
+    [self showVoiceAnimation];
     _status = Input_Status_Input_Talk;
     if (_delegate && [_delegate respondsToSelector:@selector(inputController:didChangeHeight:)]){
-        [_delegate inputController:self didChangeHeight:TTextView_Height + Bottom_SafeHeight];
+        [_delegate inputController:self didChangeHeight:_inputBar.frame.size.height + self.voiceView.frame.size.height  + Bottom_SafeHeight];
     }
 }
 
@@ -197,9 +274,12 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
     if(_status == Input_Status_Input_More){
         return;
     }
-    if(_status == Input_Status_Input_Face){
-        [self hideFaceAnimation];
-    }
+   
+    [self hideFaceAnimation];
+    [self hideGiftAnimation];
+    [self hideVoiceAnimation];
+    
+    
     [_inputBar.inputTextView resignFirstResponder];
     [self showMoreAnimation];
     _status = Input_Status_Input_More;
@@ -213,15 +293,35 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
     if([TUIKit sharedInstance].config.faceGroups.count == 0){
         return;
     }
-    if(_status == Input_Status_Input_More){
-        [self hideMoreAnimation];
-    }
+    [self hideMoreAnimation];
+    [self hideGiftAnimation];
+    [self hideVoiceAnimation];
     [_inputBar.inputTextView resignFirstResponder];
     [self showFaceAnimation];
     _status = Input_Status_Input_Face;
     if (_delegate && [_delegate respondsToSelector:@selector(inputController:didChangeHeight:)]){
         [_delegate inputController:self didChangeHeight:_inputBar.frame.size.height + self.faceView.frame.size.height + self.menuView.frame.size.height + Bottom_SafeHeight];
     }
+}
+
+
+- (void)inputBarDidTouchGift:(InputBar *)inputBar {
+    
+    if(_status == Input_Status_Input_More){
+        [self hideMoreAnimation];
+    }
+    if (_status == Input_Status_Input_Face) {
+        [self hideFaceAnimation];
+    }
+    
+    [_inputBar.inputTextView resignFirstResponder];
+    [self showGiftAnimation];
+    _status = Input_Status_Input_Gift;
+    
+    if (_delegate && [_delegate respondsToSelector:@selector(inputController:didChangeHeight:)]){
+        [_delegate inputController:self didChangeHeight:_inputBar.frame.size.height + self.giftView.frame.size.height + Bottom_SafeHeight];
+    }
+    
 }
 
 - (void)inputBarDidTouchKeyboard:(InputBar *)textView
@@ -231,6 +331,9 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
     }
     if (_status == Input_Status_Input_Face) {
         [self hideFaceAnimation];
+    }
+    if (_status == Input_Status_Input_Gift) {
+        [self hideGiftAnimation];
     }
     _status = Input_Status_Input_Keyboard;
     [_inputBar.inputTextView becomeFirstResponder];
@@ -243,6 +346,10 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
     }
     else if(_status == Input_Status_Input_More){
         [self showMoreAnimation];
+    }
+    
+    else if(_status == Input_Status_Input_Gift){
+        [self showGiftAnimation];
     }
     if (_delegate && [_delegate respondsToSelector:@selector(inputController:didChangeHeight:)]){
         [_delegate inputController:self didChangeHeight:self.view.frame.size.height + offset];
@@ -260,6 +367,22 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
 
 - (void)inputBar:(InputBar *)textView didSendVoice:(NSString *)path
 {
+    NSURL *url = [NSURL fileURLWithPath:path];
+    AVURLAsset *audioAsset = [AVURLAsset URLAssetWithURL:url options:nil];
+    int duration = (int)CMTimeGetSeconds(audioAsset.duration);
+    int length = (int)[[[NSFileManager defaultManager] attributesOfItemAtPath:path error:nil] fileSize];
+
+    TUIVoiceMessageCellData *voice = [[TUIVoiceMessageCellData alloc] initWithDirection:MsgDirectionOutgoing];
+    voice.path = path;
+    voice.duration = duration;
+    voice.length = length;
+    if(_delegate && [_delegate respondsToSelector:@selector(inputController:didSendMessage:)]){
+        [_delegate inputController:self didSendMessage:voice];
+    }
+}
+
+- (void)voiceView:(VoiceView *)voiceView didSendVoice:(NSString *)path {
+    
     NSURL *url = [NSURL fileURLWithPath:path];
     AVURLAsset *audioAsset = [AVURLAsset URLAssetWithURL:url options:nil];
     int duration = (int)CMTimeGetSeconds(audioAsset.duration);
@@ -298,6 +421,9 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
     }
     else if(_status == Input_Status_Input_Face){
         [self hideFaceAnimation];
+    }
+    else if(_status == Input_Status_Input_Gift){
+        [self hideGiftAnimation];
     }
     _status = Input_Status_Input;
     [_inputBar.inputTextView resignFirstResponder];
@@ -353,6 +479,25 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
     }
 }
 
+- (void)giftView:(GiftView *)giftView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    Gift *gift = Gift.cahche[indexPath.item];
+    gift.count = 1;
+    GiftCellData *cellData = [[GiftCellData alloc] initWithDirection:MsgDirectionOutgoing];
+    cellData.gift = gift;
+    
+    IMData *imData = [[IMData alloc] init];
+    imData.data = [gift mj_JSONString];
+    
+    NSData *data = [TUICallUtils dictionary2JsonData:[imData mj_keyValues]];
+    
+    cellData.innerMessage = [[V2TIMManager sharedInstance] createCustomMessage:data];
+    
+    if(_delegate && [_delegate respondsToSelector:@selector(inputController:didSendMessage:)]){
+        [_delegate inputController:self didSendMessage:cellData];
+    }
+}
+
 #pragma mark - more view delegate
 - (void)moreView:(TUIMoreView *)moreView didSelectMoreCell:(TUIInputMoreCell *)cell
 {
@@ -370,6 +515,29 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
         [_faceView setData:[TUIKit sharedInstance].config.faceGroups];
     }
     return _faceView;
+}
+
+
+- (GiftView *)giftView {
+    
+    if (!_giftView) {
+        _giftView =  (GiftView *)[[UINib nibWithNibName:@"GiftView" bundle:nil] instantiateWithOwner:nil options:nil].firstObject;
+        _giftView.frame = CGRectMake(0, _inputBar.frame.origin.y + _inputBar.frame.size.height, self.view.frame.size.width, GiftView_Height);
+        _giftView.delegate = self;
+        _giftView.gifts = Gift.cahche;
+        
+    }
+    return  _giftView;
+}
+
+- (VoiceView *)voiceView {
+    
+    if (!_voiceView) {
+        _voiceView =  (VoiceView *)[[UINib nibWithNibName:@"VoiceView" bundle:nil] instantiateWithOwner:nil options:nil].firstObject;
+        _voiceView.frame = CGRectMake(0, _inputBar.frame.origin.y + _inputBar.frame.size.height, self.view.frame.size.width, VoiceView_Height);
+        _voiceView.delegate = self;
+    }
+    return  _voiceView;
 }
 
 - (TUIMoreView *)moreView

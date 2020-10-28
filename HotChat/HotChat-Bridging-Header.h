@@ -7,3 +7,7 @@
 #import "TXIMSDK_TUIKit_iOS-umbrella.h"
 #import "CallManager.h"
 #import "ChatController.h"
+#import "IMData.h"
+#import "GiftCellData.h"
+#import "GiftCell.h"
+//#import "HotChat-Swift.h"

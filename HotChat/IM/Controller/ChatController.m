@@ -100,7 +100,7 @@
     @weakify(self)
     //message
     _messageController = [[TUIMessageController alloc] init];
-    _messageController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - TTextView_Height - Bottom_SafeHeight);
+    _messageController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - InputBar_Height - Bottom_SafeHeight);
     _messageController.delegate = self;
     [self addChildViewController:_messageController];
     [self.view addSubview:_messageController.view];
@@ -108,7 +108,7 @@
 
     //input
     _inputController = [[InputController alloc] init];
-    _inputController.view.frame = CGRectMake(0, self.view.frame.size.height - InputBar_Height - Bottom_SafeHeight, self.view.frame.size.width, TTextView_Height + Bottom_SafeHeight);
+    _inputController.view.frame = CGRectMake(0, self.view.frame.size.height - InputBar_Height - Bottom_SafeHeight, self.view.frame.size.width, InputBar_Height + Bottom_SafeHeight);
     _inputController.view.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
     _inputController.delegate = self;
     [RACObserve(self, moreMenus) subscribeNext:^(NSArray *x) {

@@ -8,6 +8,7 @@
 
 import UIKit
 import SPAlertController
+import MJExtension
 
 class ChatViewController2: ChatController {
     
@@ -129,10 +130,33 @@ extension ChatViewController2: ChatControllerDelegate {
     }
     
     func chatController(_ controller: ChatController!, onNewMessage msg: V2TIMMessage!) -> TUIMessageCellData! {
+        
+        if msg.elemType == .ELEM_TYPE_CUSTOM , let param = TUICallUtils.jsonData2Dictionary(msg.customElem.data) as? [String : Any], let imData = IMData.mj_object(withKeyValues: param) {
+            
+            if imData.type == 100 {
+                
+                let cellData = GiftCellData(direction: msg.isSelf ? .MsgDirectionOutgoing : .MsgDirectionIncoming)
+                cellData.innerMessage = msg;
+                cellData.msgID = msg.msgID
+                cellData.gift = Gift.mj_object(withKeyValues: imData.data)
+                return cellData
+                
+            }
+        }
+        
+        
         return nil
     }
     
     func chatController(_ controller: ChatController!, onShowMessageData cellData: TUIMessageCellData!) -> TUIMessageCell! {
+        
+        if cellData.isKind(of: GiftCellData.self) {
+            
+            let cell = GiftCell(style: .default, reuseIdentifier: "GiftCell")
+            cell.fill(with: cellData)
+            return cell
+        }
+        
         return nil
     }
     

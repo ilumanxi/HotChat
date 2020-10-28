@@ -10,6 +10,10 @@
 //#define InputBar_Height (49 + 52)
 #define InputBar_Height (101)
 
+#define InputBar_ToolHeight (52)
+
+#define InputBar_ButtonMargin (36)
+
 #import <UIKit/UIKit.h>
 #import "TResponderTextView.h"
 
@@ -31,25 +35,28 @@
 *  点击表情按钮，即“笑脸”后的回调委托。
 *  您可以通过该回调实现：点击表情按钮后，显示出对应的表情视图。
 *
-*  @param textView 委托者，当前与用户交互的 InputBar。
+*  @param inputBar 委托者，当前与用户交互的 InputBar。
 */
-- (void)inputBarDidTouchFace:(InputBar *)textView;
+- (void)inputBarDidTouchFace:(InputBar *)inputBar;
+
+
+- (void)inputBarDidTouchGift:(InputBar *)inputBar;
 
 /**
 *  点击更多按钮，即“+”后的回调委托。
 *  您可以通过该回调实现：相应用户的点击操作，显示出对应的更多视图。
 *
-*  @param textView 委托者，当前与用户交互的 InputBar。
+*  @param inputBar 委托者，当前与用户交互的 InputBar。
 */
-- (void)inputBarDidTouchMore:(InputBar *)textView;
+- (void)inputBarDidTouchMore:(InputBar *)inputBar;
 
 /**
 *  点击语音按钮，即“声波”图标后的回调委托。
 *  您可以通过该回调实现：显示出相应的操作提示视图，并开始语音的录制采集。
 *
-*  @param textView 委托者，当前与用户交互的 InputBar。
+*  @param inputBar 委托者，当前与用户交互的 InputBar。
 */
-- (void)inputBarDidTouchVoice:(InputBar *)textView;
+- (void)inputBarDidTouchVoice:(InputBar *)inputBar;
 
 /**
 *  输入条高度更改时的回调委托
@@ -142,6 +149,14 @@
 */
 @property (nonatomic, strong) UIButton *keyboardButton;
 
+
+/**
+*  键盘按钮
+*  即点击礼物按钮（“礼物”）后，礼物变化后的按钮。
+*/
+@property (nonatomic, strong) UIButton *giftButton;
+
+
 /**
 *  文本输入视图
 *  即在输入条中占据大部分面积的白色文本输入框
@@ -163,12 +178,6 @@
 */
 @property (nonatomic, strong) UIButton *moreButton;
 
-/**
-*  录音按钮
-*  在您点击了语音按钮（“声波图标”）后，原本的文本输入框会变成改按钮。
-*  您可以引导用户点击该按钮开始语音的录制，并通过本按钮的回调函数实现声音的录制。
-*/
-@property (nonatomic, strong) UIButton *recordButton;
 
 /**
 *  实现 TextViewDelegate 协议的委托。
