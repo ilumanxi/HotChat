@@ -20,6 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, copy) NSString *data; //json
 
+
++ (IMData *)defaultData;
+
 @end
 
 NS_ASSUME_NONNULL_END

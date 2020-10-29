@@ -10,13 +10,13 @@
 
 @implementation IMData
 
-- (instancetype)init {
-    if (self = [super init]) {
-        self.appVersion = @"1.0";
-        self.imVersion = 12;
-        self.type = 100;
-    }
-    return  self;
+
++ (IMData *)defaultData {
+    IMData *data = [[IMData alloc] init];
+    data.appVersion = @"1.0";
+    data.imVersion = 12;
+    data.type = 100;
+    return  data;
 }
 
 @end

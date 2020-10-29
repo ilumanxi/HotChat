@@ -486,7 +486,7 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
     GiftCellData *cellData = [[GiftCellData alloc] initWithDirection:MsgDirectionOutgoing];
     cellData.gift = gift;
     
-    IMData *imData = [[IMData alloc] init];
+    IMData *imData = [IMData defaultData];
     imData.data = [gift mj_JSONString];
     
     NSData *data = [TUICallUtils dictionary2JsonData:[imData mj_keyValues]];

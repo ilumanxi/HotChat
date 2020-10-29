@@ -24,6 +24,10 @@
 		2639536925419E8300B5E3C0 /* CardViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2639536725419E8300B5E3C0 /* CardViewCell.xib */; };
 		2639536F2541A38B00B5E3C0 /* FiledViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2639536D2541A38B00B5E3C0 /* FiledViewCell.swift */; };
 		263953702541A38B00B5E3C0 /* FiledViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2639536E2541A38B00B5E3C0 /* FiledViewCell.xib */; };
+		263BC1E225494EA20081F5DF /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 263BC1E125494EA20081F5DF /* UIView+Additions.m */; };
+		263BC21D254956950081F5DF /* CallMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 263BC21C254956950081F5DF /* CallMenuViewController.m */; };
+		263BC22D254987770081F5DF /* BeautyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 263BC22B254987770081F5DF /* BeautyViewController.m */; };
+		263BC22E254987770081F5DF /* BeautyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 263BC22C254987770081F5DF /* BeautyViewController.xib */; };
 		26425C16251DDF64006D2F4C /* UserBasicInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26425C15251DDF64006D2F4C /* UserBasicInformationViewController.swift */; };
 		2643EB3A2500AD7D00FBBE49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643EB392500AD7D00FBBE49 /* AppDelegate.swift */; };
 		2643EB452500AD7E00FBBE49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2643EB442500AD7E00FBBE49 /* Assets.xcassets */; };
@@ -232,6 +236,13 @@
 		2639536725419E8300B5E3C0 /* CardViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardViewCell.xib; sourceTree = "<group>"; };
 		2639536D2541A38B00B5E3C0 /* FiledViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiledViewCell.swift; sourceTree = "<group>"; };
 		2639536E2541A38B00B5E3C0 /* FiledViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FiledViewCell.xib; sourceTree = "<group>"; };
+		263BC1E025494EA20081F5DF /* UIView+Additions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Additions.h"; sourceTree = "<group>"; };
+		263BC1E125494EA20081F5DF /* UIView+Additions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Additions.m"; sourceTree = "<group>"; };
+		263BC21B254956950081F5DF /* CallMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CallMenuViewController.h; sourceTree = "<group>"; };
+		263BC21C254956950081F5DF /* CallMenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CallMenuViewController.m; sourceTree = "<group>"; };
+		263BC22A254987770081F5DF /* BeautyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeautyViewController.h; sourceTree = "<group>"; };
+		263BC22B254987770081F5DF /* BeautyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeautyViewController.m; sourceTree = "<group>"; };
+		263BC22C254987770081F5DF /* BeautyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BeautyViewController.xib; sourceTree = "<group>"; };
 		26425C15251DDF64006D2F4C /* UserBasicInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBasicInformationViewController.swift; sourceTree = "<group>"; };
 		2643EB362500AD7D00FBBE49 /* HotChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2643EB392500AD7D00FBBE49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -907,6 +918,8 @@
 				26377FC2253042E300D5A03D /* IM.swift */,
 				26D1E589253D5F17004B9B29 /* CallManager.h */,
 				26D1E58A253D5F17004B9B29 /* CallManager.m */,
+				263BC1E025494EA20081F5DF /* UIView+Additions.h */,
+				263BC1E125494EA20081F5DF /* UIView+Additions.m */,
 			);
 			path = IM;
 			sourceTree = "<group>";
@@ -942,6 +955,11 @@
 				26D1E593253D6000004B9B29 /* VideoCallViewController.m */,
 				26DBC371253D89DF0083BDFB /* AudioCallViewController.h */,
 				26DBC372253D89DF0083BDFB /* AudioCallViewController.m */,
+				263BC21B254956950081F5DF /* CallMenuViewController.h */,
+				263BC21C254956950081F5DF /* CallMenuViewController.m */,
+				263BC22A254987770081F5DF /* BeautyViewController.h */,
+				263BC22B254987770081F5DF /* BeautyViewController.m */,
+				263BC22C254987770081F5DF /* BeautyViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1114,6 +1132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				26C3F3312542764F00CDD533 /* AnchorAuthenticationViewController.xib in Resources */,
+				263BC22E254987770081F5DF /* BeautyViewController.xib in Resources */,
 				26395362254198DB00B5E3C0 /* RightDetailViewCell.xib in Resources */,
 				26959042250B1DD900763061 /* InterestedCardOverlayView.xib in Resources */,
 				26C81EE62547E9E300C1D563 /* VoiceView.xib in Resources */,
@@ -1366,6 +1385,7 @@
 				268458E825343FA8002B9C6E /* DynamicDetailViewController.swift in Sources */,
 				26787E37251B2F8D00D511E8 /* User.swift in Sources */,
 				26C81EE12547E9C400C1D563 /* VoiceView.m in Sources */,
+				263BC1E225494EA20081F5DF /* UIView+Additions.m in Sources */,
 				26CA6EDD2538215D0023E27B /* Channel.swift in Sources */,
 				F370D277251CE65500C2F708 /* ResetPasswordViewController.swift in Sources */,
 				26C81ED82547CE0500C1D563 /* GiftView.m in Sources */,
@@ -1380,6 +1400,7 @@
 				2668B0AF2523479F0073E25D /* Product.swift in Sources */,
 				26F0D25A2546DB9C00D1018B /* InputBar.m in Sources */,
 				260B96112521F15C00767076 /* Authentication.swift in Sources */,
+				263BC21D254956950081F5DF /* CallMenuViewController.m in Sources */,
 				26945810253FF80A00EBCABB /* SwitchViewCell.swift in Sources */,
 				26C80E582546CCF000F4ECBC /* ChatController.m in Sources */,
 				26377FC3253042E300D5A03D /* IM.swift in Sources */,
@@ -1436,6 +1457,7 @@
 				26787E2F251B228200D511E8 /* AccountPlugin.swift in Sources */,
 				26959040250B1D9400763061 /* InterestedCardOverlayView.swift in Sources */,
 				26F3D66E25482683007D9136 /* IMData.m in Sources */,
+				263BC22D254987770081F5DF /* BeautyViewController.m in Sources */,
 				2643EB3A2500AD7D00FBBE49 /* AppDelegate.swift in Sources */,
 				26787E2A251B21A400D511E8 /* SignaturePlugin.swift in Sources */,
 				26C81EED25480B1900C1D563 /* GiftViewCell.m in Sources */,

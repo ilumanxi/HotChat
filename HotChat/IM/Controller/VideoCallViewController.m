@@ -16,19 +16,22 @@
 #import "THelper.h"
 #import "TUICall.h"
 #import "TUICall+TRTC.h"
-
 #import <Masonry/Masonry.h>
+#import "UIView+Additions.h"
+#import "CallMenuViewController.h"
 
 
 #define kSmallVideoWidth 100.0
 
-@interface VideoCallViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@interface VideoCallViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, CallMenuViewControllerDelegate>
 @property(nonatomic,assign) VideoCallState curState;
 @property(nonatomic,assign) CGFloat topPadding;
 @property(nonatomic,strong) NSMutableArray<CallUserModel *> *avaliableList;
 @property(nonatomic,strong) NSMutableArray<CallUserModel *> *userList;
 @property(nonatomic,strong) CallUserModel *curSponsor;
 @property(nonatomic,strong) CallUserModel *curInvite;
+
+@property(nonatomic,strong) CallMenuViewController *callMenu;
 
 @property(nonatomic,strong) UICollectionView *userCollectionView;
 @property(nonatomic,assign) BOOL refreshCollectionView;
@@ -211,6 +214,7 @@
                 if (![firstRender.superview isEqual:self.view]) {
                     [firstRender removeFromSuperview];
                     [self.view insertSubview:firstRender belowSubview:self.localPreView];
+                    [self.view insertSubview:_callMenu.view aboveSubview:firstRender];
                     [UIView animateWithDuration:0.1 animations:^{
                         firstRender.frame = self.view.bounds;
                     }];
@@ -255,7 +259,6 @@
     [[TUICall shareInstance] openCamera:YES view:self.localPreView];
     [self setupSponsorPanel];
     [self autoSetUIByState];
-//    [[TUICall shareInstance] openCamera:YES view:self.localPreView];
 }
 
 - (void)setupSponsorPanel {
@@ -292,7 +295,7 @@
     [userImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.view).offset(18);
         make.height.width.equalTo(@68);
-        make.top.equalTo(self.sponsorPanel.mas_safeAreaLayoutGuideTop);
+        make.top.equalTo(self.sponsorPanel.safeAreaLayoutGuideTop).offset(32);
     }];
     
     [userImage sd_setImageWithURL:[NSURL URLWithString:user.avatar] placeholderImage:[UIImage imageNamed:TUIKitResource(@"default_c2c_head")] options:SDWebImageHighPriority];
@@ -314,7 +317,7 @@
     invite.textAlignment = NSTextAlignmentRight;
     invite.font = [UIFont systemFontOfSize:14];
     invite.textColor = [UIColor whiteColor];
-    invite.text = @"邀请你视频通话";
+    invite.text = (self.curState == VideoCallState_OnInvitee) ? @"邀请你视频通话"  : @"等待对方接听" ;
     [self.sponsorPanel addSubview:invite];
     [invite mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(userName);
@@ -336,7 +339,7 @@
         {
             [self.hangup mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.centerX.equalTo(self.view);
-                make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom).offset(-49);
+                make.bottom.equalTo(self.view.safeAreaLayoutGuideBottom).offset(-49);
             }];
         }
             break;
@@ -344,44 +347,52 @@
         {
             [self.hangup mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.centerX.equalTo(self.view).offset(-60);
-                make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom).offset(-49);
+                make.bottom.equalTo(self.view.safeAreaLayoutGuideBottom).offset(-49);
             }];
             
             [self.accept mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.centerX.equalTo(self.view).offset(60);
-                make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom).offset(-49);
+                make.bottom.equalTo(self.view.safeAreaLayoutGuideBottom).offset(-49);
             }];
                         
         }
             break;
         case VideoCallState_Calling:
         {
-            [self.hangup mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.centerX.equalTo(self.view);
-                make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom).offset(-49);
-            }];
-                        
-            [self.mute mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.trailing.equalTo(self.hangup.mas_leading).offset(-60);
-                make.bottom.equalTo(self.hangup);
+            self.hangup.hidden = YES;
+            
+            [self.callMenu.view mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.edges.equalTo(self.view);
+//                make.leading.trailing.bottom.equalTo(self.view);
+//                make.height.equalTo(@118);
             }];
             
-            [self.handsfree mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.leading.equalTo(self.hangup.mas_trailing).offset(60);
-                make.bottom.equalTo(self.hangup);
-            }];
+//            [self.hangup mas_remakeConstraints:^(MASConstraintMaker *make) {
+//                make.centerX.equalTo(self.view);
+//                make.bottom.equalTo(self.view.safeAreaLayoutGuideBottom).offset(-49);
+//            }];
+//
+//            [self.mute mas_remakeConstraints:^(MASConstraintMaker *make) {
+//                make.trailing.equalTo(self.hangup.mas_leading).offset(-60);
+//                make.bottom.equalTo(self.hangup);
+//            }];
+//
+//            [self.handsfree mas_remakeConstraints:^(MASConstraintMaker *make) {
+//                make.leading.equalTo(self.hangup.mas_trailing).offset(60);
+//                make.bottom.equalTo(self.hangup);
+//            }];
+//
+//            [self.callTimeLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+//                make.centerX.equalTo(self.hangup.mas_centerX);
+//                make.bottom.equalTo(self.hangup.mas_top).offset(-20);
+//            }];
             
-            [self.callTimeLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.centerX.equalTo(self.hangup.mas_centerX);
-                make.bottom.equalTo(self.hangup.mas_top).offset(-20);
-            }];
             
-            
-            self.mute.hidden = NO;
-            self.handsfree.hidden = NO;
-            self.callTimeLabel.hidden = NO;
-            self.mute.alpha = 0.0;
-            self.handsfree.alpha = 0.0;
+//            self.mute.hidden = NO;
+//            self.handsfree.hidden = NO;
+//            self.callTimeLabel.hidden = NO;
+//            self.mute.alpha = 0.0;
+//            self.handsfree.alpha = 0.0;
             [self startCallTiming];
         }
             break;
@@ -435,6 +446,20 @@
         self.localPreView.frame = frame;
     }];
 }
+
+- (CallMenuViewController *)callMenu {
+    
+    if (!_callMenu) {
+        _callMenu = [[CallMenuViewController alloc] initWithStyle:CallMenuStyleVideo];
+        _callMenu.delegate = self;
+        [self addChildViewController:_callMenu];
+        [self.view insertSubview:_callMenu.view aboveSubview:self.localPreView];
+        [_callMenu didMoveToParentViewController:self];
+    }
+    
+    return _callMenu;
+}
+
 
 - (UIButton *)hangup {
     if (!_hangup.superview) {
@@ -495,7 +520,6 @@
 - (UIView *)sponsorPanel {
     if (!_sponsorPanel.superview) {
         _sponsorPanel = [[UIView alloc] init];
-        _sponsorPanel.backgroundColor = [UIColor redColor];
         [self.view addSubview:_sponsorPanel];
     }
     return _sponsorPanel;
@@ -623,6 +647,7 @@
                 TUIVideoRenderView *firstRender = [self getRenderView:userFirst.userId];
                 [firstRender removeFromSuperview];
                 [self.view insertSubview:firstRender aboveSubview:self.localPreView];
+                [self.view insertSubview:_callMenu.view belowSubview:firstRender];
                 [UIView animateWithDuration:0.3 animations:^{
                     self.localPreView.frame = self.view.frame;
                     firstRender.frame = CGRectMake(self.view.frame.size.width - kSmallVideoWidth - 18, 20, kSmallVideoWidth, kSmallVideoWidth / 9.0 * 16.0);
@@ -634,6 +659,7 @@
         if (smallView.frame.size.width == kSmallVideoWidth) {
             [smallView removeFromSuperview];
             [self.view insertSubview:smallView belowSubview:self.localPreView];
+            [self.view insertSubview:_callMenu.view aboveSubview:smallView];
             [UIView animateWithDuration:0.3 animations:^{
                 smallView.frame = self.view.frame;
                 self.localPreView.frame = CGRectMake(self.view.frame.size.width - kSmallVideoWidth - 18, 20, kSmallVideoWidth, kSmallVideoWidth / 9.0 * 16.0);
@@ -716,6 +742,11 @@
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     return 0;
+}
+
+- (void)callMenuViewControllerDidHangup:(CallMenuViewController *)menu {
+    
+    [self disMiss];
 }
 
 #pragma mark data

@@ -18,6 +18,7 @@
 #import "TUICall.h"
 #import "TUICall+TRTC.h"
 #import <Masonry/Masonry.h>
+#import "UIView+Additions.h"
 
 #define kUserCalledView_Width  200
 #define kUserCalledView_Top  200
@@ -216,7 +217,7 @@
     [userImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.sponsorPanel.mas_centerX);
         make.height.width.equalTo(@130);
-        make.top.equalTo(self.sponsorPanel.mas_safeAreaLayoutGuideTop).offset(105);
+        make.top.equalTo(self.sponsorPanel.safeAreaLayoutGuideTop).offset(105);
     }];
     
     [userImage sd_setImageWithURL:[NSURL URLWithString:user.avatar] placeholderImage:[UIImage imageNamed:TUIKitResource(@"default_c2c_head")] options:SDWebImageHighPriority];
@@ -254,7 +255,7 @@
         {
 //            self.hangup.mm_width(50).mm_height(50).mm__centerX(self.view.mm_centerX).mm_bottom(32);
             [self.hangup mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom).offset(-49);
+                make.bottom.equalTo(self.view.safeAreaLayoutGuideBottom).offset(-49);
                 make.centerX.equalTo(self.view.mas_centerX);
             }];
             
@@ -266,12 +267,12 @@
         {   
             [self.hangup mas_remakeConstraints:^(MASConstraintMaker *make) {
                 make.trailing.equalTo(self.view.mas_centerX).offset(-60);
-                make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom).offset(-49);
+                make.bottom.equalTo(self.view.safeAreaLayoutGuideBottom).offset(-49);
             }];
             
             [self.accept mas_remakeConstraints:^(MASConstraintMaker *make) {
                 make.leading.equalTo(self.view.mas_centerX).offset(60);
-                make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom).offset(-49);
+                make.bottom.equalTo(self.view.safeAreaLayoutGuideBottom).offset(-49);
             }];
             
             self.sponsorPanel.hidden = NO;
@@ -284,7 +285,7 @@
                
             [self.hangup mas_remakeConstraints:^(MASConstraintMaker *make) {
                 make.centerX.equalTo(self.view.mas_centerX);
-                make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom).offset(-49);
+                make.bottom.equalTo(self.view.safeAreaLayoutGuideBottom).offset(-49);
             }];
             
             [self.mute mas_remakeConstraints:^(MASConstraintMaker *make) {
