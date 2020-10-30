@@ -10,7 +10,7 @@
 #import "Gift.h"
 @class GiftView;
 
-#define GiftView_Height ([UIScreen mainScreen].bounds.size.width / 2 + 40 + 28)
+#define GiftView_Height ([UIScreen mainScreen].bounds.size.width / 2 + 41 + 28 + Bottom_SafeHeight)
 
 NS_ASSUME_NONNULL_BEGIN
 

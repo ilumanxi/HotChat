@@ -6,8 +6,6 @@
 //  Copyright © 2020 风起兮. All rights reserved.
 //
 
-#define VoiceView_Height (296)
-
 #import <UIKit/UIKit.h>
 @class VoiceView;
 
@@ -21,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @interface VoiceView : UIView
+
+@property(nonatomic, assign, class, readonly) CGFloat contentHeight;
 
 @property (nonatomic, weak) id<VoiceViewDelegate> delegate;
 

@@ -15,6 +15,7 @@
 #import "TUIMessageCell.h"
 #import "GiftView.h"
 #import "VoiceView.h"
+#import "GiftViewController.h"
 
 @class InputController;
 
@@ -113,7 +114,11 @@
 */
 @property (nonatomic, strong) TUIFaceView *faceView;
 
-@property (nonatomic, strong) GiftView *giftView;
+@property (nonatomic, strong) GiftViewController *giftViewController;
+
+
+
+
 
 @property (nonatomic, strong) VoiceView *voiceView;
 

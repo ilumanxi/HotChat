@@ -32,7 +32,7 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
     Input_Status_Input_Gift
 };
 
-@interface InputController () <TextViewDelegate, TMenuViewDelegate, TFaceViewDelegate, TMoreViewDelegate, VoiceViewDelegate, GiftViewDelegate>
+@interface InputController () <TextViewDelegate, TMenuViewDelegate, TFaceViewDelegate, TMoreViewDelegate, VoiceViewDelegate, GiftViewControllerDelegate>
 @property (nonatomic, assign) InputStatus status;
 @end
 
@@ -132,16 +132,17 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
 
 - (void)hideGiftAnimation
 {
-    self.giftView.hidden = NO;
-    self.giftView.alpha = 1.0;
+    self.giftViewController.view.hidden = NO;
+    self.giftViewController.view.alpha = 1.0;
 
     __weak typeof(self) ws = self;
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        ws.giftView.alpha = 0.0;
+        ws.giftViewController.view.alpha = 0.0;
     } completion:^(BOOL finished) {
-        ws.giftView.hidden = YES;
-        ws.giftView.alpha = 1.0;
-        [ws.giftView removeFromSuperview];
+        ws.giftViewController.view.hidden = YES;
+        ws.giftViewController.view.alpha = 1.0;
+        [ws.giftViewController.view removeFromSuperview];
+        [ws.giftViewController didMoveToParentViewController:nil];
     }];
 }
 
@@ -188,31 +189,29 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
 }
 
 - (void)showGiftAnimation {
-    [self.view addSubview:self.giftView];
+    
+    [self addChildViewController:self.giftViewController];
+    self.giftViewController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    self.giftViewController.view.frame = CGRectMake(0, Screen_Height, Screen_Width, GiftViewController.contentHeight);
+    [self.view addSubview:self.giftViewController.view];
+    
+    [self.giftViewController didMoveToParentViewController:self];
 
-    self.giftView.hidden = NO;
-    CGRect frame = self.giftView.frame;
-    frame.origin.y = Screen_Height;
-    self.giftView.frame = frame;
-
-
+    self.giftViewController.view.hidden = NO;
     __weak typeof(self) ws = self;
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        CGRect newFrame = ws.giftView.frame;
+        CGRect newFrame = ws.giftViewController.view.frame;
         newFrame.origin.y = ws.inputBar.frame.origin.y + ws.inputBar.frame.size.height;
-        ws.giftView.frame = newFrame;
+        ws.giftViewController.view.frame = newFrame;
     } completion:nil];
 }
 
 
 - (void)showVoiceAnimation {
+    self.voiceView.frame = CGRectMake(0, Screen_Height, Screen_Width, VoiceView.contentHeight);
     [self.view addSubview:self.voiceView];
 
     self.voiceView.hidden = NO;
-    CGRect frame = self.voiceView.frame;
-    frame.origin.y = Screen_Height;
-    self.voiceView.frame = frame;
-
 
     __weak typeof(self) ws = self;
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
@@ -265,7 +264,7 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
     [self showVoiceAnimation];
     _status = Input_Status_Input_Talk;
     if (_delegate && [_delegate respondsToSelector:@selector(inputController:didChangeHeight:)]){
-        [_delegate inputController:self didChangeHeight:_inputBar.frame.size.height + self.voiceView.frame.size.height  + Bottom_SafeHeight];
+        [_delegate inputController:self didChangeHeight:_inputBar.frame.size.height + VoiceView.contentHeight];
     }
 }
 
@@ -318,8 +317,10 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
     [self showGiftAnimation];
     _status = Input_Status_Input_Gift;
     
+
+    
     if (_delegate && [_delegate respondsToSelector:@selector(inputController:didChangeHeight:)]){
-        [_delegate inputController:self didChangeHeight:_inputBar.frame.size.height + self.giftView.frame.size.height + Bottom_SafeHeight];
+        [_delegate inputController:self didChangeHeight:_inputBar.frame.size.height + GiftViewController.contentHeight];
     }
     
 }
@@ -425,8 +426,10 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
     else if(_status == Input_Status_Input_Gift){
         [self hideGiftAnimation];
     }
+    [self hideVoiceAnimation];
     _status = Input_Status_Input;
     [_inputBar.inputTextView resignFirstResponder];
+    [_inputBar resetToolButtonSelected];
     if (_delegate && [_delegate respondsToSelector:@selector(inputController:didChangeHeight:)]){
         [_delegate inputController:self didChangeHeight:_inputBar.frame.size.height + Bottom_SafeHeight];
     }
@@ -479,9 +482,11 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
     }
 }
 
-- (void)giftView:(GiftView *)giftView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+
+
+- (void)giftViewController:(GiftViewController *)giftController didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    Gift *gift = Gift.cahche[indexPath.item];
+    Gift *gift = giftController.gifts[indexPath.item];
     gift.count = 1;
     GiftCellData *cellData = [[GiftCellData alloc] initWithDirection:MsgDirectionOutgoing];
     cellData.gift = gift;
@@ -518,23 +523,18 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
 }
 
 
-- (GiftView *)giftView {
-    
-    if (!_giftView) {
-        _giftView =  (GiftView *)[[UINib nibWithNibName:@"GiftView" bundle:nil] instantiateWithOwner:nil options:nil].firstObject;
-        _giftView.frame = CGRectMake(0, _inputBar.frame.origin.y + _inputBar.frame.size.height, self.view.frame.size.width, GiftView_Height);
-        _giftView.delegate = self;
-        _giftView.gifts = Gift.cahche;
-        
+- (GiftViewController *)giftViewController{
+    if (!_giftViewController) {
+        _giftViewController = [[GiftViewController alloc] init];
+        _giftViewController.delegate = self;
     }
-    return  _giftView;
+    return _giftViewController;
 }
 
 - (VoiceView *)voiceView {
     
     if (!_voiceView) {
         _voiceView =  (VoiceView *)[[UINib nibWithNibName:@"VoiceView" bundle:nil] instantiateWithOwner:nil options:nil].firstObject;
-        _voiceView.frame = CGRectMake(0, _inputBar.frame.origin.y + _inputBar.frame.size.height, self.view.frame.size.width, VoiceView_Height);
         _voiceView.delegate = self;
     }
     return  _voiceView;

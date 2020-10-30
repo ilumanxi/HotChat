@@ -28,6 +28,15 @@
 
 @implementation GiftViewController
 
+
++ (CGFloat)contentHeight { 
+    if (@available(iOS 11.0, *)) {
+        return [UIScreen mainScreen].bounds.size.width / 2 + 41 + 28 +  UIApplication.sharedApplication.keyWindow.safeAreaInsets.bottom;
+    } else {
+        return [UIScreen mainScreen].bounds.size.width / 2 + 41 + 28;
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

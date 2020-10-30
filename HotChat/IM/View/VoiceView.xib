@@ -15,28 +15,40 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="296"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="TKv-5E-BoC">
-                    <rect key="frame" x="154.5" y="82" width="105" height="132"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GO3-kg-Ivf">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="296"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jp4-9B-Fm4">
-                            <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
-                            <state key="normal" image="IMVoice"/>
-                            <state key="highlighted" image="IMVoiceHL"/>
-                        </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="按住说话" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pdt-kR-x4y">
-                            <rect key="frame" x="24" y="115" width="57.5" height="17"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="TKv-5E-BoC">
+                            <rect key="frame" x="154.5" y="82" width="105" height="132"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jp4-9B-Fm4">
+                                    <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
+                                    <state key="normal" image="IMVoice"/>
+                                    <state key="highlighted" image="IMVoiceHL"/>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="按住说话" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pdt-kR-x4y">
+                                    <rect key="frame" x="24" y="115" width="57.5" height="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
                     </subviews>
-                </stackView>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="TKv-5E-BoC" firstAttribute="centerX" secondItem="GO3-kg-Ivf" secondAttribute="centerX" id="TTV-N3-W9P"/>
+                        <constraint firstItem="TKv-5E-BoC" firstAttribute="centerY" secondItem="GO3-kg-Ivf" secondAttribute="centerY" id="ocT-pp-xAi"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="TKv-5E-BoC" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="SEx-un-qoh"/>
-                <constraint firstItem="TKv-5E-BoC" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="guE-yd-Luo"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="GO3-kg-Ivf" secondAttribute="bottom" id="hNe-SK-uPG"/>
+                <constraint firstAttribute="trailing" secondItem="GO3-kg-Ivf" secondAttribute="trailing" id="nVr-Dz-ptu"/>
+                <constraint firstItem="GO3-kg-Ivf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="olZ-PM-evV"/>
+                <constraint firstItem="GO3-kg-Ivf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="s04-eC-4Xx"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

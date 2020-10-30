@@ -25,6 +25,14 @@
 
 @implementation VoiceView
 
++ (CGFloat)contentHeight {
+    if (@available(iOS 11.0, *)) {
+        return 296 +  UIApplication.sharedApplication.keyWindow.safeAreaInsets.bottom;
+    } else {
+        return 296;
+    }
+}
+
 -(void)awakeFromNib {
     [super awakeFromNib];
     

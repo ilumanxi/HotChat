@@ -197,11 +197,17 @@
     _keyboardButton.frame = _faceButton.frame;
 }
 
+- (void)resetToolButtonSelected {
+    [self resetToolButtonSelectedNotIn:nil];
+}
+
 - (void)resetToolButtonSelectedNotIn:(UIButton *) btn {
     
     NSMutableArray *buttons = @[_faceButton, _micButton, _giftButton, _moreButton].mutableCopy;
     
-    [buttons removeObject:btn];
+    if (btn != nil) {
+        [buttons removeObject:btn];
+    }
     [buttons enumerateObjectsUsingBlock:^(UIButton * _Nonnull button, NSUInteger idx, BOOL * _Nonnull stop) {
         button.selected = false;
     }];
@@ -250,9 +256,9 @@
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
     self.keyboardButton.hidden = YES;
-
-    [self resetToolButtonSelectedNotIn:[UIButton new]];
+    [self resetToolButtonSelectedNotIn:nil];
 }
+
 
 - (void)textViewDidChange:(UITextView *)textView
 {
