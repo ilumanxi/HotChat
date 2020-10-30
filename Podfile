@@ -53,7 +53,6 @@ target 'HotChat' do
     pod 'SYBPush-normal', '1.6.2.1'
     pod 'TXIMSDK_TUIKit_iOS'
     pod 'Masonry'
-    pod 'QMUIKit'
   
   target 'HotChatTests' do
     inherit! :search_paths

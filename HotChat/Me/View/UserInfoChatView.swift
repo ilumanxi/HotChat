@@ -22,7 +22,7 @@ class UserInfoChatView: UIView {
         
         let info = TUIConversationCellData()
         info.userID = user.userId
-        let vc  = ChatViewController2(conversation: info)!
+        let vc  = ChatViewController(conversation: info)!
         vc.title = user.nick
         navigationController.pushViewController(vc, animated: true)
         

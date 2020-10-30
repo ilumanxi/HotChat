@@ -32,7 +32,7 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
     Input_Status_Input_Gift
 };
 
-@interface InputController () <TextViewDelegate, TMenuViewDelegate, TFaceViewDelegate, TMoreViewDelegate, VoiceViewDelegate, GiftViewViewDelegate>
+@interface InputController () <TextViewDelegate, TMenuViewDelegate, TFaceViewDelegate, TMoreViewDelegate, VoiceViewDelegate, GiftViewDelegate>
 @property (nonatomic, assign) InputStatus status;
 @end
 

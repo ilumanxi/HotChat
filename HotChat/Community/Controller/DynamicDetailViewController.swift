@@ -210,7 +210,7 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
         cell.onCommentTapped.delegate(on: self) { (self, _) in
             let info = TUIConversationCellData()
             info.userID = dynamic.userInfo.userId
-            let vc  = ChatViewController2(conversation: info)!
+            let vc  = ChatViewController(conversation: info)!
             vc.title = dynamic.userInfo.nick
             self.navigationController?.pushViewController(vc, animated: true)
         }

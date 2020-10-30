@@ -182,7 +182,7 @@ class ProfilePhoto: FormEntry {
     
     private func alert() {
         
-        let alertController = SPAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let alertController = SPAlertController(title: nil, message: "", preferredStyle: .actionSheet)
         alertController.addAction(SPAlertAction(title: "更换", style: .default, handler: { [weak self] _ in
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self?.imagePicker()

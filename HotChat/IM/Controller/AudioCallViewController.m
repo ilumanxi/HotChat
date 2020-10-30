@@ -19,17 +19,19 @@
 #import "TUICall+TRTC.h"
 #import <Masonry/Masonry.h>
 #import "UIView+Additions.h"
+#import "CallMenuViewController.h"
 
 #define kUserCalledView_Width  200
 #define kUserCalledView_Top  200
 
-@interface AudioCallViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@interface AudioCallViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, CallMenuViewControllerDelegate>
 @property(nonatomic,assign) AudioCallState curState;
 @property(nonatomic,strong) NSMutableArray<CallUserModel *> *userList;
 @property(nonatomic,strong) CallUserModel *curSponsor;
 @property(nonatomic,strong) CallUserModel *curInvite;
 @property(nonatomic,strong) UIView *sponsorPanel;
 @property(nonatomic,strong) UILabel *invite;
+@property(nonatomic,strong) CallMenuViewController *callMenu;
 
 @property(nonatomic,strong) UICollectionView *userCollectionView;
 @property(nonatomic,assign) NSInteger collectionCount;
@@ -282,37 +284,43 @@
             break;
         case AudioCallState_Calling:
         {
+            
+            [self.callMenu.view mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.edges.equalTo(self.view);
+            }];
+            
+            self.hangup.hidden = YES;
                
-            [self.hangup mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.centerX.equalTo(self.view.mas_centerX);
-                make.bottom.equalTo(self.view.safeAreaLayoutGuideBottom).offset(-49);
-            }];
-            
-            [self.mute mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.trailing.equalTo(self.hangup.mas_leading).offset(-60);
-                make.bottom.equalTo(self.hangup);
-            }];
-            
-            
-            [self.handsfree mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.leading.equalTo(self.hangup.mas_trailing).offset(60);
-                make.bottom.equalTo(self.hangup);
-            }];
-            
-            [self.callTimeLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.bottom.equalTo(self.hangup.mas_top).offset(-20);
-                make.centerX.equalTo(self.hangup);
-            }];
-            
-            self.invite.text = @"正在通话中...";
-            
-            self.mute.hidden = NO;
-            self.handsfree.hidden = NO;
-            self.callTimeLabel.hidden = NO;
-//            self.sponsorPanel.hidden = YES;
-            self.userCollectionView.hidden = NO;
-            self.mute.alpha = 0.0;
-            self.handsfree.alpha = 0.0;
+//            [self.hangup mas_remakeConstraints:^(MASConstraintMaker *make) {
+//                make.centerX.equalTo(self.view.mas_centerX);
+//                make.bottom.equalTo(self.view.safeAreaLayoutGuideBottom).offset(-49);
+//            }];
+//
+//            [self.mute mas_remakeConstraints:^(MASConstraintMaker *make) {
+//                make.trailing.equalTo(self.hangup.mas_leading).offset(-60);
+//                make.bottom.equalTo(self.hangup);
+//            }];
+//
+//
+//            [self.handsfree mas_remakeConstraints:^(MASConstraintMaker *make) {
+//                make.leading.equalTo(self.hangup.mas_trailing).offset(60);
+//                make.bottom.equalTo(self.hangup);
+//            }];
+//
+//            [self.callTimeLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+//                make.bottom.equalTo(self.hangup.mas_top).offset(-20);
+//                make.centerX.equalTo(self.hangup);
+//            }];
+//
+//            self.invite.text = @"正在通话中...";
+//
+//            self.mute.hidden = NO;
+//            self.handsfree.hidden = NO;
+//            self.callTimeLabel.hidden = NO;
+////            self.sponsorPanel.hidden = YES;
+//            self.userCollectionView.hidden = NO;
+//            self.mute.alpha = 0.0;
+//            self.handsfree.alpha = 0.0;
             [self startCallTiming];
         }
             break;
@@ -346,10 +354,29 @@
     dispatch_source_set_event_handler(self.timer, ^{
         dispatch_async(dispatch_get_main_queue(), ^{
             self.callTimeLabel.text = [NSString stringWithFormat:@"%02d:%02d",(int)self.callingTime / 60, (int)self.callingTime % 60];
+            self.callMenu.timeLabel.text = [NSString stringWithFormat:@"%02d:%02d",(int)self.callingTime / 60, (int)self.callingTime % 60];
             self.callingTime += 1;
         });
     });
     dispatch_resume(self.timer);
+}
+
+- (CallMenuViewController *)callMenu {
+    
+    if (!_callMenu) {
+        _callMenu = [[CallMenuViewController alloc] initWithStyle:CallMenuStyleAudio user:self.curSponsor ? : self.curInvite];
+        _callMenu.delegate = self;
+        [self addChildViewController:_callMenu];
+        [self.view addSubview:_callMenu.view];
+        [_callMenu didMoveToParentViewController:self];
+    }
+    
+    return _callMenu;
+}
+
+- (void)callMenuViewControllerDidHangup:(CallMenuViewController *)menu {
+    
+    [self disMiss];
 }
 
 - (UIButton *)hangup {

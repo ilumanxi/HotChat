@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TUICallModel.h"
 @class CallMenuViewController;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -26,13 +27,17 @@ typedef NS_ENUM(NSInteger, CallMenuStyle) {
 @interface CallMenuViewController : UIViewController
 
 @property(assign, nonatomic) CallMenuStyle style;
+@property(assign, nonatomic) UserModel *user;
+
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+
 
 @property(assign, nonatomic, getter=isFrontCamera) BOOL frontCamera;
 
 @property(nullable,nonatomic,weak) id <CallMenuViewControllerDelegate> delegate;
 
 
-- (instancetype)initWithStyle:(CallMenuStyle) style;
+- (instancetype)initWithStyle:(CallMenuStyle) style user:(UserModel *)user;
 
 @end
 

@@ -14,7 +14,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol GiftViewViewDelegate <NSObject>
+@protocol GiftViewDelegate <NSObject>
 
 
 - (void)giftView:(GiftView *)giftView didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 
-@property (nonatomic, weak) id<GiftViewViewDelegate> delegate;
+@property (nonatomic, weak) id<GiftViewDelegate> delegate;
 
 @property (weak, nonatomic) IBOutlet UIButton *energyButton;
 

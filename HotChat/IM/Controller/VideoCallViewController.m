@@ -363,8 +363,6 @@
             
             [self.callMenu.view mas_remakeConstraints:^(MASConstraintMaker *make) {
                 make.edges.equalTo(self.view);
-//                make.leading.trailing.bottom.equalTo(self.view);
-//                make.height.equalTo(@118);
             }];
             
 //            [self.hangup mas_remakeConstraints:^(MASConstraintMaker *make) {
@@ -426,6 +424,7 @@
     dispatch_source_set_event_handler(self.timer, ^{
         dispatch_async(dispatch_get_main_queue(), ^{
             self.callTimeLabel.text = [NSString stringWithFormat:@"%02d:%02d",(int)self.callingTime / 60, (int)self.callingTime % 60];
+            self.callMenu.timeLabel.text = [NSString stringWithFormat:@"%02d:%02d",(int)self.callingTime / 60, (int)self.callingTime % 60];
             self.callingTime += 1;
         });
     });
@@ -450,7 +449,7 @@
 - (CallMenuViewController *)callMenu {
     
     if (!_callMenu) {
-        _callMenu = [[CallMenuViewController alloc] initWithStyle:CallMenuStyleVideo];
+        _callMenu = [[CallMenuViewController alloc] initWithStyle:CallMenuStyleVideo user:self.curSponsor ? : self.curInvite];
         _callMenu.delegate = self;
         [self addChildViewController:_callMenu];
         [self.view insertSubview:_callMenu.view aboveSubview:self.localPreView];

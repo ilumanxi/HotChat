@@ -10,7 +10,7 @@ import UIKit
 import SPAlertController
 import MJExtension
 
-class ChatViewController2: ChatController {
+class ChatViewController: ChatController {
     
     var conversationData: TUIConversationCellData!
     override init!(conversation conversationData: TUIConversationCellData!) {
@@ -122,7 +122,7 @@ class ChatViewController2: ChatController {
 
 }
 
-extension ChatViewController2: ChatControllerDelegate {
+extension ChatViewController: ChatControllerDelegate {
     
     
     func chatController(_ controller: ChatController!, didSendMessage msgCellData: TUIMessageCellData!) {

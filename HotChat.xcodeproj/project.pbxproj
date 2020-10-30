@@ -17,7 +17,7 @@
 		26373C77250234D00066FF3B /* FormSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26373C76250234D00066FF3B /* FormSection.swift */; };
 		26377FBE25303D2200D5A03D /* ConversationActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26377FBD25303D2200D5A03D /* ConversationActionViewController.swift */; };
 		26377FC3253042E300D5A03D /* IM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26377FC2253042E300D5A03D /* IM.swift */; };
-		26377FCE2530526800D5A03D /* ChatViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26377FCD2530526800D5A03D /* ChatViewController2.swift */; };
+		26377FCE2530526800D5A03D /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26377FCD2530526800D5A03D /* ChatViewController.swift */; };
 		2639535D254187F100B5E3C0 /* WalletViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2639535C254187F100B5E3C0 /* WalletViewCell.swift */; };
 		26395362254198DB00B5E3C0 /* RightDetailViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26395361254198DB00B5E3C0 /* RightDetailViewCell.xib */; };
 		2639536825419E8300B5E3C0 /* CardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2639536625419E8300B5E3C0 /* CardViewCell.swift */; };
@@ -122,6 +122,16 @@
 		26959042250B1DD900763061 /* InterestedCardOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26959041250B1DD900763061 /* InterestedCardOverlayView.xib */; };
 		269590BF250B5FE900763061 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 269590BE250B5FE900763061 /* StoreKit.framework */; };
 		2696341F2531942000493C3D /* DynamicAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2696341E2531942000493C3D /* DynamicAPI.swift */; };
+		269DED0B254A9DD5000AD5D9 /* CallMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 269DED0A254A9DD5000AD5D9 /* CallMenuViewController.xib */; };
+		269DED1B254AAC4D000AD5D9 /* GiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 269DED19254AAC4D000AD5D9 /* GiftViewController.m */; };
+		269DED1C254AAC4D000AD5D9 /* GiftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 269DED1A254AAC4D000AD5D9 /* GiftViewController.xib */; };
+		269DED39254BDD9D000AD5D9 /* LiveGiftShowCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = 269DED2C254BDD9D000AD5D9 /* LiveGiftShowCustom.m */; };
+		269DED3A254BDD9D000AD5D9 /* LiveGiftShowNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 269DED2D254BDD9D000AD5D9 /* LiveGiftShowNumberView.m */; };
+		269DED3B254BDD9D000AD5D9 /* LiveUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 269DED2F254BDD9D000AD5D9 /* LiveUserModel.m */; };
+		269DED3C254BDD9D000AD5D9 /* LiveGiftShowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 269DED30254BDD9D000AD5D9 /* LiveGiftShowView.m */; };
+		269DED3D254BDD9D000AD5D9 /* LiveGiftShowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 269DED31254BDD9D000AD5D9 /* LiveGiftShowModel.m */; };
+		269DED3E254BDD9D000AD5D9 /* LiveGiftListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 269DED35254BDD9D000AD5D9 /* LiveGiftListModel.m */; };
+		269DEE08254BF735000AD5D9 /* QMUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 269DEE06254BF735000AD5D9 /* QMUIButton.m */; };
 		26A20AEF25189E740061BBB8 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A20AEE25189E740061BBB8 /* LoginManager.swift */; };
 		26A20AF425189F730061BBB8 /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A20AF325189F730061BBB8 /* AccessToken.swift */; };
 		26A20AFF2518A47F0061BBB8 /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A20AFE2518A47F0061BBB8 /* KeychainStore.swift */; };
@@ -229,7 +239,7 @@
 		26373C76250234D00066FF3B /* FormSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormSection.swift; sourceTree = "<group>"; };
 		26377FBD25303D2200D5A03D /* ConversationActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationActionViewController.swift; sourceTree = "<group>"; };
 		26377FC2253042E300D5A03D /* IM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IM.swift; sourceTree = "<group>"; };
-		26377FCD2530526800D5A03D /* ChatViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController2.swift; sourceTree = "<group>"; };
+		26377FCD2530526800D5A03D /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		2639535C254187F100B5E3C0 /* WalletViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewCell.swift; sourceTree = "<group>"; };
 		26395361254198DB00B5E3C0 /* RightDetailViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RightDetailViewCell.xib; sourceTree = "<group>"; };
 		2639536625419E8300B5E3C0 /* CardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewCell.swift; sourceTree = "<group>"; };
@@ -348,6 +358,26 @@
 		269590BE250B5FE900763061 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		269590C0250B5FF900763061 /* HotChatRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HotChatRelease.entitlements; sourceTree = "<group>"; };
 		2696341E2531942000493C3D /* DynamicAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicAPI.swift; sourceTree = "<group>"; };
+		269DED0A254A9DD5000AD5D9 /* CallMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CallMenuViewController.xib; sourceTree = "<group>"; };
+		269DED18254AAC4D000AD5D9 /* GiftViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftViewController.h; sourceTree = "<group>"; };
+		269DED19254AAC4D000AD5D9 /* GiftViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftViewController.m; sourceTree = "<group>"; };
+		269DED1A254AAC4D000AD5D9 /* GiftViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiftViewController.xib; sourceTree = "<group>"; };
+		269DED2C254BDD9D000AD5D9 /* LiveGiftShowCustom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveGiftShowCustom.m; sourceTree = "<group>"; };
+		269DED2D254BDD9D000AD5D9 /* LiveGiftShowNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveGiftShowNumberView.m; sourceTree = "<group>"; };
+		269DED2E254BDD9D000AD5D9 /* LiveGiftListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveGiftListModel.h; sourceTree = "<group>"; };
+		269DED2F254BDD9D000AD5D9 /* LiveUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveUserModel.m; sourceTree = "<group>"; };
+		269DED30254BDD9D000AD5D9 /* LiveGiftShowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveGiftShowView.m; sourceTree = "<group>"; };
+		269DED31254BDD9D000AD5D9 /* LiveGiftShowModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveGiftShowModel.m; sourceTree = "<group>"; };
+		269DED32254BDD9D000AD5D9 /* LiveGiftShowNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveGiftShowNumberView.h; sourceTree = "<group>"; };
+		269DED33254BDD9D000AD5D9 /* LiveGiftShowCustom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveGiftShowCustom.h; sourceTree = "<group>"; };
+		269DED34254BDD9D000AD5D9 /* LiveUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveUserModel.h; sourceTree = "<group>"; };
+		269DED35254BDD9D000AD5D9 /* LiveGiftListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveGiftListModel.m; sourceTree = "<group>"; };
+		269DED36254BDD9D000AD5D9 /* LiveGiftShowModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveGiftShowModel.h; sourceTree = "<group>"; };
+		269DED38254BDD9D000AD5D9 /* LiveGiftShowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveGiftShowView.h; sourceTree = "<group>"; };
+		269DEE04254BF735000AD5D9 /* QMUICommonDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMUICommonDefines.h; sourceTree = "<group>"; };
+		269DEE05254BF735000AD5D9 /* QMUIConfigurationMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMUIConfigurationMacros.h; sourceTree = "<group>"; };
+		269DEE06254BF735000AD5D9 /* QMUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMUIButton.m; sourceTree = "<group>"; };
+		269DEE07254BF735000AD5D9 /* QMUIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMUIButton.h; sourceTree = "<group>"; };
 		26A20AEE25189E740061BBB8 /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		26A20AF325189F730061BBB8 /* AccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessToken.swift; sourceTree = "<group>"; };
 		26A20AFE2518A47F0061BBB8 /* KeychainStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainStore.swift; sourceTree = "<group>"; };
@@ -738,7 +768,7 @@
 				267954F8250757FE00A72954 /* ConversationViewController.swift */,
 				26F25C97250A359300F808EA /* InterestedViewController.swift */,
 				26377FBD25303D2200D5A03D /* ConversationActionViewController.swift */,
-				26377FCD2530526800D5A03D /* ChatViewController2.swift */,
+				26377FCD2530526800D5A03D /* ChatViewController.swift */,
 				2694580A253FF7B100EBCABB /* UserSettingViewController.swift */,
 				26AB26E125401C0D00C16025 /* RemarkViewController.swift */,
 				26C31F2525403A9E0000D09D /* ReportUserViewController.swift */,
@@ -817,6 +847,36 @@
 				26A20AEE25189E740061BBB8 /* LoginManager.swift */,
 			);
 			path = Account;
+			sourceTree = "<group>";
+		};
+		269DED2B254BDD9D000AD5D9 /* LiveGiftShowView */ = {
+			isa = PBXGroup;
+			children = (
+				269DED32254BDD9D000AD5D9 /* LiveGiftShowNumberView.h */,
+				269DED2D254BDD9D000AD5D9 /* LiveGiftShowNumberView.m */,
+				269DED2E254BDD9D000AD5D9 /* LiveGiftListModel.h */,
+				269DED35254BDD9D000AD5D9 /* LiveGiftListModel.m */,
+				269DED34254BDD9D000AD5D9 /* LiveUserModel.h */,
+				269DED2F254BDD9D000AD5D9 /* LiveUserModel.m */,
+				269DED38254BDD9D000AD5D9 /* LiveGiftShowView.h */,
+				269DED30254BDD9D000AD5D9 /* LiveGiftShowView.m */,
+				269DED33254BDD9D000AD5D9 /* LiveGiftShowCustom.h */,
+				269DED2C254BDD9D000AD5D9 /* LiveGiftShowCustom.m */,
+				269DED36254BDD9D000AD5D9 /* LiveGiftShowModel.h */,
+				269DED31254BDD9D000AD5D9 /* LiveGiftShowModel.m */,
+			);
+			path = LiveGiftShowView;
+			sourceTree = "<group>";
+		};
+		269DEE03254BF735000AD5D9 /* QMUIButton */ = {
+			isa = PBXGroup;
+			children = (
+				269DEE04254BF735000AD5D9 /* QMUICommonDefines.h */,
+				269DEE05254BF735000AD5D9 /* QMUIConfigurationMacros.h */,
+				269DEE06254BF735000AD5D9 /* QMUIButton.m */,
+				269DEE07254BF735000AD5D9 /* QMUIButton.h */,
+			);
+			path = QMUIButton;
 			sourceTree = "<group>";
 		};
 		26A20AFD2518A4560061BBB8 /* Utils */ = {
@@ -912,6 +972,8 @@
 		26EF524625398DC700E73774 /* IM */ = {
 			isa = PBXGroup;
 			children = (
+				269DEE03254BF735000AD5D9 /* QMUIButton */,
+				269DED2B254BDD9D000AD5D9 /* LiveGiftShowView */,
 				26F3D674254833F2007D9136 /* Model */,
 				26F3D673254833C8007D9136 /* Controller */,
 				26F3D672254833C1007D9136 /* View */,
@@ -957,9 +1019,13 @@
 				26DBC372253D89DF0083BDFB /* AudioCallViewController.m */,
 				263BC21B254956950081F5DF /* CallMenuViewController.h */,
 				263BC21C254956950081F5DF /* CallMenuViewController.m */,
+				269DED0A254A9DD5000AD5D9 /* CallMenuViewController.xib */,
 				263BC22A254987770081F5DF /* BeautyViewController.h */,
 				263BC22B254987770081F5DF /* BeautyViewController.m */,
 				263BC22C254987770081F5DF /* BeautyViewController.xib */,
+				269DED18254AAC4D000AD5D9 /* GiftViewController.h */,
+				269DED19254AAC4D000AD5D9 /* GiftViewController.m */,
+				269DED1A254AAC4D000AD5D9 /* GiftViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1132,6 +1198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				26C3F3312542764F00CDD533 /* AnchorAuthenticationViewController.xib in Resources */,
+				269DED1C254AAC4D000AD5D9 /* GiftViewController.xib in Resources */,
 				263BC22E254987770081F5DF /* BeautyViewController.xib in Resources */,
 				26395362254198DB00B5E3C0 /* RightDetailViewCell.xib in Resources */,
 				26959042250B1DD900763061 /* InterestedCardOverlayView.xib in Resources */,
@@ -1158,6 +1225,7 @@
 				263953702541A38B00B5E3C0 /* FiledViewCell.xib in Resources */,
 				26AE7C342520346500B55318 /* LabelViewCell.xib in Resources */,
 				2695903E250B170B00763061 /* InterestedCardView.xib in Resources */,
+				269DED0B254A9DD5000AD5D9 /* CallMenuViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1393,8 +1461,10 @@
 				2696341F2531942000493C3D /* DynamicAPI.swift in Sources */,
 				2643EBBD2500B04100FBBE49 /* Helpers.swift in Sources */,
 				26E14E68251C861A00645F08 /* DatePickerViewController.swift in Sources */,
+				269DED3E254BDD9D000AD5D9 /* LiveGiftListModel.m in Sources */,
 				26373C77250234D00066FF3B /* FormSection.swift in Sources */,
 				26373C732502340D0066FF3B /* FormEntry.swift in Sources */,
+				269DED3D254BDD9D000AD5D9 /* LiveGiftShowModel.m in Sources */,
 				F305482B2532BC0800844D00 /* DynamicViewCell.swift in Sources */,
 				2694580B253FF7B100EBCABB /* UserSettingViewController.swift in Sources */,
 				2668B0AF2523479F0073E25D /* Product.swift in Sources */,
@@ -1437,12 +1507,14 @@
 				2684598E25359A8A002B9C6E /* MesssageAPI.swift in Sources */,
 				2643EBC82500D4C000FBBE49 /* MeContactViewController.swift in Sources */,
 				2643EBB32500B04100FBBE49 /* UserInfoIntroduceCell.swift in Sources */,
+				269DED3B254BDD9D000AD5D9 /* LiveUserModel.m in Sources */,
 				26F8947125203BDD00A45648 /* TitleViewController.swift in Sources */,
 				26A8D4E9251C8F3E00B736CF /* Constellation.swift in Sources */,
-				26377FCE2530526800D5A03D /* ChatViewController2.swift in Sources */,
+				26377FCE2530526800D5A03D /* ChatViewController.swift in Sources */,
 				26DBC373253D89DF0083BDFB /* AudioCallViewController.m in Sources */,
 				26FC88F0253ECFBB00E4D82F /* SearchViewController.swift in Sources */,
 				2643EBB62500B04100FBBE49 /* InterfaceOrientation.swift in Sources */,
+				269DEE08254BF735000AD5D9 /* QMUIButton.m in Sources */,
 				2682974B2511B05300949C7F /* IndicatorDisplay.swift in Sources */,
 				26AC1E4C25060D27003EFB44 /* LoginViewController.swift in Sources */,
 				2694581A253FF86000EBCABB /* DestructiveViewCell.swift in Sources */,
@@ -1452,6 +1524,7 @@
 				2643EBB22500B04100FBBE49 /* UserInfoLikeObjectCell.swift in Sources */,
 				260B96162521F2F400767076 /* AuthenticationViewController.swift in Sources */,
 				26373C75250234AC0066FF3B /* Delegate.swift in Sources */,
+				269DED39254BDD9D000AD5D9 /* LiveGiftShowCustom.m in Sources */,
 				26C31F2B25404D280000D09D /* ForYouViewController.swift in Sources */,
 				26CA6EE7253829A70023E27B /* ChannelViewController.swift in Sources */,
 				26787E2F251B228200D511E8 /* AccountPlugin.swift in Sources */,
@@ -1470,8 +1543,11 @@
 				267B98772505E1AC0008C81B /* Platform.swift in Sources */,
 				26F3D67725483433007D9136 /* GiftCell.m in Sources */,
 				2668B0A92523432A0073E25D /* WalletProductViewCell.swift in Sources */,
+				269DED3A254BDD9D000AD5D9 /* LiveGiftShowNumberView.m in Sources */,
 				267B98722505E1AC0008C81B /* WeChat.swift in Sources */,
 				26377FBE25303D2200D5A03D /* ConversationActionViewController.swift in Sources */,
+				269DED3C254BDD9D000AD5D9 /* LiveGiftShowView.m in Sources */,
+				269DED1B254AAC4D000AD5D9 /* GiftViewController.m in Sources */,
 				26F8893A25318681001A14F2 /* DynamicViewController.swift in Sources */,
 				267B98752505E1AC0008C81B /* PlatformAuthorization.swift in Sources */,
 				26F8947625207A9A00A45648 /* UploadFileAPI.swift in Sources */,

@@ -7,7 +7,7 @@
 //
 
 #import "CallMenuViewController.h"
-#import <QMUIKit/QMUIButton.h>
+#import "QMUIButton.h"
 #import "UIView+Additions.h"
 #import "TUICallUtils.h"
 #import "THeader.h"
@@ -15,8 +15,19 @@
 #import "TUICall.h"
 #import "TUICall+TRTC.h"
 #import "BeautyViewController.h"
+#import <SDWebImage/SDWebImage.h>
+#import "GiftViewController.h"
+#import "ChatController.h"
+#import "Gift.h"
+#import "IMData.h"
+#import "GiftCellData.h"
+#import <MJExtension/MJExtension.h>
+#import "IMData.h"
+#import "LiveGiftShowCustom.h"
+#import "LiveUserModel.h"
+#import "LiveGiftListModel.h"
 
-@interface CallMenuViewController ()
+@interface CallMenuViewController ()<GiftViewControllerDelegate, V2TIMAdvancedMsgListener, LiveGiftShowCustomDelegate>
 
 ///  摄像头 📷
 @property(strong, nonatomic) QMUIButton *cameraButton;
@@ -40,6 +51,19 @@
 
 @property(nonatomic, strong) BeautyViewController *beautyController;
 
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+
+
+@property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
+
+@property (weak, nonatomic) IBOutlet UIButton *followButton;
+
+@property (weak, nonatomic) IBOutlet UIView *showGiftContainerView;
+
+
+@property (nonatomic ,weak) LiveGiftShowCustom * customGiftShow;
+
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 
 
 @end
@@ -47,10 +71,11 @@
 @implementation CallMenuViewController
 
 
-- (instancetype)initWithStyle:(CallMenuStyle)style {
+- (instancetype)initWithStyle:(CallMenuStyle)style user:(UserModel *)user {
     if (self = [super init]) {
         _frontCamera = YES;
         _style = style;
+        _user = user;
     }
     return self;
 }
@@ -60,6 +85,25 @@
     self.view.backgroundColor = [UIColor clearColor];
     
     [self setupViews];
+    
+    self.nameLabel.text = self.user.name ? : self.user.userId;
+    [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:self.user.avatar]];
+    
+    [[V2TIMManager sharedInstance]  addAdvancedMsgListener:self];
+    
+}
+
+-(void)dealloc {
+    if ([self isViewLoaded]) {
+        [[V2TIMManager sharedInstance]  removeAdvancedMsgListener:self];
+    }
+}
+
+
+- (IBAction)followButtonTapped {
+    
+}
+- (IBAction)reportButtonTapped {
 }
 
 
@@ -71,6 +115,8 @@
         [self.containerStackView addArrangedSubview:self.giftButton];
     }
     else {
+        self.backgroundImageView.backgroundColor = [UIColor blackColor];
+        [self.backgroundImageView sd_setImageWithURL:[NSURL URLWithString:self.user.avatar]];
         [self.containerStackView addArrangedSubview:self.muteButton];
         [self.containerStackView addArrangedSubview:self.handsfreeButton];
         [self.containerStackView addArrangedSubview:self.giftButton];
@@ -150,6 +196,7 @@
         _giftButton.titleLabel.font = [UIFont systemFontOfSize:12];
         _giftButton.imagePosition = QMUIButtonImagePositionTop;
         _giftButton.spacingBetweenImageAndTitle = 3;
+        [_giftButton addTarget:self action:@selector(giftButtonTapped) forControlEvents:UIControlEventTouchUpInside];
     }
     
     return _giftButton;
@@ -209,6 +256,52 @@
     return  _beautyController;
 }
 
+- (void)giftButtonTapped {
+    GiftViewController *vc = [[GiftViewController alloc] init];
+    vc.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    vc.delegate = self;
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
+- (void)giftViewController:(GiftViewController *)gift didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
+    Gift *giftData = gift.gifts[indexPath.item];
+    giftData.count = 1;
+    GiftCellData *cellData = [[GiftCellData alloc] initWithDirection:MsgDirectionOutgoing];
+    cellData.gift = giftData;
+    
+    IMData *imData = [IMData defaultData];
+    imData.data = [giftData mj_JSONString];
+    
+    NSData *data = [TUICallUtils dictionary2JsonData:[imData mj_keyValues]];
+    
+    cellData.innerMessage = [[V2TIMManager sharedInstance] createCustomMessage:data];
+    
+    
+    if (![[UIApplication sharedApplication].keyWindow.rootViewController isKindOfClass:[UITabBarController class]]) {
+        return;
+    }
+    
+    UITabBarController *tabBarController = (UITabBarController *) UIApplication.sharedApplication.keyWindow.rootViewController;
+    
+    if (![tabBarController.selectedViewController isKindOfClass:[UINavigationController class]]) {
+        return;
+    }
+    
+    UINavigationController *navigationController = (UINavigationController *)tabBarController.selectedViewController;
+    
+    for (UIViewController *viewController in navigationController.viewControllers) { // 没有找到IM发消息
+        
+        if ([viewController isKindOfClass:[ChatController class]]) {
+            ChatController *chatControler = (ChatController *) viewController;
+            [chatControler sendMessage:cellData];
+            return;
+        }
+    }
+    
+}
+
 
 - (void)beautyButtonTapped {
     
@@ -230,4 +323,58 @@
     [[TUICall shareInstance] switchCamera:self.isFrontCamera];
 }
 
+- (LiveGiftShowCustom *)customGiftShow{
+    if (!_customGiftShow) {
+        _customGiftShow = [LiveGiftShowCustom addToView:self.showGiftContainerView];
+        _customGiftShow.addMode = LiveGiftAddModeAdd;
+        [_customGiftShow setMaxGiftCount:3];
+        [_customGiftShow setShowMode:LiveGiftShowModeFromTopToBottom];
+        [_customGiftShow setAppearModel:LiveGiftAppearModeLeft];
+        [_customGiftShow setHiddenModel:LiveGiftHiddenModeLeft];
+        [_customGiftShow enableInterfaceDebug:YES];
+        _customGiftShow.delegate = self;
+    }
+    return _customGiftShow;
+}
+
+- (void)onRecvNewMessage:(V2TIMMessage *)msg {
+    
+    if (msg.elemType != V2TIM_ELEM_TYPE_CUSTOM) {
+        return;
+    }
+    
+    NSDictionary *param = [TUICallUtils jsonData2Dictionary:msg.customElem.data];
+    IMData *imData = [IMData mj_objectWithKeyValues:param];
+    
+    if (imData.type != 100) {
+        return;
+    }
+    
+    if (msg.userID != self.user.userId) {
+        return;
+    }
+
+    Gift *gift = [Gift mj_objectWithKeyValues:imData.data];
+    
+    GiftCellData *cellData = [[GiftCellData alloc] initWithDirection: msg.isSelf ? MsgDirectionOutgoing : MsgDirectionIncoming];
+    cellData.innerMessage = msg;
+    cellData.msgID = msg.msgID;
+    cellData.gift = gift;
+    
+    LiveGiftListModel *giftModel = [[LiveGiftListModel alloc] init];
+    giftModel.picUrl = gift.img;
+    giftModel.name = gift.name;
+    giftModel.rewardMsg = [NSString stringWithFormat:@"%@送出%@",msg.nickName, gift.name];
+    
+    LiveUserModel *userModel =  [[LiveUserModel alloc] init];
+    userModel.iconUrl = msg.faceURL;
+    userModel.name = msg.nickName;
+    
+    LiveGiftShowModel *liveGift = [LiveGiftShowModel giftModel:giftModel userModel:userModel];
+    
+    [self.customGiftShow addLiveGiftShowModel:liveGift];
+}
+
 @end
+
+

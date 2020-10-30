@@ -1,16 +1,24 @@
 //
-//  GiftView.m
+//  GiftViewController.m
 //  HotChat
 //
-//  Created by 风起兮 on 2020/10/27.
+//  Created by 风起兮 on 2020/10/29.
 //  Copyright © 2020 风起兮. All rights reserved.
 //
 
-#import "GiftView.h"
+#import "GiftViewController.h"
+#import "Gift.h"
 #import "GiftViewCell.h"
 #import <SDWebImage/SDWebImage.h>
 
-@interface GiftView() <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface GiftViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+
+@property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *collectionViewFlowLayout;
+
+
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @property(nonatomic, assign) NSInteger perRowCount;
 
@@ -18,31 +26,35 @@
 
 @end
 
-@implementation GiftView
+@implementation GiftViewController
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.gifts = Gift.cahche;
+    
+    [self setupViews];
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
+}
+
+- (void)setupViews {
+    
     _perRowCount = 4;
     _perPageCount = 8;
+    
+    _pageControl.numberOfPages = self.numberOfPages;
+    
+    CGFloat size = UIScreen.mainScreen.bounds.size.width / _perRowCount;
     
     _collectionViewFlowLayout.sectionInset = UIEdgeInsetsZero;
     _collectionViewFlowLayout.minimumLineSpacing = 0;
     _collectionViewFlowLayout.minimumInteritemSpacing = 0;
+    _collectionViewFlowLayout.itemSize = CGSizeMake(size, size);
     [_collectionView registerNib:[UINib nibWithNibName:@"GiftViewCell" bundle:nil] forCellWithReuseIdentifier:@"GiftViewCell"];
-    
     [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"UICollectionViewCell"];
-    self.gifts = @[];
+    
 }
 
-- (void)setGifts:(NSArray<Gift *> *)gifts {
-    
-    _gifts = gifts.copy;
-    
-    _pageControl.numberOfPages = self.numberOfPages;
-    [_collectionView reloadData];
-    
-}
 
 - (IBAction)rechargeButtonDidTapped:(id)sender {
 }
@@ -80,8 +92,8 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    if(_delegate && [_delegate respondsToSelector:@selector(giftView:didSelectItemAtIndexPath:)]){
-        [_delegate giftView:self didSelectItemAtIndexPath:indexPath];
+    if(_delegate && [_delegate respondsToSelector:@selector(giftViewController:didSelectItemAtIndexPath:)]){
+        [_delegate giftViewController:self didSelectItemAtIndexPath:indexPath];
     }
 }
 
@@ -92,5 +104,17 @@
 
     _pageControl.currentPage = curSection;
 }
+
+
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    
+    if (touches.anyObject.view == self.view) {
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    
+}
+
 
 @end
