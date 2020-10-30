@@ -27,6 +27,10 @@
 #import "LiveUserModel.h"
 #import "LiveGiftListModel.h"
 
+#import <ImSDK/V2TIMManager.h>
+#import <ImSDK/V2TIMManager+Message.h>
+
+
 @interface CallMenuViewController ()<GiftViewControllerDelegate, V2TIMAdvancedMsgListener, LiveGiftShowCustomDelegate>
 
 ///  摄像头 📷
@@ -277,8 +281,18 @@
     NSData *data = [TUICallUtils dictionary2JsonData:[imData mj_keyValues]];
     
     cellData.innerMessage = [[V2TIMManager sharedInstance] createCustomMessage:data];
+    [self sendMessage:cellData];
     
     
+    [TUICallUtils getCallUserModel:[TUICallUtils loginUser] finished:^(CallUserModel * _Nonnull model) {
+        [self user:model giveGift:giftData];
+    }];
+    
+}
+
+
+- (void)sendMessage:(TUIMessageCellData *)msg
+{
     if (![[UIApplication sharedApplication].keyWindow.rootViewController isKindOfClass:[UITabBarController class]]) {
         return;
     }
@@ -295,13 +309,20 @@
         
         if ([viewController isKindOfClass:[ChatController class]]) {
             ChatController *chatControler = (ChatController *) viewController;
-            [chatControler sendMessage:cellData];
+            [chatControler sendMessage:msg];
             return;
         }
     }
     
+    TUIConversationCellData *conversationCellData = [[TUIConversationCellData alloc] init];
+    conversationCellData.userID = self.user.userId;
+    
+    TUIMessageController *messageController =  [[TUIMessageController alloc] init];
+    [messageController setConversation:conversationCellData];
+    
+    //IM发消息
+    [messageController sendMessage:msg];
 }
-
 
 - (void)beautyButtonTapped {
     
@@ -355,25 +376,32 @@
     }
 
     Gift *gift = [Gift mj_objectWithKeyValues:imData.data];
+    UserModel *user = [[UserModel alloc] init];
+    user.avatar = msg.faceURL;
+    user.name = msg.nickName;
+    user.userId = msg.userID;
+    [self user:user giveGift:gift];
+}
+
+- (void)user:(UserModel *)user giveGift:(Gift *)gift {
     
-    GiftCellData *cellData = [[GiftCellData alloc] initWithDirection: msg.isSelf ? MsgDirectionOutgoing : MsgDirectionIncoming];
-    cellData.innerMessage = msg;
-    cellData.msgID = msg.msgID;
-    cellData.gift = gift;
     
     LiveGiftListModel *giftModel = [[LiveGiftListModel alloc] init];
+    giftModel.type = [NSString stringWithFormat:@"%ld",gift.id];
     giftModel.picUrl = gift.img;
     giftModel.name = gift.name;
-    giftModel.rewardMsg = [NSString stringWithFormat:@"%@送出%@",msg.nickName, gift.name];
+    giftModel.rewardMsg = [NSString stringWithFormat:@"%@送出%@",user.name, gift.name];
     
     LiveUserModel *userModel =  [[LiveUserModel alloc] init];
-    userModel.iconUrl = msg.faceURL;
-    userModel.name = msg.nickName;
+    userModel.iconUrl = user.avatar;
+    userModel.name = user.name;
+    userModel.userId = user.userId;
     
     LiveGiftShowModel *liveGift = [LiveGiftShowModel giftModel:giftModel userModel:userModel];
     
     [self.customGiftShow addLiveGiftShowModel:liveGift];
 }
+
 
 @end
 

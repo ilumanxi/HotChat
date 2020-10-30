@@ -379,7 +379,7 @@ static LiveGiftAppearMode live_appearModel = LiveGiftAppearModeLeft;
 
 - (NSString *)getDictKey:(LiveGiftShowModel *)model{
     //默认以 用户名+礼物类型 为key
-    NSString * key = [NSString stringWithFormat:@"%@%@",model.user.name,model.giftModel.type];
+    NSString * key = [NSString stringWithFormat:@"%@%@",model.user.userId,model.giftModel.type];
     return key;
 }
 

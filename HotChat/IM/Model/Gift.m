@@ -18,8 +18,8 @@
         Gift *gift = [Gift new];
         gift.id = i;
         gift.img = @"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=4108597118,3045519513&fm=11&gp=0.jpg";
-        gift.name = @"小皮鞭";
-        gift.energy = 900;
+        gift.name = [NSString stringWithFormat:@"小皮鞭%d",i];
+        gift.energy = i;
         [gifts addObject:gift];
     }
     return gifts;

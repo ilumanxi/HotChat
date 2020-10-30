@@ -10,6 +10,7 @@
 
 @interface LiveUserModel : NSObject
 
+@property (nonatomic ,copy) NSString * userId;
 @property (nonatomic ,copy) NSString * name;
 @property (nonatomic ,copy) NSString * iconUrl;
 
