@@ -12,6 +12,7 @@
 		260A87782521932A00380FB4 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A87772521932A00380FB4 /* SettingViewController.swift */; };
 		260B96112521F15C00767076 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260B96102521F15C00767076 /* Authentication.swift */; };
 		260B96162521F2F400767076 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260B96152521F2F400767076 /* AuthenticationViewController.swift */; };
+		262773452551683100B002D1 /* IBAnimatable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26945805253FE32900EBCABB /* IBAnimatable.framework */; };
 		26373C732502340D0066FF3B /* FormEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26373C722502340D0066FF3B /* FormEntry.swift */; };
 		26373C75250234AC0066FF3B /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26373C74250234AC0066FF3B /* Delegate.swift */; };
 		26373C77250234D00066FF3B /* FormSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26373C76250234D00066FF3B /* FormSection.swift */; };
@@ -65,6 +66,10 @@
 		2643EBCA2500DBF500FBBE49 /* MeRelationshipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643EBC92500DBF500FBBE49 /* MeRelationshipViewController.swift */; };
 		2643EBCC2500FDA300FBBE49 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643EBCB2500FDA300FBBE49 /* UserInfoViewController.swift */; };
 		264A20CF25109B5000A264BE /* AccountAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264A20CE25109B5000A264BE /* AccountAPI.swift */; };
+		2656F30E254FAC0500552611 /* GiftReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2656F30C254FAC0500552611 /* GiftReminderViewController.m */; };
+		2656F30F254FAC0500552611 /* GiftReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2656F30D254FAC0500552611 /* GiftReminderViewController.xib */; };
+		2656F317254FDB5000552611 /* IMAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2656F316254FDB5000552611 /* IMAPI.swift */; };
+		2656F322254FE0AF00552611 /* CallStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2656F321254FE0AF00552611 /* CallStatus.swift */; };
 		265C1ED62542D84700110564 /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C1ED52542D84700110564 /* InviteViewController.swift */; };
 		265C8A3D2513316200E220BD /* SigninViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C8A3C2513316200E220BD /* SigninViewModel.swift */; };
 		265C8A42251332E900E220BD /* SigninProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C8A41251332E900E220BD /* SigninProtocols.swift */; };
@@ -111,7 +116,6 @@
 		268BB25E251D9B3200001DF3 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268BB25D251D9B3200001DF3 /* UserAPI.swift */; };
 		268E3E602521D074000E4A33 /* RelationshipViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E3E5E2521D074000E4A33 /* RelationshipViewCell.swift */; };
 		268E3E612521D074000E4A33 /* RelationshipViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 268E3E5F2521D074000E4A33 /* RelationshipViewCell.xib */; };
-		26945806253FE32900EBCABB /* IBAnimatable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26945805253FE32900EBCABB /* IBAnimatable.framework */; };
 		2694580B253FF7B100EBCABB /* UserSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2694580A253FF7B100EBCABB /* UserSettingViewController.swift */; };
 		26945810253FF80A00EBCABB /* SwitchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2694580F253FF80A00EBCABB /* SwitchViewCell.swift */; };
 		26945815253FF81E00EBCABB /* UserViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26945814253FF81E00EBCABB /* UserViewCell.swift */; };
@@ -152,6 +156,8 @@
 		26C31F3025404FE90000D09D /* ForYouCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C31F2F25404FE90000D09D /* ForYouCell.swift */; };
 		26C3F3302542764F00CDD533 /* AnchorAuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C3F32E2542764F00CDD533 /* AnchorAuthenticationViewController.swift */; };
 		26C3F3312542764F00CDD533 /* AnchorAuthenticationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26C3F32F2542764F00CDD533 /* AnchorAuthenticationViewController.xib */; };
+		26C47B9A2551617C006AA912 /* IDLFaceSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26CB6D3825515D6B00A9F4DD /* IDLFaceSDK.framework */; };
+		26C47B9B2551617C006AA912 /* IDLFaceSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 26CB6D3825515D6B00A9F4DD /* IDLFaceSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		26C65FAE25300C47006B9B7E /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C65FAD25300C47006B9B7E /* InformationViewController.swift */; };
 		26C65FB325301737006B9B7E /* InformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C65FB225301737006B9B7E /* InformationCell.swift */; };
 		26C80E582546CCF000F4ECBC /* ChatController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C80E572546CCF000F4ECBC /* ChatController.m */; };
@@ -166,6 +172,29 @@
 		26CA6EE2253825920023E27B /* DiscoverAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CA6EE1253825920023E27B /* DiscoverAPI.swift */; };
 		26CA6EE7253829A70023E27B /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CA6EE6253829A70023E27B /* ChannelViewController.swift */; };
 		26CA6EEC25382DC40023E27B /* ChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CA6EEB25382DC40023E27B /* ChannelCell.swift */; };
+		26CB6C38255124DB00A9F4DD /* BillingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CB6C37255124DB00A9F4DD /* BillingManager.m */; };
+		26CB6C3E25512A0A00A9F4DD /* BillingStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CB6C3D25512A0A00A9F4DD /* BillingStatus.m */; };
+		26CB6C93255153A500A9F4DD /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 26CB6C92255153A500A9F4DD /* libc++.tbd */; };
+		26CB6D3D25515D6B00A9F4DD /* BDFaceLivingConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CB6D1225515D6B00A9F4DD /* BDFaceLivingConfigViewController.m */; };
+		26CB6D3E25515D6B00A9F4DD /* BDFaceSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CB6D1325515D6B00A9F4DD /* BDFaceSuccessViewController.m */; };
+		26CB6D3F25515D6B00A9F4DD /* BDFaceLivenessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CB6D1625515D6B00A9F4DD /* BDFaceLivenessViewController.m */; };
+		26CB6D4025515D6B00A9F4DD /* BDFaceAgreementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CB6D1925515D6B00A9F4DD /* BDFaceAgreementViewController.m */; };
+		26CB6D4125515D6B00A9F4DD /* BDFaceDetectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CB6D1A25515D6B00A9F4DD /* BDFaceDetectionViewController.m */; };
+		26CB6D4225515D6B00A9F4DD /* BDFaceBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CB6D1D25515D6B00A9F4DD /* BDFaceBaseViewController.m */; };
+		26CB6D4325515D6B00A9F4DD /* BDFaceCycleProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CB6D1F25515D6B00A9F4DD /* BDFaceCycleProgressView.m */; };
+		26CB6D4425515D6B00A9F4DD /* BDFaceRemindView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CB6D2025515D6B00A9F4DD /* BDFaceRemindView.m */; };
+		26CB6D4525515D6B00A9F4DD /* BDFaceCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CB6D2125515D6B00A9F4DD /* BDFaceCircleView.m */; };
+		26CB6D4625515D6B00A9F4DD /* BDFaceImageShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CB6D2425515D6B00A9F4DD /* BDFaceImageShow.m */; };
+		26CB6D4725515D6B00A9F4DD /* BDFaceRemindAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CB6D2825515D6B00A9F4DD /* BDFaceRemindAnimationView.m */; };
+		26CB6D4825515D6B00A9F4DD /* BDFaceLogoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CB6D2925515D6B00A9F4DD /* BDFaceLogoView.m */; };
+		26CB6D4925515D6B00A9F4DD /* BDFaceImageUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CB6D2E25515D6B00A9F4DD /* BDFaceImageUtils.m */; };
+		26CB6D4A25515D6B00A9F4DD /* BDFaceVideoCaptureDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CB6D3125515D6B00A9F4DD /* BDFaceVideoCaptureDevice.m */; };
+		26CB6D4B25515D6B00A9F4DD /* BDFaceLivingConfigModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CB6D3525515D6B00A9F4DD /* BDFaceLivingConfigModel.m */; };
+		26CB6D4C25515D6B00A9F4DD /* com.baidu.idl.face.live.action.image.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 26CB6D3725515D6B00A9F4DD /* com.baidu.idl.face.live.action.image.bundle */; };
+		26CB6D4E25515D6B00A9F4DD /* idl-key.face-ios in Resources */ = {isa = PBXBuildFile; fileRef = 26CB6D3925515D6B00A9F4DD /* idl-key.face-ios */; };
+		26CB6D4F25515D6B00A9F4DD /* idl-license.face-ios in Resources */ = {isa = PBXBuildFile; fileRef = 26CB6D3A25515D6B00A9F4DD /* idl-license.face-ios */; };
+		26CB6D5025515D6B00A9F4DD /* com.baidu.idl.face.model.faceSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 26CB6D3B25515D6B00A9F4DD /* com.baidu.idl.face.model.faceSDK.bundle */; };
+		26CB6D5125515D6B00A9F4DD /* com.baidu.idl.face.faceSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 26CB6D3C25515D6B00A9F4DD /* com.baidu.idl.face.faceSDK.bundle */; };
 		26CBE3B42508A3FC0089A23C /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CBE3B32508A3FC0089A23C /* CommunityViewController.swift */; };
 		26CBE3B62508A9C30089A23C /* CommunityHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CBE3B52508A9C30089A23C /* CommunityHeaderView.swift */; };
 		26CBE3B82508A9F20089A23C /* CommunityHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26CBE3B72508A9F20089A23C /* CommunityHeaderView.xib */; };
@@ -225,6 +254,20 @@
 			remoteInfo = HotChat;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		26C47B9C2551617C006AA912 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				26C47B9B2551617C006AA912 /* IDLFaceSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1C32CA0070B3C7B3111B5D13 /* Pods-HotChat-HotChatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotChat-HotChatUITests.release.xcconfig"; path = "Target Support Files/Pods-HotChat-HotChatUITests/Pods-HotChat-HotChatUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -298,6 +341,11 @@
 		2643EBCB2500FDA300FBBE49 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		264A20CE25109B5000A264BE /* AccountAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAPI.swift; sourceTree = "<group>"; };
 		26546371250B774E00398F04 /* apple-app-site-association */ = {isa = PBXFileReference; lastKnownFileType = text; path = "apple-app-site-association"; sourceTree = "<group>"; };
+		2656F30B254FAC0500552611 /* GiftReminderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftReminderViewController.h; sourceTree = "<group>"; };
+		2656F30C254FAC0500552611 /* GiftReminderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftReminderViewController.m; sourceTree = "<group>"; };
+		2656F30D254FAC0500552611 /* GiftReminderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiftReminderViewController.xib; sourceTree = "<group>"; };
+		2656F316254FDB5000552611 /* IMAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMAPI.swift; sourceTree = "<group>"; };
+		2656F321254FE0AF00552611 /* CallStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallStatus.swift; sourceTree = "<group>"; };
 		265C1ED52542D84700110564 /* InviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
 		265C8A3C2513316200E220BD /* SigninViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewModel.swift; sourceTree = "<group>"; };
 		265C8A41251332E900E220BD /* SigninProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninProtocols.swift; sourceTree = "<group>"; };
@@ -420,6 +468,48 @@
 		26CA6EE1253825920023E27B /* DiscoverAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverAPI.swift; sourceTree = "<group>"; };
 		26CA6EE6253829A70023E27B /* ChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
 		26CA6EEB25382DC40023E27B /* ChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCell.swift; sourceTree = "<group>"; };
+		26CB6C36255124DB00A9F4DD /* BillingManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BillingManager.h; sourceTree = "<group>"; };
+		26CB6C37255124DB00A9F4DD /* BillingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BillingManager.m; sourceTree = "<group>"; };
+		26CB6C3C25512A0A00A9F4DD /* BillingStatus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BillingStatus.h; sourceTree = "<group>"; };
+		26CB6C3D25512A0A00A9F4DD /* BillingStatus.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BillingStatus.m; sourceTree = "<group>"; };
+		26CB6C92255153A500A9F4DD /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		26CB6D1225515D6B00A9F4DD /* BDFaceLivingConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDFaceLivingConfigViewController.m; sourceTree = "<group>"; };
+		26CB6D1325515D6B00A9F4DD /* BDFaceSuccessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDFaceSuccessViewController.m; sourceTree = "<group>"; };
+		26CB6D1425515D6B00A9F4DD /* BDFaceDetectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDFaceDetectionViewController.h; sourceTree = "<group>"; };
+		26CB6D1525515D6B00A9F4DD /* BDFaceAgreementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDFaceAgreementViewController.h; sourceTree = "<group>"; };
+		26CB6D1625515D6B00A9F4DD /* BDFaceLivenessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDFaceLivenessViewController.m; sourceTree = "<group>"; };
+		26CB6D1725515D6B00A9F4DD /* BDFaceBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDFaceBaseViewController.h; sourceTree = "<group>"; };
+		26CB6D1825515D6B00A9F4DD /* BDFaceLivingConfigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDFaceLivingConfigViewController.h; sourceTree = "<group>"; };
+		26CB6D1925515D6B00A9F4DD /* BDFaceAgreementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDFaceAgreementViewController.m; sourceTree = "<group>"; };
+		26CB6D1A25515D6B00A9F4DD /* BDFaceDetectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDFaceDetectionViewController.m; sourceTree = "<group>"; };
+		26CB6D1B25515D6B00A9F4DD /* BDFaceSuccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDFaceSuccessViewController.h; sourceTree = "<group>"; };
+		26CB6D1C25515D6B00A9F4DD /* BDFaceLivenessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDFaceLivenessViewController.h; sourceTree = "<group>"; };
+		26CB6D1D25515D6B00A9F4DD /* BDFaceBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDFaceBaseViewController.m; sourceTree = "<group>"; };
+		26CB6D1F25515D6B00A9F4DD /* BDFaceCycleProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDFaceCycleProgressView.m; sourceTree = "<group>"; };
+		26CB6D2025515D6B00A9F4DD /* BDFaceRemindView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDFaceRemindView.m; sourceTree = "<group>"; };
+		26CB6D2125515D6B00A9F4DD /* BDFaceCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDFaceCircleView.m; sourceTree = "<group>"; };
+		26CB6D2225515D6B00A9F4DD /* BDFaceLogoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDFaceLogoView.h; sourceTree = "<group>"; };
+		26CB6D2325515D6B00A9F4DD /* BDFaceRemindAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDFaceRemindAnimationView.h; sourceTree = "<group>"; };
+		26CB6D2425515D6B00A9F4DD /* BDFaceImageShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDFaceImageShow.m; sourceTree = "<group>"; };
+		26CB6D2525515D6B00A9F4DD /* BDFaceCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDFaceCircleView.h; sourceTree = "<group>"; };
+		26CB6D2625515D6B00A9F4DD /* BDFaceRemindView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDFaceRemindView.h; sourceTree = "<group>"; };
+		26CB6D2725515D6B00A9F4DD /* BDFaceCycleProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDFaceCycleProgressView.h; sourceTree = "<group>"; };
+		26CB6D2825515D6B00A9F4DD /* BDFaceRemindAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDFaceRemindAnimationView.m; sourceTree = "<group>"; };
+		26CB6D2925515D6B00A9F4DD /* BDFaceLogoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDFaceLogoView.m; sourceTree = "<group>"; };
+		26CB6D2A25515D6B00A9F4DD /* BDFaceImageShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDFaceImageShow.h; sourceTree = "<group>"; };
+		26CB6D2B25515D6B00A9F4DD /* FaceParameterConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceParameterConfig.h; sourceTree = "<group>"; };
+		26CB6D2E25515D6B00A9F4DD /* BDFaceImageUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDFaceImageUtils.m; sourceTree = "<group>"; };
+		26CB6D2F25515D6B00A9F4DD /* BDFaceImageUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDFaceImageUtils.h; sourceTree = "<group>"; };
+		26CB6D3125515D6B00A9F4DD /* BDFaceVideoCaptureDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDFaceVideoCaptureDevice.m; sourceTree = "<group>"; };
+		26CB6D3225515D6B00A9F4DD /* BDFaceVideoCaptureDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDFaceVideoCaptureDevice.h; sourceTree = "<group>"; };
+		26CB6D3425515D6B00A9F4DD /* BDFaceLivingConfigModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDFaceLivingConfigModel.h; sourceTree = "<group>"; };
+		26CB6D3525515D6B00A9F4DD /* BDFaceLivingConfigModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDFaceLivingConfigModel.m; sourceTree = "<group>"; };
+		26CB6D3725515D6B00A9F4DD /* com.baidu.idl.face.live.action.image.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = com.baidu.idl.face.live.action.image.bundle; sourceTree = "<group>"; };
+		26CB6D3825515D6B00A9F4DD /* IDLFaceSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IDLFaceSDK.framework; sourceTree = "<group>"; };
+		26CB6D3925515D6B00A9F4DD /* idl-key.face-ios */ = {isa = PBXFileReference; lastKnownFileType = file; path = "idl-key.face-ios"; sourceTree = "<group>"; };
+		26CB6D3A25515D6B00A9F4DD /* idl-license.face-ios */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "idl-license.face-ios"; sourceTree = "<group>"; };
+		26CB6D3B25515D6B00A9F4DD /* com.baidu.idl.face.model.faceSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = com.baidu.idl.face.model.faceSDK.bundle; sourceTree = "<group>"; };
+		26CB6D3C25515D6B00A9F4DD /* com.baidu.idl.face.faceSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = com.baidu.idl.face.faceSDK.bundle; sourceTree = "<group>"; };
 		26CBE3B32508A3FC0089A23C /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
 		26CBE3B52508A9C30089A23C /* CommunityHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityHeaderView.swift; sourceTree = "<group>"; };
 		26CBE3B72508A9F20089A23C /* CommunityHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityHeaderView.xib; sourceTree = "<group>"; };
@@ -482,8 +572,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26945806253FE32900EBCABB /* IBAnimatable.framework in Frameworks */,
+				26CB6C93255153A500A9F4DD /* libc++.tbd in Frameworks */,
+				26C47B9A2551617C006AA912 /* IDLFaceSDK.framework in Frameworks */,
 				269590BF250B5FE900763061 /* StoreKit.framework in Frameworks */,
+				262773452551683100B002D1 /* IBAnimatable.framework in Frameworks */,
 				569A62C017EE594D27BBDD0C /* libPods-HotChat.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -546,6 +638,7 @@
 			children = (
 				269590C0250B5FF900763061 /* HotChatRelease.entitlements */,
 				269590BD250B5FC300763061 /* HotChat.entitlements */,
+				26CB6D0E25515D6B00A9F4DD /* BaiDu */,
 				26EF524625398DC700E73774 /* IM */,
 				26A20B032518A4E30061BBB8 /* General */,
 				26A20AFD2518A4560061BBB8 /* Utils */,
@@ -906,6 +999,122 @@
 			path = General;
 			sourceTree = "<group>";
 		};
+		26CB6D0E25515D6B00A9F4DD /* BaiDu */ = {
+			isa = PBXGroup;
+			children = (
+				26CB6D0F25515D6B00A9F4DD /* BDFaceFaceSDKUI */,
+				26CB6D3625515D6B00A9F4DD /* BDFaceSDK */,
+			);
+			path = BaiDu;
+			sourceTree = "<group>";
+		};
+		26CB6D0F25515D6B00A9F4DD /* BDFaceFaceSDKUI */ = {
+			isa = PBXGroup;
+			children = (
+				26CB6D1025515D6B00A9F4DD /* UI */,
+				26CB6D2B25515D6B00A9F4DD /* FaceParameterConfig.h */,
+				26CB6D2C25515D6B00A9F4DD /* Public */,
+			);
+			path = BDFaceFaceSDKUI;
+			sourceTree = "<group>";
+		};
+		26CB6D1025515D6B00A9F4DD /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				26CB6D1125515D6B00A9F4DD /* Controller */,
+				26CB6D1E25515D6B00A9F4DD /* View */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		26CB6D1125515D6B00A9F4DD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				26CB6D1225515D6B00A9F4DD /* BDFaceLivingConfigViewController.m */,
+				26CB6D1325515D6B00A9F4DD /* BDFaceSuccessViewController.m */,
+				26CB6D1425515D6B00A9F4DD /* BDFaceDetectionViewController.h */,
+				26CB6D1525515D6B00A9F4DD /* BDFaceAgreementViewController.h */,
+				26CB6D1625515D6B00A9F4DD /* BDFaceLivenessViewController.m */,
+				26CB6D1725515D6B00A9F4DD /* BDFaceBaseViewController.h */,
+				26CB6D1825515D6B00A9F4DD /* BDFaceLivingConfigViewController.h */,
+				26CB6D1925515D6B00A9F4DD /* BDFaceAgreementViewController.m */,
+				26CB6D1A25515D6B00A9F4DD /* BDFaceDetectionViewController.m */,
+				26CB6D1B25515D6B00A9F4DD /* BDFaceSuccessViewController.h */,
+				26CB6D1C25515D6B00A9F4DD /* BDFaceLivenessViewController.h */,
+				26CB6D1D25515D6B00A9F4DD /* BDFaceBaseViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		26CB6D1E25515D6B00A9F4DD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				26CB6D1F25515D6B00A9F4DD /* BDFaceCycleProgressView.m */,
+				26CB6D2025515D6B00A9F4DD /* BDFaceRemindView.m */,
+				26CB6D2125515D6B00A9F4DD /* BDFaceCircleView.m */,
+				26CB6D2225515D6B00A9F4DD /* BDFaceLogoView.h */,
+				26CB6D2325515D6B00A9F4DD /* BDFaceRemindAnimationView.h */,
+				26CB6D2425515D6B00A9F4DD /* BDFaceImageShow.m */,
+				26CB6D2525515D6B00A9F4DD /* BDFaceCircleView.h */,
+				26CB6D2625515D6B00A9F4DD /* BDFaceRemindView.h */,
+				26CB6D2725515D6B00A9F4DD /* BDFaceCycleProgressView.h */,
+				26CB6D2825515D6B00A9F4DD /* BDFaceRemindAnimationView.m */,
+				26CB6D2925515D6B00A9F4DD /* BDFaceLogoView.m */,
+				26CB6D2A25515D6B00A9F4DD /* BDFaceImageShow.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		26CB6D2C25515D6B00A9F4DD /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				26CB6D2D25515D6B00A9F4DD /* Util */,
+				26CB6D3025515D6B00A9F4DD /* Common */,
+				26CB6D3325515D6B00A9F4DD /* Model */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		26CB6D2D25515D6B00A9F4DD /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				26CB6D2E25515D6B00A9F4DD /* BDFaceImageUtils.m */,
+				26CB6D2F25515D6B00A9F4DD /* BDFaceImageUtils.h */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		26CB6D3025515D6B00A9F4DD /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				26CB6D3125515D6B00A9F4DD /* BDFaceVideoCaptureDevice.m */,
+				26CB6D3225515D6B00A9F4DD /* BDFaceVideoCaptureDevice.h */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		26CB6D3325515D6B00A9F4DD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				26CB6D3425515D6B00A9F4DD /* BDFaceLivingConfigModel.h */,
+				26CB6D3525515D6B00A9F4DD /* BDFaceLivingConfigModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		26CB6D3625515D6B00A9F4DD /* BDFaceSDK */ = {
+			isa = PBXGroup;
+			children = (
+				26CB6D3725515D6B00A9F4DD /* com.baidu.idl.face.live.action.image.bundle */,
+				26CB6D3825515D6B00A9F4DD /* IDLFaceSDK.framework */,
+				26CB6D3925515D6B00A9F4DD /* idl-key.face-ios */,
+				26CB6D3A25515D6B00A9F4DD /* idl-license.face-ios */,
+				26CB6D3B25515D6B00A9F4DD /* com.baidu.idl.face.model.faceSDK.bundle */,
+				26CB6D3C25515D6B00A9F4DD /* com.baidu.idl.face.faceSDK.bundle */,
+			);
+			path = BDFaceSDK;
+			sourceTree = "<group>";
+		};
 		26CBE3B02508A3C40089A23C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -980,8 +1189,11 @@
 				26377FC2253042E300D5A03D /* IM.swift */,
 				26D1E589253D5F17004B9B29 /* CallManager.h */,
 				26D1E58A253D5F17004B9B29 /* CallManager.m */,
+				26CB6C36255124DB00A9F4DD /* BillingManager.h */,
+				26CB6C37255124DB00A9F4DD /* BillingManager.m */,
 				263BC1E025494EA20081F5DF /* UIView+Additions.h */,
 				263BC1E125494EA20081F5DF /* UIView+Additions.m */,
+				2656F316254FDB5000552611 /* IMAPI.swift */,
 			);
 			path = IM;
 			sourceTree = "<group>";
@@ -1023,9 +1235,12 @@
 				263BC22A254987770081F5DF /* BeautyViewController.h */,
 				263BC22B254987770081F5DF /* BeautyViewController.m */,
 				263BC22C254987770081F5DF /* BeautyViewController.xib */,
-				269DED18254AAC4D000AD5D9 /* GiftViewController.h */,
 				269DED19254AAC4D000AD5D9 /* GiftViewController.m */,
+				269DED18254AAC4D000AD5D9 /* GiftViewController.h */,
 				269DED1A254AAC4D000AD5D9 /* GiftViewController.xib */,
+				2656F30B254FAC0500552611 /* GiftReminderViewController.h */,
+				2656F30C254FAC0500552611 /* GiftReminderViewController.m */,
+				2656F30D254FAC0500552611 /* GiftReminderViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1039,6 +1254,9 @@
 				26C81EF9254819F300C1D563 /* GiftCellData.m */,
 				26F3D66C25482683007D9136 /* IMData.h */,
 				26F3D66D25482683007D9136 /* IMData.m */,
+				2656F321254FE0AF00552611 /* CallStatus.swift */,
+				26CB6C3C25512A0A00A9F4DD /* BillingStatus.h */,
+				26CB6C3D25512A0A00A9F4DD /* BillingStatus.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1061,6 +1279,7 @@
 		482F3E2EE2B9C253FF5015B3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				26CB6C92255153A500A9F4DD /* libc++.tbd */,
 				26945805253FE32900EBCABB /* IBAnimatable.framework */,
 				269590BE250B5FE900763061 /* StoreKit.framework */,
 				CE1A4E29DD020804E913333F /* libPods-HotChat.a */,
@@ -1093,6 +1312,7 @@
 				5C62613C886FDA87662A76D3 /* [CP] Embed Pods Frameworks */,
 				65E1731636F77F71257BF696 /* [CP] Copy Pods Resources */,
 				269457F7253FD65B00EBCABB /* Carthage Copy Frameworks */,
+				26C47B9C2551617C006AA912 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1202,11 +1422,13 @@
 				263BC22E254987770081F5DF /* BeautyViewController.xib in Resources */,
 				26395362254198DB00B5E3C0 /* RightDetailViewCell.xib in Resources */,
 				26959042250B1DD900763061 /* InterestedCardOverlayView.xib in Resources */,
+				26CB6D4F25515D6B00A9F4DD /* idl-license.face-ios in Resources */,
 				26C81EE62547E9E300C1D563 /* VoiceView.xib in Resources */,
 				26F8946C25203B7300A45648 /* TitleViewCell.xib in Resources */,
 				267955042507637600A72954 /* Community.storyboard in Resources */,
 				26C81EEE25480B1900C1D563 /* GiftViewCell.xib in Resources */,
 				26CBE3B82508A9F20089A23C /* CommunityHeaderView.xib in Resources */,
+				26CB6D5125515D6B00A9F4DD /* com.baidu.idl.face.faceSDK.bundle in Resources */,
 				2679550E25079A4A00A72954 /* UserInfoChatView.xib in Resources */,
 				267954F62507579700A72954 /* Chat.storyboard in Resources */,
 				26BB187D2522F5810019BBFD /* Main.storyboard in Resources */,
@@ -1216,14 +1438,18 @@
 				267B98802506012F0008C81B /* Account.storyboard in Resources */,
 				2643EBA02500B04100FBBE49 /* Me.storyboard in Resources */,
 				2668B0A3252341F70073E25D /* WalletEnergyViewCell.xib in Resources */,
+				26CB6D4C25515D6B00A9F4DD /* com.baidu.idl.face.live.action.image.bundle in Resources */,
+				26CB6D4E25515D6B00A9F4DD /* idl-key.face-ios in Resources */,
 				267954FF250761B600A72954 /* Discover.storyboard in Resources */,
 				2639536925419E8300B5E3C0 /* CardViewCell.xib in Resources */,
 				2679550A2507748C00A72954 /* UserInfoHeaderView.xib in Resources */,
+				2656F30F254FAC0500552611 /* GiftReminderViewController.xib in Resources */,
 				267E36E92547C2E100EB2097 /* GiftView.xib in Resources */,
 				F38CB8C62507B14700049A76 /* InfoPlist.strings in Resources */,
 				268E3E612521D074000E4A33 /* RelationshipViewCell.xib in Resources */,
 				263953702541A38B00B5E3C0 /* FiledViewCell.xib in Resources */,
 				26AE7C342520346500B55318 /* LabelViewCell.xib in Resources */,
+				26CB6D5025515D6B00A9F4DD /* com.baidu.idl.face.model.faceSDK.bundle in Resources */,
 				2695903E250B170B00763061 /* InterestedCardView.xib in Resources */,
 				269DED0B254A9DD5000AD5D9 /* CallMenuViewController.xib in Resources */,
 			);
@@ -1401,8 +1627,11 @@
 			files = (
 				26F8893F253187BD001A14F2 /* Dynamic.swift in Sources */,
 				2643EBAE2500B04100FBBE49 /* UserInfoPhotoAlbumCell.swift in Sources */,
+				26CB6D4925515D6B00A9F4DD /* BDFaceImageUtils.m in Sources */,
 				2643EBCC2500FDA300FBBE49 /* UserInfoViewController.swift in Sources */,
 				265C8A4A251348E200E220BD /* ForgotPasswordViewController.swift in Sources */,
+				2656F317254FDB5000552611 /* IMAPI.swift in Sources */,
+				26CB6D4A25515D6B00A9F4DD /* BDFaceVideoCaptureDevice.m in Sources */,
 				2643EBA12500B04100FBBE49 /* MeViewController.swift in Sources */,
 				26425C16251DDF64006D2F4C /* UserBasicInformationViewController.swift in Sources */,
 				2643EBC02500B04100FBBE49 /* Bundle+App.swift in Sources */,
@@ -1413,6 +1642,7 @@
 				267954E82507311E00A72954 /* LegalLiabilityViewController.swift in Sources */,
 				2684593925354EDB002B9C6E /* Reload.swift in Sources */,
 				26C3F3302542764F00CDD533 /* AnchorAuthenticationViewController.swift in Sources */,
+				26CB6D4B25515D6B00A9F4DD /* BDFaceLivingConfigModel.m in Sources */,
 				26CA6EE2253825920023E27B /* DiscoverAPI.swift in Sources */,
 				265C8A5B25134C3500E220BD /* ForgotPasswordViewModel.swift in Sources */,
 				26F0D2542546DA8200D1018B /* InputController.m in Sources */,
@@ -1420,6 +1650,7 @@
 				26D1E594253D6000004B9B29 /* VideoCallViewController.m in Sources */,
 				26808FDC2519D4B800C9803C /* Request.swift in Sources */,
 				26F25C932509C36B00F808EA /* TabBarButton.swift in Sources */,
+				26CB6D3E25515D6B00A9F4DD /* BDFaceSuccessViewController.m in Sources */,
 				26CBE3BD2508D7920089A23C /* DiscoverViewController.swift in Sources */,
 				F38CB8C82507BA8A00049A76 /* ChatNotificationSettingCell.swift in Sources */,
 				268E3E602521D074000E4A33 /* RelationshipViewCell.swift in Sources */,
@@ -1434,6 +1665,7 @@
 				268458F025345352002B9C6E /* MediaViewCell.swift in Sources */,
 				26808FE12519D5BE00C9803C /* Constant.swift in Sources */,
 				26C31F3025404FE90000D09D /* ForYouCell.swift in Sources */,
+				26CB6D4125515D6B00A9F4DD /* BDFaceDetectionViewController.m in Sources */,
 				2643EBA72500B04100FBBE49 /* RealNameAuthenticationViewController.swift in Sources */,
 				26E14E5E251C6E8800645F08 /* HotChatButton.swift in Sources */,
 				265C8A63251352A800E220BD /* ForgotPasswordProtocols.swift in Sources */,
@@ -1473,8 +1705,10 @@
 				263BC21D254956950081F5DF /* CallMenuViewController.m in Sources */,
 				26945810253FF80A00EBCABB /* SwitchViewCell.swift in Sources */,
 				26C80E582546CCF000F4ECBC /* ChatController.m in Sources */,
+				2656F322254FE0AF00552611 /* CallStatus.swift in Sources */,
 				26377FC3253042E300D5A03D /* IM.swift in Sources */,
 				26F8946B25203B7300A45648 /* TitleViewCell.swift in Sources */,
+				26CB6D4825515D6B00A9F4DD /* BDFaceLogoView.m in Sources */,
 				268297492511AF5800949C7F /* SignupViewModel.swift in Sources */,
 				267955082507747400A72954 /* UserInfoHeaderView.swift in Sources */,
 				26AC1E5225062568003EFB44 /* PhoneSigninViewController.swift in Sources */,
@@ -1483,8 +1717,11 @@
 				26E14E63251C766900645F08 /* UserInformationViewController.swift in Sources */,
 				267954EC2507327B00A72954 /* SignupViewController.swift in Sources */,
 				26D1E58B253D5F17004B9B29 /* CallManager.m in Sources */,
+				26CB6D3D25515D6B00A9F4DD /* BDFaceLivingConfigViewController.m in Sources */,
+				26CB6D4325515D6B00A9F4DD /* BDFaceCycleProgressView.m in Sources */,
 				26C65FAE25300C47006B9B7E /* InformationViewController.swift in Sources */,
 				268BB25E251D9B3200001DF3 /* UserAPI.swift in Sources */,
+				26CB6C38255124DB00A9F4DD /* BillingManager.m in Sources */,
 				2643EBC32500B05300FBBE49 /* TabBarController.swift in Sources */,
 				26A20AF425189F730061BBB8 /* AccessToken.swift in Sources */,
 				26CBE3C12508EB040089A23C /* Appearance.swift in Sources */,
@@ -1493,10 +1730,12 @@
 				265C1ED62542D84700110564 /* InviteViewController.swift in Sources */,
 				26C65FB325301737006B9B7E /* InformationCell.swift in Sources */,
 				26AE7C2F2520309F00B55318 /* LabelViewCell.swift in Sources */,
+				26CB6D4725515D6B00A9F4DD /* BDFaceRemindAnimationView.m in Sources */,
 				2668B0A2252341F70073E25D /* WalletEnergyViewCell.swift in Sources */,
 				2679550C25079A1F00A72954 /* UserInfoChatView.swift in Sources */,
 				2643EBAC2500B04100FBBE49 /* UserInfoInterviewCell.swift in Sources */,
 				265C8A42251332E900E220BD /* SigninProtocols.swift in Sources */,
+				26CB6D4525515D6B00A9F4DD /* BDFaceCircleView.m in Sources */,
 				26CBE3B62508A9C30089A23C /* CommunityHeaderView.swift in Sources */,
 				26A20AFF2518A47F0061BBB8 /* KeychainStore.swift in Sources */,
 				26F25C98250A359300F808EA /* InterestedViewController.swift in Sources */,
@@ -1507,6 +1746,7 @@
 				2684598E25359A8A002B9C6E /* MesssageAPI.swift in Sources */,
 				2643EBC82500D4C000FBBE49 /* MeContactViewController.swift in Sources */,
 				2643EBB32500B04100FBBE49 /* UserInfoIntroduceCell.swift in Sources */,
+				26CB6D4625515D6B00A9F4DD /* BDFaceImageShow.m in Sources */,
 				269DED3B254BDD9D000AD5D9 /* LiveUserModel.m in Sources */,
 				26F8947125203BDD00A45648 /* TitleViewController.swift in Sources */,
 				26A8D4E9251C8F3E00B736CF /* Constellation.swift in Sources */,
@@ -1515,6 +1755,7 @@
 				26FC88F0253ECFBB00E4D82F /* SearchViewController.swift in Sources */,
 				2643EBB62500B04100FBBE49 /* InterfaceOrientation.swift in Sources */,
 				269DEE08254BF735000AD5D9 /* QMUIButton.m in Sources */,
+				26CB6D4425515D6B00A9F4DD /* BDFaceRemindView.m in Sources */,
 				2682974B2511B05300949C7F /* IndicatorDisplay.swift in Sources */,
 				26AC1E4C25060D27003EFB44 /* LoginViewController.swift in Sources */,
 				2694581A253FF86000EBCABB /* DestructiveViewCell.swift in Sources */,
@@ -1528,7 +1769,10 @@
 				26C31F2B25404D280000D09D /* ForYouViewController.swift in Sources */,
 				26CA6EE7253829A70023E27B /* ChannelViewController.swift in Sources */,
 				26787E2F251B228200D511E8 /* AccountPlugin.swift in Sources */,
+				26CB6D3F25515D6B00A9F4DD /* BDFaceLivenessViewController.m in Sources */,
 				26959040250B1D9400763061 /* InterestedCardOverlayView.swift in Sources */,
+				2656F30E254FAC0500552611 /* GiftReminderViewController.m in Sources */,
+				26CB6C3E25512A0A00A9F4DD /* BillingStatus.m in Sources */,
 				26F3D66E25482683007D9136 /* IMData.m in Sources */,
 				263BC22D254987770081F5DF /* BeautyViewController.m in Sources */,
 				2643EB3A2500AD7D00FBBE49 /* AppDelegate.swift in Sources */,
@@ -1543,6 +1787,7 @@
 				267B98772505E1AC0008C81B /* Platform.swift in Sources */,
 				26F3D67725483433007D9136 /* GiftCell.m in Sources */,
 				2668B0A92523432A0073E25D /* WalletProductViewCell.swift in Sources */,
+				26CB6D4225515D6B00A9F4DD /* BDFaceBaseViewController.m in Sources */,
 				269DED3A254BDD9D000AD5D9 /* LiveGiftShowNumberView.m in Sources */,
 				267B98722505E1AC0008C81B /* WeChat.swift in Sources */,
 				26377FBE25303D2200D5A03D /* ConversationActionViewController.swift in Sources */,
@@ -1558,6 +1803,7 @@
 				2643EBAF2500B04100FBBE49 /* UserInfoProfilePhotoCell.swift in Sources */,
 				2607319B2536DD1B00B1093C /* ReportAPI.swift in Sources */,
 				2643EBB02500B04100FBBE49 /* RealNameAuthenticationFooterView.swift in Sources */,
+				26CB6D4025515D6B00A9F4DD /* BDFaceAgreementViewController.m in Sources */,
 				26F710042542C6C000797E87 /* UserSettingsAPI.swift in Sources */,
 				2639536825419E8300B5E3C0 /* CardViewCell.swift in Sources */,
 				26CBE3B42508A3FC0089A23C /* CommunityViewController.swift in Sources */,
@@ -1750,6 +1996,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/HotChat/BaiDu/BDFaceSDK",
 				);
 				INFOPLIST_FILE = HotChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1758,6 +2005,98 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"ActiveLabel\"",
+					"-l\"Alamofire\"",
+					"-l\"BPush\"",
+					"-l\"Blueprints\"",
+					"-l\"Cache\"",
+					"-l\"CryptoSwift\"",
+					"-l\"DynamicColor\"",
+					"-l\"FSPagerView\"",
+					"-l\"GKPhotoBrowser\"",
+					"-l\"HBDNavigationBar\"",
+					"-l\"HandyJSON\"",
+					"-l\"Kingfisher\"",
+					"-l\"Koloda\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"MJExtension\"",
+					"-l\"MJRefresh\"",
+					"-l\"MMLayout\"",
+					"-l\"MagazineLayout\"",
+					"-l\"Masonry\"",
+					"-l\"Moya\"",
+					"-l\"NSObject+Rx\"",
+					"-l\"ReachabilitySwift\"",
+					"-l\"ReactiveObjC\"",
+					"-l\"Reusable\"",
+					"-l\"RxCocoa\"",
+					"-l\"RxCoreLocation\"",
+					"-l\"RxReachability\"",
+					"-l\"RxRelay\"",
+					"-l\"RxSwift\"",
+					"-l\"RxSwiftUtilities\"",
+					"-l\"SDWebImage\"",
+					"-l\"SPAlertController\"",
+					"-l\"SYBPush-normal\"",
+					"-l\"SegementSlide\"",
+					"-l\"SnapKit\"",
+					"-l\"SwiftDate\"",
+					"-l\"SwiftyStoreKit\"",
+					"-l\"TXIMSDK_TUIKit_iOS\"",
+					"-l\"TagListView\"",
+					"-l\"Toast\"",
+					"-l\"Toast-Swift\"",
+					"-l\"WeChatSDK\"",
+					"-l\"ZLPhotoBrowser\"",
+					"-l\"c++\"",
+					"-l\"opencore-amrnb\"",
+					"-l\"opencore-amrwb\"",
+					"-l\"pop\"",
+					"-l\"resolv\"",
+					"-l\"sqlite3.0\"",
+					"-l\"stdc++\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreMotion\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImSDK\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"Photos\"",
+					"-framework",
+					"\"PhotosUI\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"TXLiteAVSDK_TRTC\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"WebKit\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.friday.Chat;
 				PRODUCT_NAME = HotChat;
 				SWIFT_OBJC_BRIDGING_HEADER = "HotChat/HotChat-Bridging-Header.h";
@@ -1780,6 +2119,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/HotChat/BaiDu/BDFaceSDK",
 				);
 				INFOPLIST_FILE = HotChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1788,6 +2128,98 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"ActiveLabel\"",
+					"-l\"Alamofire\"",
+					"-l\"BPush\"",
+					"-l\"Blueprints\"",
+					"-l\"Cache\"",
+					"-l\"CryptoSwift\"",
+					"-l\"DynamicColor\"",
+					"-l\"FSPagerView\"",
+					"-l\"GKPhotoBrowser\"",
+					"-l\"HBDNavigationBar\"",
+					"-l\"HandyJSON\"",
+					"-l\"Kingfisher\"",
+					"-l\"Koloda\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"MJExtension\"",
+					"-l\"MJRefresh\"",
+					"-l\"MMLayout\"",
+					"-l\"MagazineLayout\"",
+					"-l\"Masonry\"",
+					"-l\"Moya\"",
+					"-l\"NSObject+Rx\"",
+					"-l\"ReachabilitySwift\"",
+					"-l\"ReactiveObjC\"",
+					"-l\"Reusable\"",
+					"-l\"RxCocoa\"",
+					"-l\"RxCoreLocation\"",
+					"-l\"RxReachability\"",
+					"-l\"RxRelay\"",
+					"-l\"RxSwift\"",
+					"-l\"RxSwiftUtilities\"",
+					"-l\"SDWebImage\"",
+					"-l\"SPAlertController\"",
+					"-l\"SYBPush-normal\"",
+					"-l\"SegementSlide\"",
+					"-l\"SnapKit\"",
+					"-l\"SwiftDate\"",
+					"-l\"SwiftyStoreKit\"",
+					"-l\"TXIMSDK_TUIKit_iOS\"",
+					"-l\"TagListView\"",
+					"-l\"Toast\"",
+					"-l\"Toast-Swift\"",
+					"-l\"WeChatSDK\"",
+					"-l\"ZLPhotoBrowser\"",
+					"-l\"c++\"",
+					"-l\"opencore-amrnb\"",
+					"-l\"opencore-amrwb\"",
+					"-l\"pop\"",
+					"-l\"resolv\"",
+					"-l\"sqlite3.0\"",
+					"-l\"stdc++\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreMotion\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImSDK\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"Photos\"",
+					"-framework",
+					"\"PhotosUI\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"TXLiteAVSDK_TRTC\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"WebKit\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.friday.Chat;
 				PRODUCT_NAME = HotChat;
 				SWIFT_OBJC_BRIDGING_HEADER = "HotChat/HotChat-Bridging-Header.h";

@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         observeLoginState()
         
         PlatformAuthorization.application(application, didFinishLaunchingWithOptions: launchOptions)
-        
+        setupFaceSDK()
         registerANPSNotification(application, didFinishLaunchingWithOptions: launchOptions)
         
         // see notes below for the meaning of Atomic / Non-Atomic
@@ -153,6 +153,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         BPush.disableLbs()
+    }
+    
+    func setupFaceSDK() {
+        
+        let licensePath = "\(FACE_LICENSE_NAME).\(FACE_LICENSE_SUFFIX)"
+        FaceSDKManager.sharedInstance()?.setLicenseID(FACE_LICENSE_ID, andLocalLicenceFile: licensePath, andRemoteAuthorize: false)
+        Log.print("canWork = \(FaceSDKManager.sharedInstance()!.canWork())")
+        Log.print("version = \(FaceSDKManager.sharedInstance()!.getVersion())")
     }
     
     

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TUICallModel.h"
+#import "BillingManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -31,6 +32,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 ///通过 userID 获取通话用户的 model 信息
 - (CallUserModel *)getUserById:(NSString *)userID;
+
+@property(strong, nonatomic) BillingManager *manager;
+
 @end
 
 NS_ASSUME_NONNULL_END

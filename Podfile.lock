@@ -1,5 +1,20 @@
 PODS:
   - ActiveLabel (1.1.0)
+  - AFNetworking (4.0.1):
+    - AFNetworking/NSURLSession (= 4.0.1)
+    - AFNetworking/Reachability (= 4.0.1)
+    - AFNetworking/Security (= 4.0.1)
+    - AFNetworking/Serialization (= 4.0.1)
+    - AFNetworking/UIKit (= 4.0.1)
+  - AFNetworking/NSURLSession (4.0.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (4.0.1)
+  - AFNetworking/Security (4.0.1)
+  - AFNetworking/Serialization (4.0.1)
+  - AFNetworking/UIKit (4.0.1):
+    - AFNetworking/NSURLSession
   - Alamofire (5.3.0)
   - Blueprints (0.13.1)
   - Cache (5.3.0)
@@ -84,6 +99,7 @@ PODS:
 
 DEPENDENCIES:
   - ActiveLabel
+  - AFNetworking
   - Blueprints
   - Cache
   - CryptoSwift
@@ -123,6 +139,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - ActiveLabel
+    - AFNetworking
     - Alamofire
     - Blueprints
     - Cache
@@ -170,6 +187,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   ActiveLabel: 5e3f4de79a1952d4604b845a0610d4776e4b82b3
+  AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   Alamofire: 2c792affbdc2f18016e08fdbcacd60aebe1ba593
   Blueprints: ddd6ab1e455c98471aaef2fdd0b09b5f9b53af5b
   Cache: 48762993ec44e1d93483c4d4a13edd18452326f4
@@ -215,6 +233,6 @@ SPEC CHECKSUMS:
   WechatOpenSDK: 6a4d1436c15b3b5fe2a0bd383f3046010186da44
   ZLPhotoBrowser: e22cabd36d03240003668d72cb733581a6da0b0d
 
-PODFILE CHECKSUM: 65c5efcbdd6e6cbeb0af7c28aee6844606198e7a
+PODFILE CHECKSUM: d6ddb5b8792d3203043b2b837e78e164d1cdd7ed
 
 COCOAPODS: 1.10.0

@@ -36,7 +36,7 @@ struct Topic: HandyJSON {
     
 }
 
-enum Sex: Int, HandyJSONEnum, CustomStringConvertible {
+@objc enum Sex: Int, HandyJSONEnum, CustomStringConvertible {
     case male = 1
     case female = 2
 
@@ -60,15 +60,22 @@ enum Sex: Int, HandyJSONEnum, CustomStringConvertible {
 }
 
 
-struct User: HandyJSON {
+@objc public class User: NSObject, HandyJSON {
     
-    struct Photo: HandyJSON {
+    required public override init() {
+        super.init()
+    }
+    
+    class Photo: NSObject, HandyJSON {
         var picId: Int = 0
         var picUrl: String = ""
+        required override init() {
+            super.init()
+        }
     }
     
     var userId: String = ""
-    var token: String = ""
+    @objc var token: String = ""
     var status: Int = 0
     var isInit: Bool = false
     var isFollow: Bool = false
@@ -129,9 +136,13 @@ struct User: HandyJSON {
     var birthday: TimeInterval = 0
     
     /// 年龄
-    var age: Int = 0
+     @objc var age: Int = 0
     
     var sex: Sex?
+    
+    @objc var ocSex: Int {
+        return sex?.rawValue ?? 0
+    }
     
     ///  喜欢的ta
     var labelList: [LikeTag] = []

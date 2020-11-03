@@ -26,12 +26,12 @@
 #import "LiveGiftShowCustom.h"
 #import "LiveUserModel.h"
 #import "LiveGiftListModel.h"
-
 #import <ImSDK/V2TIMManager.h>
 #import <ImSDK/V2TIMManager+Message.h>
+#import "GiftReminderViewController.h"
 
 
-@interface CallMenuViewController ()<GiftViewControllerDelegate, V2TIMAdvancedMsgListener, LiveGiftShowCustomDelegate>
+@interface CallMenuViewController ()<GiftViewControllerDelegate, V2TIMAdvancedMsgListener, LiveGiftShowCustomDelegate, GiftReminderViewControllerDelegate>
 
 ///  摄像头 📷
 @property(strong, nonatomic) QMUIButton *cameraButton;
@@ -269,8 +269,25 @@
 
 - (void)giftViewController:(GiftViewController *)gift didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    
     Gift *giftData = gift.gifts[indexPath.item];
+    if ([GiftReminderViewController isReminder]) {
+        GiftReminderViewController *vc = [[GiftReminderViewController alloc] init];
+        vc.modalPresentationStyle = UIModalPresentationOverFullScreen;
+        vc.gift = giftData;
+        vc.delegate = self;
+        [self presentViewController:vc animated:NO completion:nil];
+    }
+    else {
+        [self giveGifts:giftData];
+    }
+}
+
+- (void)giftReminderViewController:(GiftReminderViewController *)giftReminder gift:(Gift *)gift {
+    [self giveGifts:gift];
+    
+}
+- (void)giveGifts:(Gift *)giftData {
+    
     giftData.count = 1;
     GiftCellData *cellData = [[GiftCellData alloc] initWithDirection:MsgDirectionOutgoing];
     cellData.gift = giftData;
@@ -281,13 +298,12 @@
     NSData *data = [TUICallUtils dictionary2JsonData:[imData mj_keyValues]];
     
     cellData.innerMessage = [[V2TIMManager sharedInstance] createCustomMessage:data];
-    [self sendMessage:cellData];
     
+    [self sendMessage:cellData];
     
     [TUICallUtils getCallUserModel:[TUICallUtils loginUser] finished:^(CallUserModel * _Nonnull model) {
         [self user:model giveGift:giftData];
     }];
-    
 }
 
 

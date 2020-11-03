@@ -21,6 +21,7 @@
 #import <MJExtension/MJExtension.h>
 #import "IMData.h"
 #import "TUICallUtils.h"
+#import "GiftReminderViewController.h"
 
 
 typedef NS_ENUM(NSUInteger, InputStatus) {
@@ -32,7 +33,7 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
     Input_Status_Input_Gift
 };
 
-@interface InputController () <TextViewDelegate, TMenuViewDelegate, TFaceViewDelegate, TMoreViewDelegate, VoiceViewDelegate, GiftViewControllerDelegate>
+@interface InputController () <TextViewDelegate, TMenuViewDelegate, TFaceViewDelegate, TMoreViewDelegate, VoiceViewDelegate, GiftViewControllerDelegate, GiftReminderViewControllerDelegate>
 @property (nonatomic, assign) InputStatus status;
 @end
 
@@ -486,13 +487,33 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
 
 - (void)giftViewController:(GiftViewController *)giftController didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
+    
     Gift *gift = giftController.gifts[indexPath.item];
-    gift.count = 1;
+    if ([GiftReminderViewController isReminder]) {
+        GiftReminderViewController *vc = [[GiftReminderViewController alloc] init];
+        vc.modalPresentationStyle = UIModalPresentationOverFullScreen;
+        vc.gift = gift;
+        vc.delegate = self;
+        [self presentViewController:vc animated:NO completion:nil];
+    }
+    else {
+        [self giveGifts:gift];
+    }
+}
+
+
+- (void)giftReminderViewController:(GiftReminderViewController *)giftReminder gift:(Gift *)gift {
+    [self giveGifts:gift];
+    
+}
+- (void)giveGifts:(Gift *)giftData {
+    
+    giftData.count = 1;
     GiftCellData *cellData = [[GiftCellData alloc] initWithDirection:MsgDirectionOutgoing];
-    cellData.gift = gift;
+    cellData.gift = giftData;
     
     IMData *imData = [IMData defaultData];
-    imData.data = [gift mj_JSONString];
+    imData.data = [giftData mj_JSONString];
     
     NSData *data = [TUICallUtils dictionary2JsonData:[imData mj_keyValues]];
     
@@ -501,7 +522,9 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
     if(_delegate && [_delegate respondsToSelector:@selector(inputController:didSendMessage:)]){
         [_delegate inputController:self didSendMessage:cellData];
     }
+    
 }
+
 
 #pragma mark - more view delegate
 - (void)moreView:(TUIMoreView *)moreView didSelectMoreCell:(TUIInputMoreCell *)cell

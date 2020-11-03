@@ -10,7 +10,7 @@ import Foundation
 import SYBPush_normal
 
 
-struct Constant {
+class Constant: NSObject {
     
     static var versionString: String {
         return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
@@ -21,7 +21,7 @@ struct Constant {
         return URL(string: "\(Constant.hotChatScheme)://authorize/")!
     }
     
-    static var APIHostURL: URL {
+    @objc static var APIHostURL: URL {
         return URL(string: "http://\(APIHost)")!
     }
     

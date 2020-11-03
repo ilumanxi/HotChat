@@ -24,7 +24,14 @@ extension SKProduct {
 }
 
 
-class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, IndicatorDisplay {
+class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, IndicatorDisplay, LoadingStateType {
+    
+    var state: LoadingState = .initial {
+        didSet {
+            showOrHideIndicator(loadingState: state)
+        }
+    }
+    
     
     
     // com.friday.Chat.energy.6
@@ -69,6 +76,12 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     let payAPI = Request<PayAPI>()
     
+    
+    
+    var user: User = LoginManager.shared.user!
+    
+    var products: [(Product, SKProduct)] = []
+    
     override func loadView() {
         super.loadView()
         tableView.frame = view.bounds
@@ -81,26 +94,59 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupViews()
+        
+        requestUserInfo()
+        requestProductInfo()
+    }
+    
+    func setupViews()  {
         title = "我的钱包"
         
         tableView.register(UINib(nibName: "WalletEnergyViewCell", bundle: nil), forCellReuseIdentifier: "WalletEnergyViewCell")
         tableView.register(UINib(nibName: "WalletProductViewCell", bundle: nil), forCellReuseIdentifier: "WalletProductViewCell")
-        
-        showIndicator()
-        productInfo()
-            .subscribe(onSuccess: { [weak self] products in
+    }
+    
+    func requestUserInfo()  {
+        API.request(.userinfo(userId: nil), type: Response<User>.self)
+            .checkResponse()
+            .subscribe(onSuccess: { [weak self] response in
+                self?.user = response.data!
+                self?.setupSections()
                 
-                let energySection = Section(type: .energy, elements: [LoginManager.shared.user!])
-                let productSection = Section(type: .product, elements: products)
-                
-                self?.data = [energySection, productSection]
-                self?.hideIndicator()
-                
-            }, onError: { [weak self] error in
-                self?.hideIndicator()
-                self?.show(error.localizedDescription)
+            }, onError: { error in
+                Log.print(error)
             })
             .disposed(by: rx.disposeBag)
+    }
+    
+    func refreshData() {
+        requestProductInfo()
+    }
+    
+    func requestProductInfo()  {
+        if self.products.isEmpty {
+            state = .refreshingContent
+        }
+        
+        productInfo()
+            .subscribe(onSuccess: { [weak self] products in
+                self?.products = products
+                self?.setupSections()
+                self?.state = .contentLoaded
+                
+            }, onError: { [weak self] error in
+                self?.state = .error
+            })
+            .disposed(by: rx.disposeBag)
+    }
+    
+    func setupSections() {
+        let energySection = Section(type: .energy, elements: [user])
+        let productSection = Section(type: .product, elements: products)
+        
+        self.data = [energySection, productSection]
+        self.tableView.reloadData()
         
     }
     
@@ -181,7 +227,7 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         if section.type == .energy {
             let cell = tableView.dequeueReusableCell(for: indexPath, cellType: WalletEnergyViewCell.self)
-            cell.titleLabel.text = "能量：\(LoginManager.shared.user?.userEnergy.description ?? "0")"
+            cell.titleLabel.text = "能量：\(user.userEnergy.description)"
             return cell
         }
         else {
@@ -207,6 +253,7 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
             createOrder(product)
                 .flatMap(payOrder)
                 .subscribe(onSuccess: { [weak self] response in
+                    self?.requestUserInfo()
                     self?.hideIndicator()
                 }, onError: { [weak self] error in
                     self?.hideIndicator()

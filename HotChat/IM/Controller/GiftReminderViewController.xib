@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GiftReminderViewController">
+            <connections>
+                <outlet property="contentView" destination="Qay-5h-yvH" id="NAg-gn-SbR"/>
+                <outlet property="detailTextLabel" destination="ZVo-Gs-VyK" id="dts-Yl-kXI"/>
+                <outlet property="imageView" destination="Mua-bO-JBN" id="j8K-TJ-FYk"/>
+                <outlet property="reminderButton" destination="7nf-LN-xal" id="Nd4-52-EYr"/>
+                <outlet property="textLabel" destination="Z7c-Ph-QmQ" id="Ti1-H8-YIf"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qay-5h-yvH" customClass="AnimatableView">
+                    <rect key="frame" x="51.5" y="281.5" width="311" height="333"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="OM0-Qr-s56">
+                            <rect key="frame" x="23" y="32" width="265" height="277"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="aal-j2-8Iv">
+                                    <rect key="frame" x="43.5" y="0.0" width="178" height="124.5"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mua-bO-JBN">
+                                            <rect key="frame" x="63" y="0.0" width="52" height="52"/>
+                                            <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="52" id="XUZ-uy-vH6"/>
+                                                <constraint firstAttribute="width" secondItem="Mua-bO-JBN" secondAttribute="height" multiplier="1:1" id="aHZ-Ms-m49"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你确定赠送“亲亲”x1吗？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7c-Ph-QmQ">
+                                            <rect key="frame" x="0.0" y="70" width="178" height="19.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="900能量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZVo-Gs-VyK">
+                                            <rect key="frame" x="61.5" y="107.5" width="55" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="avp-sp-38i">
+                                    <rect key="frame" x="0.0" y="161.5" width="265" height="115.5"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7nf-LN-xal" customClass="HotChatButton" customModule="HotChat" customModuleProvider="target">
+                                            <rect key="frame" x="79.5" y="0.0" width="106" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <state key="normal" title="以后不再提醒" image="checkbox-unselected">
+                                                <color key="titleColor" red="0.23529411764705882" green="0.78431372549019607" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <state key="selected" image="checkbox-selected"/>
+                                            <connections>
+                                                <action selector="reminderButtonTapped:" destination="-1" eventType="touchUpInside" id="EJy-8R-2Ck"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GQC-Di-732" customClass="AnimatableButton">
+                                            <rect key="frame" x="0.0" y="35" width="265" height="48"/>
+                                            <color key="backgroundColor" red="0.31764705882352939" green="0.34901960784313724" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="265" id="BGs-kT-qht"/>
+                                                <constraint firstAttribute="height" constant="48" id="GV5-7K-fTO"/>
+                                            </constraints>
+                                            <state key="normal" title="确定"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="24"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="doneButtonTapped:" destination="-1" eventType="touchUpInside" id="RdC-Np-fuw"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注意理性消费，防范引诱/诱导送礼行为" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kaD-v9-ywp">
+                                            <rect key="frame" x="26.5" y="101" width="212" height="14.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="OM0-Qr-s56" secondAttribute="bottom" constant="24" id="5JH-ck-2iH"/>
+                        <constraint firstItem="OM0-Qr-s56" firstAttribute="top" secondItem="Qay-5h-yvH" secondAttribute="top" constant="32" id="6M4-9e-Ege"/>
+                        <constraint firstItem="OM0-Qr-s56" firstAttribute="leading" secondItem="Qay-5h-yvH" secondAttribute="leading" constant="23" id="FsO-ix-GoU"/>
+                        <constraint firstAttribute="trailing" secondItem="OM0-Qr-s56" secondAttribute="trailing" constant="23" id="spj-t5-vLg"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="Qay-5h-yvH" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="KBu-aX-ZYt"/>
+                <constraint firstItem="Qay-5h-yvH" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="XDV-KA-rYb"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="113.83928571428571"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="7nf-LN-xal">
+            <size key="intrinsicContentSize" width="111" height="17"/>
+        </designable>
+        <designable name="GQC-Di-732">
+            <size key="intrinsicContentSize" width="37" height="34"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="checkbox-selected" width="15" height="15"/>
+        <image name="checkbox-unselected" width="15" height="15"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

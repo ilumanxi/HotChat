@@ -19,6 +19,9 @@
 #import <Masonry/Masonry.h>
 #import "UIView+Additions.h"
 #import "CallMenuViewController.h"
+#import "QMUIButton.h"
+#import "HotChat-Swift.h"
+#import "BillingManager.h"
 
 
 #define kSmallVideoWidth 100.0
@@ -36,17 +39,23 @@
 @property(nonatomic,strong) UICollectionView *userCollectionView;
 @property(nonatomic,assign) BOOL refreshCollectionView;
 @property(nonatomic,assign) NSInteger collectionCount;
-@property(nonatomic,strong) UIButton *hangup;
-@property(nonatomic,strong) UIButton *accept;
+@property(nonatomic,strong) QMUIButton *hangup;
+@property(nonatomic,strong) QMUIButton *accept;
 @property(nonatomic,strong) UIButton *mute;
 @property(nonatomic,strong) UIButton *handsfree;
 @property(nonatomic,strong) UILabel *callTimeLabel;
+@property(nonatomic,strong) UILabel *chargeReminderLabel;
+
+
 @property(nonatomic,strong) UIView *localPreView;
 @property(nonatomic,strong) UIView *sponsorPanel;
 @property(nonatomic,strong) NSMutableArray<TUIVideoRenderView *> *renderViews;
 @property(nonatomic,strong) dispatch_source_t timer;
 @property(nonatomic,assign) UInt32 callingTime;
 @property(nonatomic,assign) BOOL playingAlerm; // 播放响铃
+
+
+
 @end
 
 @implementation VideoCallViewController
@@ -107,6 +116,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];
+    
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -248,6 +259,10 @@
     [self.view bringSubviewToFront:self.hangup];
     [self.view bringSubviewToFront:self.mute];
     [self.view bringSubviewToFront:self.handsfree];
+    
+    if (self.manager.isCharge) {
+        [self.view bringSubviewToFront:self.chargeReminderLabel];
+    }
 }
 
 #pragma mark UI
@@ -341,19 +356,33 @@
                 make.centerX.equalTo(self.view);
                 make.bottom.equalTo(self.view.safeAreaLayoutGuideBottom).offset(-49);
             }];
+            
+            if (self.manager.isCharge) {
+                [self.chargeReminderLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.centerX.equalTo(self.hangup);
+                    make.bottom.equalTo(self.hangup.mas_top).offset(-10);
+                }];
+            }
         }
             break;
         case VideoCallState_OnInvitee:
         {
             [self.hangup mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.centerX.equalTo(self.view).offset(-60);
+                make.leading.equalTo(self.view).offset(55);
                 make.bottom.equalTo(self.view.safeAreaLayoutGuideBottom).offset(-49);
             }];
             
             [self.accept mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.centerX.equalTo(self.view).offset(60);
+                make.trailing.equalTo(self.view).offset(-55);
                 make.bottom.equalTo(self.view.safeAreaLayoutGuideBottom).offset(-49);
             }];
+            
+            if (self.manager.isCharge) {
+                [self.chargeReminderLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.centerX.equalTo(self.accept);
+                    make.bottom.equalTo(self.accept.mas_top).offset(-10);
+                }];
+            }
                         
         }
             break;
@@ -365,32 +394,6 @@
                 make.edges.equalTo(self.view);
             }];
             
-//            [self.hangup mas_remakeConstraints:^(MASConstraintMaker *make) {
-//                make.centerX.equalTo(self.view);
-//                make.bottom.equalTo(self.view.safeAreaLayoutGuideBottom).offset(-49);
-//            }];
-//
-//            [self.mute mas_remakeConstraints:^(MASConstraintMaker *make) {
-//                make.trailing.equalTo(self.hangup.mas_leading).offset(-60);
-//                make.bottom.equalTo(self.hangup);
-//            }];
-//
-//            [self.handsfree mas_remakeConstraints:^(MASConstraintMaker *make) {
-//                make.leading.equalTo(self.hangup.mas_trailing).offset(60);
-//                make.bottom.equalTo(self.hangup);
-//            }];
-//
-//            [self.callTimeLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-//                make.centerX.equalTo(self.hangup.mas_centerX);
-//                make.bottom.equalTo(self.hangup.mas_top).offset(-20);
-//            }];
-            
-            
-//            self.mute.hidden = NO;
-//            self.handsfree.hidden = NO;
-//            self.callTimeLabel.hidden = NO;
-//            self.mute.alpha = 0.0;
-//            self.handsfree.alpha = 0.0;
             [self startCallTiming];
         }
             break;
@@ -460,20 +463,30 @@
 }
 
 
-- (UIButton *)hangup {
+- (QMUIButton *)hangup {
     if (!_hangup.superview) {
-        _hangup = [UIButton buttonWithType:UIButtonTypeCustom];
+        _hangup = [QMUIButton buttonWithType:UIButtonTypeCustom];
         [_hangup setImage:[UIImage imageNamed:@"hangup"] forState:UIControlStateNormal];
+        [_hangup setTitle:@"挂断" forState:UIControlStateNormal];
+        _hangup.titleLabel.font = [UIFont systemFontOfSize:12];
+        [_hangup setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        _hangup.imagePosition = QMUIButtonImagePositionTop;
+        _hangup.spacingBetweenImageAndTitle = 18;
         [_hangup addTarget:self action:@selector(hangupClick) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:_hangup];
     }
     return _hangup;
 }
 
-- (UIButton *)accept {
+- (QMUIButton *)accept {
     if (!_accept.superview) {
-        _accept = [UIButton buttonWithType:UIButtonTypeCustom];
+        _accept = [QMUIButton buttonWithType:UIButtonTypeCustom];
         [_accept setImage:[UIImage imageNamed:@"dialing"] forState:UIControlStateNormal];
+        [_accept setTitle:@"接听" forState:UIControlStateNormal];
+        _accept.titleLabel.font = [UIFont systemFontOfSize:12];
+        [_accept setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        _accept.imagePosition = QMUIButtonImagePositionTop;
+        _accept.spacingBetweenImageAndTitle = 18;
         [_accept addTarget:self action:@selector(acceptClick) forControlEvents:UIControlEventTouchUpInside];
         _accept.hidden = (self.curSponsor == nil);
         [self.view addSubview:_accept];
@@ -514,6 +527,18 @@
         [self.view addSubview:_callTimeLabel];
     }
     return _callTimeLabel;
+}
+
+- (UILabel *)chargeReminderLabel {
+    
+    if (!_chargeReminderLabel.superview) {
+        _chargeReminderLabel = [UILabel new];
+        _chargeReminderLabel.font = [UIFont systemFontOfSize:12];
+        _chargeReminderLabel.textColor = [UIColor colorWithRed:241/255.0 green:238/255.0 blue:11/255.0 alpha:1.0];
+        _chargeReminderLabel.text = @"2500能量/分钟";
+        [self.view addSubview:_chargeReminderLabel];
+    }
+    return _chargeReminderLabel;
 }
 
 - (UIView *)sponsorPanel {
@@ -594,17 +619,64 @@
     [self disMiss];
 }
 
+- (BillingManager *)manager {
+    if (!_manager) {
+        
+        NSString *userId = (self.curSponsor ? : self.curInvite).userId;
+        _manager = [[BillingManager alloc] initWithUserId:userId type:1];
+        @weakify(self)
+        _manager.errorCall = ^(NSInteger callCode, NSString * _Nonnull msg) {
+            @strongify(self)
+            if (callCode == 3) {
+                [self hangupClick];
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"您的能量不足、请充值！" preferredStyle:UIAlertControllerStyleAlert];
+                    [alert addAction:[UIAlertAction actionWithTitle:@"立即充值" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                        WalletViewController *walletController = [[WalletViewController alloc] init];
+                        [UIApplication.sharedApplication.keyWindow.rootViewController presentViewController:walletController animated:YES completion:nil];
+                    }]];
+                    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+                    [UIApplication.sharedApplication.keyWindow.rootViewController presentViewController:alert animated:YES completion:nil];
+                    
+                });
+                [THelper makeToast:msg];
+            }
+        };
+    }
+    return  _manager;
+}
+
 - (void)acceptClick {
-    [[TUICall shareInstance] accept];
-    @weakify(self)
-    [TUICallUtils getCallUserModel:[TUICallUtils loginUser] finished:^(CallUserModel * _Nonnull model) {
-        @strongify(self)
-        model.isEnter = YES;
-        model.isVideoAvaliable = YES;
-        [self enterUser:model];
-        self.curState = VideoCallState_Calling;
-        self.accept.hidden = YES;
-    }];
+    
+    if (self.manager.isCharge) {
+        @weakify(self)
+        [self.manager accept:^{
+            @strongify(self)
+            [[TUICall shareInstance] accept];
+            @weakify(self)
+            [TUICallUtils getCallUserModel:[TUICallUtils loginUser] finished:^(CallUserModel * _Nonnull model) {
+                @strongify(self)
+                model.isEnter = YES;
+                model.isVideoAvaliable = YES;
+                [self enterUser:model];
+                self.curState = VideoCallState_Calling;
+                self.accept.hidden = YES;
+            }];
+        }];
+    }
+    else {
+        
+        [[TUICall shareInstance] accept];
+        @weakify(self)
+        [TUICallUtils getCallUserModel:[TUICallUtils loginUser] finished:^(CallUserModel * _Nonnull model) {
+            @strongify(self)
+            model.isEnter = YES;
+            model.isVideoAvaliable = YES;
+            [self enterUser:model];
+            self.curState = VideoCallState_Calling;
+            self.accept.hidden = YES;
+        }];
+    }
 }
 
 - (void)muteClick {

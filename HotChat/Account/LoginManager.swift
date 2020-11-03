@@ -17,7 +17,7 @@ typealias TokenType = LoginManager.Parameters.TokenIdentifier
 class LoginManager: NSObject {
     
     
-    static let shared = LoginManager()
+    @objc static let shared = LoginManager()
     
     enum Parameters {
         
@@ -42,7 +42,7 @@ class LoginManager: NSObject {
     }()
 
     
-    private(set) var user: User?
+    @objc private(set) var user: User?
     
     let manager = CLLocationManager()
     

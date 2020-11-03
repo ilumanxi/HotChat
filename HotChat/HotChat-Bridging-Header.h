@@ -12,4 +12,8 @@
 #import "GiftCell.h"
 #import "UIView+Additions.h"
 #import "CallMenuViewController.h"
+#import <IDLFaceSDK/FaceSDKManager.h>
+#import "FaceParameterConfig.h"
+#import "BDFaceDetectionViewController.h"
+
 //#import "HotChat-Swift.h"

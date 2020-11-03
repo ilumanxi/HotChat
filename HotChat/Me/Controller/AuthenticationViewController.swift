@@ -54,7 +54,10 @@ class AuthenticationViewController: UIViewController, IndicatorDisplay, LoadingS
     func setupSections()  {
         
         let section = FormSection(
-            entries: [RightDetailFormEntry(image: nil, text: "实名认证", detailText: authentication.certificationStatus.description, onTapped: pushRealName)],
+            entries: [
+                RightDetailFormEntry(image: nil, text: "实名认证", detailText: authentication.certificationStatus.description, onTapped: pushRealName),
+                RightDetailFormEntry(image: nil, text: "头像认证", detailText: authentication.certificationStatus.description, onTapped: pushFace)
+            ],
             headerText: nil
         )
         
@@ -97,6 +100,14 @@ class AuthenticationViewController: UIViewController, IndicatorDisplay, LoadingS
             navigationController?.pushViewController(vc, animated: true)
         }
 
+    }
+    
+    
+    func pushFace() {
+        
+       let vc = BDFaceDetectionViewController()
+        vc.hbd_barAlpha = 0.5
+       navigationController?.pushViewController(vc, animated: true)
     }
 
 }
