@@ -110,11 +110,21 @@ class UserInfoViewController: SegementSlideDefaultViewController, LoadingStateTy
     
     func setupNavigationItem() {
         
-        let more = UIBarButtonItem(image: UIImage(named: "more-gray"), style: .plain, target: self, action: #selector(moreItemTapped))
-        self.navigationItem.rightBarButtonItems = [more]
-        
+        if user.userId == LoginManager.shared.user!.userId {
+            let more = UIBarButtonItem(image: UIImage(named: "edit-gray"), style: .plain, target: self, action: #selector(editItemTapped))
+            self.navigationItem.rightBarButtonItems = [more]
+        }
+        else {
+            let more = UIBarButtonItem(image: UIImage(named: "more-gray"), style: .plain, target: self, action: #selector(moreItemTapped))
+            self.navigationItem.rightBarButtonItems = [more]
+        }
     }
     
+    @objc func editItemTapped() {
+        let vc  = UserInfoEditingViewController.loadFromStoryboard()
+        vc.user = user
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
     @objc func moreItemTapped() {
         let vc  = UserSettingViewController.loadFromStoryboard()

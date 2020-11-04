@@ -1517,7 +1517,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/Carthage copy-frameworks\n";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 		5C62613C886FDA87662A76D3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

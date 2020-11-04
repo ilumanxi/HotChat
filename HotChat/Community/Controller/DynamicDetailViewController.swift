@@ -239,17 +239,23 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
         
         cell.onMoreButtonTapped.delegate(on: self) { (self, _) in
             let alertController = SPAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-     
-            alertController.addAction(SPAlertAction(title: "不看Ta的动态", style: .default, handler: { _ in
+            
+            if LoginManager.shared.user!.userId == self.user.userId {
+                alertController.addAction(SPAlertAction(title: "删除", style: .default, handler: { _ in
+                    
+                }))
+            }
+            else {
+                alertController.addAction(SPAlertAction(title: "不看Ta的动态", style: .default, handler: { _ in
+                    
+                }))
                 
-            }))
-            
-            alertController.addAction(SPAlertAction(title: "举报这条动态", style: .default, handler: { [weak self] _ in
-                let vc = ReportViewController.loadFromStoryboard()
-                vc.user = dynamic.userInfo
-                self?.present(vc, animated: false, completion: nil)
-            }))
-            
+                alertController.addAction(SPAlertAction(title: "举报这条动态", style: .default, handler: { [weak self] _ in
+                    let vc = ReportViewController.loadFromStoryboard()
+                    vc.user = dynamic.userInfo
+                    self?.present(vc, animated: false, completion: nil)
+                }))
+            }
             alertController.addAction(SPAlertAction(title: "取消", style: .cancel, handler: nil))
             
             self.present(alertController, animated: true, completion: nil)

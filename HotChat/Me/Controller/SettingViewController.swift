@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingViewController: UITableViewController, StoryboardCreate {
+class SettingViewController: UITableViewController, StoryboardCreate, IndicatorDisplay {
     
     
     static var storyboardNamed: String { return "Me" }
@@ -31,18 +31,20 @@ class SettingViewController: UITableViewController, StoryboardCreate {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if indexPath.section == 5 {
-            
+        if indexPath.section == 1 {
             logout()
         }
     }
 
     func logout() {
+        showIndicator()
         API.request(.logout, type: ResponseEmpty.self)
-            .subscribe(onSuccess: { response in
-                Log.print(response)
-            }, onError: { error in
-                Log.print(error)
+            .checkResponse()
+            .subscribe(onSuccess: { [weak self] response in
+                self?.hideIndicator()
+            }, onError: { [weak self] error in
+                self?.hideIndicator()
+                self?.show(error.localizedDescription)
             })
             .disposed(by: rx.disposeBag)
     }

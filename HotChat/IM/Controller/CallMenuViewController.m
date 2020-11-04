@@ -279,23 +279,8 @@
 }
 
 - (void)giftViewController:(GiftViewController *)gift didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
     Gift *giftData = gift.gifts[indexPath.item];
-    if ([GiftReminderViewController isReminder]) {
-        GiftReminderViewController *vc = [[GiftReminderViewController alloc] init];
-        vc.modalPresentationStyle = UIModalPresentationOverFullScreen;
-        vc.gift = giftData;
-        vc.delegate = self;
-        [self presentViewController:vc animated:NO completion:nil];
-    }
-    else {
-        [self giveGifts:giftData];
-    }
-}
-
-- (void)giftReminderViewController:(GiftReminderViewController *)giftReminder gift:(Gift *)gift {
-    [self giveGifts:gift];
-    
+    [self giveGifts:giftData];
 }
 - (void)giveGifts:(Gift *)giftData {
     

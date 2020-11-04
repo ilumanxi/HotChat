@@ -70,15 +70,40 @@
                         <constraint firstItem="C1J-dW-rpH" firstAttribute="width" secondItem="zyP-Ll-ZhF" secondAttribute="width" id="Ffm-2W-eeq"/>
                     </constraints>
                 </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ne4-fn-JhL" customClass="AnimatableButton">
+                    <rect key="frame" x="98" y="0.0" width="218" height="48"/>
+                    <color key="backgroundColor" red="1" green="0.37647058823529411" blue="0.5607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="218" id="HOY-HK-DFD"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="和ta打招呼" image="say-hello"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="24"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="sayHelloButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="2XU-91-XEG"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="Ne4-fn-JhL" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="3pl-fK-JZH"/>
                 <constraint firstItem="hbm-Hz-7sa" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="5i1-fu-euD"/>
+                <constraint firstAttribute="bottom" secondItem="Ne4-fn-JhL" secondAttribute="bottom" id="8DQ-HY-7PO"/>
                 <constraint firstAttribute="trailing" secondItem="hbm-Hz-7sa" secondAttribute="trailing" constant="20" id="9WV-Mb-2CP"/>
+                <constraint firstItem="Ne4-fn-JhL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="AfZ-wX-HPl"/>
                 <constraint firstItem="hbm-Hz-7sa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="ddd-40-sFc"/>
                 <constraint firstAttribute="bottom" secondItem="hbm-Hz-7sa" secondAttribute="bottom" id="jbJ-d0-SEp"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="sayHellowButton" destination="Ne4-fn-JhL" id="2kp-fc-vdt"/>
+                <outlet property="stackView" destination="hbm-Hz-7sa" id="tII-If-ks4"/>
+            </connections>
             <point key="canvasLocation" x="139" y="153"/>
         </view>
     </objects>
@@ -89,6 +114,9 @@
         <designable name="Gbo-kE-z1z">
             <size key="intrinsicContentSize" width="19" height="19"/>
         </designable>
+        <designable name="Ne4-fn-JhL">
+            <size key="intrinsicContentSize" width="89" height="19"/>
+        </designable>
         <designable name="zyP-Ll-ZhF">
             <size key="intrinsicContentSize" width="103" height="19"/>
         </designable>
@@ -97,6 +125,7 @@
         <image name="me-chat-audio" width="19" height="19"/>
         <image name="me-chat-text" width="19" height="19"/>
         <image name="me-chat-video" width="19" height="19"/>
+        <image name="say-hello" width="19" height="19"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

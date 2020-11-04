@@ -13,9 +13,9 @@ import RxSwift
 import RxCocoa
 
 
-class UserInfoEditingViewController: UITableViewController, IndicatorDisplay {
+class UserInfoEditingViewController: UITableViewController, IndicatorDisplay, StoryboardCreate {
     
-    
+    static var storyboardNamed: String { return "Me" }
     let userAPI = Request<UserAPI>()
     
     let uploadAPI = Request<UploadFileAPI>()

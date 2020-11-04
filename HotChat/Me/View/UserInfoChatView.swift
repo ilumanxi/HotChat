@@ -12,6 +12,28 @@ class UserInfoChatView: UIView {
 
     let onPushing = Delegate<(), (User, UINavigationController)>()
     
+    
+    @IBOutlet weak var stackView: UIStackView!
+    
+    @IBOutlet weak var sayHellowButton: UIButton!
+    
+    override class func awakeFromNib() {
+        super.awakeFromNib()
+        
+
+    }
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        if LoginManager.shared.user!.girlStatus {
+            stackView.isHidden = true
+            sayHellowButton.isHidden = false
+        }
+        else {
+            stackView.isHidden = false
+            sayHellowButton.isHidden = true
+        }
+    }
+    
     var user: User!
     
     @IBAction func chatButtonTapped(_ sender: Any) {
@@ -45,6 +67,19 @@ class UserInfoChatView: UIView {
         let (user, _) = data
         
         CallManager.shareInstance()?.call(nil, userID: user.userId, callType: .audio)
+    }
+    
+    
+    @IBAction func sayHelloButtonTapped(_ sender: Any) {
+        guard let data = onPushing.call() else { return }
+        
+        let (user, navigationController) = data
+        
+        let info = TUIConversationCellData()
+        info.userID = user.userId
+        let vc  = ChatViewController(conversation: info)!
+        vc.title = user.nick
+        navigationController.pushViewController(vc, animated: true)
     }
     
 }

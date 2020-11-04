@@ -14,10 +14,34 @@ class TextInputViewCell: UITableViewCell {
     
     let onTextUpdated = Delegate<String?, Void>()
     
+    var maximumTextCount = 120
+    
+    @IBOutlet weak var inputTextCountLabel: UILabel!
     @IBOutlet weak var textView: UITextView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        let textSignal = textView.rx.text.orEmpty
+       
+        textSignal
+            .asDriver()
+            .filter {[unowned self] in
+                $0.length > self.maximumTextCount
+            }
+            .map { [unowned self] in
+                ($0 as NSString).substring(to: self.maximumTextCount)
+            }
+            .drive(textView.rx.text)
+            .disposed(by: rx.disposeBag)
+        
+        textSignal
+            .asDriver()
+            .map{ [unowned self] in
+                "\($0.length)/\(self.maximumTextCount)"
+            }
+            .drive(inputTextCountLabel.rx.text)
+            .disposed(by: rx.disposeBag)
         
         textView.rx.text
             .skip(1)

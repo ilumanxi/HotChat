@@ -23,8 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         TUIKit.sharedInstance()?.setup(withAppId: IM.appID, logLevel: .LOG_NONE)
         let config = TUIKitConfig.default()!
-        config.avatarType = .TAvatarTypeRadiusCorner
-        config.avatarCornerRadius = 5
+        config.avatarType = .TAvatarTypeRounded
         CallManager.shareInstance()?.initCall()
         
         

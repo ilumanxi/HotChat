@@ -646,11 +646,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TextInputViewCell" rowHeight="140" id="RaR-WB-dgO" customClass="TextInputViewCell" customModule="HotChat" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="140"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TextInputViewCell" rowHeight="160" id="RaR-WB-dgO" customClass="TextInputViewCell" customModule="HotChat" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RaR-WB-dgO" id="dDe-vB-SxY">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="160"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="s9w-ge-luv" customClass="AnimatableTextView" customModule="IBAnimatable">
@@ -669,20 +669,30 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </textView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/120" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ywU-Mp-SaA">
+                                            <rect key="frame" x="364" y="137" width="30" height="15"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="s9w-ge-luv" firstAttribute="leading" secondItem="dDe-vB-SxY" secondAttribute="leadingMargin" id="DtF-GV-0qC"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="s9w-ge-luv" secondAttribute="trailing" id="HHR-Nu-ohO"/>
-                                        <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="s9w-ge-luv" secondAttribute="bottom" id="Yn8-iK-MGz"/>
+                                        <constraint firstItem="ywU-Mp-SaA" firstAttribute="top" secondItem="s9w-ge-luv" secondAttribute="bottom" constant="8" id="JZQ-0k-Lh2"/>
+                                        <constraint firstAttribute="bottom" secondItem="ywU-Mp-SaA" secondAttribute="bottom" priority="900" constant="8" id="UI7-YI-Sew"/>
                                         <constraint firstItem="s9w-ge-luv" firstAttribute="top" secondItem="dDe-vB-SxY" secondAttribute="topMargin" id="pf5-91-DPm"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="ywU-Mp-SaA" secondAttribute="trailing" id="r5F-Mf-a9w"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <inset key="separatorInset" minX="10000" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
+                                    <outlet property="inputTextCountLabel" destination="ywU-Mp-SaA" id="ZKu-3e-G4R"/>
                                     <outlet property="textView" destination="s9w-ge-luv" id="P8U-32-x0W"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="UserInfoPhotoAlbumCell" rowHeight="100" id="swh-CU-cgZ" customClass="UserInfoPhotoAlbumCell" customModule="HotChat" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="168" width="414" height="100"/>
+                                <rect key="frame" x="0.0" y="188" width="414" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="swh-CU-cgZ" id="Nxa-Ju-WPw">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>

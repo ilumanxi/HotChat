@@ -222,6 +222,21 @@ class UserSettingViewController: UIViewController, UITableViewDataSource, UITabl
         return entry
     }
     
+    var blacklistForm: FormEntry {
+        let entry = SwitchFormEntry(text: "拉黑", isOn: user.isDefriend)
+        
+        entry.onSwitchTrigger.delegate(on: self) { (self, isOn) in
+            self.user.isFollow = isOn
+            self.dynamicAPI.request(.follow(self.user.userId), type: ResponseEmpty.self)
+                .subscribe(onSuccess: nil, onError: nil)
+                .disposed(by: self.rx.disposeBag)
+        }
+        
+        return entry
+    }
+    
+    
+    
     var reportForm: FormEntry {
         let entry = BasicFormEntry(text: "举报")
         entry.onTapped.delegate(on: self) { (self, _) in
@@ -315,7 +330,7 @@ class UserSettingViewController: UIViewController, UITableViewDataSource, UITabl
             FormSection(entries: [userForm], headerText: nil),
             FormSection(entries: [remarksForm], headerText: nil),
             FormSection(entries: [topForm], headerText: nil),
-            FormSection(entries: [followForm, reportForm], headerText: nil),
+            FormSection(entries: [followForm, blacklistForm, reportForm], headerText: nil),
             FormSection(entries: [destructiveForm], headerText: nil)
         ]
         

@@ -33,7 +33,7 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
     Input_Status_Input_Gift
 };
 
-@interface InputController () <TextViewDelegate, TMenuViewDelegate, TFaceViewDelegate, TMoreViewDelegate, VoiceViewDelegate, GiftViewControllerDelegate, GiftReminderViewControllerDelegate>
+@interface InputController () <TextViewDelegate, TMenuViewDelegate, TFaceViewDelegate, TMoreViewDelegate, VoiceViewDelegate, GiftViewControllerDelegate>
 @property (nonatomic, assign) InputStatus status;
 @end
 
@@ -487,25 +487,10 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
 
 - (void)giftViewController:(GiftViewController *)giftController didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    
-    Gift *gift = giftController.gifts[indexPath.item];
-    if ([GiftReminderViewController isReminder]) {
-        GiftReminderViewController *vc = [[GiftReminderViewController alloc] init];
-        vc.modalPresentationStyle = UIModalPresentationOverFullScreen;
-        vc.gift = gift;
-        vc.delegate = self;
-        [self presentViewController:vc animated:NO completion:nil];
-    }
-    else {
-        [self giveGifts:gift];
-    }
-}
-
-
-- (void)giftReminderViewController:(GiftReminderViewController *)giftReminder gift:(Gift *)gift {
+    Gift *gift = giftController.gifts[indexPath.row];
     [self giveGifts:gift];
-    
 }
+
 - (void)giveGifts:(Gift *)giftData {
     
     giftData.count = 1;

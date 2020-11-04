@@ -124,10 +124,10 @@ class MeViewController: UITableViewController, Autorotate {
         var walletEntries: [FormEntry] = []
         
         if user.girlStatus {
-            walletEntries.append(RightDetailFormEntry(image: UIImage(named: "me-wallet"), text: "我的钱包", detailText: "历史总收益：\(user.userEnergy)"))
+            walletEntries.append(RightDetailFormEntry(image: UIImage(named: "me-wallet"), text: "我的钱包", detailText: "历史总收益：\(user.userEnergy)", onTapped: pushWallet))
         }
         else {
-            walletEntries.append(RightDetailFormEntry(image: UIImage(named: "me-wallet"), text: "我的钱包", detailText: "能量\(user.userEnergy)"))
+            walletEntries.append(RightDetailFormEntry(image: UIImage(named: "me-wallet"), text: "我的钱包", detailText: "能量\(user.userEnergy)", onTapped: pushWallet))
         }
         
         let wallet: FormSection  = FormSection(

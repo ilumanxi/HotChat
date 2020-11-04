@@ -12,8 +12,9 @@
 #import <SDWebImage/SDWebImage.h>
 #import "GiftManager.h"
 #import "HotChat-Swift.h"
+#import "GiftReminderViewController.h"
 
-@interface GiftViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface GiftViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, GiftReminderViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *collectionViewFlowLayout;
 
@@ -109,9 +110,28 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    Gift *giftData = self.gifts[indexPath.item];
     
+    if ([GiftReminderViewController isReminder]) {
+        GiftReminderViewController *vc = [[GiftReminderViewController alloc] init];
+        vc.modalPresentationStyle = UIModalPresentationOverFullScreen;
+        vc.gift = giftData;
+        vc.delegate = self;
+        [self presentViewController:vc animated:NO completion:nil];
+    }
+    else {
+        if(_delegate && [_delegate respondsToSelector:@selector(giftViewController:didSelectItemAtIndexPath:)]){
+            [_delegate giftViewController:self didSelectItemAtIndexPath:indexPath];
+        }
+    }
+    
+}
+
+- (void)giftReminderViewController:(GiftReminderViewController *)giftReminder gift:(Gift *)gift {
+    
+    NSInteger row = [self.gifts indexOfObject:gift];
     if(_delegate && [_delegate respondsToSelector:@selector(giftViewController:didSelectItemAtIndexPath:)]){
-        [_delegate giftViewController:self didSelectItemAtIndexPath:indexPath];
+        [_delegate giftViewController:self didSelectItemAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0]];
     }
 }
 
