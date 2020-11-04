@@ -19,7 +19,7 @@
                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Fzd-Od-JIk">
                         <rect key="frame" x="20" y="5" width="52" height="90.5"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="50" verticalCompressionResistancePriority="50" placeholderIntrinsicWidth="54" placeholderIntrinsicHeight="54" image="IMGift" translatesAutoresizingMaskIntoConstraints="NO" id="lt7-4X-bTy">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="50" verticalCompressionResistancePriority="50" placeholderIntrinsicWidth="54" placeholderIntrinsicHeight="54" translatesAutoresizingMaskIntoConstraints="NO" id="lt7-4X-bTy">
                                 <rect key="frame" x="0.0" y="0.0" width="52" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="52" id="OhB-bw-vSh"/>
@@ -54,7 +54,4 @@
             <point key="canvasLocation" x="137.68115942028987" y="107.8125"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="IMGift" width="51" height="41"/>
-    </resources>
 </document>

@@ -10,6 +10,8 @@
 #import "Gift.h"
 #import "GiftViewCell.h"
 #import <SDWebImage/SDWebImage.h>
+#import "GiftManager.h"
+#import "HotChat-Swift.h"
 
 @interface GiftViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
@@ -23,6 +25,9 @@
 @property(nonatomic, assign) NSInteger perRowCount;
 
 @property(nonatomic, assign) NSInteger perPageCount;
+
+@property (weak, nonatomic) IBOutlet UIButton *energyButton;
+
 
 @end
 
@@ -40,7 +45,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.gifts = Gift.cahche;
+    self.gifts = [GiftManager shared].cahcheGiftList;
+    
+    [[GiftManager shared] getGiftList:^(NSArray<Gift *> * _Nonnull giftList) {
+        self.gifts = giftList;
+        self.pageControl.numberOfPages = self.numberOfPages;
+        [self.collectionView reloadData];
+    }];
     
     [self setupViews];
 
@@ -53,6 +64,8 @@
     
     _pageControl.numberOfPages = self.numberOfPages;
     
+    [_energyButton setTitle:[NSString stringWithFormat:@"%ld",(long)[LoginManager shared].user.userEnergy]  forState:UIControlStateNormal];
+    
     CGFloat size = UIScreen.mainScreen.bounds.size.width / _perRowCount;
     
     _collectionViewFlowLayout.sectionInset = UIEdgeInsetsZero;
@@ -62,10 +75,6 @@
     [_collectionView registerNib:[UINib nibWithNibName:@"GiftViewCell" bundle:nil] forCellWithReuseIdentifier:@"GiftViewCell"];
     [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"UICollectionViewCell"];
     
-}
-
-
-- (IBAction)rechargeButtonDidTapped:(id)sender {
 }
 
 
@@ -112,6 +121,13 @@
     NSInteger curSection = round(scrollView.contentOffset.x / scrollView.frame.size.width);
 
     _pageControl.currentPage = curSection;
+}
+
+- (IBAction)recharge:(id)sender {
+    
+    WalletViewController *vc = [[WalletViewController alloc] init];
+    
+    [self.navigationController pushViewController:vc animated:true];
 }
 
 

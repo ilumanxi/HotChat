@@ -20,6 +20,7 @@
 #import <Masonry/Masonry.h>
 #import "UIView+Additions.h"
 #import "CallMenuViewController.h"
+#import "HotChat-Swift.h"
 
 #define kUserCalledView_Width  200
 #define kUserCalledView_Top  200
@@ -40,6 +41,7 @@
 @property(nonatomic,strong) UIButton *mute;
 @property(nonatomic,strong) UIButton *handsfree;
 @property(nonatomic,strong) UILabel *callTimeLabel;
+@property(nonatomic,strong) UILabel *chargeReminderLabel;
 @property(nonatomic,strong) dispatch_source_t timer;
 @property(nonatomic,assign) UInt32 callingTime;
 @property(nonatomic,assign) BOOL playingAlerm; // 播放响铃
@@ -260,8 +262,13 @@
                 make.bottom.equalTo(self.view.safeAreaLayoutGuideBottom).offset(-49);
                 make.centerX.equalTo(self.view.mas_centerX);
             }];
-            
-//            self.sponsorPanel.hidden = YES;
+            if (self.manager.isCharge) {
+                [self.chargeReminderLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.centerX.equalTo(self.hangup);
+                    make.bottom.equalTo(self.hangup.mas_top).offset(-10);
+                }];
+            }
+
             self.userCollectionView.hidden = NO;
         }
             break;
@@ -276,6 +283,13 @@
                 make.leading.equalTo(self.view.mas_centerX).offset(60);
                 make.bottom.equalTo(self.view.safeAreaLayoutGuideBottom).offset(-49);
             }];
+            
+            if (self.manager.isCharge) {
+                [self.chargeReminderLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.centerX.equalTo(self.accept);
+                    make.bottom.equalTo(self.accept.mas_top).offset(-10);
+                }];
+            }
             
             self.sponsorPanel.hidden = NO;
             self.userCollectionView.hidden = YES;
@@ -400,6 +414,33 @@
     return _accept;
 }
 
+- (BillingManager *)manager {
+    if (!_manager) {
+        
+        NSString *userId = (self.curSponsor ? : self.curInvite).userId;
+        _manager = [[BillingManager alloc] initWithUserId:userId type:2];
+        @weakify(self)
+        _manager.errorCall = ^(NSInteger callCode, NSString * _Nonnull msg) {
+            @strongify(self)
+            if (callCode == 3) {
+                [self hangupClick];
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"您的能量不足、请充值！" preferredStyle:UIAlertControllerStyleAlert];
+                    [alert addAction:[UIAlertAction actionWithTitle:@"立即充值" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                        WalletViewController *walletController = [[WalletViewController alloc] init];
+                        [UIApplication.sharedApplication.keyWindow.rootViewController presentViewController:walletController animated:YES completion:nil];
+                    }]];
+                    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+                    [UIApplication.sharedApplication.keyWindow.rootViewController presentViewController:alert animated:YES completion:nil];
+                    
+                });
+                [THelper makeToast:msg];
+            }
+        };
+    }
+    return  _manager;
+}
+
 - (UIButton *)mute {
     if (!_mute.superview) {
         _mute = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -433,6 +474,19 @@
         [self.view addSubview:_callTimeLabel];
     }
     return _callTimeLabel;
+}
+
+
+- (UILabel *)chargeReminderLabel {
+    
+    if (!_chargeReminderLabel.superview) {
+        _chargeReminderLabel = [UILabel new];
+        _chargeReminderLabel.font = [UIFont systemFontOfSize:12];
+        _chargeReminderLabel.textColor = [UIColor colorWithRed:241/255.0 green:238/255.0 blue:11/255.0 alpha:1.0];
+        _chargeReminderLabel.text = @"1000能量/分钟";
+        [self.view addSubview:_chargeReminderLabel];
+    }
+    return _chargeReminderLabel;
 }
 
 - (UIView *)sponsorPanel {
@@ -499,15 +553,33 @@
 }
 
 - (void)acceptClick {
-    [[TUICall shareInstance] accept];
-    @weakify(self)
-    [TUICallUtils getCallUserModel:[TUICallUtils loginUser] finished:^(CallUserModel * _Nonnull model) {
-        @strongify(self)
-        model.isEnter = YES;
-        [self enterUser:model];
-        self.curState = AudioCallState_Calling;
-        self.accept.hidden = YES;
-    }];
+    
+    if (self.manager.isCharge) {
+        @weakify(self)
+        [self.manager accept:^{
+            [[TUICall shareInstance] accept];
+            [TUICallUtils getCallUserModel:[TUICallUtils loginUser] finished:^(CallUserModel * _Nonnull model) {
+                @strongify(self)
+                model.isEnter = YES;
+                [self enterUser:model];
+                self.curState = AudioCallState_Calling;
+                self.accept.hidden = YES;
+            }];
+        }];
+    }
+    else {
+        [[TUICall shareInstance] accept];
+        @weakify(self)
+        [TUICallUtils getCallUserModel:[TUICallUtils loginUser] finished:^(CallUserModel * _Nonnull model) {
+            @strongify(self)
+            model.isEnter = YES;
+            [self enterUser:model];
+            self.curState = AudioCallState_Calling;
+            self.accept.hidden = YES;
+        }];
+    }
+    
+
 }
 
 - (void)muteClick {

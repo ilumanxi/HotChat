@@ -121,29 +121,54 @@ class MeViewController: UITableViewController, Autorotate {
     
     func setupSections()  {
         
+        var walletEntries: [FormEntry] = []
         
-      let wallet  = FormSection(entries: [WalletFormEntry(user: user, onTapped: pushWallet)], headerText: nil)
+        if user.girlStatus {
+            walletEntries.append(RightDetailFormEntry(image: UIImage(named: "me-wallet"), text: "我的钱包", detailText: "历史总收益：\(user.userEnergy)"))
+        }
+        else {
+            walletEntries.append(RightDetailFormEntry(image: UIImage(named: "me-wallet"), text: "我的钱包", detailText: "能量\(user.userEnergy)"))
+        }
         
+        let wallet: FormSection  = FormSection(
+            entries: walletEntries,
+            headerText: nil
+        )
+      
+       var detailEntries: [FormEntry] = [
+            RightDetailFormEntry(image: UIImage(named: "me-money"), text: "奖励任务"),
+            RightDetailFormEntry(image: UIImage(named: "me-invitation"), text: "6万邀请奖"),
+            RightDetailFormEntry(image: UIImage(named: "me-nobility"), text: "贵族特权"),
+            RightDetailFormEntry(image: UIImage(named: "me-anti-fraud"), text: "防骗中心"),
+            RightDetailFormEntry(image: UIImage(named: "me-call"), text: "通话设置"),
+            RightDetailFormEntry(image: UIImage(named: "me-anchor"), text: "主播认证", onTapped: pushAuthentication)
+        ]
+        
+        if self.user.sex! == .male {
+            detailEntries.remove(at: 5)
+        }
+        
+
        let detail =  FormSection(
-            entries: [
-                RightDetailFormEntry(image: UIImage(named: "me-money"), text: "奖励任务"),
-                RightDetailFormEntry(image: UIImage(named: "me-invitation"), text: "6万邀请奖"),
-                RightDetailFormEntry(image: UIImage(named: "me-nobility"), text: "贵族特权"),
-                RightDetailFormEntry(image: UIImage(named: "me-anti-fraud"), text: "防骗中心"),
-                RightDetailFormEntry(image: UIImage(named: "me-call"), text: "通话设置"),
-                RightDetailFormEntry(image: UIImage(named: "me-anchor"), text: "主播认证", onTapped: pushAuthentication),
-            ],
+            entries: detailEntries,
             headerText: nil
         )
         
+        var basicEntries: [FormEntry] =  [
+            RightDetailFormEntry(image: UIImage(named: "me-grade"), text: "等级"),
+            RightDetailFormEntry(image: UIImage(named: "me-authentication"), text: "认证", onTapped: pushAuthentication),
+            RightDetailFormEntry(image: UIImage(named: "me-notification"), text: "通知", detailText: "未开启"),
+            RightDetailFormEntry(image: UIImage(named: "me-help"), text: "帮助"),
+            RightDetailFormEntry(image: UIImage(named: "me-setting"), text: "设置", onTapped: pushSetting)
+        ]
+        
+        if self.user.sex! == .female {
+            basicEntries.remove(at: 1)
+        }
+        
+        
         let basic =  FormSection(
-             entries: [
-                 RightDetailFormEntry(image: UIImage(named: "me-grade"), text: "等级"),
-                 RightDetailFormEntry(image: UIImage(named: "me-authentication"), text: "认证", onTapped: pushAuthentication),
-                 RightDetailFormEntry(image: UIImage(named: "me-notification"), text: "通知", detailText: "未开启"),
-                 RightDetailFormEntry(image: UIImage(named: "me-help"), text: "帮助"),
-                 RightDetailFormEntry(image: UIImage(named: "me-setting"), text: "设置", onTapped: pushSetting)
-             ],
+             entries: basicEntries,
              headerText: nil
          )
         
@@ -206,7 +231,7 @@ class MeViewController: UITableViewController, Autorotate {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return indexPath.section == 0 ? 105 : 44
+        return  50
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

@@ -29,6 +29,7 @@
 #import <ImSDK/V2TIMManager.h>
 #import <ImSDK/V2TIMManager+Message.h>
 #import "GiftReminderViewController.h"
+#import "HotChat-Swift.h"
 
 
 @interface CallMenuViewController ()<GiftViewControllerDelegate, V2TIMAdvancedMsgListener, LiveGiftShowCustomDelegate, GiftReminderViewControllerDelegate>
@@ -108,6 +109,16 @@
     
 }
 - (IBAction)reportButtonTapped {
+    
+    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Chat" bundle:nil];
+    
+    ReportUserViewController *vc = (ReportUserViewController *) [storyboard instantiateViewControllerWithIdentifier:@"ReportUserViewController"];
+    vc.modalPresentationStyle = UIModalPresentationFullScreen;
+    User * user = [[User alloc] init];
+    user.userId = self.user.userId;
+    vc.user = user;
+    
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 

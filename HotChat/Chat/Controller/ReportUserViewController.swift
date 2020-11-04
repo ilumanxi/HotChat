@@ -14,7 +14,7 @@ class ReportUserViewController: UIViewController, UITableViewDataSource, UITable
     static var storyboardNamed: String { return "Chat" }
     
 
-    var user: User!
+    @objc var user: User!
     
     private var selectedIndexPath: IndexPath?
     
@@ -86,7 +86,14 @@ class ReportUserViewController: UIViewController, UITableViewDataSource, UITable
             .subscribe(onSuccess: { [weak self] reponse in
                 self?.hideIndicatorFromWindow()
                 self?.showMessageOnWindow(reponse.msg)
-                self?.navigationController?.popViewController(animated: true)
+                if let navigationController = self?.navigationController {
+                    navigationController.popViewController(animated: true)
+                }
+                else {
+                    self?.dismiss(animated: true, completion: nil)
+                }
+                
+               
             }, onError: { [weak self] error in
                 self?.hideIndicatorFromWindow()
                 self?.showMessageOnWindow(error.localizedDescription)

@@ -89,9 +89,9 @@
     labelSecond.textColor = [UIColor colorWithRed:51 / 255.0 green:51 / 255.0 blue:51 / 255.0 alpha:1 / 1.0];
     [self.view addSubview:labelSecond];
     
-     // 设置logo，底部的位置和大小，实例化显示
-    BDFaceLogoView* logoView = [[BDFaceLogoView alloc] initWithFrame:CGRectMake(0, (ScreenHeight-15-12), ScreenWidth, 12)];
-    [self.view addSubview:logoView];
+//     // 设置logo，底部的位置和大小，实例化显示
+//    BDFaceLogoView* logoView = [[BDFaceLogoView alloc] initWithFrame:CGRectMake(0, (ScreenHeight-15-12), ScreenWidth, 12)];
+//    [self.view addSubview:logoView];
 
 }
 

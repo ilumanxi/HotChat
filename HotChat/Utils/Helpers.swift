@@ -374,13 +374,13 @@ protocol StoryboardCreate: class {
 
 extension StoryboardCreate where Self: UIViewController {
     
-    static var bundle: Bundle? { return nil }
+     static var bundle: Bundle? { return nil }
     
-    static var identifier: String? { return nil }
+     static var identifier: String? { return nil }
     
-    static var controllerIdentifier: String? { return nil }
+     static var controllerIdentifier: String? { return nil }
     
-    static func loadFromStoryboard() -> Self {
+     static func loadFromStoryboard() -> Self {
         let bundle = self.bundle ?? .main
         
         let storyboard = UIStoryboard(name: storyboardNamed, bundle: bundle)

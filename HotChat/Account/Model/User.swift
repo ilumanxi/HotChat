@@ -74,7 +74,7 @@ struct Topic: HandyJSON {
         }
     }
     
-    var userId: String = ""
+    @objc var userId: String = ""
     @objc var token: String = ""
     var status: Int = 0
     var isInit: Bool = false
@@ -86,7 +86,7 @@ struct Topic: HandyJSON {
     var imExpire: TimeInterval = 0
     
     ///  能量
-    var userEnergy: Int = 0
+    @objc var userEnergy: Int = 0
     
     /// 贪币
     var userTanbi: Int = 0
@@ -115,6 +115,13 @@ struct Topic: HandyJSON {
     /// 备注
     var friendNick: String = ""
     
+    /// 主播
+    var girlStatus: Bool =  false
+    
+    /// 黑名单
+    var isDefriend: Bool = false
+    
+    var userSettings: InfoSettings = InfoSettings()
     
     /// 在线状态 1在线 2直播中
 

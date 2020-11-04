@@ -47,6 +47,8 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        GiftManager.shared().getGiftList { _ in
+        }
         
         collectionView.backgroundColor = .groupTableViewBackground
         
@@ -66,6 +68,7 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
         
         state = .loadingContent
         collectionView.mj_header?.beginRefreshing()
+        
         
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {

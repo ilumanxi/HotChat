@@ -106,8 +106,12 @@ class AuthenticationViewController: UIViewController, IndicatorDisplay, LoadingS
     func pushFace() {
         
        let vc = BDFaceDetectionViewController()
-        vc.hbd_barAlpha = 0.5
-       navigationController?.pushViewController(vc, animated: true)
+        
+        let nav = UINavigationController(rootViewController: vc)
+        nav.isNavigationBarHidden = true
+        nav.modalPresentationStyle = .fullScreen
+       
+        present(nav, animated: true, completion: nil)
     }
 
 }

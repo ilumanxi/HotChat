@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "TUICallModel.h"
+#import "BillingManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 
 @interface AudioCallViewController : UIViewController
+
+@property(strong, nonatomic) BillingManager *manager;
+
 @property(nonatomic,strong) DismissBlock dismissBlock;
 ///如果是自己主动发起的邀请，sponsor 传 nil，如果是自己被其他人然邀请，sponsor 传邀请人的 userModel
 - (instancetype)initWithSponsor:(CallUserModel *)sponsor userList:(NSMutableArray<CallUserModel *> *)userList;

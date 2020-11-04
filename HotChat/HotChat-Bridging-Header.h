@@ -15,5 +15,6 @@
 #import <IDLFaceSDK/FaceSDKManager.h>
 #import "FaceParameterConfig.h"
 #import "BDFaceDetectionViewController.h"
+#import "GiftManager.h"
 
 //#import "HotChat-Swift.h"

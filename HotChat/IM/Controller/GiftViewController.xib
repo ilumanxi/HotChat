@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="collectionView" destination="GKD-oE-maB" id="Pdu-yE-b6e"/>
                 <outlet property="collectionViewFlowLayout" destination="0ft-RK-K2b" id="q1A-9J-q48"/>
+                <outlet property="energyButton" destination="vyH-yI-GQH" id="s5S-aq-WEe"/>
                 <outlet property="pageControl" destination="AVR-BV-Rkx" id="PZY-LQ-Uhe"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -28,7 +29,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vJC-Ld-sCs" userLabel="Content View">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="275.5"/>
                             <subviews>
-                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="GKD-oE-maB">
+                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="GKD-oE-maB">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="207.5"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
@@ -85,6 +86,9 @@
                                                     <real key="value" value="4"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="recharge:" destination="-1" eventType="touchUpInside" id="pu7-w1-YIw"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>

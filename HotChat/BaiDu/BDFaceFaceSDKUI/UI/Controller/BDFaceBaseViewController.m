@@ -243,12 +243,12 @@
                                        [UIImage imageNamed:@"icon_titlebar_voice2"], nil];
     _voiceImageView.animationDuration = 2;
     _voiceImageView.animationRepeatCount = 0;
-    NSNumber *soundMode = [[NSUserDefaults standardUserDefaults] objectForKey:@"SoundMode"];
-    if (soundMode.boolValue){
+//    NSNumber *soundMode = [[NSUserDefaults standardUserDefaults] objectForKey:@"SoundMode"];
+//    if (soundMode.boolValue){
         [_voiceImageView startAnimating];
-    } else {
-        _voiceImageView.image = [UIImage imageNamed:@"icon_titlebar_voice_close"];
-    }
+//    } else {
+//        _voiceImageView.image = [UIImage imageNamed:@"icon_titlebar_voice_close"];
+//    }
     _voiceImageView.userInteractionEnabled = YES;
     UITapGestureRecognizer *changeVoidceSet = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changeVoidceSet:)];
     [_voiceImageView addGestureRecognizer:changeVoidceSet];
@@ -260,9 +260,9 @@
     logoImageView.image = [UIImage imageNamed:@"bg_bottom_pattern"];
     [self.view addSubview:logoImageView];
     
-    // 设置logo，底部的位置和大小，实例化显示
-    BDFaceLogoView* logoView = [[BDFaceLogoView alloc] initWithFrame:CGRectMake(0, (ScreenHeight-15-12), ScreenWidth, 12)];
-    [self.view addSubview:logoView];
+//    // 设置logo，底部的位置和大小，实例化显示
+//    BDFaceLogoView* logoView = [[BDFaceLogoView alloc] initWithFrame:CGRectMake(0, (ScreenHeight-15-12), ScreenWidth, 12)];
+//    [self.view addSubview:logoView];
     
     // 监听重新返回APP
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onAppWillResignAction) name:UIApplicationWillResignActiveNotification object:nil];

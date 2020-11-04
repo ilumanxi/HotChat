@@ -12,8 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Gift : NSObject
 
-@property(class, nonatomic, assign) NSMutableArray<Gift *> *cahche;
-
 @property(nonatomic, assign) NSInteger id;
 
 @property(nonatomic, copy) NSString *name;
@@ -24,6 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, assign) NSInteger count;
 
+@property(nonatomic, assign) BOOL isAnim;
+@property(nonatomic, assign) BOOL isVip;
 
 @end
 

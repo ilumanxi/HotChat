@@ -21,7 +21,6 @@
 #import "CallMenuViewController.h"
 #import "QMUIButton.h"
 #import "HotChat-Swift.h"
-#import "BillingManager.h"
 
 
 #define kSmallVideoWidth 100.0
@@ -389,6 +388,10 @@
         case VideoCallState_Calling:
         {
             self.hangup.hidden = YES;
+            
+            if (self.manager.isCharge) {
+                self.chargeReminderLabel.hidden = YES;
+            }
             
             [self.callMenu.view mas_remakeConstraints:^(MASConstraintMaker *make) {
                 make.edges.equalTo(self.view);
