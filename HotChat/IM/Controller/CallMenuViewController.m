@@ -30,9 +30,10 @@
 #import <ImSDK/V2TIMManager+Message.h>
 #import "GiftReminderViewController.h"
 #import "HotChat-Swift.h"
+#import "GiftManager.h"
 
 
-@interface CallMenuViewController ()<GiftViewControllerDelegate, V2TIMAdvancedMsgListener, LiveGiftShowCustomDelegate, GiftReminderViewControllerDelegate>
+@interface CallMenuViewController ()<GiftViewControllerDelegate, V2TIMAdvancedMsgListener, LiveGiftShowCustomDelegate>
 
 ///  摄像头 📷
 @property(strong, nonatomic) QMUIButton *cameraButton;
@@ -137,6 +138,8 @@
         [self.containerStackView addArrangedSubview:self.giftButton];
     }
     
+    self.handsfreeButton.selected = [TUICall shareInstance].handsFreeOn;
+    self.muteButton.selected = [TUICall shareInstance].micMute;
     
     [self.view addSubview:self.containerStackView];
     [self.containerStackView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -163,6 +166,7 @@
         _handsfreeButton.titleLabel.font = [UIFont systemFontOfSize:12];
         _handsfreeButton.imagePosition = QMUIButtonImagePositionTop;
         _handsfreeButton.spacingBetweenImageAndTitle = 3;
+        [_handsfreeButton addTarget:self action:@selector(handsfreeButtonTapped) forControlEvents:UIControlEventTouchUpInside];
     }
     
     return _handsfreeButton;
@@ -180,6 +184,7 @@
         _muteButton.titleLabel.font = [UIFont systemFontOfSize:12];
         _muteButton.imagePosition = QMUIButtonImagePositionTop;
         _muteButton.spacingBetweenImageAndTitle = 3;
+        [_muteButton addTarget:self action:@selector(muteButtonTapped) forControlEvents:UIControlEventTouchUpInside];
     }
     
     return _muteButton;
@@ -271,6 +276,28 @@
     return  _beautyController;
 }
 
+- (void)handsfreeButtonTapped {
+    BOOL handsFreeOn = ![TUICall shareInstance].handsFreeOn;
+    [[TUICall shareInstance] handsFree:handsFreeOn];
+    self.handsfreeButton.selected = handsFreeOn;
+    if (handsFreeOn) {
+        [THelper makeToast:@"使用扬声器" duration:1 position:CGPointMake(self.handsfreeButton.mm_centerX, self.handsfreeButton.mm_minY - 60)];
+    } else {
+        [THelper makeToast:@"使用听筒" duration:1 position:CGPointMake(self.handsfreeButton.mm_centerX, self.handsfreeButton.mm_minY - 60)];
+    }
+}
+
+- (void)muteButtonTapped {
+    BOOL micMute = ![TUICall shareInstance].micMute;
+    [[TUICall shareInstance] mute:micMute];
+    self.muteButton.selected = micMute;
+    if (micMute) {
+        [THelper makeToast:@"开启静音" duration:1 position:CGPointMake(self.muteButton.mm_centerX, self.muteButton.mm_minY - 60)];
+    } else {
+        [THelper makeToast:@"关闭静音" duration:1 position:CGPointMake(self.muteButton.mm_centerX, self.muteButton.mm_minY - 60)];
+    }
+}
+
 - (void)giftButtonTapped {
     GiftViewController *vc = [[GiftViewController alloc] init];
     vc.modalPresentationStyle = UIModalPresentationOverFullScreen;
@@ -280,25 +307,45 @@
 
 - (void)giftViewController:(GiftViewController *)gift didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     Gift *giftData = gift.gifts[indexPath.item];
+    giftData.count = 1;
     [self giveGifts:giftData];
 }
+
+
+
+
 - (void)giveGifts:(Gift *)giftData {
     
-    giftData.count = 1;
-    GiftCellData *cellData = [[GiftCellData alloc] initWithDirection:MsgDirectionOutgoing];
-    cellData.gift = giftData;
-    
-    IMData *imData = [IMData defaultData];
-    imData.data = [giftData mj_JSONString];
-    
-    NSData *data = [TUICallUtils dictionary2JsonData:[imData mj_keyValues]];
-    
-    cellData.innerMessage = [[V2TIMManager sharedInstance] createCustomMessage:data];
-    
-    [self sendMessage:cellData];
-    
-    [TUICallUtils getCallUserModel:[TUICallUtils loginUser] finished:^(CallUserModel * _Nonnull model) {
-        [self user:model giveGift:giftData];
+    [[GiftManager shared] giveGift:self.user.userId type:2 gift:giftData block:^(NSDictionary * _Nullable responseObject, NSError * _Nullable error) {
+            
+        if (error) {
+            [THelper makeToast:error.localizedDescription];
+            return;
+        }
+        GiveGift *giveGift = [GiveGift mj_objectWithKeyValues:responseObject[@"data"]];
+        if (giveGift.reultCode == 1) {
+            GiftCellData *cellData = [[GiftCellData alloc] initWithDirection:MsgDirectionOutgoing];
+            cellData.gift = giftData;
+            
+            IMData *imData = [IMData defaultData];
+            imData.data = [giftData mj_JSONString];
+            
+            NSData *data = [TUICallUtils dictionary2JsonData:[imData mj_keyValues]];
+            
+            cellData.innerMessage = [[V2TIMManager sharedInstance] createCustomMessage:data];
+            
+            [self sendMessage:cellData];
+            
+            [TUICallUtils getCallUserModel:[TUICallUtils loginUser] finished:^(CallUserModel * _Nonnull model) {
+                [self user:model giveGift:giftData];
+            }];
+        }
+        else if (giveGift.reultCode == 3) { //能量不足，需要充值
+            
+        }
+        else {
+            [THelper makeToast:giveGift.msg];
+        }
     }];
 }
 

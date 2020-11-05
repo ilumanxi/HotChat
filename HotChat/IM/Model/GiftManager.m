@@ -69,8 +69,31 @@
         
        }
     ];
+}
+
+
+-(void)giveGift:(NSString *)userId type:(NSInteger) type gift:(Gift *)gift block:(void (^)(NSDictionary * _Nullable, NSError * _Nullable))block {
     
+    NSDictionary *parameters = @{
+        @"toUserId" : userId,
+        @"giftId" : @(gift.id),
+        @"energy" : @(gift.energy),
+        @"num" : @(gift.count),
+        @"type" :  @(type)
+    };
     
+    [self.manager
+        POST:@"Gift/giveGift"
+        parameters:parameters
+        headers:@{@"token" : LoginManager.shared.user.token}
+        progress:nil
+        success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary   * _Nullable responseObject) {
+            block(responseObject, nil);
+        }
+       failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            block(nil, error);
+       }
+    ];
 }
 
 @end

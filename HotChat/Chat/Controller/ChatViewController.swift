@@ -192,9 +192,9 @@ extension ChatViewController: ChatControllerDelegate {
             .subscribe(onSuccess: { [weak self] response in
                 guard let self = self else {return }
                 if response.data!.isSuccessd  && response.data!.callCode == 1{
-                    CallManager.shareInstance()?.call(self.conversationData.groupID, userID: self.conversationData.userID, callType: .video)
+                    CallManager.shareInstance()?.call(self.conversationData.groupID, userID: self.conversationData.userID, callType: callType)
                 }
-                else if response.data!.callCode == 3 {
+                else if response.data!.callCode == 4 {
                     let alert = UIAlertController(title: nil, message: "您的能量不足、请充值！", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "立即充值", style: .default, handler: { _ in
                         let vc = WalletViewController()

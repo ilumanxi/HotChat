@@ -209,6 +209,7 @@
 		26E14E68251C861A00645F08 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E14E67251C861A00645F08 /* DatePickerViewController.swift */; };
 		26E291982553EABB0032AE99 /* GiftEarningsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E291962553EABB0032AE99 /* GiftEarningsCell.swift */; };
 		26E291992553EABB0032AE99 /* GiftEarningsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26E291972553EABB0032AE99 /* GiftEarningsCell.xib */; };
+		26E291A42553FD5A0032AE99 /* GiveGift.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E291A32553FD5A0032AE99 /* GiveGift.m */; };
 		26EE0E4C25245BD800233ED5 /* PayAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EE0E4B25245BD800233ED5 /* PayAPI.swift */; };
 		26F0D2542546DA8200D1018B /* InputController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F0D2532546DA8200D1018B /* InputController.m */; };
 		26F0D25A2546DB9C00D1018B /* InputBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F0D2592546DB9C00D1018B /* InputBar.m */; };
@@ -537,6 +538,8 @@
 		26E14E67251C861A00645F08 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		26E291962553EABB0032AE99 /* GiftEarningsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftEarningsCell.swift; sourceTree = "<group>"; };
 		26E291972553EABB0032AE99 /* GiftEarningsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiftEarningsCell.xib; sourceTree = "<group>"; };
+		26E291A22553FD5A0032AE99 /* GiveGift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiveGift.h; sourceTree = "<group>"; };
+		26E291A32553FD5A0032AE99 /* GiveGift.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiveGift.m; sourceTree = "<group>"; };
 		26EE0E4B25245BD800233ED5 /* PayAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayAPI.swift; sourceTree = "<group>"; };
 		26F0D2522546DA8200D1018B /* InputController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputController.h; sourceTree = "<group>"; };
 		26F0D2532546DA8200D1018B /* InputController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputController.m; sourceTree = "<group>"; };
@@ -1282,6 +1285,8 @@
 				26F3D66C25482683007D9136 /* IMData.h */,
 				26F3D66D25482683007D9136 /* IMData.m */,
 				2656F321254FE0AF00552611 /* CallStatus.swift */,
+				26E291A22553FD5A0032AE99 /* GiveGift.h */,
+				26E291A32553FD5A0032AE99 /* GiveGift.m */,
 				26CB6C3C25512A0A00A9F4DD /* BillingStatus.h */,
 				26CB6C3D25512A0A00A9F4DD /* BillingStatus.m */,
 				264DEA122552512C00AD97DE /* GiftManager.h */,
@@ -1818,6 +1823,7 @@
 				2643EBAD2500B04100FBBE49 /* UserInfoTagCell.swift in Sources */,
 				2643EBA22500B04100FBBE49 /* UserInfoLikeObjectViewController.swift in Sources */,
 				2639535D254187F100B5E3C0 /* WalletViewCell.swift in Sources */,
+				26E291A42553FD5A0032AE99 /* GiveGift.m in Sources */,
 				26AC1E4E250613B6003EFB44 /* KeychainItem.swift in Sources */,
 				26945815253FF81E00EBCABB /* UserViewCell.swift in Sources */,
 				2695903C250B16D700763061 /* InterestedCardView.swift in Sources */,

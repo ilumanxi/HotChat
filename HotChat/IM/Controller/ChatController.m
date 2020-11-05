@@ -29,6 +29,10 @@
 #import "TUICallManager.h"
 #import "TUIKit.h"
 #import "TUIGroupLiveMessageCell.h"
+#import "GiftCellData.h"
+#import "GiftManager.h"
+#import "GiveGift.h"
+#import <MJExtension/MJExtension.h>
 
 @interface ChatController () <TMessageControllerDelegate, InputControllerDelegate, UIImagePickerControllerDelegate, UIDocumentPickerDelegate, UINavigationControllerDelegate>
 @property (nonatomic, strong) TUIConversationCellData *conversationData;
@@ -215,10 +219,38 @@
         //消息发送完后 atUserList 要重置
         [self.atUserList removeAllObjects];
     }
-    [_messageController sendMessage:msg];
-    if (self.delegate && [self.delegate respondsToSelector:@selector(chatController:didSendMessage:)]) {
-        [self.delegate chatController:self didSendMessage:msg];
+    
+    if ([msg isKindOfClass:[GiftCellData class]]) {
+        
+        GiftCellData * giftData = (GiftCellData *)msg;
+    
+        [[GiftManager shared] giveGift:self.conversationData.userID type:2 gift:giftData.gift block:^(NSDictionary * _Nullable responseObject, NSError * _Nullable error) {
+    
+            if (error) {
+                [THelper makeToast:error.localizedDescription];
+                return;
+            }
+            GiveGift *giveGift = [GiveGift mj_objectWithKeyValues:responseObject[@"data"]];
+            if (giveGift.reultCode == 1) {
+                [self->_messageController sendMessage:msg];
+                if (self.delegate && [self.delegate respondsToSelector:@selector(chatController:didSendMessage:)]) {
+                    [self.delegate chatController:self didSendMessage:msg];
+                }
+            }
+            else if (giveGift.reultCode == 3) { //能量不足，需要充值
+            }
+            else {
+                [THelper makeToast:giveGift.msg];
+            }
+        }];
     }
+    else {
+        [_messageController sendMessage:msg];
+        if (self.delegate && [self.delegate respondsToSelector:@selector(chatController:didSendMessage:)]) {
+            [self.delegate chatController:self didSendMessage:msg];
+        }
+    }
+
 }
 
 - (void)inputControllerDidInputAt:(InputController *)inputController

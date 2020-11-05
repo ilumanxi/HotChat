@@ -22,6 +22,7 @@
 #import "IMData.h"
 #import "TUICallUtils.h"
 #import "GiftReminderViewController.h"
+#import "GiftManager.h"
 
 
 typedef NS_ENUM(NSUInteger, InputStatus) {
@@ -488,12 +489,12 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
 - (void)giftViewController:(GiftViewController *)giftController didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
     Gift *gift = giftController.gifts[indexPath.row];
+    gift.count = 1;
     [self giveGifts:gift];
 }
 
 - (void)giveGifts:(Gift *)giftData {
     
-    giftData.count = 1;
     GiftCellData *cellData = [[GiftCellData alloc] initWithDirection:MsgDirectionOutgoing];
     cellData.gift = giftData;
     
@@ -507,7 +508,6 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
     if(_delegate && [_delegate respondsToSelector:@selector(inputController:didSendMessage:)]){
         [_delegate inputController:self didSendMessage:cellData];
     }
-    
 }
 
 

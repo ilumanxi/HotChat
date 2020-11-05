@@ -129,11 +129,14 @@
 
 - (void)giftReminderViewController:(GiftReminderViewController *)giftReminder gift:(Gift *)gift {
     
+    
+    
     NSInteger row = [self.gifts indexOfObject:gift];
     if(_delegate && [_delegate respondsToSelector:@selector(giftViewController:didSelectItemAtIndexPath:)]){
         [_delegate giftViewController:self didSelectItemAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0]];
     }
 }
+
 
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView

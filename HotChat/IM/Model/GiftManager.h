@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Gift.h"
+#import "GiveGift.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,6 +19,10 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)shared;
 
 - (void)getGiftList:(void (^)(NSArray<Gift *> *giftList))block;
+
+/// resultCode 1送礼成功 2送礼失败，3能量不足，送礼失败
+/// 送礼物类型 1动态 2 IM聊天
+- (void)giveGift:(NSString *)userId type:(NSInteger) type gift:(Gift *)gift block: (void (^)(NSDictionary * _Nullable responseObject, NSError * _Nullable error))block;
 
 @end
 
