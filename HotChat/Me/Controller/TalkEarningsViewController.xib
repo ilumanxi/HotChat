@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TalkEarningsViewController" customModule="HotChat" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pod-zi-0ke">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Y7j-ub-vU2">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="306"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bIH-G8-f5O">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="102"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" placeholderIntrinsicWidth="384" placeholderIntrinsicHeight="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="L36-Yd-IoG" customClass="SeparatorLine" customModule="HotChat" customModuleProvider="target">
+                                            <rect key="frame" x="15" y="101.5" width="384" height="0.5"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        </view>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aVc-QS-CVk">
+                                            <rect key="frame" x="158" y="15.5" width="98" height="71"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="语音通话时长" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Csi-gk-bQh">
+                                                    <rect key="frame" x="0.0" y="0.0" width="98" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-分钟" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hjf-qi-KM1">
+                                                    <rect key="frame" x="34" y="29.5" width="30.5" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="能量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWG-oA-cX2">
+                                                    <rect key="frame" x="34.5" y="54" width="29" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="L36-Yd-IoG" secondAttribute="bottom" id="DDW-4g-pCH"/>
+                                        <constraint firstAttribute="trailing" secondItem="L36-Yd-IoG" secondAttribute="trailing" constant="15" id="K6n-QQ-Awt"/>
+                                        <constraint firstItem="L36-Yd-IoG" firstAttribute="leading" secondItem="bIH-G8-f5O" secondAttribute="leading" constant="15" id="TUe-dl-R6P"/>
+                                        <constraint firstAttribute="height" constant="102" id="c11-a8-hZT"/>
+                                        <constraint firstItem="aVc-QS-CVk" firstAttribute="centerY" secondItem="bIH-G8-f5O" secondAttribute="centerY" id="raM-jJ-bPw"/>
+                                        <constraint firstItem="aVc-QS-CVk" firstAttribute="centerX" secondItem="bIH-G8-f5O" secondAttribute="centerX" id="xE0-Y1-gIR"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ndp-dE-TNl">
+                                    <rect key="frame" x="0.0" y="102" width="414" height="102"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" placeholderIntrinsicWidth="384" placeholderIntrinsicHeight="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="IVr-ms-Lts" customClass="SeparatorLine" customModule="HotChat" customModuleProvider="target">
+                                            <rect key="frame" x="15" y="101.5" width="384" height="0.5"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        </view>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nzp-hn-3eI">
+                                            <rect key="frame" x="158" y="15.5" width="98" height="71"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="视频通话时长" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GhD-Ow-0e0">
+                                                    <rect key="frame" x="0.0" y="0.0" width="98" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-分钟" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAv-d6-dzx">
+                                                    <rect key="frame" x="34" y="29.5" width="30.5" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="能量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xgh-fz-zSF">
+                                                    <rect key="frame" x="34.5" y="54" width="29" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="IVr-ms-Lts" secondAttribute="bottom" id="UQc-6G-lUy"/>
+                                        <constraint firstAttribute="height" constant="102" id="cJW-8A-aYd"/>
+                                        <constraint firstItem="nzp-hn-3eI" firstAttribute="centerX" secondItem="ndp-dE-TNl" secondAttribute="centerX" id="hn7-Qu-wTX"/>
+                                        <constraint firstItem="IVr-ms-Lts" firstAttribute="leading" secondItem="ndp-dE-TNl" secondAttribute="leading" constant="15" id="j4k-26-ris"/>
+                                        <constraint firstAttribute="trailing" secondItem="IVr-ms-Lts" secondAttribute="trailing" constant="15" id="q9i-ew-szz"/>
+                                        <constraint firstItem="nzp-hn-3eI" firstAttribute="centerY" secondItem="ndp-dE-TNl" secondAttribute="centerY" id="wKE-FU-N0F"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="deI-PV-LN7">
+                                    <rect key="frame" x="0.0" y="204" width="414" height="102"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" placeholderIntrinsicWidth="384" placeholderIntrinsicHeight="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3u2-L7-9Pg" customClass="SeparatorLine" customModule="HotChat" customModuleProvider="target">
+                                            <rect key="frame" x="15" y="101.5" width="384" height="0.5"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        </view>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dyf-Kx-2rG">
+                                            <rect key="frame" x="182" y="28" width="50.5" height="46.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IM信息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z67-sd-Mqe">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50.5" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="能量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="voQ-HT-rnN">
+                                                    <rect key="frame" x="10.5" y="29.5" width="29" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="3u2-L7-9Pg" secondAttribute="bottom" id="KVk-nO-wGP"/>
+                                        <constraint firstItem="dyf-Kx-2rG" firstAttribute="centerX" secondItem="deI-PV-LN7" secondAttribute="centerX" id="MAZ-Dd-5d1"/>
+                                        <constraint firstAttribute="height" constant="102" id="W86-5o-aqf"/>
+                                        <constraint firstAttribute="trailing" secondItem="3u2-L7-9Pg" secondAttribute="trailing" constant="15" id="WXB-lc-mYc"/>
+                                        <constraint firstItem="3u2-L7-9Pg" firstAttribute="leading" secondItem="deI-PV-LN7" secondAttribute="leading" constant="15" id="wr8-YF-eFs"/>
+                                        <constraint firstItem="dyf-Kx-2rG" firstAttribute="centerY" secondItem="deI-PV-LN7" secondAttribute="centerY" id="zxi-he-DQa"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="Y7j-ub-vU2" firstAttribute="width" secondItem="pod-zi-0ke" secondAttribute="width" id="ByO-VE-A3Z"/>
+                        <constraint firstAttribute="bottom" secondItem="Y7j-ub-vU2" secondAttribute="bottom" constant="8" id="YSq-SO-kAs"/>
+                        <constraint firstAttribute="trailing" secondItem="Y7j-ub-vU2" secondAttribute="trailing" id="fTN-Lg-3Tp"/>
+                        <constraint firstItem="Y7j-ub-vU2" firstAttribute="leading" secondItem="pod-zi-0ke" secondAttribute="leading" id="mkq-gp-AiY"/>
+                        <constraint firstItem="Y7j-ub-vU2" firstAttribute="top" secondItem="pod-zi-0ke" secondAttribute="top" id="rlK-YZ-qUQ"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="pod-zi-0ke" secondAttribute="bottom" id="0S7-F8-Inq"/>
+                <constraint firstItem="pod-zi-0ke" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="1Y0-EH-TZ3"/>
+                <constraint firstAttribute="trailing" secondItem="pod-zi-0ke" secondAttribute="trailing" id="LSr-Rc-oAt"/>
+                <constraint firstItem="pod-zi-0ke" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="wPs-Kt-tEJ"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="113.83928571428571"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="3u2-L7-9Pg">
+            <size key="intrinsicContentSize" width="384" height="0.5"/>
+        </designable>
+        <designable name="IVr-ms-Lts">
+            <size key="intrinsicContentSize" width="384" height="0.5"/>
+        </designable>
+        <designable name="L36-Yd-IoG">
+            <size key="intrinsicContentSize" width="384" height="0.5"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

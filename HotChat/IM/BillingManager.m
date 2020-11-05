@@ -72,10 +72,12 @@
             NSString *callCode = [responseObject[@"data"][@"callCode"] stringValue];
          
              if (callCode != nil && [callCode intValue] != 1 ) {
-                 self.errorCall([callCode intValue], [responseObject[@"data"][@"msg"] stringValue]);
+                 NSString *msg = responseObject[@"data"][@"msg"];
+                 self.errorCall([callCode intValue], msg);
              }
              else if ([responseObject[@"code"] intValue] != 1 ) {
-                 self.errorCall([responseObject[@"code"] intValue], [responseObject[@"msg"] stringValue]);
+                 NSString *msg = responseObject[@"msg"];
+                 self.errorCall([responseObject[@"code"] intValue], msg);
              }
              else {
                  block();
@@ -116,7 +118,8 @@
                [self startCallingTime];
            }
            else {
-               self.errorCall([responseObject[@"code"] intValue], [responseObject[@"msg"] stringValue]);
+               NSString *msg = responseObject[@"msg"];
+               self.errorCall([responseObject[@"code"] intValue], msg);
            }
         }
         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -186,10 +189,12 @@
           NSString *callCode = [responseObject[@"data"][@"callCode"] stringValue];
        
            if (callCode != nil && [callCode intValue] != 1 ) {
-               self.errorCall([callCode intValue], [responseObject[@"data"][@"msg"] stringValue]);
+               NSString *msg = responseObject[@"data"][@"msg"];
+               self.errorCall([callCode intValue], msg);
            }
            else if ([responseObject[@"code"] intValue] != 1 ) {
-               self.errorCall([responseObject[@"code"] intValue], [responseObject[@"msg"] stringValue]);
+               NSString *msg = responseObject[@"msg"];
+               self.errorCall([responseObject[@"code"] intValue], msg);
            }
         }
         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -225,10 +230,12 @@
           NSString *callCode = [responseObject[@"data"][@"callCode"] stringValue];
        
            if (callCode != nil && [callCode intValue] != 1 ) {
-               self.errorCall([callCode intValue], [responseObject[@"data"][@"msg"] stringValue]);
+               NSString *msg = responseObject[@"data"][@"msg"];
+               self.errorCall([callCode intValue], msg);
            }
            else if ([responseObject[@"code"] intValue] != 1 ) {
-               self.errorCall([responseObject[@"code"] intValue], [responseObject[@"msg"] stringValue]);
+               NSString *msg = responseObject[@"msg"];
+               self.errorCall([responseObject[@"code"] intValue], msg);
            }
         }
         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

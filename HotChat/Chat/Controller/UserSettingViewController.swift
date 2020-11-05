@@ -222,12 +222,12 @@ class UserSettingViewController: UIViewController, UITableViewDataSource, UITabl
         return entry
     }
     
-    var blacklistForm: FormEntry {
+    var defriendForm: FormEntry {
         let entry = SwitchFormEntry(text: "拉黑", isOn: user.isDefriend)
         
         entry.onSwitchTrigger.delegate(on: self) { (self, isOn) in
-            self.user.isFollow = isOn
-            self.dynamicAPI.request(.follow(self.user.userId), type: ResponseEmpty.self)
+            self.user.isDefriend = isOn
+            self.userAPI.request(.editDefriend(userId: self.user.userId), type: ResponseEmpty.self)
                 .subscribe(onSuccess: nil, onError: nil)
                 .disposed(by: self.rx.disposeBag)
         }
@@ -330,7 +330,7 @@ class UserSettingViewController: UIViewController, UITableViewDataSource, UITabl
             FormSection(entries: [userForm], headerText: nil),
             FormSection(entries: [remarksForm], headerText: nil),
             FormSection(entries: [topForm], headerText: nil),
-            FormSection(entries: [followForm, blacklistForm, reportForm], headerText: nil),
+            FormSection(entries: [followForm, defriendForm, reportForm], headerText: nil),
             FormSection(entries: [destructiveForm], headerText: nil)
         ]
         

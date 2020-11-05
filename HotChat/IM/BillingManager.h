@@ -25,9 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithUserId:(NSString *)userId type:(NSInteger) type;
 
-///  1正常;0;没钱;-1快没钱
-///  1,正常 2你的余额不满三分钟，请先充值 3能量不足
-
+///  callCode -1快没钱1正常 2你的余额不满三分钟，请先充值 3对方开启了视频防骚扰4能量不足 5同性不能聊天
 @property(nonnull, nonatomic, copy) void(^errorCall)(NSInteger callCode, NSString *msg);
 
 

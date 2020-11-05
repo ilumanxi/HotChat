@@ -207,6 +207,8 @@
 		26E14E5E251C6E8800645F08 /* HotChatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E14E5D251C6E8800645F08 /* HotChatButton.swift */; };
 		26E14E63251C766900645F08 /* UserInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E14E62251C766900645F08 /* UserInformationViewController.swift */; };
 		26E14E68251C861A00645F08 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E14E67251C861A00645F08 /* DatePickerViewController.swift */; };
+		26E291982553EABB0032AE99 /* GiftEarningsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E291962553EABB0032AE99 /* GiftEarningsCell.swift */; };
+		26E291992553EABB0032AE99 /* GiftEarningsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26E291972553EABB0032AE99 /* GiftEarningsCell.xib */; };
 		26EE0E4C25245BD800233ED5 /* PayAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EE0E4B25245BD800233ED5 /* PayAPI.swift */; };
 		26F0D2542546DA8200D1018B /* InputController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F0D2532546DA8200D1018B /* InputController.m */; };
 		26F0D25A2546DB9C00D1018B /* InputBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F0D2592546DB9C00D1018B /* InputBar.m */; };
@@ -215,6 +217,12 @@
 		26F25C98250A359300F808EA /* InterestedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F25C97250A359300F808EA /* InterestedViewController.swift */; };
 		26F3D66E25482683007D9136 /* IMData.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F3D66D25482683007D9136 /* IMData.m */; };
 		26F3D67725483433007D9136 /* GiftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F3D67625483433007D9136 /* GiftCell.m */; };
+		26F553702553AFB500840735 /* EarningsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F5536E2553AFB500840735 /* EarningsViewController.swift */; };
+		26F553712553AFB500840735 /* EarningsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26F5536F2553AFB500840735 /* EarningsViewController.xib */; };
+		26F553762553D16E00840735 /* TalkEarningsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F553742553D16E00840735 /* TalkEarningsViewController.swift */; };
+		26F553772553D16E00840735 /* TalkEarningsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26F553752553D16E00840735 /* TalkEarningsViewController.xib */; };
+		26F5537C2553D3CD00840735 /* GiftEarningsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F5537A2553D3CD00840735 /* GiftEarningsViewController.swift */; };
+		26F5537D2553D3CD00840735 /* GiftEarningsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26F5537B2553D3CD00840735 /* GiftEarningsViewController.xib */; };
 		26F70FFF2542B3A900797E87 /* AuthenticationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F70FFE2542B3A900797E87 /* AuthenticationAPI.swift */; };
 		26F710042542C6C000797E87 /* UserSettingsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F710032542C6C000797E87 /* UserSettingsAPI.swift */; };
 		26F710092542C77A00797E87 /* InfoSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F710082542C77A00797E87 /* InfoSettings.swift */; };
@@ -527,6 +535,8 @@
 		26E14E5D251C6E8800645F08 /* HotChatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotChatButton.swift; sourceTree = "<group>"; };
 		26E14E62251C766900645F08 /* UserInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformationViewController.swift; sourceTree = "<group>"; };
 		26E14E67251C861A00645F08 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		26E291962553EABB0032AE99 /* GiftEarningsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftEarningsCell.swift; sourceTree = "<group>"; };
+		26E291972553EABB0032AE99 /* GiftEarningsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiftEarningsCell.xib; sourceTree = "<group>"; };
 		26EE0E4B25245BD800233ED5 /* PayAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayAPI.swift; sourceTree = "<group>"; };
 		26F0D2522546DA8200D1018B /* InputController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputController.h; sourceTree = "<group>"; };
 		26F0D2532546DA8200D1018B /* InputController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputController.m; sourceTree = "<group>"; };
@@ -539,6 +549,12 @@
 		26F3D66D25482683007D9136 /* IMData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMData.m; sourceTree = "<group>"; };
 		26F3D67525483433007D9136 /* GiftCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftCell.h; sourceTree = "<group>"; };
 		26F3D67625483433007D9136 /* GiftCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftCell.m; sourceTree = "<group>"; };
+		26F5536E2553AFB500840735 /* EarningsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningsViewController.swift; sourceTree = "<group>"; };
+		26F5536F2553AFB500840735 /* EarningsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EarningsViewController.xib; sourceTree = "<group>"; };
+		26F553742553D16E00840735 /* TalkEarningsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkEarningsViewController.swift; sourceTree = "<group>"; };
+		26F553752553D16E00840735 /* TalkEarningsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TalkEarningsViewController.xib; sourceTree = "<group>"; };
+		26F5537A2553D3CD00840735 /* GiftEarningsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftEarningsViewController.swift; sourceTree = "<group>"; };
+		26F5537B2553D3CD00840735 /* GiftEarningsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiftEarningsViewController.xib; sourceTree = "<group>"; };
 		26F70FFE2542B3A900797E87 /* AuthenticationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationAPI.swift; sourceTree = "<group>"; };
 		26F710032542C6C000797E87 /* UserSettingsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsAPI.swift; sourceTree = "<group>"; };
 		26F710082542C77A00797E87 /* InfoSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSettings.swift; sourceTree = "<group>"; };
@@ -720,6 +736,12 @@
 				26C3F32E2542764F00CDD533 /* AnchorAuthenticationViewController.swift */,
 				26C3F32F2542764F00CDD533 /* AnchorAuthenticationViewController.xib */,
 				265C1ED52542D84700110564 /* InviteViewController.swift */,
+				26F5536E2553AFB500840735 /* EarningsViewController.swift */,
+				26F5536F2553AFB500840735 /* EarningsViewController.xib */,
+				26F553742553D16E00840735 /* TalkEarningsViewController.swift */,
+				26F553752553D16E00840735 /* TalkEarningsViewController.xib */,
+				26F5537A2553D3CD00840735 /* GiftEarningsViewController.swift */,
+				26F5537B2553D3CD00840735 /* GiftEarningsViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -760,6 +782,8 @@
 				2639536725419E8300B5E3C0 /* CardViewCell.xib */,
 				2639536D2541A38B00B5E3C0 /* FiledViewCell.swift */,
 				2639536E2541A38B00B5E3C0 /* FiledViewCell.xib */,
+				26E291962553EABB0032AE99 /* GiftEarningsCell.swift */,
+				26E291972553EABB0032AE99 /* GiftEarningsCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1429,12 +1453,15 @@
 				26959042250B1DD900763061 /* InterestedCardOverlayView.xib in Resources */,
 				26CB6D4F25515D6B00A9F4DD /* idl-license.face-ios in Resources */,
 				26C81EE62547E9E300C1D563 /* VoiceView.xib in Resources */,
+				26F5537D2553D3CD00840735 /* GiftEarningsViewController.xib in Resources */,
 				26F8946C25203B7300A45648 /* TitleViewCell.xib in Resources */,
 				267955042507637600A72954 /* Community.storyboard in Resources */,
 				26C81EEE25480B1900C1D563 /* GiftViewCell.xib in Resources */,
 				26CBE3B82508A9F20089A23C /* CommunityHeaderView.xib in Resources */,
 				26CB6D5125515D6B00A9F4DD /* com.baidu.idl.face.faceSDK.bundle in Resources */,
+				26F553772553D16E00840735 /* TalkEarningsViewController.xib in Resources */,
 				2679550E25079A4A00A72954 /* UserInfoChatView.xib in Resources */,
+				26F553712553AFB500840735 /* EarningsViewController.xib in Resources */,
 				267954F62507579700A72954 /* Chat.storyboard in Resources */,
 				26BB187D2522F5810019BBFD /* Main.storyboard in Resources */,
 				2643EB482500AD7E00FBBE49 /* LaunchScreen.storyboard in Resources */,
@@ -1448,6 +1475,7 @@
 				267954FF250761B600A72954 /* Discover.storyboard in Resources */,
 				2639536925419E8300B5E3C0 /* CardViewCell.xib in Resources */,
 				2679550A2507748C00A72954 /* UserInfoHeaderView.xib in Resources */,
+				26E291992553EABB0032AE99 /* GiftEarningsCell.xib in Resources */,
 				2656F30F254FAC0500552611 /* GiftReminderViewController.xib in Resources */,
 				267E36E92547C2E100EB2097 /* GiftView.xib in Resources */,
 				F38CB8C62507B14700049A76 /* InfoPlist.strings in Resources */,
@@ -1657,12 +1685,15 @@
 				26808FDC2519D4B800C9803C /* Request.swift in Sources */,
 				26F25C932509C36B00F808EA /* TabBarButton.swift in Sources */,
 				26CB6D3E25515D6B00A9F4DD /* BDFaceSuccessViewController.m in Sources */,
+				26F553762553D16E00840735 /* TalkEarningsViewController.swift in Sources */,
 				26CBE3BD2508D7920089A23C /* DiscoverViewController.swift in Sources */,
+				26E291982553EABB0032AE99 /* GiftEarningsCell.swift in Sources */,
 				F38CB8C82507BA8A00049A76 /* ChatNotificationSettingCell.swift in Sources */,
 				268E3E602521D074000E4A33 /* RelationshipViewCell.swift in Sources */,
 				2643EBBF2500B04100FBBE49 /* Application.swift in Sources */,
 				2605A4762513187900017241 /* UIImageExtensions.swift in Sources */,
 				268458F525354481002B9C6E /* LoadingState.swift in Sources */,
+				26F5537C2553D3CD00840735 /* GiftEarningsViewController.swift in Sources */,
 				2643EBCA2500DBF500FBBE49 /* MeRelationshipViewController.swift in Sources */,
 				2643EBA82500B04100FBBE49 /* PushSettingsDetailViewController.swift in Sources */,
 				26F70FFF2542B3A900797E87 /* AuthenticationAPI.swift in Sources */,
@@ -1807,6 +1838,7 @@
 				26AC1E5425062D62003EFB44 /* LegalLiabilityToolBar.swift in Sources */,
 				260A87782521932A00380FB4 /* SettingViewController.swift in Sources */,
 				2643EBAF2500B04100FBBE49 /* UserInfoProfilePhotoCell.swift in Sources */,
+				26F553702553AFB500840735 /* EarningsViewController.swift in Sources */,
 				2607319B2536DD1B00B1093C /* ReportAPI.swift in Sources */,
 				2643EBB02500B04100FBBE49 /* RealNameAuthenticationFooterView.swift in Sources */,
 				26CB6D4025515D6B00A9F4DD /* BDFaceAgreementViewController.m in Sources */,

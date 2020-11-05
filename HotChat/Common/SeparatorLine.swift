@@ -47,11 +47,7 @@ class SeparatorLine: UIView {
     
     /// Sets up the default properties
     open func setup() {
-        if #available(iOS 13, *) {
-            backgroundColor = .systemGray2
-        } else {
-            backgroundColor = .lightGray
-        }
+        backgroundColor = UIColor(hexString: "#F7F6F6")
         translatesAutoresizingMaskIntoConstraints = false
         setContentHuggingPriority(.defaultHigh, for: .vertical)
     }

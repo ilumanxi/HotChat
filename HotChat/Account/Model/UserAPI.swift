@@ -34,6 +34,8 @@ enum UserAPI {
     case batchFollow(followList: [Any])
     case infoInvite
     case editInvite(phone: String)
+    case blackList(userId: String)
+    case editDefriend(userId: String)
 }
 
 
@@ -74,6 +76,10 @@ extension UserAPI: TargetType {
             return "user/infoInvite"
         case .editInvite:
             return "user/editInvite"
+        case .blackList:
+            return "User/blackList"
+        case .editDefriend:
+            return "User/editDefriend"
         }
     }
     
@@ -131,6 +137,10 @@ extension UserAPI: TargetType {
             parameters = [:]
         case .editInvite(let phone):
             parameters =  ["phone" : phone]
+        case .blackList(let userId):
+            parameters =  ["userId" : userId]
+        case .editDefriend(let userId):
+            parameters =  ["userId" : userId]
         }
         
         return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)

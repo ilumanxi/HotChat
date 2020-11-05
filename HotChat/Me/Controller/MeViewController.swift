@@ -124,7 +124,7 @@ class MeViewController: UITableViewController, Autorotate {
         var walletEntries: [FormEntry] = []
         
         if user.girlStatus {
-            walletEntries.append(RightDetailFormEntry(image: UIImage(named: "me-wallet"), text: "我的钱包", detailText: "历史总收益：\(user.userEnergy)", onTapped: pushWallet))
+            walletEntries.append(RightDetailFormEntry(image: UIImage(named: "me-wallet"), text: "我的钱包", detailText: "历史总收益：\(user.userEnergy)", onTapped: pushEarnings))
         }
         else {
             walletEntries.append(RightDetailFormEntry(image: UIImage(named: "me-wallet"), text: "我的钱包", detailText: "能量\(user.userEnergy)", onTapped: pushWallet))
@@ -216,6 +216,11 @@ class MeViewController: UITableViewController, Autorotate {
     
     func pushWallet()  {
         let vc = WalletViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func pushEarnings() {
+        let vc = EarningsViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     

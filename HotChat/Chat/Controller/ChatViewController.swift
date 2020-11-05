@@ -167,7 +167,8 @@ extension ChatViewController: ChatControllerDelegate {
             call(callType: .video)
         }
         else if cell.data.title == audio.title {
-            CallManager.shareInstance()?.call(self.conversationData.groupID, userID: self.conversationData.userID, callType: .audio)
+            call(callType: .audio)
+//            CallManager.shareInstance()?.call(self.conversationData.groupID, userID: self.conversationData.userID, callType: .audio)
         }
     }
     
@@ -186,36 +187,29 @@ extension ChatViewController: ChatControllerDelegate {
         let type  = (callType == .video) ? 1 : 2
         let userID = conversationData.userID
         
-        switch callType {
-        case .video:
-            imAPI.request(.checkUserCall(type: type, toUserId: userID), type: Response<CallStatus>.self)
-                .checkResponse()
-                .subscribe(onSuccess: { [weak self] response in
-                    guard let self = self else {return }
-                    if response.data!.isSuccessd {
-                        CallManager.shareInstance()?.call(self.conversationData.groupID, userID: self.conversationData.userID, callType: .video)
-                    }
-                    else if response.data!.callCode == 3 {
-                        let alert = UIAlertController(title: nil, message: "您的能量不足、请充值！", preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "立即充值", style: .default, handler: { _ in
-                            let vc = WalletViewController()
-                            self.navigationController?.pushViewController(vc, animated: true)
-                        }))
-                        alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
-                        self.present(alert, animated: true, completion: nil)
-                    }
-                    else {
-                        self.show(response.data?.msg)
-                    }
-                }, onError: { [weak self] error in
-                    self?.show(error.localizedDescription)
-                })
-                .disposed(by: rx.disposeBag)
-        case .audio:
-            break
-        @unknown default:
-            break
-        }
+        imAPI.request(.checkUserCall(type: type, toUserId: userID), type: Response<CallStatus>.self)
+            .checkResponse()
+            .subscribe(onSuccess: { [weak self] response in
+                guard let self = self else {return }
+                if response.data!.isSuccessd  && response.data!.callCode == 1{
+                    CallManager.shareInstance()?.call(self.conversationData.groupID, userID: self.conversationData.userID, callType: .video)
+                }
+                else if response.data!.callCode == 3 {
+                    let alert = UIAlertController(title: nil, message: "您的能量不足、请充值！", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "立即充值", style: .default, handler: { _ in
+                        let vc = WalletViewController()
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }))
+                    alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+                else {
+                    self.show(response.data?.msg)
+                }
+            }, onError: { [weak self] error in
+                self?.show(error.localizedDescription)
+            })
+            .disposed(by: rx.disposeBag)
     }
     
     

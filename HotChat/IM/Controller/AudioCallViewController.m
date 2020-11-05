@@ -422,18 +422,22 @@
         @weakify(self)
         _manager.errorCall = ^(NSInteger callCode, NSString * _Nonnull msg) {
             @strongify(self)
-            if (callCode == 3) {
-                [self hangupClick];
+            [self hangupClick];
+            if (callCode == 4) {
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"您的能量不足、请充值！" preferredStyle:UIAlertControllerStyleAlert];
                     [alert addAction:[UIAlertAction actionWithTitle:@"立即充值" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                        UITabBarController *tabController =  (UITabBarController *) UIApplication.sharedApplication.keyWindow.rootViewController;
+                        UINavigationController *navController = (UINavigationController *) tabController.selectedViewController;
                         WalletViewController *walletController = [[WalletViewController alloc] init];
-                        [UIApplication.sharedApplication.keyWindow.rootViewController presentViewController:walletController animated:YES completion:nil];
+                        [navController pushViewController:walletController animated:YES];
                     }]];
                     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
                     [UIApplication.sharedApplication.keyWindow.rootViewController presentViewController:alert animated:YES completion:nil];
                     
                 });
+            }
+            else {
                 [THelper makeToast:msg];
             }
         };
