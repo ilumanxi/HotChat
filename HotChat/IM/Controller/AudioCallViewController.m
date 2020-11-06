@@ -21,6 +21,7 @@
 #import "UIView+Additions.h"
 #import "CallMenuViewController.h"
 #import "HotChat-Swift.h"
+#import "PIPWindow.h"
 
 #define kUserCalledView_Width  200
 #define kUserCalledView_Top  200
@@ -103,10 +104,12 @@
         dispatch_cancel(self.timer);
         self.timer = nil;
     }
-    [self dismissViewControllerAnimated:YES completion:nil];
+    
     if (self.dismissBlock) {
         self.dismissBlock();
     }
+    
+    [PIPWindow dismissViewControllerAnimated:YES completion:nil];
     
     [self stopAlerm];
 }

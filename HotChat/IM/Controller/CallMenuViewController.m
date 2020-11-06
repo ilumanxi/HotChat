@@ -114,12 +114,11 @@
     UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Chat" bundle:nil];
     
     ReportUserViewController *vc = (ReportUserViewController *) [storyboard instantiateViewControllerWithIdentifier:@"ReportUserViewController"];
-    vc.modalPresentationStyle = UIModalPresentationFullScreen;
     User * user = [[User alloc] init];
     user.userId = self.user.userId;
     vc.user = user;
     
-    [self presentViewController:vc animated:YES completion:nil];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

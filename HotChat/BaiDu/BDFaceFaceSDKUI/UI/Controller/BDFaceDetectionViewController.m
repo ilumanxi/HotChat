@@ -11,6 +11,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "BDFaceSuccessViewController.h"
 #import "BDFaceImageShow.h"
+#import "HotChat-Swift.h"
 
 
 
@@ -23,6 +24,8 @@ int remindCode = -1;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.title = @"头像认证";
     
     [self initSDK];
     
@@ -128,13 +131,19 @@ int remindCode = -1;
                     // [self request:bestImage.cropImageWithBlackEncryptStr];
                     
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        UIViewController* fatherViewController = weakSelf.presentingViewController;
-                        [weakSelf dismissViewControllerAnimated:YES completion:^{
-                            BDFaceSuccessViewController *avc = [[BDFaceSuccessViewController alloc] init];
-                            avc.modalPresentationStyle = UIModalPresentationFullScreen;
-                            [fatherViewController presentViewController:avc animated:YES completion:nil];
-                            [self closeAction];
-                        }];                        
+//                        UIViewController* fatherViewController = weakSelf.presentingViewController;
+//                        [weakSelf dismissViewControllerAnimated:YES completion:^{
+//                            BDFaceSuccessViewController *avc = [[BDFaceSuccessViewController alloc] init];
+//                            avc.modalPresentationStyle = UIModalPresentationFullScreen;
+//                            [self.navigationController pushViewController:avc animated:YES];
+////                            [fatherViewController presentViewController:avc animated:YES completion:nil];
+//                            [self closeAction];
+//                        }];
+                        [self closeAction];
+                        
+                        
+                        AvatarAuthenticationResultController *vc = [[AvatarAuthenticationResultController alloc] initWithVerify:false originalImage:bestImage.originalImage];
+                        [self.navigationController pushViewController:vc animated:YES];
                     });
                 }
                 [self singleActionSuccess:true];

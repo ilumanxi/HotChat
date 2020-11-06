@@ -106,6 +106,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
     // 用于播放视频流
     if (IS_IPHONE_X || IS_IPHONE_Xr || IS_IPHONE_Xs || IS_IPHONE_Xs_Max) {
         self.detectRect = CGRectMake(ScreenWidth*(1-scaleValueX)/2.0, ScreenHeight*(1-scaleValueX)/2.0, ScreenWidth*scaleValueX, ScreenHeight*scaleValueX);
@@ -167,7 +169,7 @@
     // 回到首页的label
     _timeOutBackToMainLabel2 = [[UILabel alloc] init];
     _timeOutBackToMainLabel2.frame = CGRectMake((ScreenWidth-72) / 2, 424.3, 72, 18);
-    _timeOutBackToMainLabel2.text = @"回到首页";
+    _timeOutBackToMainLabel2.text = @"返回";
     _timeOutBackToMainLabel2.font = [UIFont fontWithName:@"PingFangSC-Medium" size:18];
     _timeOutBackToMainLabel2.textColor = [UIColor colorWithRed:102 / 255.0 green:102 / 255.0 blue:102 / 255.0 alpha:1 / 1.0];
     
@@ -229,11 +231,13 @@
     [self.view addSubview:self.remindDetailLabel];
     [self.remindDetailLabel setHidden:true];
     
-    UIButton *backButton = [[UIButton alloc] init];
-    backButton.frame = CGRectMake(23.3, 43.3, 20, 20);
-    [backButton setImage:[UIImage imageNamed:@"icon_titlebar_close"] forState:UIControlStateNormal];
-    [backButton addTarget:self action:@selector(closeAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:backButton];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navigation-bar-back"] style:UIBarButtonItemStylePlain target:self action:@selector(closeAction)];
+    
+//    UIButton *backButton = [[UIButton alloc] init];
+//    backButton.frame = CGRectMake(23.3, 43.3, 20, 20);
+//    [backButton setImage:[UIImage imageNamed:@"icon_titlebar_close"] forState:UIControlStateNormal];
+//    [backButton addTarget:self action:@selector(closeAction) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:backButton];
     
     // 音量imageView，可动态播放图片
     _voiceImageView = [[UIImageView alloc] init];
@@ -243,16 +247,18 @@
                                        [UIImage imageNamed:@"icon_titlebar_voice2"], nil];
     _voiceImageView.animationDuration = 2;
     _voiceImageView.animationRepeatCount = 0;
+    [_voiceImageView sizeToFit];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_voiceImageView];
 //    NSNumber *soundMode = [[NSUserDefaults standardUserDefaults] objectForKey:@"SoundMode"];
 //    if (soundMode.boolValue){
         [_voiceImageView startAnimating];
 //    } else {
 //        _voiceImageView.image = [UIImage imageNamed:@"icon_titlebar_voice_close"];
 //    }
-    _voiceImageView.userInteractionEnabled = YES;
-    UITapGestureRecognizer *changeVoidceSet = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changeVoidceSet:)];
-    [_voiceImageView addGestureRecognizer:changeVoidceSet];
-    [self.view addSubview:_voiceImageView];
+//    _voiceImageView.userInteractionEnabled = YES;
+//    UITapGestureRecognizer *changeVoidceSet = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changeVoidceSet:)];
+//    [_voiceImageView addGestureRecognizer:changeVoidceSet];
+//    [self.view addSubview:_voiceImageView];
     
     // 底部logo部分
     UIImageView *logoImageView = [[UIImageView alloc] init];
@@ -378,7 +384,8 @@
 - (void)closeAction {
     _hasFinished = YES;
     self.videoCapture.runningStatus = NO;
-    [self dismissViewControllerAnimated:YES completion:nil];
+//    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - ButtonFunction
@@ -397,7 +404,8 @@
 }
 
 - (IBAction)backToPreView:(UIButton *)sender{
-    [self dismissViewControllerAnimated:YES completion:nil];
+//    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - Notification

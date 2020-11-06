@@ -14,6 +14,12 @@ import RxCoreLocation
 
 typealias TokenType = LoginManager.Parameters.TokenIdentifier
 
+extension Notification.Name {
+    
+    static let userDidChange = NSNotification.Name("com.friday.Chat.userDidChange")
+    
+}
+
 class LoginManager: NSObject {
     
     
@@ -97,8 +103,8 @@ class LoginManager: NSObject {
         
         TUIKit.sharedInstance()?.login(user.userId, userSig: user.imUserSig, succ: {
             TUILocalStorage.sharedInstance().saveLogin(user.userId, withAppId: UInt(IM.appID), withUserSig: user.imUserSig)
-        }, fail: { (_, _) in
-            Log.print("检查IM配置是否正确")
+        }, fail: { (code, msg) in
+            Log.print("检查IM配置是否正确: \(code) \(String(describing: msg))")
         })
 
         if sendNotification {
@@ -109,6 +115,7 @@ class LoginManager: NSObject {
     func update(user: User){
         self.user = user
         try! storage.setObject( user.toJSONString()!, forKey: userCacheKey)
+        NotificationCenter.default.post(name: .userDidChange, object: nil, userInfo: nil)
     }
     
     func autoLogin() {
@@ -120,8 +127,8 @@ class LoginManager: NSObject {
             if appId == IM.appID && !userID.isEmpty && !userSig.isEmpty {
                 TUIKit.sharedInstance()?.login(userID, userSig: userSig, succ: {
                     
-                }, fail: { (_, _) in
-                    Log.print("检查IM配置是否正确")
+                }, fail: { (code, msg) in
+                    Log.print("检查IM配置是否正确: \(code) \(String(describing: msg))")
                 })
             }
         }

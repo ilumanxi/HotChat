@@ -210,6 +210,9 @@
 		26E291982553EABB0032AE99 /* GiftEarningsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E291962553EABB0032AE99 /* GiftEarningsCell.swift */; };
 		26E291992553EABB0032AE99 /* GiftEarningsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26E291972553EABB0032AE99 /* GiftEarningsCell.xib */; };
 		26E291A42553FD5A0032AE99 /* GiveGift.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E291A32553FD5A0032AE99 /* GiveGift.m */; };
+		26E291B125541C010032AE99 /* PIPWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E291B025541C010032AE99 /* PIPWindow.m */; };
+		26E291B62554FB810032AE99 /* AvatarAuthenticationResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E291B42554FB810032AE99 /* AvatarAuthenticationResultController.swift */; };
+		26E291B72554FB810032AE99 /* AvatarAuthenticationResultController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26E291B52554FB810032AE99 /* AvatarAuthenticationResultController.xib */; };
 		26EE0E4C25245BD800233ED5 /* PayAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EE0E4B25245BD800233ED5 /* PayAPI.swift */; };
 		26F0D2542546DA8200D1018B /* InputController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F0D2532546DA8200D1018B /* InputController.m */; };
 		26F0D25A2546DB9C00D1018B /* InputBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F0D2592546DB9C00D1018B /* InputBar.m */; };
@@ -540,6 +543,10 @@
 		26E291972553EABB0032AE99 /* GiftEarningsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiftEarningsCell.xib; sourceTree = "<group>"; };
 		26E291A22553FD5A0032AE99 /* GiveGift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiveGift.h; sourceTree = "<group>"; };
 		26E291A32553FD5A0032AE99 /* GiveGift.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiveGift.m; sourceTree = "<group>"; };
+		26E291AF25541C010032AE99 /* PIPWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PIPWindow.h; sourceTree = "<group>"; };
+		26E291B025541C010032AE99 /* PIPWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIPWindow.m; sourceTree = "<group>"; };
+		26E291B42554FB810032AE99 /* AvatarAuthenticationResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarAuthenticationResultController.swift; sourceTree = "<group>"; };
+		26E291B52554FB810032AE99 /* AvatarAuthenticationResultController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvatarAuthenticationResultController.xib; sourceTree = "<group>"; };
 		26EE0E4B25245BD800233ED5 /* PayAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayAPI.swift; sourceTree = "<group>"; };
 		26F0D2522546DA8200D1018B /* InputController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputController.h; sourceTree = "<group>"; };
 		26F0D2532546DA8200D1018B /* InputController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputController.m; sourceTree = "<group>"; };
@@ -734,6 +741,8 @@
 				F3C6B918251F3117006C06CB /* LabelViewController.swift */,
 				26F8947025203BDD00A45648 /* TitleViewController.swift */,
 				260B96152521F2F400767076 /* AuthenticationViewController.swift */,
+				26E291B42554FB810032AE99 /* AvatarAuthenticationResultController.swift */,
+				26E291B52554FB810032AE99 /* AvatarAuthenticationResultController.xib */,
 				2668B09B25233C410073E25D /* WalletViewController.swift */,
 				26C65FAD25300C47006B9B7E /* InformationViewController.swift */,
 				26C3F32E2542764F00CDD533 /* AnchorAuthenticationViewController.swift */,
@@ -1223,6 +1232,8 @@
 				26CB6C37255124DB00A9F4DD /* BillingManager.m */,
 				263BC1E025494EA20081F5DF /* UIView+Additions.h */,
 				263BC1E125494EA20081F5DF /* UIView+Additions.m */,
+				26E291AF25541C010032AE99 /* PIPWindow.h */,
+				26E291B025541C010032AE99 /* PIPWindow.m */,
 				2656F316254FDB5000552611 /* IMAPI.swift */,
 			);
 			path = IM;
@@ -1470,6 +1481,7 @@
 				267954F62507579700A72954 /* Chat.storyboard in Resources */,
 				26BB187D2522F5810019BBFD /* Main.storyboard in Resources */,
 				2643EB482500AD7E00FBBE49 /* LaunchScreen.storyboard in Resources */,
+				26E291B72554FB810032AE99 /* AvatarAuthenticationResultController.xib in Resources */,
 				2643EB452500AD7E00FBBE49 /* Assets.xcassets in Resources */,
 				2668B0AA2523432A0073E25D /* WalletProductViewCell.xib in Resources */,
 				267B98802506012F0008C81B /* Account.storyboard in Resources */,
@@ -1670,6 +1682,7 @@
 				265C8A4A251348E200E220BD /* ForgotPasswordViewController.swift in Sources */,
 				2656F317254FDB5000552611 /* IMAPI.swift in Sources */,
 				26CB6D4A25515D6B00A9F4DD /* BDFaceVideoCaptureDevice.m in Sources */,
+				26E291B62554FB810032AE99 /* AvatarAuthenticationResultController.swift in Sources */,
 				2643EBA12500B04100FBBE49 /* MeViewController.swift in Sources */,
 				264DEA142552512C00AD97DE /* GiftManager.m in Sources */,
 				26425C16251DDF64006D2F4C /* UserBasicInformationViewController.swift in Sources */,
@@ -1825,6 +1838,7 @@
 				2639535D254187F100B5E3C0 /* WalletViewCell.swift in Sources */,
 				26E291A42553FD5A0032AE99 /* GiveGift.m in Sources */,
 				26AC1E4E250613B6003EFB44 /* KeychainItem.swift in Sources */,
+				26E291B125541C010032AE99 /* PIPWindow.m in Sources */,
 				26945815253FF81E00EBCABB /* UserViewCell.swift in Sources */,
 				2695903C250B16D700763061 /* InterestedCardView.swift in Sources */,
 				267B98772505E1AC0008C81B /* Platform.swift in Sources */,

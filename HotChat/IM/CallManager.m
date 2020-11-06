@@ -15,6 +15,7 @@
 #import "VideoCallViewController.h"
 #import "AudioCallViewController.h"
 #import "THelper.h"
+#import "PIPWindow.h"
 
 typedef NS_ENUM(NSInteger,VideoUserRemoveReason){
     VideoUserRemoveReason_Leave = 0,
@@ -97,15 +98,14 @@ typedef NS_ENUM(NSInteger,VideoUserRemoveReason){
             self.callVC = nil;
         };
         [videoVC setModalPresentationStyle:UIModalPresentationFullScreen];
-        [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:videoVC animated:YES completion:nil];
+        [PIPWindow presentViewController:self.callVC animated:YES completion:nil];
     } else {
         self.callVC = [[AudioCallViewController alloc] initWithSponsor:sponsor userList:invitedList];
         AudioCallViewController *audioVC = (AudioCallViewController *)self.callVC;
         audioVC.dismissBlock = ^{
             self.callVC = nil;
         };
-        [audioVC setModalPresentationStyle:UIModalPresentationFullScreen];
-        [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:audioVC animated:YES completion:nil];
+        [PIPWindow presentViewController:self.callVC animated:YES completion:nil];
     }
 }
 
@@ -222,9 +222,11 @@ typedef NS_ENUM(NSInteger,VideoUserRemoveReason){
     NSLog(@"📳 onCallingCancel");
     if ([self.callVC isKindOfClass:[VideoCallViewController class]]) {
         [(VideoCallViewController *)self.callVC disMiss];
+        [PIPWindow dismissViewControllerAnimated:YES completion:nil];
     }
     if ([self.callVC isKindOfClass:[AudioCallViewController class]]) {
         [(AudioCallViewController *)self.callVC disMiss];
+        [PIPWindow dismissViewControllerAnimated:YES completion:nil];
     }
     [THelper makeToast:[NSString stringWithFormat:@"%@ 取消了通话",uid]];
 }
@@ -233,9 +235,11 @@ typedef NS_ENUM(NSInteger,VideoUserRemoveReason){
     NSLog(@"📳 onCallingTimeOut");
     if ([self.callVC isKindOfClass:[VideoCallViewController class]]) {
         [(VideoCallViewController *)self.callVC disMiss];
+        [PIPWindow dismissViewControllerAnimated:YES completion:nil];
     }
     if ([self.callVC isKindOfClass:[AudioCallViewController class]]) {
         [(AudioCallViewController *)self.callVC disMiss];
+        [PIPWindow dismissViewControllerAnimated:YES completion:nil];
     }
 }
 
@@ -243,9 +247,11 @@ typedef NS_ENUM(NSInteger,VideoUserRemoveReason){
     NSLog(@"📳 onCallEnd");
     if ([self.callVC isKindOfClass:[VideoCallViewController class]]) {
         [(VideoCallViewController *)self.callVC disMiss];
+        [PIPWindow dismissViewControllerAnimated:YES completion:nil];
     }
     if ([self.callVC isKindOfClass:[AudioCallViewController class]]) {
         [(AudioCallViewController *)self.callVC disMiss];
+        [PIPWindow dismissViewControllerAnimated:YES completion:nil];
     }
 }
 
