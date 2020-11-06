@@ -13,6 +13,8 @@
 		260B96112521F15C00767076 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260B96102521F15C00767076 /* Authentication.swift */; };
 		260B96162521F2F400767076 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260B96152521F2F400767076 /* AuthenticationViewController.swift */; };
 		262773452551683100B002D1 /* IBAnimatable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26945805253FE32900EBCABB /* IBAnimatable.framework */; };
+		262C5F6D255550BE00126359 /* AccountSecurityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C5F6B255550BE00126359 /* AccountSecurityController.swift */; };
+		262C5F6E255550BE00126359 /* AccountSecurityController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 262C5F6C255550BE00126359 /* AccountSecurityController.xib */; };
 		26373C732502340D0066FF3B /* FormEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26373C722502340D0066FF3B /* FormEntry.swift */; };
 		26373C75250234AC0066FF3B /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26373C74250234AC0066FF3B /* Delegate.swift */; };
 		26373C77250234D00066FF3B /* FormSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26373C76250234D00066FF3B /* FormSection.swift */; };
@@ -117,6 +119,8 @@
 		268BB25E251D9B3200001DF3 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268BB25D251D9B3200001DF3 /* UserAPI.swift */; };
 		268E3E602521D074000E4A33 /* RelationshipViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E3E5E2521D074000E4A33 /* RelationshipViewCell.swift */; };
 		268E3E612521D074000E4A33 /* RelationshipViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 268E3E5F2521D074000E4A33 /* RelationshipViewCell.xib */; };
+		2693697425555E06002E224B /* PhoneBindingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2693697225555E06002E224B /* PhoneBindingController.swift */; };
+		2693697525555E06002E224B /* PhoneBindingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2693697325555E06002E224B /* PhoneBindingController.xib */; };
 		2694580B253FF7B100EBCABB /* UserSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2694580A253FF7B100EBCABB /* UserSettingViewController.swift */; };
 		26945810253FF80A00EBCABB /* SwitchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2694580F253FF80A00EBCABB /* SwitchViewCell.swift */; };
 		26945815253FF81E00EBCABB /* UserViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26945814253FF81E00EBCABB /* UserViewCell.swift */; };
@@ -289,6 +293,8 @@
 		260A87772521932A00380FB4 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		260B96102521F15C00767076 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		260B96152521F2F400767076 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
+		262C5F6B255550BE00126359 /* AccountSecurityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSecurityController.swift; sourceTree = "<group>"; };
+		262C5F6C255550BE00126359 /* AccountSecurityController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountSecurityController.xib; sourceTree = "<group>"; };
 		2633EC5125315706009F0F27 /* carthage.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = carthage.sh; sourceTree = SOURCE_ROOT; };
 		26373C722502340D0066FF3B /* FormEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormEntry.swift; sourceTree = "<group>"; };
 		26373C74250234AC0066FF3B /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
@@ -408,6 +414,8 @@
 		268BB25D251D9B3200001DF3 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		268E3E5E2521D074000E4A33 /* RelationshipViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationshipViewCell.swift; sourceTree = "<group>"; };
 		268E3E5F2521D074000E4A33 /* RelationshipViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RelationshipViewCell.xib; sourceTree = "<group>"; };
+		2693697225555E06002E224B /* PhoneBindingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneBindingController.swift; sourceTree = "<group>"; };
+		2693697325555E06002E224B /* PhoneBindingController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhoneBindingController.xib; sourceTree = "<group>"; };
 		26945805253FE32900EBCABB /* IBAnimatable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IBAnimatable.framework; path = Carthage/Build/iOS/IBAnimatable.framework; sourceTree = "<group>"; };
 		2694580A253FF7B100EBCABB /* UserSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingViewController.swift; sourceTree = "<group>"; };
 		2694580F253FF80A00EBCABB /* SwitchViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchViewCell.swift; sourceTree = "<group>"; };
@@ -754,6 +762,10 @@
 				26F553752553D16E00840735 /* TalkEarningsViewController.xib */,
 				26F5537A2553D3CD00840735 /* GiftEarningsViewController.swift */,
 				26F5537B2553D3CD00840735 /* GiftEarningsViewController.xib */,
+				262C5F6B255550BE00126359 /* AccountSecurityController.swift */,
+				262C5F6C255550BE00126359 /* AccountSecurityController.xib */,
+				2693697225555E06002E224B /* PhoneBindingController.swift */,
+				2693697325555E06002E224B /* PhoneBindingController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1466,11 +1478,13 @@
 				269DED1C254AAC4D000AD5D9 /* GiftViewController.xib in Resources */,
 				263BC22E254987770081F5DF /* BeautyViewController.xib in Resources */,
 				26395362254198DB00B5E3C0 /* RightDetailViewCell.xib in Resources */,
+				262C5F6E255550BE00126359 /* AccountSecurityController.xib in Resources */,
 				26959042250B1DD900763061 /* InterestedCardOverlayView.xib in Resources */,
 				26CB6D4F25515D6B00A9F4DD /* idl-license.face-ios in Resources */,
 				26C81EE62547E9E300C1D563 /* VoiceView.xib in Resources */,
 				26F5537D2553D3CD00840735 /* GiftEarningsViewController.xib in Resources */,
 				26F8946C25203B7300A45648 /* TitleViewCell.xib in Resources */,
+				2693697525555E06002E224B /* PhoneBindingController.xib in Resources */,
 				267955042507637600A72954 /* Community.storyboard in Resources */,
 				26C81EEE25480B1900C1D563 /* GiftViewCell.xib in Resources */,
 				26CBE3B82508A9F20089A23C /* CommunityHeaderView.xib in Resources */,
@@ -1699,6 +1713,7 @@
 				265C8A5B25134C3500E220BD /* ForgotPasswordViewModel.swift in Sources */,
 				26F0D2542546DA8200D1018B /* InputController.m in Sources */,
 				26F8947B252083B800A45648 /* LabelView.swift in Sources */,
+				2693697425555E06002E224B /* PhoneBindingController.swift in Sources */,
 				26D1E594253D6000004B9B29 /* VideoCallViewController.m in Sources */,
 				26808FDC2519D4B800C9803C /* Request.swift in Sources */,
 				26F25C932509C36B00F808EA /* TabBarButton.swift in Sources */,
@@ -1707,6 +1722,7 @@
 				26CBE3BD2508D7920089A23C /* DiscoverViewController.swift in Sources */,
 				26E291982553EABB0032AE99 /* GiftEarningsCell.swift in Sources */,
 				F38CB8C82507BA8A00049A76 /* ChatNotificationSettingCell.swift in Sources */,
+				262C5F6D255550BE00126359 /* AccountSecurityController.swift in Sources */,
 				268E3E602521D074000E4A33 /* RelationshipViewCell.swift in Sources */,
 				2643EBBF2500B04100FBBE49 /* Application.swift in Sources */,
 				2605A4762513187900017241 /* UIImageExtensions.swift in Sources */,

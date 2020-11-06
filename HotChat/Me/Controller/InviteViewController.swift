@@ -8,7 +8,10 @@
 
 import UIKit
 
-class InviteViewController: UIViewController, LoadingStateType, IndicatorDisplay {
+class InviteViewController: UIViewController, LoadingStateType, IndicatorDisplay, StoryboardCreate {
+    
+    static var storyboardNamed: String { return "Me" }
+    
     
     var state: LoadingState = .initial {
         didSet {

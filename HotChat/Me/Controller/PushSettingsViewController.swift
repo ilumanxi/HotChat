@@ -10,7 +10,11 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class PushSettingsViewController: UITableViewController, LoadingStateType, IndicatorDisplay {
+class PushSettingsViewController: UITableViewController, LoadingStateType, IndicatorDisplay, StoryboardCreate {
+    
+    
+    static var storyboardNamed: String { return "Me" }
+    
     
     enum Section: Int {
         case invitation

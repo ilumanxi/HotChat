@@ -10,33 +10,120 @@ import UIKit
 
 class SettingViewController: UITableViewController, StoryboardCreate, IndicatorDisplay {
     
-    
     static var storyboardNamed: String { return "Me" }
     
-    
-    
     let API = Request<AccountAPI>()
+    
+    lazy var accountSecurity: FormEntry = {
+        let entry = BasicFormEntry(text: "账户安全")
+        entry.onTapped.delegate(on: self) { (self, _) in
+            self.pushAccountSecurity()
+        }
+        return entry
+    }()
+    
+    lazy var antiHarassment: FormEntry = {
+        let entry = BasicFormEntry(text: "防骚扰")
+        entry.onTapped.delegate(on: self) { (self, _) in
+            self.pushNotification()
+        }
+        return entry
+    }()
+    
+    
+    
+    lazy var privacy: FormEntry = {
+        let entry = BasicFormEntry(text: "隐私")
+        entry.onTapped.delegate(on: self) { (self, _) in
+        }
+        return entry
+    }()
+    
+    lazy var nobleSetting: FormEntry = {
+        let entry = BasicFormEntry(text: "贵族设置")
+        entry.onTapped.delegate(on: self) { (self, _) in
+        }
+        return entry
+    }()
+    
+    lazy var general: FormEntry = {
+        let entry = BasicFormEntry(text: "通用")
+        entry.onTapped.delegate(on: self) { (self, _) in
+        }
+        return entry
+    }()
+    
+    lazy var protection: FormEntry = {
+        let entry = BasicFormEntry(text: "未成年人保护工具")
+        entry.onTapped.delegate(on: self) { (self, _) in
+        }
+        return entry
+    }()
+    
+    lazy var invite: FormEntry = {
+        let entry = BasicFormEntry(text: "邀请人信息")
+        entry.onTapped.delegate(on: self) { (self, _) in
+            self.pushInvite()
+        }
+        return entry
+    }()
+    
+    lazy var logout: FormEntry = {
+        let entry = DestructiveFormEntry(text: "退出登录")
+        entry.onTapped.delegate(on: self) { (self, _) in
+            self.userLogout()
+        }
+        return entry
+    }()
+    
+    
+    private var sections: [FormSection] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
-    
-    
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        setupSections()
         
-        if indexPath.section == 1 {
-            logout()
-        }
     }
+    
+    
+    func setupSections() {
+        
+        sections = [
+            FormSection(
+                entries: [
+                    accountSecurity,
+                    antiHarassment,
+                    privacy,
+                    nobleSetting,
+                    general,
+                    protection,
+                    invite
+                ],
+                headerText: nil
+            ),
+            FormSection(entries: [logout], headerText: nil)
+        ]
+        
+    }
+    
+    func pushAccountSecurity() {
+        let vc = AccountSecurityController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func pushInvite() {
+        
+        let vc = InviteViewController.loadFromStoryboard()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func pushNotification () {
+        let vc = PushSettingsViewController.loadFromStoryboard()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
 
-    func logout() {
+    func userLogout() {
         showIndicator()
         API.request(.logout, type: ResponseEmpty.self)
             .checkResponse()
@@ -49,4 +136,23 @@ class SettingViewController: UITableViewController, StoryboardCreate, IndicatorD
             .disposed(by: rx.disposeBag)
     }
   
+}
+
+
+extension SettingViewController {
+    
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return sections.count
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return sections[section].formEntries.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        return sections[indexPath.section].formEntries[indexPath.row].cell(tableView, indexPath: indexPath)
+    }
 }
