@@ -11,7 +11,6 @@ import AuthenticationServices
 import SYBPush_normal
 import SwiftyStoreKit
 
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -155,11 +154,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func setupFaceSDK() {
-        
-        let licensePath = "\(FACE_LICENSE_NAME).\(FACE_LICENSE_SUFFIX)"
-        FaceSDKManager.sharedInstance()?.setLicenseID(FACE_LICENSE_ID, andLocalLicenceFile: licensePath, andRemoteAuthorize: false)
-        Log.print("canWork = \(FaceSDKManager.sharedInstance()!.canWork())")
-        Log.print("version = \(FaceSDKManager.sharedInstance()!.getVersion())")
+
+        BDFaceBaseViewController.setupFaceSDK()
     }
     
     

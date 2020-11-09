@@ -10,7 +10,9 @@
 #import "BDFaceSuccessViewController.h"
 #import "BDFaceLivingConfigModel.h"
 #import "BDFaceImageShow.h"
+#if !TARGET_IPHONE_SIMULATOR
 #import <IDLFaceSDK/IDLFaceSDK.h>
+#endif
 
 @interface BDFaceLivenessViewController (){
 }
@@ -40,22 +42,30 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+#if !TARGET_IPHONE_SIMULATOR
     [[IDLFaceLivenessManager sharedInstance] startInitial];
+#endif
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
+#if !TARGET_IPHONE_SIMULATOR
     [IDLFaceLivenessManager.sharedInstance reset];
+#endif
 }
 
 - (void)onAppBecomeActive {
     [super onAppBecomeActive];
+#if !TARGET_IPHONE_SIMULATOR
     [[IDLFaceLivenessManager sharedInstance] livenesswithList:_livenessArray order:_order numberOfLiveness:_numberOfLiveness];
+#endif
 }
 
 - (void)onAppWillResignAction {
     [super onAppWillResignAction];
+#if !TARGET_IPHONE_SIMULATOR
     [IDLFaceLivenessManager.sharedInstance reset];
+#endif
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,7 +77,10 @@
     _livenessArray = [NSArray arrayWithArray:livenessArray];
     _order = order;
     _numberOfLiveness = numberOfLiveness;
+    
+#if !TARGET_IPHONE_SIMULATOR
     [[IDLFaceLivenessManager sharedInstance] livenesswithList:livenessArray order:order numberOfLiveness:numberOfLiveness];
+#endif
 }
 
 - (void)faceProcesss:(UIImage *)image {
@@ -82,6 +95,8 @@
     if (self.isAnimating){
         return;
     }
+    
+#if !TARGET_IPHONE_SIMULATOR
 
     __weak typeof(self) weakSelf = self;
     [[IDLFaceLivenessManager sharedInstance] livenessNormalWithImage:image previewRect:self.previewRect detectRect:self.detectRect completionHandler:^(NSDictionary *images, FaceInfo *faceInfo, LivenessRemindCode remindCode) {
@@ -283,12 +298,15 @@
                 break;
         }
     }];
+#endif
 }
 
 - (void)selfReplayFunction{
+#if !TARGET_IPHONE_SIMULATOR
      [[IDLFaceLivenessManager sharedInstance] reset];
      BDFaceLivingConfigModel* model = [BDFaceLivingConfigModel sharedInstance];
      [[IDLFaceLivenessManager sharedInstance] livenesswithList:model.liveActionArray order:model.isByOrder numberOfLiveness:model.numOfLiveness];
+#endif
 }
 
 - (void)warningStatus:(WarningStatus)status warning:(NSString *)warning conditionMeet:(BOOL)meet{

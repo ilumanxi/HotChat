@@ -8,8 +8,11 @@
 
 #import "BDFaceLivingConfigViewController.h"
 #import "BDFaceLivingConfigModel.h"
-#import "IDLFaceSDK/IDLFaceSDK.h"
 #import "BDFaceLogoView.h"
+
+#if !TARGET_IPHONE_SIMULATOR
+#import "IDLFaceSDK/IDLFaceSDK.h"
+#endif
 
 #define SoundSwitch @"SoundMode"
 #define LiveDetect @"LiveMode"
@@ -192,6 +195,8 @@
 
 # pragma mark - 动作活体button相应的部分
 
+#if !TARGET_IPHONE_SIMULATOR
+
 - (IBAction)liveEyeAction:(UIButton *)sender {
     sender.selected ^= 1;
     if (sender.selected) {
@@ -284,6 +289,8 @@
     }
 }
 
+
+
 - (IBAction)buttonTagClick:(UIButton *)sender{
     
     [self.warningView removeFromSuperview];
@@ -324,6 +331,7 @@
         }
     }
 }
+#endif
 
 - (NSString *)getLiveName:(int) k{
     switch (k) {
@@ -357,6 +365,7 @@
 # pragma mark - switch button部分
 
 - (IBAction)switchAction:(UISwitch *)sender {
+#if !TARGET_IPHONE_SIMULATOR
     if (sender.isOn) {
         // 活体声音
         [IDLFaceLivenessManager sharedInstance].enableSound  = YES;
@@ -374,6 +383,7 @@
         [[NSUserDefaults standardUserDefaults] setObject:@(NO) forKey:SoundSwitch];
         NSLog(@"关闭了声音");
     }
+#endif
 }
 
 - (IBAction)isRunLiveDetect:(UISwitch *)sender{

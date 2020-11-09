@@ -103,8 +103,20 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func setupViews()  {
         title = "我的钱包"
         
+//        Expenses record
+        
+//        ConsumptionListController
+        
+        let recordItem = UIBarButtonItem(title: "明显", style: .plain, target: self, action: #selector(pushExpensesRecord))
+        navigationItem.rightBarButtonItem = recordItem
+        
         tableView.register(UINib(nibName: "WalletEnergyViewCell", bundle: nil), forCellReuseIdentifier: "WalletEnergyViewCell")
         tableView.register(UINib(nibName: "WalletProductViewCell", bundle: nil), forCellReuseIdentifier: "WalletProductViewCell")
+    }
+    
+    @objc private func pushExpensesRecord() {
+        let vc = ConsumptionListController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func requestUserInfo()  {

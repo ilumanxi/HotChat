@@ -11,6 +11,10 @@
 #import "BDFaceImageUtils.h"
 #import "BDFaceRemindView.h"
 #import "BDFaceLogoView.h"
+#import "FaceParameterConfig.h"
+#if !TARGET_IPHONE_SIMULATOR
+#import <IDLFaceSDK/IDLFaceSDK.h>
+#endif
 
 // 判断是否是ipad
 #define isPad ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
@@ -54,6 +58,17 @@
 @end
 
 @implementation BDFaceBaseViewController
+
+
++ (void)setupFaceSDK {
+    
+#if !TARGET_IPHONE_SIMULATOR
+    NSString* licensePath = [NSString stringWithFormat:@"%@.%@", FACE_LICENSE_NAME, FACE_LICENSE_SUFFIX ];
+    [[FaceSDKManager sharedInstance] setLicenseID:FACE_LICENSE_ID andLocalLicenceFile:licensePath andRemoteAuthorize:false];
+    NSLog(@"canWork = %d",[[FaceSDKManager sharedInstance] canWork]);
+    NSLog(@"version = %@",[[FaceSDKManager sharedInstance] getVersion]);
+#endif
+}
 
 - (void)dealloc
 {
@@ -421,6 +436,8 @@
 
 #pragma mark - voiceImageView tap
 - (void)changeVoidceSet:(UITapGestureRecognizer *)sender {
+    
+#if !TARGET_IPHONE_SIMULATOR
     NSNumber *soundMode = [[NSUserDefaults standardUserDefaults] objectForKey:@"SoundMode"];
     NSLog(@"点击");
     if (soundMode.boolValue && _voiceImageView.animating) {
@@ -440,6 +457,7 @@
         // 图像采集声音
         [IDLFaceDetectionManager sharedInstance].enableSound = YES;
     }
+#endif
 }
 
 #pragma mark - CaptureDataOutputProtocol

@@ -10,10 +10,13 @@
 #import "BDFaceLivingConfigViewController.h"
 #import "BDFaceDetectionViewController.h"
 #import "BDFaceLivenessViewController.h"
-#import "IDLFaceSDK/IDLFaceSDK.h"
 #import "BDFaceLivingConfigModel.h"
 #import "BDFaceLogoView.h"
 #import "BDFaceImageShow.h"
+
+#if !TARGET_IPHONE_SIMULATOR
+#import "IDLFaceSDK/IDLFaceSDK.h"
+#endif
 
 #define ScreenWidth [UIScreen mainScreen].bounds.size.width
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height
@@ -114,7 +117,7 @@
 - (IBAction)restartClick:(UIButton *)sender{
     // TODO
 
-    NSLog(@"点击");
+#if !TARGET_IPHONE_SIMULATOR
     NSNumber *LiveMode = [[NSUserDefaults standardUserDefaults] objectForKey:@"LiveMode"];
     if (LiveMode.boolValue) {
         UIViewController* fatherViewController = self.presentingViewController;
@@ -136,6 +139,7 @@
             [fatherViewController presentViewController:lvc animated:YES completion:nil];
         }];
     }
+#endif
 }
 
 - (IBAction)backToViewController:(UIButton *)sender{

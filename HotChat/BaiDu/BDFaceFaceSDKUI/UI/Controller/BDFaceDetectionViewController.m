@@ -7,13 +7,13 @@
 //
 
 #import "BDFaceDetectionViewController.h"
-#import <IDLFaceSDK/IDLFaceSDK.h>
 #import <AVFoundation/AVFoundation.h>
 #import "BDFaceSuccessViewController.h"
 #import "BDFaceImageShow.h"
 #import "HotChat-Swift.h"
-
-
+#if !TARGET_IPHONE_SIMULATOR
+#import <IDLFaceSDK/IDLFaceSDK.h>
+#endif
 
 @interface BDFaceDetectionViewController ()
 
@@ -39,6 +39,8 @@ int remindCode = -1;
 
 
 - (void) initSDK {
+    
+#if !TARGET_IPHONE_SIMULATOR
     
     if (![[FaceSDKManager sharedInstance] canWork]){
         NSLog(@"授权失败，请检测ID 和 授权文件是否可用");
@@ -79,9 +81,11 @@ int remindCode = -1;
     // 初始化SDK功能函数
     [[FaceSDKManager sharedInstance] initCollect];
     
-    
+#endif
 }
 
+
+#if !TARGET_IPHONE_SIMULATOR
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -261,6 +265,8 @@ int remindCode = -1;
     }];
 }
 
+#endif
+
 -(void) saveImage:(UIImage *) image withFileName:(NSString *) fileName{
     
     NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
@@ -327,7 +333,11 @@ int remindCode = -1;
     dictionary[@"quality_control"] = @"NONE";
     dictionary[@"liveness_control"] = @"NONE";
     dictionary[@"risk_identify"] = @YES;
+    
+#if !TARGET_IPHONE_SIMULATOR
     dictionary[@"zid"] = [[FaceSDKManager sharedInstance] getZtoken];
+#endif
+    
     dictionary[@"ip"] = @"172.30.154.173";
     dictionary[@"phone"] = @"18610317119";
     dictionary[@"image_sec"] = @NO;
@@ -347,6 +357,8 @@ int remindCode = -1;
 }
 
 - (void)selfReplayFunction{
+#if !TARGET_IPHONE_SIMULATOR
     [[IDLFaceDetectionManager sharedInstance] reset];
+#endif
 }
 @end

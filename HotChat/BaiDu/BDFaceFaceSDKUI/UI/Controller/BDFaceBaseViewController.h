@@ -10,7 +10,10 @@
 #import "BDFaceCircleView.h"
 #import "BDFaceCycleProgressView.h"
 #import "BDFaceRemindAnimationView.h"
+
+#if !TARGET_IPHONE_SIMULATOR
 #import "IDLFaceSDK/IDLFaceSDK.h"
+#endif
 
 typedef enum : NSUInteger {
     CommonStatus,
@@ -65,5 +68,7 @@ typedef enum : NSUInteger {
 
 - (void)warningStatus:(WarningStatus)status warning:(NSString *)warning;
 - (void)singleActionSuccess:(BOOL)success;
+
++ (void)setupFaceSDK;
 
 @end

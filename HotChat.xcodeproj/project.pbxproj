@@ -161,8 +161,6 @@
 		26C31F3025404FE90000D09D /* ForYouCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C31F2F25404FE90000D09D /* ForYouCell.swift */; };
 		26C3F3302542764F00CDD533 /* AnchorAuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C3F32E2542764F00CDD533 /* AnchorAuthenticationViewController.swift */; };
 		26C3F3312542764F00CDD533 /* AnchorAuthenticationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26C3F32F2542764F00CDD533 /* AnchorAuthenticationViewController.xib */; };
-		26C47B9A2551617C006AA912 /* IDLFaceSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26CB6D3825515D6B00A9F4DD /* IDLFaceSDK.framework */; };
-		26C47B9B2551617C006AA912 /* IDLFaceSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 26CB6D3825515D6B00A9F4DD /* IDLFaceSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		26C65FAE25300C47006B9B7E /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C65FAD25300C47006B9B7E /* InformationViewController.swift */; };
 		26C65FB325301737006B9B7E /* InformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C65FB225301737006B9B7E /* InformationCell.swift */; };
 		26C80E582546CCF000F4ECBC /* ChatController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C80E572546CCF000F4ECBC /* ChatController.m */; };
@@ -217,6 +215,9 @@
 		26E291B125541C010032AE99 /* PIPWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E291B025541C010032AE99 /* PIPWindow.m */; };
 		26E291B62554FB810032AE99 /* AvatarAuthenticationResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E291B42554FB810032AE99 /* AvatarAuthenticationResultController.swift */; };
 		26E291B72554FB810032AE99 /* AvatarAuthenticationResultController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26E291B52554FB810032AE99 /* AvatarAuthenticationResultController.xib */; };
+		26EB2DA72558F157006698F9 /* SubsidiaryAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EB2DA52558F157006698F9 /* SubsidiaryAccountCell.swift */; };
+		26EB2DA82558F157006698F9 /* SubsidiaryAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26EB2DA62558F157006698F9 /* SubsidiaryAccountCell.xib */; };
+		26EB2DC125591C53006698F9 /* IDLFaceSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26CB6D3825515D6B00A9F4DD /* IDLFaceSDK.framework */; };
 		26EE0E4C25245BD800233ED5 /* PayAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EE0E4B25245BD800233ED5 /* PayAPI.swift */; };
 		26F0D2542546DA8200D1018B /* InputController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F0D2532546DA8200D1018B /* InputController.m */; };
 		26F0D25A2546DB9C00D1018B /* InputBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F0D2592546DB9C00D1018B /* InputBar.m */; };
@@ -242,6 +243,9 @@
 		26F8947125203BDD00A45648 /* TitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8947025203BDD00A45648 /* TitleViewController.swift */; };
 		26F8947625207A9A00A45648 /* UploadFileAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8947525207A9A00A45648 /* UploadFileAPI.swift */; };
 		26F8947B252083B800A45648 /* LabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8947A252083B800A45648 /* LabelView.swift */; };
+		26FBCF5E2558EC0E001F3DFA /* ConsumptionListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCF5D2558EC0E001F3DFA /* ConsumptionListController.swift */; };
+		26FBCF632558EF32001F3DFA /* SubsidiaryAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCF612558EF32001F3DFA /* SubsidiaryAccountViewController.swift */; };
+		26FBCF642558EF32001F3DFA /* SubsidiaryAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26FBCF622558EF32001F3DFA /* SubsidiaryAccountViewController.xib */; };
 		26FC88F0253ECFBB00E4D82F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FC88EF253ECFBB00E4D82F /* SearchViewController.swift */; };
 		26FC88F5253ED49000E4D82F /* SearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FC88F4253ED49000E4D82F /* SearchAPI.swift */; };
 		26FC88FA253ED66600E4D82F /* SearchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FC88F9253ED66600E4D82F /* SearchViewCell.swift */; };
@@ -271,20 +275,6 @@
 			remoteInfo = HotChat;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		26C47B9C2551617C006AA912 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				26C47B9B2551617C006AA912 /* IDLFaceSDK.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1C32CA0070B3C7B3111B5D13 /* Pods-HotChat-HotChatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotChat-HotChatUITests.release.xcconfig"; path = "Target Support Files/Pods-HotChat-HotChatUITests/Pods-HotChat-HotChatUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -496,7 +486,7 @@
 		26CB6C3C25512A0A00A9F4DD /* BillingStatus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BillingStatus.h; sourceTree = "<group>"; };
 		26CB6C3D25512A0A00A9F4DD /* BillingStatus.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BillingStatus.m; sourceTree = "<group>"; };
 		26CB6C92255153A500A9F4DD /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
-		26CB6D1225515D6B00A9F4DD /* BDFaceLivingConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDFaceLivingConfigViewController.m; sourceTree = "<group>"; };
+		26CB6D1225515D6B00A9F4DD /* BDFaceLivingConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDFaceLivingConfigViewController.m; sourceTree = "<group>"; wrapsLines = 0; };
 		26CB6D1325515D6B00A9F4DD /* BDFaceSuccessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDFaceSuccessViewController.m; sourceTree = "<group>"; };
 		26CB6D1425515D6B00A9F4DD /* BDFaceDetectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDFaceDetectionViewController.h; sourceTree = "<group>"; };
 		26CB6D1525515D6B00A9F4DD /* BDFaceAgreementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDFaceAgreementViewController.h; sourceTree = "<group>"; };
@@ -555,6 +545,8 @@
 		26E291B025541C010032AE99 /* PIPWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIPWindow.m; sourceTree = "<group>"; };
 		26E291B42554FB810032AE99 /* AvatarAuthenticationResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarAuthenticationResultController.swift; sourceTree = "<group>"; };
 		26E291B52554FB810032AE99 /* AvatarAuthenticationResultController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvatarAuthenticationResultController.xib; sourceTree = "<group>"; };
+		26EB2DA52558F157006698F9 /* SubsidiaryAccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubsidiaryAccountCell.swift; sourceTree = "<group>"; };
+		26EB2DA62558F157006698F9 /* SubsidiaryAccountCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubsidiaryAccountCell.xib; sourceTree = "<group>"; };
 		26EE0E4B25245BD800233ED5 /* PayAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayAPI.swift; sourceTree = "<group>"; };
 		26F0D2522546DA8200D1018B /* InputController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputController.h; sourceTree = "<group>"; };
 		26F0D2532546DA8200D1018B /* InputController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputController.m; sourceTree = "<group>"; };
@@ -584,6 +576,9 @@
 		26F8947025203BDD00A45648 /* TitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewController.swift; sourceTree = "<group>"; };
 		26F8947525207A9A00A45648 /* UploadFileAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadFileAPI.swift; sourceTree = "<group>"; };
 		26F8947A252083B800A45648 /* LabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelView.swift; sourceTree = "<group>"; };
+		26FBCF5D2558EC0E001F3DFA /* ConsumptionListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumptionListController.swift; sourceTree = "<group>"; };
+		26FBCF612558EF32001F3DFA /* SubsidiaryAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubsidiaryAccountViewController.swift; sourceTree = "<group>"; };
+		26FBCF622558EF32001F3DFA /* SubsidiaryAccountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubsidiaryAccountViewController.xib; sourceTree = "<group>"; };
 		26FC88EF253ECFBB00E4D82F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		26FC88F4253ED49000E4D82F /* SearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPI.swift; sourceTree = "<group>"; };
 		26FC88F9253ED66600E4D82F /* SearchViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewCell.swift; sourceTree = "<group>"; };
@@ -610,7 +605,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				26CB6C93255153A500A9F4DD /* libc++.tbd in Frameworks */,
-				26C47B9A2551617C006AA912 /* IDLFaceSDK.framework in Frameworks */,
+				26EB2DC125591C53006698F9 /* IDLFaceSDK.framework in Frameworks */,
 				269590BF250B5FE900763061 /* StoreKit.framework in Frameworks */,
 				262773452551683100B002D1 /* IBAnimatable.framework in Frameworks */,
 				569A62C017EE594D27BBDD0C /* libPods-HotChat.a in Frameworks */,
@@ -752,6 +747,9 @@
 				26E291B42554FB810032AE99 /* AvatarAuthenticationResultController.swift */,
 				26E291B52554FB810032AE99 /* AvatarAuthenticationResultController.xib */,
 				2668B09B25233C410073E25D /* WalletViewController.swift */,
+				26FBCF5D2558EC0E001F3DFA /* ConsumptionListController.swift */,
+				26FBCF612558EF32001F3DFA /* SubsidiaryAccountViewController.swift */,
+				26FBCF622558EF32001F3DFA /* SubsidiaryAccountViewController.xib */,
 				26C65FAD25300C47006B9B7E /* InformationViewController.swift */,
 				26C3F32E2542764F00CDD533 /* AnchorAuthenticationViewController.swift */,
 				26C3F32F2542764F00CDD533 /* AnchorAuthenticationViewController.xib */,
@@ -808,6 +806,8 @@
 				2639536E2541A38B00B5E3C0 /* FiledViewCell.xib */,
 				26E291962553EABB0032AE99 /* GiftEarningsCell.swift */,
 				26E291972553EABB0032AE99 /* GiftEarningsCell.xib */,
+				26EB2DA52558F157006698F9 /* SubsidiaryAccountCell.swift */,
+				26EB2DA62558F157006698F9 /* SubsidiaryAccountCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1369,7 +1369,6 @@
 				5C62613C886FDA87662A76D3 /* [CP] Embed Pods Frameworks */,
 				65E1731636F77F71257BF696 /* [CP] Copy Pods Resources */,
 				269457F7253FD65B00EBCABB /* Carthage Copy Frameworks */,
-				26C47B9C2551617C006AA912 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1483,6 +1482,7 @@
 				26CB6D4F25515D6B00A9F4DD /* idl-license.face-ios in Resources */,
 				26C81EE62547E9E300C1D563 /* VoiceView.xib in Resources */,
 				26F5537D2553D3CD00840735 /* GiftEarningsViewController.xib in Resources */,
+				26FBCF642558EF32001F3DFA /* SubsidiaryAccountViewController.xib in Resources */,
 				26F8946C25203B7300A45648 /* TitleViewCell.xib in Resources */,
 				2693697525555E06002E224B /* PhoneBindingController.xib in Resources */,
 				267955042507637600A72954 /* Community.storyboard in Resources */,
@@ -1503,6 +1503,7 @@
 				2668B0A3252341F70073E25D /* WalletEnergyViewCell.xib in Resources */,
 				26CB6D4C25515D6B00A9F4DD /* com.baidu.idl.face.live.action.image.bundle in Resources */,
 				26CB6D4E25515D6B00A9F4DD /* idl-key.face-ios in Resources */,
+				26EB2DA82558F157006698F9 /* SubsidiaryAccountCell.xib in Resources */,
 				267954FF250761B600A72954 /* Discover.storyboard in Resources */,
 				2639536925419E8300B5E3C0 /* CardViewCell.xib in Resources */,
 				2679550A2507748C00A72954 /* UserInfoHeaderView.xib in Resources */,
@@ -1728,6 +1729,7 @@
 				2605A4762513187900017241 /* UIImageExtensions.swift in Sources */,
 				268458F525354481002B9C6E /* LoadingState.swift in Sources */,
 				26F5537C2553D3CD00840735 /* GiftEarningsViewController.swift in Sources */,
+				26FBCF5E2558EC0E001F3DFA /* ConsumptionListController.swift in Sources */,
 				2643EBCA2500DBF500FBBE49 /* MeRelationshipViewController.swift in Sources */,
 				2643EBA82500B04100FBBE49 /* PushSettingsDetailViewController.swift in Sources */,
 				26F70FFF2542B3A900797E87 /* AuthenticationAPI.swift in Sources */,
@@ -1787,6 +1789,7 @@
 				26CA6EEC25382DC40023E27B /* ChannelCell.swift in Sources */,
 				26E14E63251C766900645F08 /* UserInformationViewController.swift in Sources */,
 				267954EC2507327B00A72954 /* SignupViewController.swift in Sources */,
+				26FBCF632558EF32001F3DFA /* SubsidiaryAccountViewController.swift in Sources */,
 				26D1E58B253D5F17004B9B29 /* CallManager.m in Sources */,
 				26CB6D3D25515D6B00A9F4DD /* BDFaceLivingConfigViewController.m in Sources */,
 				26CB6D4325515D6B00A9F4DD /* BDFaceCycleProgressView.m in Sources */,
@@ -1823,6 +1826,7 @@
 				26A8D4E9251C8F3E00B736CF /* Constellation.swift in Sources */,
 				26377FCE2530526800D5A03D /* ChatViewController.swift in Sources */,
 				26DBC373253D89DF0083BDFB /* AudioCallViewController.m in Sources */,
+				26EB2DA72558F157006698F9 /* SubsidiaryAccountCell.swift in Sources */,
 				26FC88F0253ECFBB00E4D82F /* SearchViewController.swift in Sources */,
 				2643EBB62500B04100FBBE49 /* InterfaceOrientation.swift in Sources */,
 				269DEE08254BF735000AD5D9 /* QMUIButton.m in Sources */,
