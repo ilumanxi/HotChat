@@ -71,15 +71,14 @@
     ];
 }
 
-
--(void)giveGift:(NSString *)userId type:(NSInteger) type gift:(Gift *)gift block:(void (^)(NSDictionary * _Nullable, NSError * _Nullable))block {
-    
+- (void)giveGift:(NSString *)userId type:(NSInteger)type dynamicId:(NSString *)dynamicId gift:(Gift *)gift block:(void (^)(NSDictionary * _Nullable, NSError * _Nullable))block {
     NSDictionary *parameters = @{
         @"toUserId" : userId,
         @"giftId" : @(gift.id),
         @"energy" : @(gift.energy),
         @"num" : @(gift.count),
-        @"type" :  @(type)
+        @"type" :  @(type),
+        @"dynamicId" : dynamicId
     };
     
     [self.manager
@@ -94,6 +93,40 @@
             block(nil, error);
        }
     ];
+    
+}
+
+- (void)sendGiftMessage:(TUIMessageCellData *)msg userID: (NSString *)userID
+{
+    if (![[UIApplication sharedApplication].keyWindow.rootViewController isKindOfClass:[UITabBarController class]]) {
+        return;
+    }
+    
+    UITabBarController *tabBarController = (UITabBarController *) UIApplication.sharedApplication.keyWindow.rootViewController;
+    
+    if (![tabBarController.selectedViewController isKindOfClass:[UINavigationController class]]) {
+        return;
+    }
+    
+    UINavigationController *navigationController = (UINavigationController *)tabBarController.selectedViewController;
+    
+    for (UIViewController *viewController in navigationController.viewControllers) { // 没有找到IM发消息
+        
+        if ([viewController isKindOfClass:[ChatController class]]) {
+            ChatController *chatControler = (ChatController *) viewController;
+            [chatControler sendMessage:msg];
+            return;
+        }
+    }
+    
+    TUIConversationCellData *conversationCellData = [[TUIConversationCellData alloc] init];
+    conversationCellData.userID = userID;
+    
+    TUIMessageController *messageController =  [[TUIMessageController alloc] init];
+    [messageController setConversation:conversationCellData];
+    
+    //IM发消息
+    [messageController sendMessage:msg];
 }
 
 @end

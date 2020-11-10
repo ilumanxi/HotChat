@@ -112,7 +112,7 @@ class LoginManager: NSObject {
         }
     }
     
-    func update(user: User){
+    @objc func update(user: User){
         self.user = user
         try! storage.setObject( user.toJSONString()!, forKey: userCacheKey)
         NotificationCenter.default.post(name: .userDidChange, object: nil, userInfo: nil)

@@ -19,10 +19,10 @@ enum Checklist: CaseIterable {
 class ConsumptionListController: SegementSlideDefaultViewController {
     
     
-    lazy var contentViewControllers: [SubsidiaryAccountViewController] = {
+    lazy var contentViewControllers: [ConsumerDetailsViewController] = {
         return Checklist.allCases
             .map {
-                let vc = SubsidiaryAccountViewController(type: $0)
+                let vc = ConsumerDetailsViewController(type: $0)
                 vc.title = $0.text
                 return vc
             }

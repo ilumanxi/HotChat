@@ -77,7 +77,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="OnH-tD-tiv">
-                                                    <rect key="frame" x="104" y="20.5" width="68" height="63.5"/>
+                                                    <rect key="frame" x="104" y="20.5" width="104" height="63.5"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Lbj-kR-k6p">
                                                             <rect key="frame" x="0.0" y="0.0" width="35.5" height="17"/>
@@ -91,7 +91,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ruU-7z-XXZ">
-                                                            <rect key="frame" x="0.0" y="25" width="68" height="16"/>
+                                                            <rect key="frame" x="0.0" y="25" width="104" height="16"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="32" placeholderIntrinsicHeight="16" translatesAutoresizingMaskIntoConstraints="NO" id="p0u-id-jkb" customClass="LabelView" customModule="HotChat" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="32" height="16"/>
@@ -106,6 +106,21 @@
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                     <state key="normal" title="认证"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                            <real key="value" value="8"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WTO-u3-Dxp">
+                                                                    <rect key="frame" x="72" y="0.0" width="32" height="16"/>
+                                                                    <color key="backgroundColor" red="0.92156862745098034" green="0.63529411764705879" blue="0.094117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="16" id="cxq-Sd-4BL"/>
+                                                                        <constraint firstAttribute="width" constant="32" id="xux-NB-3uH"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                                                    <state key="normal" title="VIP"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                             <real key="value" value="8"/>
@@ -156,6 +171,7 @@
                                             <outlet property="nicknameLabel" destination="G3V-a0-ANO" id="byT-EY-PGB"/>
                                             <outlet property="sexView" destination="p0u-id-jkb" id="CaW-1P-XOj"/>
                                             <outlet property="statusLabel" destination="uTB-nk-pIb" id="pMm-gY-VuO"/>
+                                            <outlet property="vipButton" destination="WTO-u3-Dxp" id="PhP-ha-rGt"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

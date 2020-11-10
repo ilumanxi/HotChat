@@ -85,6 +85,8 @@
 		2668B0A92523432A0073E25D /* WalletProductViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2668B0A72523432A0073E25D /* WalletProductViewCell.swift */; };
 		2668B0AA2523432A0073E25D /* WalletProductViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2668B0A82523432A0073E25D /* WalletProductViewCell.xib */; };
 		2668B0AF2523479F0073E25D /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2668B0AE2523479F0073E25D /* Product.swift */; };
+		26772822255A480900B98973 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26772820255A480900B98973 /* PrivacyViewController.swift */; };
+		26772823255A480900B98973 /* PrivacyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26772821255A480900B98973 /* PrivacyViewController.xib */; };
 		26787E2A251B21A400D511E8 /* SignaturePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26787E29251B21A400D511E8 /* SignaturePlugin.swift */; };
 		26787E2F251B228200D511E8 /* AccountPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26787E2E251B228200D511E8 /* AccountPlugin.swift */; };
 		26787E37251B2F8D00D511E8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26787E36251B2F8D00D511E8 /* User.swift */; };
@@ -206,6 +208,9 @@
 		26D1E58B253D5F17004B9B29 /* CallManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D1E58A253D5F17004B9B29 /* CallManager.m */; };
 		26D1E594253D6000004B9B29 /* VideoCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D1E593253D6000004B9B29 /* VideoCallViewController.m */; };
 		26DBC373253D89DF0083BDFB /* AudioCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DBC372253D89DF0083BDFB /* AudioCallViewController.m */; };
+		26DF877D255A63BA002162A9 /* BasicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DF877B255A63BA002162A9 /* BasicCell.swift */; };
+		26DF877E255A63BA002162A9 /* BasicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26DF877C255A63BA002162A9 /* BasicCell.xib */; };
+		26DF8780255A645C002162A9 /* SwitchViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26DF877F255A645C002162A9 /* SwitchViewCell.xib */; };
 		26E14E5E251C6E8800645F08 /* HotChatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E14E5D251C6E8800645F08 /* HotChatButton.swift */; };
 		26E14E63251C766900645F08 /* UserInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E14E62251C766900645F08 /* UserInformationViewController.swift */; };
 		26E14E68251C861A00645F08 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E14E67251C861A00645F08 /* DatePickerViewController.swift */; };
@@ -218,6 +223,8 @@
 		26EB2DA72558F157006698F9 /* SubsidiaryAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EB2DA52558F157006698F9 /* SubsidiaryAccountCell.swift */; };
 		26EB2DA82558F157006698F9 /* SubsidiaryAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26EB2DA62558F157006698F9 /* SubsidiaryAccountCell.xib */; };
 		26EB2DC125591C53006698F9 /* IDLFaceSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26CB6D3825515D6B00A9F4DD /* IDLFaceSDK.framework */; };
+		26EB2DCA25593FCA006698F9 /* ConsumerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EB2DC925593FCA006698F9 /* ConsumerAPI.swift */; };
+		26EB2DCC255945C4006698F9 /* Consumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EB2DCB255945C4006698F9 /* Consumer.swift */; };
 		26EE0E4C25245BD800233ED5 /* PayAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EE0E4B25245BD800233ED5 /* PayAPI.swift */; };
 		26F0D2542546DA8200D1018B /* InputController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F0D2532546DA8200D1018B /* InputController.m */; };
 		26F0D25A2546DB9C00D1018B /* InputBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F0D2592546DB9C00D1018B /* InputBar.m */; };
@@ -244,8 +251,8 @@
 		26F8947625207A9A00A45648 /* UploadFileAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8947525207A9A00A45648 /* UploadFileAPI.swift */; };
 		26F8947B252083B800A45648 /* LabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8947A252083B800A45648 /* LabelView.swift */; };
 		26FBCF5E2558EC0E001F3DFA /* ConsumptionListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCF5D2558EC0E001F3DFA /* ConsumptionListController.swift */; };
-		26FBCF632558EF32001F3DFA /* SubsidiaryAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCF612558EF32001F3DFA /* SubsidiaryAccountViewController.swift */; };
-		26FBCF642558EF32001F3DFA /* SubsidiaryAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26FBCF622558EF32001F3DFA /* SubsidiaryAccountViewController.xib */; };
+		26FBCF632558EF32001F3DFA /* ConsumerDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCF612558EF32001F3DFA /* ConsumerDetailsViewController.swift */; };
+		26FBCF642558EF32001F3DFA /* ConsumerDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26FBCF622558EF32001F3DFA /* ConsumerDetailsViewController.xib */; };
 		26FC88F0253ECFBB00E4D82F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FC88EF253ECFBB00E4D82F /* SearchViewController.swift */; };
 		26FC88F5253ED49000E4D82F /* SearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FC88F4253ED49000E4D82F /* SearchAPI.swift */; };
 		26FC88FA253ED66600E4D82F /* SearchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FC88F9253ED66600E4D82F /* SearchViewCell.swift */; };
@@ -369,6 +376,8 @@
 		2668B0A72523432A0073E25D /* WalletProductViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletProductViewCell.swift; sourceTree = "<group>"; };
 		2668B0A82523432A0073E25D /* WalletProductViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletProductViewCell.xib; sourceTree = "<group>"; };
 		2668B0AE2523479F0073E25D /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		26772820255A480900B98973 /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
+		26772821255A480900B98973 /* PrivacyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrivacyViewController.xib; sourceTree = "<group>"; };
 		26787E29251B21A400D511E8 /* SignaturePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignaturePlugin.swift; sourceTree = "<group>"; };
 		26787E2E251B228200D511E8 /* AccountPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPlugin.swift; sourceTree = "<group>"; };
 		26787E36251B2F8D00D511E8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -534,6 +543,9 @@
 		26D1E593253D6000004B9B29 /* VideoCallViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoCallViewController.m; sourceTree = "<group>"; };
 		26DBC371253D89DF0083BDFB /* AudioCallViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioCallViewController.h; sourceTree = "<group>"; };
 		26DBC372253D89DF0083BDFB /* AudioCallViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioCallViewController.m; sourceTree = "<group>"; };
+		26DF877B255A63BA002162A9 /* BasicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicCell.swift; sourceTree = "<group>"; };
+		26DF877C255A63BA002162A9 /* BasicCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasicCell.xib; sourceTree = "<group>"; };
+		26DF877F255A645C002162A9 /* SwitchViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchViewCell.xib; sourceTree = "<group>"; };
 		26E14E5D251C6E8800645F08 /* HotChatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotChatButton.swift; sourceTree = "<group>"; };
 		26E14E62251C766900645F08 /* UserInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformationViewController.swift; sourceTree = "<group>"; };
 		26E14E67251C861A00645F08 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
@@ -547,6 +559,8 @@
 		26E291B52554FB810032AE99 /* AvatarAuthenticationResultController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvatarAuthenticationResultController.xib; sourceTree = "<group>"; };
 		26EB2DA52558F157006698F9 /* SubsidiaryAccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubsidiaryAccountCell.swift; sourceTree = "<group>"; };
 		26EB2DA62558F157006698F9 /* SubsidiaryAccountCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubsidiaryAccountCell.xib; sourceTree = "<group>"; };
+		26EB2DC925593FCA006698F9 /* ConsumerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumerAPI.swift; sourceTree = "<group>"; };
+		26EB2DCB255945C4006698F9 /* Consumer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consumer.swift; sourceTree = "<group>"; };
 		26EE0E4B25245BD800233ED5 /* PayAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayAPI.swift; sourceTree = "<group>"; };
 		26F0D2522546DA8200D1018B /* InputController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputController.h; sourceTree = "<group>"; };
 		26F0D2532546DA8200D1018B /* InputController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputController.m; sourceTree = "<group>"; };
@@ -577,8 +591,8 @@
 		26F8947525207A9A00A45648 /* UploadFileAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadFileAPI.swift; sourceTree = "<group>"; };
 		26F8947A252083B800A45648 /* LabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelView.swift; sourceTree = "<group>"; };
 		26FBCF5D2558EC0E001F3DFA /* ConsumptionListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumptionListController.swift; sourceTree = "<group>"; };
-		26FBCF612558EF32001F3DFA /* SubsidiaryAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubsidiaryAccountViewController.swift; sourceTree = "<group>"; };
-		26FBCF622558EF32001F3DFA /* SubsidiaryAccountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubsidiaryAccountViewController.xib; sourceTree = "<group>"; };
+		26FBCF612558EF32001F3DFA /* ConsumerDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumerDetailsViewController.swift; sourceTree = "<group>"; };
+		26FBCF622558EF32001F3DFA /* ConsumerDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConsumerDetailsViewController.xib; sourceTree = "<group>"; };
 		26FC88EF253ECFBB00E4D82F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		26FC88F4253ED49000E4D82F /* SearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPI.swift; sourceTree = "<group>"; };
 		26FC88F9253ED66600E4D82F /* SearchViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewCell.swift; sourceTree = "<group>"; };
@@ -639,6 +653,7 @@
 				260B96102521F15C00767076 /* Authentication.swift */,
 				2668B0AE2523479F0073E25D /* Product.swift */,
 				26F710082542C77A00797E87 /* InfoSettings.swift */,
+				26EB2DCB255945C4006698F9 /* Consumer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -721,6 +736,7 @@
 				26F70FFE2542B3A900797E87 /* AuthenticationAPI.swift */,
 				26EE0E4B25245BD800233ED5 /* PayAPI.swift */,
 				26F710032542C6C000797E87 /* UserSettingsAPI.swift */,
+				26EB2DC925593FCA006698F9 /* ConsumerAPI.swift */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -741,6 +757,8 @@
 				2643EBC72500D4C000FBBE49 /* MeContactViewController.swift */,
 				2643EBC92500DBF500FBBE49 /* MeRelationshipViewController.swift */,
 				260A87772521932A00380FB4 /* SettingViewController.swift */,
+				26772820255A480900B98973 /* PrivacyViewController.swift */,
+				26772821255A480900B98973 /* PrivacyViewController.xib */,
 				F3C6B918251F3117006C06CB /* LabelViewController.swift */,
 				26F8947025203BDD00A45648 /* TitleViewController.swift */,
 				260B96152521F2F400767076 /* AuthenticationViewController.swift */,
@@ -748,8 +766,8 @@
 				26E291B52554FB810032AE99 /* AvatarAuthenticationResultController.xib */,
 				2668B09B25233C410073E25D /* WalletViewController.swift */,
 				26FBCF5D2558EC0E001F3DFA /* ConsumptionListController.swift */,
-				26FBCF612558EF32001F3DFA /* SubsidiaryAccountViewController.swift */,
-				26FBCF622558EF32001F3DFA /* SubsidiaryAccountViewController.xib */,
+				26FBCF612558EF32001F3DFA /* ConsumerDetailsViewController.swift */,
+				26FBCF622558EF32001F3DFA /* ConsumerDetailsViewController.xib */,
 				26C65FAD25300C47006B9B7E /* InformationViewController.swift */,
 				26C3F32E2542764F00CDD533 /* AnchorAuthenticationViewController.swift */,
 				26C3F32F2542764F00CDD533 /* AnchorAuthenticationViewController.xib */,
@@ -808,6 +826,8 @@
 				26E291972553EABB0032AE99 /* GiftEarningsCell.xib */,
 				26EB2DA52558F157006698F9 /* SubsidiaryAccountCell.swift */,
 				26EB2DA62558F157006698F9 /* SubsidiaryAccountCell.xib */,
+				26DF877B255A63BA002162A9 /* BasicCell.swift */,
+				26DF877C255A63BA002162A9 /* BasicCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -929,6 +949,7 @@
 				2695903F250B1D9400763061 /* InterestedCardOverlayView.swift */,
 				26959041250B1DD900763061 /* InterestedCardOverlayView.xib */,
 				2694580F253FF80A00EBCABB /* SwitchViewCell.swift */,
+				26DF877F255A645C002162A9 /* SwitchViewCell.xib */,
 				26945814253FF81E00EBCABB /* UserViewCell.swift */,
 				26945819253FF86000EBCABB /* DestructiveViewCell.swift */,
 			);
@@ -1482,7 +1503,7 @@
 				26CB6D4F25515D6B00A9F4DD /* idl-license.face-ios in Resources */,
 				26C81EE62547E9E300C1D563 /* VoiceView.xib in Resources */,
 				26F5537D2553D3CD00840735 /* GiftEarningsViewController.xib in Resources */,
-				26FBCF642558EF32001F3DFA /* SubsidiaryAccountViewController.xib in Resources */,
+				26FBCF642558EF32001F3DFA /* ConsumerDetailsViewController.xib in Resources */,
 				26F8946C25203B7300A45648 /* TitleViewCell.xib in Resources */,
 				2693697525555E06002E224B /* PhoneBindingController.xib in Resources */,
 				267955042507637600A72954 /* Community.storyboard in Resources */,
@@ -1499,6 +1520,7 @@
 				2643EB452500AD7E00FBBE49 /* Assets.xcassets in Resources */,
 				2668B0AA2523432A0073E25D /* WalletProductViewCell.xib in Resources */,
 				267B98802506012F0008C81B /* Account.storyboard in Resources */,
+				26DF877E255A63BA002162A9 /* BasicCell.xib in Resources */,
 				2643EBA02500B04100FBBE49 /* Me.storyboard in Resources */,
 				2668B0A3252341F70073E25D /* WalletEnergyViewCell.xib in Resources */,
 				26CB6D4C25515D6B00A9F4DD /* com.baidu.idl.face.live.action.image.bundle in Resources */,
@@ -1510,9 +1532,11 @@
 				26E291992553EABB0032AE99 /* GiftEarningsCell.xib in Resources */,
 				2656F30F254FAC0500552611 /* GiftReminderViewController.xib in Resources */,
 				267E36E92547C2E100EB2097 /* GiftView.xib in Resources */,
+				26772823255A480900B98973 /* PrivacyViewController.xib in Resources */,
 				F38CB8C62507B14700049A76 /* InfoPlist.strings in Resources */,
 				268E3E612521D074000E4A33 /* RelationshipViewCell.xib in Resources */,
 				263953702541A38B00B5E3C0 /* FiledViewCell.xib in Resources */,
+				26DF8780255A645C002162A9 /* SwitchViewCell.xib in Resources */,
 				26AE7C342520346500B55318 /* LabelViewCell.xib in Resources */,
 				26CB6D5025515D6B00A9F4DD /* com.baidu.idl.face.model.faceSDK.bundle in Resources */,
 				2695903E250B170B00763061 /* InterestedCardView.xib in Resources */,
@@ -1757,6 +1781,8 @@
 				F3C6B919251F3117006C06CB /* LabelViewController.swift in Sources */,
 				268458E825343FA8002B9C6E /* DynamicDetailViewController.swift in Sources */,
 				26787E37251B2F8D00D511E8 /* User.swift in Sources */,
+				26DF877D255A63BA002162A9 /* BasicCell.swift in Sources */,
+				26772822255A480900B98973 /* PrivacyViewController.swift in Sources */,
 				26C81EE12547E9C400C1D563 /* VoiceView.m in Sources */,
 				263BC1E225494EA20081F5DF /* UIView+Additions.m in Sources */,
 				26CA6EDD2538215D0023E27B /* Channel.swift in Sources */,
@@ -1789,7 +1815,8 @@
 				26CA6EEC25382DC40023E27B /* ChannelCell.swift in Sources */,
 				26E14E63251C766900645F08 /* UserInformationViewController.swift in Sources */,
 				267954EC2507327B00A72954 /* SignupViewController.swift in Sources */,
-				26FBCF632558EF32001F3DFA /* SubsidiaryAccountViewController.swift in Sources */,
+				26EB2DCA25593FCA006698F9 /* ConsumerAPI.swift in Sources */,
+				26FBCF632558EF32001F3DFA /* ConsumerDetailsViewController.swift in Sources */,
 				26D1E58B253D5F17004B9B29 /* CallManager.m in Sources */,
 				26CB6D3D25515D6B00A9F4DD /* BDFaceLivingConfigViewController.m in Sources */,
 				26CB6D4325515D6B00A9F4DD /* BDFaceCycleProgressView.m in Sources */,
@@ -1826,6 +1853,7 @@
 				26A8D4E9251C8F3E00B736CF /* Constellation.swift in Sources */,
 				26377FCE2530526800D5A03D /* ChatViewController.swift in Sources */,
 				26DBC373253D89DF0083BDFB /* AudioCallViewController.m in Sources */,
+				26EB2DCC255945C4006698F9 /* Consumer.swift in Sources */,
 				26EB2DA72558F157006698F9 /* SubsidiaryAccountCell.swift in Sources */,
 				26FC88F0253ECFBB00E4D82F /* SearchViewController.swift in Sources */,
 				2643EBB62500B04100FBBE49 /* InterfaceOrientation.swift in Sources */,

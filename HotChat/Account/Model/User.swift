@@ -59,6 +59,44 @@ struct Topic: HandyJSON {
     }
 }
 
+enum UserStatus: Int, HandyJSONEnum {
+   ///  用户状态 1正常
+    case normal = 1
+}
+
+
+enum OnlineStatus {
+    /// 离线
+    case offline
+    /// 在线
+    case online
+    /// 直播中
+    case living
+}
+
+enum ValidationStatus: Int, HandyJSONEnum {
+    /// 未认证
+    case empty = 0
+    /// 审核中
+    case validating = 2
+    /// 审核通过
+    case ok = 1
+    /// 审核失败
+    case failed = 3
+}
+
+enum VipType: Int, HandyJSONEnum {
+    /// 普通用户
+    case empty = 0
+    /// 月会员
+    case month = 1
+    /// 季会员
+    case quarter = 2
+    /// 年会员
+    case year = 3
+}
+
+
 
 @objc public class User: NSObject, HandyJSON {
     
@@ -121,14 +159,30 @@ struct Topic: HandyJSON {
     /// 黑名单
     var isDefriend: Bool = false
     
+    /// 隐私设置
     var userSettings: InfoSettings = InfoSettings()
     
-    /// 在线状态 1在线 2直播中
-
-    var onlineStatus: Int = 0
+    /// 在线状态
+    var onlineStatus: OnlineStatus = .offline
     
-    /// 认证状态 1在线 0未认证
-    var authenticationStatus: Int = 0
+    var authenticationStatus: ValidationStatus = .empty
+    
+    /// 头像认证
+    var headStatus: ValidationStatus = .empty
+    
+    /// 实名认证
+    var realNameStatus: ValidationStatus = .empty
+    
+    /// VIP
+    var vipType: VipType = .empty
+    
+    
+    /// 用户状态
+    var userStatus: UserStatus = .normal
+    
+    
+    /// 手机号
+    var phone: String = ""
     
     /// 位置
     var region: String = "未知距离"

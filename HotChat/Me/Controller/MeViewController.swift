@@ -10,6 +10,7 @@ import UIKit
 import HBDNavigationBar
 import RxSwift
 import RxCocoa
+import DynamicColor
 
 
 extension LabelView {
@@ -138,7 +139,7 @@ class MeViewController: UITableViewController, Autorotate {
        var detailEntries: [FormEntry] = [
             RightDetailFormEntry(image: UIImage(named: "me-money"), text: "奖励任务"),
             RightDetailFormEntry(image: UIImage(named: "me-invitation"), text: "6万邀请奖"),
-            RightDetailFormEntry(image: UIImage(named: "me-nobility"), text: "贵族特权"),
+            RightDetailFormEntry(image: UIImage(named: "me-nobility"), text: "会员特权"),
             RightDetailFormEntry(image: UIImage(named: "me-anti-fraud"), text: "防骗中心"),
             RightDetailFormEntry(image: UIImage(named: "me-call"), text: "通话设置"),
             RightDetailFormEntry(image: UIImage(named: "me-anchor"), text: "主播认证", onTapped: pushAuthentication)
@@ -173,6 +174,8 @@ class MeViewController: UITableViewController, Autorotate {
          )
         
         self.sections = [wallet, detail, basic]
+        
+        tableView.reloadData()
     }
     
     
@@ -187,6 +190,7 @@ class MeViewController: UITableViewController, Autorotate {
             .subscribe(onSuccess: { [weak self] response in
                 if response.isSuccessd {
                     self?.user = response.data
+                    self?.setupSections()
                 }
             }, onError: { error in
                 
@@ -202,8 +206,12 @@ class MeViewController: UITableViewController, Autorotate {
         meHeaderView.avatarImageView.kf.setImage(with: URL(string: user.headPic))
         meHeaderView.nicknameLabel.text = user.nick
         meHeaderView.sexView.setUser(user)
+        meHeaderView.vipButton.isHidden = user.vipType.isHidden
+        meHeaderView.vipButton.setTitle(user.vipType.description, for: .normal)
+        meHeaderView.vipButton.backgroundColor = user.vipType.backgroundColor
         meHeaderView.followButton.setTitle("\(user.userFollowNum) 关注", for: .normal)
         meHeaderView.fansButton.setTitle("\(user.userFansNum) 粉丝", for: .normal)
+        
         meHeaderView.setNeedsLayout()
         meHeaderView.layoutIfNeeded()
     }
@@ -291,4 +299,51 @@ class MeViewController: UITableViewController, Autorotate {
         }
         
     }
+}
+
+
+extension VipType: CustomStringConvertible {
+    
+    var description: String {
+        
+        switch self {
+        case.empty:
+            return ""
+        case .month:
+            return "VIP"
+        case .quarter:
+            return "季VIP"
+        case .year:
+            return "年VIP"
+        }
+    }
+    
+    var isHidden: Bool {
+        switch self {
+        case.empty:
+            return true
+        default:
+            return false
+        }
+    }
+    
+    var textColor: UIColor {
+        switch self {
+        case.empty:
+            return UIColor(hexString: "#333333")
+        default:
+            return UIColor(hexString: "#F1AC23")
+        }
+    }
+    
+    var backgroundColor: UIColor? {
+        switch self {
+        case.empty:
+            return nil
+        default:
+            let gradient = DynamicGradient(colors: [UIColor(hexString: "#EB6E12"), UIColor(hexString: "#F5AD3C")])
+            return gradient.pickColorAt(scale: 0.25)
+        }
+    }
+    
 }

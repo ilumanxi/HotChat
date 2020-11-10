@@ -15,6 +15,7 @@ import RxCocoa
 import SegementSlide
 
 class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableViewDataSource, UITableViewDelegate, SegementSlideContentScrollViewDelegate, StoryboardCreate {
+
     
     static var storyboardNamed: String { return "Community" }
     
@@ -45,6 +46,9 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
     var user: User!
     
     let loadSignal = PublishSubject<[String : Any]>()
+    
+    var selectedDynamic: Dynamic!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -207,6 +211,17 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
         cell.onLikeTapped.delegate(on: self) { (self, sender) in
             self.like(dynamic)
         }
+        
+        cell.onGiveTapped.delegate(on: self) { (self, sender) in
+            if LoginManager.shared.user!.userId != self.user.userId {
+                self.selectedDynamic = dynamic
+                let vc = GiftViewController()
+                vc.delegate = self
+                vc.modalPresentationStyle = .overFullScreen
+                self.present(vc, animated: true, completion: nil)
+            }
+        }
+        
         cell.onCommentTapped.delegate(on: self) { (self, _) in
             let info = TUIConversationCellData()
             info.userID = dynamic.userInfo.userId
@@ -265,3 +280,72 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
     }
 
 }
+
+
+extension DynamicDetailViewController: GiftViewControllerDelegate {
+    
+    func giftViewController(_ gift: GiftViewController, didSelectItemAt indexPath: IndexPath) {
+        
+        guard let dynamic = selectedDynamic else {
+            return
+        }
+        
+        let giftData = gift.gifts[indexPath.item]
+        giftData.count = 1
+        
+        GiftManager.shared().giveGift(self.user.userId, type: 1, dynamicId: dynamic.dynamicId, gift: giftData) { (responseObject, error) in
+            if let error = error {
+                self.show(error.localizedDescription)
+                return
+            }
+            let giveGift = GiveGift.mj_object(withKeyValues: responseObject?["data"])!
+            
+            if giveGift.resultCode == 1 {
+                
+                dynamic.giftNum += 1
+                self.tableView.reloadData()
+                
+                let  user  = LoginManager.shared.user!
+                user.userEnergy = giveGift.userEnergy
+                LoginManager.shared.update(user: user)
+                
+                let cellData = GiftCellData(direction: .MsgDirectionOutgoing)
+                cellData.gift = giftData
+                let imData = IMData.default()
+                imData.data = giftData.mj_JSONString()
+                
+                let data = TUICallUtils.dictionary2JsonData(imData.mj_keyValues() as! [AnyHashable : Any])
+                cellData.innerMessage = V2TIMManager.sharedInstance()!.createCustomMessage(data)
+                GiftManager.shared().sendGiftMessage(cellData, userID: self.user.userId)
+                gift.dismiss(animated: true, completion: nil)
+                
+                self.show("送礼成功")
+            }
+            else if (giveGift.resultCode == 3) { //能量不足，需要充值
+                gift.dismiss(animated: true) {
+                    
+                    let alertController = UIAlertController(title: nil, message: "您的能量不足、请充值！", preferredStyle: .alert)
+                    
+                    alertController.addAction(UIAlertAction(title: "立即充值", style: .default, handler: { _ in
+                        let vc = WalletViewController()
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }))
+                    
+                    alertController.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+                    
+                    self.present(alertController, animated: true, completion: nil)
+                  
+                }
+                
+            }
+            else {
+                
+                self.show(giveGift.msg)
+            }
+            
+        }
+    }
+
+    
+}
+

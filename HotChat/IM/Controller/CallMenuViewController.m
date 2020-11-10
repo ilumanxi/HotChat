@@ -315,14 +315,14 @@
 
 - (void)giveGifts:(Gift *)giftData {
     
-    [[GiftManager shared] giveGift:self.user.userId type:2 gift:giftData block:^(NSDictionary * _Nullable responseObject, NSError * _Nullable error) {
+    [[GiftManager shared] giveGift:self.user.userId type:2 dynamicId: nil gift:giftData block:^(NSDictionary * _Nullable responseObject, NSError * _Nullable error) {
             
         if (error) {
             [THelper makeToast:error.localizedDescription];
             return;
         }
         GiveGift *giveGift = [GiveGift mj_objectWithKeyValues:responseObject[@"data"]];
-        if (giveGift.reultCode == 1) {
+        if (giveGift.resultCode == 1) {
             GiftCellData *cellData = [[GiftCellData alloc] initWithDirection:MsgDirectionOutgoing];
             cellData.gift = giftData;
             
@@ -333,53 +333,19 @@
             
             cellData.innerMessage = [[V2TIMManager sharedInstance] createCustomMessage:data];
             
-            [self sendMessage:cellData];
+            [[GiftManager shared] sendGiftMessage:cellData userID:self.user.userId];
             
             [TUICallUtils getCallUserModel:[TUICallUtils loginUser] finished:^(CallUserModel * _Nonnull model) {
                 [self user:model giveGift:giftData];
             }];
         }
-        else if (giveGift.reultCode == 3) { //能量不足，需要充值
+        else if (giveGift.resultCode == 3) { //能量不足，需要充值
             
         }
         else {
             [THelper makeToast:giveGift.msg];
         }
     }];
-}
-
-
-- (void)sendMessage:(TUIMessageCellData *)msg
-{
-    if (![[UIApplication sharedApplication].keyWindow.rootViewController isKindOfClass:[UITabBarController class]]) {
-        return;
-    }
-    
-    UITabBarController *tabBarController = (UITabBarController *) UIApplication.sharedApplication.keyWindow.rootViewController;
-    
-    if (![tabBarController.selectedViewController isKindOfClass:[UINavigationController class]]) {
-        return;
-    }
-    
-    UINavigationController *navigationController = (UINavigationController *)tabBarController.selectedViewController;
-    
-    for (UIViewController *viewController in navigationController.viewControllers) { // 没有找到IM发消息
-        
-        if ([viewController isKindOfClass:[ChatController class]]) {
-            ChatController *chatControler = (ChatController *) viewController;
-            [chatControler sendMessage:msg];
-            return;
-        }
-    }
-    
-    TUIConversationCellData *conversationCellData = [[TUIConversationCellData alloc] init];
-    conversationCellData.userID = self.user.userId;
-    
-    TUIMessageController *messageController =  [[TUIMessageController alloc] init];
-    [messageController setConversation:conversationCellData];
-    
-    //IM发消息
-    [messageController sendMessage:msg];
 }
 
 - (void)beautyButtonTapped {

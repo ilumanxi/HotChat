@@ -35,12 +35,13 @@ class SettingViewController: UITableViewController, StoryboardCreate, IndicatorD
     lazy var privacy: FormEntry = {
         let entry = BasicFormEntry(text: "隐私")
         entry.onTapped.delegate(on: self) { (self, _) in
+            self.pushPrivacy()
         }
         return entry
     }()
     
     lazy var nobleSetting: FormEntry = {
-        let entry = BasicFormEntry(text: "贵族设置")
+        let entry = BasicFormEntry(text: "会员设置")
         entry.onTapped.delegate(on: self) { (self, _) in
         }
         return entry
@@ -104,6 +105,11 @@ class SettingViewController: UITableViewController, StoryboardCreate, IndicatorD
             FormSection(entries: [logout], headerText: nil)
         ]
         
+    }
+    
+    func pushPrivacy()  {
+        let vc = PrivacyViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func pushAccountSecurity() {

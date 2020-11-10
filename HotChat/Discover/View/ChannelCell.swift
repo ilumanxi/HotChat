@@ -16,6 +16,9 @@ class ChannelCell: UITableViewCell {
     
     @IBOutlet weak var sexView: LabelView!
     
+    
+    @IBOutlet weak var vipButton: UIButton!
+    
     @IBOutlet weak var locationLabel: UILabel!
     
     @IBOutlet weak var statusLabel: UILabel!

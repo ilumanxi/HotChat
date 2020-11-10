@@ -182,16 +182,35 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         
         cell.avatarImageView.kf.setImage(with: URL(string: user.headPic))
         cell.nicknameLabel.text = user.nick
-        if user.onlineStatus == 1 {
-            cell.statusLabel.text = "在线"
-            cell.statusLabel.textColor = UIColor(hexString: "#1AD36E")
-        }
-        else {
-            cell.statusLabel.text = "直播中"
-            cell.statusLabel.textColor = UIColor(hexString: "#FF788C")
-        }
-        
+        cell.statusLabel.text = user.onlineStatus.text
+        cell.statusLabel.textColor = user.onlineStatus.color
     }
+}
+
+extension OnlineStatus {
+    
+    var text: String? {
+        switch self {
+        case .online:
+            return "在线"
+        case .living:
+            return "直播中"
+        case .offline:
+            return "离线"
+        }
+    }
+    
+    var color: UIColor? {
+        switch self {
+        case .online:
+           return UIColor(hexString: "#1AD36E")
+        case .living:
+            return UIColor(hexString: "#FF788C")
+        case .offline:
+            return nil
+        }
+    }
+    
 }
 
 

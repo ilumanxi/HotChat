@@ -38,14 +38,8 @@ class UserFormEntry: NSObject,FormEntry {
         cell.userView.setUser(user)
         cell.followView.text = user.userFollowNum.description
         cell.locationLabel.text = user.region
-        if user.onlineStatus == 1 {
-            cell.statusLabel.text = "在线"
-            cell.statusLabel.textColor = UIColor(hexString: "#1AD36E")
-        }
-        else {
-            cell.statusLabel.text = "直播中"
-            cell.statusLabel.textColor = UIColor(hexString: "#FF788C")
-        }
+        cell.statusLabel.text = user.onlineStatus.text
+        cell.statusLabel.textColor = user.onlineStatus.color
         
         if !(cell.contentView.gestureRecognizers?.contains{ $0 is UITapGestureRecognizer } ?? false) {
             let tap = UITapGestureRecognizer(target: self, action: #selector(tapped))

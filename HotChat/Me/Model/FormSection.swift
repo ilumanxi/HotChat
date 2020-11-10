@@ -12,13 +12,14 @@ class FormSection {
     
     var formEntries: [FormEntry]
     let headerText: String?
+    let footerText: String?
     
     var renderer: FormSectionRenderer!
     
-    init(entries: [FormEntry], headerText: String?) {
+    init(entries: [FormEntry], headerText: String? = nil,  footerText: String? = nil) {
         self.formEntries = entries
         self.headerText = headerText
-        
+        self.footerText = footerText
         self.renderer = FormSectionRenderer(section: self)
     }
 }
@@ -33,9 +34,6 @@ class FormSectionRenderer {
     }
     
     func headerView(_ tableView: UITableView, section: Int) -> UIView {
-        
-        
-        
         let header = tableView.dequeueReusableHeaderFooterView(UserInfoEditingHeaderView.self)!
         
         render(header)

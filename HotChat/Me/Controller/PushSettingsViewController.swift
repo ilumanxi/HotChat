@@ -118,7 +118,7 @@ class PushSettingsViewController: UITableViewController, LoadingStateType, Indic
 
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44
+        return 50
     }
     override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         

@@ -20,7 +20,8 @@ struct Pagination<T: HandyJSON>: HandyJSON {
 }
 
 
-struct Dynamic: HandyJSON {
+class Dynamic: NSObject, HandyJSON {
+    
     var dynamicId: String = ""
     var timeFormat: String = ""
     var content: String = ""
@@ -33,6 +34,10 @@ struct Dynamic: HandyJSON {
     var userInfo: User!
     var commentCount: Int = 0
     var commentList: [[String: Any]]?
+    
+    required override init() {
+        super.init()
+    }
 }
 
 

@@ -33,6 +33,7 @@
 #import "GiftManager.h"
 #import "GiveGift.h"
 #import <MJExtension/MJExtension.h>
+#import "HotChat-Swift.h"
 
 @interface ChatController () <TMessageControllerDelegate, InputControllerDelegate, UIImagePickerControllerDelegate, UIDocumentPickerDelegate, UINavigationControllerDelegate>
 @property (nonatomic, strong) TUIConversationCellData *conversationData;
@@ -224,20 +225,34 @@
         
         GiftCellData * giftData = (GiftCellData *)msg;
     
-        [[GiftManager shared] giveGift:self.conversationData.userID type:2 gift:giftData.gift block:^(NSDictionary * _Nullable responseObject, NSError * _Nullable error) {
+        [[GiftManager shared] giveGift:self.conversationData.userID type:2 dynamicId: nil gift:giftData.gift block:^(NSDictionary * _Nullable responseObject, NSError * _Nullable error) {
     
             if (error) {
                 [THelper makeToast:error.localizedDescription];
                 return;
             }
             GiveGift *giveGift = [GiveGift mj_objectWithKeyValues:responseObject[@"data"]];
-            if (giveGift.reultCode == 1) {
+            if (giveGift.resultCode == 1) {
+                User *user  = LoginManager.shared.user;
+                user.userEnergy = giveGift.userEnergy;
+                [LoginManager.shared updateWithUser:user];
                 [self->_messageController sendMessage:msg];
                 if (self.delegate && [self.delegate respondsToSelector:@selector(chatController:didSendMessage:)]) {
                     [self.delegate chatController:self didSendMessage:msg];
                 }
             }
-            else if (giveGift.reultCode == 3) { //能量不足，需要充值
+            else if (giveGift.resultCode == 3) { //能量不足，需要充值
+                
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"您的能量不足、请充值！" preferredStyle:UIAlertControllerStyleAlert];
+                [alert addAction:[UIAlertAction actionWithTitle:@"立即充值" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+      
+                    WalletViewController *walletController = [[WalletViewController alloc] init];
+                    [self.navigationController pushViewController:walletController animated:YES];
+                    
+                }]];
+                [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+                
+                [self presentViewController:alert animated:YES completion:nil];
             }
             else {
                 [THelper makeToast:giveGift.msg];

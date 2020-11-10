@@ -103,10 +103,7 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func setupViews()  {
         title = "我的钱包"
         
-//        Expenses record
-        
-//        ConsumptionListController
-        
+    
         let recordItem = UIBarButtonItem(title: "明显", style: .plain, target: self, action: #selector(pushExpensesRecord))
         navigationItem.rightBarButtonItem = recordItem
         
@@ -124,6 +121,10 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
             .checkResponse()
             .subscribe(onSuccess: { [weak self] response in
                 self?.user = response.data!
+                let user = LoginManager.shared.user!
+                user.userEnergy = response.data!.userEnergy
+                LoginManager.shared.update(user: user)
+                
                 self?.setupSections()
                 
             }, onError: { error in
@@ -326,15 +327,10 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
         ]
         
         return payAPI.request(.ceateOrder(parameters), type: Response<[String : Any]>.self)
+            .checkResponse()
             .map { response in
-                if response.isSuccessd {
-                    let order =  Ordrer.deserialize(from: response.data, designatedPath: "params")!
-                    return (order, product.0, product.1)
-                }
-                else {
-                    throw HotChatError.generalError(reason: HotChatError.GeneralErrorReason.conversionError(string: response.msg, encoding: .utf8))
-                }
-               
+                let order =  Ordrer.deserialize(from: response.data, designatedPath: "params")!
+                return (order, product.0, product.1)
             }
     }
 

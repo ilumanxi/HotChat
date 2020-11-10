@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(assign, nonatomic) NSInteger userEnergy;
 
 /// 1送礼成功 2送礼失败，3能量不足，送礼失败
-@property(assign, nonatomic) NSInteger reultCode;
+@property(assign, nonatomic) NSInteger resultCode;
 
 @property(copy, nonatomic) NSString *msg;
 

@@ -35,6 +35,8 @@ class UserInfoHeaderView: UIView, FSPagerViewDataSource, FSPagerViewDelegate {
     
     @IBOutlet weak var authenticationButton: UIButton!
     
+    @IBOutlet weak var vipButton: UIButton!
+    
     
     @IBOutlet weak var followButton: UIButton!
     
@@ -108,7 +110,9 @@ class UserInfoHeaderView: UIView, FSPagerViewDataSource, FSPagerViewDelegate {
         nicknameLabel.text = user.nick
         sexView.setUser(user)
         followView.text = user.userFollowNum.description
-        
+        vipButton.backgroundColor = user.vipType.backgroundColor
+        vipButton.setTitle(user.vipType.description, for: .normal)
+        vipButton.isHidden = user.vipType.isHidden
         authenticationButton.alpha = 0
         followButton.alpha = user.isFollow ? 1 : 0
     }

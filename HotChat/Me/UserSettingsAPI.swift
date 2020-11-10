@@ -11,6 +11,7 @@ import CoreLocation
 
 enum UserSettingsAPI {
     case infoSettings
+    /// 1开启视频聊天，2语音聊天 3免打扰, 4定位开启
     case editSettings(type: Int,value: Int)
     case location(CLLocation)
 }

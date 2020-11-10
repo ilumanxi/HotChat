@@ -3,7 +3,7 @@
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -95,7 +95,7 @@
                             <rect key="frame" x="0.0" y="375" width="375" height="110"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fKO-PH-plC">
-                                    <rect key="frame" x="20" y="30" width="77" height="70"/>
+                                    <rect key="frame" x="20" y="30" width="122" height="71"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="风起兮" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dX4-WC-QMz">
                                             <rect key="frame" x="0.0" y="0.0" width="64.5" height="25.5"/>
@@ -129,19 +129,34 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="0X9-GI-1I4">
-                                            <rect key="frame" x="0.0" y="55" width="77" height="15"/>
+                                            <rect key="frame" x="0.0" y="55" width="122" height="16"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="32" placeholderIntrinsicHeight="15" translatesAutoresizingMaskIntoConstraints="NO" id="tcs-A8-dDk" customClass="LabelView" customModule="HotChat" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="32" height="15"/>
+                                                    <rect key="frame" x="0.0" y="0.5" width="32" height="15"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 </view>
                                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="32" placeholderIntrinsicHeight="15" translatesAutoresizingMaskIntoConstraints="NO" id="APo-v8-AKO" customClass="LabelView" customModule="HotChat" customModuleProvider="target">
-                                                    <rect key="frame" x="45" y="0.0" width="32" height="15"/>
+                                                    <rect key="frame" x="45" y="0.5" width="32" height="15"/>
                                                     <color key="backgroundColor" red="0.43137254901960786" green="0.87058823529411766" blue="0.63137254901960782" alpha="1" colorSpace="calibratedRGB"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="image" keyPath="image" value="me-attention"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jGW-kd-dqp" customClass="AnimatableButton">
+                                                    <rect key="frame" x="90" y="0.0" width="32" height="16"/>
+                                                    <color key="backgroundColor" red="0.92156862750000001" green="0.63529411759999999" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="32" id="7xN-kA-F24"/>
+                                                        <constraint firstAttribute="height" constant="16" id="PWT-8x-HR4"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                                    <state key="normal" title="VIP"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="8"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </button>
                                             </subviews>
                                         </stackView>
                                     </subviews>
@@ -196,6 +211,7 @@
                 <outlet property="sexView" destination="tcs-A8-dDk" id="pjj-i6-Spo"/>
                 <outlet property="stackView" destination="fDa-HB-qdz" id="Qan-KC-ECQ"/>
                 <outlet property="statusLabel" destination="jTa-K1-gMO" id="VD4-RB-zzt"/>
+                <outlet property="vipButton" destination="jGW-kd-dqp" id="tga-wD-sNO"/>
             </connections>
             <point key="canvasLocation" x="-30.9375" y="48.063380281690144"/>
         </view>
@@ -203,6 +219,9 @@
     <designables>
         <designable name="APo-v8-AKO">
             <size key="intrinsicContentSize" width="32" height="15"/>
+        </designable>
+        <designable name="jGW-kd-dqp">
+            <size key="intrinsicContentSize" width="30" height="23"/>
         </designable>
         <designable name="tcs-A8-dDk">
             <size key="intrinsicContentSize" width="32" height="15"/>

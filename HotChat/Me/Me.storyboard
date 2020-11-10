@@ -91,19 +91,22 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="L0c-dR-Rc2">
-                                                    <rect key="frame" x="106" y="-0.5" width="113" height="89"/>
+                                                    <rect key="frame" x="106" y="17" width="122" height="54.5"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="9ly-3B-ZFM">
-                                                            <rect key="frame" x="0.0" y="0.0" width="89" height="26"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="89" height="25.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="风起兮" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBl-2Q-dUM">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="64.5" height="26"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="64.5" height="25.5"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="y7A-5M-nsJ"/>
+                                                                    </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cw6-LF-vrM">
-                                                                    <rect key="frame" x="76.5" y="2" width="12.5" height="22"/>
+                                                                    <rect key="frame" x="76.5" y="1.5" width="12.5" height="22"/>
                                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <state key="normal" image="me-edit">
                                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -115,10 +118,10 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Fbe-XS-0z5">
-                                                            <rect key="frame" x="0.0" y="39" width="113" height="50"/>
+                                                            <rect key="frame" x="0.0" y="38.5" width="122" height="16"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CaK-gA-Efm" customClass="LabelView" customModule="HotChat" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="32" height="16"/>
                                                                     <color key="backgroundColor" red="0.56862745098039214" green="0.82352941176470584" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="image" keyPath="image" value="me-sex-man"/>
@@ -126,13 +129,28 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fvU-8j-pCb" customClass="LabelView" customModule="HotChat" customModuleProvider="target">
-                                                                    <rect key="frame" x="63" y="0.0" width="50" height="50"/>
+                                                                    <rect key="frame" x="45" y="0.0" width="32" height="16"/>
                                                                     <color key="backgroundColor" red="0.43137254901960786" green="0.87058823529411766" blue="0.63137254901960782" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="image" keyPath="image" value="me-attention"/>
                                                                         <userDefinedRuntimeAttribute type="string" keyPath="text" value="0"/>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </view>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="raO-PZ-vyS" customClass="AnimatableButton">
+                                                                    <rect key="frame" x="90" y="0.0" width="32" height="16"/>
+                                                                    <color key="backgroundColor" red="0.92156862745098034" green="0.63529411764705879" blue="0.094117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="16" id="9ok-oH-sSs"/>
+                                                                        <constraint firstAttribute="width" constant="32" id="YDu-L8-vg3"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                                                    <state key="normal" title="VIP"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                            <real key="value" value="8"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </button>
                                                             </subviews>
                                                         </stackView>
                                                     </subviews>
@@ -225,6 +243,7 @@
                                 <outlet property="gradeView" destination="fvU-8j-pCb" id="IYg-dl-gfI"/>
                                 <outlet property="nicknameLabel" destination="oBl-2Q-dUM" id="PgT-x1-Xnu"/>
                                 <outlet property="sexView" destination="CaK-gA-Efm" id="NkT-BK-xSo"/>
+                                <outlet property="vipButton" destination="raO-PZ-vyS" id="90G-i5-fwZ"/>
                             </connections>
                         </view>
                         <prototypes>
@@ -2506,14 +2525,23 @@
         <designable name="BhR-56-whh">
             <size key="intrinsicContentSize" width="37" height="34"/>
         </designable>
+        <designable name="CaK-gA-Efm">
+            <size key="intrinsicContentSize" width="32" height="16"/>
+        </designable>
         <designable name="Zuc-19-PH8">
             <size key="intrinsicContentSize" width="37" height="34"/>
+        </designable>
+        <designable name="fvU-8j-pCb">
+            <size key="intrinsicContentSize" width="32" height="16"/>
         </designable>
         <designable name="g9f-Qc-N1f">
             <size key="intrinsicContentSize" width="58" height="29"/>
         </designable>
         <designable name="q0f-2A-IhF">
             <size key="intrinsicContentSize" width="30.5" height="16"/>
+        </designable>
+        <designable name="raO-PZ-vyS">
+            <size key="intrinsicContentSize" width="30" height="23"/>
         </designable>
         <designable name="xLZ-pX-wSS">
             <size key="intrinsicContentSize" width="30.5" height="16"/>

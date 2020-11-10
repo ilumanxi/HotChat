@@ -163,21 +163,7 @@ extension ChannelViewController: UITableViewDataSource, UITableViewDelegate {
         let user = data[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: ChannelCell.self)
-        cell.avatarImageView.kf.setImage(with: URL(string: user.headPic))
-        cell.nicknameLabel.text = user.nick
-        cell.sexView.setUser(user)
-        cell.locationLabel.text = user.region
-        cell.introduceLabel.text = user.introduce
-        
-        if user.onlineStatus == 1 {
-            cell.statusLabel.text = "在线"
-            cell.statusLabel.textColor = UIColor(hexString: "#1AD36E")
-        }
-        else {
-            cell.statusLabel.text = "直播中"
-            cell.statusLabel.textColor = UIColor(hexString: "#FF788C")
-        }
-        
+        cell.setUser(user)
         return cell
         
     }
@@ -189,4 +175,21 @@ extension ChannelViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     
+}
+
+extension ChannelCell {
+    
+    func setUser(_ user: User) {
+       avatarImageView.kf.setImage(with: URL(string: user.headPic))
+       nicknameLabel.text = user.nick
+       nicknameLabel.textColor = user.vipType.textColor
+       sexView.setUser(user)
+       locationLabel.text = user.region
+       introduceLabel.text = user.introduce
+       statusLabel.text = user.onlineStatus.text
+       statusLabel.textColor = user.onlineStatus.color
+       vipButton.isHidden = user.vipType.isHidden
+       vipButton.setTitle(user.vipType.description, for: .normal)
+       vipButton.backgroundColor = user.vipType.backgroundColor
+    }
 }

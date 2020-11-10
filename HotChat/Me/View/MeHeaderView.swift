@@ -23,6 +23,9 @@ class MeHeaderView: UIView {
     
     @IBOutlet weak var gradeView: LabelView!
     
+    @IBOutlet weak var vipButton: UIButton!
+    
+    
     @IBOutlet weak var followButton: UIButton!
     
     @IBOutlet weak var fansButton: UIButton!
