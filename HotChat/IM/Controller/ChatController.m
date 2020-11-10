@@ -34,8 +34,9 @@
 #import "GiveGift.h"
 #import <MJExtension/MJExtension.h>
 #import "HotChat-Swift.h"
+#import "LiveGiftShowCustom.h"
 
-@interface ChatController () <TMessageControllerDelegate, InputControllerDelegate, UIImagePickerControllerDelegate, UIDocumentPickerDelegate, UINavigationControllerDelegate>
+@interface ChatController () <TMessageControllerDelegate, InputControllerDelegate, UIImagePickerControllerDelegate, UIDocumentPickerDelegate, UINavigationControllerDelegate, V2TIMAdvancedMsgListener>
 @property (nonatomic, strong) TUIConversationCellData *conversationData;
 @property (nonatomic, strong) UIView *tipsView;
 @property (nonatomic, strong) UILabel *pendencyLabel;
@@ -44,6 +45,8 @@
 @property (nonatomic, strong) TUIGroupPendencyViewModel *pendencyViewModel;
 @property (nonatomic, strong) NSMutableArray<UserModel *> *atUserList;
 @property (nonatomic, assign) BOOL responseKeyboard;
+
+@property (nonatomic ,weak) LiveGiftShowCustom * customGiftShow;
 @end
 
 @implementation ChatController
@@ -76,9 +79,76 @@
     return self;
 }
 
+- (LiveGiftShowCustom *)customGiftShow{
+    if (!_customGiftShow) {
+        _customGiftShow = [LiveGiftShowCustom addToView:self.view];
+        _customGiftShow.addMode = LiveGiftAddModeAdd;
+        [_customGiftShow setMaxGiftCount:3];
+        [_customGiftShow setShowMode:LiveGiftShowModeFromTopToBottom];
+        [_customGiftShow setAppearModel:LiveGiftAppearModeLeft];
+        [_customGiftShow setHiddenModel:LiveGiftHiddenModeLeft];
+        [_customGiftShow enableInterfaceDebug:YES];
+//        _customGiftShow.delegate = self;
+    }
+    return _customGiftShow;
+}
+
+- (void)onRecvNewMessage:(V2TIMMessage *)msg {
+    
+    if (msg.elemType != V2TIM_ELEM_TYPE_CUSTOM) {
+        return;
+    }
+    
+    NSDictionary *param = [TUICallUtils jsonData2Dictionary:msg.customElem.data];
+    IMData *imData = [IMData mj_objectWithKeyValues:param];
+    
+    if (imData.type != 100) {
+        return;
+    }
+    
+    if (msg.userID != self.conversationData.userID) {
+        return;
+    }
+
+    Gift *gift = [Gift mj_objectWithKeyValues:imData.data];
+    UserModel *user = [[UserModel alloc] init];
+    user.avatar = msg.faceURL;
+    user.name = msg.nickName;
+    user.userId = msg.userID;
+    [self user:user giveGift:gift];
+}
+
+- (void)user:(UserModel *)user giveGift:(Gift *)gift {
+    
+    
+    LiveGiftListModel *giftModel = [[LiveGiftListModel alloc] init];
+    giftModel.type = [NSString stringWithFormat:@"%ld",gift.id];
+    giftModel.picUrl = gift.img;
+    giftModel.name = gift.name;
+    
+    NSString *name = user.name;
+    
+    if (name == nil) {
+        name = user.userId;
+    }
+    
+    giftModel.rewardMsg = [NSString stringWithFormat:@"%@送出%@",name, gift.name];
+    
+    LiveUserModel *userModel =  [[LiveUserModel alloc] init];
+    userModel.iconUrl = user.avatar;
+    userModel.name = name;
+    userModel.userId = user.userId;
+    
+    LiveGiftShowModel *liveGift = [LiveGiftShowModel giftModel:giftModel userModel:userModel];
+    
+    [self.customGiftShow addLiveGiftShowModel:liveGift];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupViews];
+    [[V2TIMManager sharedInstance]  addAdvancedMsgListener:self];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -223,6 +293,8 @@
     
     if ([msg isKindOfClass:[GiftCellData class]]) {
         
+       
+        
         GiftCellData * giftData = (GiftCellData *)msg;
     
         [[GiftManager shared] giveGift:self.conversationData.userID type:2 dynamicId: nil gift:giftData.gift block:^(NSDictionary * _Nullable responseObject, NSError * _Nullable error) {
@@ -233,6 +305,9 @@
             }
             GiveGift *giveGift = [GiveGift mj_objectWithKeyValues:responseObject[@"data"]];
             if (giveGift.resultCode == 1) {
+                [TUICallUtils getCallUserModel:[TUICallUtils loginUser] finished:^(CallUserModel * _Nonnull model) {
+                    [self user:model giveGift:giftData.gift];
+                }];
                 User *user  = LoginManager.shared.user;
                 user.userEnergy = giveGift.userEnergy;
                 [LoginManager.shared updateWithUser:user];

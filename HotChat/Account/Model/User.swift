@@ -88,7 +88,7 @@ enum ValidationStatus: Int, HandyJSONEnum {
 enum VipType: Int, HandyJSONEnum {
     /// 普通用户
     case empty = 0
-    /// 月会员
+    /// 会员
     case month = 1
     /// 季会员
     case quarter = 2
