@@ -7,12 +7,41 @@
 //
 
 import UIKit
+import SnapKit
+
+
+enum EarningType: Int, CaseIterable {
+    case today = 1
+    case currentMonth = 2
+    case lastMonth = 3
+}
 
 class EarningsViewController: UIViewController {
     
     
     @IBOutlet weak var segmentedContainerView: UIStackView!
     
+    
+    @IBOutlet weak var containerView: UIView!
+    
+    
+    lazy var viewControlers: [UIViewController] = {
+        
+        return EarningType.allCases.compactMap {
+            EarningsDetailViewController(type: $0)
+        }
+    }()
+    
+    lazy var pageController: UIPageViewController = {
+        
+        let contoller = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+        contoller.dataSource = self
+        return contoller
+    }()
+    
+    var scrollView: UIScrollView? {
+        return pageController.view.subviews.first { $0 is UIScrollView } as? UIScrollView
+    }
     
     var selectedIndex: Int = 0
     
@@ -21,10 +50,19 @@ class EarningsViewController: UIViewController {
         super.viewDidLoad()
         
         title = "我的收益"
-        
+        setupViews()
         setSelectedIndex(0)
         
-        // Do any additional setup after loading the view.
+        scrollView?.isScrollEnabled = false
+    }
+    
+    func setupViews() {
+        addChild(pageController)
+        containerView.addSubview(pageController.view)
+        pageController.view.snp.makeConstraints { maker in
+            maker.edges.equalToSuperview()
+        }
+        pageController.didMove(toParent: self)
     }
     
     
@@ -44,22 +82,40 @@ class EarningsViewController: UIViewController {
             let isSelected: Bool = (i == index)
             butnton.isSelected = isSelected
             butnton.backgroundColor = isSelected ? UIColor(hexString: "#5159F8") : UIColor(hexString: "#F6F5F5")
-            
         }
         
+        pageController.setViewControllers([viewControlers[index]], direction: .forward, animated: false, completion: nil)
+    }
+}
+
+extension EarningsViewController: UIPageViewControllerDataSource {
+    
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        
+        let index = viewControlers.firstIndex(of: viewController)!
+        
+        if index == 0 {
+            return nil
+        }
+        else {
+           return viewControlers[index - 1]
+        }
     }
     
-
-
-    @IBAction func pusGiftEarnings(_ sender: Any) {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
-        let vc = GiftEarningsViewController()
-        navigationController?.pushViewController(vc, animated: true)
-    }
-
-    @IBAction func pusTalkEarnings(_ sender: Any) {
+        let index = viewControlers.firstIndex(of: viewController)!
+        let lastIndex = viewControlers.count - 1
         
-        let vc = TalkEarningsViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        if index == lastIndex {
+            return nil
+        }
+        else {
+            return viewControlers[index + 1]
+        }
     }
+    
+    
+    
 }

@@ -72,14 +72,17 @@
 }
 
 - (void)giveGift:(NSString *)userId type:(NSInteger)type dynamicId:(NSString *)dynamicId gift:(Gift *)gift block:(void (^)(NSDictionary * _Nullable, NSError * _Nullable))block {
-    NSDictionary *parameters = @{
+    NSMutableDictionary *parameters = @{
         @"toUserId" : userId,
         @"giftId" : @(gift.id),
         @"energy" : @(gift.energy),
         @"num" : @(gift.count),
-        @"type" :  @(type),
-        @"dynamicId" : dynamicId
-    };
+        @"type" :  @(type)
+    }.mutableCopy;
+    
+    if (dynamicId) {
+        parameters[@"dynamicId"] = dynamicId;
+    }
     
     [self.manager
         POST:@"Gift/giveGift"

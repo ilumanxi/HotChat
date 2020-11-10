@@ -8,24 +8,74 @@
 
 import UIKit
 
-class TalkEarningsViewController: UIViewController {
-
+class TalkEarningsViewController: UIViewController, LoadingStateType, IndicatorDisplay {
+    
+    
+    var state: LoadingState = .initial
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    let consumerAPI = Request<ConsumerAPI>()
+    
+    var data: [TalkEarning] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "聊天"
+        setupViews()
+        refreshData()
+    }
+
+    func refreshData() {
+        state = .refreshingContent
+        consumerAPI.request(.profitImList, type: Response<[TalkEarning]>.self)
+            .checkResponse()
+            .subscribe(onSuccess: { [weak self] response in
+                self?.data = response.data!
+                self?.tableView.reloadData()
+                self?.state = .contentLoaded
+            }, onError: { [weak self] error in
+                self?.state = .error
+            })
+            .disposed(by: rx.disposeBag)
         
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func setupViews() {
+        title = "聊天"
+        tableView.register(UINib(nibName: "TalkEarningCell", bundle: nil), forCellReuseIdentifier: "TalkEarningCell")
     }
-    */
+}
 
+extension TalkEarningsViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 102
+    }
+    
+}
+
+extension TalkEarningsViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: TalkEarningCell.self)
+        cell.setTalkEarning(data[indexPath.row])
+        return cell
+    }
+    
+}
+
+extension TalkEarningCell {
+    
+    func setTalkEarning(_ talkEarning: TalkEarning) {
+        tilteLabel.text = talkEarning.title
+        energyLabel.text = "+\(talkEarning.energy)能量"
+        timeLabel.text = talkEarning.time
+        timeLabel.isHidden = talkEarning.time.isEmpty
+    }
 }

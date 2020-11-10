@@ -34,7 +34,7 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Xnf-JA-zZZ">
-                        <rect key="frame" x="61" y="18" width="42" height="34"/>
+                        <rect key="frame" x="61" y="18" width="85.5" height="34"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小珍珠" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXW-mF-ioY">
                                 <rect key="frame" x="0.0" y="0.0" width="37" height="14.5"/>
@@ -43,40 +43,48 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="赠送冰淇淋冰x1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DfG-8J-1u1">
-                                <rect key="frame" x="0.0" y="19.5" width="42" height="14.5"/>
+                                <rect key="frame" x="0.0" y="19.5" width="85.5" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                     </stackView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1550000能量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKL-5d-xni">
-                        <rect key="frame" x="123" y="28" width="75.5" height="14.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <color key="textColor" red="0.31764705882352939" green="0.34901960784313724" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020-10:30:20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ioy-bZ-Ic7">
-                        <rect key="frame" x="218.5" y="11" width="85.5" height="48"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="9ml-gn-I10">
+                        <rect key="frame" x="218.5" y="17" width="85.5" height="36"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1550000能量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKL-5d-xni">
+                                <rect key="frame" x="0.0" y="0.0" width="85.5" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.31764705882352939" green="0.34901960784313724" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020-10:30:20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ioy-bZ-Ic7">
+                                <rect key="frame" x="0.0" y="21.5" width="85.5" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="MTg-6M-ovv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Gg6-Bm-xge"/>
-                    <constraint firstItem="ioy-bZ-Ic7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="TAw-te-JR9"/>
-                    <constraint firstItem="FKL-5d-xni" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="WNw-1g-iIr"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="ioy-bZ-Ic7" secondAttribute="trailing" id="Ycc-0Y-Puf"/>
+                    <constraint firstItem="9ml-gn-I10" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="QS5-Lv-Q9N"/>
                     <constraint firstItem="Xnf-JA-zZZ" firstAttribute="centerY" secondItem="MTg-6M-ovv" secondAttribute="centerY" id="bVq-37-Zd1"/>
                     <constraint firstItem="Xnf-JA-zZZ" firstAttribute="leading" secondItem="MTg-6M-ovv" secondAttribute="trailing" constant="5" id="dYt-Fc-ADF"/>
-                    <constraint firstItem="FKL-5d-xni" firstAttribute="leading" secondItem="Xnf-JA-zZZ" secondAttribute="trailing" constant="20" id="ky4-CR-tfa"/>
-                    <constraint firstItem="ioy-bZ-Ic7" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="lHg-hV-vAs"/>
                     <constraint firstItem="MTg-6M-ovv" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="oRA-uO-PHd"/>
-                    <constraint firstItem="ioy-bZ-Ic7" firstAttribute="leading" secondItem="FKL-5d-xni" secondAttribute="trailing" constant="20" id="xvu-We-KND"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="9ml-gn-I10" secondAttribute="trailing" id="qoV-h2-qYq"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="energyLabel" destination="FKL-5d-xni" id="zmM-fk-1F7"/>
+                <outlet property="giftImageview" destination="MTg-6M-ovv" id="mtI-Ku-SDn"/>
+                <outlet property="nicknameLabel" destination="fXW-mF-ioY" id="1MD-yv-OqG"/>
+                <outlet property="timeLabel" destination="ioy-bZ-Ic7" id="xJu-dw-p7P"/>
+                <outlet property="titleLabel" destination="DfG-8J-1u1" id="aFW-fY-JY0"/>
+            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="113.83928571428571"/>
         </tableViewCell>
     </objects>

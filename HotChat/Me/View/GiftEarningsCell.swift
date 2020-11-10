@@ -9,7 +9,16 @@
 import UIKit
 
 class GiftEarningsCell: UITableViewCell {
-
+    
+    @IBOutlet weak var giftImageview: UIImageView!
+    
+    @IBOutlet weak var nicknameLabel: UILabel!
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var energyLabel: UILabel!
+    
+    @IBOutlet weak var timeLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

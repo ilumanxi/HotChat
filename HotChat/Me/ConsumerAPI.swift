@@ -10,6 +10,9 @@ import Moya
 
 enum ConsumerAPI {
     case detailsList(page: Int, tag: Int)
+    case countProfit(tag: Int)
+    case profitImList
+    case profitGiftList(page: Int)
 }
 
 
@@ -23,6 +26,12 @@ extension ConsumerAPI: TargetType {
         switch self {
         case .detailsList:
             return "ConsumerDetails/detailsList"
+        case .countProfit:
+            return "ConsumerDetails/countProfit"
+        case .profitImList:
+            return "ConsumerDetails/profitImList"
+        case .profitGiftList:
+            return "ConsumerDetails/profitGiftList"
         }
     }
     
@@ -43,6 +52,16 @@ extension ConsumerAPI: TargetType {
             parameters = [
                 "page" : page,
                 "tag": tag
+            ]
+        case .countProfit(let tag):
+            parameters = [
+                "tag": tag
+            ]
+        case .profitImList:
+            parameters = [:]
+        case .profitGiftList(let page):
+            parameters = [
+                "page" : page
             ]
         }
         
