@@ -8,6 +8,17 @@
 
 import UIKit
 
+extension String {
+    
+    
+    var privacyPhone: String {
+       
+        let range = index(startIndex, offsetBy: 3)..<index(endIndex, offsetBy: -4)
+        return replacingCharacters(in: range, with: "****")
+    }
+    
+}
+
 class AccountSecurityController: UIViewController {
     
     
@@ -16,10 +27,15 @@ class AccountSecurityController: UIViewController {
     private var sections: [FormSection] = []
     
     
-    lazy var phoneBinding: RightDetailFormEntry = {
-        let entry = RightDetailFormEntry(image: nil, text: "手机号绑定", detailText: "未绑定", onTapped: pushPhoneBinding)
-        return entry
-    }()
+    var phoneBinding: RightDetailFormEntry {
+        
+        if LoginManager.shared.user!.phone.isEmpty {
+            return RightDetailFormEntry(image: nil, text: "手机号绑定", detailText: "未绑定", onTapped: pushPhoneBinding)
+        }
+        else {
+            return RightDetailFormEntry(image: nil, text: "手机号绑定", detailText: LoginManager.shared.user!.phone.privacyPhone)
+        }
+    }
     
     
     lazy var unsubscribe: RightDetailFormEntry = {
@@ -34,6 +50,13 @@ class AccountSecurityController: UIViewController {
         
         setupViews()
         setupSections()
+        
+        NotificationCenter.default.rx.notification(.userDidChange)
+            .subscribe(onNext: { [weak self] _ in
+                self?.setupSections()
+                self?.tableView.reloadData()
+            })
+            .disposed(by: rx.disposeBag)
     }
 
     

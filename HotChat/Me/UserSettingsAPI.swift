@@ -14,6 +14,7 @@ enum UserSettingsAPI {
     /// 1开启视频聊天，2语音聊天 3免打扰, 4定位开启
     case editSettings(type: Int,value: Int)
     case location(CLLocation)
+    case bindPhone(phone: String, verifyCode: String, password: String)
 }
 
 
@@ -31,6 +32,8 @@ extension UserSettingsAPI: TargetType {
             return "UserSettings/editSettings"
         case .location:
             return "UserSettings/baiduMap"
+        case .bindPhone:
+            return "UserSettings/bindPhone"
         }
     }
     
@@ -58,6 +61,12 @@ extension UserSettingsAPI: TargetType {
             parameters = [
                 "lat" : location.coordinate.latitude.description,
                 "lng" : location.coordinate.longitude.description
+            ]
+        case .bindPhone(let phone, let verifyCode, let password):
+            parameters = [
+                "phone" : phone,
+                "verifyCode" : verifyCode,
+                "password" : password
             ]
         }
         

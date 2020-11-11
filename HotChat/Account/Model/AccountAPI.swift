@@ -16,6 +16,7 @@ enum CodeType: Int {
     case signIn = 3
     case signUp = 1
     case resetPassword = 2
+    case phoneBinding = 5
 }
 
 enum AccountAPI {
