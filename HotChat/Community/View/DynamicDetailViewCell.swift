@@ -37,6 +37,7 @@ class DynamicDetailViewCell: UITableViewCell {
     
     @IBOutlet weak var giveButton: HotChatButton!
     
+    @IBOutlet weak var vipButton: UIButton!
     
     @IBOutlet weak var commentButton: HotChatButton!
     
@@ -84,7 +85,11 @@ class DynamicDetailViewCell: UITableViewCell {
         
         avatarButton.kf.setImage(with: URL(string: dynamic.userInfo.headPic), for: .normal)
         nicknameLabel.text = dynamic.userInfo.nick
+        nicknameLabel.textColor = dynamic.userInfo.vipType.textColor
         contentLabel.text = dynamic.content
+        vipButton.isHidden = dynamic.userInfo.vipType.isHidden
+        vipButton.backgroundColor = dynamic.userInfo.vipType.backgroundColor
+        vipButton.setTitle(dynamic.userInfo.vipType.description, for: .normal)
         likeButton.setTitle(dynamic.zanNum.description, for: .normal)
         likeButton.isSelected = dynamic.isSelfZan
         giveButton.setTitle(dynamic.giftNum.description, for: .normal)

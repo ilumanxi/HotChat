@@ -2352,6 +2352,7 @@
                     <connections>
                         <outlet property="collectionView" destination="SVn-pw-C6X" id="fFo-Jc-vZl"/>
                         <outlet property="collectionViewGridLayout" destination="Yk1-ir-08P" id="duO-NH-nFe"/>
+                        <outlet property="detailTitleLabel" destination="D6N-oX-K3P" id="aPS-iJ-II5"/>
                         <outlet property="titleLabel" destination="Bdh-tW-HA4" id="vVC-Ic-fmi"/>
                     </connections>
                 </viewController>

@@ -56,12 +56,13 @@ class ForYouViewController: UIViewController, StoryboardCreate, LoadingStateType
         super.viewDidLoad()
         
         navigationItem.hidesBackButton = true
+        title = "为你推荐"
 
         if sex == .male {
             titleLabel.text = "你想遇上什么样的女生"
         }
         else {
-            titleLabel.text = "请选择你的类型"
+            titleLabel.text = "快速与土豪哥哥关注吧"
         }
         
         refreshData()

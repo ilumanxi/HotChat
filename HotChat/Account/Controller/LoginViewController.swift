@@ -51,15 +51,6 @@ class LoginViewController: UIViewController {
     
     func observeAccountState() {
         
-//        NotificationCenter.default.rx.notification(.userDidResetPassword)
-//            .subscribe(onNext: { [weak self] _ in
-//                guard let self = self else {
-//                    return
-//                }
-//                self.navigationController?.popToViewController(self, animated: true)
-//            })
-//            .disposed(by: rx.disposeBag)
-        
         NotificationCenter.default.rx.notification(.userDidSignedUp)
             .subscribe(onNext: { [weak self] _ in
                 let vc = UserInformationViewController.loadFromStoryboard()

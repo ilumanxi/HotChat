@@ -34,7 +34,9 @@ class UserInfoLikeObjectViewController: UIViewController, IndicatorDisplay, Load
     let userAPI = Request<UserAPI>()
     
     
-    var maximumCount = 3
+    var maximumCount: Int {
+        return sex == .male ? 3 : 1
+    }
     
     var labels: [LikeTag] = []
     
@@ -43,6 +45,9 @@ class UserInfoLikeObjectViewController: UIViewController, IndicatorDisplay, Load
     
     
     @IBOutlet weak var titleLabel: UILabel!
+    
+    
+    @IBOutlet weak var detailTitleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +59,8 @@ class UserInfoLikeObjectViewController: UIViewController, IndicatorDisplay, Load
         else {
             titleLabel.text = "请选择你的类型"
         }
+        
+        detailTitleLabel.text = "(请选择最合适你的\(maximumCount)项)"
         
         collectionViewGridLayout.itemHeight = 28
         collectionViewGridLayout.itemInterval = 10

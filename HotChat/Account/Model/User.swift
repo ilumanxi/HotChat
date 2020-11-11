@@ -65,13 +65,13 @@ enum UserStatus: Int, HandyJSONEnum {
 }
 
 
-enum OnlineStatus {
+enum OnlineStatus: Int, HandyJSONEnum {
     /// 离线
-    case offline
+    case offline = 0
     /// 在线
-    case online
+    case online = 1
     /// 直播中
-    case living
+    case living = 2
 }
 
 enum ValidationStatus: Int, HandyJSONEnum {

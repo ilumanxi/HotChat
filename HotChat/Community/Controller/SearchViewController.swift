@@ -156,9 +156,10 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: SearchViewCell.self)
-        configureCell(cell, for: indexPath)
+        let user = data[indexPath.row]
         
+        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: ChannelCell.self)
+        cell.setUser(user)
         return cell
     }
     
@@ -176,15 +177,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         
     }
     
-    func configureCell(_ cell: SearchViewCell, for indexPath: IndexPath) {
-        
-        let user = data[indexPath.row]
-        
-        cell.avatarImageView.kf.setImage(with: URL(string: user.headPic))
-        cell.nicknameLabel.text = user.nick
-        cell.statusLabel.text = user.onlineStatus.text
-        cell.statusLabel.textColor = user.onlineStatus.color
-    }
 }
 
 extension OnlineStatus {

@@ -12,6 +12,7 @@ import RxSwift
 import RxCocoa
 
 
+
 class PhoneSigninViewController: LegalLiabilityViewController, IndicatorDisplay {
     
     @IBOutlet weak var phoneTextField: UITextField!
@@ -27,6 +28,15 @@ class PhoneSigninViewController: LegalLiabilityViewController, IndicatorDisplay 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    NotificationCenter.default.rx.notification(.userDidResetPassword)
+        .subscribe(onNext: { [weak self] _ in
+            guard let self = self else {
+                return
+            }
+            self.navigationController?.popToViewController(self, animated: true)
+        })
+        .disposed(by: rx.disposeBag)
         
         let viewModel = SigninViewModel(
             input: (

@@ -28,7 +28,6 @@ class ResetPasswordViewController: UIViewController {
     
     @IBAction func backAction(_ sender: Any) {
         NotificationCenter.default.post(name: .userDidResetPassword, object: nil)
-        navigationController?.popViewController(animated: true)
     }
     
     /*

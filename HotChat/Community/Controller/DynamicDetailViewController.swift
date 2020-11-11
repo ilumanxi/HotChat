@@ -52,6 +52,10 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if user.userId != LoginManager.shared.user!.userId {
+            setupChatView()
+        }
 
         tableView.mj_header = MJRefreshNormalHeader { [weak self] in
             self?.refreshData()
@@ -68,6 +72,32 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
         state = .loadingContent
         refreshData()
         
+    }
+    
+    private let chatViewHeight: CGFloat = 48
+    
+    private var chatView: UserInfoChatView!
+    
+    
+    private func setupChatView() {
+        
+        chatView = UserInfoChatView.loadFromNib()
+        chatView.onPushing.delegate(on: self) { (self, _) -> (User, UINavigationController) in
+            return (self.user, self.navigationController!)
+        }
+        chatView.backgroundColor = .clear
+        view.addSubview(chatView)
+        
+        chatView.snp.makeConstraints { maker in
+            maker.height.equalTo(48)
+            maker.leading.trailing.equalToSuperview()
+            maker.bottom.equalTo(self.safeBottom).offset(-20).priority(999)
+            maker.bottom.equalToSuperview().offset(-34)
+        }
+        
+        if #available(iOS 11.0, *) {
+            additionalSafeAreaInsets = UIEdgeInsets(top: 0, left: 0, bottom: 48, right: 0)
+        }
     }
     
     func endRefreshing(noContent: Bool = false) {

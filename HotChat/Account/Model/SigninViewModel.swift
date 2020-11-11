@@ -14,7 +14,7 @@ import RxSwiftUtilities
 class SigninViewModel {
     
     
-    static var countdownSeconds: Int = 6
+    static var countdownSeconds: Int = 60
     
     let validatedPhone: Driver<ValidationResult>
     let validatedPassword: Driver<ValidationResult>
