@@ -12,4 +12,7 @@ class IM {
     
     static let appID: UInt32 = 1400424749
     
+    static let ANPSBusinessID = 23246
+    
+    
 }

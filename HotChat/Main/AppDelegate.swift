@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         Appearance.default.configure()
-        
+        registerANPSNotification(application, didFinishLaunchingWithOptions: launchOptions)
         
         setupWindowRootController()
         
@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         PlatformAuthorization.application(application, didFinishLaunchingWithOptions: launchOptions)
         setupFaceSDK()
-        registerANPSNotification(application, didFinishLaunchingWithOptions: launchOptions)
+       
         
         // see notes below for the meaning of Atomic / Non-Atomic
             SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
@@ -171,7 +171,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        
+        LoginManager.shared.deviceToken = deviceToken
         BPush.registerDeviceToken(deviceToken)
         BPush.bindChannel { result, error in
             

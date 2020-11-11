@@ -12,7 +12,6 @@
 		260A87782521932A00380FB4 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A87772521932A00380FB4 /* SettingViewController.swift */; };
 		260B96112521F15C00767076 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260B96102521F15C00767076 /* Authentication.swift */; };
 		260B96162521F2F400767076 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260B96152521F2F400767076 /* AuthenticationViewController.swift */; };
-		262773452551683100B002D1 /* IBAnimatable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26945805253FE32900EBCABB /* IBAnimatable.framework */; };
 		262C5F6D255550BE00126359 /* AccountSecurityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C5F6B255550BE00126359 /* AccountSecurityController.swift */; };
 		262C5F6E255550BE00126359 /* AccountSecurityController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 262C5F6C255550BE00126359 /* AccountSecurityController.xib */; };
 		26373C732502340D0066FF3B /* FormEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26373C722502340D0066FF3B /* FormEntry.swift */; };
@@ -216,6 +215,10 @@
 		26D1E58B253D5F17004B9B29 /* CallManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D1E58A253D5F17004B9B29 /* CallManager.m */; };
 		26D1E594253D6000004B9B29 /* VideoCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D1E593253D6000004B9B29 /* VideoCallViewController.m */; };
 		26DBC373253D89DF0083BDFB /* AudioCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DBC372253D89DF0083BDFB /* AudioCallViewController.m */; };
+		26DF5121255BB193009FBA15 /* IBAnimatable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26945805253FE32900EBCABB /* IBAnimatable.framework */; };
+		26DF5122255BB193009FBA15 /* IBAnimatable.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 26945805253FE32900EBCABB /* IBAnimatable.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		26DF5133255BB910009FBA15 /* IDLFaceSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26CB6D3825515D6B00A9F4DD /* IDLFaceSDK.framework */; };
+		26DF5134255BB910009FBA15 /* IDLFaceSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 26CB6D3825515D6B00A9F4DD /* IDLFaceSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		26DF877D255A63BA002162A9 /* BasicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DF877B255A63BA002162A9 /* BasicCell.swift */; };
 		26DF877E255A63BA002162A9 /* BasicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26DF877C255A63BA002162A9 /* BasicCell.xib */; };
 		26DF8780255A645C002162A9 /* SwitchViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26DF877F255A645C002162A9 /* SwitchViewCell.xib */; };
@@ -233,7 +236,6 @@
 		26E291B72554FB810032AE99 /* AvatarAuthenticationResultController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26E291B52554FB810032AE99 /* AvatarAuthenticationResultController.xib */; };
 		26EB2DA72558F157006698F9 /* SubsidiaryAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EB2DA52558F157006698F9 /* SubsidiaryAccountCell.swift */; };
 		26EB2DA82558F157006698F9 /* SubsidiaryAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26EB2DA62558F157006698F9 /* SubsidiaryAccountCell.xib */; };
-		26EB2DC125591C53006698F9 /* IDLFaceSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26CB6D3825515D6B00A9F4DD /* IDLFaceSDK.framework */; };
 		26EB2DCA25593FCA006698F9 /* ConsumerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EB2DC925593FCA006698F9 /* ConsumerAPI.swift */; };
 		26EB2DCC255945C4006698F9 /* Consumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EB2DCB255945C4006698F9 /* Consumer.swift */; };
 		26EE0E4C25245BD800233ED5 /* PayAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EE0E4B25245BD800233ED5 /* PayAPI.swift */; };
@@ -267,8 +269,6 @@
 		26FC88F0253ECFBB00E4D82F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FC88EF253ECFBB00E4D82F /* SearchViewController.swift */; };
 		26FC88F5253ED49000E4D82F /* SearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FC88F4253ED49000E4D82F /* SearchAPI.swift */; };
 		26FC88FA253ED66600E4D82F /* SearchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FC88F9253ED66600E4D82F /* SearchViewCell.swift */; };
-		2AEA6285B15814310E3B0C09 /* libPods-HotChat-HotChatUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 685BC0639EB2C6B79D6008A0 /* libPods-HotChat-HotChatUITests.a */; };
-		49FD36444F546D4571259AA6 /* libPods-HotChatTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78879627913C3D660899171B /* libPods-HotChatTests.a */; };
 		569A62C017EE594D27BBDD0C /* libPods-HotChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1A4E29DD020804E913333F /* libPods-HotChat.a */; };
 		F305482B2532BC0800844D00 /* DynamicViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F305482A2532BC0800844D00 /* DynamicViewCell.swift */; };
 		F370D277251CE65500C2F708 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F370D276251CE65500C2F708 /* ResetPasswordViewController.swift */; };
@@ -294,8 +294,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		26DF5123255BB193009FBA15 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				26DF5134255BB910009FBA15 /* IDLFaceSDK.framework in Embed Frameworks */,
+				26DF5122255BB193009FBA15 /* IBAnimatable.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		1C32CA0070B3C7B3111B5D13 /* Pods-HotChat-HotChatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotChat-HotChatUITests.release.xcconfig"; path = "Target Support Files/Pods-HotChat-HotChatUITests/Pods-HotChat-HotChatUITests.release.xcconfig"; sourceTree = "<group>"; };
 		2605A4752513187900017241 /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		2607319A2536DD1B00B1093C /* ReportAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAPI.swift; sourceTree = "<group>"; };
 		260A87772521932A00380FB4 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -620,13 +634,8 @@
 		26FC88F9253ED66600E4D82F /* SearchViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewCell.swift; sourceTree = "<group>"; };
 		316CE69C043071315F0EB71A /* Pods-HotChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotChat.debug.xcconfig"; path = "Target Support Files/Pods-HotChat/Pods-HotChat.debug.xcconfig"; sourceTree = "<group>"; };
 		41171A0CC3850914D7B2BEAA /* Pods-HotChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotChat.release.xcconfig"; path = "Target Support Files/Pods-HotChat/Pods-HotChat.release.xcconfig"; sourceTree = "<group>"; };
-		522E8568C8A04E2A38789863 /* Pods-HotChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotChatTests.release.xcconfig"; path = "Target Support Files/Pods-HotChatTests/Pods-HotChatTests.release.xcconfig"; sourceTree = "<group>"; };
-		685BC0639EB2C6B79D6008A0 /* libPods-HotChat-HotChatUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HotChat-HotChatUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7565AD81F41183F52F23D4B1 /* Pods-HotChat-HotChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotChat-HotChatTests.debug.xcconfig"; path = "Target Support Files/Pods-HotChat-HotChatTests/Pods-HotChat-HotChatTests.debug.xcconfig"; sourceTree = "<group>"; };
-		78879627913C3D660899171B /* libPods-HotChatTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HotChatTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA99308DBA66754EEB4E33C2 /* Pods-HotChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotChatTests.debug.xcconfig"; path = "Target Support Files/Pods-HotChatTests/Pods-HotChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CE1A4E29DD020804E913333F /* libPods-HotChat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HotChat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D867E19108FF78BD6462E0F7 /* Pods-HotChat-HotChatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotChat-HotChatUITests.debug.xcconfig"; path = "Target Support Files/Pods-HotChat-HotChatUITests/Pods-HotChat-HotChatUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F305482A2532BC0800844D00 /* DynamicViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicViewCell.swift; sourceTree = "<group>"; };
 		F370D276251CE65500C2F708 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		F38CB8C52507B14700049A76 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
@@ -641,9 +650,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				26CB6C93255153A500A9F4DD /* libc++.tbd in Frameworks */,
-				26EB2DC125591C53006698F9 /* IDLFaceSDK.framework in Frameworks */,
+				26DF5133255BB910009FBA15 /* IDLFaceSDK.framework in Frameworks */,
 				269590BF250B5FE900763061 /* StoreKit.framework in Frameworks */,
-				262773452551683100B002D1 /* IBAnimatable.framework in Frameworks */,
+				26DF5121255BB193009FBA15 /* IBAnimatable.framework in Frameworks */,
 				569A62C017EE594D27BBDD0C /* libPods-HotChat.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -652,7 +661,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49FD36444F546D4571259AA6 /* libPods-HotChatTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -660,7 +668,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AEA6285B15814310E3B0C09 /* libPods-HotChat-HotChatUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1377,10 +1384,6 @@
 			children = (
 				316CE69C043071315F0EB71A /* Pods-HotChat.debug.xcconfig */,
 				41171A0CC3850914D7B2BEAA /* Pods-HotChat.release.xcconfig */,
-				D867E19108FF78BD6462E0F7 /* Pods-HotChat-HotChatUITests.debug.xcconfig */,
-				1C32CA0070B3C7B3111B5D13 /* Pods-HotChat-HotChatUITests.release.xcconfig */,
-				AA99308DBA66754EEB4E33C2 /* Pods-HotChatTests.debug.xcconfig */,
-				522E8568C8A04E2A38789863 /* Pods-HotChatTests.release.xcconfig */,
 				7565AD81F41183F52F23D4B1 /* Pods-HotChat-HotChatTests.debug.xcconfig */,
 				F52AC80ECD4733962FF9B535 /* Pods-HotChat-HotChatTests.release.xcconfig */,
 			);
@@ -1394,8 +1397,6 @@
 				26945805253FE32900EBCABB /* IBAnimatable.framework */,
 				269590BE250B5FE900763061 /* StoreKit.framework */,
 				CE1A4E29DD020804E913333F /* libPods-HotChat.a */,
-				685BC0639EB2C6B79D6008A0 /* libPods-HotChat-HotChatUITests.a */,
-				78879627913C3D660899171B /* libPods-HotChatTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1423,14 +1424,13 @@
 				5C62613C886FDA87662A76D3 /* [CP] Embed Pods Frameworks */,
 				65E1731636F77F71257BF696 /* [CP] Copy Pods Resources */,
 				269457F7253FD65B00EBCABB /* Carthage Copy Frameworks */,
+				26DF5123255BB193009FBA15 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = HotChat;
-			packageProductDependencies = (
-			);
 			productName = HotChat;
 			productReference = 2643EB362500AD7D00FBBE49 /* HotChat.app */;
 			productType = "com.apple.product-type.application";
@@ -1439,7 +1439,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2643EB652500AD7E00FBBE49 /* Build configuration list for PBXNativeTarget "HotChatTests" */;
 			buildPhases = (
-				8F1A3B65FC09E1EE0E0BD031 /* [CP] Check Pods Manifest.lock */,
 				2643EB4A2500AD7E00FBBE49 /* Sources */,
 				2643EB4B2500AD7E00FBBE49 /* Frameworks */,
 				2643EB4C2500AD7E00FBBE49 /* Resources */,
@@ -1458,12 +1457,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2643EB682500AD7E00FBBE49 /* Build configuration list for PBXNativeTarget "HotChatUITests" */;
 			buildPhases = (
-				0C318AA7591ED3A63EDB7B4D /* [CP] Check Pods Manifest.lock */,
 				2643EB552500AD7E00FBBE49 /* Sources */,
 				2643EB562500AD7E00FBBE49 /* Frameworks */,
 				2643EB572500AD7E00FBBE49 /* Resources */,
-				CF8ECA20812A66CEF5B12DFB /* [CP] Embed Pods Frameworks */,
-				D6962707554C718D30FD5255 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1509,8 +1505,6 @@
 				"zh-Hans",
 			);
 			mainGroup = 2643EB2D2500AD7D00FBBE49;
-			packageReferences = (
-			);
 			productRefGroup = 2643EB372500AD7D00FBBE49 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1598,28 +1592,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0C318AA7591ED3A63EDB7B4D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-HotChat-HotChatUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		269457F7253FD65B00EBCABB /* Carthage Copy Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1670,28 +1642,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HotChat/Pods-HotChat-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8F1A3B65FC09E1EE0E0BD031 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-HotChatTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		C3E903E504D1D99E6089502F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1712,36 +1662,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CF8ECA20812A66CEF5B12DFB /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HotChat-HotChatUITests/Pods-HotChat-HotChatUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D6962707554C718D30FD5255 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HotChat-HotChatUITests/Pods-HotChat-HotChatUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2380,7 +2300,6 @@
 		};
 		2643EB662500AD7E00FBBE49 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AA99308DBA66754EEB4E33C2 /* Pods-HotChatTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2403,7 +2322,6 @@
 		};
 		2643EB672500AD7E00FBBE49 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 522E8568C8A04E2A38789863 /* Pods-HotChatTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2426,7 +2344,6 @@
 		};
 		2643EB692500AD7E00FBBE49 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D867E19108FF78BD6462E0F7 /* Pods-HotChat-HotChatUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -2447,7 +2364,6 @@
 		};
 		2643EB6A2500AD7E00FBBE49 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1C32CA0070B3C7B3111B5D13 /* Pods-HotChat-HotChatUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

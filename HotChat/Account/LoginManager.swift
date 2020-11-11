@@ -22,7 +22,6 @@ extension Notification.Name {
 
 class LoginManager: NSObject {
     
-    
     @objc static let shared = LoginManager()
     
     enum Parameters {
@@ -47,6 +46,7 @@ class LoginManager: NSObject {
         return storage
     }()
 
+    var deviceToken: Data?
     
     @objc private(set) var user: User?
     
@@ -103,6 +103,17 @@ class LoginManager: NSObject {
         
         TUIKit.sharedInstance()?.login(user.userId, userSig: user.imUserSig, succ: {
             TUILocalStorage.sharedInstance().saveLogin(user.userId, withAppId: UInt(IM.appID), withUserSig: user.imUserSig)
+            if let deviceToken = self.deviceToken {
+                let config = V2TIMAPNSConfig()
+                config.businessID = Int32(IM.ANPSBusinessID)
+                config.token = deviceToken
+                
+                V2TIMManager.sharedInstance()?.setAPNS(config, succ: {
+                    Log.print("-----> 设置 IM APNS 成功")
+                }, fail: { (code, msg) in
+                    Log.print("-----> 设置 APNS 失败: \(code)  \(msg ?? "")")
+                })
+            }
         }, fail: { (code, msg) in
             Log.print("检查IM配置是否正确: \(code) \(String(describing: msg))")
         })
@@ -126,7 +137,17 @@ class LoginManager: NSObject {
         TUILocalStorage.sharedInstance().login { (userID, appId, userSig) in
             if appId == IM.appID && !userID.isEmpty && !userSig.isEmpty {
                 TUIKit.sharedInstance()?.login(userID, userSig: userSig, succ: {
-                    
+                    if let deviceToken = self.deviceToken {
+                        let config = V2TIMAPNSConfig()
+                        config.businessID = Int32(IM.ANPSBusinessID)
+                        config.token = deviceToken
+                        
+                        V2TIMManager.sharedInstance()?.setAPNS(config, succ: {
+                            Log.print("-----> 设置 IM APNS 成功")
+                        }, fail: { (code, msg) in
+                            Log.print("-----> 设置 APNS 失败: \(code)  \(msg ?? "")")
+                        })
+                    }
                 }, fail: { (code, msg) in
                     Log.print("检查IM配置是否正确: \(code) \(String(describing: msg))")
                 })

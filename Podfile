@@ -2,7 +2,7 @@
  platform :ios, '11.0'
 
 # ignore all warnings from all pods
-inhibit_all_warnings!
+#inhibit_all_warnings!
 
 #TXIMSDK_TUIKit_live_iOS 使用了 *.xcassets 资源文件，需要加上这条语句防止与项目中资源文件冲突。
 install! 'cocoapods', :disable_input_output_paths => true
@@ -10,13 +10,7 @@ install! 'cocoapods', :disable_input_output_paths => true
 target 'HotChat' do
   # Comment the next line if you don't want to use dynamic frameworks
 #    use_frameworks!
-   
-   
-   use_modular_headers!
-   
-
-  # Pods for HotChat
-    
+    use_modular_headers!
     pod 'RxSwift'
     pod 'RxCocoa'
     pod 'NSObject+Rx'
@@ -55,24 +49,4 @@ target 'HotChat' do
     pod 'Masonry'
     pod 'AFNetworking'
   
-  target 'HotChatTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'HotChatUITests' do
-    # Pods for testing
-  end
-
 end
-
-
-
-post_install do |installer|
-    installer.pods_project.targets.each do |target|
-        target.build_configurations.each do |config|
-            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '11.0'
-        end
-    end
-end
-
