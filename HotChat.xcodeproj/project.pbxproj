@@ -25,6 +25,10 @@
 		2637D86E255A895B00020E98 /* TalkEarningCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2637D86C255A895B00020E98 /* TalkEarningCell.xib */; };
 		2637D870255A8DB700020E98 /* TalkEarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637D86F255A8DB700020E98 /* TalkEarning.swift */; };
 		2637D872255AA13D00020E98 /* GiftEarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637D871255AA13D00020E98 /* GiftEarning.swift */; };
+		2637D875255B8E5300020E98 /* BlacklistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637D873255B8E5300020E98 /* BlacklistController.swift */; };
+		2637D876255B8E5300020E98 /* BlacklistController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2637D874255B8E5300020E98 /* BlacklistController.xib */; };
+		2637D879255B8EDF00020E98 /* BlacklistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637D877255B8EDF00020E98 /* BlacklistCell.swift */; };
+		2637D87A255B8EDF00020E98 /* BlacklistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2637D878255B8EDF00020E98 /* BlacklistCell.xib */; };
 		2639535D254187F100B5E3C0 /* WalletViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2639535C254187F100B5E3C0 /* WalletViewCell.swift */; };
 		26395362254198DB00B5E3C0 /* RightDetailViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26395361254198DB00B5E3C0 /* RightDetailViewCell.xib */; };
 		2639536825419E8300B5E3C0 /* CardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2639536625419E8300B5E3C0 /* CardViewCell.swift */; };
@@ -310,6 +314,10 @@
 		2637D86C255A895B00020E98 /* TalkEarningCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TalkEarningCell.xib; sourceTree = "<group>"; };
 		2637D86F255A8DB700020E98 /* TalkEarning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkEarning.swift; sourceTree = "<group>"; };
 		2637D871255AA13D00020E98 /* GiftEarning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftEarning.swift; sourceTree = "<group>"; };
+		2637D873255B8E5300020E98 /* BlacklistController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlacklistController.swift; sourceTree = "<group>"; };
+		2637D874255B8E5300020E98 /* BlacklistController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BlacklistController.xib; sourceTree = "<group>"; };
+		2637D877255B8EDF00020E98 /* BlacklistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlacklistCell.swift; sourceTree = "<group>"; };
+		2637D878255B8EDF00020E98 /* BlacklistCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BlacklistCell.xib; sourceTree = "<group>"; };
 		2639535C254187F100B5E3C0 /* WalletViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewCell.swift; sourceTree = "<group>"; };
 		26395361254198DB00B5E3C0 /* RightDetailViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RightDetailViewCell.xib; sourceTree = "<group>"; };
 		2639536625419E8300B5E3C0 /* CardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewCell.swift; sourceTree = "<group>"; };
@@ -776,6 +784,8 @@
 				260A87772521932A00380FB4 /* SettingViewController.swift */,
 				26772820255A480900B98973 /* PrivacyViewController.swift */,
 				26772821255A480900B98973 /* PrivacyViewController.xib */,
+				2637D873255B8E5300020E98 /* BlacklistController.swift */,
+				2637D874255B8E5300020E98 /* BlacklistController.xib */,
 				F3C6B918251F3117006C06CB /* LabelViewController.swift */,
 				26F8947025203BDD00A45648 /* TitleViewController.swift */,
 				260B96152521F2F400767076 /* AuthenticationViewController.swift */,
@@ -849,6 +859,8 @@
 				26DF877C255A63BA002162A9 /* BasicCell.xib */,
 				2637D86B255A895B00020E98 /* TalkEarningCell.swift */,
 				2637D86C255A895B00020E98 /* TalkEarningCell.xib */,
+				2637D877255B8EDF00020E98 /* BlacklistCell.swift */,
+				2637D878255B8EDF00020E98 /* BlacklistCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1524,6 +1536,7 @@
 				26959042250B1DD900763061 /* InterestedCardOverlayView.xib in Resources */,
 				26CB6D4F25515D6B00A9F4DD /* idl-license.face-ios in Resources */,
 				26C81EE62547E9E300C1D563 /* VoiceView.xib in Resources */,
+				2637D876255B8E5300020E98 /* BlacklistController.xib in Resources */,
 				26F5537D2553D3CD00840735 /* GiftEarningsViewController.xib in Resources */,
 				26FBCF642558EF32001F3DFA /* ConsumerDetailsViewController.xib in Resources */,
 				26F8946C25203B7300A45648 /* TitleViewCell.xib in Resources */,
@@ -1536,6 +1549,7 @@
 				2637D86E255A895B00020E98 /* TalkEarningCell.xib in Resources */,
 				2679550E25079A4A00A72954 /* UserInfoChatView.xib in Resources */,
 				26F553712553AFB500840735 /* EarningsViewController.xib in Resources */,
+				2637D87A255B8EDF00020E98 /* BlacklistCell.xib in Resources */,
 				267954F62507579700A72954 /* Chat.storyboard in Resources */,
 				26BB187D2522F5810019BBFD /* Main.storyboard in Resources */,
 				2643EB482500AD7E00FBBE49 /* LaunchScreen.storyboard in Resources */,
@@ -1887,6 +1901,7 @@
 				2643EBB62500B04100FBBE49 /* InterfaceOrientation.swift in Sources */,
 				269DEE08254BF735000AD5D9 /* QMUIButton.m in Sources */,
 				26CB6D4425515D6B00A9F4DD /* BDFaceRemindView.m in Sources */,
+				2637D875255B8E5300020E98 /* BlacklistController.swift in Sources */,
 				2682974B2511B05300949C7F /* IndicatorDisplay.swift in Sources */,
 				26AC1E4C25060D27003EFB44 /* LoginViewController.swift in Sources */,
 				2694581A253FF86000EBCABB /* DestructiveViewCell.swift in Sources */,
@@ -1935,6 +1950,7 @@
 				260A87782521932A00380FB4 /* SettingViewController.swift in Sources */,
 				2643EBAF2500B04100FBBE49 /* UserInfoProfilePhotoCell.swift in Sources */,
 				26F553702553AFB500840735 /* EarningsViewController.swift in Sources */,
+				2637D879255B8EDF00020E98 /* BlacklistCell.swift in Sources */,
 				2607319B2536DD1B00B1093C /* ReportAPI.swift in Sources */,
 				2643EBB02500B04100FBBE49 /* RealNameAuthenticationFooterView.swift in Sources */,
 				26CB6D4025515D6B00A9F4DD /* BDFaceAgreementViewController.m in Sources */,
@@ -2051,7 +2067,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -2107,7 +2123,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -2133,7 +2149,7 @@
 					"$(PROJECT_DIR)/HotChat/BaiDu/BDFaceSDK",
 				);
 				INFOPLIST_FILE = HotChat/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2256,7 +2272,7 @@
 					"$(PROJECT_DIR)/HotChat/BaiDu/BDFaceSDK",
 				);
 				INFOPLIST_FILE = HotChat/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

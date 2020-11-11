@@ -39,11 +39,11 @@ class LoginManager: NSObject {
     }
     
 
-    lazy var storage: Storage<String> = {
+    lazy var storage: Storage<String, String> = {
         let diskConfig = DiskConfig(name: "UserCache")
         let memoryConfig = MemoryConfig(expiry: .never, countLimit: 10, totalCostLimit: 10)
         let transformer = TransformerFactory.forCodable(ofType: String.self)
-        let storage = try! Storage<String>(diskConfig: diskConfig, memoryConfig: memoryConfig, transformer: transformer)
+        let storage = try! Storage<String, String>(diskConfig: diskConfig, memoryConfig: memoryConfig, transformer: transformer)
         return storage
     }()
 

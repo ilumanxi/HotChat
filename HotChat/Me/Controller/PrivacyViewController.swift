@@ -24,6 +24,9 @@ class PrivacyViewController: UIViewController, LoadingStateType, IndicatorDispla
     
     lazy var blacklistForm: BasicFormEntry = {
         let entry = BasicFormEntry(text: "黑名单管理")
+        entry.onTapped.delegate(on: self) { (self, _) in
+            self.pushBlacklist()
+        }
         return entry
     }()
     
@@ -65,6 +68,11 @@ class PrivacyViewController: UIViewController, LoadingStateType, IndicatorDispla
                 self?.state = .error
             })
             .disposed(by: rx.disposeBag)
+    }
+    
+    func pushBlacklist()  {
+        let vc = BlacklistController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func editSettings(type: Int, isOn: Bool) {

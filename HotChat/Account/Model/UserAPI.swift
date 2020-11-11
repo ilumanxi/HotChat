@@ -34,7 +34,7 @@ enum UserAPI {
     case batchFollow(followList: [Any])
     case infoInvite
     case editInvite(phone: String)
-    case blackList(userId: String)
+    case blackList
     case editDefriend(userId: String)
 }
 
@@ -137,8 +137,8 @@ extension UserAPI: TargetType {
             parameters = [:]
         case .editInvite(let phone):
             parameters =  ["phone" : phone]
-        case .blackList(let userId):
-            parameters =  ["userId" : userId]
+        case .blackList:
+            parameters =  [:]
         case .editDefriend(let userId):
             parameters =  ["userId" : userId]
         }

@@ -122,7 +122,7 @@
     
     
     LiveGiftListModel *giftModel = [[LiveGiftListModel alloc] init];
-    giftModel.type = [NSString stringWithFormat:@"%ld",gift.id];
+    giftModel.type = [NSString stringWithFormat:@"%ld",(long)gift.id];
     giftModel.picUrl = gift.img;
     giftModel.name = gift.name;
     
