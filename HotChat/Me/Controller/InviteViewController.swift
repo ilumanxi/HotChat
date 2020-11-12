@@ -20,15 +20,7 @@ class InviteViewController: UIViewController, LoadingStateType, IndicatorDisplay
     }
     
     @IBOutlet weak var textField: UITextField!
-    
-    
-    @IBOutlet weak var messageLabel: UILabel!
-    
-    
-    @IBOutlet weak var messageImageView: UIImageView!
-    
-    
-    @IBOutlet weak var stackView: UIStackView!
+
     
     @IBOutlet weak var hintView: UIView!
     
@@ -37,8 +29,7 @@ class InviteViewController: UIViewController, LoadingStateType, IndicatorDisplay
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        stackView.isHidden = true
+
         refreshData()
     }
     
@@ -63,22 +54,29 @@ class InviteViewController: UIViewController, LoadingStateType, IndicatorDisplay
             .disposed(by: rx.disposeBag)
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
     
     @IBAction func submitButtonTapped(_ sender: Any) {
         
+        let phone = textField.text ?? ""
+        
+        if phone.isEmpty {
+            show("手机号不能为空")
+            return
+        }
+        
+        view.endEditing(true)
         self.showIndicator()
-        userAPI.request(.editInvite(phone: textField.text ?? ""), type: ResponseEmpty.self)
+        userAPI.request(.editInvite(phone: phone), type: ResponseEmpty.self)
             .checkResponse()
-            .subscribe(onSuccess:{ [weak self] _ in
-                self?.messageLabel.text = "提交成功、奖励会在24小时内发放到账户"
-                self?.messageImageView.isHighlighted = true
-                self?.stackView.isHidden = false
+            .subscribe(onSuccess:{ [weak self] response in
+                self?.show(response.msg)
                 self?.hideIndicator()
                 
-            }, onError: { [weak self]  _ in
-                self?.messageLabel.text = "提交失败、请填写邀请人正确的手机号"
-                self?.messageImageView.isHighlighted = false
-                self?.stackView.isHidden = false
+            }, onError: { [weak self]  error in
+                self?.show(error.localizedDescription)
                 self?.hideIndicator()
             })
             .disposed(by: rx.disposeBag)

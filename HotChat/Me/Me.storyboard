@@ -939,20 +939,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                             </textField>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="n0s-vO-u7F">
-                                <rect key="frame" x="85.5" y="786.5" width="243" height="75.5"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="failured" highlightedImage="succeed" translatesAutoresizingMaskIntoConstraints="NO" id="gdD-tx-k8s">
-                                        <rect key="frame" x="97.5" y="0.0" width="48.5" height="48.5"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提交失败、请填写邀请人正确的手机号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PPk-jv-Lxd">
-                                        <rect key="frame" x="0.0" y="58.5" width="243" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cHe-wx-762">
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
@@ -984,15 +970,12 @@
                             <constraint firstItem="Zuc-19-PH8" firstAttribute="centerX" secondItem="on6-sY-Uox" secondAttribute="centerX" id="0O6-hr-umR"/>
                             <constraint firstItem="cSI-q2-52r" firstAttribute="leading" secondItem="gG2-qB-rbH" secondAttribute="leading" constant="55" id="4LX-Mp-QQZ"/>
                             <constraint firstItem="Zuc-19-PH8" firstAttribute="top" secondItem="jIE-bl-MTD" secondAttribute="bottom" constant="30" id="E4w-RA-UpN"/>
-                            <constraint firstItem="gG2-qB-rbH" firstAttribute="bottom" secondItem="n0s-vO-u7F" secondAttribute="bottom" priority="900" id="EYx-Ze-hKC"/>
                             <constraint firstItem="gG2-qB-rbH" firstAttribute="trailing" secondItem="jIE-bl-MTD" secondAttribute="trailing" constant="55" id="Nz9-fh-JUa"/>
-                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="n0s-vO-u7F" secondAttribute="bottom" constant="34" id="SW7-pc-h3X"/>
                             <constraint firstAttribute="bottom" secondItem="cHe-wx-762" secondAttribute="bottom" id="TNV-5R-rTu"/>
                             <constraint firstAttribute="trailing" secondItem="cSI-q2-52r" secondAttribute="trailing" constant="55" id="fTJ-MH-ZtR"/>
                             <constraint firstItem="cSI-q2-52r" firstAttribute="top" secondItem="gG2-qB-rbH" secondAttribute="top" constant="37" id="fm1-LI-1bx"/>
                             <constraint firstItem="cHe-wx-762" firstAttribute="leading" secondItem="on6-sY-Uox" secondAttribute="leading" id="h5H-qd-HK7"/>
                             <constraint firstItem="jIE-bl-MTD" firstAttribute="top" secondItem="cSI-q2-52r" secondAttribute="bottom" constant="20" id="jx2-Rf-eX7"/>
-                            <constraint firstItem="n0s-vO-u7F" firstAttribute="centerX" secondItem="on6-sY-Uox" secondAttribute="centerX" id="lnQ-nl-ISY"/>
                             <constraint firstItem="cHe-wx-762" firstAttribute="top" secondItem="gG2-qB-rbH" secondAttribute="top" id="n5S-Fy-LjE"/>
                             <constraint firstItem="jIE-bl-MTD" firstAttribute="leading" secondItem="gG2-qB-rbH" secondAttribute="leading" constant="55" id="vrQ-d2-kLP"/>
                             <constraint firstAttribute="trailing" secondItem="cHe-wx-762" secondAttribute="trailing" id="xWx-Kk-3m0"/>
@@ -1001,9 +984,6 @@
                     <navigationItem key="navigationItem" title="邀请人信息" id="bcg-7r-Khg"/>
                     <connections>
                         <outlet property="hintView" destination="cHe-wx-762" id="Kr9-mJ-odf"/>
-                        <outlet property="messageImageView" destination="gdD-tx-k8s" id="gNI-Hs-BL7"/>
-                        <outlet property="messageLabel" destination="PPk-jv-Lxd" id="D7d-yr-7Id"/>
-                        <outlet property="stackView" destination="n0s-vO-u7F" id="5lj-PI-Mov"/>
                         <outlet property="textField" destination="jIE-bl-MTD" id="doB-qz-U3a"/>
                     </connections>
                 </viewController>
@@ -1055,56 +1035,8 @@
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" textLabel="0oa-jA-SiC" rowHeight="30" style="IBUITableViewCellStyleDefault" id="2b6-on-m6C">
-                                        <rect key="frame" x="0.0" y="68" width="414" height="30"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2b6-on-m6C" id="pd4-Qq-i0a">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0oa-jA-SiC">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <attributedString key="attributedText">
-                                                        <fragment content="达到">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.60392156862745094" green="0.60392156862745094" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" metaFont="system" size="10"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content="铂金贵族">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.95294117647058818" green="0.17254901960784313" blue="0.043137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" metaFont="system" size="10"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content="等级，昵称会自动设置为专属昵称哦。">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.60392156862745094" green="0.60392156862745094" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" metaFont="system" size="10"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content="了解贵族特权&gt;">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.32156862745098036" green="0.3529411764705882" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" metaFont="system" size="10"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" textLabel="KTg-4U-o9Q" detailTextLabel="vPT-hq-eQV" rowHeight="50" style="IBUITableViewCellStyleValue1" id="0in-9X-1Ux">
-                                        <rect key="frame" x="0.0" y="98" width="414" height="50"/>
+                                        <rect key="frame" x="0.0" y="68" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0in-9X-1Ux" id="0bh-aR-dcH">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -1129,7 +1061,7 @@
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" textLabel="Ngf-Cz-Wax" detailTextLabel="jAr-RM-YcR" rowHeight="50" style="IBUITableViewCellStyleValue1" id="wV8-jW-j9O">
-                                        <rect key="frame" x="0.0" y="148" width="414" height="50"/>
+                                        <rect key="frame" x="0.0" y="118" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wV8-jW-j9O" id="4Tc-dH-Fy6">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -1157,7 +1089,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" textLabel="JGR-6P-HY1" detailTextLabel="EJg-42-UZ7" rowHeight="50" style="IBUITableViewCellStyleValue1" id="j7l-yq-3aa">
-                                        <rect key="frame" x="0.0" y="198" width="414" height="50"/>
+                                        <rect key="frame" x="0.0" y="168" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="j7l-yq-3aa" id="6bg-4U-4dr">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -2546,7 +2478,6 @@
         <image name="add-gray" width="25" height="25"/>
         <image name="arrow-right-gray" width="6" height="11"/>
         <image name="arrow-right-white" width="6" height="11"/>
-        <image name="failured" width="48.5" height="48.5"/>
         <image name="me-anchor" width="22" height="21"/>
         <image name="me-attention" width="7" height="7"/>
         <image name="me-authentication-head" width="82.5" height="85"/>
@@ -2560,7 +2491,6 @@
         <image name="me-topic" width="13" height="13"/>
         <image name="me-wallet" width="22" height="21"/>
         <image name="remind-white" width="13" height="13"/>
-        <image name="succeed" width="48.5" height="48.5"/>
         <image name="tabbar-me-normal" width="19" height="19"/>
         <image name="tabbar-me-selected" width="19" height="19"/>
         <systemColor name="labelColor">

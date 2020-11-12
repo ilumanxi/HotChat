@@ -16,6 +16,9 @@ import MJRefresh
 
 class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, IndicatorDisplay {
     
+    
+    
+    
     struct SearchParameters {
         let searchContent: String
         let page: Int
@@ -41,6 +44,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     var data: [User] = [] {
         didSet {
+            showOrHideIndicator(loadingState: data.isEmpty ? .noContent : .contentLoaded)
             tableView.reloadData()
             tableView.mj_footer?.isHidden = data.isEmpty
         }

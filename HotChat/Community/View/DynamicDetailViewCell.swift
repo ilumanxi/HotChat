@@ -42,6 +42,9 @@ class DynamicDetailViewCell: UITableViewCell {
     @IBOutlet weak var commentButton: HotChatButton!
     
     
+    @IBOutlet weak var moreButton: MinimumHitButton!
+    
+    
     let onAvatarTapped = Delegate<DynamicDetailViewCell, Void>()
     
     let onLikeTapped = Delegate<DynamicDetailViewCell, Void>()
@@ -94,6 +97,11 @@ class DynamicDetailViewCell: UITableViewCell {
         likeButton.isSelected = dynamic.isSelfZan
         giveButton.setTitle(dynamic.giftNum.description, for: .normal)
         dateLabel.text = dynamic.timeFormat
+        
+        let isSelf = LoginManager.shared.user!.userId == dynamic.userInfo.userId
+        
+        commentButton.alpha = isSelf ? 0 : 1
+        moreButton.isHidden = isSelf
         collectionViewHeightConstraint.constant = collectionViewHeight(for: CGFloat(dynamic.photoList.count))
         setNeedsLayout()
         layoutIfNeeded()

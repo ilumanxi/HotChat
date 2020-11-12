@@ -95,9 +95,9 @@ class SettingViewController: UITableViewController, StoryboardCreate, IndicatorD
                     accountSecurity,
                     antiHarassment,
                     privacy,
-                    nobleSetting,
-                    general,
-                    protection,
+//                    nobleSetting,
+//                    general,
+//                    protection,
                     invite
                 ],
                 headerText: nil

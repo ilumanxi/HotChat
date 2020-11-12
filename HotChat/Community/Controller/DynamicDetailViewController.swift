@@ -291,9 +291,9 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
                 }))
             }
             else {
-                alertController.addAction(SPAlertAction(title: "不看Ta的动态", style: .default, handler: { _ in
-                    
-                }))
+//                alertController.addAction(SPAlertAction(title: "不看Ta的动态", style: .default, handler: { _ in
+//
+//                }))
                 
                 alertController.addAction(SPAlertAction(title: "举报这条动态", style: .default, handler: { [weak self] _ in
                     let vc = ReportViewController.loadFromStoryboard()

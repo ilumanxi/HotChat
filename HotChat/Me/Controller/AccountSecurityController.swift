@@ -65,8 +65,12 @@ class AccountSecurityController: UIViewController {
     }
 
     func setupSections() {
+//        sections = [
+//            FormSection(entries: [phoneBinding, unsubscribe], headerText: nil)
+//        ]
+        
         sections = [
-            FormSection(entries: [phoneBinding, unsubscribe], headerText: nil)
+            FormSection(entries: [phoneBinding], headerText: nil)
         ]
     }
     

@@ -503,13 +503,6 @@
                                                 <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V7e-9Y-ZHG" userLabel="Bottom View">
                                                     <rect key="frame" x="0.0" y="227.5" width="414" height="42"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L1n-eC-vfB" userLabel="More Button" customClass="MinimumHitButton" customModule="HotChat" customModuleProvider="target">
-                                                            <rect key="frame" x="391" y="10" width="3" height="22"/>
-                                                            <state key="normal" image="more"/>
-                                                            <connections>
-                                                                <action selector="moreButtonTapped:" destination="6Fc-Hx-zI4" eventType="touchUpInside" id="YTW-tj-KPH"/>
-                                                            </connections>
-                                                        </button>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VKS-Ei-3xh">
                                                             <rect key="frame" x="32" y="13.5" width="323" height="15"/>
                                                             <subviews>
@@ -540,7 +533,7 @@
                                                                     <rect key="frame" x="260" y="0.0" width="63" height="15"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
-                                                                    <state key="normal" title="私密评论" image="comment">
+                                                                    <state key="normal" title="私密聊天" image="comment">
                                                                         <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                     </state>
                                                                     <connections>
@@ -549,6 +542,13 @@
                                                                 </button>
                                                             </subviews>
                                                         </stackView>
+                                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L1n-eC-vfB" userLabel="More Button" customClass="MinimumHitButton" customModule="HotChat" customModuleProvider="target">
+                                                            <rect key="frame" x="391" y="10" width="3" height="22"/>
+                                                            <state key="normal" image="more"/>
+                                                            <connections>
+                                                                <action selector="moreButtonTapped:" destination="6Fc-Hx-zI4" eventType="touchUpInside" id="YTW-tj-KPH"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
@@ -588,6 +588,7 @@
                                             <outlet property="dateLabel" destination="YOb-Ym-i9e" id="leq-Gr-ZmN"/>
                                             <outlet property="giveButton" destination="4Ym-wM-ALV" id="Tj3-AX-IKd"/>
                                             <outlet property="likeButton" destination="VWE-82-X28" id="yqw-3v-AVE"/>
+                                            <outlet property="moreButton" destination="L1n-eC-vfB" id="WUg-Qc-mOz"/>
                                             <outlet property="nicknameLabel" destination="PQS-Ed-eWf" id="cAZ-O6-Abk"/>
                                             <outlet property="vipButton" destination="2nI-l0-DAG" id="F7s-Vs-dsq"/>
                                         </connections>
