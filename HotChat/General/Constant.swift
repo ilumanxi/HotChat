@@ -25,12 +25,22 @@ class Constant: NSObject {
         return URL(string: "http://\(APIHost)")!
     }
     
+    static var H5HostURL: URL {
+        return URL(string: "http://\(H5Host)")!
+    }
+    
 }
 
 
 extension Constant {
+    
+    //    static let APIHost = "pic.zhouwu5.com"
+    
     static let APIHost = "192.168.0.251/gateway.php"
-//    static let APIHost = "pic.zhouwu5.com"
+    
+    static let H5Host = "192.168.0.47:8080"
+    
+
     
     
     static let salt: String = "AJ265TT96e930d4d0YUddbcbPjc39CFK"

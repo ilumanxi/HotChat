@@ -92,6 +92,7 @@
 		2668B0A92523432A0073E25D /* WalletProductViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2668B0A72523432A0073E25D /* WalletProductViewCell.swift */; };
 		2668B0AA2523432A0073E25D /* WalletProductViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2668B0A82523432A0073E25D /* WalletProductViewCell.xib */; };
 		2668B0AF2523479F0073E25D /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2668B0AE2523479F0073E25D /* Product.swift */; };
+		2673FDBD255CE14400909A37 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2673FDBC255CE14400909A37 /* WebViewController.swift */; };
 		26772822255A480900B98973 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26772820255A480900B98973 /* PrivacyViewController.swift */; };
 		26772823255A480900B98973 /* PrivacyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26772821255A480900B98973 /* PrivacyViewController.xib */; };
 		26787E2A251B21A400D511E8 /* SignaturePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26787E29251B21A400D511E8 /* SignaturePlugin.swift */; };
@@ -409,6 +410,7 @@
 		2668B0A72523432A0073E25D /* WalletProductViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletProductViewCell.swift; sourceTree = "<group>"; };
 		2668B0A82523432A0073E25D /* WalletProductViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletProductViewCell.xib; sourceTree = "<group>"; };
 		2668B0AE2523479F0073E25D /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		2673FDBC255CE14400909A37 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		26772820255A480900B98973 /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
 		26772821255A480900B98973 /* PrivacyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrivacyViewController.xib; sourceTree = "<group>"; };
 		26787E29251B21A400D511E8 /* SignaturePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignaturePlugin.swift; sourceTree = "<group>"; };
@@ -885,6 +887,7 @@
 				26E14E5D251C6E8800645F08 /* HotChatButton.swift */,
 				2605A4752513187900017241 /* UIImageExtensions.swift */,
 				26F25C95250A1B3800F808EA /* SeparatorLine.swift */,
+				2673FDBC255CE14400909A37 /* WebViewController.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1804,6 +1807,7 @@
 				26F25C98250A359300F808EA /* InterestedViewController.swift in Sources */,
 				265C8A3D2513316200E220BD /* SigninViewModel.swift in Sources */,
 				2643EBA62500B04100FBBE49 /* PushSettingsViewController.swift in Sources */,
+				2673FDBD255CE14400909A37 /* WebViewController.swift in Sources */,
 				26A20B0D2518BBC10061BBB8 /* Response.swift in Sources */,
 				26F25C96250A1B3800F808EA /* SeparatorLine.swift in Sources */,
 				2684598E25359A8A002B9C6E /* MesssageAPI.swift in Sources */,

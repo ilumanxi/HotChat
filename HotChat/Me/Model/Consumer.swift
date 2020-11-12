@@ -21,7 +21,7 @@ class Consumer: NSObject, HandyJSON {
     
     var title: String = ""
     var time: String = ""
-    var energy: Int = 0
+    var energy: String = ""
     
     /// Type： 1减少 2添加2
     var type: ConsumerType!

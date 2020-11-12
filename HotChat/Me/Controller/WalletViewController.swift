@@ -104,7 +104,7 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
         title = "我的钱包"
         
     
-        let recordItem = UIBarButtonItem(title: "明显", style: .plain, target: self, action: #selector(pushExpensesRecord))
+        let recordItem = UIBarButtonItem(title: "明细", style: .plain, target: self, action: #selector(pushExpensesRecord))
         navigationItem.rightBarButtonItem = recordItem
         
         tableView.register(UINib(nibName: "WalletEnergyViewCell", bundle: nil), forCellReuseIdentifier: "WalletEnergyViewCell")

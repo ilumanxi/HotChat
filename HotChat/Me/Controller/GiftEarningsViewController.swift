@@ -171,7 +171,7 @@ extension GiftEarningsCell {
         giftImageview.kf.setImage(with: URL(string: model.img))
         titleLabel.text = model.title
         timeLabel.text = model.time
-        energyLabel.text = "\(model.energy)能量"
+        energyLabel.text = model.energy
         nicknameLabel.text = model.nick
     }
     

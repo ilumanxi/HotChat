@@ -19,29 +19,11 @@ class RealNameAuthenticationViewController: UITableViewController, IndicatorDisp
     static var storyboardNamed: String { return "Me"}
     
     
-
-    fileprivate var isShowUploadCard: Bool = false {
-        didSet {
-            handleUploadCardDisplayStatus()
-        }
-    }
-    
-    fileprivate let cardCellIndexPath: IndexPath = IndexPath(row: 3, section: .zero)
-    
-    @IBOutlet var cardHiddenShowViews: [UIView]!
-    
-    @IBOutlet var cardShowHiddenViews: [UIView]!
-    
-    
     @IBOutlet weak var nicknameTextField: UITextField!
     
     @IBOutlet weak var IDCardTexField: UITextField!
     
     
-    @IBOutlet weak var frontImageView: UIImageView!
-    
-    
-    @IBOutlet weak var backImgaeView: UIImageView!
     
     
     var authentication: Authentication!
@@ -52,8 +34,6 @@ class RealNameAuthenticationViewController: UITableViewController, IndicatorDisp
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        isShowUploadCard = false
         
         setupUI()
     }
@@ -61,8 +41,6 @@ class RealNameAuthenticationViewController: UITableViewController, IndicatorDisp
     func setupUI(){
         nicknameTextField.text = authentication.userName
         IDCardTexField.text = authentication.identityNum
-        frontImageView.kf.setImage(with: URL(string: authentication.identityPicFront))
-        backImgaeView.kf.setImage(with: URL(string: authentication.identityPicFan))
     }
     
     
@@ -71,13 +49,23 @@ class RealNameAuthenticationViewController: UITableViewController, IndicatorDisp
         let userName = nicknameTextField.text ?? ""
         let identityNum = IDCardTexField.text ?? ""
         
-        let hub = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
+        if userName.isEmpty {
+            show("姓名不能为空")
+            return
+        }
+        
+        if identityNum.isEmpty {
+            show("身份证号不能为空")
+            return
+        }
+        
+        showIndicatorOnWindow()
         userAPI.request(
             .userEditAttestation(userName: userName, identityNum: identityNum, identityPicFront: authentication.identityPicFront, identityPicFan: authentication.identityPicFan),
             type: ResponseEmpty.self
         )
         .subscribe(onSuccess: { [weak self] response in
-            hub.hide(animated: false)
+            self?.hideIndicatorFromWindow()
             if response.isSuccessd {
                 self?.navigationController?.popViewController(animated: true)
             }
@@ -85,27 +73,13 @@ class RealNameAuthenticationViewController: UITableViewController, IndicatorDisp
                 self?.show(response.msg)
             }
         }, onError: { [weak self] error in
-            hub.hide(animated: false)
+            self?.hideIndicatorFromWindow()
             self?.show(error.localizedDescription)
         })
         .disposed(by: rx.disposeBag)
     }
     
-    
-    @IBAction func frontButtonDidTag(_ sender: Any) {
-        
-        photoPicker {[weak self] (image, url) in
-            self?.frontImageView.image = image
-            self?.authentication.identityPicFront = url
-        }
-    }
-    
-    @IBAction func backButtonDidTag(_ sender: Any) {
-        photoPicker {[weak self] (image, url) in
-            self?.backImgaeView.image = image
-            self?.authentication.identityPicFan = url
-        }
-    }
+
     
     func photoPicker(complete: @escaping (UIImage, String) -> Void) {
         
@@ -141,29 +115,5 @@ class RealNameAuthenticationViewController: UITableViewController, IndicatorDisp
     }
     
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        if !isShowUploadCard  && indexPath == cardCellIndexPath {
-            return .zero
-        }
-        return super.tableView(tableView, heightForRowAt: indexPath)
-    }
-    
-    @IBAction func showUploadCardView(_ sender: Any) {
-        isShowUploadCard = true
-    }
-    
-    fileprivate func handleUploadCardDisplayStatus() {
-                
-        cardHiddenShowViews.forEach {
-            $0.isHidden = !isShowUploadCard
-        }
-        
-        cardShowHiddenViews.forEach {
-            $0.isHidden = isShowUploadCard
-        }
-        
-        tableView.reloadData()
-    }
 
 }

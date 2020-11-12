@@ -99,6 +99,11 @@ class WeChat: NSObject {
         if let thumbImage = thumbImage, let data = try? Data(contentsOf: thumbImage), let image = UIImage(data: data) {
             message.thumbData =  image.compress(toByte: 32 * 1024)
         }
+        else {
+            let logo = UIImage(named: "launch-logo")
+            message.thumbData =  logo?.compress(toByte: 32 * 1024)
+        }
+        
         message.mediaObject = webpage
         
         let req = SendMessageToWXReq()

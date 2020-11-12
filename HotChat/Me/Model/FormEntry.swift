@@ -15,14 +15,36 @@ import Photos
 
 func writeImage(_ image: UIImage) -> URL {
     
+    let image = image.compressed(quality: 0.5)
     let fileName =  ProcessInfo.processInfo.globallyUniqueString.appending(".png").replacingOccurrences(of: "-", with: "")
     let fileURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
     
-    try! image.pngData()?.write(to: fileURL)
-    
+    try! image?.pngData()?.write(to: fileURL)
     return fileURL
 }
 
+func writeImages(_ images: [UIImage]) -> [URL] {
+    
+    var urls: [URL] = []
+    
+    for image in images {
+        urls.append(writeImage(image))
+    }
+    return urls
+}
+
+
+extension ZLPhotoPreviewSheet {
+    
+    convenience init(selectedAssets: [PHAsset] = [], maxSelectCount: Int, allowSelectVideo: Bool, maxPreviewCount: Int) {
+        let config = ZLPhotoConfiguration.default()
+        config.maxSelectCount = maxSelectCount
+        config.allowSelectVideo = allowSelectVideo
+        config.maxPreviewCount = maxPreviewCount
+        self.init(selectedAssets: selectedAssets)
+    }
+    
+}
 
 
 enum Section: Int, CaseIterable, CustomStringConvertible {
@@ -147,7 +169,7 @@ protocol FormEntry {
 class ProfilePhoto: FormEntry {
     
     var imageURL: URL?
-    var score: String = "美如天仙"
+    var score: String = "评分：评分中"
     var description: String = "评分为精美，能快速获得异性的好感！并且系统会优先将你推荐至首页"
         
     let onPresenting = Delegate<(), UIViewController>()
@@ -182,46 +204,29 @@ class ProfilePhoto: FormEntry {
     
     private func alert() {
         
+        guard let presentingViewController = onPresenting.call() else {
+            return
+        }
+        
         let alertController = SPAlertController(title: nil, message: "", preferredStyle: .actionSheet)
         alertController.addAction(SPAlertAction(title: "更换", style: .default, handler: { [weak self] _ in
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                self?.imagePicker()
+                let imagePicker  = ZLPhotoPreviewSheet(selectedAssets: [], maxSelectCount: 1, allowSelectVideo: false, maxPreviewCount: 1)
+                imagePicker.selectImageBlock = { [weak self] (images, assets, isOriginal) in
+                    if let image = images.first {
+                        let imageURL = writeImage(image)
+                        self?.onImageUpdated.call(imageURL)
+                    }
+                }
+                imagePicker.showPhotoLibrary(sender: presentingViewController)
             }
         }))
                 
         alertController.addAction(SPAlertAction(title: "取消", style: .cancel, handler: nil))
         
-        guard let presentingViewController = onPresenting.call() else {
-            return
-        }
-        
         presentingViewController.present(alertController, animated: true, completion: nil)
     }
     
-
-    private func imagePicker()  {
-        
-        let config = ZLPhotoConfiguration.default()
-        config.maxSelectCount = 1
-        config.allowSelectVideo = false
-        config.maxPreviewCount = 0
-        
-        let imagePickerController = ZLPhotoPreviewSheet(selectedAssets: [])
-        imagePickerController.selectImageBlock = { [weak self] (images, assets, isOriginal) in
-            if let image = images.first {
-                let imageURL = writeImage(image)
-                self?.onImageUpdated.call(imageURL)
-            }
-            debugPrint("\(images)   \(assets)   \(isOriginal)")
-        }
-        
-        guard let presentingViewController = onPresenting.call() else {
-            return
-        }
-        
-        imagePickerController.showPhotoLibrary(sender: presentingViewController)
-        
-    }
     
 }
 
@@ -229,14 +234,14 @@ class ProfilePhoto: FormEntry {
 class PhotoAlbum: NSObject, FormEntry {
 
     let maximumSelectCount: Int
-    
+    let radio: Bool
     var medias: [Media]
     
     let contentInsert: UIEdgeInsets = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
     
     let onPresenting = Delegate<(), UIViewController>()
     
-    let onImageAdded = Delegate<URL, Void>()
+    let onImageAdded = Delegate<[URL], Void>()
     
     let onImageChanged = Delegate<(URL, Int), Void>()
     
@@ -245,8 +250,9 @@ class PhotoAlbum: NSObject, FormEntry {
     var imageChangedShow = true
     
     
-    init(medias: [Media], maximumSelectCount: Int) {
+    init(medias: [Media], maximumSelectCount: Int, radio: Bool = true) {
         self.medias = medias
+        self.radio = radio
         self.maximumSelectCount = maximumSelectCount
     }
     
@@ -337,13 +343,20 @@ extension PhotoAlbum: UICollectionViewDelegate, UICollectionViewDataSource, UICo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        guard let presentingViewController = onPresenting.call() else {
+            return
+        }
+        
          if indexPath.item == medias.count { // add photo
-            imagePicker { [weak self] images, _, _ in
-                if let image = images.first {
-                    let imageURL = writeImage(image)
-                    self?.onImageAdded.call(imageURL)
-                }
+            
+            let count = radio ? 1 : maximumSelectCount - medias.count
+            
+            let imagePicker =  ZLPhotoPreviewSheet(selectedAssets: [], maxSelectCount: count, allowSelectVideo: false, maxPreviewCount: 1)
+            imagePicker.selectImageBlock = { [weak self] images, _, _ in
+                let urls = writeImages(images)
+                self?.onImageAdded.call(urls)
             }
+            imagePicker.showPhotoLibrary(sender: presentingViewController)
          }
          else {
             let alertController = SPAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -351,12 +364,14 @@ extension PhotoAlbum: UICollectionViewDelegate, UICollectionViewDataSource, UICo
             if imageChangedShow {
                 alertController.addAction(SPAlertAction(title: "更换", style: .default, handler: { [weak self] _ in
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        self?.imagePicker{ [weak self] images, _, _ in
+                        let imagePicker =  ZLPhotoPreviewSheet(selectedAssets: [], maxSelectCount: 1, allowSelectVideo: false, maxPreviewCount: 1)
+                        imagePicker.selectImageBlock = { [weak self] images, _, _ in
                             if let image = images.first {
                                 let imageURL = writeImage(image)
                                 self?.onImageChanged.call((imageURL, indexPath.item))
                             }
                         }
+                        imagePicker.showPhotoLibrary(sender: presentingViewController)
                     }
                 }))
             }
@@ -367,31 +382,12 @@ extension PhotoAlbum: UICollectionViewDelegate, UICollectionViewDataSource, UICo
                     
             alertController.addAction(SPAlertAction(title: "取消", style: .cancel, handler: nil))
             
-            guard let presentingViewController = onPresenting.call() else {
-                return
-            }
+
             
             presentingViewController.present(alertController, animated: true, completion: nil)
          }
     }
     
-    private func imagePicker(_ selectImageBlock: @escaping ( ([UIImage], [PHAsset], Bool) -> Void )) {
-        
-        let config = ZLPhotoConfiguration.default()
-        config.maxSelectCount = 1
-        config.allowSelectVideo = false
-        config.maxPreviewCount = 0
-                
-        
-        let imagePickerController = ZLPhotoPreviewSheet(selectedAssets: [])
-        imagePickerController.selectImageBlock = selectImageBlock
-        
-        guard let presentingViewController = onPresenting.call() else {
-            return
-        }
-        
-        imagePickerController.showPhotoLibrary(sender: presentingViewController)
-    }
         
 }
 

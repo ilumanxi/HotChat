@@ -9,7 +9,7 @@
 import HandyJSON
 
 struct TalkEarning: HandyJSON {
-    var energy: Int = 0
+    var energy: String = ""
     var title: String = ""
     var time: String = ""
     

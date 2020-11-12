@@ -169,7 +169,7 @@ extension ConsumerDetailsViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: SubsidiaryAccountCell.self)
         cell.evenTextLabel.text = entity.title
         cell.dateTextLabel.text = entity.time
-        cell.energyTextLabel.text = "\(entity.type.symbol)\(entity.energy)能量"
+        cell.energyTextLabel.text = "\(entity.type.symbol)\(entity.energy)"
         cell.energyTextLabel.textColor = entity.type.color
         
         return cell

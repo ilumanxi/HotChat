@@ -64,9 +64,9 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay, St
         entry.onPresenting.delegate(on: self) { (self, _) in
              return self
         }
-        entry.onImageAdded.delegate(on: self) { (self, url) in
+        entry.onImageAdded.delegate(on: self) { (self, urls) in
             self.showIndicatorOnWindow()
-            self.upload(url)
+            self.upload(urls.first!)
                 .map{ response -> [String : Any] in
                     let photoList = (response.data!.toJSON() as [[String: Any]?]).compactMap{ $0 }
                     Log.print(type(of: photoList))

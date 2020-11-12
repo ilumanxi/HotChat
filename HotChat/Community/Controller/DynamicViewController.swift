@@ -7,10 +7,17 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-struct Media {
+class Media: NSObject {
     var remote: URL?
     var local: URL?
+    
+    init(remote: URL?, local: URL?) {
+        self.remote = remote
+        self.local = local
+    }
     
     var display: URL? {
         if local != nil {
@@ -80,7 +87,7 @@ class DynamicViewController: UITableViewController, IndicatorDisplay {
     
     
     var photoAlbum: PhotoAlbum {
-        let entry = PhotoAlbum(medias: medias, maximumSelectCount: 8)
+        let entry = PhotoAlbum(medias: medias, maximumSelectCount: 8, radio: false)
         entry.imageChangedShow = false
         entry.onPresenting.delegate(on: self) { (self, _) -> UIViewController in
             return self
@@ -89,22 +96,9 @@ class DynamicViewController: UITableViewController, IndicatorDisplay {
         entry.onImageDeleted.delegate(on: self) { (self, index) in
             self.medias.remove(at: index)
         }
-        entry.onImageAdded.delegate(on: self) { (self, url) in
-            self.showIndicatorOnWindow()
-            self.uploadAPI.request(.upload(url), type: Response<[RemoteFile]>.self)
-                .subscribe(onSuccess: { [weak self] response in
-                    self?.hideIndicatorFromWindow()
-                    if response.isSuccessd {
-                        self?.medias.append(Media(remote: URL(string: response.data!.first!.picUrl)!, local: url))
-                    }
-                    else {
-                        self?.showMessageOnWindow(response.msg)
-                    }
-                }, onError: { [weak self]  error in
-                    self?.hideIndicatorFromWindow()
-                    self?.showMessageOnWindow(error.localizedDescription)
-                })
-                .disposed(by: self.rx.disposeBag)
+        entry.onImageAdded.delegate(on: self) { (self, urls) in
+            let newAdd: [Media] =  urls.compactMap{ Media(remote: nil, local: $0) }
+            self.medias.append(contentsOf: newAdd)
         }
         return entry
     }
@@ -145,6 +139,21 @@ class DynamicViewController: UITableViewController, IndicatorDisplay {
     }
     
     
+    func uploadMedia(_ media: Media) -> Single<Media> {
+        if media.remote == nil {
+            return uploadAPI
+                .request(.upload(media.local!), type: Response<[RemoteFile]>.self)
+                .checkResponse()
+                .map{ urls in
+                    media.remote = URL(string: urls.data?.first?.picUrl ?? "")
+                    return media
+                }
+        }
+        else {
+            return .just(media)
+        }
+    }
+    
     @IBAction func send(_ sender: Any) {
         
         var parameters: [String : Any] = [:]
@@ -161,32 +170,51 @@ class DynamicViewController: UITableViewController, IndicatorDisplay {
         
         parameters["content"] = text
         
-        let mediaList = medias
-            .compactMap {
-                ["picUrl": $0.remote!.absoluteString]
-            }
-        
-        if medias.first!.isImage {
-            parameters["type"] = 1
-            parameters["photoList"] = mediaList
-        }
-        else {
-            parameters["type"] = 2
-            parameters["liveList"] = mediaList
-        }
        
+        let urls: [Single<Media>] =   medias.compactMap(uploadMedia)
         showIndicatorOnWindow()
-        dynamicAPI.request(.releaseDynamic(parameters), type: ResponseEmpty.self)
-            .subscribe(onSuccess: { [weak self] response in
+        Observable.from(urls)
+            .flatMap{$0}
+            .subscribe(onError: { [weak self] error in
                 self?.hideIndicatorFromWindow()
-                self?.showMessageOnWindow(response.msg)
-                if response.isSuccessd {
-                    self?.dismiss(animated: true, completion: nil)
+                self?.show(error.localizedDescription)
+            }, onCompleted: { [weak self] in
+                guard let self = self else { return }
+                
+                let mediaList = self.medias
+                    .compactMap {
+                        ["picUrl": $0.remote!.absoluteString]
+                    }
+        
+                if self.medias.first!.isImage {
+                    parameters["type"] = 1
+                    parameters["photoList"] = mediaList
                 }
-            }, onError: { [weak self] error in
-                self?.hideIndicatorFromWindow()
-                self?.showMessageOnWindow(error.localizedDescription)
+                else {
+                    parameters["type"] = 2
+                    parameters["liveList"] = mediaList
+                }
+        
+                
+                self.dynamicAPI.request(.releaseDynamic(parameters), type: ResponseEmpty.self)
+                    .subscribe(onSuccess: { [weak self] response in
+                        self?.hideIndicatorFromWindow()
+                        self?.showMessageOnWindow(response.msg)
+                        if response.isSuccessd {
+                            self?.dismiss(animated: true, completion: nil)
+                        }
+                    }, onError: { [weak self] error in
+                        self?.hideIndicatorFromWindow()
+                        self?.showMessageOnWindow(error.localizedDescription)
+                    })
+                    .disposed(by: self.rx.disposeBag)
+                
             })
             .disposed(by: rx.disposeBag)
+        
+        
+        
+        
+
     }
 }

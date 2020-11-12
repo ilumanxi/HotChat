@@ -93,6 +93,7 @@ PODS:
     - TXLiteAVSDK_TRTC (= 7.8.9519)
   - TXLiteAVSDK_TRTC (7.8.9519)
   - WechatOpenSDK (1.8.7.1)
+  - WKWebViewJavascriptBridge (1.2.1)
   - ZLPhotoBrowser (4.0.9):
     - ZLPhotoBrowser/Core (= 4.0.9)
   - ZLPhotoBrowser/Core (4.0.9)
@@ -134,6 +135,7 @@ DEPENDENCIES:
   - Toast-Swift
   - TXIMSDK_TUIKit_iOS
   - WechatOpenSDK
+  - WKWebViewJavascriptBridge
   - ZLPhotoBrowser
 
 SPEC REPOS:
@@ -183,6 +185,7 @@ SPEC REPOS:
     - TXIMSDK_TUIKit_iOS
     - TXLiteAVSDK_TRTC
     - WechatOpenSDK
+    - WKWebViewJavascriptBridge
     - ZLPhotoBrowser
 
 SPEC CHECKSUMS:
@@ -231,8 +234,9 @@ SPEC CHECKSUMS:
   TXIMSDK_TUIKit_iOS: f8b8524b64a4f00c8a2f1af3c7501dc976453f88
   TXLiteAVSDK_TRTC: c127880c4dbe844bdc7575a655be8042ce96024a
   WechatOpenSDK: 6a4d1436c15b3b5fe2a0bd383f3046010186da44
+  WKWebViewJavascriptBridge: 07ad0cab27cd61ccdb90b5deb223f6df3a03c3d7
   ZLPhotoBrowser: d5dbc47fa9fa6679c67b35e57dfc4fcfc7a7eee4
 
-PODFILE CHECKSUM: 5bfbf35969db6c85f4349cf1396bc497fdcf99ef
+PODFILE CHECKSUM: 2360faab9128c33666f2f602bcbac21455c0af52
 
 COCOAPODS: 1.10.0

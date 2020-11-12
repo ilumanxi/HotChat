@@ -137,13 +137,18 @@ class MeViewController: UITableViewController, Autorotate {
         )
       
        var detailEntries: [FormEntry] = [
-            RightDetailFormEntry(image: UIImage(named: "me-money"), text: "奖励任务"),
-            RightDetailFormEntry(image: UIImage(named: "me-invitation"), text: "6万邀请奖"),
-            RightDetailFormEntry(image: UIImage(named: "me-nobility"), text: "会员特权"),
+            RightDetailFormEntry(image: UIImage(named: "me-money"), text: "奖励任务", onTapped: pushTask),
+            RightDetailFormEntry(image: UIImage(named: "me-invitation"), text: "6万邀请奖", onTapped: pushInvite),
+            RightDetailFormEntry(image: UIImage(named: "me-nobility"), text: "会员特权", onTapped: pushVip),
 //            RightDetailFormEntry(image: UIImage(named: "me-anti-fraud"), text: "防骗中心"),
 //            RightDetailFormEntry(image: UIImage(named: "me-call"), text: "通话设置"),
             RightDetailFormEntry(image: UIImage(named: "me-anchor"), text: "主播认证", onTapped: pushAuthentication)
         ]
+        
+        
+        if user.girlStatus {
+            detailEntries.remove(at: 0)
+        }
         
         if self.user.sex! == .male {
             detailEntries.removeLast()
@@ -156,7 +161,7 @@ class MeViewController: UITableViewController, Autorotate {
         )
         
         var basicEntries: [FormEntry] =  [
-            RightDetailFormEntry(image: UIImage(named: "me-grade"), text: "等级"),
+            RightDetailFormEntry(image: UIImage(named: "me-grade"), text: "等级", onTapped: pushLevel),
             RightDetailFormEntry(image: UIImage(named: "me-authentication"), text: "认证", onTapped: pushAuthentication),
 //            RightDetailFormEntry(image: UIImage(named: "me-help"), text: "帮助"),
             RightDetailFormEntry(image: UIImage(named: "me-setting"), text: "设置", onTapped: pushSetting)
@@ -219,6 +224,26 @@ class MeViewController: UITableViewController, Autorotate {
         meHeaderView.layoutIfNeeded()
     }
     
+    func pushLevel() {
+        let vc = WebViewController.H5(path: "index/index/level")
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func pushInvite() {
+        let vc = WebViewController.H5(path: "index/index/myintive")
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func pushTask()   {
+        let vc = WebViewController.H5(path: "h5/sign")
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func pushVip() {
+        
+        let vc = WebViewController.H5(path: "h5/vip")
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
     func pushAuthentication() {
         let vc = AuthenticationViewController()

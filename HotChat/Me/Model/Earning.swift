@@ -11,7 +11,7 @@ import HandyJSON
 
 struct Earning: HandyJSON {
     var title: String = ""
-    var energy: Int = 0
+    var energy: String = ""
     var desc: String = ""
     var type: Int = 0
 }

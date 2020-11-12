@@ -74,7 +74,7 @@ extension TalkEarningCell {
     
     func setTalkEarning(_ talkEarning: TalkEarning) {
         tilteLabel.text = talkEarning.title
-        energyLabel.text = "+\(talkEarning.energy)能量"
+        energyLabel.text = "+\(talkEarning.energy)"
         timeLabel.text = talkEarning.time
         timeLabel.isHidden = talkEarning.time.isEmpty
     }
