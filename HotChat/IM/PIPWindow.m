@@ -30,6 +30,7 @@ static PIPWindow *_share = nil;
     _share.windowLevel =  PIPWindowLevelNormal;
     _share.rootViewController = navigationController;
     _share.hidden = false;
+    [UIApplication.sharedApplication.keyWindow endEditing:YES];
     
 }
 

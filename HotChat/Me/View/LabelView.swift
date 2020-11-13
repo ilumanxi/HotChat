@@ -28,6 +28,7 @@ class LabelView: UIView {
         didSet {
             imageView.image = image
             invalidateIntrinsicContentSize()
+            setNeedsLayout()
         }
     }
     
@@ -35,6 +36,7 @@ class LabelView: UIView {
         didSet {
             textLabel.text = text
             invalidateIntrinsicContentSize()
+            setNeedsLayout()
         }
     }
     
