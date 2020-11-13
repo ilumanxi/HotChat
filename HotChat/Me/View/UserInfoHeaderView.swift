@@ -9,6 +9,7 @@
 import UIKit
 import FSPagerView
 import Kingfisher
+import SnapKit
 
 
 extension ValidationStatus {
@@ -30,7 +31,18 @@ class UserInfoHeaderView: UIView, FSPagerViewDataSource, FSPagerViewDelegate {
     
     @IBOutlet weak var contentView: UIView!
     
-    @IBOutlet weak var pagerView: FSPagerView!
+    lazy var pagerView: FSPagerView = {
+        let view = FSPagerView()
+        view.bounces = false
+        view.delegate = self
+        view.dataSource = self
+        return view
+    }()
+    
+
+    
+    @IBOutlet weak var pagerContainerView: UIView!
+    
     
     @IBOutlet weak var pageControl: UIPageControl!
     
@@ -79,6 +91,13 @@ class UserInfoHeaderView: UIView, FSPagerViewDataSource, FSPagerViewDelegate {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        pagerContainerView.addSubview(pagerView)
+        pagerView.snp.makeConstraints { maker in
+            maker.edges.equalToSuperview()
+        }
+        layoutIfNeeded()
+        
         pagerView.itemSize = FSPagerViewAutomaticSize // Fill parent
         pagerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }

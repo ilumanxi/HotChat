@@ -3,6 +3,6 @@
 
 # carthage update --no-use-binaries
 
-github "IBAnimatable/IBAnimatable"
+#github "IBAnimatable/IBAnimatable"
 
 

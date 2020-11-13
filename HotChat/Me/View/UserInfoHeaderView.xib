@@ -20,17 +20,8 @@
                         <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4AD-g7-yEI" userLabel="Top View">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vsh-w8-5B7" customClass="FSPagerView" customModule="FSPagerView">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vsh-w8-5B7">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="bounces" value="NO"/>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="alwaysBounceHorizontal" value="NO"/>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="alwaysBounceVertical" value="NO"/>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <outlet property="dataSource" destination="iN0-l3-epB" id="3Yr-Id-J6L"/>
-                                        <outlet property="delegate" destination="iN0-l3-epB" id="zUx-IX-Rjl"/>
-                                    </connections>
                                 </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fDa-HB-qdz">
                                     <rect key="frame" x="20" y="335" width="335" height="28"/>
@@ -133,7 +124,7 @@
                                             <subviews>
                                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="32" placeholderIntrinsicHeight="15" translatesAutoresizingMaskIntoConstraints="NO" id="tcs-A8-dDk" customClass="LabelView" customModule="HotChat" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.5" width="32" height="15"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <color key="backgroundColor" systemColor="systemTealColor"/>
                                                 </view>
                                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="32" placeholderIntrinsicHeight="15" translatesAutoresizingMaskIntoConstraints="NO" id="APo-v8-AKO" customClass="LabelView" customModule="HotChat" customModuleProvider="target">
                                                     <rect key="frame" x="45" y="0.5" width="32" height="15"/>
@@ -207,7 +198,7 @@
                 <outlet property="locationLabel" destination="9c6-m5-bdN" id="hvH-bw-zgU"/>
                 <outlet property="nicknameLabel" destination="dX4-WC-QMz" id="hSL-uq-iHA"/>
                 <outlet property="pageControl" destination="7tt-qf-xLN" id="yHD-QE-CoJ"/>
-                <outlet property="pagerView" destination="Vsh-w8-5B7" id="5NP-0A-Pn4"/>
+                <outlet property="pagerContainerView" destination="Vsh-w8-5B7" id="3Fu-9D-Ilp"/>
                 <outlet property="sexView" destination="tcs-A8-dDk" id="pjj-i6-Spo"/>
                 <outlet property="stackView" destination="fDa-HB-qdz" id="Qan-KC-ECQ"/>
                 <outlet property="statusLabel" destination="jTa-K1-gMO" id="VD4-RB-zzt"/>
@@ -222,6 +213,9 @@
         <image name="me-follow" width="7" height="7"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
