@@ -96,7 +96,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self playAlerm];
+    
 }
 
 - (void)disMiss {
@@ -276,7 +276,8 @@
         }
             break;
         case AudioCallState_OnInvitee:
-        {   
+        {
+            [self playAlerm];
             [self.hangup mas_remakeConstraints:^(MASConstraintMaker *make) {
                 make.trailing.equalTo(self.view.mas_centerX).offset(-60);
                 make.bottom.equalTo(self.view.safeAreaLayoutGuideBottom).offset(-49);

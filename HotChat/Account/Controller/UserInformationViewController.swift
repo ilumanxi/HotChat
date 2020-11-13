@@ -150,6 +150,7 @@ class UserInformationViewController: UITableViewController, IndicatorDisplay, St
             vc.sex = sex
             vc.onUpdated.delegate(on: self) { (self, _) in
                 let vc = ForYouViewController.loadFromStoryboard()
+                vc.sex = self.sex
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         }
