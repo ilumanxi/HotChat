@@ -9,6 +9,34 @@
 import UIKit
 import SnapKit
 
+
+extension ValidationStatus: CustomStringConvertible {
+    
+    var description: String {
+        switch self {
+        case .empty:
+            return "未认证"
+        case .validating:
+            return "审核中"
+        case .ok:
+            return "审核通过"
+        case .failed:
+            return "审核失败"
+        }
+    }
+    
+    var isPush: Bool {
+        switch self {
+        case .empty, .failed:
+            return true
+        default:
+            return false
+        }
+    }
+    
+}
+
+
 class AuthenticationViewController: UIViewController, IndicatorDisplay, LoadingStateType {
     
     
@@ -88,6 +116,9 @@ class AuthenticationViewController: UIViewController, IndicatorDisplay, LoadingS
     
     func pushRealName() {
         
+        if !authentication.certificationStatus.isPush {
+            return
+        }
         
         if LoginManager.shared.user!.sex! == .female  {
             let vc = AnchorAuthenticationViewController()
@@ -104,9 +135,11 @@ class AuthenticationViewController: UIViewController, IndicatorDisplay, LoadingS
     
     
     func pushFace() {
-        
+        if !authentication.certificationStatus.isPush {
+            return
+        }
        let vc = BDFaceDetectionViewController()
-        navigationController?.pushViewController(vc, animated: true)
+       navigationController?.pushViewController(vc, animated: true)
     }
 
 }

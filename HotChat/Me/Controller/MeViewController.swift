@@ -136,24 +136,26 @@ class MeViewController: UITableViewController, Autorotate {
             headerText: nil
         )
       
-       var detailEntries: [FormEntry] = [
-            RightDetailFormEntry(image: UIImage(named: "me-money"), text: "奖励任务", onTapped: pushTask),
-            RightDetailFormEntry(image: UIImage(named: "me-invitation"), text: "6万邀请奖", onTapped: pushInvite),
+       var detailEntries: [FormEntry] = []
+        
+        if !user.girlStatus {
+            
+            detailEntries.append(RightDetailFormEntry(image: UIImage(named: "me-money"), text: "奖励任务", onTapped: pushTask))
+        }
+        
+        detailEntries.append(contentsOf: [
+            RightDetailFormEntry(image: UIImage(named: "me-invitation"), text: "我的邀请", onTapped: pushInvite),
             RightDetailFormEntry(image: UIImage(named: "me-nobility"), text: "会员特权", onTapped: pushVip),
 //            RightDetailFormEntry(image: UIImage(named: "me-anti-fraud"), text: "防骗中心"),
 //            RightDetailFormEntry(image: UIImage(named: "me-call"), text: "通话设置"),
-            RightDetailFormEntry(image: UIImage(named: "me-anchor"), text: "主播认证", onTapped: pushAuthentication)
-        ]
+        ])
         
         
         if user.girlStatus {
-            detailEntries.remove(at: 0)
+            detailEntries.append(RightDetailFormEntry(image: UIImage(named: "me-anchor"), text: "主播认证", onTapped: pushAuthentication))
+            
+            detailEntries.append(RightDetailFormEntry(image: UIImage(named: "me-wallet"), text: "我的钱包", detailText: "能量\(user.userEnergy)", onTapped: pushWallet))
         }
-        
-        if self.user.sex! == .male {
-            detailEntries.removeLast()
-        }
-        
 
        let detail =  FormSection(
             entries: detailEntries,
@@ -162,19 +164,14 @@ class MeViewController: UITableViewController, Autorotate {
         
         var basicEntries: [FormEntry] =  [
             RightDetailFormEntry(image: UIImage(named: "me-grade"), text: "等级", onTapped: pushLevel),
-            RightDetailFormEntry(image: UIImage(named: "me-authentication"), text: "认证", onTapped: pushAuthentication),
-//            RightDetailFormEntry(image: UIImage(named: "me-help"), text: "帮助"),
-            RightDetailFormEntry(image: UIImage(named: "me-setting"), text: "设置", onTapped: pushSetting)
         ]
         
-        if self.user.sex! == .female {
-            basicEntries.remove(at: 1)
+        if self.user.sex! == .male {
+            basicEntries.append( RightDetailFormEntry(image: UIImage(named: "me-authentication"), text: "认证", onTapped: pushAuthentication))
         }
         
-        if user.girlStatus {
-            basicEntries.insert(RightDetailFormEntry(image: UIImage(named: "me-wallet"), text: "我的钱包", detailText: "能量\(user.userEnergy)", onTapped: pushWallet), at: 0)
-        }
-        
+
+        basicEntries.append(RightDetailFormEntry(image: UIImage(named: "me-setting"), text: "设置", onTapped: pushSetting))
         
         let basic =  FormSection(
              entries: basicEntries,

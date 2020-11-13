@@ -325,7 +325,7 @@ class UserSettingViewController: UIViewController, UITableViewDataSource, UITabl
             FormSection(entries: [remarksForm], headerText: nil),
             FormSection(entries: [topForm], headerText: nil),
             FormSection(entries: [followForm, defriendForm, reportForm], headerText: nil),
-            FormSection(entries: [destructiveForm], headerText: nil)
+//            FormSection(entries: [destructiveForm], headerText: nil)
         ]
         
     }

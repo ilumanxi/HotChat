@@ -77,9 +77,10 @@ class WebViewController: UIViewController {
             
         }
         
-        
-        
-//        bridge.call(handlerName: "testJavascriptHandler", data: ["foo": "before ready"], callback: nil)
+        bridge.register(handlerName: "pushInvite") {[weak self] (paramters, callback) in
+            self?.pushInvite(paramters, callback: callback)
+            
+        }
     }
     
     func loadURL() {
@@ -115,6 +116,12 @@ extension WebViewController {
     public typealias Parameters = [String: Any]
     
     public typealias Callback = (_ responseData: Any?) -> Void
+    
+    
+    func pushInvite(_ parameters: Parameters?, callback: Callback?) {
+        let vc = InviteViewController.loadFromStoryboard()
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
     func share(_ parameters: Parameters?, callback: Callback?) {
         

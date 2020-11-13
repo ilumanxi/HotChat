@@ -11,30 +11,9 @@ import HandyJSON
 
 
 struct Authentication: HandyJSON {
-    
-    enum CertificationStatus: Int, HandyJSONEnum, CustomStringConvertible{
-        
-        
-        case unauthorized = 0
-        case authorized = 1
-        case inReview = 2
-        
-        var description: String {
-            switch self {
-            case .unauthorized:
-                return "未认证"
-            case .inReview:
-                return "审核中"
-            case .authorized:
-                return "已认证"
-            }
-        }
-        
-       
-    }
-    
+
     /// 实名认证
-    var certificationStatus: CertificationStatus = .unauthorized
+    var certificationStatus: ValidationStatus = .empty
     
     var userName: String = ""
     

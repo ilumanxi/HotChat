@@ -92,7 +92,7 @@ class LabelViewController: UITableViewController, IndicatorDisplay {
             
             if  selectedLabels.count > maximumCount {
                 labels.modifyElement(at: indexPath.row) { $0.isCheck  = false }
-                show("最多选择\(maximumCount)项")
+                show("最多选择\(maximumCount)个")
             }
         }
         

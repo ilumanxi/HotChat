@@ -10,6 +10,20 @@ import UIKit
 import FSPagerView
 import Kingfisher
 
+
+extension ValidationStatus {
+    
+    var alpha: CGFloat {
+        switch self {
+        case .ok:
+            return 1
+        default:
+            return 0
+        }
+    }
+    
+}
+
 class UserInfoHeaderView: UIView, FSPagerViewDataSource, FSPagerViewDelegate {
     
     private let reuseIdentifier = "cell"
@@ -86,6 +100,8 @@ class UserInfoHeaderView: UIView, FSPagerViewDataSource, FSPagerViewDelegate {
     
     func configureCell(_ cell: FSPagerViewCell, for index: Int) {
         
+        cell.imageView?.backgroundColor = UIColor(hexString: "DDDDDD")
+        
         if index == 0 {
             cell.imageView?.kf.setImage(with: URL(string: user.headPic))
         }
@@ -113,8 +129,8 @@ class UserInfoHeaderView: UIView, FSPagerViewDataSource, FSPagerViewDelegate {
         vipButton.backgroundColor = user.vipType.backgroundColor
         vipButton.setTitle(user.vipType.description, for: .normal)
         vipButton.isHidden = user.vipType.isHidden
-        authenticationButton.alpha = 0
-        followButton.alpha = user.isFollow ? 1 : 0
+        authenticationButton.alpha = user.headStatus.alpha
+        followButton.alpha = user.isFollow ? 0 : 1
     }
     
     @IBAction func followAction(_ sender: Any) {
