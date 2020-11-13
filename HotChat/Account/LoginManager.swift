@@ -123,7 +123,11 @@ class LoginManager: NSObject {
         }
     }
     
-    @objc func update(user: User){
+    @objc func update(user: User) {
+        if user.token.isEmpty {
+            user.token = self.user?.token ?? ""
+        }
+        
         self.user = user
         try! storage.setObject( user.toJSONString()!, forKey: userCacheKey)
         NotificationCenter.default.post(name: .userDidChange, object: nil, userInfo: nil)

@@ -35,6 +35,12 @@ extension Moya.Response {
     
     func map<D: HandyJSON>(_ type: D.Type, atKeyPath keyPath: String? = nil) throws -> D {
         do {
+            
+            if statusCode >= 500 {
+              
+                throw HotChatError.generalError(reason: .conversionError(string: HTTPURLResponse.localizedString(forStatusCode: statusCode), encoding: .utf8))
+            }
+            
             let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String : Any]
             
             guard let obj = D.deserialize(from: json, designatedPath: keyPath)  else {

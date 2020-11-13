@@ -38,7 +38,7 @@ class UserBasicInformationViewController: UITableViewController, IndicatorDispla
 
     func refreshDisplay() {
         nicknameTextField.text = user.nick
-        sexLabel.text = user.sex?.description
+        sexLabel.text = user.sex.description
         birthdayLabel.text = Date(timeIntervalSince1970: user.birthday).constellationFormat
         userIDLabel.text = user.userId.description
         print(Date(timeIntervalSinceNow: user.birthday))

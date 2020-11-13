@@ -449,7 +449,6 @@
 		268E3E5F2521D074000E4A33 /* RelationshipViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RelationshipViewCell.xib; sourceTree = "<group>"; };
 		2693697225555E06002E224B /* PhoneBindingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneBindingController.swift; sourceTree = "<group>"; };
 		2693697325555E06002E224B /* PhoneBindingController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhoneBindingController.xib; sourceTree = "<group>"; };
-		26945805253FE32900EBCABB /* IBAnimatable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IBAnimatable.framework; path = Carthage/Build/iOS/IBAnimatable.framework; sourceTree = "<group>"; };
 		2694580A253FF7B100EBCABB /* UserSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingViewController.swift; sourceTree = "<group>"; };
 		2694580F253FF80A00EBCABB /* SwitchViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchViewCell.swift; sourceTree = "<group>"; };
 		26945814253FF81E00EBCABB /* UserViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewCell.swift; sourceTree = "<group>"; };
@@ -1396,7 +1395,6 @@
 			isa = PBXGroup;
 			children = (
 				26CB6C92255153A500A9F4DD /* libc++.tbd */,
-				26945805253FE32900EBCABB /* IBAnimatable.framework */,
 				269590BE250B5FE900763061 /* StoreKit.framework */,
 				CE1A4E29DD020804E913333F /* libPods-HotChat.a */,
 			);

@@ -37,6 +37,7 @@ struct Topic: HandyJSON {
 }
 
 @objc enum Sex: Int, HandyJSONEnum, CustomStringConvertible {
+    case empty = 0
     case male = 1
     case female = 2
 
@@ -46,6 +47,8 @@ struct Topic: HandyJSON {
             return UIImage(named: "me-sex-man")
         case .female:
             return UIImage(named: "me-sex-woman")
+        case .empty:
+            return nil
         }
     }
     
@@ -55,6 +58,8 @@ struct Topic: HandyJSON {
             return "男生"
         case .female:
             return "女生"
+        case .empty:
+            return "未知"
         }
     }
 }
@@ -199,10 +204,10 @@ enum VipType: Int, HandyJSONEnum {
     /// 年龄
      @objc var age: Int = 0
     
-    var sex: Sex?
+    var sex: Sex = .empty
     
     @objc var ocSex: Int {
-        return sex?.rawValue ?? 0
+        return sex.rawValue
     }
     
     ///  喜欢的ta

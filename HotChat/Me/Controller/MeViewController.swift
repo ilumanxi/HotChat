@@ -166,7 +166,7 @@ class MeViewController: UITableViewController, Autorotate {
             RightDetailFormEntry(image: UIImage(named: "me-grade"), text: "等级", onTapped: pushLevel),
         ]
         
-        if self.user.sex! == .male {
+        if self.user.sex == .male {
             basicEntries.append( RightDetailFormEntry(image: UIImage(named: "me-authentication"), text: "认证", onTapped: pushAuthentication))
         }
         
@@ -192,11 +192,11 @@ class MeViewController: UITableViewController, Autorotate {
     func requestData() {
         
         userAPI.request(.userinfo(userId: nil), type: Response<User>.self)
+            .checkResponse()
             .subscribe(onSuccess: { [weak self] response in
-                if response.isSuccessd {
-                    self?.user = response.data
-                    self?.setupSections()
-                }
+                self?.user = response.data
+                LoginManager.shared.update(user: response.data!)
+                self?.setupSections()
             }, onError: { error in
                 
             })

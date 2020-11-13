@@ -120,7 +120,7 @@ class AuthenticationViewController: UIViewController, IndicatorDisplay, LoadingS
             return
         }
         
-        if LoginManager.shared.user!.sex! == .female  {
+        if LoginManager.shared.user!.sex == .female  {
             let vc = AnchorAuthenticationViewController()
             navigationController?.pushViewController(vc, animated: true)
         }
