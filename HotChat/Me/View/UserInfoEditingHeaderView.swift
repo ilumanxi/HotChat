@@ -8,7 +8,7 @@
 
 import UIKit
 import SnapKit
-import IBAnimatable
+
 
 
 class UserInfoEditingHeaderView: UITableViewHeaderFooterView {
@@ -22,7 +22,7 @@ class UserInfoEditingHeaderView: UITableViewHeaderFooterView {
     override init(reuseIdentifier: String?) {
         
         titleBoxView = UIView()
-        titleBoxView.ib.cornerRadius = Self.titleBoxSize.width * 0.5
+        titleBoxView.layer.cornerRadius =  Self.titleBoxSize.width * 0.5
         titleBoxView.backgroundColor = .theme
         
         titleLabel = UILabel()

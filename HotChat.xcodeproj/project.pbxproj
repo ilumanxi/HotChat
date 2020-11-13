@@ -12,6 +12,7 @@
 		260A87782521932A00380FB4 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A87772521932A00380FB4 /* SettingViewController.swift */; };
 		260B96112521F15C00767076 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260B96102521F15C00767076 /* Authentication.swift */; };
 		260B96162521F2F400767076 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260B96152521F2F400767076 /* AuthenticationViewController.swift */; };
+		2615C9F8255E8B0C009B89F4 /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2615C9F7255E8B0C009B89F4 /* PlaceholderTextView.swift */; };
 		262C5F6D255550BE00126359 /* AccountSecurityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C5F6B255550BE00126359 /* AccountSecurityController.swift */; };
 		262C5F6E255550BE00126359 /* AccountSecurityController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 262C5F6C255550BE00126359 /* AccountSecurityController.xib */; };
 		26373C732502340D0066FF3B /* FormEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26373C722502340D0066FF3B /* FormEntry.swift */; };
@@ -216,8 +217,6 @@
 		26D1E58B253D5F17004B9B29 /* CallManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D1E58A253D5F17004B9B29 /* CallManager.m */; };
 		26D1E594253D6000004B9B29 /* VideoCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D1E593253D6000004B9B29 /* VideoCallViewController.m */; };
 		26DBC373253D89DF0083BDFB /* AudioCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DBC372253D89DF0083BDFB /* AudioCallViewController.m */; };
-		26DF5121255BB193009FBA15 /* IBAnimatable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26945805253FE32900EBCABB /* IBAnimatable.framework */; };
-		26DF5122255BB193009FBA15 /* IBAnimatable.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 26945805253FE32900EBCABB /* IBAnimatable.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		26DF5133255BB910009FBA15 /* IDLFaceSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26CB6D3825515D6B00A9F4DD /* IDLFaceSDK.framework */; };
 		26DF5134255BB910009FBA15 /* IDLFaceSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 26CB6D3825515D6B00A9F4DD /* IDLFaceSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		26DF877D255A63BA002162A9 /* BasicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DF877B255A63BA002162A9 /* BasicCell.swift */; };
@@ -303,7 +302,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				26DF5134255BB910009FBA15 /* IDLFaceSDK.framework in Embed Frameworks */,
-				26DF5122255BB193009FBA15 /* IBAnimatable.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,6 +314,7 @@
 		260A87772521932A00380FB4 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		260B96102521F15C00767076 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		260B96152521F2F400767076 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
+		2615C9F7255E8B0C009B89F4 /* PlaceholderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
 		262C5F6B255550BE00126359 /* AccountSecurityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSecurityController.swift; sourceTree = "<group>"; };
 		262C5F6C255550BE00126359 /* AccountSecurityController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountSecurityController.xib; sourceTree = "<group>"; };
 		2633EC5125315706009F0F27 /* carthage.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = carthage.sh; sourceTree = SOURCE_ROOT; };
@@ -654,7 +653,6 @@
 				26CB6C93255153A500A9F4DD /* libc++.tbd in Frameworks */,
 				26DF5133255BB910009FBA15 /* IDLFaceSDK.framework in Frameworks */,
 				269590BF250B5FE900763061 /* StoreKit.framework in Frameworks */,
-				26DF5121255BB193009FBA15 /* IBAnimatable.framework in Frameworks */,
 				569A62C017EE594D27BBDD0C /* libPods-HotChat.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -888,6 +886,7 @@
 				2605A4752513187900017241 /* UIImageExtensions.swift */,
 				26F25C95250A1B3800F808EA /* SeparatorLine.swift */,
 				2673FDBC255CE14400909A37 /* WebViewController.swift */,
+				2615C9F7255E8B0C009B89F4 /* PlaceholderTextView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1426,7 +1425,6 @@
 				2643EB342500AD7D00FBBE49 /* Resources */,
 				5C62613C886FDA87662A76D3 /* [CP] Embed Pods Frameworks */,
 				65E1731636F77F71257BF696 /* [CP] Copy Pods Resources */,
-				269457F7253FD65B00EBCABB /* Carthage Copy Frameworks */,
 				26DF5123255BB193009FBA15 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -1595,26 +1593,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		269457F7253FD65B00EBCABB /* Carthage Copy Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/IBAnimatable.framework",
-			);
-			name = "Carthage Copy Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/IBAnimatable.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
 		5C62613C886FDA87662A76D3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1743,6 +1721,7 @@
 				F3C6B919251F3117006C06CB /* LabelViewController.swift in Sources */,
 				268458E825343FA8002B9C6E /* DynamicDetailViewController.swift in Sources */,
 				26787E37251B2F8D00D511E8 /* User.swift in Sources */,
+				2615C9F8255E8B0C009B89F4 /* PlaceholderTextView.swift in Sources */,
 				26DF877D255A63BA002162A9 /* BasicCell.swift in Sources */,
 				26772822255A480900B98973 /* PrivacyViewController.swift in Sources */,
 				26C81EE12547E9C400C1D563 /* VoiceView.m in Sources */,

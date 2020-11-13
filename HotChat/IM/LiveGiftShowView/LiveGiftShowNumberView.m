@@ -63,7 +63,13 @@
     }
     
     
-    self.numberLabel.text = [NSString stringWithFormat:@"x%ld",(long)numberStr];
+    NSString *text = [NSString stringWithFormat:@"x%ld",(long)numberStr];
+    
+    
+    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:19],NSForegroundColorAttributeName: [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1.0], NSStrokeWidthAttributeName:@-1,NSStrokeColorAttributeName: [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0]
+    }];
+    
+    self.numberLabel.attributedText = string;
     
     [self layoutIfNeeded];
     

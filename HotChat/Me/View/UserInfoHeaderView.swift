@@ -130,7 +130,14 @@ class UserInfoHeaderView: UIView, FSPagerViewDataSource, FSPagerViewDelegate {
         vipButton.setTitle(user.vipType.description, for: .normal)
         vipButton.isHidden = user.vipType.isHidden
         authenticationButton.alpha = user.headStatus.alpha
-        followButton.alpha = user.isFollow ? 0 : 1
+        
+        if LoginManager.shared.user!.userId == user.userId {
+            followButton.alpha = 0
+        }
+        else {
+            followButton.alpha = user.isFollow ? 0 : 1
+        }
+        
     }
     
     @IBAction func followAction(_ sender: Any) {

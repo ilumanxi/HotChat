@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -142,7 +142,7 @@
                                                         <userDefinedRuntimeAttribute type="image" keyPath="image" value="me-attention"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jGW-kd-dqp" customClass="AnimatableButton">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jGW-kd-dqp">
                                                     <rect key="frame" x="90" y="0.0" width="32" height="16"/>
                                                     <color key="backgroundColor" red="0.92156862750000001" green="0.63529411759999999" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -216,17 +216,6 @@
             <point key="canvasLocation" x="-30.9375" y="48.063380281690144"/>
         </view>
     </objects>
-    <designables>
-        <designable name="APo-v8-AKO">
-            <size key="intrinsicContentSize" width="32" height="15"/>
-        </designable>
-        <designable name="jGW-kd-dqp">
-            <size key="intrinsicContentSize" width="30" height="23"/>
-        </designable>
-        <designable name="tcs-A8-dDk">
-            <size key="intrinsicContentSize" width="32" height="15"/>
-        </designable>
-    </designables>
     <resources>
         <image name="me-attention" width="7" height="7"/>
         <image name="me-certified" width="12.5" height="15"/>

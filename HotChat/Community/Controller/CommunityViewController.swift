@@ -22,6 +22,10 @@ import HandyJSON
 
 class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisplay {
     
+    func showOrHideIndicator(loadingState: LoadingState, text: String? = nil, image: UIImage? = nil) {
+        showOrHideIndicator(loadingState: loadingState, in: self.collectionView, text: text, image: image)
+    }
+    
     
     var state: LoadingState = .initial {
         didSet {

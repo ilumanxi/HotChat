@@ -11,7 +11,7 @@ import ActiveLabel
 import SnapKit
 
 
-@IBDesignable
+//@IBDesignable
 class LegalLiabilityToolBar: UIView {
     
     var text: String? {

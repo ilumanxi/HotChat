@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bbg-rL-H9K">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bbg-rL-H9K">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -63,7 +63,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="104"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4QS-Ra-N9g" customClass="AnimatableImageView">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4QS-Ra-N9g">
                                                     <rect key="frame" x="20" y="15" width="74" height="74"/>
                                                     <color key="backgroundColor" red="0.60392156862745094" green="0.60392156862745094" blue="0.60392156862745094" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -97,7 +97,7 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="32" height="16"/>
                                                                     <color key="backgroundColor" red="1" green="0.47058823529411764" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </view>
-                                                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9l-Nf-ZCQ" customClass="AnimatableButton">
+                                                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9l-Nf-ZCQ">
                                                                     <rect key="frame" x="36" y="0.0" width="32" height="16"/>
                                                                     <color key="backgroundColor" red="0.99607843137254903" green="0.76078431372549016" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <constraints>
@@ -199,14 +199,6 @@
             <point key="canvasLocation" x="2295.6521739130435" y="68.973214285714278"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="G9l-Nf-ZCQ">
-            <size key="intrinsicContentSize" width="30" height="24"/>
-        </designable>
-        <designable name="p0u-id-jkb">
-            <size key="intrinsicContentSize" width="32" height="16"/>
-        </designable>
-    </designables>
     <resources>
         <image name="tabbar-discover-normal" width="19" height="19"/>
         <image name="tabbar-discover-selected" width="19" height="19"/>

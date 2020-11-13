@@ -36,7 +36,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="X3a-fq-rsw">
                                 <rect key="frame" x="30" y="582" width="315" height="115"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DzQ-D1-5Hh" customClass="AnimatableButton">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DzQ-D1-5Hh">
                                         <rect key="frame" x="0.0" y="0.0" width="315" height="50"/>
                                         <color key="backgroundColor" red="0.32156862745098036" green="0.3529411764705882" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -52,10 +52,10 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="fXh-mk-jg9" kind="show" id="QXs-10-Kel"/>
+                                            <segue destination="fXh-mk-jg9" kind="show" id="J2A-e5-8bW"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8VN-Rm-IV3" customClass="AnimatableButton" customModule="IBAnimatable">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8VN-Rm-IV3">
                                         <rect key="frame" x="0.0" y="65" width="315" height="50"/>
                                         <color key="backgroundColor" red="0.047058823529411764" green="0.78431372549019607" blue="0.086274509803921567" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
@@ -109,7 +109,7 @@
         <!--手机登录-->
         <scene sceneID="5yB-Ec-UUg">
             <objects>
-                <tableViewController title="手机登录" id="fXh-mk-jg9" customClass="PhoneSigninViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="手机登录" modalPresentationStyle="fullScreen" id="fXh-mk-jg9" customClass="PhoneSigninViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Yi7-AX-2Y2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -208,7 +208,7 @@
                                                         <segue destination="xhL-Po-TFh" kind="show" id="cJB-pp-bZY"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HqQ-Oc-JE8" customClass="AnimatableButton" customModule="IBAnimatable">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HqQ-Oc-JE8">
                                                     <rect key="frame" x="44" y="80" width="287" height="50"/>
                                                     <color key="backgroundColor" red="0.32156862749999998" green="0.35294117650000001" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -355,7 +355,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ope-2p-YYa" customClass="AnimatableButton" customModule="IBAnimatable">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ope-2p-YYa">
                                                     <rect key="frame" x="282" y="11" width="49" height="33"/>
                                                     <color key="backgroundColor" red="0.31764705882352939" green="0.34901960784313724" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -476,7 +476,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="102"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="drD-cd-0l8" customClass="AnimatableButton" customModule="IBAnimatable">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="drD-cd-0l8">
                                                     <rect key="frame" x="44" y="40" width="287" height="50"/>
                                                     <color key="backgroundColor" red="0.32156862749999998" green="0.35294117650000001" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -552,7 +552,7 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sde-JI-rXD" customClass="AnimatableButton" customModule="IBAnimatable">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sde-JI-rXD">
                                 <rect key="frame" x="48" y="406" width="279" height="50"/>
                                 <color key="backgroundColor" red="0.32156862749999998" green="0.35294117650000001" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -654,7 +654,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uxi-vW-6XW" customClass="AnimatableButton" customModule="IBAnimatable">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uxi-vW-6XW">
                                                     <rect key="frame" x="284" y="13" width="47" height="29"/>
                                                     <color key="backgroundColor" red="0.31764705879999999" green="0.34901960780000002" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -739,7 +739,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="102"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zi1-po-Lps" customClass="AnimatableButton" customModule="IBAnimatable">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zi1-po-Lps">
                                                     <rect key="frame" x="44" y="40" width="287" height="50"/>
                                                     <color key="backgroundColor" red="0.32156862749999998" green="0.35294117650000001" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -807,7 +807,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="THz-Cw-9LH" userLabel="Content View">
                                     <rect key="frame" x="8" y="8" width="359" height="128"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1m7-2g-BoJ" customClass="AnimatableButton" customModule="IBAnimatable">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1m7-2g-BoJ">
                                             <rect key="frame" x="8" y="38" width="343" height="50"/>
                                             <color key="backgroundColor" red="0.32156862745098036" green="0.3529411764705882" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
@@ -880,7 +880,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="206"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5sw-Hk-5CC" customClass="AnimatableView" customModule="IBAnimatable">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5sw-Hk-5CC">
                                                     <rect key="frame" x="135" y="50" width="105" height="105"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0un-ER-ToU">
@@ -897,7 +897,7 @@
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xIf-ih-DHr" customClass="AnimatableImageView" customModule="IBAnimatable">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xIf-ih-DHr">
                                                             <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -1250,7 +1250,7 @@
                                     <outlet property="delegate" destination="l5S-Y9-sro" id="vDB-Hh-a6f"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T6m-RP-Kgy" customClass="AnimatableButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T6m-RP-Kgy">
                                 <rect key="frame" x="30" y="728" width="315" height="50"/>
                                 <color key="backgroundColor" red="0.31764705882352939" green="0.34901960784313724" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -1293,47 +1293,6 @@
             <point key="canvasLocation" x="5221.6000000000004" y="986.45320197044339"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="1m7-2g-BoJ">
-            <size key="intrinsicContentSize" width="37" height="34"/>
-        </designable>
-        <designable name="8VN-Rm-IV3">
-            <size key="intrinsicContentSize" width="74" height="34"/>
-        </designable>
-        <designable name="DzQ-D1-5Hh">
-            <size key="intrinsicContentSize" width="74" height="34"/>
-        </designable>
-        <designable name="HqQ-Oc-JE8">
-            <size key="intrinsicContentSize" width="33" height="32"/>
-        </designable>
-        <designable name="T6m-RP-Kgy">
-            <size key="intrinsicContentSize" width="115" height="32"/>
-        </designable>
-        <designable name="Uxi-vW-6XW">
-            <size key="intrinsicContentSize" width="30" height="29"/>
-        </designable>
-        <designable name="WrV-bB-6ju">
-            <size key="intrinsicContentSize" width="375" height="35"/>
-        </designable>
-        <designable name="XKu-n9-Ime">
-            <size key="intrinsicContentSize" width="32.666666666666664" height="17"/>
-        </designable>
-        <designable name="Zi1-po-Lps">
-            <size key="intrinsicContentSize" width="66" height="32"/>
-        </designable>
-        <designable name="drD-cd-0l8">
-            <size key="intrinsicContentSize" width="82" height="32"/>
-        </designable>
-        <designable name="ev4-EP-8f1">
-            <size key="intrinsicContentSize" width="32.666666666666664" height="17"/>
-        </designable>
-        <designable name="ope-2p-YYa">
-            <size key="intrinsicContentSize" width="49" height="33"/>
-        </designable>
-        <designable name="sde-JI-rXD">
-            <size key="intrinsicContentSize" width="33" height="32"/>
-        </designable>
-    </designables>
     <resources>
         <image name="account-register-succeed" width="14.666666984558105" height="14.666666984558105"/>
         <image name="add-gray" width="25" height="25"/>

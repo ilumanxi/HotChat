@@ -16,7 +16,7 @@ static CGFloat const kNameLabelFont = 12.0;//送礼者
 #define kNameLabelTextColor [UIColor whiteColor]//送礼者颜色
 
 static CGFloat const kGiftLabelFont = 10.0;//送出礼物寄语  字体大小
-#define kGiftLabelTextColor [UIColor colorWithRed:241/255.0 green:238/255.0 blue:11/255.0 alpha:1.0];//礼物寄语 字体颜色
+#define kGiftLabelTextColor [UIColor whiteColor];//礼物寄语 字体颜色
 
 static CGFloat const kGiftNumberWidth = 15.0;
 
@@ -49,7 +49,7 @@ static CGFloat const kGiftNumberWidth = 15.0;
         self.kRemoveAnimationTime = 0.5;
         self.kNumberAnimationTime = 0.25;
         self.layer.cornerRadius = kViewHeight  / 2;
-        self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
+        self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.4];
     }
     return self;
 }

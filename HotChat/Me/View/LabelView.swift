@@ -9,7 +9,7 @@
 import UIKit
 
 
-@IBDesignable
+//@IBDesignable
 class LabelView: UIView {
     
     

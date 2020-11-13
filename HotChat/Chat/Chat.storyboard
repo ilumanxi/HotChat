@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WXB-hf-8mf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WXB-hf-8mf">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -76,7 +76,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iqP-UX-fcp" customClass="AnimatableImageView">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iqP-UX-fcp">
                                                     <rect key="frame" x="20" y="10" width="50" height="50"/>
                                                     <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -101,7 +101,7 @@
                                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ARc-8U-DdT" customClass="LabelView" customModule="HotChat" customModuleProvider="target">
+                                                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="32" placeholderIntrinsicHeight="16" translatesAutoresizingMaskIntoConstraints="NO" id="ARc-8U-DdT" customClass="LabelView" customModule="HotChat" customModuleProvider="target">
                                                                     <rect key="frame" x="56.5" y="0.0" width="32" height="17"/>
                                                                     <color key="backgroundColor" red="0.43137254901960786" green="0.87058823529411766" blue="0.63137254901960782" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <userDefinedRuntimeAttributes>
@@ -109,7 +109,7 @@
                                                                         <userDefinedRuntimeAttribute type="string" keyPath="text" value="18"/>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </view>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yCH-hD-QQI" customClass="LabelView" customModule="HotChat" customModuleProvider="target">
+                                                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="32" placeholderIntrinsicHeight="16" translatesAutoresizingMaskIntoConstraints="NO" id="yCH-hD-QQI" customClass="LabelView" customModule="HotChat" customModuleProvider="target">
                                                                     <rect key="frame" x="109.5" y="0.0" width="32" height="17"/>
                                                                     <color key="backgroundColor" red="0.43137254899999999" green="0.87058823529999996" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <userDefinedRuntimeAttributes>
@@ -337,7 +337,7 @@
                                     <outlet property="delegate" destination="cda-O3-Keb" id="D2M-30-BkU"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lks-On-Hpq" customClass="AnimatableButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lks-On-Hpq">
                                 <rect key="frame" x="30" y="812" width="354" height="50"/>
                                 <color key="backgroundColor" red="0.31764705882352939" green="0.34901960784313724" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -585,17 +585,6 @@
             <point key="canvasLocation" x="2158" y="856"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="ARc-8U-DdT">
-            <size key="intrinsicContentSize" width="32" height="16"/>
-        </designable>
-        <designable name="lks-On-Hpq">
-            <size key="intrinsicContentSize" width="74" height="34"/>
-        </designable>
-        <designable name="yCH-hD-QQI">
-            <size key="intrinsicContentSize" width="32" height="16"/>
-        </designable>
-    </designables>
     <resources>
         <image name="chat-contact" width="24.5" height="17"/>
         <image name="chat-follow" width="74.5" height="74.5"/>

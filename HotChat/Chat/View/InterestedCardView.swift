@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import IBAnimatable
 
-class InterestedCardView: AnimatableView {
+class InterestedCardView: UIView {
 
   
     @IBOutlet weak var avatarImageView: UIImageView!

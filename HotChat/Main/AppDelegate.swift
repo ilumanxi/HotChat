@@ -184,7 +184,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             
             BPush.setTag("tag") { result, error in
-                debugPrint(String(describing: result))
+                
             }
         }
     }
