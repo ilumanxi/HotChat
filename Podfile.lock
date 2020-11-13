@@ -27,6 +27,7 @@ PODS:
     - SDWebImage (~> 5.0)
   - HandyJSON (5.0.3-beta)
   - HBDNavigationBar (1.7.7)
+  - InputKitSwift (1.2.1)
   - Kingfisher (5.15.7):
     - Kingfisher/Core (= 5.15.7)
   - Kingfisher/Core (5.15.7)
@@ -109,6 +110,7 @@ DEPENDENCIES:
   - GKPhotoBrowser
   - HandyJSON (~> 5.0.3-beta)
   - HBDNavigationBar
+  - InputKitSwift
   - Kingfisher
   - Koloda
   - MagazineLayout
@@ -151,6 +153,7 @@ SPEC REPOS:
     - GKPhotoBrowser
     - HandyJSON
     - HBDNavigationBar
+    - InputKitSwift
     - Kingfisher
     - Koloda
     - MagazineLayout
@@ -200,6 +203,7 @@ SPEC CHECKSUMS:
   GKPhotoBrowser: 79c15d6a356b77b311670cbe27c3d0ea67cb8aa9
   HandyJSON: 88e8ea5f66ab65c3b8768499a1935d0509c460d4
   HBDNavigationBar: 6ba38b99637039c831ce460364d5398f29fa0685
+  InputKitSwift: 5532ed4a41706aeebe6ad6dfafb3bee32e02f1c6
   Kingfisher: 6e1a13523fcb1c86924ce53affe4ac957e544d59
   Koloda: d07b9199a383abc5898b62aa945a599f5e7c0c4b
   MagazineLayout: 159da0d4d874e04e6b17e580b990cccd00328c5b
@@ -237,6 +241,6 @@ SPEC CHECKSUMS:
   WKWebViewJavascriptBridge: 07ad0cab27cd61ccdb90b5deb223f6df3a03c3d7
   ZLPhotoBrowser: d5dbc47fa9fa6679c67b35e57dfc4fcfc7a7eee4
 
-PODFILE CHECKSUM: 2360faab9128c33666f2f602bcbac21455c0af52
+PODFILE CHECKSUM: bf7b949c2553f2c072ee683db637a12de5b7b159
 
 COCOAPODS: 1.10.0

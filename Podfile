@@ -48,5 +48,6 @@ target 'HotChat' do
     pod 'TXIMSDK_TUIKit_iOS'
     pod 'Masonry'
     pod 'AFNetworking'
+    pod 'InputKitSwift'
   
 end

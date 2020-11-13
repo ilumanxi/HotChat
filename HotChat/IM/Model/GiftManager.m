@@ -11,7 +11,7 @@
 #import <MJExtension/MJExtension.h>
 #import "HotChat-Swift.h"
 
-@interface GiftManager ()
+@interface GiftManager ()<TMessageControllerDelegate>
 
 @property(strong, nonatomic) AFHTTPSessionManager *manager;
 
@@ -126,10 +126,22 @@
     conversationCellData.userID = userID;
     
     TUIMessageController *messageController =  [[TUIMessageController alloc] init];
+    messageController.delegate = self;
     [messageController setConversation:conversationCellData];
     
     //IM发消息
     [messageController sendMessage:msg];
 }
 
+- (TUIMessageCell *)messageController:(TUIMessageController *)controller onShowMessageData:(TUIMessageCellData *)data {
+    
+    
+    if ([data isKindOfClass:[GiftCellData class]]) {
+        return [TUIMessageCell new];
+    }
+    
+    return nil;
+}
+
 @end
+
