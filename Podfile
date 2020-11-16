@@ -49,5 +49,5 @@ target 'HotChat' do
     pod 'Masonry'
     pod 'AFNetworking'
     pod 'InputKitSwift'
-  
+    pod 'SwifterSwift'
 end

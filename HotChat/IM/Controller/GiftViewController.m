@@ -13,8 +13,10 @@
 #import "GiftManager.h"
 #import "HotChat-Swift.h"
 #import "GiftReminderViewController.h"
+#import "GiftCountViewController.h"
+@import Blueprints;
 
-@interface GiftViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, GiftReminderViewControllerDelegate>
+@interface GiftViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, GiftReminderViewControllerDelegate, UIPopoverPresentationControllerDelegate, GiftCountViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *collectionViewFlowLayout;
 
@@ -28,6 +30,18 @@
 @property(nonatomic, assign) NSInteger perPageCount;
 
 @property (weak, nonatomic) IBOutlet UIButton *energyButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *countButton;
+
+@property(nonatomic, assign) NSInteger count;
+
+@property(nonatomic, assign) NSInteger columnCountOfPerRow;
+
+@property (nonatomic, assign) NSInteger rowCount;
+
+@property (nonatomic, strong) NSMutableDictionary *itemIndexs;
+@property (nonatomic, assign) NSInteger sectionCount;
+@property (nonatomic, assign) NSInteger itemsInSection;
 
 
 @end
@@ -45,20 +59,55 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.columnCountOfPerRow = 4;
     self.gifts = [GiftManager shared].cahcheGiftList;
+    self.count = 1;
     
+    [self setupViews];
     [[GiftManager shared] getGiftList:^(NSArray<Gift *> * _Nonnull giftList) {
         self.gifts = giftList;
         self.pageControl.numberOfPages = self.numberOfPages;
         [self.collectionView reloadData];
     }];
-    
-    [self setupViews];
-    
+
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateUserInfo) name:@"com.friday.Chat.userDidChange" object:nil];
 }
+
+- (void)setGifts:(NSArray<Gift *> *)gifts {
+    
+    _gifts = gifts;
+    [self setupSections];
+}
+
+- (void)setupSections {
+    
+    
+    if (_gifts.count > _columnCountOfPerRow) {
+        _rowCount = 2;
+    }
+    else {
+        _rowCount = 1;
+    }
+    
+    _itemsInSection = _columnCountOfPerRow * _rowCount;
+    _sectionCount = ceil(_gifts.count * 1.0 / _itemsInSection);
+    
+    _itemIndexs = [NSMutableDictionary dictionary];
+    for (NSInteger curSection = 0; curSection < _sectionCount; ++curSection) {
+        for (NSInteger itemIndex = 0; itemIndex < _itemsInSection; ++itemIndex) {
+            // transpose line/row
+            NSInteger row = itemIndex % _rowCount;
+            NSInteger column = itemIndex / _rowCount;
+            NSInteger reIndex = _columnCountOfPerRow * row + column + curSection * _itemsInSection;
+            [_itemIndexs setObject:@(reIndex) forKey:[NSIndexPath indexPathForRow:itemIndex inSection:curSection]];
+        }
+    }
+    
+    [self.collectionView reloadData];
+}
+
+
 
 - (void)dealloc {
     
@@ -106,25 +155,45 @@
 
 
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    
-    return self.gifts.count;
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return _sectionCount;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return _itemsInSection;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-    Gift *gift = self.gifts[indexPath.item];
-    
     GiftViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GiftViewCell" forIndexPath:indexPath];
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:gift.img]];
-    cell.nameLabel.text = gift.name;
-    cell.energyLabel.text = [NSString stringWithFormat:@"%ld能量",gift.energy];
+    
+    NSNumber *index = _itemIndexs[indexPath];
+    if(index.integerValue >= _gifts.count){
+        cell.imageView.image = nil;
+        cell.nameLabel.text = nil;
+        cell.energyLabel.text = nil;
+    }
+    else{
+        Gift *gift = self.gifts[index.intValue];
+        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:gift.img]];
+        cell.nameLabel.text = gift.name;
+        cell.energyLabel.text = [NSString stringWithFormat:@"%ld能量",gift.energy];
+    }
     return  cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    Gift *giftData = self.gifts[indexPath.item];
     
+    NSNumber *index = _itemIndexs[indexPath];
+    if(index.integerValue >= _gifts.count){
+        return;
+    }
+    
+    
+    Gift *giftData = self.gifts[index.intValue];
+    giftData.count = self.count;
     if ([GiftReminderViewController isReminder]) {
         GiftReminderViewController *vc = [[GiftReminderViewController alloc] init];
         vc.modalPresentationStyle = UIModalPresentationOverFullScreen;
@@ -133,8 +202,8 @@
         [self presentViewController:vc animated:NO completion:nil];
     }
     else {
-        if(_delegate && [_delegate respondsToSelector:@selector(giftViewController:didSelectItemAtIndexPath:)]){
-            [_delegate giftViewController:self didSelectItemAtIndexPath:indexPath];
+        if(_delegate && [_delegate respondsToSelector:@selector(giftViewController:didSelectGift:)]){
+            [_delegate giftViewController:self didSelectGift:giftData];
         }
     }
     
@@ -142,11 +211,8 @@
 
 - (void)giftReminderViewController:(GiftReminderViewController *)giftReminder gift:(Gift *)gift {
     
-    
-    
-    NSInteger row = [self.gifts indexOfObject:gift];
-    if(_delegate && [_delegate respondsToSelector:@selector(giftViewController:didSelectItemAtIndexPath:)]){
-        [_delegate giftViewController:self didSelectItemAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0]];
+    if(_delegate && [_delegate respondsToSelector:@selector(giftViewController:didSelectGift:)]){
+        [_delegate giftViewController:self didSelectGift:gift];
     }
 }
 
@@ -167,6 +233,34 @@
 }
 
 
+- (IBAction)countButtonTapped:(UIButton *)sender {
+    
+    GiftCountViewController *vc = [[GiftCountViewController alloc] init];
+    vc.count = self.count;
+    vc.delegate = self;
+    vc.modalPresentationStyle = UIModalPresentationPopover;
+    vc.popoverPresentationController.delegate = self;
+    vc.popoverPresentationController.sourceView = sender;
+    vc.popoverPresentationController.sourceRect = CGRectMake(0, 0, sender.bounds.size.width / 2.0, sender.bounds.size.height / 2.0);
+    vc.popoverPresentationController.backgroundColor =[UIColor whiteColor];
+    vc.popoverPresentationController.canOverlapSourceViewRect = NO;
+    [self presentViewController:vc animated:YES completion:^{
+        
+    }];
+}
+
+
+#pragma mark - <UIPopoverPresentationControllerDelegate>
+- (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller {
+    return UIModalPresentationNone;
+}
+
+
+- (void)giftCountViewController:(GiftCountViewController *)giftCountController count:(NSInteger)count {
+    
+    self.count = count;
+    [self.countButton setTitle:[NSString stringWithFormat:@"%ld", count] forState:UIControlStateNormal];
+}
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     

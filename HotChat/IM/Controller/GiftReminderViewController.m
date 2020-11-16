@@ -48,7 +48,7 @@
     
     
     [self.imageView sd_setImageWithURL:[NSURL URLWithString:self.gift.img]];
-    self.textLabel.text = [NSString stringWithFormat:@"你确定赠送“%@“x1吗？", self.gift.name];
+    self.textLabel.text = [NSString stringWithFormat:@"你确定赠送“%@“x%ld吗？", self.gift.name ,self.gift.count];
     self.detailTextLabel.text = [NSString stringWithFormat:@"%ld能量",self.gift.energy];
     
 }

@@ -304,14 +304,9 @@
     [self presentViewController:vc animated:YES completion:nil];
 }
 
-- (void)giftViewController:(GiftViewController *)gift didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    Gift *giftData = gift.gifts[indexPath.item];
-    giftData.count = 1;
-    [self giveGifts:giftData];
+- (void)giftViewController:(GiftViewController *)giftController didSelectGift:(Gift *)gift {
+    [self giveGifts:gift];
 }
-
-
-
 
 - (void)giveGifts:(Gift *)giftData {
     

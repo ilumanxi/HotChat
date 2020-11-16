@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol GiftViewControllerDelegate <NSObject>
 
-- (void)giftViewController:(GiftViewController *)gift didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
+- (void)giftViewController:(GiftViewController *)giftController didSelectGift:(Gift *)gift;
 
 @end
 

@@ -314,16 +314,13 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
 
 extension DynamicDetailViewController: GiftViewControllerDelegate {
     
-    func giftViewController(_ gift: GiftViewController, didSelectItemAt indexPath: IndexPath) {
+    func giftViewController(_ giftController: GiftViewController, didSelect gift: Gift) {
         
         guard let dynamic = selectedDynamic else {
             return
         }
         
-        let giftData = gift.gifts[indexPath.item]
-        giftData.count = 1
-        
-        GiftManager.shared().giveGift(self.user.userId, type: 1, dynamicId: dynamic.dynamicId, gift: giftData) { (responseObject, error) in
+        GiftManager.shared().giveGift(self.user.userId, type: 1, dynamicId: dynamic.dynamicId, gift: gift) { (responseObject, error) in
             if let error = error {
                 self.show(error.localizedDescription)
                 return
@@ -340,19 +337,19 @@ extension DynamicDetailViewController: GiftViewControllerDelegate {
                 LoginManager.shared.update(user: user)
                 
                 let cellData = GiftCellData(direction: .MsgDirectionOutgoing)
-                cellData.gift = giftData
+                cellData.gift = gift
                 let imData = IMData.default()
-                imData.data = giftData.mj_JSONString()
+                imData.data = gift.mj_JSONString()
                 
                 let data = TUICallUtils.dictionary2JsonData(imData.mj_keyValues() as! [AnyHashable : Any])
                 cellData.innerMessage = V2TIMManager.sharedInstance()!.createCustomMessage(data)
                 GiftManager.shared().sendGiftMessage(cellData, userID: self.user.userId)
-                gift.dismiss(animated: true, completion: nil)
+                giftController.dismiss(animated: true, completion: nil)
                 
                 self.show("送礼成功")
             }
             else if (giveGift.resultCode == 3) { //能量不足，需要充值
-                gift.dismiss(animated: true) {
+                giftController.dismiss(animated: true) {
                     
                     let alertController = UIAlertController(title: nil, message: "您的能量不足、请充值！", preferredStyle: .alert)
                     

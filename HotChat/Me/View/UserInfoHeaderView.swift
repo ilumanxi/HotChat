@@ -119,6 +119,7 @@ class UserInfoHeaderView: UIView, FSPagerViewDataSource, FSPagerViewDelegate {
     
     func configureCell(_ cell: FSPagerViewCell, for index: Int) {
         
+        cell.imageView?.contentMode = .scaleAspectFill
         cell.imageView?.backgroundColor = UIColor(hexString: "DDDDDD")
         
         if index == 0 {

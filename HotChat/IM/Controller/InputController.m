@@ -485,11 +485,7 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
 }
 
 
-
-- (void)giftViewController:(GiftViewController *)giftController didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-    Gift *gift = giftController.gifts[indexPath.row];
-    gift.count = 1;
+- (void)giftViewController:(GiftViewController *)giftController didSelectGift:(Gift *)gift {
     [self giveGifts:gift];
 }
 
