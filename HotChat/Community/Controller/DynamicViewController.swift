@@ -56,7 +56,9 @@ extension Media {
 }
 
 
-class DynamicViewController: UITableViewController, IndicatorDisplay {
+class DynamicViewController: UITableViewController, IndicatorDisplay, StoryboardCreate {
+    
+    static var storyboardNamed: String { return "Community" }
     
     let uploadAPI = Request<UploadFileAPI>()
     

@@ -16,9 +16,6 @@ import MJRefresh
 
 class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, IndicatorDisplay {
     
-    
-    
-    
     struct SearchParameters {
         let searchContent: String
         let page: Int

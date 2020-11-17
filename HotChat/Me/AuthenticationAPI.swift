@@ -89,7 +89,7 @@ class AuthenticationHelper: NSObject {
     
    @objc class func faceAttestation(imgURL: String, success: @escaping (NSDictionary) -> Void, failed: @escaping (NSError) -> Void) {
         
-        authentication.request(.faceAttestation(imgFace: imgURL), type: ResponseEmpty.self)
+        authentication.request(.faceAttestation(imgFace: imgURL), type: ResponseState.self)
             .verifyResponse()
             .subscribe(onSuccess: { response in
                 success(response.toJSON()! as NSDictionary)

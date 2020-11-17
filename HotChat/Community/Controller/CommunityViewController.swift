@@ -52,7 +52,20 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         GiftManager.shared().getGiftList { _ in
+        }
+        
+        GiftHelper.giftNumConfig(success: { _ in
+            
+        }, failed: { _ in
+            
+        })
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            LoginManager.shared.getLocation { _ in
+                
+            }
         }
         
         collectionView.backgroundColor = .groupTableViewBackground
@@ -75,13 +88,6 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
         collectionView.mj_header?.beginRefreshing()
         hiddenPhoneBindingView()
         observeLPhoneState()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            LoginManager.shared.getLocation { _ in
-                
-            }
-
-        }
       
     }
     
@@ -177,6 +183,11 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     }
     
     @IBAction func sendButtonTapped(_ sender: Any) {
+        
+        let vc = DynamicViewController.loadFromStoryboard()
+        let navVC = UINavigationController(rootViewController: vc)
+        navVC.modalPresentationStyle = .fullScreen
+        present(navVC, animated: true, completion: nil)
     }
     
     

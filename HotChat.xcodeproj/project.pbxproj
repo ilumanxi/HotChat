@@ -14,11 +14,12 @@
 		260B96162521F2F400767076 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260B96152521F2F400767076 /* AuthenticationViewController.swift */; };
 		2615C9F8255E8B0C009B89F4 /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2615C9F7255E8B0C009B89F4 /* PlaceholderTextView.swift */; };
 		2619D18725625AAB0071CC85 /* GiftCountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2619D18625625AAB0071CC85 /* GiftCountViewController.m */; };
-		2619D18C25625D170071CC85 /* GiftCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 2619D18B25625D170071CC85 /* GiftCount.m */; };
 		2619D192256260A90071CC85 /* GiftCountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2619D190256260A90071CC85 /* GiftCountCell.m */; };
 		2619D193256260A90071CC85 /* GiftCountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2619D191256260A90071CC85 /* GiftCountCell.xib */; };
 		262C5F6D255550BE00126359 /* AccountSecurityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C5F6B255550BE00126359 /* AccountSecurityController.swift */; };
 		262C5F6E255550BE00126359 /* AccountSecurityController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 262C5F6C255550BE00126359 /* AccountSecurityController.xib */; };
+		2636A0BF2563D04A00664FFC /* GiftAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2636A0BE2563D04A00664FFC /* GiftAPI.swift */; };
+		2636A0CA2563D25500664FFC /* GiftCountDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2636A0C92563D25500664FFC /* GiftCountDescription.swift */; };
 		26373C732502340D0066FF3B /* FormEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26373C722502340D0066FF3B /* FormEntry.swift */; };
 		26373C75250234AC0066FF3B /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26373C74250234AC0066FF3B /* Delegate.swift */; };
 		26373C77250234D00066FF3B /* FormSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26373C76250234D00066FF3B /* FormSection.swift */; };
@@ -321,14 +322,14 @@
 		2615C9F7255E8B0C009B89F4 /* PlaceholderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
 		2619D18525625AAB0071CC85 /* GiftCountViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftCountViewController.h; sourceTree = "<group>"; };
 		2619D18625625AAB0071CC85 /* GiftCountViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftCountViewController.m; sourceTree = "<group>"; };
-		2619D18A25625D170071CC85 /* GiftCount.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftCount.h; sourceTree = "<group>"; };
-		2619D18B25625D170071CC85 /* GiftCount.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftCount.m; sourceTree = "<group>"; };
 		2619D18F256260A90071CC85 /* GiftCountCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftCountCell.h; sourceTree = "<group>"; };
 		2619D190256260A90071CC85 /* GiftCountCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftCountCell.m; sourceTree = "<group>"; };
 		2619D191256260A90071CC85 /* GiftCountCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiftCountCell.xib; sourceTree = "<group>"; };
 		262C5F6B255550BE00126359 /* AccountSecurityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSecurityController.swift; sourceTree = "<group>"; };
 		262C5F6C255550BE00126359 /* AccountSecurityController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountSecurityController.xib; sourceTree = "<group>"; };
 		2633EC5125315706009F0F27 /* carthage.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = carthage.sh; sourceTree = SOURCE_ROOT; };
+		2636A0BE2563D04A00664FFC /* GiftAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftAPI.swift; sourceTree = "<group>"; };
+		2636A0C92563D25500664FFC /* GiftCountDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCountDescription.swift; sourceTree = "<group>"; };
 		26373C722502340D0066FF3B /* FormEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormEntry.swift; sourceTree = "<group>"; };
 		26373C74250234AC0066FF3B /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
 		26373C76250234D00066FF3B /* FormSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormSection.swift; sourceTree = "<group>"; };
@@ -1320,6 +1321,7 @@
 				26E291AF25541C010032AE99 /* PIPWindow.h */,
 				26E291B025541C010032AE99 /* PIPWindow.m */,
 				2656F316254FDB5000552611 /* IMAPI.swift */,
+				2636A0BE2563D04A00664FFC /* GiftAPI.swift */,
 			);
 			path = IM;
 			sourceTree = "<group>";
@@ -1392,8 +1394,7 @@
 				26CB6C3D25512A0A00A9F4DD /* BillingStatus.m */,
 				264DEA122552512C00AD97DE /* GiftManager.h */,
 				264DEA132552512C00AD97DE /* GiftManager.m */,
-				2619D18A25625D170071CC85 /* GiftCount.h */,
-				2619D18B25625D170071CC85 /* GiftCount.m */,
+				2636A0C92563D25500664FFC /* GiftCountDescription.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1700,6 +1701,7 @@
 				26F25C932509C36B00F808EA /* TabBarButton.swift in Sources */,
 				26CB6D3E25515D6B00A9F4DD /* BDFaceSuccessViewController.m in Sources */,
 				26F553762553D16E00840735 /* TalkEarningsViewController.swift in Sources */,
+				2636A0CA2563D25500664FFC /* GiftCountDescription.swift in Sources */,
 				26CBE3BD2508D7920089A23C /* DiscoverViewController.swift in Sources */,
 				26E291982553EABB0032AE99 /* GiftEarningsCell.swift in Sources */,
 				F38CB8C82507BA8A00049A76 /* ChatNotificationSettingCell.swift in Sources */,
@@ -1815,6 +1817,7 @@
 				26F8947125203BDD00A45648 /* TitleViewController.swift in Sources */,
 				26A8D4E9251C8F3E00B736CF /* Constellation.swift in Sources */,
 				26377FCE2530526800D5A03D /* ChatViewController.swift in Sources */,
+				2636A0BF2563D04A00664FFC /* GiftAPI.swift in Sources */,
 				26DBC373253D89DF0083BDFB /* AudioCallViewController.m in Sources */,
 				26EB2DCC255945C4006698F9 /* Consumer.swift in Sources */,
 				26EB2DA72558F157006698F9 /* SubsidiaryAccountCell.swift in Sources */,
@@ -1875,7 +1878,6 @@
 				2637D879255B8EDF00020E98 /* BlacklistCell.swift in Sources */,
 				2607319B2536DD1B00B1093C /* ReportAPI.swift in Sources */,
 				2643EBB02500B04100FBBE49 /* RealNameAuthenticationFooterView.swift in Sources */,
-				2619D18C25625D170071CC85 /* GiftCount.m in Sources */,
 				26CB6D4025515D6B00A9F4DD /* BDFaceAgreementViewController.m in Sources */,
 				26F710042542C6C000797E87 /* UserSettingsAPI.swift in Sources */,
 				2639536825419E8300B5E3C0 /* CardViewCell.swift in Sources */,

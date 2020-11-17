@@ -322,6 +322,7 @@
                                             <outlet property="nicknameLabel" destination="MdW-TL-ZB1" id="Bej-T1-232"/>
                                             <outlet property="profileImageView" destination="74g-4e-69N" id="qrH-cQ-u9m"/>
                                             <outlet property="textLabel" destination="rW7-zm-wid" id="FJd-8K-h9y"/>
+                                            <segue destination="709-N9-IVE" kind="show" id="9TA-sx-aFv"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -348,7 +349,6 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="sendButtonTapped:" destination="7kL-bk-kMs" eventType="touchUpInside" id="wqi-tV-e80"/>
-                                                    <segue destination="jG8-gF-fuD" kind="presentation" id="0OT-ow-vlT"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -803,7 +803,7 @@
         <!--Dynamic View Controller-->
         <scene sceneID="xmw-xh-7E6">
             <objects>
-                <tableViewController id="beS-pI-lYB" customClass="DynamicViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="DynamicViewController" id="beS-pI-lYB" customClass="DynamicViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="yvI-ye-HFO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -936,24 +936,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VDe-kK-kzd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3398.5507246376815" y="-699.10714285714278"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Dw1-Wc-tNM">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="jG8-gF-fuD" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hcw-e4-lkW">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="beS-pI-lYB" kind="relationship" relationship="rootViewController" id="fNY-XE-3DL"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Wik-Fd-JWC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2488.4057971014495" y="-699.10714285714278"/>
         </scene>
     </scenes>
     <resources>

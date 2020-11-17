@@ -7,13 +7,13 @@
 //
 
 #import "GiftCountViewController.h"
-#import "GiftCount.h"
 #import "GiftCountCell.h"
+#import "HotChat-Swift.h"
 
 @interface GiftCountViewController ()
 
 
-@property(nonatomic, copy) NSArray<GiftCount *> *data;
+@property(nonatomic, copy) NSArray<GiftCountDescription *> *data;
 
 @end
 
@@ -26,23 +26,18 @@
     [self setupPreferredContentSize];
     [self setupViews];
     
-   
+    [GiftHelper giftNumConfigWithSuccess:^(NSArray<GiftCountDescription *> * _Nonnull data) {
+        self.data = data;
+        [self setupPreferredContentSize];
+        [self.tableView reloadData];
+    } failed:^(NSError * _Nonnull error) {
+    
+    }];
 }
 
 
 - (void)setupData {
-    
-    _data = @[
-        [[GiftCount alloc] initWithCount:9999 text:@"长长久久"],
-        [[GiftCount alloc] initWithCount:1314 text:@"一生一世"],
-        [[GiftCount alloc] initWithCount:188 text:@"要抱抱"],
-        [[GiftCount alloc] initWithCount:66 text:@"一切顺利"],
-        [[GiftCount alloc] initWithCount:30 text:@"想你..."],
-        [[GiftCount alloc] initWithCount:10 text:@"十全十美"],
-        [[GiftCount alloc] initWithCount:5 text:@"喜欢你"],
-        [[GiftCount alloc] initWithCount:2 text:@"好事成双"],
-        [[GiftCount alloc] initWithCount:1 text:@"一心一意"]
-    ];
+    _data = [GiftHelper cacheGifCountConfig];
     
 }
 
@@ -72,12 +67,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    GiftCount *model = self.data[indexPath.row];
+    GiftCountDescription *model = self.data[indexPath.row];
     
     GiftCountCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GiftCountCell" forIndexPath:indexPath];
-    cell.countLabel.text = [NSString stringWithFormat:@"%ld%@",model.count, model.text];
+    cell.countLabel.text = [NSString stringWithFormat:@"%ld%@",model.num, model.name];
     
-    if (model.count == self.count) {
+    if (model.num == self.count) {
         cell.contentView.backgroundColor = [UIColor colorWithRed:241/255.0 green:238/255.0 blue:11/255.0 alpha:1.0];
     }
     else {
@@ -90,10 +85,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    GiftCount *model = self.data[indexPath.row];
+    GiftCountDescription *model = self.data[indexPath.row];
     
     if (_delegate && [_delegate respondsToSelector:@selector(giftCountViewController:count:)]) {
-        [_delegate giftCountViewController:self count:model.count];
+        [_delegate giftCountViewController:self count:model.num];
     }
     
     [self dismissViewControllerAnimated:YES completion:nil];
