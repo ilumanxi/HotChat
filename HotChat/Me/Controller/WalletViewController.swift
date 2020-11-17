@@ -118,7 +118,7 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func requestUserInfo()  {
         API.request(.userinfo(userId: nil), type: Response<User>.self)
-            .checkResponse()
+            .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in
                 self?.user = response.data!
                 let user = LoginManager.shared.user!
@@ -327,7 +327,7 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
         ]
         
         return payAPI.request(.ceateOrder(parameters), type: Response<[String : Any]>.self)
-            .checkResponse()
+            .verifyResponse()
             .map { response in
                 let order =  Ordrer.deserialize(from: response.data, designatedPath: "params")!
                 return (order, product.0, product.1)

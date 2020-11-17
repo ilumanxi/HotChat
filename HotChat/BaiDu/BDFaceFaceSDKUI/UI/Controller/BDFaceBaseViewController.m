@@ -359,9 +359,9 @@
 
 - (void)outTimeViewUnload{
     
-    // 关闭超时的view，恢复视频流工作
-    self.videoCapture.runningStatus = YES;
-    [self.videoCapture startSession];
+//    // 关闭超时的view，恢复视频流工作
+//    self.videoCapture.runningStatus = YES;
+//    [self.videoCapture startSession];
     [_timeOutMainView removeFromSuperview];
     [_timeOutView removeFromSuperview];
     [_timeOutImageView removeFromSuperview];
@@ -416,6 +416,10 @@
 
 - (void)selfReplayFunction{
     // 相应的功能在采集/检测时候写
+    
+    // 关闭超时的view，恢复视频流工作
+    self.videoCapture.runningStatus = YES;
+    [self.videoCapture startSession];
 }
 
 - (IBAction)backToPreView:(UIButton *)sender{

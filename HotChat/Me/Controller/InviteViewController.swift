@@ -38,7 +38,7 @@ class InviteViewController: UIViewController, LoadingStateType, IndicatorDisplay
         state = .refreshingContent
         
         userAPI.request(.infoInvite, type: Response<[String : Any]>.self)
-            .checkResponse()
+            .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in
                 if let phone = response.data?["phone"] as? String, !phone.isEmpty {
                     self?.hintView.isHidden = false
@@ -70,7 +70,7 @@ class InviteViewController: UIViewController, LoadingStateType, IndicatorDisplay
         view.endEditing(true)
         self.showIndicator()
         userAPI.request(.editInvite(phone: phone), type: ResponseEmpty.self)
-            .checkResponse()
+            .verifyResponse()
             .subscribe(onSuccess:{ [weak self] response in
                 self?.show(response.msg)
                 self?.hideIndicator()

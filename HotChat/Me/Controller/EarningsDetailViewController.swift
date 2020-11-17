@@ -61,7 +61,7 @@ class EarningsDetailViewController: UIViewController, LoadingStateType, Indicato
         state = .refreshingContent
         
         consumerAPI.request(.countProfit(tag: type.rawValue), type: Response<[Earning]>.self)
-            .checkResponse()
+            .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in
                 let gift = response.data?.first(where: { $0.type == 1 })
                 

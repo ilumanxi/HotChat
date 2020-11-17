@@ -16,7 +16,7 @@ class AvatarAuthenticationResultController: UIViewController, IndicatorDisplay {
     
     let isVerify: Bool
     let originalImage: UIImage
-    
+    let remoteURLString: String
     
     @IBOutlet weak var verifyTextLabel: UILabel!
     
@@ -36,10 +36,12 @@ class AvatarAuthenticationResultController: UIViewController, IndicatorDisplay {
     
     let userAPI = Request<UserAPI>()
     let uploadAPI = Request<UploadFileAPI>()
+    let authenticationAPI = Request<AuthenticationAPI>()
     
-    @objc init(verify: Bool, originalImage: UIImage) {
+    @objc init(verify: Bool, originalImage: UIImage, remoteURLString: String) {
         self.isVerify = verify
         self.originalImage = originalImage
+        self.remoteURLString = remoteURLString
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -89,29 +91,45 @@ class AvatarAuthenticationResultController: UIViewController, IndicatorDisplay {
         present(alertController, animated: true, completion: nil)
     }
     
+    
+    func editFacePic()  {
+        
+        showIndicator()
+        authenticationAPI.request(.editFacePic(imgFace: remoteURLString), type: ResponseEmpty.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { [weak self] response in
+                self?.hideIndicator()
+                self?.show(response.msg)
+            }, onError: { [weak self] error in
+                self?.hideIndicator()
+                self?.show(error.localizedDescription)
+            })
+            .disposed(by: rx.disposeBag)
+    }
+    
     func upload(_ url: URL) -> Single<Response<[RemoteFile]>> {
-        return uploadAPI.request(.upload(url)).checkResponse()
+        return uploadAPI.request(.upload(url)).verifyResponse()
     }
     
     func uploadImage(_ image: UIImage)  {
         showIndicator()
        let url =  writeImage(image)
         self.upload(url)
-            .map{ response -> [String : Any] in
-                return [
-                    "type" : 3,
-                    "headPic" : response.data!.first!.picUrl
-                ]
+            .map{ response -> String in
+                return response.data!.first!.picUrl
             }
             .flatMap { [unowned self] in
-                return self.editUserInfo($0)
+                return self.editFacePic(imgFace: $0)
             }
             .subscribe(onSuccess: { [weak self] response in
-                let user = LoginManager.shared.user!
-                user.headPic = response.data!.headPic
-                LoginManager.shared.update(user: user)
-                self?.setupViews()
-                self?.hideIndicator()
+                guard let self = self else { return }
+                
+                var viewContollers = self.navigationController!.viewControllers
+                viewContollers.removeLast()
+                let vc = BDFaceDetectionViewController()
+                viewContollers.append(vc)
+                self.navigationController?.setViewControllers(viewContollers, animated: true)
+                self.hideIndicator()
             }, onError: { [weak self]  error in
                 self?.hideIndicator()
                 self?.show(error.localizedDescription)
@@ -119,10 +137,10 @@ class AvatarAuthenticationResultController: UIViewController, IndicatorDisplay {
             .disposed(by: self.rx.disposeBag)
     }
     
-    func editUserInfo(_ parameters: [String : Any]) -> Single<Response<User>> {
-        return userAPI.request(.editUser(value: parameters)).checkResponse()
+    func editFacePic(imgFace: String) -> Single<ResponseEmpty> {
+        
+        return authenticationAPI.request(.editFacePic(imgFace: imgFace))
     }
-    
     
     private func imagePicker()  {
         

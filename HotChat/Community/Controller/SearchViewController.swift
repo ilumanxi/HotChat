@@ -90,7 +90,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func loadData(parameters : SearchParameters) -> Single<Response<Pagination<User>>> {
-        return searchAPI.request(.searchList(searchContent: parameters.searchContent, page: parameters.page)).checkResponse()
+        return searchAPI.request(.searchList(searchContent: parameters.searchContent, page: parameters.page)).verifyResponse()
     }
     
     func parameters() -> SearchParameters {

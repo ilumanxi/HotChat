@@ -33,7 +33,7 @@ class BlacklistController: UIViewController, LoadingStateType, IndicatorDisplay 
     func refreshData() {
         state = .refreshingContent
         uesrAPI.request(.blackList, type: Response<[User]>.self)
-            .checkResponse()
+            .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in
                 self?.data = response.data!
                 self?.tableView.reloadData()
@@ -55,7 +55,7 @@ class BlacklistController: UIViewController, LoadingStateType, IndicatorDisplay 
     func editDefriend(_ user: User) {
         showIndicator()
         uesrAPI.request(.editDefriend(userId: user.userId), type: ResponseEmpty.self)
-            .checkResponse()
+            .verifyResponse()
             .subscribe(onSuccess: { [weak self] _ in
                 guard let self = self else { return }
                 let index = self.data.firstIndex(of: user)!

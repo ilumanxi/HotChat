@@ -67,7 +67,7 @@ class ReportViewController: UIViewController, IndicatorDisplay, StoryboardCreate
         self.showIndicatorOnWindow()
         
         reportAPI.request(.userReport(parameters), type: ResponseEmpty.self)
-            .checkResponse()
+            .verifyResponse()
             .subscribe(onSuccess: { [weak self] reponse in
                 self?.hideIndicatorFromWindow()
                 self?.showMessageOnWindow(reponse.msg)

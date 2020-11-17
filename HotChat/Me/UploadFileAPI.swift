@@ -9,6 +9,7 @@
 import Foundation
 import Moya
 import HandyJSON
+import RxSwift
 
 
 enum UploadFileAPI {
@@ -50,9 +51,35 @@ extension UploadFileAPI: TargetType {
 }
 
 
-struct RemoteFile: HandyJSON {
+@objc class RemoteFile: NSObject, HandyJSON {
     
     var picId: Int = 0
     
-    var picUrl = ""
+    @objc var picUrl = ""
+    
+    required override init() {
+        super.init()
+    }
+}
+
+
+@objc class UploadHelper: NSObject {
+    
+
+    static let upload  = Request<UploadFileAPI>()
+    
+    static let disposeObject = DisposeBag()
+    
+    @objc class func  uploadImage(_ image: UIImage, success: @escaping (RemoteFile) -> Void, failed: @escaping (NSError) -> Void) {
+        
+        let url = writeImage(image)
+        upload.request(.upload(url), type: Response<[RemoteFile]>.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { response in
+                success(response.data!.first!)
+            }, onError: { error in
+                failed(error as NSError)
+            })
+            .disposed(by: disposeObject)
+    }
 }

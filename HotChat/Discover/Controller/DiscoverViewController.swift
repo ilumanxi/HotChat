@@ -54,7 +54,7 @@ class DiscoverViewController: SegementSlideDefaultViewController, LoadingStateTy
     }
     
     func loadData() -> Single<Response<[Channel]>> {
-        return discoverAPI.request(.labelList).checkResponse()
+        return discoverAPI.request(.labelList).verifyResponse()
     }
     
     

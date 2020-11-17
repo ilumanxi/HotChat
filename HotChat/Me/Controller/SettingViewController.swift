@@ -132,7 +132,7 @@ class SettingViewController: UITableViewController, StoryboardCreate, IndicatorD
     func userLogout() {
         showIndicator()
         API.request(.logout, type: ResponseEmpty.self)
-            .checkResponse()
+            .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in
                 self?.hideIndicator()
             }, onError: { [weak self] error in

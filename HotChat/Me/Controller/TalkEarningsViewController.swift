@@ -29,7 +29,7 @@ class TalkEarningsViewController: UIViewController, LoadingStateType, IndicatorD
     func refreshData() {
         state = .refreshingContent
         consumerAPI.request(.profitImList, type: Response<[TalkEarning]>.self)
-            .checkResponse()
+            .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in
                 self?.data = response.data!
                 self?.tableView.reloadData()

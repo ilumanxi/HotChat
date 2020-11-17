@@ -72,7 +72,7 @@ class ForYouViewController: UIViewController, StoryboardCreate, LoadingStateType
         
         state = (state == .initial) ? .loadingContent : .refreshingContent
         accountAPI.request(.recommendList, type: Response<[User]>.self)
-            .checkResponse()
+            .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in
                 self?.data = response.data ?? []
                 self?.state = .contentLoaded
@@ -93,7 +93,7 @@ class ForYouViewController: UIViewController, StoryboardCreate, LoadingStateType
         }
         else {
             userAPI.request(.batchFollow(followList: followList), type: ResponseEmpty.self)
-                .checkResponse()
+                .verifyResponse()
                 .subscribe(onSuccess: { _ in
                     UIApplication.shared.keyWindow?.setMainViewController()
                 }, onError: { _ in

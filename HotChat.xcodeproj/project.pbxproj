@@ -1154,18 +1154,18 @@
 		26CB6D1125515D6B00A9F4DD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				26CB6D1225515D6B00A9F4DD /* BDFaceLivingConfigViewController.m */,
-				26CB6D1325515D6B00A9F4DD /* BDFaceSuccessViewController.m */,
-				26CB6D1425515D6B00A9F4DD /* BDFaceDetectionViewController.h */,
 				26CB6D1525515D6B00A9F4DD /* BDFaceAgreementViewController.h */,
+				26CB6D1925515D6B00A9F4DD /* BDFaceAgreementViewController.m */,
+				26CB6D1C25515D6B00A9F4DD /* BDFaceLivenessViewController.h */,
 				26CB6D1625515D6B00A9F4DD /* BDFaceLivenessViewController.m */,
 				26CB6D1725515D6B00A9F4DD /* BDFaceBaseViewController.h */,
+				26CB6D1D25515D6B00A9F4DD /* BDFaceBaseViewController.m */,
 				26CB6D1825515D6B00A9F4DD /* BDFaceLivingConfigViewController.h */,
-				26CB6D1925515D6B00A9F4DD /* BDFaceAgreementViewController.m */,
+				26CB6D1225515D6B00A9F4DD /* BDFaceLivingConfigViewController.m */,
+				26CB6D1425515D6B00A9F4DD /* BDFaceDetectionViewController.h */,
 				26CB6D1A25515D6B00A9F4DD /* BDFaceDetectionViewController.m */,
 				26CB6D1B25515D6B00A9F4DD /* BDFaceSuccessViewController.h */,
-				26CB6D1C25515D6B00A9F4DD /* BDFaceLivenessViewController.h */,
-				26CB6D1D25515D6B00A9F4DD /* BDFaceBaseViewController.m */,
+				26CB6D1325515D6B00A9F4DD /* BDFaceSuccessViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

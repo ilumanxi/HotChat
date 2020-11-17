@@ -11,18 +11,10 @@ import HandyJSON
 
 
 struct Authentication: HandyJSON {
-
-    /// 实名认证
-    var certificationStatus: ValidationStatus = .empty
     
-    var userName: String = ""
+    var girlStatus: ValidationStatus = .empty
     
-    var identityNum: String = ""
+    var headStatus: ValidationStatus = .empty
     
-    var identityPicFront: String = ""
-    
-    var identityPicFan: String = ""
-    
-    var handIdentityPic: String = ""
-    
+    var realNameStatus: ValidationStatus = .empty
 }

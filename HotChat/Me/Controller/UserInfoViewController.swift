@@ -61,7 +61,7 @@ class UserInfoViewController: SegementSlideDefaultViewController, LoadingStateTy
         headerView.onFollowButtonTapped.delegate(on: self) { (self, sender) in
             sender.followButton.isUserInteractionEnabled = false
             self.dynamicAPI.request(.follow(self.user.userId), type: ResponseEmpty.self)
-                .checkResponse()
+                .verifyResponse()
                 .subscribe(onSuccess: { response in
                     sender.followButton.isUserInteractionEnabled = true
                     var user = self.user
@@ -135,7 +135,7 @@ class UserInfoViewController: SegementSlideDefaultViewController, LoadingStateTy
     func refreshData() {
         state = .refreshingContent
         userAPI.request(.userinfo(userId: user.userId),type: Response<User>.self)
-            .checkResponse()
+            .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in
                 self?.user = response.data
                 self?.setupNavigationItem()

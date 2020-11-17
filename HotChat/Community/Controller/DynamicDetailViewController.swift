@@ -146,7 +146,7 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
             state = .refreshingContent
         }
         loadData(parameters)
-            .checkResponse()
+            .verifyResponse()
             .subscribe(onSuccess: handlerReponse, onError: handlerError)
             .disposed(by: rx.disposeBag)
     }

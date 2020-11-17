@@ -48,7 +48,7 @@ class AuthenticationViewController: UIViewController, IndicatorDisplay, LoadingS
         }
     }
     
-    let API = Request<UserAPI>()
+    let API = Request<AuthenticationAPI>()
     
     var authentication: Authentication! {
         didSet {
@@ -83,8 +83,8 @@ class AuthenticationViewController: UIViewController, IndicatorDisplay, LoadingS
         
         let section = FormSection(
             entries: [
-                RightDetailFormEntry(image: nil, text: "实名认证", detailText: authentication.certificationStatus.description, onTapped: pushRealName),
-                RightDetailFormEntry(image: nil, text: "头像认证", detailText: authentication.certificationStatus.description, onTapped: pushFace)
+                RightDetailFormEntry(image: nil, text: "实名认证", detailText: authentication.realNameStatus.description, onTapped: pushRealName),
+                RightDetailFormEntry(image: nil, text: "头像认证", detailText: authentication.headStatus.description, onTapped: pushFace)
             ],
             headerText: nil
         )
@@ -101,8 +101,8 @@ class AuthenticationViewController: UIViewController, IndicatorDisplay, LoadingS
     
     func refreshData() {
         state = .refreshingContent
-        API.request(.userAttestationInfo, type: Response<Authentication>.self)
-            .checkResponse()
+        API.request(.checkUserAttestation, type: Response<Authentication>.self)
+            .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in
                 self?.authentication = response.data
                 self?.state = .contentLoaded
@@ -116,7 +116,7 @@ class AuthenticationViewController: UIViewController, IndicatorDisplay, LoadingS
     
     func pushRealName() {
         
-        if !authentication.certificationStatus.isPush {
+        if !authentication.realNameStatus.isPush {
             return
         }
         
@@ -126,8 +126,6 @@ class AuthenticationViewController: UIViewController, IndicatorDisplay, LoadingS
         }
         else {
             let vc = RealNameAuthenticationViewController.loadFromStoryboard()
-            vc.authentication = authentication
-            
             navigationController?.pushViewController(vc, animated: true)
         }
 
@@ -135,7 +133,7 @@ class AuthenticationViewController: UIViewController, IndicatorDisplay, LoadingS
     
     
     func pushFace() {
-        if !authentication.certificationStatus.isPush {
+        if !authentication.headStatus.isPush {
             return
         }
        let vc = BDFaceDetectionViewController()

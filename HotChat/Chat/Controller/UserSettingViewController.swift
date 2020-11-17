@@ -303,7 +303,7 @@ class UserSettingViewController: UIViewController, UITableViewDataSource, UITabl
     func remark(_ text: String) {
         user.friendNick = text
         userAPI.request(.remark(friendNick: text, userId: user.userId), type: ResponseEmpty.self)
-            .checkResponse()
+            .verifyResponse()
             .subscribe(onSuccess: { [weak self] _ in
                 let friend = V2TIMFriendInfo()
                 friend.userID = self?.user.userId
@@ -333,7 +333,7 @@ class UserSettingViewController: UIViewController, UITableViewDataSource, UITabl
     func refreshData() {
         state = (state == .initial) ? .loadingContent : .refreshingContent
         userAPI.request(.userinfo(userId: user.userId), type: Response<User>.self)
-            .checkResponse()
+            .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in
                 self?.user = response.data
                 self?.state = .contentLoaded

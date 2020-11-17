@@ -141,15 +141,15 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay, St
     
     
     func upload(_ url: URL) -> Single<Response<[RemoteFile]>> {
-        return uploadAPI.request(.upload(url)).checkResponse()
+        return uploadAPI.request(.upload(url)).verifyResponse()
     }
     
     func editUserInfo(_ parameters: [String : Any]) -> Single<Response<User>> {
-        return userAPI.request(.editUser(value: parameters)).checkResponse()
+        return userAPI.request(.editUser(value: parameters)).verifyResponse()
     }
     
     func delPhoto(_ picId: Int) -> Single<Response<User>> {
-        return userAPI.request(.delPhoto(picId: picId)).checkResponse()
+        return userAPI.request(.delPhoto(picId: picId)).verifyResponse()
     }
     
     private var basicInformation: BasicInformation {
@@ -247,7 +247,7 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay, St
         
         self.showIndicatorOnWindow()
         userAPI.request(.userinfo(userId: nil), type: Response<User>.self)
-            .checkResponse()
+            .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in
                 self?.user = response.data
                 self?.hideIndicatorFromWindow()
@@ -330,7 +330,7 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay, St
         
         self.showIndicatorOnWindow()
         userAPI.request(.delQuestion(labelId: topic.labelId), type: Response<User>.self)
-            .checkResponse()
+            .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in
                 self?.user = response.data
                 self?.hideIndicatorFromWindow()
@@ -405,7 +405,7 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay, St
         
         self.showIndicatorOnWindow()
         userAPI.request(.userConfig(type: hobby.type), type: Response<[LikeTag]>.self)
-            .checkResponse()
+            .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in
                 vc.labels = response.data ?? []
                 self?.hideIndicatorFromWindow()
@@ -447,7 +447,7 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay, St
         
         self.showIndicatorOnWindow()
         userAPI.request(.userConfig(type: 9), type: Response<[LikeTag]>.self)
-            .checkResponse()
+            .verifyResponse()
             .subscribe(onSuccess: { [weak  self] response in
                 vc.labels = response.data ?? []
                 self?.hideIndicatorFromWindow()
@@ -505,7 +505,7 @@ extension UserInfoEditingViewController {
                 
                 self.showIndicatorOnWindow()
                 self.userAPI.request(.editTips(labelId: entry.topic.labelId, content: text), type: Response<User>.self)
-                    .checkResponse()
+                    .verifyResponse()
                     .subscribe(onSuccess: { [unowned self] response in
                         self.user = response.data
                         self.navigationController?.popToViewController(self, animated: true)

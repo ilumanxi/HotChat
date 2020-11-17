@@ -50,7 +50,7 @@ extension Moya.Response {
             return  obj
             
         } catch let  error {
-            throw MoyaError.objectMapping(error, self)
+            throw error
         }
     }
 }

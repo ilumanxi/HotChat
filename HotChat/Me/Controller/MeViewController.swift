@@ -192,7 +192,7 @@ class MeViewController: UITableViewController, Autorotate {
     func requestData() {
         
         userAPI.request(.userinfo(userId: nil), type: Response<User>.self)
-            .checkResponse()
+            .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in
                 self?.user = response.data
                 LoginManager.shared.update(user: response.data!)

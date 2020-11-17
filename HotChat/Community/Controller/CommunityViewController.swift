@@ -109,7 +109,7 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
             state = .refreshingContent
         }
         loadData(page)
-            .checkResponse()
+            .verifyResponse()
             .subscribe(onSuccess: handlerReponse, onError: handlerError)
             .disposed(by: rx.disposeBag)
             

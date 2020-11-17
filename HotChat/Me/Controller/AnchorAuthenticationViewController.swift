@@ -250,7 +250,7 @@ class AnchorAuthenticationViewController: UIViewController, IndicatorDisplay {
         
         self.showIndicator()
         authenticationAPI.request(.liveEditAttestation(anchorAuthentication), type: Response<Authentication>.self)
-            .checkResponse()
+            .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in
                 self?.navigationController?.popViewController(animated: true)
                 self?.hideIndicator()
@@ -262,13 +262,13 @@ class AnchorAuthenticationViewController: UIViewController, IndicatorDisplay {
     }
     
     func upload(_ url: URL) -> Single<Response<[RemoteFile]>> {
-        return uploadAPI.request(.upload(url)).checkResponse()
+        return uploadAPI.request(.upload(url)).verifyResponse()
     }
     
     func upload(_ url: URL, block: @escaping (RemoteFile) -> Void) {
         self.showIndicator()
         self.upload(url)
-            .checkResponse()
+            .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in
                 block(response.data!.first!)
                 self?.setupSections()

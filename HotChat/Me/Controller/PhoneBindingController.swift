@@ -58,7 +58,7 @@ class PhoneBindingController: UIViewController, IndicatorDisplay {
         isCoding = true
         codeButton.setTitle("", for: .normal)
         accountAPI.request(.sendCode(phone: phone, type: .phoneBinding), type: ResponseEmpty.self)
-            .checkResponse()
+            .verifyResponse()
             .subscribe(onSuccess: { [weak self] _ in
                 self?.isCoding = false
                 self?.startCountdown()
@@ -103,7 +103,7 @@ class PhoneBindingController: UIViewController, IndicatorDisplay {
         
         showIndicator()
         userSettingsAPI.request(.bindPhone(phone: phone, verifyCode: code, password: password), type: Response<User>.self)
-            .checkResponse()
+            .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in
                 let user = response.data!
                 user.token = LoginManager.shared.user!.token

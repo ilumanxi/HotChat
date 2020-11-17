@@ -34,7 +34,7 @@ class InterestedViewController: UIViewController, IndicatorDisplay {
         showOrHideIndicator(loadingState: .initial)
         
         messsageAPI.request(.knowPeople, type: Response<[String : Any]>.self)
-            .checkResponse()
+            .verifyResponse()
             .map {
                 return [Messsage].deserialize(from: $0.data?["list"] as? [Any])?.compactMap{ $0 } ?? []
             }

@@ -52,7 +52,7 @@ class MeRelationshipViewController: UITableViewController, SegementSlideContentS
     func refreshData() {
         state = (state == .initial) ? .loadingContent : .refreshingContent
         API.request(.followList(type: relationship.rawValue), type: Response<[User]>.self)
-            .checkResponse()
+            .verifyResponse()
             .subscribe(onSuccess: { [unowned self] response in
                 self.users = response.data ?? []
                 self.state = self.users.isEmpty ? .noContent : .contentLoaded
@@ -108,7 +108,7 @@ class MeRelationshipViewController: UITableViewController, SegementSlideContentS
         }
         
         dynamicAPI.request(.follow(user.userId), type: ResponseEmpty.self)
-            .checkResponse()
+            .verifyResponse()
             .subscribe(onSuccess: nil, onError: nil)
             .disposed(by: rx.disposeBag)
     }

@@ -222,7 +222,7 @@ extension WebViewController {
     }
     
     func payStatus(_ parameters: [String : Any]) -> Single<ResponseEmpty> {
-        return payAPI.request(.notify(parameters), type: ResponseEmpty.self).checkResponse()
+        return payAPI.request(.notify(parameters), type: ResponseEmpty.self).verifyResponse()
     }
 }
 

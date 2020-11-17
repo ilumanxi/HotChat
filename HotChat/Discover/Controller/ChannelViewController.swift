@@ -93,7 +93,7 @@ class ChannelViewController: UIViewController, LoadingStateType, IndicatorDispla
         }
          
         loadData(page)
-            .checkResponse()
+            .verifyResponse()
             .subscribe(onSuccess: handlerReponse, onError: handlerError)
             .disposed(by: rx.disposeBag)
             
@@ -101,7 +101,7 @@ class ChannelViewController: UIViewController, LoadingStateType, IndicatorDispla
     
     func loadData(_ page: (type: String, labelId: Int, index: Int)) -> Single<Response<Pagination<User>>> {
         
-        return discoverAPI.request(.discoverList(type: page.type, labelId: page.labelId, page: page.index)).checkResponse()
+        return discoverAPI.request(.discoverList(type: page.type, labelId: page.labelId, page: page.index)).verifyResponse()
     }
     
     func handlerReponse(_ response: Response<Pagination<User>>){

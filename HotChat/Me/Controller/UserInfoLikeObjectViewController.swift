@@ -73,7 +73,7 @@ class UserInfoLikeObjectViewController: UIViewController, IndicatorDisplay, Load
     func refreshData() {
         state = (state == .initial) ? .loadingContent : .refreshingContent
         userAPI.request(.userConfig(type: 1), type: Response<[LikeTag]>.self)
-            .checkResponse()
+            .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in
                 self?.labels = response.data!
                 self?.collectionView.reloadData()
@@ -153,7 +153,7 @@ extension UserInfoLikeObjectViewController: UICollectionViewDelegate, UICollecti
         
         showIndicator()
         userAPI.request(.editUser(value: params), type: Response<User>.self)
-            .checkResponse()
+            .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in
                 self?.onUpdated.call(response.data!)
                 self?.hideIndicator()

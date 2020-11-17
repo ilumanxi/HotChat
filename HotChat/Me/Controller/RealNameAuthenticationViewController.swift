@@ -24,10 +24,6 @@ class RealNameAuthenticationViewController: UITableViewController, IndicatorDisp
     @IBOutlet weak var IDCardTexField: UITextField!
     
     
-    
-    
-    var authentication: Authentication!
-    
     let uploadAPI = Request<UploadFileAPI>()
     
     let userAPI = Request<UserAPI>()
@@ -39,8 +35,7 @@ class RealNameAuthenticationViewController: UITableViewController, IndicatorDisp
     }
     
     func setupUI(){
-        nicknameTextField.text = authentication.userName
-        IDCardTexField.text = authentication.identityNum
+
     }
     
     
@@ -61,7 +56,7 @@ class RealNameAuthenticationViewController: UITableViewController, IndicatorDisp
         
         showIndicatorOnWindow()
         userAPI.request(
-            .userEditAttestation(userName: userName, identityNum: identityNum, identityPicFront: authentication.identityPicFront, identityPicFan: authentication.identityPicFan),
+            .userEditAttestation(userName: userName, identityNum: identityNum, identityPicFront: nil, identityPicFan: nil),
             type: ResponseEmpty.self
         )
         .subscribe(onSuccess: { [weak self] response in

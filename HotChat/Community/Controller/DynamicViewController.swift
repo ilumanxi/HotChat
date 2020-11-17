@@ -143,7 +143,7 @@ class DynamicViewController: UITableViewController, IndicatorDisplay {
         if media.remote == nil {
             return uploadAPI
                 .request(.upload(media.local!), type: Response<[RemoteFile]>.self)
-                .checkResponse()
+                .verifyResponse()
                 .map{ urls in
                     media.remote = URL(string: urls.data?.first?.picUrl ?? "")
                     return media

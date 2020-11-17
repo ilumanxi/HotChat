@@ -7,9 +7,13 @@
 //
 
 import Moya
+import RxSwift
 
 enum AuthenticationAPI {
     case liveEditAttestation(AnchorAuthentication)
+    case faceAttestation(imgFace: String)
+    case editFacePic(imgFace: String)
+    case checkUserAttestation
 }
 
 extension AuthenticationAPI: TargetType {
@@ -22,6 +26,12 @@ extension AuthenticationAPI: TargetType {
         switch self {
         case .liveEditAttestation:
             return "LiveAuthentication/liveEditAttestation"
+        case .faceAttestation:
+            return "LiveAuthentication/faceAttestation"
+        case .editFacePic:
+            return "LiveAuthentication/editFacePic"
+        case .checkUserAttestation:
+            return "LiveAuthentication/checkUserAttestation"
         }
     }
     
@@ -46,6 +56,16 @@ extension AuthenticationAPI: TargetType {
                 "identityPicFan" : info.back?.remote?.absoluteString ?? "",
                 "handIdentityPic" : info.handHeld?.remote?.absoluteString ?? ""
             ]
+        case .faceAttestation(let imgFace):
+            parameters = [
+                "imgFace" : imgFace
+            ]
+        case .editFacePic(let imgFace):
+            parameters = [
+                "imgFace" : imgFace
+            ]
+        case .checkUserAttestation:
+            parameters = [:]
         }
         
         let encoding: ParameterEncoding = (self.method == .post) ? JSONEncoding.default : URLEncoding.default
@@ -57,4 +77,25 @@ extension AuthenticationAPI: TargetType {
         return nil
     }
     
+}
+
+
+class AuthenticationHelper: NSObject {
+    
+    
+    static let disposeObject = DisposeBag()
+    
+    static let authentication = Request<AuthenticationAPI>()
+    
+   @objc class func faceAttestation(imgURL: String, success: @escaping (NSDictionary) -> Void, failed: @escaping (NSError) -> Void) {
+        
+        authentication.request(.faceAttestation(imgFace: imgURL), type: ResponseEmpty.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { response in
+                success(response.toJSON()! as NSDictionary)
+            }, onError: { error in
+                failed(error as NSError)
+            })
+            .disposed(by: disposeObject)
+    }
 }

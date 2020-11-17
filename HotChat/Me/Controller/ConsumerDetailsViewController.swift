@@ -100,7 +100,7 @@ class ConsumerDetailsViewController: UIViewController, SegementSlideContentScrol
             state = .refreshingContent
         }
         loadData(page)
-            .checkResponse()
+            .verifyResponse()
             .subscribe(onSuccess: handlerReponse, onError: handlerError)
             .disposed(by: rx.disposeBag)
             

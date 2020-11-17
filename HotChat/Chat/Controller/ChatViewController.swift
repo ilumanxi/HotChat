@@ -188,7 +188,7 @@ extension ChatViewController: ChatControllerDelegate {
         let userID = conversationData.userID
         
         imAPI.request(.checkUserCall(type: type, toUserId: userID), type: Response<CallStatus>.self)
-            .checkResponse()
+            .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in
                 guard let self = self else {return }
                 if response.data!.isSuccessd  && response.data!.callCode == 1{

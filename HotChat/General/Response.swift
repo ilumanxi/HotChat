@@ -44,7 +44,7 @@ struct Response<T: HandyJSON>: HandyJSON, State {
 
 extension ObservableType {
 
-    func checkResponse() -> RxSwift.Observable<Self.Element> where Self.Element: State {
+    func verifyResponse() -> RxSwift.Observable<Self.Element> where Self.Element: State {
         return map {
             if $0.isSuccessd {
                 return $0
@@ -59,7 +59,7 @@ extension ObservableType {
 
 extension PrimitiveSequenceType where Self.Trait == RxSwift.SingleTrait {
 
-    func checkResponse() -> RxSwift.Single<Self.Element> where Self.Element: State  {
+    func verifyResponse() -> RxSwift.Single<Self.Element> where Self.Element: State  {
         return map {
             if $0.isSuccessd {
                 return $0

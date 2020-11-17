@@ -11,6 +11,9 @@
 #import "BDFaceSuccessViewController.h"
 #import "BDFaceImageShow.h"
 #import "HotChat-Swift.h"
+#import <AFNetworking/AFHTTPSessionManager.h>
+#import <MBProgressHUD/MBProgressHUD.h>
+#import <Toast/Toast.h>
 #if !TARGET_IPHONE_SIMULATOR
 #import <IDLFaceSDK/IDLFaceSDK.h>
 #endif
@@ -18,6 +21,8 @@
 @interface BDFaceDetectionViewController ()
 
 @property (nonatomic, readwrite, retain) UIView *animaView;
+
+@property(strong, nonatomic) AFHTTPSessionManager *manager;
 @end
 int remindCode = -1;
 @implementation BDFaceDetectionViewController
@@ -35,6 +40,15 @@ int remindCode = -1;
     self.animaView.alpha = 0;
     [self.view addSubview:self.animaView];
     
+}
+
+- (AFHTTPSessionManager *)manager {
+    if (!_manager) {
+        _manager =  [[AFHTTPSessionManager alloc] initWithBaseURL:Constant.APIHostURL];
+        _manager.requestSerializer = [AFJSONRequestSerializer serializer];
+        
+    }
+    return  _manager;
 }
 
 
@@ -135,19 +149,41 @@ int remindCode = -1;
                     // [self request:bestImage.cropImageWithBlackEncryptStr];
                     
                     dispatch_async(dispatch_get_main_queue(), ^{
-//                        UIViewController* fatherViewController = weakSelf.presentingViewController;
-//                        [weakSelf dismissViewControllerAnimated:YES completion:^{
-//                            BDFaceSuccessViewController *avc = [[BDFaceSuccessViewController alloc] init];
-//                            avc.modalPresentationStyle = UIModalPresentationFullScreen;
-//                            [self.navigationController pushViewController:avc animated:YES];
-////                            [fatherViewController presentViewController:avc animated:YES completion:nil];
-//                            [self closeAction];
-//                        }];
-                        [self closeAction];
                         
+                        MBProgressHUD *hub = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                        hub.label.text = @"校验中..";
+                        [hub showAnimated:YES];
+                        [UploadHelper uploadImage:bestImage.originalImage success:^(RemoteFile * _Nonnull file) {
+
+                            [AuthenticationHelper faceAttestationWithImgURL:file.picUrl success:^(NSDictionary * _Nonnull dict) {
+                                [self closeAction];
+                                AvatarAuthenticationResultController *vc = [[AvatarAuthenticationResultController alloc] initWithVerify:YES originalImage:bestImage.originalImage remoteURLString:file.picUrl];
+                                [self.navigationController pushViewController:vc animated:YES];
+                                [hub hideAnimated:YES];
+                            } failed:^(NSError * _Nonnull error) {
+                                
+                                [self closeAction];
+                                
+                                AvatarAuthenticationResultController *vc = [[AvatarAuthenticationResultController alloc] initWithVerify:NO originalImage:bestImage.originalImage remoteURLString:file.picUrl];
+                                [self.navigationController pushViewController:vc animated:YES];
+                                [hub hideAnimated:YES];
+                            }];
+                            
+                        } failed:^(NSError * _Nonnull error) {
+                            
+                            [hub hideAnimated:YES];
+                            [[[UIApplication sharedApplication] keyWindow] makeToast:error.localizedDescription];
+                            
+                            [[IDLFaceDetectionManager sharedInstance] reset];
+                            
+                            NSMutableArray<UIViewController *> *viewControlers = self.navigationController.viewControllers.mutableCopy;
+                            [viewControlers removeLastObject];
+                            BDFaceDetectionViewController *vc = [[BDFaceDetectionViewController alloc] init];
+                            [viewControlers addObject:vc];
+                            [self.navigationController  setViewControllers:viewControlers animated:NO];
+                        }];
                         
-                        AvatarAuthenticationResultController *vc = [[AvatarAuthenticationResultController alloc] initWithVerify:false originalImage:bestImage.originalImage];
-                        [self.navigationController pushViewController:vc animated:YES];
+     
                     });
                 }
                 [self singleActionSuccess:true];

@@ -60,7 +60,7 @@ class PrivacyViewController: UIViewController, LoadingStateType, IndicatorDispla
         
         state = .refreshingContent
         settingsAPI.request(.infoSettings, type: Response<InfoSettings>.self)
-            .checkResponse()
+            .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in
                 self?.setting = response.data!
                 self?.state = .contentLoaded
