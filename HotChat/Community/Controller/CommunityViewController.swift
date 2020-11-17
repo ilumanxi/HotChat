@@ -47,7 +47,8 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-   
+    @IBOutlet weak var phoneBindingView: UIView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,8 +73,8 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
         
         state = .loadingContent
         collectionView.mj_header?.beginRefreshing()
-        
-        
+        hiddenPhoneBindingView()
+        observeLPhoneState()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             LoginManager.shared.getLocation { _ in
@@ -82,6 +83,21 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
 
         }
       
+    }
+    
+    
+    func observeLPhoneState() {
+        NotificationCenter.default.rx.notification(.userDidChange)
+            .subscribe(onNext: { [weak self] _ in
+                self?.hiddenPhoneBindingView()
+            })
+            .disposed(by: rx.disposeBag)
+    }
+    
+    func hiddenPhoneBindingView() {
+        if !LoginManager.shared.user!.phone.isEmpty {
+            phoneBindingView?.removeFromSuperview()
+        }
     }
     
     func endRefreshing(noContent: Bool = false) {
@@ -159,6 +175,22 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
         endRefreshing()
        
     }
+    
+    @IBAction func sendButtonTapped(_ sender: Any) {
+    }
+    
+    
+    @IBAction func bingPhone(_ sender: Any) {
+        
+        let vc = PhoneBindingController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func hiddenPhoneBindingTapped(_ sender: Any) {
+        
+        phoneBindingView.removeFromSuperview()
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

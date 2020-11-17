@@ -14,7 +14,42 @@ struct ResponseEmptyType: HandyJSON {
     
 }
 
+
+struct ResponseStateType: HandyJSON, State {
+    
+    var faceCode: Int = 0
+    
+    var msg: String = ""
+    
+    /// 通用
+    var resulutCode: Int = 0
+    var resulutMsg: String = ""
+    
+    var isSuccessd: Bool {
+        
+        let codes = [faceCode, resulutCode]
+        let flag = codes.first {  $0 == 1  } ?? 0
+        return flag == 1
+    }
+    
+    var error: Error? {
+        
+        if isSuccessd {
+            return nil
+        }
+        
+        let msgs = [msg, resulutMsg]
+        
+        let errorDescription = msgs.first { !$0.isEmpty } ?? "未知错误"
+        
+        return NSError(domain: "HotChatError", code: 1, userInfo: [NSLocalizedDescriptionKey: errorDescription])
+    }
+    
+}
+
 typealias ResponseEmpty = Response<ResponseEmptyType>
+
+typealias ResponseState = Response<ResponseStateType>
 
 protocol State {
     
@@ -30,13 +65,22 @@ struct Response<T: HandyJSON>: HandyJSON, State {
     var data: T?
     
     var isSuccessd: Bool {
+        if let data = data, let state = data as?  State {
+            return state.isSuccessd
+        }
          return code == 1
     }
     
     var error: Error? {
+
+        if let data = data, let state = data as?  State,  let error = state.error  {
+            return error
+        }
+        
         if isSuccessd {
             return nil
         }
+        
         return NSError(domain: "HotChatError", code: 1, userInfo: [NSLocalizedDescriptionKey: msg])
     }
 }

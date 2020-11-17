@@ -322,7 +322,6 @@
                                             <outlet property="nicknameLabel" destination="MdW-TL-ZB1" id="Bej-T1-232"/>
                                             <outlet property="profileImageView" destination="74g-4e-69N" id="qrH-cQ-u9m"/>
                                             <outlet property="textLabel" destination="rW7-zm-wid" id="FJd-8K-h9y"/>
-                                            <segue destination="709-N9-IVE" kind="show" id="fWu-D3-Cfa"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -331,34 +330,100 @@
                                     <outlet property="delegate" destination="7kL-bk-kMs" id="EsW-NC-qsF"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYm-Ia-B2O">
-                                <rect key="frame" x="312" y="817" width="92" height="30"/>
-                                <color key="backgroundColor" red="0.31764705882352939" green="0.34901960784313724" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Dqq-G2-s6d"/>
-                                    <constraint firstAttribute="width" constant="92" id="gg8-Bu-CDX"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <inset key="titleEdgeInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="发布动态" image="community-dynamic"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="jG8-gF-fuD" kind="presentation" id="0OT-ow-vlT"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IDV-b8-j08">
+                                <rect key="frame" x="0.0" y="770.5" width="414" height="91.5"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6au-A1-Zjn">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="47.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYm-Ia-B2O">
+                                                <rect key="frame" x="308" y="0.0" width="98" height="35.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <inset key="titleEdgeInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="发布动态" image="community-dynamic" backgroundImage="send-bg"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="18"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="sendButtonTapped:" destination="7kL-bk-kMs" eventType="touchUpInside" id="wqi-tV-e80"/>
+                                                    <segue destination="jG8-gF-fuD" kind="presentation" id="0OT-ow-vlT"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="47.5" id="Hsh-Dj-SQ5"/>
+                                            <constraint firstItem="yYm-Ia-B2O" firstAttribute="top" secondItem="6au-A1-Zjn" secondAttribute="top" id="LXy-44-4oe"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="yYm-Ia-B2O" secondAttribute="trailing" id="PZH-s1-GY8"/>
+                                            <constraint firstAttribute="bottom" secondItem="yYm-Ia-B2O" secondAttribute="bottom" constant="12" id="RkV-27-VKs"/>
+                                            <constraint firstItem="yYm-Ia-B2O" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6au-A1-Zjn" secondAttribute="leading" id="jSa-A3-oVT"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4hH-iS-nJa">
+                                        <rect key="frame" x="0.0" y="47.5" width="414" height="44"/>
+                                        <subviews>
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zu5-jj-iom">
+                                                <rect key="frame" x="88" y="13.5" width="238" height="17"/>
+                                                <gestureRecognizers/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content=" 绑定手机提高账号安全，">
+                                                        <attributes>
+                                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <font key="NSFont" metaFont="system" size="14"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content="去绑定 ">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.99607843137254903" green="0.54117647058823526" blue="0.71372549019607845" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <font key="NSFont" metaFont="system" size="14"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content="        ">
+                                                        <attributes>
+                                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <font key="NSFont" metaFont="system" size="14"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="ASX-Ot-Kaa" appends="YES" id="3UO-Ju-jrO"/>
+                                                </connections>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t0I-eF-CPe">
+                                                <rect key="frame" x="378" y="11" width="16" height="22"/>
+                                                <state key="normal" image="close-white"/>
+                                                <connections>
+                                                    <action selector="hiddenPhoneBindingTapped:" destination="7kL-bk-kMs" eventType="touchUpInside" id="QVJ-qM-SWJ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="zu5-jj-iom" firstAttribute="centerY" secondItem="4hH-iS-nJa" secondAttribute="centerY" id="7aa-Cm-jZH"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="t0I-eF-CPe" secondAttribute="trailing" constant="12" id="EjD-ek-Zod"/>
+                                            <constraint firstAttribute="height" constant="44" id="ZHs-nJ-6nI"/>
+                                            <constraint firstItem="t0I-eF-CPe" firstAttribute="centerY" secondItem="4hH-iS-nJa" secondAttribute="centerY" id="aZt-40-QFT"/>
+                                            <constraint firstItem="zu5-jj-iom" firstAttribute="centerX" secondItem="4hH-iS-nJa" secondAttribute="centerX" id="dJc-re-Q8V"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eIY-MU-AyU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="IDV-b8-j08" firstAttribute="leading" secondItem="eIY-MU-AyU" secondAttribute="leading" id="7D9-px-HhQ"/>
                             <constraint firstAttribute="trailing" secondItem="1ga-r6-SZX" secondAttribute="trailing" id="Afh-bi-ktW"/>
-                            <constraint firstItem="eIY-MU-AyU" firstAttribute="bottom" secondItem="yYm-Ia-B2O" secondAttribute="bottom" constant="15" id="BUa-Og-sPS"/>
-                            <constraint firstItem="eIY-MU-AyU" firstAttribute="trailing" secondItem="yYm-Ia-B2O" secondAttribute="trailing" constant="10" id="MJR-xf-X15"/>
+                            <constraint firstItem="eIY-MU-AyU" firstAttribute="bottom" secondItem="IDV-b8-j08" secondAttribute="bottom" id="JQ1-IN-g6j"/>
                             <constraint firstItem="1ga-r6-SZX" firstAttribute="leading" secondItem="lDM-Gr-8uc" secondAttribute="leading" id="QJ1-hM-LzN"/>
                             <constraint firstAttribute="bottom" secondItem="1ga-r6-SZX" secondAttribute="bottom" id="dRM-vm-LlJ"/>
+                            <constraint firstItem="eIY-MU-AyU" firstAttribute="trailing" secondItem="IDV-b8-j08" secondAttribute="trailing" id="iYR-WU-dQZ"/>
                             <constraint firstItem="1ga-r6-SZX" firstAttribute="top" secondItem="lDM-Gr-8uc" secondAttribute="top" id="uPH-Xj-Ngj"/>
                         </constraints>
                     </view>
@@ -371,9 +436,15 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="1ga-r6-SZX" id="XwY-Ju-lsE"/>
+                        <outlet property="phoneBindingView" destination="4hH-iS-nJa" id="3SQ-Er-YQQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gaF-ai-iDJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ASX-Ot-Kaa">
+                    <connections>
+                        <action selector="bingPhone:" destination="7kL-bk-kMs" id="A0d-e0-gTr"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1437.68115942029" y="-692.41071428571422"/>
         </scene>
@@ -886,6 +957,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="close-white" width="16" height="16"/>
         <image name="comment" width="13" height="13"/>
         <image name="common-search" width="17" height="17"/>
         <image name="community-dynamic" width="17" height="16"/>
@@ -894,6 +966,7 @@
         <image name="like-selected" width="13" height="12"/>
         <image name="modal-close" width="16" height="16"/>
         <image name="more" width="3" height="14"/>
+        <image name="send-bg" width="98" height="35.5"/>
         <image name="tabbar-community-normal" width="19" height="19"/>
         <image name="tabbar-community-selected" width="19" height="19"/>
         <systemColor name="labelColor">

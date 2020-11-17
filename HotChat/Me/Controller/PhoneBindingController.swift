@@ -102,7 +102,7 @@ class PhoneBindingController: UIViewController, IndicatorDisplay {
         let password = passwordTextField.text ?? ""
         
         showIndicator()
-        userSettingsAPI.request(.bindPhone(phone: phone, verifyCode: code, password: password), type: Response<User>.self)
+        userSettingsAPI.request(.bindPhone(phone: phone, verifyCode: code, password: password.md5()), type: Response<User>.self)
             .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in
                 let user = response.data!
