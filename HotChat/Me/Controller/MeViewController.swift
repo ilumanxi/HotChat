@@ -178,6 +178,7 @@ class MeViewController: UITableViewController, Autorotate {
             basicEntries.append( RightDetailFormEntry(image: UIImage(named: "me-authentication"), text: "认证", onTapped: pushAuthentication))
         }
         
+        basicEntries.append(RightDetailFormEntry(image: UIImage(named: "me-help"), text: "帮助", onTapped: pushHelp))
 
         basicEntries.append(RightDetailFormEntry(image: UIImage(named: "me-setting"), text: "设置", onTapped: pushSetting))
         
@@ -262,6 +263,11 @@ class MeViewController: UITableViewController, Autorotate {
     
     func pushEarnings() {
         let vc = EarningsViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func pushHelp() {
+        let vc = WebViewController.H5(path: "h5/help")
         navigationController?.pushViewController(vc, animated: true)
     }
     

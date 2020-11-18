@@ -18,7 +18,11 @@ import RxCocoa
 extension WebViewController {
     
     class func H5(path: String) -> Self {
-        let pathToken = "\(path)?token=\(LoginManager.shared.user?.token ?? "")"
+        var pathToken = path
+        if let token = LoginManager.shared.user?.token {
+            pathToken = "\(path)?token=\(token)"
+        }
+        
         let url = Constant.H5HostURL.appendingPathComponent(pathToken)
         return WebViewController(url: url) as! Self
     }

@@ -168,8 +168,11 @@ extension ChatViewController: ChatControllerDelegate {
             
             let status = AVCaptureDevice.authorizationStatus(for: .video)
             switch status {
-            case .notDetermined:
-                AVAudioSession.sharedInstance().requestRecordPermission { granted in
+            case .notDetermined: break
+            case .restricted:
+                showVideo()
+            case .denied:
+                AVCaptureDevice.requestAccess(for: .video) { granted in
                     if granted {
                         self.call(callType: .video)
                     }
@@ -177,8 +180,6 @@ extension ChatViewController: ChatControllerDelegate {
                         self.showVideo()
                     }
                 }
-            case .restricted, .denied:
-                showVideo()
             case .authorized:
                 call(callType: .video)
             @unknown default:
@@ -188,8 +189,11 @@ extension ChatViewController: ChatControllerDelegate {
         else if cell.data.title == audio.title {
             let status = AVCaptureDevice.authorizationStatus(for: .audio)
             switch status {
-            case .notDetermined:
-                AVAudioSession.sharedInstance().requestRecordPermission { granted in
+            case .notDetermined: break
+            case .restricted:
+                showAudio()
+            case .denied:
+                AVCaptureDevice.requestAccess(for: .audio) { granted in
                     if granted {
                         self.call(callType: .audio)
                     }
@@ -197,8 +201,6 @@ extension ChatViewController: ChatControllerDelegate {
                         self.showAudio()
                     }
                 }
-            case .restricted, .denied:
-                showAudio()
             case .authorized:
                 call(callType: .audio)
             @unknown default:
@@ -208,15 +210,22 @@ extension ChatViewController: ChatControllerDelegate {
     }
     
     func showAudio()  {
-        let alert = UIAlertController(title: nil, message: "请在iPhone“设置-隐私-麦克风”选项中，允许贪聊访问你的手机麦克风。", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "好", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
+        Thread.safeAsync {
+            let alert = UIAlertController(title: nil, message: "请在iPhone“设置-隐私-麦克风”选项中，允许贪聊访问你的手机麦克风。", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "好", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+
     }
     
     func showVideo()  {
-        let alert = UIAlertController(title: nil, message: "请在iPhone“设置-隐私-相机”选项中，允许贪聊访问你的相机。", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "好", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
+        Thread.safeAsync {
+            let alert = UIAlertController(title: nil, message: "请在iPhone“设置-隐私-相机”选项中，允许贪聊访问你的相机。", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "好", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+
     }
     
     func chatController(_ controller: ChatController!, onSelectMessageAvatar cell: TUIMessageCell!) {

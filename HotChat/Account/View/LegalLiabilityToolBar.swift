@@ -62,15 +62,11 @@ class LegalLiabilityToolBar: UIView {
         label.enabledTypes = [agreementType, privacyType]
         
         label.handleCustomTap(for: agreementType) { [weak self] element in
-            let viewController = UIViewController()
-            viewController.view.backgroundColor = .white
-            viewController.title = element
+            let viewController = WebViewController.H5(path: "h5/agreement/ios")
             self?.push(viewController)
         }
         label.handleCustomTap(for: privacyType) { [weak self] element in
-            let viewController = UIViewController()
-            viewController.title = element
-            viewController.view.backgroundColor = .white
+            let viewController = WebViewController.H5(path: "h5/userprivacy")
             self?.push(viewController)
         }
         label.text = "登录即同意贪聊《用户协议》与《隐私政策》"
