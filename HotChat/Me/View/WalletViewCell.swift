@@ -9,7 +9,16 @@
 import UIKit
 
 class WalletViewCell: UITableViewCell {
-
+    
+    @IBOutlet weak var iconImageView: UIImageView!
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    
+    @IBOutlet weak var energyLabel: UILabel!
+    
+    @IBOutlet weak var tCoinLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

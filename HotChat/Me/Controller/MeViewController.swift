@@ -60,9 +60,13 @@ class RightDetailFormEntry: FormEntry {
 
 class WalletFormEntry: FormEntry {
     
+    let image: UIImage?
+    let text: String
     let user: User
     let onTapped: TappedAction?
-    init(user: User, onTapped: TappedAction? = nil) {
+    init(image: UIImage?, text: String, user: User, onTapped: TappedAction? = nil) {
+        self.image = image
+        self.text = text
         self.user = user
         self.onTapped = onTapped
     }
@@ -70,6 +74,10 @@ class WalletFormEntry: FormEntry {
     func cell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: WalletViewCell.self)
+        cell.iconImageView.image = image
+        cell.titleLabel.text = text
+        cell.energyLabel.text = user.userEnergy.description
+        cell.tCoinLabel.text = user.userTanbi.description
         return cell
     }
 }
@@ -125,10 +133,10 @@ class MeViewController: UITableViewController, Autorotate {
         var walletEntries: [FormEntry] = []
         
         if user.girlStatus {
-            walletEntries.append(RightDetailFormEntry(image: UIImage(named: "me-earnings"), text: "我的收益", detailText: nil, onTapped: pushEarnings))
+            walletEntries.append(WalletFormEntry(image: UIImage(named: "me-earnings"), text: "我的收益", user: LoginManager.shared.user!, onTapped: pushEarnings))
         }
         else {
-            walletEntries.append(RightDetailFormEntry(image: UIImage(named: "me-wallet"), text: "我的钱包", detailText: "能量\(user.userEnergy)", onTapped: pushWallet))
+            walletEntries.append(WalletFormEntry(image: UIImage(named: "me-wallet"), text: "我的钱包", user: LoginManager.shared.user!, onTapped: pushWallet))
         }
         
         let wallet: FormSection  = FormSection(
@@ -266,12 +274,7 @@ class MeViewController: UITableViewController, Autorotate {
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return .leastNormalMagnitude
     }
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return  50
-    }
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
     }

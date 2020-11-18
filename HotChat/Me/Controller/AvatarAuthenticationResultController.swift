@@ -107,6 +107,15 @@ class AvatarAuthenticationResultController: UIViewController, IndicatorDisplay {
             .disposed(by: rx.disposeBag)
     }
     
+    
+    func editUserInfo(_ parameters: [String : Any]) -> Single<Response<User>> {
+        return userAPI.request(.editUser(value: parameters))
+            .verifyResponse()
+            .do(onSuccess: { response in
+                LoginManager.shared.update(user: response.data!)
+            })
+    }
+    
     func upload(_ url: URL) -> Single<Response<[RemoteFile]>> {
         return uploadAPI.request(.upload(url)).verifyResponse()
     }
@@ -115,11 +124,14 @@ class AvatarAuthenticationResultController: UIViewController, IndicatorDisplay {
         showIndicator()
        let url =  writeImage(image)
         self.upload(url)
-            .map{ response -> String in
-                return response.data!.first!.picUrl
+            .map{ response -> [String : Any] in
+                return [
+                    "type" : 3,
+                    "headPic" : response.data!.first!.picUrl
+                ]
             }
             .flatMap { [unowned self] in
-                return self.editFacePic(imgFace: $0)
+                return self.editUserInfo($0)
             }
             .subscribe(onSuccess: { [weak self] response in
                 guard let self = self else { return }

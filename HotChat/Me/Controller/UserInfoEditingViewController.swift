@@ -157,7 +157,7 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay, St
         let date = Date(timeIntervalSince1970: user.birthday)
         let entry = BasicInformation(
             name: user.nick,
-            sex: user.sex ?? .female,
+            sex: user.sex ,
             dateOfBirth: date,
             follow: 6,
             isCertification: true,

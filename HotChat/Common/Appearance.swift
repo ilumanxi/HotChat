@@ -18,14 +18,14 @@ class Appearance {
     func configure() {
         
         let backButtonBackgroundImage = UIImage(named: "navigation-bar-back")
-        let navigationBarBackgroundImage =  UIImage(color: .white, size: CGSize(width: 1, height: 1))
+//        let navigationBarBackgroundImage =  UIImage(color: .white, size: CGSize(width: 1, height: 1))
         
         let navigationBarAppearance = UINavigationBar.appearance()
         navigationBarAppearance.isTranslucent = false
         navigationBarAppearance.shadowImage = UIImage()
         navigationBarAppearance.backIndicatorImage = backButtonBackgroundImage
         navigationBarAppearance.backIndicatorTransitionMaskImage = backButtonBackgroundImage
-        navigationBarAppearance.setBackgroundImage(navigationBarBackgroundImage, for: .default)
+//        navigationBarAppearance.setBackgroundImage(navigationBarBackgroundImage, for: .default)
         navigationBarAppearance.titleTextAttributes = [
             .font : UIFont.navigationBarTitle,
             .foregroundColor : UIColor.titleBlack]
