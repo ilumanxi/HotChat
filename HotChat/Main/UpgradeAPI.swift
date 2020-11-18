@@ -40,8 +40,8 @@ extension UpgradeAPI: TargetType {
         switch self {
         case .updateChannel:
             parameters = [
-                "deviceType" : 1,
-                "channelType" : 1,
+                "deviceType" : 2,
+                "channelType" : 2,
                 "VersionCode" : Bundle.main.appVersion
             ]
         }

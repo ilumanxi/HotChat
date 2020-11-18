@@ -177,6 +177,8 @@
 		26AE7C342520346500B55318 /* LabelViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26AE7C332520346500B55318 /* LabelViewCell.xib */; };
 		26B4E0592564EB34004EDCFE /* Upgrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B4E0582564EB34004EDCFE /* Upgrade.swift */; };
 		26B4E05B2564ECBB004EDCFE /* UpgradeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B4E05A2564ECBB004EDCFE /* UpgradeAPI.swift */; };
+		26B4E05E2564FCBA004EDCFE /* AuthenticationGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B4E05C2564FCBA004EDCFE /* AuthenticationGuideViewController.swift */; };
+		26B4E05F2564FCBA004EDCFE /* AuthenticationGuideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26B4E05D2564FCBA004EDCFE /* AuthenticationGuideViewController.xib */; };
 		26BB187D2522F5810019BBFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2643EB412500AD7D00FBBE49 /* Main.storyboard */; };
 		26C31F2625403A9E0000D09D /* ReportUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C31F2525403A9E0000D09D /* ReportUserViewController.swift */; };
 		26C31F2B25404D280000D09D /* ForYouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C31F2A25404D280000D09D /* ForYouViewController.swift */; };
@@ -517,6 +519,8 @@
 		26AE7C332520346500B55318 /* LabelViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelViewCell.xib; sourceTree = "<group>"; };
 		26B4E0582564EB34004EDCFE /* Upgrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Upgrade.swift; sourceTree = "<group>"; };
 		26B4E05A2564ECBB004EDCFE /* UpgradeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeAPI.swift; sourceTree = "<group>"; };
+		26B4E05C2564FCBA004EDCFE /* AuthenticationGuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationGuideViewController.swift; sourceTree = "<group>"; };
+		26B4E05D2564FCBA004EDCFE /* AuthenticationGuideViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthenticationGuideViewController.xib; sourceTree = "<group>"; };
 		26BB186F2522F4B50019BBFD /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		26C31F2525403A9E0000D09D /* ReportUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportUserViewController.swift; sourceTree = "<group>"; };
 		26C31F2A25404D280000D09D /* ForYouViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouViewController.swift; sourceTree = "<group>"; };
@@ -1046,6 +1050,8 @@
 				2643EBC22500B05300FBBE49 /* TabBarController.swift */,
 				2636A0D72564CDBF00664FFC /* UpgrateViewController.swift */,
 				2636A0D82564CDBF00664FFC /* UpgrateViewController.xib */,
+				26B4E05C2564FCBA004EDCFE /* AuthenticationGuideViewController.swift */,
+				26B4E05D2564FCBA004EDCFE /* AuthenticationGuideViewController.xib */,
 				2643EB412500AD7D00FBBE49 /* Main.storyboard */,
 				2643EB462500AD7E00FBBE49 /* LaunchScreen.storyboard */,
 				26B4E0582564EB34004EDCFE /* Upgrade.swift */,
@@ -1588,6 +1594,7 @@
 				2668B0A3252341F70073E25D /* WalletEnergyViewCell.xib in Resources */,
 				26CB6D4C25515D6B00A9F4DD /* com.baidu.idl.face.live.action.image.bundle in Resources */,
 				26CB6D4E25515D6B00A9F4DD /* idl-key.face-ios in Resources */,
+				26B4E05F2564FCBA004EDCFE /* AuthenticationGuideViewController.xib in Resources */,
 				26EB2DA82558F157006698F9 /* SubsidiaryAccountCell.xib in Resources */,
 				267954FF250761B600A72954 /* Discover.storyboard in Resources */,
 				2639536925419E8300B5E3C0 /* CardViewCell.xib in Resources */,
@@ -1870,6 +1877,7 @@
 				2639535D254187F100B5E3C0 /* WalletViewCell.swift in Sources */,
 				26E291A42553FD5A0032AE99 /* GiveGift.m in Sources */,
 				26AC1E4E250613B6003EFB44 /* KeychainItem.swift in Sources */,
+				26B4E05E2564FCBA004EDCFE /* AuthenticationGuideViewController.swift in Sources */,
 				26E291B125541C010032AE99 /* PIPWindow.m in Sources */,
 				26945815253FF81E00EBCABB /* UserViewCell.swift in Sources */,
 				2695903C250B16D700763061 /* InterestedCardView.swift in Sources */,

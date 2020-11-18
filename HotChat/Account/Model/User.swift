@@ -90,6 +90,14 @@ enum ValidationStatus: Int, HandyJSONEnum {
     case failed = 3
 }
 
+extension ValidationStatus {
+    
+    var isPresent: Bool {
+        return self == .ok
+    }
+    
+}
+
 enum VipType: Int, HandyJSONEnum {
     /// 普通用户
     case empty = 0
