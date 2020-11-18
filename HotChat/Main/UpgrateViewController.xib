@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UpgrateViewController" customModule="HotChat" customModuleProvider="target">
+            <connections>
+                <outlet property="closeButton" destination="aIG-Yd-8SF" id="77P-UN-eO8"/>
+                <outlet property="containerView" destination="a6h-fG-KTJ" id="c2u-GH-ZLe"/>
+                <outlet property="textView" destination="29e-oc-kfJ" id="MWs-n7-ksK"/>
+                <outlet property="titleLabel" destination="RuT-e2-fPl" id="994-xG-swO"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a6h-fG-KTJ">
+                    <rect key="frame" x="51" y="269.5" width="312" height="357.5"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upgrate" translatesAutoresizingMaskIntoConstraints="NO" id="SGK-Be-nrY">
+                            <rect key="frame" x="0.0" y="-30" width="312" height="148.5"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发现新版本V1.1.2可以下载" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RuT-e2-fPl">
+                            <rect key="frame" x="25" y="140.5" width="262" height="20"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="29e-oc-kfJ">
+                            <rect key="frame" x="25" y="177.5" width="262" height="100"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <string key="text">新版本大小：20.5M
+1.支持IOS
+2.支持自定义下载过程
+3.支持设备IOS
+4.支持通知栏禁毒条展示</string>
+                            <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pA6-5d-eMi">
+                            <rect key="frame" x="25" y="294.5" width="262" height="48"/>
+                            <color key="backgroundColor" red="0.31764705882352939" green="0.34901960784313724" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="WAX-yB-U39"/>
+                            </constraints>
+                            <state key="normal" title="升级">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="24"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="upgrateButtonTapped:" destination="-1" eventType="touchUpInside" id="n6o-Hf-3qd"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="pA6-5d-eMi" secondAttribute="bottom" constant="15" id="8fI-I6-0V4"/>
+                        <constraint firstItem="29e-oc-kfJ" firstAttribute="leading" secondItem="a6h-fG-KTJ" secondAttribute="leading" constant="25" id="FV0-VQ-ZW1"/>
+                        <constraint firstAttribute="trailing" secondItem="SGK-Be-nrY" secondAttribute="trailing" id="KNh-gO-YT1"/>
+                        <constraint firstItem="pA6-5d-eMi" firstAttribute="leading" secondItem="a6h-fG-KTJ" secondAttribute="leading" constant="25" id="PgA-os-ahT"/>
+                        <constraint firstItem="29e-oc-kfJ" firstAttribute="top" secondItem="RuT-e2-fPl" secondAttribute="bottom" constant="17" id="R9W-2S-6k1"/>
+                        <constraint firstItem="SGK-Be-nrY" firstAttribute="top" secondItem="a6h-fG-KTJ" secondAttribute="top" constant="-30" id="W9T-3T-2lS"/>
+                        <constraint firstAttribute="trailing" secondItem="29e-oc-kfJ" secondAttribute="trailing" constant="25" id="Xon-Es-BFy"/>
+                        <constraint firstAttribute="trailing" secondItem="RuT-e2-fPl" secondAttribute="trailing" constant="25" id="mY1-9A-s5q"/>
+                        <constraint firstItem="pA6-5d-eMi" firstAttribute="top" secondItem="29e-oc-kfJ" secondAttribute="bottom" constant="17" id="peW-qY-wbp"/>
+                        <constraint firstItem="RuT-e2-fPl" firstAttribute="top" secondItem="SGK-Be-nrY" secondAttribute="bottom" constant="22" id="qGg-Fr-crZ"/>
+                        <constraint firstItem="SGK-Be-nrY" firstAttribute="leading" secondItem="a6h-fG-KTJ" secondAttribute="leading" id="rOI-zX-ov6"/>
+                        <constraint firstItem="RuT-e2-fPl" firstAttribute="leading" secondItem="a6h-fG-KTJ" secondAttribute="leading" constant="25" id="v2h-ff-k3F"/>
+                        <constraint firstAttribute="trailing" secondItem="pA6-5d-eMi" secondAttribute="trailing" constant="25" id="xjZ-CL-0rG"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aIG-Yd-8SF">
+                    <rect key="frame" x="194" y="637" width="26" height="26"/>
+                    <state key="normal" image="upgrate-close"/>
+                    <connections>
+                        <action selector="closeButtonTapped:" destination="-1" eventType="touchUpInside" id="0Id-ZA-7eI"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="a6h-fG-KTJ" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Juf-NW-y7p"/>
+                <constraint firstItem="a6h-fG-KTJ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="O5S-SP-QKI"/>
+                <constraint firstItem="aIG-Yd-8SF" firstAttribute="centerX" secondItem="a6h-fG-KTJ" secondAttribute="centerX" id="arA-OV-ssi"/>
+                <constraint firstItem="aIG-Yd-8SF" firstAttribute="top" secondItem="a6h-fG-KTJ" secondAttribute="bottom" constant="10" id="h8p-wX-Lcb"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="128.57142857142856"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="upgrate" width="312" height="148.5"/>
+        <image name="upgrate-close" width="25.5" height="25.5"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

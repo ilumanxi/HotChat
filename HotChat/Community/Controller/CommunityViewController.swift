@@ -43,6 +43,8 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     
     let dynamicAPI = Request<DynamicAPI>()
     
+    let upgradeAPI = Request<UpgradeAPI>()
+    
     var dynamics: [Dynamic] = []
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -88,7 +90,17 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
         collectionView.mj_header?.beginRefreshing()
         hiddenPhoneBindingView()
         observeLPhoneState()
+        
+        
+        upgradeAPI.request(.updateChannel, type: Response<Upgrade>.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { [weak self] response in
+                let vc = UpgrateViewController(upgrade: response.data!)
+                self?.present(vc, animated: true, completion: nil)
+            })
+            .disposed(by: rx.disposeBag)
       
+
     }
     
     
@@ -139,7 +151,7 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     
     func loadData(_ page: Int) -> Single<Response<Pagination<Dynamic>>> {
          
-        return dynamicAPI.request(.recommendList(page), type: Response<Pagination<Dynamic>>.self)
+        return dynamicAPI.request(.recommendList(page))
     }
     
     func handlerReponse(_ response: Response<Pagination<Dynamic>>){
