@@ -71,6 +71,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 
+@property (weak, nonatomic) IBOutlet UIVisualEffectView *visualEffectView;
 
 @end
 
@@ -97,11 +98,15 @@
     
     [[V2TIMManager sharedInstance]  addAdvancedMsgListener:self];
     
+    if (self.style == CallMenuStyleVideo) {
+        [BeautyViewController setDefaultBeauty];
+    }
+    
 }
 
 -(void)dealloc {
     if ([self isViewLoaded]) {
-        [[V2TIMManager sharedInstance]  removeAdvancedMsgListener:self];
+//        [[V2TIMManager sharedInstance]  removeAdvancedMsgListener:self];
     }
 }
 
@@ -128,6 +133,7 @@
         [self.containerStackView addArrangedSubview:self.cameraButton];
         [self.containerStackView addArrangedSubview:self.beautyButton];
         [self.containerStackView addArrangedSubview:self.giftButton];
+        self.visualEffectView.hidden = YES;
     }
     else {
         self.backgroundImageView.backgroundColor = [UIColor blackColor];

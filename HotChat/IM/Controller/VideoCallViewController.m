@@ -305,6 +305,14 @@
     
     [userBackgroundImage sd_setImageWithURL:[NSURL URLWithString:user.avatar] placeholderImage:[UIImage imageNamed:TUIKitResource(@"default_c2c_head")] options:SDWebImageHighPriority];
     
+    UIBlurEffect *visualEffect = [UIBlurEffect effectWithStyle: UIBlurEffectStyleDark];
+    UIVisualEffectView *visualEffectView = [[UIVisualEffectView alloc] initWithEffect:visualEffect];
+    [self.sponsorPanel addSubview:visualEffectView];
+    
+    [visualEffectView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.sponsorPanel);
+    }];
+    
     //发起者头像
     UIImageView *userImage = [[UIImageView alloc] init];
     [self.sponsorPanel addSubview:userImage];

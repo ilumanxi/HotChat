@@ -31,7 +31,25 @@
     [super viewDidLoad];
     
     _beauty = [[TRTCCloud sharedInstance] getBeautyManager];
+    [self setDefault];
 
+}
+
++(void)setDefaultBeauty {
+    float value = 5;
+    
+    TXBeautyManager *beauty = [[TRTCCloud sharedInstance] getBeautyManager];
+    [beauty setBeautyLevel:value];
+    [beauty setRuddyLevel:value];
+    [beauty setWhitenessLevel:value];
+}
+
+-(void)setDefault {
+    
+    float value = 5;
+    self.beautySlider.value = value;
+    self.whitenessSlider.value = value;
+    self.ruddySlider.value = value;
 }
 
 

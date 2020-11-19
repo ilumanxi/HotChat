@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BeautyViewController : UIViewController
 
++ (void)setDefaultBeauty;
+
 @end
 
 NS_ASSUME_NONNULL_END
