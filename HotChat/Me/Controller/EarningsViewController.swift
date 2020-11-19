@@ -16,104 +16,159 @@ enum EarningType: Int, CaseIterable {
     case lastMonth = 3
 }
 
-class EarningsViewController: UIViewController {
+
+struct EarningMonthFormEntry: FormEntry {
     
     
-    @IBOutlet weak var segmentedContainerView: UIStackView!
+    let current: EarningMonth
+    let last: EarningMonth
     
-    
-    @IBOutlet weak var containerView: UIView!
-    
-    
-    lazy var viewControlers: [UIViewController] = {
-        
-        return EarningType.allCases.compactMap {
-            EarningsDetailViewController(type: $0)
-        }
-    }()
-    
-    lazy var pageController: UIPageViewController = {
-        
-        let contoller = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-        contoller.dataSource = self
-        return contoller
-    }()
-    
-    var scrollView: UIScrollView? {
-        return pageController.view.subviews.first { $0 is UIScrollView } as? UIScrollView
+    init(current: EarningMonth, last: EarningMonth) {
+        self.current = current
+        self.last = last
     }
     
-    var selectedIndex: Int = 0
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    func cell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         
-        title = "我的收益"
-        setupViews()
-        setSelectedIndex(0)
+        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: EarningCell.self)
+        cell.currentMonthEnergyLabel.text = current.energy
+        cell.currentMonthTCoinLabel.text = current.tanbi
         
-        scrollView?.isScrollEnabled = false
+        cell.lastMonthEnergyLabel.text = last.energy
+        cell.lastMonthTCoinLabel.text = last.tanbi
+        
+        return cell
     }
     
-    func setupViews() {
-        addChild(pageController)
-        containerView.addSubview(pageController.view)
-        pageController.view.snp.makeConstraints { maker in
-            maker.edges.equalToSuperview()
-        }
-        pageController.didMove(toParent: self)
+
+}
+
+struct EarningWeekFormEntry: FormEntry {
+
+    let week: EarningWeek
+    
+    init(week: EarningWeek) {
+        self.week = week
     }
     
-    
-    @IBAction func segmentedButtonTapped(_ sender: UIButton) {
+    func cell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         
-        let index = segmentedContainerView.subviews.firstIndex(of: sender)!
-        setSelectedIndex(index)
-    }
-    
-    
-    func setSelectedIndex(_ index: Int) {
+        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: EarningDetailCell.self)
         
-        selectedIndex = index
+        cell.titleLabel.text = week.title
         
-        for i in 0..<segmentedContainerView.subviews.count {
-            let butnton = segmentedContainerView.subviews[i] as! UIButton
-            let isSelected: Bool = (i == index)
-            butnton.isSelected = isSelected
-            butnton.backgroundColor = isSelected ? UIColor(hexString: "#5159F8") : UIColor(hexString: "#F6F5F5")
+        for (i, stackView) in cell.containerStackView.subviews.enumerated()  where stackView is UIStackView {
+            
+            let model = week.list[i]
+            let energyLabel = stackView.subviews.first as? UILabel
+            energyLabel?.text = model.energy
+            
+            let titleLabel = stackView.subviews.last as? UILabel
+            titleLabel?.text = model.title
         }
         
-        pageController.setViewControllers([viewControlers[index]], direction: .forward, animated: false, completion: nil)
+        return cell
     }
 }
 
-extension EarningsViewController: UIPageViewControllerDataSource {
+class EarningsViewController: UIViewController, LoadingStateType, IndicatorDisplay {
     
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        
-        let index = viewControlers.firstIndex(of: viewController)!
-        
-        if index == 0 {
-            return nil
-        }
-        else {
-           return viewControlers[index - 1]
+    var state: LoadingState = .initial {
+        didSet {
+            showOrHideIndicator(loadingState: state)
         }
     }
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+    @IBOutlet weak var tableView: UITableView!
+    
+    let consumerAPI = Request<ConsumerAPI>()
+    
+    private var sections: [FormSection] = []
+    
+    private var data: EarningPreview!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupViews()
+        refreshData()
+    }
+    
+    func setupViews()  {
+        title = "我的收益"
         
-        let index = viewControlers.firstIndex(of: viewController)!
-        let lastIndex = viewControlers.count - 1
+        let recordItem = UIBarButtonItem(title: "明细", style: .plain, target: self, action: #selector(pushExpensesRecord))
+        navigationItem.rightBarButtonItem = recordItem
         
-        if index == lastIndex {
-            return nil
-        }
-        else {
-            return viewControlers[index + 1]
-        }
+        tableView.register(UINib(nibName: "EarningCell", bundle: nil), forCellReuseIdentifier: "EarningCell")
+        tableView.register(UINib(nibName: "EarningDetailCell", bundle: nil), forCellReuseIdentifier: "EarningDetailCell")
+    }
+    
+    
+    func setupSections()  {
+
+        guard let data = data else { return }
+        
+       let month = EarningMonthFormEntry(current: data.currentMonth, last: data.lastMonth)
+        
+     
+       let weeks =  data.weekList
+            .compactMap {
+                EarningWeekFormEntry(week: $0)
+            }
+        
+        let entries: [FormEntry] = [month] + weeks
+        
+        let section =  FormSection(entries: entries)
+        
+        self.sections = [section]
+        
+        tableView.reloadData()
+    }
+    
+    func refreshData() {
+        
+        state = .refreshingContent
+        consumerAPI.request(.countProfit, type: Response<EarningPreview>.self)
+           .verifyResponse()
+            .subscribe(onSuccess: { [weak self] response in
+                self?.data  = response.data
+                self?.setupSections()
+                self?.state = .contentLoaded
+                
+            }, onError: { error in
+                self.state = .error
+            })
+            .disposed(by: rx.disposeBag)
+    }
+    
+    @objc private func pushExpensesRecord() {
+        let vc = ConsumptionListController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
+}
+
+extension EarningsViewController: UITableViewDelegate {
+    
+    
+}
+
+
+extension EarningsViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sections.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return sections[section].formEntries.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        return sections[indexPath.section].formEntries[indexPath.row].cell(tableView, indexPath: indexPath)
     }
     
     

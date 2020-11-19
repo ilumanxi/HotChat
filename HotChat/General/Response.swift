@@ -86,6 +86,13 @@ struct Response<T: HandyJSON>: HandyJSON, State {
 }
 
 
+extension NSError {
+    
+    var localizedDescription: String {
+        return userInfo[NSLocalizedDescriptionKey] as! String
+    }
+}
+
 extension ObservableType {
 
     func verifyResponse() -> RxSwift.Observable<Self.Element> where Self.Element: State {

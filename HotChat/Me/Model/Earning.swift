@@ -15,3 +15,43 @@ struct Earning: HandyJSON {
     var desc: String = ""
     var type: Int = 0
 }
+
+
+struct EarningMonthPreview: HandyJSON {
+    
+    var currentEnergyMonth: Earning = Earning()
+    var currentTanbiMonth: Earning = Earning()
+
+}
+
+
+
+struct EarningPreview: HandyJSON {
+    
+    var currentMonth: EarningMonth = EarningMonth()
+    var lastMonth: EarningMonth = EarningMonth()
+    var weekList: [EarningWeek] = []
+}
+
+
+struct EarningMonth: HandyJSON {
+    var title: String = ""
+    var energy: String = ""
+    var energyDesc: String = ""
+    var tanbi: String = ""
+    var tanbiDesc: String = ""
+}
+
+struct EarningWeek: HandyJSON {
+    
+    var title: String = ""
+    var list: [EarningWeekConent] = []
+}
+
+
+struct EarningWeekConent: HandyJSON {
+    
+    var energy: String = ""
+    var title: String = ""
+
+}

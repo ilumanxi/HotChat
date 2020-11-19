@@ -60,20 +60,20 @@ class EarningsDetailViewController: UIViewController, LoadingStateType, Indicato
         
         state = .refreshingContent
         
-        consumerAPI.request(.countProfit(tag: type.rawValue), type: Response<[Earning]>.self)
-            .verifyResponse()
-            .subscribe(onSuccess: { [weak self] response in
-                let gift = response.data?.first(where: { $0.type == 1 })
-                
-                let talk = response.data?.first(where: { $0.type == 2 })
-                
-                self?.giftLabel.text = gift?.energy.description
-                self?.imLabel.text = talk?.energy.description
-                self?.state = .contentLoaded
-            }, onError: { [weak self] error in
-                self?.state = .error
-            })
-            .disposed(by: rx.disposeBag)
+//        consumerAPI.request(.countProfit(tag: type.rawValue), type: Response<[Earning]>.self)
+//            .verifyResponse()
+//            .subscribe(onSuccess: { [weak self] response in
+//                let gift = response.data?.first(where: { $0.type == 1 })
+//                
+//                let talk = response.data?.first(where: { $0.type == 2 })
+//                
+//                self?.giftLabel.text = gift?.energy.description
+//                self?.imLabel.text = talk?.energy.description
+//                self?.state = .contentLoaded
+//            }, onError: { [weak self] error in
+//                self?.state = .error
+//            })
+//            .disposed(by: rx.disposeBag)
     }
     
 

@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EarningsViewController" customModule="HotChat" customModuleProvider="target">
             <connections>
-                <outlet property="containerView" destination="YHb-Kq-CoA" id="kWM-o0-RT5"/>
-                <outlet property="segmentedContainerView" destination="bkD-98-Qhp" id="F6K-EF-10z"/>
+                <outlet property="tableView" destination="Cq0-W1-D3W" id="9cH-EN-LHb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,132 +19,25 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fK7-mE-oCr">
-                    <rect key="frame" x="0.0" y="44" width="414" height="64"/>
-                    <subviews>
-                        <view contentMode="scaleToFill" placeholderIntrinsicWidth="398" placeholderIntrinsicHeight="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="WbA-nr-UFe" customClass="SeparatorLine" customModule="HotChat" customModuleProvider="target">
-                            <rect key="frame" x="8" y="63.5" width="398" height="0.5"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        </view>
-                        <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bkD-98-Qhp">
-                            <rect key="frame" x="74.5" y="24" width="265" height="25"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gdb-xk-c1t">
-                                    <rect key="frame" x="0.0" y="0.0" width="75" height="25"/>
-                                    <color key="backgroundColor" red="0.31764705882352939" green="0.34901960784313724" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="75" id="cPE-kv-GOB"/>
-                                        <constraint firstAttribute="height" constant="25" id="nx0-TL-pOZ"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <state key="normal" title="今天">
-                                        <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    </state>
-                                    <state key="selected">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </state>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                            <real key="value" value="12.5"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="segmentedButtonTapped:" destination="-1" eventType="touchUpInside" id="vbt-wt-9t9"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4zs-wn-Xd4">
-                                    <rect key="frame" x="95" y="0.0" width="75" height="25"/>
-                                    <color key="backgroundColor" red="0.31764705879999999" green="0.34901960780000002" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="25" id="YyD-uI-zp0"/>
-                                        <constraint firstAttribute="width" constant="75" id="aMc-Uu-Rfz"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <state key="normal" title="本月">
-                                        <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    </state>
-                                    <state key="selected">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </state>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                            <real key="value" value="12.5"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="segmentedButtonTapped:" destination="-1" eventType="touchUpInside" id="jKw-sG-vHA"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXh-ti-61k">
-                                    <rect key="frame" x="190" y="0.0" width="75" height="25"/>
-                                    <color key="backgroundColor" red="0.31764705879999999" green="0.34901960780000002" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="25" id="NRA-yi-PQt"/>
-                                        <constraint firstAttribute="width" constant="75" id="PuF-AM-leJ"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <state key="normal" title="上月">
-                                        <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    </state>
-                                    <state key="selected">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </state>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                            <real key="value" value="12.5"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="segmentedButtonTapped:" destination="-1" eventType="touchUpInside" id="wPF-SX-WxK"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                        </stackView>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="64" id="1Py-y3-LAc"/>
-                        <constraint firstItem="WbA-nr-UFe" firstAttribute="leading" secondItem="fK7-mE-oCr" secondAttribute="leadingMargin" id="48t-fq-EHr"/>
-                        <constraint firstAttribute="bottom" secondItem="WbA-nr-UFe" secondAttribute="bottom" id="92s-64-3wo"/>
-                        <constraint firstAttribute="trailingMargin" secondItem="WbA-nr-UFe" secondAttribute="trailing" id="PWQ-bq-HYT"/>
-                        <constraint firstItem="bkD-98-Qhp" firstAttribute="centerX" secondItem="fK7-mE-oCr" secondAttribute="centerX" id="nIH-0k-hVN"/>
-                        <constraint firstItem="bkD-98-Qhp" firstAttribute="top" secondItem="fK7-mE-oCr" secondAttribute="top" constant="24" id="pmZ-FR-pgq"/>
-                    </constraints>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YHb-Kq-CoA">
-                    <rect key="frame" x="0.0" y="108" width="414" height="788"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cq0-W1-D3W">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                </view>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="ZEY-6J-MgR"/>
+                        <outlet property="delegate" destination="-1" id="TKh-Ch-Yvw"/>
+                    </connections>
+                </tableView>
             </subviews>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
             <constraints>
-                <constraint firstItem="fK7-mE-oCr" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="1Jr-wt-mVB"/>
-                <constraint firstAttribute="trailing" secondItem="YHb-Kq-CoA" secondAttribute="trailing" id="FoI-QG-xFw"/>
-                <constraint firstItem="fK7-mE-oCr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Kd9-Bx-Zmk"/>
-                <constraint firstItem="YHb-Kq-CoA" firstAttribute="top" secondItem="fK7-mE-oCr" secondAttribute="bottom" id="aGo-34-TP4"/>
-                <constraint firstItem="YHb-Kq-CoA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="nQf-p0-lg3"/>
-                <constraint firstItem="fK7-mE-oCr" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="pov-T0-4po"/>
-                <constraint firstAttribute="bottom" secondItem="YHb-Kq-CoA" secondAttribute="bottom" id="xsr-AB-T0x"/>
+                <constraint firstItem="Cq0-W1-D3W" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="eKK-Lj-BIj"/>
+                <constraint firstAttribute="trailing" secondItem="Cq0-W1-D3W" secondAttribute="trailing" id="qi6-Zv-NCy"/>
+                <constraint firstAttribute="bottom" secondItem="Cq0-W1-D3W" secondAttribute="bottom" id="u40-VZ-KpH"/>
+                <constraint firstItem="Cq0-W1-D3W" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="w94-kc-8hS"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="130.58035714285714"/>
         </view>
-        <tapGestureRecognizer id="ib8-1K-TQ5">
-            <connections>
-                <action selector="pusGiftEarnings:" destination="-1" id="M9g-ik-844"/>
-            </connections>
-        </tapGestureRecognizer>
-        <tapGestureRecognizer id="fYU-Oh-suS">
-            <connections>
-                <action selector="pusTalkEarnings:" destination="-1" id="BSo-6n-VcC"/>
-            </connections>
-        </tapGestureRecognizer>
     </objects>
-    <designables>
-        <designable name="WbA-nr-UFe">
-            <size key="intrinsicContentSize" width="398" height="0.5"/>
-        </designable>
-    </designables>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

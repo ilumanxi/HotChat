@@ -34,9 +34,15 @@ class WebViewController: UIViewController {
     
     lazy var webView: WKWebView = {
         let view = WKWebView(frame: .zero, configuration: webViewConfiguration)
+        view.allowsBackForwardNavigationGestures = true
         return view
     }()
     
+    
+    lazy var progressView: UIProgressView = {
+        let view = UIProgressView(progressViewStyle: .bar)
+        return view
+    }()
     
     let url: URL?
     
@@ -55,9 +61,23 @@ class WebViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         setupBridge()
+        observeWebViewState()
         loadURL()
     }
     
+    
+    override var hbd_backInteractive: Bool {
+        get {
+            if webView.canGoBack {
+                webView.goBack()
+                return false
+            }
+            return true
+        }
+        set {
+            // ignore
+        }
+    }
     
     
     func setupBridge() {
@@ -104,11 +124,30 @@ class WebViewController: UIViewController {
             maker.edges.equalToSuperview()
         }
         
+        view.addSubview(progressView)
+        progressView.snp.makeConstraints { [unowned self] maker in
+            maker.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+            maker.leading.trailing.equalToSuperview()
+        }
+            
+    }
+    
+    func observeWebViewState() {
         webView.rx.observe(String.self, #keyPath(WKWebView.title))
             .map{ $0 ?? "" }
             .bind(to: rx.title)
             .disposed(by: rx.disposeBag)
-            
+    
+        webView.rx.observe(Double.self, #keyPath(WKWebView.estimatedProgress))
+            .compactMap{ Float($0!) }
+            .bind(to: progressView.rx.progress)
+            .disposed(by: rx.disposeBag)
+        
+        webView.rx.observe(Bool.self, #keyPath(WKWebView.isLoading))
+            .compactMap{ $0 }
+            .compactMap{ !$0 }
+            .bind(to: progressView.rx.isHidden)
+            .disposed(by: rx.disposeBag)
     }
     
     let payAPI = Request<PayAPI>()

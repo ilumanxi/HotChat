@@ -64,9 +64,19 @@ struct Topic: HandyJSON {
     }
 }
 
-enum UserStatus: Int, HandyJSONEnum {
+enum UserStatus: Int, HandyJSONEnum { // code:-201
+    
+    /// 未知
+    case unknown = 0
+    
    ///  用户状态 1正常
     case normal = 1
+    
+    /// 封号
+    case disable = 2
+    
+    /// 注销
+    case destroy = 3
 }
 
 
@@ -191,7 +201,7 @@ enum VipType: Int, HandyJSONEnum {
     
     
     /// 用户状态
-    var userStatus: UserStatus = .normal
+    var userStatus: UserStatus = .unknown
     
     
     /// 手机号

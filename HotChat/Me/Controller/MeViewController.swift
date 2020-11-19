@@ -62,12 +62,14 @@ class WalletFormEntry: FormEntry {
     
     let image: UIImage?
     let text: String
-    let user: User
+    let energy: String
+    let tCoin: String
     let onTapped: TappedAction?
-    init(image: UIImage?, text: String, user: User, onTapped: TappedAction? = nil) {
+    init(image: UIImage?, text: String, energy: String, tCoin: String, onTapped: TappedAction? = nil) {
         self.image = image
         self.text = text
-        self.user = user
+        self.energy = energy
+        self.tCoin = tCoin
         self.onTapped = onTapped
     }
     
@@ -76,8 +78,8 @@ class WalletFormEntry: FormEntry {
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: WalletViewCell.self)
         cell.iconImageView.image = image
         cell.titleLabel.text = text
-        cell.energyLabel.text = user.userEnergy.description
-        cell.tCoinLabel.text = user.userTanbi.description
+        cell.energyLabel.text = energy
+        cell.tCoinLabel.text = tCoin
         return cell
     }
 }
@@ -109,11 +111,16 @@ class MeViewController: UITableViewController, Autorotate {
     
     let userAPI = Request<UserAPI>()
     
+    let consumerAPI = Request<ConsumerAPI>()
+    
     private var user: User! {
         didSet {
             refreshDisplay()
         }
     }
+    
+    
+    private var earning: EarningMonthPreview?
     
     private var sections: [FormSection] = []
     
@@ -133,10 +140,10 @@ class MeViewController: UITableViewController, Autorotate {
         var walletEntries: [FormEntry] = []
         
         if user.girlStatus {
-            walletEntries.append(WalletFormEntry(image: UIImage(named: "me-earnings"), text: "我的收益", user: LoginManager.shared.user!, onTapped: pushEarnings))
+            walletEntries.append(WalletFormEntry(image: UIImage(named: "me-earnings"), text: "我的收益", energy: earning?.currentEnergyMonth.energy ?? "加载中", tCoin: earning?.currentTanbiMonth.energy ?? "加载中", onTapped: pushEarnings))
         }
         else {
-            walletEntries.append(WalletFormEntry(image: UIImage(named: "me-wallet"), text: "我的钱包", user: LoginManager.shared.user!, onTapped: pushWallet))
+            walletEntries.append(WalletFormEntry(image: UIImage(named: "me-wallet"), text: "我的钱包", energy: user.userEnergy.description, tCoin: user.userTanbi.description, onTapped: pushWallet))
         }
         
         let wallet: FormSection  = FormSection(
@@ -158,9 +165,11 @@ class MeViewController: UITableViewController, Autorotate {
 //            RightDetailFormEntry(image: UIImage(named: "me-call"), text: "通话设置"),
         ])
         
+        if user.sex == .female {
+            detailEntries.append(RightDetailFormEntry(image: UIImage(named: "me-anchor"), text: "主播认证", onTapped: pushAuthentication))
+        }
         
         if user.girlStatus {
-            detailEntries.append(RightDetailFormEntry(image: UIImage(named: "me-anchor"), text: "主播认证", onTapped: pushAuthentication))
             
             detailEntries.append(RightDetailFormEntry(image: UIImage(named: "me-wallet"), text: "我的钱包", detailText: "能量\(user.userEnergy)", onTapped: pushWallet))
         }
@@ -210,6 +219,16 @@ class MeViewController: UITableViewController, Autorotate {
                 
             })
             .disposed(by: rx.disposeBag)
+        
+        if user.girlStatus {
+            consumerAPI.request(.countMonthProfit, type: Response<EarningMonthPreview>.self)
+                .verifyResponse()
+                .subscribe(onSuccess: { [weak self] response in
+                    self?.earning = response.data
+                    self?.setupSections()
+                }, onError: nil)
+                .disposed(by: rx.disposeBag)
+        }
     }
     
     

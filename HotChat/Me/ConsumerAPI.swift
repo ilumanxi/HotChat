@@ -10,9 +10,10 @@ import Moya
 
 enum ConsumerAPI {
     case detailsList(page: Int, tag: Int)
-    case countProfit(tag: Int)
+    case countProfit
     case profitImList
     case profitGiftList(page: Int)
+    case countMonthProfit
 }
 
 
@@ -32,6 +33,8 @@ extension ConsumerAPI: TargetType {
             return "ConsumerDetails/profitImList"
         case .profitGiftList:
             return "ConsumerDetails/profitGiftList"
+        case .countMonthProfit:
+            return "ConsumerDetails/countMonthProfit"
         }
     }
     
@@ -53,16 +56,16 @@ extension ConsumerAPI: TargetType {
                 "page" : page,
                 "tag": tag
             ]
-        case .countProfit(let tag):
-            parameters = [
-                "tag": tag
-            ]
+        case .countProfit:
+            parameters = [:]
         case .profitImList:
             parameters = [:]
         case .profitGiftList(let page):
             parameters = [
                 "page" : page
             ]
+        case .countMonthProfit:
+            parameters = [:]
         }
         
         let encoding: ParameterEncoding = (self.method == .post) ? JSONEncoding.default : URLEncoding.default
