@@ -297,7 +297,7 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
                 
                 alertController.addAction(SPAlertAction(title: "举报这条动态", style: .default, handler: { [weak self] _ in
                     let vc = ReportViewController.loadFromStoryboard()
-                    vc.user = dynamic.userInfo
+                    vc.dynamic = dynamic
                     self?.present(vc, animated: false, completion: nil)
                 }))
             }

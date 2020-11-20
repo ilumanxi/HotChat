@@ -19,7 +19,8 @@ class ReportViewController: UIViewController, IndicatorDisplay, StoryboardCreate
         return "Community"
     }
     
-    var user: User!
+    var user: User?
+    var dynamic: Dynamic?
     
     
     private var selectedIndexPath: IndexPath?
@@ -59,25 +60,45 @@ class ReportViewController: UIViewController, IndicatorDisplay, StoryboardCreate
             return
             
         }
-        let parameters : [String : Any] = [
-            "reportUserId" : user.userId,
-            "content" : contents[indexPath.row]
-        ]
         
-        self.showIndicatorOnWindow()
         
-        reportAPI.request(.userReport(parameters), type: ResponseEmpty.self)
-            .verifyResponse()
-            .subscribe(onSuccess: { [weak self] reponse in
-                self?.hideIndicatorFromWindow()
-                self?.showMessageOnWindow(reponse.msg)
-                self?.dismiss(animated: false, completion: nil)
-            }, onError: { [weak self] error in
-                self?.hideIndicatorFromWindow()
-                self?.showMessageOnWindow(error.localizedDescription)
-                
-            })
-            .disposed(by: rx.disposeBag)
+        if let user = user {
+            let parameters : [String : Any] = [
+                "reportUserId" : user.userId,
+                "content" : contents[indexPath.row]
+            ]
+            
+            self.showIndicatorOnWindow()
+            
+            reportAPI.request(.userReport(parameters), type: ResponseEmpty.self)
+                .verifyResponse()
+                .subscribe(onSuccess: { [weak self] reponse in
+                    self?.hideIndicatorFromWindow()
+                    self?.showMessageOnWindow(reponse.msg)
+                    self?.dismiss(animated: false, completion: nil)
+                }, onError: { [weak self] error in
+                    self?.hideIndicatorFromWindow()
+                    self?.showMessageOnWindow(error.localizedDescription)
+                    
+                })
+                .disposed(by: rx.disposeBag)
+        }
+        else if let dynamic = self.dynamic {
+            self.showIndicatorOnWindow()
+            
+            reportAPI.request(.dynamicReport(dynamicId: dynamic.dynamicId, content: contents[indexPath.row]), type: ResponseEmpty.self)
+                .verifyResponse()
+                .subscribe(onSuccess: { [weak self] reponse in
+                    self?.hideIndicatorFromWindow()
+                    self?.showMessageOnWindow(reponse.msg)
+                    self?.dismiss(animated: false, completion: nil)
+                }, onError: { [weak self] error in
+                    self?.hideIndicatorFromWindow()
+                    self?.showMessageOnWindow(error.localizedDescription)
+                    
+                })
+                .disposed(by: rx.disposeBag)
+        }
     }
     
 

@@ -12,6 +12,7 @@ import Moya
 enum ReportAPI {
     case reportConfig(Int) //举报类型 1动态举报 2用户举报
     case userReport([String : Any])
+    case dynamicReport(dynamicId: String, content: String)
 }
 
 extension ReportAPI: TargetType {
@@ -25,6 +26,8 @@ extension ReportAPI: TargetType {
             return "Report/reportConfig"
         case .userReport:
             return "Report/userReport"
+        case .dynamicReport:
+            return "Report/dynamicReport"
         }
     }
     
@@ -44,6 +47,11 @@ extension ReportAPI: TargetType {
             parameters = ["type" : type]
         case .userReport(let value):
             parameters = value
+        case .dynamicReport(let dynamicId, let content):
+            parameters = [
+                "dynamicId" : dynamicId,
+                "content" : content
+            ]
         }
         
         let encoding: ParameterEncoding = (method == .post) ? JSONEncoding.default : URLEncoding.default
