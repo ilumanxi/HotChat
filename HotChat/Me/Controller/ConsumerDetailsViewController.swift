@@ -189,6 +189,8 @@ extension Checklist {
             return 3
         case .recharge:
             return 2
+        case .earning:
+            return 4
         }
     }
 }

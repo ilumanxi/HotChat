@@ -212,6 +212,10 @@
     NSDictionary *headers = @{
         @"token" : LoginManager.shared.user.token
     };
+    
+    if (self.billingStatus == nil) {
+        return;
+    }
 
     NSTimeInterval nowTime = self.billingStatus.callStartTime + self.callingTime;
     

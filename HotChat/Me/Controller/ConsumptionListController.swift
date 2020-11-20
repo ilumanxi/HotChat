@@ -14,6 +14,7 @@ enum Checklist: CaseIterable {
     case earn
     case expenditure
     case recharge
+    case earning
 }
 
 class ConsumptionListController: SegementSlideDefaultViewController {
@@ -79,6 +80,8 @@ extension Checklist {
             return "消耗"
         case .recharge:
             return "充值"
+        case .earning:
+            return "收益"
         }
     }
 }
