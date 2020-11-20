@@ -146,7 +146,7 @@ extension AccountPlugin: PluginType {
             return
         }
         
-        if let user = result.data, result.isSuccessd {
+        if let user = result.data, result.isSuccessd, user.isSuccessd {
             
             LoginManager.shared.login(user: user,sendNotification: user.isInit)
         }
