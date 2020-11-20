@@ -8,6 +8,11 @@
 
 import HandyJSON
 
+struct Wallet: HandyJSON {
+    var userEnergy: Int = 0
+    var userTanbi: Int = 0
+}
+
 
 struct Earning: HandyJSON {
     var title: String = ""

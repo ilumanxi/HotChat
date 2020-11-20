@@ -16,6 +16,7 @@
                 <outlet property="countButton" destination="FRV-6F-tYu" id="uCi-OX-Gn7"/>
                 <outlet property="energyButton" destination="vyH-yI-GQH" id="s5S-aq-WEe"/>
                 <outlet property="pageControl" destination="AVR-BV-Rkx" id="PZY-LQ-Uhe"/>
+                <outlet property="tCoinButton" destination="Hy6-AI-ylO" id="Hyr-Yv-g4U"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -69,7 +70,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vyH-yI-GQH" customClass="HotChatButton" customModule="HotChat" customModuleProvider="target">
-                                            <rect key="frame" x="71" y="12.5" width="22" height="15"/>
+                                            <rect key="frame" x="70.5" y="12.5" width="22" height="15"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <inset key="titleEdgeInsets" minX="6" minY="0.0" maxX="0.0" maxY="0.0"/>
                                             <state key="normal" title="0" image="GiftViewEnergy">
@@ -77,7 +78,7 @@
                                             </state>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dm2-CI-YBQ">
-                                            <rect key="frame" x="98" y="9" width="41" height="22"/>
+                                            <rect key="frame" x="144.5" y="9" width="41" height="22"/>
                                             <color key="backgroundColor" red="0.31764705879999999" green="0.34901960780000002" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <inset key="contentEdgeInsets" minX="9" minY="4" maxX="9" maxY="4"/>
@@ -122,15 +123,35 @@
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hy6-AI-ylO" customClass="HotChatButton" customModule="HotChat" customModuleProvider="target">
+                                            <rect key="frame" x="107.5" y="12.5" width="22" height="15"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <inset key="titleEdgeInsets" minX="6" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <state key="normal" title="0" image="t-coin">
+                                                <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                        </button>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wFy-qC-hBv">
+                                            <rect key="frame" x="57" y="12" width="0.5" height="16"/>
+                                            <color key="backgroundColor" red="0.96862745098039216" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="0.5" id="Qy7-WC-W4V"/>
+                                                <constraint firstAttribute="height" constant="16" id="ebl-h7-Nvg"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
-                                        <constraint firstItem="vyH-yI-GQH" firstAttribute="leading" secondItem="DHz-dT-qpx" secondAttribute="trailing" constant="22" id="0C3-RV-loA"/>
                                         <constraint firstItem="vyH-yI-GQH" firstAttribute="centerY" secondItem="ZfY-pA-9WD" secondAttribute="centerY" id="3nw-uV-bdk"/>
+                                        <constraint firstItem="Dm2-CI-YBQ" firstAttribute="leading" secondItem="Hy6-AI-ylO" secondAttribute="trailing" constant="15" id="4Dm-3Z-ZZa"/>
+                                        <constraint firstItem="Hy6-AI-ylO" firstAttribute="centerY" secondItem="ZfY-pA-9WD" secondAttribute="centerY" id="6ex-Dj-EQo"/>
                                         <constraint firstAttribute="trailing" secondItem="hjq-LW-j6Q" secondAttribute="trailing" id="Ejs-1O-MXE"/>
+                                        <constraint firstItem="wFy-qC-hBv" firstAttribute="centerY" secondItem="ZfY-pA-9WD" secondAttribute="centerY" id="Hyy-91-0ur"/>
                                         <constraint firstItem="hjq-LW-j6Q" firstAttribute="leading" secondItem="ZfY-pA-9WD" secondAttribute="leading" id="KRK-iE-h4z"/>
-                                        <constraint firstItem="Dm2-CI-YBQ" firstAttribute="leading" secondItem="vyH-yI-GQH" secondAttribute="trailing" constant="5" id="dgl-OD-x4k"/>
+                                        <constraint firstItem="Hy6-AI-ylO" firstAttribute="leading" secondItem="vyH-yI-GQH" secondAttribute="trailing" constant="15" id="cuF-tD-MUJ"/>
+                                        <constraint firstItem="wFy-qC-hBv" firstAttribute="leading" secondItem="DHz-dT-qpx" secondAttribute="trailing" constant="8" symbolic="YES" id="daz-1E-BXl"/>
                                         <constraint firstAttribute="trailing" secondItem="FRV-6F-tYu" secondAttribute="trailing" constant="20" id="fdn-Ax-YE4"/>
+                                        <constraint firstItem="vyH-yI-GQH" firstAttribute="leading" secondItem="wFy-qC-hBv" secondAttribute="trailing" constant="13" id="fgF-B9-Cfd"/>
                                         <constraint firstItem="yme-Fn-ChO" firstAttribute="centerY" secondItem="ZfY-pA-9WD" secondAttribute="centerY" id="fmO-PA-5fo"/>
                                         <constraint firstItem="hjq-LW-j6Q" firstAttribute="top" secondItem="ZfY-pA-9WD" secondAttribute="top" id="gbR-Zi-6cd"/>
                                         <constraint firstItem="FRV-6F-tYu" firstAttribute="centerY" secondItem="ZfY-pA-9WD" secondAttribute="centerY" id="hWK-sy-8Tk"/>
@@ -183,6 +204,7 @@
     </designables>
     <resources>
         <image name="GiftViewEnergy" width="15" height="15"/>
+        <image name="t-coin" width="15" height="15"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

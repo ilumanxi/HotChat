@@ -112,14 +112,7 @@ class MeViewController: UITableViewController, Autorotate {
     let userAPI = Request<UserAPI>()
     
     let consumerAPI = Request<ConsumerAPI>()
-    
-    private var user: User! {
-        didSet {
-            refreshDisplay()
-        }
-    }
-    
-    
+        
     private var earning: EarningMonthPreview?
     
     private var sections: [FormSection] = []
@@ -128,14 +121,26 @@ class MeViewController: UITableViewController, Autorotate {
         super.viewDidLoad()
         
         self.hbd_barHidden = true
-        user = LoginManager.shared.user
         
-        setupSections()
+        setDisplay()
+        
+        NotificationCenter.default.rx.notification(.userDidChange)
+            .subscribe(onNext: { [weak self] _ in
+                self?.setDisplay()
+            })
+            .disposed(by: rx.disposeBag)
 
     }
     
     
+    func setDisplay() {
+        refreshDisplay()
+        setupSections()
+    }
+    
     func setupSections()  {
+        
+        let user = LoginManager.shared.user!
         
         var walletEntries: [FormEntry] = []
         
@@ -183,7 +188,7 @@ class MeViewController: UITableViewController, Autorotate {
             RightDetailFormEntry(image: UIImage(named: "me-grade"), text: "等级", onTapped: pushLevel),
         ]
         
-        if self.user.sex == .male {
+        if user.sex == .male {
             basicEntries.append( RightDetailFormEntry(image: UIImage(named: "me-authentication"), text: "认证", onTapped: pushAuthentication))
         }
         
@@ -211,16 +216,14 @@ class MeViewController: UITableViewController, Autorotate {
         
         userAPI.request(.userinfo(userId: nil), type: Response<User>.self)
             .verifyResponse()
-            .subscribe(onSuccess: { [weak self] response in
-                self?.user = response.data
+            .subscribe(onSuccess: { response in
                 LoginManager.shared.update(user: response.data!)
-                self?.setupSections()
             }, onError: { error in
                 
             })
             .disposed(by: rx.disposeBag)
         
-        if user.girlStatus {
+        if LoginManager.shared.user!.girlStatus {
             consumerAPI.request(.countMonthProfit, type: Response<EarningMonthPreview>.self)
                 .verifyResponse()
                 .subscribe(onSuccess: { [weak self] response in
@@ -229,12 +232,25 @@ class MeViewController: UITableViewController, Autorotate {
                 }, onError: nil)
                 .disposed(by: rx.disposeBag)
         }
+        else {
+            userAPI.request(.userWallet, type: Response<Wallet>.self)
+                .verifyResponse()
+                .subscribe(onSuccess: { response in
+                    let user = LoginManager.shared.user!
+                    user.userTanbi = response.data!.userTanbi
+                    user.userEnergy = response.data!.userEnergy
+                    LoginManager.shared.update(user: user)
+                }, onError: { error in
+                    
+                })
+                .disposed(by: rx.disposeBag)
+        }
     }
     
     
     func refreshDisplay() {
         
-        guard let user = self.user else { return }
+        let user = LoginManager.shared.user!
         
         meHeaderView.avatarImageView.kf.setImage(with: URL(string: user.headPic))
         meHeaderView.nicknameLabel.text = user.nick
@@ -348,7 +364,7 @@ class MeViewController: UITableViewController, Autorotate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let vc = segue.destination as? UserInfoViewController {
-            vc.user = user
+            vc.user = LoginManager.shared.user
         }
         
     }

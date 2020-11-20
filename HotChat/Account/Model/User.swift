@@ -150,7 +150,7 @@ enum VipType: Int, HandyJSONEnum {
     @objc var userEnergy: Int = 0
     
     /// 贪币
-    var userTanbi: Int = 0
+    @objc var userTanbi: Int = 0
     
     ///  甜豆
     var userSweetpea: Int = 0

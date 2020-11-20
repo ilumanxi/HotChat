@@ -36,6 +36,7 @@ enum UserAPI {
     case editInvite(phone: String)
     case blackList
     case editDefriend(userId: String)
+    case userWallet
 }
 
 
@@ -80,6 +81,8 @@ extension UserAPI: TargetType {
             return "User/blackList"
         case .editDefriend:
             return "User/editDefriend"
+        case .userWallet:
+            return "user/userWallet"
         }
     }
     
@@ -141,6 +144,8 @@ extension UserAPI: TargetType {
             parameters =  [:]
         case .editDefriend(let userId):
             parameters =  ["userId" : userId]
+        case .userWallet:
+            parameters =  [:]
         }
         
         return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)

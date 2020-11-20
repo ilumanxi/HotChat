@@ -17,11 +17,28 @@ enum Checklist: CaseIterable {
     case earning
 }
 
+enum ChecklistType {
+    case earnings
+    case wallet
+}
+
+extension ChecklistType {
+    
+    var list: [Checklist] {
+        switch self {
+        case .earnings:
+            return [.all , .earning]
+        default:
+            return [.all, .earn, .expenditure, .recharge]
+        }
+    }
+}
+
 class ConsumptionListController: SegementSlideDefaultViewController {
     
     
     lazy var contentViewControllers: [ConsumerDetailsViewController] = {
-        return Checklist.allCases
+        return type.list
             .map {
                 let vc = ConsumerDetailsViewController(type: $0)
                 vc.title = $0.text
@@ -33,6 +50,17 @@ class ConsumptionListController: SegementSlideDefaultViewController {
         return contentViewControllers.compactMap{ $0.title }
     }
     
+    
+    let type: ChecklistType
+    
+    init(type: ChecklistType) {
+        self.type = type
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +78,13 @@ class ConsumptionListController: SegementSlideDefaultViewController {
     
     override var switcherConfig: SegementSlideDefaultSwitcherConfig {
         var config = super.switcherConfig
-        config.type = .tab
+        
+        if type == .earnings {
+            config.type = .segement
+        }
+        else {
+            config.type = .tab
+        }
         return config
     }
     
@@ -81,7 +115,7 @@ extension Checklist {
         case .recharge:
             return "充值"
         case .earning:
-            return "收益"
+            return "每日收益"
         }
     }
 }

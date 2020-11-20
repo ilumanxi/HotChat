@@ -112,7 +112,7 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     @objc private func pushExpensesRecord() {
-        let vc = ConsumptionListController()
+        let vc = ConsumptionListController(type: .wallet)
         navigationController?.pushViewController(vc, animated: true)
     }
     

@@ -31,6 +31,9 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *energyButton;
 
+@property (weak, nonatomic) IBOutlet UIButton *tCoinButton;
+
+
 @property (weak, nonatomic) IBOutlet UIButton *countButton;
 
 @property(nonatomic, assign) NSInteger count;
@@ -124,7 +127,7 @@
     _pageControl.numberOfPages = self.numberOfPages;
     
     [_energyButton setTitle:[NSString stringWithFormat:@"%ld",(long)[LoginManager shared].user.userEnergy]  forState:UIControlStateNormal];
-    
+    [_tCoinButton setTitle:[NSString stringWithFormat:@"%ld",(long)[LoginManager shared].user.userTanbi]  forState:UIControlStateNormal];
     CGFloat size = UIScreen.mainScreen.bounds.size.width / _perRowCount;
     
     _collectionViewFlowLayout.sectionInset = UIEdgeInsetsZero;
@@ -138,6 +141,7 @@
 
 - (void)updateUserInfo {
     [_energyButton setTitle:[NSString stringWithFormat:@"%ld",(long)[LoginManager shared].user.userEnergy]  forState:UIControlStateNormal];
+    [_tCoinButton setTitle:[NSString stringWithFormat:@"%ld",(long)[LoginManager shared].user.userTanbi]  forState:UIControlStateNormal];
 }
 
 

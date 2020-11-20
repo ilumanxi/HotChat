@@ -143,7 +143,7 @@ class EarningsViewController: UIViewController, LoadingStateType, IndicatorDispl
     }
     
     @objc private func pushExpensesRecord() {
-        let vc = ConsumptionListController()
+        let vc = ConsumptionListController(type: .earnings)
         navigationController?.pushViewController(vc, animated: true)
     }
 
