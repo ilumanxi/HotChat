@@ -92,15 +92,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(userDidLogin(_:)),
+            selector: #selector(userDidLogin),
             name: .userDidLogin,
             object: nil
         )
         
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(userDidLogout(_:)),
+            selector: #selector(userDidLogout),
             name: .userDidLogout,
+            object: nil
+        )
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(userDidBanned),
+            name: .userDidBanned,
             object: nil
         )
         
@@ -115,6 +122,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     @objc func userDidLogout(_ noti: Notification) {
         window?.setLoginViewController()
+    }
+    
+    @objc func userDidBanned(_ noti: Notification) {
+    
+        let message = noti.userInfo?["msg"] as? String ?? "封号了"
+        
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "确认", style: .default, handler: { _ in
+            LoginManager.shared.logout()
+        }))
+        
+        window?.rootViewController?.present(alert, animated: true, completion: nil)
     }
 
     

@@ -102,10 +102,15 @@ extension AccountPlugin: PluginType {
             return
         }
         
-        if let json = try? JSONSerialization.jsonObject(with: response.data, options: .allowFragments) as? [String : Any], let code = json["code"] as? CustomStringConvertible, code.description == "-200" {
-            LoginManager.shared.logout()
+        if let json = try? JSONSerialization.jsonObject(with: response.data, options: .allowFragments) as? [String : Any], let code = json["code"] as? CustomStringConvertible {
+            
+            if code.description == "-200" { // token失效
+                LoginManager.shared.logout()
+            }
+            else if code.description == "-201" { // 封号
+                NotificationCenter.default.post(name: .userDidBanned, object: nil, userInfo: json)
+            }
         }
-        
         
 //        if !shouldHandleRequest(response.request!, prefixs: prefixs) { return }
         

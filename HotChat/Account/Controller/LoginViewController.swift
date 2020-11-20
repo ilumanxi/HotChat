@@ -21,6 +21,8 @@ extension Notification.Name {
     
     static let userDidSignedUp = NSNotification.Name("com.friday.Chat.userDidSignedUp")
     
+    static let userDidBanned = NSNotification.Name("com.friday.Chat.userDidBanned")
+    
 }
 
 class LoginViewController: UIViewController, IndicatorDisplay {
@@ -91,8 +93,8 @@ class LoginViewController: UIViewController, IndicatorDisplay {
                 Log.print(result)
                 self?.hideIndicator()
             }, onError: { [weak self] error in
-                Log.print(error)
                 self?.hideIndicator()
+                self?.show(error.localizedDescription)
             })
             .disposed(by: self.rx.disposeBag)
     }

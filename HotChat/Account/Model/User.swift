@@ -121,7 +121,9 @@ enum VipType: Int, HandyJSONEnum {
 
 
 
-@objc public class User: NSObject, HandyJSON {
+@objc public class User: NSObject, HandyJSON, State {
+
+    
     
     required public override init() {
         super.init()
@@ -255,5 +257,23 @@ enum VipType: Int, HandyJSONEnum {
     /// 电影
     var movieList: [LikeTag] = []
     
+    var resultCode: Int?
+    var resultMsg: String?
     
+    
+    var isSuccessd: Bool {
+        
+        return resultCode == nil
+    }
+    
+    var error: Error? {
+        
+        if isSuccessd  {
+            return nil
+        }
+        
+        let errorDescription = resultMsg ?? "未知错误"
+        
+        return NSError(domain: "HotChatError", code: resultCode!, userInfo: [NSLocalizedDescriptionKey: errorDescription])
+    }
 }
