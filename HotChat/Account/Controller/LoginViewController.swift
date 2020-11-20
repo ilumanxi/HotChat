@@ -23,7 +23,7 @@ extension Notification.Name {
     
 }
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, IndicatorDisplay {
     
     @IBOutlet weak var loginProviderStackView: UIStackView!
     
@@ -84,14 +84,15 @@ class LoginViewController: UIViewController {
     
     func login(_ userIdentifier: String, tokenType: TokenType) {
         
-        let hub = MBProgressHUD.showAdded(to: view.window!, animated: true)
+        showIndicator("登录中...")
         SigninDefaultAPI.share.signin(userIdentifier, type: tokenType.rawValue)
-            .subscribe(onSuccess:{ result in
+            .verifyResponse()
+            .subscribe(onSuccess:{  [weak self] result in
                 Log.print(result)
-                hub.hide(animated: true)
-            }, onError: { error in
+                self?.hideIndicator()
+            }, onError: { [weak self] error in
                 Log.print(error)
-                hub.hide(animated: true)
+                self?.hideIndicator()
             })
             .disposed(by: self.rx.disposeBag)
     }

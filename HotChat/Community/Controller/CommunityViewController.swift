@@ -90,7 +90,7 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
         collectionView.mj_header?.beginRefreshing()
         hiddenPhoneBindingView()
         observeLPhoneState()
-        
+        checkUserInitState()
         
         upgradeAPI.request(.updateChannel, type: Response<Upgrade>.self)
             .verifyResponse()
@@ -101,6 +101,14 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
             .disposed(by: rx.disposeBag)
       
 
+    }
+    
+    
+    func checkUserInitState() {
+        if !LoginManager.shared.user!.isInit {
+            let vc = UserInformationViewController.loadFromStoryboard()
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     

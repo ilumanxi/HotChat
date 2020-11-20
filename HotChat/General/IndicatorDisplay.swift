@@ -14,7 +14,7 @@ import Toast_Swift
 protocol IndicatorDisplay: NSObject {
     
     func show(_ message: String?, in view: UIView)
-    func showIndicator(in view: UIView)
+    func showIndicator(_ message: String?, in view: UIView)
     func showOrHideIndicator(loadingState: LoadingState, in view: UIView, text: String?, image: UIImage?)
     func hideIndicator(from view: UIView)
     
@@ -30,8 +30,8 @@ extension IndicatorDisplay where Self: UIViewController {
         show(message, in: view)
     }
     
-    func showIndicator() {
-       showIndicator(in: view)
+    func showIndicator(_ message: String? = nil) {
+       showIndicator(message, in: view)
     }
     
     func hideIndicator() {
@@ -42,8 +42,8 @@ extension IndicatorDisplay where Self: UIViewController {
         show(message, in: UIApplication.shared.keyWindow ?? view)
     }
     
-    func showIndicatorOnWindow() {
-        showIndicator(in: UIApplication.shared.keyWindow ?? view)
+    func showIndicatorOnWindow(_ message: String? = nil) {
+        showIndicator(message, in: UIApplication.shared.keyWindow ?? view)
     }
     
     func hideIndicatorFromWindow() {
@@ -55,8 +55,11 @@ extension IndicatorDisplay where Self: UIViewController {
         view.makeToast(message, position: .center)
     }
     
-    func showIndicator(in view: UIView) {
+    func showIndicator(_ message: String?, in view: UIView) {
         let hub  = MBProgressHUD.showAdded(to: view, animated: true)
+        if let message = message {
+            hub.label.text = message
+        }
         hub.show(animated: true)
     }
     

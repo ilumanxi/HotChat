@@ -23,7 +23,7 @@
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         self.container.backgroundColor = [UIColor d_colorWithColorLight:TCell_Nomal dark:TCell_Nomal_Dark];
         
-        
+        self.container.layer.cornerRadius = 4;
         _giftImageView = [UIImageView new];
         _giftImageView.contentMode = UIViewContentModeScaleAspectFill;
         [_giftImageView setClipsToBounds:YES];
