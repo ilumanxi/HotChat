@@ -29,7 +29,7 @@ import AVFoundation
     }
 
     
-    func handleCallVideo(userID: String) {
+    private func handleCallVideo(userID: String) {
       
         if checkAuthorization(for: .video) {
             if checkAuthorization(for: .audio) {
@@ -44,7 +44,7 @@ import AVFoundation
         }
     }
     
-    func checkAuthorization(for mediaType: AVMediaType) -> Bool {
+    private func checkAuthorization(for mediaType: AVMediaType) -> Bool {
         
         var authorized = false
         let semaphore = DispatchSemaphore(value: 0)
@@ -76,7 +76,7 @@ import AVFoundation
     }
     
     
-    func handleCallAudio(userID: String) {
+    private func handleCallAudio(userID: String) {
       
         if checkAuthorization(for: .audio) {
             makeCall(userID: userID, callType: .audio)
@@ -87,7 +87,7 @@ import AVFoundation
     }
 
     
-    func makeCall(userID: String, callType: CallType) {
+    private func makeCall(userID: String, callType: CallType) {
         
         let type  = (callType == .video) ? 1 : 2
         
@@ -117,7 +117,7 @@ import AVFoundation
             .disposed(by: rx.disposeBag)
     }
     
-    func showAudioPermissionnNotification()  {
+    private func showAudioPermissionnNotification()  {
         Thread.safeAsync {
             let alert = UIAlertController(title: nil, message: "请在iPhone“设置-隐私-麦克风”选项中，允许贪聊访问你的手机麦克风。", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "好", style: .default, handler: nil))
@@ -127,7 +127,7 @@ import AVFoundation
 
     }
     
-    func showVideoPermissionnNotification()  {
+    private func showVideoPermissionnNotification()  {
         Thread.safeAsync {
             let alert = UIAlertController(title: nil, message: "请在iPhone“设置-隐私-相机”选项中，允许贪聊访问你的相机。", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "好", style: .default, handler: nil))
@@ -136,7 +136,7 @@ import AVFoundation
 
     }
     
-    func getShowNavigationController() -> UINavigationController? {
+    private func getShowNavigationController() -> UINavigationController? {
         
         guard let tabController = UIApplication.shared.keyWindow?.rootViewController as? UITabBarController, let navController = tabController.selectedViewController as? UINavigationController else {
             return nil

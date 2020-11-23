@@ -96,13 +96,13 @@ class ChatViewController: ChatController, IndicatorDisplay {
  
         
         let video = SPAlertAction(title: nil, style: .default) { _ in
-            CallManager.shareInstance()?.call(nil, userID: self.conversationData.userID, callType: .video)
+            CallHelper.share.call(userID: self.conversationData.userID, callType: .video)
         }
         video.attributedTitle = attributedText(text: "视频聊", detailText: "(2500能量/分钟)")
         alertController.addAction(video)
         
         let audio = SPAlertAction(title: nil, style: .default) { _ in
-            CallManager.shareInstance()?.call(nil, userID: self.conversationData.userID, callType: .audio)
+            CallHelper.share.call(userID: self.conversationData.userID, callType: .audio)
         }
         audio.attributedTitle = attributedText(text: "语音聊", detailText: "(2500能量/分钟)")
         alertController.addAction(audio)

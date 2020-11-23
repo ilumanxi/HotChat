@@ -78,7 +78,7 @@
 		2643EBBD2500B04100FBBE49 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643EB9B2500B04100FBBE49 /* Helpers.swift */; };
 		2643EBBE2500B04100FBBE49 /* CollectionViewGridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643EB9C2500B04100FBBE49 /* CollectionViewGridLayout.swift */; };
 		2643EBBF2500B04100FBBE49 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643EB9D2500B04100FBBE49 /* Application.swift */; };
-		2643EBC02500B04100FBBE49 /* Bundle+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643EB9E2500B04100FBBE49 /* Bundle+App.swift */; };
+		2643EBC02500B04100FBBE49 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643EB9E2500B04100FBBE49 /* App.swift */; };
 		2643EBC12500B04100FBBE49 /* UITableView+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643EB9F2500B04100FBBE49 /* UITableView+App.swift */; };
 		2643EBC32500B05300FBBE49 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643EBC22500B05300FBBE49 /* TabBarController.swift */; };
 		2643EBC82500D4C000FBBE49 /* MeContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643EBC72500D4C000FBBE49 /* MeContactViewController.swift */; };
@@ -407,7 +407,7 @@
 		2643EB9B2500B04100FBBE49 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		2643EB9C2500B04100FBBE49 /* CollectionViewGridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewGridLayout.swift; sourceTree = "<group>"; };
 		2643EB9D2500B04100FBBE49 /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
-		2643EB9E2500B04100FBBE49 /* Bundle+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+App.swift"; sourceTree = "<group>"; };
+		2643EB9E2500B04100FBBE49 /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		2643EB9F2500B04100FBBE49 /* UITableView+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+App.swift"; sourceTree = "<group>"; };
 		2643EBC22500B05300FBBE49 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		2643EBC72500D4C000FBBE49 /* MeContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeContactViewController.swift; sourceTree = "<group>"; };
@@ -915,7 +915,7 @@
 				2643EB8B2500B04100FBBE49 /* Framework */,
 				2643EB9C2500B04100FBBE49 /* CollectionViewGridLayout.swift */,
 				2643EB9D2500B04100FBBE49 /* Application.swift */,
-				2643EB9E2500B04100FBBE49 /* Bundle+App.swift */,
+				2643EB9E2500B04100FBBE49 /* App.swift */,
 				2643EB9F2500B04100FBBE49 /* UITableView+App.swift */,
 				26CBE3C02508EB040089A23C /* Appearance.swift */,
 				26F25C922509C36B00F808EA /* TabBarButton.swift */,
@@ -1719,7 +1719,7 @@
 				26F4550625665F600028ACC5 /* EarningDetailCell.swift in Sources */,
 				264DEA142552512C00AD97DE /* GiftManager.m in Sources */,
 				26425C16251DDF64006D2F4C /* UserBasicInformationViewController.swift in Sources */,
-				2643EBC02500B04100FBBE49 /* Bundle+App.swift in Sources */,
+				2643EBC02500B04100FBBE49 /* App.swift in Sources */,
 				26A20AEF25189E740061BBB8 /* LoginManager.swift in Sources */,
 				26FC88F5253ED49000E4D82F /* SearchAPI.swift in Sources */,
 				2639536F2541A38B00B5E3C0 /* FiledViewCell.swift in Sources */,

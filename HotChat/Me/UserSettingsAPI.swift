@@ -15,6 +15,7 @@ enum UserSettingsAPI {
     case editSettings(type: Int,value: Int)
     case location(CLLocation)
     case bindPhone(phone: String, verifyCode: String, password: String)
+    case appStart
 }
 
 
@@ -34,6 +35,8 @@ extension UserSettingsAPI: TargetType {
             return "UserSettings/baiduMap"
         case .bindPhone:
             return "UserSettings/bindPhone"
+        case .appStart:
+            return "UserSettings/appStart"
         }
     }
     
@@ -68,6 +71,8 @@ extension UserSettingsAPI: TargetType {
                 "verifyCode" : verifyCode,
                 "password" : password
             ]
+        case .appStart:
+            parameters = [:]
         }
         
         let encoding: ParameterEncoding = (self.method == .post) ? JSONEncoding.default : URLEncoding.default

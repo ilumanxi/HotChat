@@ -76,9 +76,15 @@ extension AccountPlugin: PluginType {
         
         request.setValue(phoneModel, forHTTPHeaderField: "phoneModel")
         
-        request.setValue(Constant.pushChannelId, forHTTPHeaderField: "channelId")
+        request.setValue(Constant.pushChannelId, forHTTPHeaderField: "pushId")
         
         request.setValue("2", forHTTPHeaderField: "deviceType")
+        
+        request.setValue("0", forHTTPHeaderField: "channelType")
+        
+        request.setValue("0", forHTTPHeaderField: "channelId")
+        
+        request.setValue(UIDevice.current.identifier, forHTTPHeaderField: "deviceId")
         
         if let token = LoginManager.shared.user?.token {
             request.setValue(token, forHTTPHeaderField: tokenKey)

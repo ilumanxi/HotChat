@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    let userSettingsAPI = Request<UserSettingsAPI>()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -36,6 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PlatformAuthorization.application(application, didFinishLaunchingWithOptions: launchOptions)
         setupFaceSDK()
        
+        appStart()
         
         // see notes below for the meaning of Atomic / Non-Atomic
             SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
@@ -56,6 +58,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         
         return true
+    }
+    
+    func appStart() {
+        userSettingsAPI.request(.appStart, type: ResponseEmpty.self)
+            .subscribe(onSuccess: nil, onError: nil)
+            .disposed(by: rx.disposeBag)
     }
     
     func setupWindowRootController() {

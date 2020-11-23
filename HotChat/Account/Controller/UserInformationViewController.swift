@@ -55,10 +55,10 @@ class UserInformationViewController: UITableViewController, IndicatorDisplay, St
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
+        hbd_backInteractive = false
         updateBirthdayDisplay()
     }
-    
-    
+       
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
