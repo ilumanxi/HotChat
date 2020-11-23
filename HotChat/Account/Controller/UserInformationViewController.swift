@@ -9,8 +9,6 @@
 import UIKit
 import SwiftDate
 import ZLPhotoBrowser
-import Toast_Swift
-import MBProgressHUD
 import Kingfisher
 
 class UserInformationViewController: UITableViewController, IndicatorDisplay, StoryboardCreate {
@@ -110,30 +108,27 @@ class UserInformationViewController: UITableViewController, IndicatorDisplay, St
         contoler.selectImageBlock = { [unowned self] (images, assets, isOriginal) in
 
             let image = images.first!
-            
-            let url = writeImage(image)
-            
-            let hub = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
-            
-            self.uploadAPI.request(.upload(url), type: Response<[RemoteFile]>.self)
-                .subscribe(onSuccess: { response in
-                    hub.hide(animated: true)
-                    if response.isSuccessd {
-                        self.avatarURL = response.data!.first!.picUrl
-                        self.avatarImageView.image = image
-                    }
-                    else {
-                        self.show(response.msg)
-                    }
-                }, onError: { error in
-                    hub.hide(animated: false)
-                    self.show(error.localizedDescription)
-                })
-                .disposed(by: self.rx.disposeBag)
+            self.uploadImage(image)
         }
         contoler.showPhotoLibrary(sender: self)
     }
     
+    
+    func uploadImage(_ image: UIImage) {
+        let url = writeImage(image)
+        showIndicatorOnWindow("上传中")
+        self.uploadAPI.request(.upload(url), type: Response<[RemoteFile]>.self)
+            .verifyResponse()
+            .subscribe(onSuccess: {[weak self] response in
+                self?.avatarURL = response.data!.first!.picUrl
+                self?.avatarImageView.image = image
+                self?.hideIndicatorFromWindow()
+            }, onError: { [weak self] error in
+                self?.hideIndicatorFromWindow()
+                self?.showMessageOnWindow(error.localizedDescription)
+            })
+            .disposed(by: self.rx.disposeBag)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -181,19 +176,15 @@ class UserInformationViewController: UITableViewController, IndicatorDisplay, St
         
         let birthday =  Int(date!.timeIntervalSince1970)
         
-        let hub = MBProgressHUD.showAdded(to: view.window!, animated: true)
+        showIndicatorOnWindow()
         API.request(.editUser(headPic: avatarURL!, sex: sex.rawValue, nick: nicknameTextField.text!, birthday: birthday), type: Response<User>.self)
+            .verifyResponse()
             .subscribe(onSuccess: {[weak self] response in
-                if response.isSuccessd {
-                    self?.performSegue(withIdentifier: "UserInfoLikeObjectViewController", sender: nil)
-                }
-                else {
-                    self?.show(response.msg)
-                }
-                hub.hide(animated: true)
+                self?.performSegue(withIdentifier: "UserInfoLikeObjectViewController", sender: nil)
+                self?.hideIndicatorFromWindow()
             }, onError: { [weak self] error in
-                self?.view.makeToast(error.localizedDescription)
-                hub.hide(animated: true)
+                self?.hideIndicatorFromWindow()
+                self?.showMessageOnWindow(error.localizedDescription)
             })
             .disposed(by: rx.disposeBag)
     }
