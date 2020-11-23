@@ -165,67 +165,11 @@ extension ChatViewController: ChatControllerDelegate {
     
     func chatController(_ chatController: ChatController!, onSelect cell: TUIInputMoreCell!) {
         if cell.data.title == video.title {
-            
-            let status = AVCaptureDevice.authorizationStatus(for: .video)
-            switch status {
-            case .notDetermined: break
-            case .restricted:
-                showVideo()
-            case .denied:
-                AVCaptureDevice.requestAccess(for: .video) { granted in
-                    if granted {
-                        self.call(callType: .video)
-                    }
-                    else {
-                        self.showVideo()
-                    }
-                }
-            case .authorized:
-                call(callType: .video)
-            @unknown default:
-                showVideo()
-            }
+            CallHelper.share.call(userID: conversationData.userID, callType: .video)
         }
         else if cell.data.title == audio.title {
-            let status = AVCaptureDevice.authorizationStatus(for: .audio)
-            switch status {
-            case .notDetermined: break
-            case .restricted:
-                showAudio()
-            case .denied:
-                AVCaptureDevice.requestAccess(for: .audio) { granted in
-                    if granted {
-                        self.call(callType: .audio)
-                    }
-                    else {
-                        self.showAudio()
-                    }
-                }
-            case .authorized:
-                call(callType: .audio)
-            @unknown default:
-                showAudio()
-            }
+            CallHelper.share.call(userID: conversationData.userID, callType: .audio)
         }
-    }
-    
-    func showAudio()  {
-        Thread.safeAsync {
-            let alert = UIAlertController(title: nil, message: "请在iPhone“设置-隐私-麦克风”选项中，允许贪聊访问你的手机麦克风。", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "好", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
-        
-
-    }
-    
-    func showVideo()  {
-        Thread.safeAsync {
-            let alert = UIAlertController(title: nil, message: "请在iPhone“设置-隐私-相机”选项中，允许贪聊访问你的相机。", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "好", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
-
     }
     
     func chatController(_ controller: ChatController!, onSelectMessageAvatar cell: TUIMessageCell!) {
@@ -236,39 +180,5 @@ extension ChatViewController: ChatControllerDelegate {
         
 
     }
-    
-    
-    func call(callType: CallType) {
-        
-        let type  = (callType == .video) ? 1 : 2
-        let userID = conversationData.userID
-        
-        imAPI.request(.checkUserCall(type: type, toUserId: userID), type: Response<CallStatus>.self)
-            .verifyResponse()
-            .subscribe(onSuccess: { [weak self] response in
-                guard let self = self else {return }
-                if response.data!.isSuccessd  && response.data!.callCode == 1{
-                    CallManager.shareInstance()?.call(self.conversationData.groupID, userID: self.conversationData.userID, callType: callType)
-                }
-                else if response.data!.callCode == 4 {
-                    let alert = UIAlertController(title: nil, message: "您的能量不足、请充值！", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "立即充值", style: .default, handler: { _ in
-                        let vc = WalletViewController()
-                        self.navigationController?.pushViewController(vc, animated: true)
-                    }))
-                    alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
-                }
-                else {
-                    self.show(response.data?.msg)
-                }
-            }, onError: { [weak self] error in
-                self?.show(error.localizedDescription)
-            })
-            .disposed(by: rx.disposeBag)
-    }
-    
-    
-    
     
 }

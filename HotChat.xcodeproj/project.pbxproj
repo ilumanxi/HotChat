@@ -239,6 +239,7 @@
 		26E14E5E251C6E8800645F08 /* HotChatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E14E5D251C6E8800645F08 /* HotChatButton.swift */; };
 		26E14E63251C766900645F08 /* UserInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E14E62251C766900645F08 /* UserInformationViewController.swift */; };
 		26E14E68251C861A00645F08 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E14E67251C861A00645F08 /* DatePickerViewController.swift */; };
+		26E16620256B5DA200CF66BD /* CallHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E1661F256B5DA200CF66BD /* CallHelper.swift */; };
 		26E291982553EABB0032AE99 /* GiftEarningsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E291962553EABB0032AE99 /* GiftEarningsCell.swift */; };
 		26E291992553EABB0032AE99 /* GiftEarningsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26E291972553EABB0032AE99 /* GiftEarningsCell.xib */; };
 		26E291A42553FD5A0032AE99 /* GiveGift.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E291A32553FD5A0032AE99 /* GiveGift.m */; };
@@ -613,6 +614,7 @@
 		26E14E5D251C6E8800645F08 /* HotChatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotChatButton.swift; sourceTree = "<group>"; };
 		26E14E62251C766900645F08 /* UserInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformationViewController.swift; sourceTree = "<group>"; };
 		26E14E67251C861A00645F08 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		26E1661F256B5DA200CF66BD /* CallHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallHelper.swift; sourceTree = "<group>"; };
 		26E291962553EABB0032AE99 /* GiftEarningsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftEarningsCell.swift; sourceTree = "<group>"; };
 		26E291972553EABB0032AE99 /* GiftEarningsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiftEarningsCell.xib; sourceTree = "<group>"; };
 		26E291A22553FD5A0032AE99 /* GiveGift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiveGift.h; sourceTree = "<group>"; };
@@ -1455,6 +1457,7 @@
 			children = (
 				2684598D25359A8A002B9C6E /* MesssageAPI.swift */,
 				2684599225359B91002B9C6E /* Messsage.swift */,
+				26E1661F256B5DA200CF66BD /* CallHelper.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1792,6 +1795,7 @@
 				269DED3E254BDD9D000AD5D9 /* LiveGiftListModel.m in Sources */,
 				26373C77250234D00066FF3B /* FormSection.swift in Sources */,
 				26373C732502340D0066FF3B /* FormEntry.swift in Sources */,
+				26E16620256B5DA200CF66BD /* CallHelper.swift in Sources */,
 				269DED3D254BDD9D000AD5D9 /* LiveGiftShowModel.m in Sources */,
 				F305482B2532BC0800844D00 /* DynamicViewCell.swift in Sources */,
 				2694580B253FF7B100EBCABB /* UserSettingViewController.swift in Sources */,

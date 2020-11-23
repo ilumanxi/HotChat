@@ -57,7 +57,7 @@ class UserInfoChatView: UIView {
         
         let (user, _) = data
         
-        CallManager.shareInstance()?.call(nil, userID: user.userId, callType: .video)
+        CallHelper.share.call(userID: user.userId, callType: .video)
     }
     
     @IBAction func audioButtonTapped(_ sender: Any) {
@@ -66,7 +66,7 @@ class UserInfoChatView: UIView {
         
         let (user, _) = data
         
-        CallManager.shareInstance()?.call(nil, userID: user.userId, callType: .audio)
+        CallHelper.share.call(userID: user.userId, callType: .audio)
     }
     
     
