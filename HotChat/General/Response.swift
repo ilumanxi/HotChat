@@ -28,8 +28,8 @@ struct ResponseStateType: HandyJSON, State {
     var isSuccessd: Bool {
         
         let codes = [faceCode, resulutCode]
-        let flag = codes.first {  $0 == 1  } ?? 0
-        return flag == 1
+        
+        return codes.contains {  $0 == 1 || $0 == 1000 }
     }
     
     var error: Error? {
