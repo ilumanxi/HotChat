@@ -40,7 +40,7 @@
                             <color key="backgroundColor" red="1" green="0.37647058823529411" blue="0.56470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                             <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="3500能量/分钟" image="me-chat-video"/>
+                            <state key="normal" title="2500能量/分钟" image="me-chat-video"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                     <real key="value" value="24"/>

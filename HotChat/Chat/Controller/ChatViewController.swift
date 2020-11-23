@@ -104,7 +104,7 @@ class ChatViewController: ChatController, IndicatorDisplay {
         let audio = SPAlertAction(title: nil, style: .default) { _ in
             CallHelper.share.call(userID: self.conversationData.userID, callType: .audio)
         }
-        audio.attributedTitle = attributedText(text: "语音聊", detailText: "(2500能量/分钟)")
+        audio.attributedTitle = attributedText(text: "语音聊", detailText: "(1000能量/分钟)")
         alertController.addAction(audio)
         
         alertController.addAction(SPAlertAction(title: "取消", style: .cancel, handler: nil))
