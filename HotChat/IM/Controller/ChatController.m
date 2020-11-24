@@ -140,8 +140,8 @@
     userModel.userId = user.userId;
     
     LiveGiftShowModel *liveGift = [LiveGiftShowModel giftModel:giftModel userModel:userModel];
-    
-    [self.customGiftShow addLiveGiftShowModel:liveGift];
+    liveGift.toNumber = gift.count;
+    [self.customGiftShow animatedWithGiftModel:liveGift];
 }
 
 

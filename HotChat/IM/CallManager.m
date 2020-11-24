@@ -181,9 +181,6 @@ typedef NS_ENUM(NSInteger,VideoUserRemoveReason){
             CallUserModel *oldModel = [videoVC getUserById:model.userId];
             model.isVideoAvaliable = oldModel.isVideoAvaliable;
             [videoVC enterUser:model];
-            if (videoVC.manager.isCharge) {
-                [videoVC.manager startCallChat];
-            }
         }
         if ([self.callVC isKindOfClass:[AudioCallViewController class]]) {
             AudioCallViewController *audioVC = (AudioCallViewController *) self.callVC;
@@ -191,9 +188,7 @@ typedef NS_ENUM(NSInteger,VideoUserRemoveReason){
             CallUserModel *oldModel = [audioVC getUserById:model.userId];
             model.isVideoAvaliable = oldModel.isVideoAvaliable;
             [audioVC enterUser:model];
-            if (audioVC.manager.isCharge) {
-                [audioVC.manager startCallChat];
-            }
+
         }
     }];
 }
@@ -311,16 +306,10 @@ typedef NS_ENUM(NSInteger,VideoUserRemoveReason){
 - (void)removeUserFromCallVC:(NSString *)uid reason:(VideoUserRemoveReason)reason {
     if ([self.callVC isKindOfClass:[VideoCallViewController class]]) {
         VideoCallViewController *videoVC = (VideoCallViewController *)self.callVC;
-        if (videoVC.manager.isCharge) {
-            [videoVC.manager endCallChat];
-        }
         [videoVC leaveUser:uid];
     }
     if ([self.callVC isKindOfClass:[AudioCallViewController class]]) {
         AudioCallViewController *audioVC = (AudioCallViewController *)self.callVC;
-        if (audioVC.manager.isCharge) {
-            [audioVC.manager endCallChat];
-        }
         [audioVC leaveUser:uid];
     }
 }

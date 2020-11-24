@@ -139,6 +139,10 @@
     if (self.dismissBlock) {
         self.dismissBlock();
     }
+    
+    if (self.manager.isCharge) {
+        [self.manager endCallChat];
+    }
     [PIPWindow dismissViewControllerAnimated:YES completion:nil];
     
     [self stopAlerm];
@@ -163,6 +167,10 @@
     }
     self.curState = VideoCallState_Calling;
     [self updateUser:user animate:YES];
+    
+    if (self.manager.isCharge) {
+        [self.manager startCallChat];
+    }
 }
 
 - (void)leaveUser:(NSString *)userId {

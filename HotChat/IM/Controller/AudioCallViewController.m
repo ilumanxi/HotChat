@@ -109,6 +109,10 @@
         self.dismissBlock();
     }
     
+    if (self.manager.isCharge) {
+        [self.manager endCallChat];
+    }
+    
     [PIPWindow dismissViewControllerAnimated:YES completion:nil];
     
     [self stopAlerm];
@@ -137,6 +141,10 @@
     [self updateUser:user animate:YES];
     if (![user.userId isEqualToString:[TUICallUtils loginUser]]) {
         [self stopAlerm];
+    }
+    
+    if (self.manager.isCharge) {
+        [self.manager startCallChat];
     }
 }
 

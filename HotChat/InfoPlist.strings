@@ -7,7 +7,3 @@
 */
 
 CFBundleDisplayName = "贪聊";
-
-NSLocationWhenInUseUsageDescription = "附近需要位置信息";
-
-NSLocationAlwaysAndWhenInUseUsageDescription = "附近需要位置信息";

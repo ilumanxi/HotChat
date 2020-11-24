@@ -46,17 +46,17 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string></string>
+	<string>如果不允许,你将无法再贪聊中拍摄照片和视频,也无法使用视频通话等功能</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>附近需要地址位置信息</string>
+	<string>若不允许,你将无法使用位置发送、附近的人等功能.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>附近需要地址位置信息</string>
+	<string>若不允许,你将无法使用位置发送、附近的人等功能.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string></string>
+	<string>如果不允许,你将无法在贪聊中发送语音消息,或进行音频通话.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string></string>
+	<string>如果不允许,你将无法在贪聊中发送语音消息,或进行音频通话.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string></string>
+	<string>如果不允许,你将无法再贪聊中拍摄照片和视频,也无法使用视频通话等功能</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>

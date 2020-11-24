@@ -262,14 +262,14 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Only available products can be bought.
         if section.type == .product, let content = section.elements as? [(Product, SKProduct)] {
             let product = content[indexPath.row]
-            showIndicator()
+            showIndicatorOnWindow()
             createOrder(product)
                 .flatMap(payOrder)
                 .subscribe(onSuccess: { [weak self] response in
                     self?.requestUserInfo()
-                    self?.hideIndicator()
+                    self?.hideIndicatorFromWindow()
                 }, onError: { [weak self] error in
-                    self?.hideIndicator()
+                    self?.hideIndicatorFromWindow()
                     self?.show(error.localizedDescription)
                     
                 })
