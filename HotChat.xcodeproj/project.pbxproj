@@ -16,6 +16,15 @@
 		2619D18725625AAB0071CC85 /* GiftCountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2619D18625625AAB0071CC85 /* GiftCountViewController.m */; };
 		2619D192256260A90071CC85 /* GiftCountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2619D190256260A90071CC85 /* GiftCountCell.m */; };
 		2619D193256260A90071CC85 /* GiftCountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2619D191256260A90071CC85 /* GiftCountCell.xib */; };
+		26278B85256CFD64007044E1 /* JPGiftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26278B78256CFD64007044E1 /* JPGiftModel.m */; };
+		26278B86256CFD64007044E1 /* JPGiftCountLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26278B79256CFD64007044E1 /* JPGiftCountLabel.m */; };
+		26278B87256CFD64007044E1 /* JPGiftView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26278B7A256CFD64007044E1 /* JPGiftView.m */; };
+		26278B88256CFD64007044E1 /* JPHorizontalLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 26278B7C256CFD64007044E1 /* JPHorizontalLayout.m */; };
+		26278B89256CFD64007044E1 /* JPGiftShowManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26278B7D256CFD64007044E1 /* JPGiftShowManager.m */; };
+		26278B8A256CFD64007044E1 /* JPGiftShowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26278B7E256CFD64007044E1 /* JPGiftShowView.m */; };
+		26278B8B256CFD64007044E1 /* JPGiftCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26278B81256CFD64007044E1 /* JPGiftCollectionViewCell.m */; };
+		26278B8C256CFD64007044E1 /* JPGiftCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26278B82256CFD64007044E1 /* JPGiftCellModel.m */; };
+		26278B8D256CFD64007044E1 /* JPGiftOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 26278B83256CFD64007044E1 /* JPGiftOperation.m */; };
 		262C5F6D255550BE00126359 /* AccountSecurityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C5F6B255550BE00126359 /* AccountSecurityController.swift */; };
 		262C5F6E255550BE00126359 /* AccountSecurityController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 262C5F6C255550BE00126359 /* AccountSecurityController.xib */; };
 		2636A0BF2563D04A00664FFC /* GiftAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2636A0BE2563D04A00664FFC /* GiftAPI.swift */; };
@@ -154,12 +163,6 @@
 		269DED0B254A9DD5000AD5D9 /* CallMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 269DED0A254A9DD5000AD5D9 /* CallMenuViewController.xib */; };
 		269DED1B254AAC4D000AD5D9 /* GiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 269DED19254AAC4D000AD5D9 /* GiftViewController.m */; };
 		269DED1C254AAC4D000AD5D9 /* GiftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 269DED1A254AAC4D000AD5D9 /* GiftViewController.xib */; };
-		269DED39254BDD9D000AD5D9 /* LiveGiftShowCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = 269DED2C254BDD9D000AD5D9 /* LiveGiftShowCustom.m */; };
-		269DED3A254BDD9D000AD5D9 /* LiveGiftShowNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 269DED2D254BDD9D000AD5D9 /* LiveGiftShowNumberView.m */; };
-		269DED3B254BDD9D000AD5D9 /* LiveUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 269DED2F254BDD9D000AD5D9 /* LiveUserModel.m */; };
-		269DED3C254BDD9D000AD5D9 /* LiveGiftShowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 269DED30254BDD9D000AD5D9 /* LiveGiftShowView.m */; };
-		269DED3D254BDD9D000AD5D9 /* LiveGiftShowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 269DED31254BDD9D000AD5D9 /* LiveGiftShowModel.m */; };
-		269DED3E254BDD9D000AD5D9 /* LiveGiftListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 269DED35254BDD9D000AD5D9 /* LiveGiftListModel.m */; };
 		269DEE08254BF735000AD5D9 /* QMUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 269DEE06254BF735000AD5D9 /* QMUIButton.m */; };
 		26A20AEF25189E740061BBB8 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A20AEE25189E740061BBB8 /* LoginManager.swift */; };
 		26A20AF425189F730061BBB8 /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A20AF325189F730061BBB8 /* AccessToken.swift */; };
@@ -336,6 +339,24 @@
 		2619D18F256260A90071CC85 /* GiftCountCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftCountCell.h; sourceTree = "<group>"; };
 		2619D190256260A90071CC85 /* GiftCountCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftCountCell.m; sourceTree = "<group>"; };
 		2619D191256260A90071CC85 /* GiftCountCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiftCountCell.xib; sourceTree = "<group>"; };
+		26278B73256CFD64007044E1 /* JPHorizontalLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPHorizontalLayout.h; sourceTree = "<group>"; };
+		26278B74256CFD64007044E1 /* JPGiftShowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPGiftShowView.h; sourceTree = "<group>"; };
+		26278B75256CFD64007044E1 /* JPGiftShowManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPGiftShowManager.h; sourceTree = "<group>"; };
+		26278B76256CFD64007044E1 /* JPGiftCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPGiftCellModel.h; sourceTree = "<group>"; };
+		26278B77256CFD64007044E1 /* JPGiftCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPGiftCollectionViewCell.h; sourceTree = "<group>"; };
+		26278B78256CFD64007044E1 /* JPGiftModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPGiftModel.m; sourceTree = "<group>"; };
+		26278B79256CFD64007044E1 /* JPGiftCountLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPGiftCountLabel.m; sourceTree = "<group>"; };
+		26278B7A256CFD64007044E1 /* JPGiftView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPGiftView.m; sourceTree = "<group>"; };
+		26278B7B256CFD64007044E1 /* JPGiftOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPGiftOperation.h; sourceTree = "<group>"; };
+		26278B7C256CFD64007044E1 /* JPHorizontalLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPHorizontalLayout.m; sourceTree = "<group>"; };
+		26278B7D256CFD64007044E1 /* JPGiftShowManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPGiftShowManager.m; sourceTree = "<group>"; };
+		26278B7E256CFD64007044E1 /* JPGiftShowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPGiftShowView.m; sourceTree = "<group>"; };
+		26278B7F256CFD64007044E1 /* JPGiftCountLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPGiftCountLabel.h; sourceTree = "<group>"; };
+		26278B80256CFD64007044E1 /* JPGiftModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPGiftModel.h; sourceTree = "<group>"; };
+		26278B81256CFD64007044E1 /* JPGiftCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPGiftCollectionViewCell.m; sourceTree = "<group>"; };
+		26278B82256CFD64007044E1 /* JPGiftCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPGiftCellModel.m; sourceTree = "<group>"; };
+		26278B83256CFD64007044E1 /* JPGiftOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPGiftOperation.m; sourceTree = "<group>"; };
+		26278B84256CFD64007044E1 /* JPGiftView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPGiftView.h; sourceTree = "<group>"; };
 		262C5F6B255550BE00126359 /* AccountSecurityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSecurityController.swift; sourceTree = "<group>"; };
 		262C5F6C255550BE00126359 /* AccountSecurityController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountSecurityController.xib; sourceTree = "<group>"; };
 		2633EC5125315706009F0F27 /* carthage.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = carthage.sh; sourceTree = SOURCE_ROOT; };
@@ -490,18 +511,6 @@
 		269DED18254AAC4D000AD5D9 /* GiftViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftViewController.h; sourceTree = "<group>"; };
 		269DED19254AAC4D000AD5D9 /* GiftViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftViewController.m; sourceTree = "<group>"; };
 		269DED1A254AAC4D000AD5D9 /* GiftViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiftViewController.xib; sourceTree = "<group>"; };
-		269DED2C254BDD9D000AD5D9 /* LiveGiftShowCustom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveGiftShowCustom.m; sourceTree = "<group>"; };
-		269DED2D254BDD9D000AD5D9 /* LiveGiftShowNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveGiftShowNumberView.m; sourceTree = "<group>"; };
-		269DED2E254BDD9D000AD5D9 /* LiveGiftListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveGiftListModel.h; sourceTree = "<group>"; };
-		269DED2F254BDD9D000AD5D9 /* LiveUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveUserModel.m; sourceTree = "<group>"; };
-		269DED30254BDD9D000AD5D9 /* LiveGiftShowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveGiftShowView.m; sourceTree = "<group>"; };
-		269DED31254BDD9D000AD5D9 /* LiveGiftShowModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveGiftShowModel.m; sourceTree = "<group>"; };
-		269DED32254BDD9D000AD5D9 /* LiveGiftShowNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveGiftShowNumberView.h; sourceTree = "<group>"; };
-		269DED33254BDD9D000AD5D9 /* LiveGiftShowCustom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveGiftShowCustom.h; sourceTree = "<group>"; };
-		269DED34254BDD9D000AD5D9 /* LiveUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveUserModel.h; sourceTree = "<group>"; };
-		269DED35254BDD9D000AD5D9 /* LiveGiftListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveGiftListModel.m; sourceTree = "<group>"; };
-		269DED36254BDD9D000AD5D9 /* LiveGiftShowModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveGiftShowModel.h; sourceTree = "<group>"; };
-		269DED38254BDD9D000AD5D9 /* LiveGiftShowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveGiftShowView.h; sourceTree = "<group>"; };
 		269DEE04254BF735000AD5D9 /* QMUICommonDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMUICommonDefines.h; sourceTree = "<group>"; };
 		269DEE05254BF735000AD5D9 /* QMUIConfigurationMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMUIConfigurationMacros.h; sourceTree = "<group>"; };
 		269DEE06254BF735000AD5D9 /* QMUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMUIButton.m; sourceTree = "<group>"; };
@@ -707,6 +716,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		26278B72256CFD64007044E1 /* JPGiftManager */ = {
+			isa = PBXGroup;
+			children = (
+				26278B80256CFD64007044E1 /* JPGiftModel.h */,
+				26278B78256CFD64007044E1 /* JPGiftModel.m */,
+				26278B7F256CFD64007044E1 /* JPGiftCountLabel.h */,
+				26278B79256CFD64007044E1 /* JPGiftCountLabel.m */,
+				26278B84256CFD64007044E1 /* JPGiftView.h */,
+				26278B7A256CFD64007044E1 /* JPGiftView.m */,
+				26278B7B256CFD64007044E1 /* JPGiftOperation.h */,
+				26278B83256CFD64007044E1 /* JPGiftOperation.m */,
+				26278B73256CFD64007044E1 /* JPHorizontalLayout.h */,
+				26278B7C256CFD64007044E1 /* JPHorizontalLayout.m */,
+				26278B75256CFD64007044E1 /* JPGiftShowManager.h */,
+				26278B7D256CFD64007044E1 /* JPGiftShowManager.m */,
+				26278B74256CFD64007044E1 /* JPGiftShowView.h */,
+				26278B7E256CFD64007044E1 /* JPGiftShowView.m */,
+				26278B77256CFD64007044E1 /* JPGiftCollectionViewCell.h */,
+				26278B81256CFD64007044E1 /* JPGiftCollectionViewCell.m */,
+				26278B76256CFD64007044E1 /* JPGiftCellModel.h */,
+				26278B82256CFD64007044E1 /* JPGiftCellModel.m */,
+			);
+			path = JPGiftManager;
+			sourceTree = "<group>";
+		};
 		26373C71250233F50066FF3B /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1099,25 +1133,6 @@
 			path = Account;
 			sourceTree = "<group>";
 		};
-		269DED2B254BDD9D000AD5D9 /* LiveGiftShowView */ = {
-			isa = PBXGroup;
-			children = (
-				269DED32254BDD9D000AD5D9 /* LiveGiftShowNumberView.h */,
-				269DED2D254BDD9D000AD5D9 /* LiveGiftShowNumberView.m */,
-				269DED2E254BDD9D000AD5D9 /* LiveGiftListModel.h */,
-				269DED35254BDD9D000AD5D9 /* LiveGiftListModel.m */,
-				269DED34254BDD9D000AD5D9 /* LiveUserModel.h */,
-				269DED2F254BDD9D000AD5D9 /* LiveUserModel.m */,
-				269DED38254BDD9D000AD5D9 /* LiveGiftShowView.h */,
-				269DED30254BDD9D000AD5D9 /* LiveGiftShowView.m */,
-				269DED33254BDD9D000AD5D9 /* LiveGiftShowCustom.h */,
-				269DED2C254BDD9D000AD5D9 /* LiveGiftShowCustom.m */,
-				269DED36254BDD9D000AD5D9 /* LiveGiftShowModel.h */,
-				269DED31254BDD9D000AD5D9 /* LiveGiftShowModel.m */,
-			);
-			path = LiveGiftShowView;
-			sourceTree = "<group>";
-		};
 		269DEE03254BF735000AD5D9 /* QMUIButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -1338,8 +1353,8 @@
 		26EF524625398DC700E73774 /* IM */ = {
 			isa = PBXGroup;
 			children = (
+				26278B72256CFD64007044E1 /* JPGiftManager */,
 				269DEE03254BF735000AD5D9 /* QMUIButton */,
-				269DED2B254BDD9D000AD5D9 /* LiveGiftShowView */,
 				26F3D674254833F2007D9136 /* Model */,
 				26F3D673254833C8007D9136 /* Controller */,
 				26F3D672254833C1007D9136 /* View */,
@@ -1714,6 +1729,7 @@
 				265C8A4A251348E200E220BD /* ForgotPasswordViewController.swift in Sources */,
 				2656F317254FDB5000552611 /* IMAPI.swift in Sources */,
 				26CB6D4A25515D6B00A9F4DD /* BDFaceVideoCaptureDevice.m in Sources */,
+				26278B8C256CFD64007044E1 /* JPGiftCellModel.m in Sources */,
 				26E291B62554FB810032AE99 /* AvatarAuthenticationResultController.swift in Sources */,
 				2643EBA12500B04100FBBE49 /* MeViewController.swift in Sources */,
 				26F4550625665F600028ACC5 /* EarningDetailCell.swift in Sources */,
@@ -1727,6 +1743,7 @@
 				267954E82507311E00A72954 /* LegalLiabilityViewController.swift in Sources */,
 				2684593925354EDB002B9C6E /* Reload.swift in Sources */,
 				26C3F3302542764F00CDD533 /* AnchorAuthenticationViewController.swift in Sources */,
+				26278B8A256CFD64007044E1 /* JPGiftShowView.m in Sources */,
 				26CB6D4B25515D6B00A9F4DD /* BDFaceLivingConfigModel.m in Sources */,
 				26CA6EE2253825920023E27B /* DiscoverAPI.swift in Sources */,
 				265C8A5B25134C3500E220BD /* ForgotPasswordViewModel.swift in Sources */,
@@ -1792,11 +1809,9 @@
 				2696341F2531942000493C3D /* DynamicAPI.swift in Sources */,
 				2643EBBD2500B04100FBBE49 /* Helpers.swift in Sources */,
 				26E14E68251C861A00645F08 /* DatePickerViewController.swift in Sources */,
-				269DED3E254BDD9D000AD5D9 /* LiveGiftListModel.m in Sources */,
 				26373C77250234D00066FF3B /* FormSection.swift in Sources */,
 				26373C732502340D0066FF3B /* FormEntry.swift in Sources */,
 				26E16620256B5DA200CF66BD /* CallHelper.swift in Sources */,
-				269DED3D254BDD9D000AD5D9 /* LiveGiftShowModel.m in Sources */,
 				F305482B2532BC0800844D00 /* DynamicViewCell.swift in Sources */,
 				2694580B253FF7B100EBCABB /* UserSettingViewController.swift in Sources */,
 				26DF8783255A7969002162A9 /* EarningsDetailViewController.swift in Sources */,
@@ -1855,9 +1870,9 @@
 				2643EBC82500D4C000FBBE49 /* MeContactViewController.swift in Sources */,
 				2643EBB32500B04100FBBE49 /* UserInfoIntroduceCell.swift in Sources */,
 				26CB6D4625515D6B00A9F4DD /* BDFaceImageShow.m in Sources */,
-				269DED3B254BDD9D000AD5D9 /* LiveUserModel.m in Sources */,
 				26F8947125203BDD00A45648 /* TitleViewController.swift in Sources */,
 				26A8D4E9251C8F3E00B736CF /* Constellation.swift in Sources */,
+				26278B85256CFD64007044E1 /* JPGiftModel.m in Sources */,
 				26377FCE2530526800D5A03D /* ChatViewController.swift in Sources */,
 				2636A0BF2563D04A00664FFC /* GiftAPI.swift in Sources */,
 				26DBC373253D89DF0083BDFB /* AudioCallViewController.m in Sources */,
@@ -1872,13 +1887,16 @@
 				26AC1E4C25060D27003EFB44 /* LoginViewController.swift in Sources */,
 				2694581A253FF86000EBCABB /* DestructiveViewCell.swift in Sources */,
 				2643EBA92500B04100FBBE49 /* UserInfoMediaCell.swift in Sources */,
+				26278B88256CFD64007044E1 /* JPHorizontalLayout.m in Sources */,
+				26278B8B256CFD64007044E1 /* JPGiftCollectionViewCell.m in Sources */,
+				26278B87256CFD64007044E1 /* JPGiftView.m in Sources */,
+				26278B8D256CFD64007044E1 /* JPGiftOperation.m in Sources */,
 				2643EBBE2500B04100FBBE49 /* CollectionViewGridLayout.swift in Sources */,
 				2619D192256260A90071CC85 /* GiftCountCell.m in Sources */,
 				26C31F2625403A9E0000D09D /* ReportUserViewController.swift in Sources */,
 				2643EBB22500B04100FBBE49 /* UserInfoLikeObjectCell.swift in Sources */,
 				260B96162521F2F400767076 /* AuthenticationViewController.swift in Sources */,
 				26373C75250234AC0066FF3B /* Delegate.swift in Sources */,
-				269DED39254BDD9D000AD5D9 /* LiveGiftShowCustom.m in Sources */,
 				26C31F2B25404D280000D09D /* ForYouViewController.swift in Sources */,
 				26CA6EE7253829A70023E27B /* ChannelViewController.swift in Sources */,
 				26787E2F251B228200D511E8 /* AccountPlugin.swift in Sources */,
@@ -1895,6 +1913,7 @@
 				2643EBA22500B04100FBBE49 /* UserInfoLikeObjectViewController.swift in Sources */,
 				2639535D254187F100B5E3C0 /* WalletViewCell.swift in Sources */,
 				26E291A42553FD5A0032AE99 /* GiveGift.m in Sources */,
+				26278B86256CFD64007044E1 /* JPGiftCountLabel.m in Sources */,
 				26AC1E4E250613B6003EFB44 /* KeychainItem.swift in Sources */,
 				26B4E05E2564FCBA004EDCFE /* AuthenticationGuideViewController.swift in Sources */,
 				26E291B125541C010032AE99 /* PIPWindow.m in Sources */,
@@ -1904,13 +1923,12 @@
 				26F3D67725483433007D9136 /* GiftCell.m in Sources */,
 				2668B0A92523432A0073E25D /* WalletProductViewCell.swift in Sources */,
 				26CB6D4225515D6B00A9F4DD /* BDFaceBaseViewController.m in Sources */,
-				269DED3A254BDD9D000AD5D9 /* LiveGiftShowNumberView.m in Sources */,
 				267B98722505E1AC0008C81B /* WeChat.swift in Sources */,
 				26377FBE25303D2200D5A03D /* ConversationActionViewController.swift in Sources */,
-				269DED3C254BDD9D000AD5D9 /* LiveGiftShowView.m in Sources */,
 				269DED1B254AAC4D000AD5D9 /* GiftViewController.m in Sources */,
 				26F8893A25318681001A14F2 /* DynamicViewController.swift in Sources */,
 				267B98752505E1AC0008C81B /* PlatformAuthorization.swift in Sources */,
+				26278B89256CFD64007044E1 /* JPGiftShowManager.m in Sources */,
 				26F8947625207A9A00A45648 /* UploadFileAPI.swift in Sources */,
 				2643EBB12500B04100FBBE49 /* UserInfoBasicInformationCell.swift in Sources */,
 				2643EBAB2500B04100FBBE49 /* MeHeaderView.swift in Sources */,

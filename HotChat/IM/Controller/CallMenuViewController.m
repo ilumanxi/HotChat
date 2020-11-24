@@ -23,9 +23,8 @@
 #import "GiftCellData.h"
 #import <MJExtension/MJExtension.h>
 #import "IMData.h"
-#import "LiveGiftShowCustom.h"
-#import "LiveUserModel.h"
-#import "LiveGiftListModel.h"
+#import "JPGiftModel.h"
+#import "JPGiftShowManager.h"
 #import <ImSDK/V2TIMManager.h>
 #import <ImSDK/V2TIMManager+Message.h>
 #import "GiftReminderViewController.h"
@@ -33,7 +32,7 @@
 #import "GiftManager.h"
 
 
-@interface CallMenuViewController ()<GiftViewControllerDelegate, V2TIMAdvancedMsgListener, LiveGiftShowCustomDelegate>
+@interface CallMenuViewController ()<GiftViewControllerDelegate, V2TIMAdvancedMsgListener>
 
 ///  摄像头 📷
 @property(strong, nonatomic) QMUIButton *cameraButton;
@@ -64,10 +63,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *followButton;
 
-@property (weak, nonatomic) IBOutlet UIView *showGiftContainerView;
 
-
-@property (nonatomic ,weak) LiveGiftShowCustom * customGiftShow;
+@property (nonatomic, strong) JPGiftShowManager * giftShowManager;
 
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 
@@ -369,18 +366,13 @@
     [[TUICall shareInstance] switchCamera:self.isFrontCamera];
 }
 
-- (LiveGiftShowCustom *)customGiftShow{
-    if (!_customGiftShow) {
-        _customGiftShow = [LiveGiftShowCustom addToView:self.showGiftContainerView];
-        _customGiftShow.addMode = LiveGiftAddModeAdd;
-        [_customGiftShow setMaxGiftCount:3];
-        [_customGiftShow setShowMode:LiveGiftShowModeFromTopToBottom];
-        [_customGiftShow setAppearModel:LiveGiftAppearModeLeft];
-        [_customGiftShow setHiddenModel:LiveGiftHiddenModeLeft];
-        [_customGiftShow enableInterfaceDebug:YES];
-        _customGiftShow.delegate = self;
+- (JPGiftShowManager *)giftShowManager {
+    
+    if (!_giftShowManager) {
+        _giftShowManager = [[JPGiftShowManager alloc] init];
     }
-    return _customGiftShow;
+    
+    return _giftShowManager;
 }
 
 - (void)onRecvNewMessage:(V2TIMMessage *)msg {
@@ -410,23 +402,21 @@
 
 - (void)user:(UserModel *)user giveGift:(Gift *)gift {
     
-    
-    LiveGiftListModel *giftModel = [[LiveGiftListModel alloc] init];
-    giftModel.type = [NSString stringWithFormat:@"%ld",gift.id];
-    giftModel.picUrl = gift.img;
-    giftModel.name = gift.name;
-    giftModel.rewardMsg = [NSString stringWithFormat:@"%@送出%@",user.name, gift.name];
-    
-    LiveUserModel *userModel =  [[LiveUserModel alloc] init];
-    userModel.iconUrl = user.avatar;
-    userModel.name = user.name;
-    userModel.userId = user.userId;
-    
-    LiveGiftShowModel *liveGift = [LiveGiftShowModel giftModel:giftModel userModel:userModel];
-    liveGift.toNumber = gift.count;
-    [self.customGiftShow animatedWithGiftModel:liveGift];
+    JPGiftModel *giftModel = [[JPGiftModel alloc] init];
+    giftModel.userId = user.userId;
+    giftModel.userIcon = user.avatar;
+    giftModel.userName = user.name;
+    giftModel.giftName = gift.name;
+    giftModel.giftImage = gift.img;
+    giftModel.giftId = gift.id;
+    giftModel.defaultCount = 0;
+    giftModel.sendCount = gift.count;
+    self.giftShowManager.topPadding = self.view.safeAreaInsets.top + 120;
+    [self.giftShowManager showGiftViewWithBackView:self.view info:giftModel completeBlock:^(BOOL finished) {
+        //结束
+        }
+    ];
 }
-
 
 @end
 

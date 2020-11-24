@@ -34,7 +34,8 @@
 #import "GiveGift.h"
 #import <MJExtension/MJExtension.h>
 #import "HotChat-Swift.h"
-#import "LiveGiftShowCustom.h"
+#import "JPGiftModel.h"
+#import "JPGiftShowManager.h"
 
 @interface ChatController () <TMessageControllerDelegate, InputControllerDelegate, UIImagePickerControllerDelegate, UIDocumentPickerDelegate, UINavigationControllerDelegate, V2TIMAdvancedMsgListener>
 @property (nonatomic, strong) TUIConversationCellData *conversationData;
@@ -46,7 +47,8 @@
 @property (nonatomic, strong) NSMutableArray<UserModel *> *atUserList;
 @property (nonatomic, assign) BOOL responseKeyboard;
 
-@property (nonatomic ,weak) LiveGiftShowCustom * customGiftShow;
+@property (nonatomic, strong) JPGiftShowManager * giftShowManager;
+
 @end
 
 @implementation ChatController
@@ -79,19 +81,15 @@
     return self;
 }
 
-- (LiveGiftShowCustom *)customGiftShow{
-    if (!_customGiftShow) {
-        _customGiftShow = [LiveGiftShowCustom addToView:self.view];
-        _customGiftShow.addMode = LiveGiftAddModeAdd;
-        [_customGiftShow setMaxGiftCount:3];
-        [_customGiftShow setShowMode:LiveGiftShowModeFromTopToBottom];
-        [_customGiftShow setAppearModel:LiveGiftAppearModeLeft];
-        [_customGiftShow setHiddenModel:LiveGiftHiddenModeLeft];
-        [_customGiftShow enableInterfaceDebug:YES];
-//        _customGiftShow.delegate = self;
+- (JPGiftShowManager *)giftShowManager {
+    
+    if (!_giftShowManager) {
+        _giftShowManager = [[JPGiftShowManager alloc] init];
     }
-    return _customGiftShow;
+    
+    return _giftShowManager;
 }
+
 
 - (void)onRecvNewMessage:(V2TIMMessage *)msg {
     
@@ -120,28 +118,21 @@
 
 - (void)user:(UserModel *)user giveGift:(Gift *)gift {
     
-    
-    LiveGiftListModel *giftModel = [[LiveGiftListModel alloc] init];
-    giftModel.type = [NSString stringWithFormat:@"%ld",(long)gift.id];
-    giftModel.picUrl = gift.img;
-    giftModel.name = gift.name;
-    
-    NSString *name = user.name;
-    
-    if (name == nil) {
-        name = user.userId;
-    }
-    
-    giftModel.rewardMsg = [NSString stringWithFormat:@"%@送出%@",name, gift.name];
-    
-    LiveUserModel *userModel =  [[LiveUserModel alloc] init];
-    userModel.iconUrl = user.avatar;
-    userModel.name = name;
-    userModel.userId = user.userId;
-    
-    LiveGiftShowModel *liveGift = [LiveGiftShowModel giftModel:giftModel userModel:userModel];
-    liveGift.toNumber = gift.count;
-    [self.customGiftShow animatedWithGiftModel:liveGift];
+    JPGiftModel *giftModel = [[JPGiftModel alloc] init];
+    giftModel.userId = user.userId;
+    giftModel.userIcon = user.avatar;
+    giftModel.userName = user.name;
+    giftModel.giftName = gift.name;
+    giftModel.giftImage = gift.img;
+    giftModel.giftId = gift.id;
+    giftModel.defaultCount = 0;
+    giftModel.sendCount = gift.count;
+    giftModel.giftKey = [NSString stringWithFormat:@"%@%@", user.userId, gift.id];
+    self.giftShowManager.topPadding = self.view.safeAreaInsets.top;
+    [self.giftShowManager showGiftViewWithBackView:self.view info:giftModel completeBlock:^(BOOL finished) {
+        //结束
+        }
+    ];
 }
 
 

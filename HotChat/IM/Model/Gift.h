@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Gift : NSObject
 
-@property(nonatomic, assign) NSInteger id;
+@property(nonatomic, copy) NSString *id;
 
 @property(nonatomic, copy) NSString *name;
 

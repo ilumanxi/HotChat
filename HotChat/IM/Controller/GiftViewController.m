@@ -198,6 +198,13 @@
     
     Gift *giftData = self.gifts[index.intValue];
     giftData.count = self.count;
+
+    [NSObject cancelPreviousPerformRequestsWithTarget:self];
+    [self performSelector:@selector(afterDelayCall:) withObject:giftData afterDelay:0.3];
+    
+}
+
+- (void)afterDelayCall:(Gift *)giftData {
     if ([GiftReminderViewController isReminder]) {
         GiftReminderViewController *vc = [[GiftReminderViewController alloc] init];
         vc.modalPresentationStyle = UIModalPresentationOverFullScreen;

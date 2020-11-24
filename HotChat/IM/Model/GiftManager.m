@@ -74,7 +74,7 @@
 - (void)giveGift:(NSString *)userId type:(NSInteger)type dynamicId:(NSString *)dynamicId gift:(Gift *)gift block:(void (^)(NSDictionary * _Nullable, NSError * _Nullable))block {
     NSMutableDictionary *parameters = @{
         @"toUserId" : userId,
-        @"giftId" : @(gift.id),
+        @"giftId" : gift.id,
         @"energy" : @(gift.energy),
         @"num" : @(gift.count),
         @"type" :  @(type)
