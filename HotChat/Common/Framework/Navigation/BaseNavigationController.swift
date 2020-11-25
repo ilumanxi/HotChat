@@ -46,20 +46,20 @@ class BaseNavigationController: HBDNavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let backButtonBackgroundImage = UIImage(named: "navigation-bar-back")
-        let scale: CGFloat = UIScreen.main.scale
-        let navigationBarBackgroundImage =  UIImage(color: .white, size: CGSize(width: UIScreen.main.bounds.width * scale, height: 44.0 * scale))
-        
-//        let navigationBarAppearance = UINavigationBar.appearance(whenContainedInInstancesOf: [BaseNavigationController.self])
-        let navigationBarAppearance = self.navigationBar
+//        let backButtonBackgroundImage = UIImage(named: "navigation-bar-back")
+//        let scale: CGFloat = UIScreen.main.scale
+//        let navigationBarBackgroundImage =  UIImage(color: .red, size: CGSize(width: UIScreen.main.bounds.width * scale, height: 44.0 * scale))
+//        
+////        let navigationBarAppearance = UINavigationBar.appearance(whenContainedInInstancesOf: [BaseNavigationController.self])
+//        let navigationBarAppearance = self.navigationBar
 //        navigationBarAppearance.isTranslucent = false
-        navigationBarAppearance.shadowImage = UIImage()
-        navigationBarAppearance.backIndicatorImage = backButtonBackgroundImage
-        navigationBarAppearance.backIndicatorTransitionMaskImage = backButtonBackgroundImage
-        navigationBarAppearance.setBackgroundImage(navigationBarBackgroundImage, for: .default)
-        navigationBarAppearance.titleTextAttributes = [
-            .font : UIFont.navigationBarTitle,
-            .foregroundColor : UIColor.titleBlack]
+//        navigationBarAppearance.shadowImage = UIImage()
+//        navigationBarAppearance.backIndicatorImage = backButtonBackgroundImage
+////        navigationBarAppearance.backIndicatorTransitionMaskImage = backButtonBackgroundImage
+//        navigationBarAppearance.setBackgroundImage(navigationBarBackgroundImage, for: .default)
+//        navigationBarAppearance.titleTextAttributes = [
+//            .font : UIFont.navigationBarTitle,
+//            .foregroundColor : UIColor.titleBlack]
         
         
         

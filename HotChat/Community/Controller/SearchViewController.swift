@@ -12,6 +12,41 @@ import RxCocoa
 import Kingfisher
 import MJRefresh
 
+/// // to fix height of the navigation bar
+class SearchBarContainerView: UIView {
+    
+    
+    lazy var searchBar: UISearchBar = {
+        let bar = UISearchBar()
+        bar.searchBarStyle = .minimal
+        bar.showsCancelButton = true
+        bar.placeholder = "请输入昵称/ID"
+        return bar
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupViews()
+    }
+    
+    func setupViews() {
+        addSubview(searchBar)
+        searchBar.snp.makeConstraints { maker in
+            maker.edges.equalToSuperview()
+        }
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        
+        return UIView.layoutFittingExpandedSize
+    }
+    
+}
+
 
 
 class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, IndicatorDisplay {
@@ -25,15 +60,11 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var tableView: UITableView!
     
     
+    var searchBarContainerView = SearchBarContainerView()
+    
     lazy var searchBar: UISearchBar = {
-        
-        let bar = UISearchBar()
-        bar.showsCancelButton = true
-        bar.placeholder = "请输入昵称/ID"
-        bar.delegate = self
-        bar.sizeToFit()
-        
-        return bar
+        searchBarContainerView.searchBar.delegate = self
+        return searchBarContainerView.searchBar
     }()
     
     
@@ -55,8 +86,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.titleView = searchBar
-        
+        navigationItem.titleView = searchBarContainerView
         navigationItem.hidesBackButton = true
         
         tableView.mj_footer = MJRefreshAutoNormalFooter{ [weak self] in

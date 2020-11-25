@@ -62,7 +62,7 @@ class ForYouViewController: UIViewController, StoryboardCreate, LoadingStateType
             titleLabel.text = "你想遇上什么样的女生"
         }
         else {
-            titleLabel.text = "快速与土豪哥哥关注吧"
+            titleLabel.text = "快去关注吧！"
         }
         
         refreshData()

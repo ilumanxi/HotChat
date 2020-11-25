@@ -107,7 +107,7 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     func checkUserInitState() {
         if !LoginManager.shared.user!.isInit {
             let vc = UserInformationViewController.loadFromStoryboard()
-            navigationController?.pushViewController(vc, animated: true)
+            navigationController?.pushViewController(vc, animated: false)
         }
     }
     

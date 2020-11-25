@@ -87,6 +87,10 @@ class WebViewController: UIViewController {
             callback?(LoginManager.shared.user?.token)
         }
         
+        bridge.register(handlerName: "getDeviceIdentifier") { (paramters, callback) in
+            callback?(UIDevice.current.identifier)
+        }
+        
         bridge.register(handlerName: "getToken") { (paramters, callback) in
             callback?(LoginManager.shared.user?.token)
         }
