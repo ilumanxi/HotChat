@@ -127,7 +127,6 @@
     giftModel.giftId = gift.id;
     giftModel.defaultCount = 0;
     giftModel.sendCount = gift.count;
-    giftModel.giftKey = [NSString stringWithFormat:@"%@%@", user.userId, gift.id];
     self.giftShowManager.topPadding = self.view.safeAreaInsets.top;
     [self.giftShowManager showGiftViewWithBackView:self.view info:giftModel completeBlock:^(BOOL finished) {
         //结束

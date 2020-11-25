@@ -8,10 +8,9 @@
 
 import UIKit
 import SPAlertController
-import ZLPhotoBrowser
 import Reusable
 import Photos
-
+import TZImagePickerController
 
 func writeImage(_ image: UIImage) -> URL {
     
@@ -31,19 +30,6 @@ func writeImages(_ images: [UIImage]) -> [URL] {
         urls.append(writeImage(image))
     }
     return urls
-}
-
-
-extension ZLPhotoPreviewSheet {
-    
-    convenience init(selectedAssets: [PHAsset] = [], maxSelectCount: Int, allowSelectVideo: Bool, maxPreviewCount: Int) {
-        let config = ZLPhotoConfiguration.default()
-        config.maxSelectCount = maxSelectCount
-        config.allowSelectVideo = allowSelectVideo
-        config.maxPreviewCount = maxPreviewCount
-        self.init(selectedAssets: selectedAssets)
-    }
-    
 }
 
 
@@ -211,20 +197,42 @@ class ProfilePhoto: FormEntry {
         let alertController = SPAlertController(title: nil, message: "", preferredStyle: .actionSheet)
         alertController.addAction(SPAlertAction(title: "更换", style: .default, handler: { [weak self] _ in
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                let imagePicker  = ZLPhotoPreviewSheet(selectedAssets: [], maxSelectCount: 1, allowSelectVideo: false, maxPreviewCount: 1)
-                imagePicker.selectImageBlock = { [weak self] (images, assets, isOriginal) in
-                    if let image = images.first {
-                        let imageURL = writeImage(image)
-                        self?.onImageUpdated.call(imageURL)
-                    }
-                }
-                imagePicker.showPhotoLibrary(sender: presentingViewController)
+                self?.photoPicker()
             }
         }))
                 
         alertController.addAction(SPAlertAction(title: "取消", style: .cancel, handler: nil))
         
         presentingViewController.present(alertController, animated: true, completion: nil)
+    }
+    
+    
+    func photoPicker() {
+        
+        guard let presentingViewController = onPresenting.call() else {
+            return
+        }
+        
+        let imagePickerController = TZImagePickerController(maxImagesCount: 1, delegate: nil)!
+        imagePickerController.allowPickingVideo = false
+        imagePickerController.allowPickingImage = true
+        imagePickerController.allowCrop = true
+        
+        let size = UIScreen.main.bounds.width
+
+        let v = (UIScreen.main.bounds.height - size) / 2.0
+        
+        imagePickerController.cropRect = CGRect(x: 0, y: v, width: size, height: size)
+        imagePickerController.scaleAspectFillCrop = true
+        imagePickerController.didFinishPickingPhotosHandle = { [weak self] (photos,assets, isSelectOriginalPhoto) in
+            if let image = photos?.first {
+                let imageURL = writeImage(image)
+                self?.onImageUpdated.call(imageURL)
+            }
+        }
+        
+        imagePickerController.modalPresentationStyle = .fullScreen
+        presentingViewController.present(imagePickerController, animated: true, completion: nil)
     }
     
     
@@ -350,13 +358,11 @@ extension PhotoAlbum: UICollectionViewDelegate, UICollectionViewDataSource, UICo
          if indexPath.item == medias.count { // add photo
             
             let count = radio ? 1 : maximumSelectCount - medias.count
-            
-            let imagePicker =  ZLPhotoPreviewSheet(selectedAssets: [], maxSelectCount: count, allowSelectVideo: false, maxPreviewCount: 1)
-            imagePicker.selectImageBlock = { [weak self] images, _, _ in
-                let urls = writeImages(images)
+            self.photoPicker(maxImagesCount: count) { [weak self] (images, _, _) in
+                let urls = writeImages(images!)
                 self?.onImageAdded.call(urls)
             }
-            imagePicker.showPhotoLibrary(sender: presentingViewController)
+            
          }
          else {
             let alertController = SPAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -364,14 +370,12 @@ extension PhotoAlbum: UICollectionViewDelegate, UICollectionViewDataSource, UICo
             if imageChangedShow {
                 alertController.addAction(SPAlertAction(title: "更换", style: .default, handler: { [weak self] _ in
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        let imagePicker =  ZLPhotoPreviewSheet(selectedAssets: [], maxSelectCount: 1, allowSelectVideo: false, maxPreviewCount: 1)
-                        imagePicker.selectImageBlock = { [weak self] images, _, _ in
-                            if let image = images.first {
+                        self?.photoPicker(maxImagesCount: 1, didFinishPickingPhotosHandle: { (images, _, _) in
+                            if let image = images?.first {
                                 let imageURL = writeImage(image)
                                 self?.onImageChanged.call((imageURL, indexPath.item))
                             }
-                        }
-                        imagePicker.showPhotoLibrary(sender: presentingViewController)
+                        })
                     }
                 }))
             }
@@ -386,6 +390,29 @@ extension PhotoAlbum: UICollectionViewDelegate, UICollectionViewDataSource, UICo
             
             presentingViewController.present(alertController, animated: true, completion: nil)
          }
+    }
+    
+    func photoPicker(maxImagesCount: Int, didFinishPickingPhotosHandle:@escaping ([UIImage]?, [Any]?, Bool) -> Void) {
+        
+        guard let presentingViewController = onPresenting.call() else {
+            return
+        }
+        
+        let imagePickerController = TZImagePickerController(maxImagesCount: maxImagesCount, delegate: nil)!
+        imagePickerController.allowPickingVideo = false
+        imagePickerController.allowPickingImage = true
+        imagePickerController.allowCrop = maxImagesCount == 1
+        
+        let size = UIScreen.main.bounds.width
+
+        let v = (UIScreen.main.bounds.height - size) / 2.0
+        
+        imagePickerController.cropRect = CGRect(x: 0, y: v, width: size, height: size)
+        imagePickerController.scaleAspectFillCrop = true
+        imagePickerController.didFinishPickingPhotosHandle = didFinishPickingPhotosHandle
+        
+        imagePickerController.modalPresentationStyle = .fullScreen
+        presentingViewController.present(imagePickerController, animated: true, completion: nil)
     }
     
         

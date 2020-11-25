@@ -10,7 +10,7 @@ import UIKit
 import Kingfisher
 import RxSwift
 import RxCocoa
-import ZLPhotoBrowser
+import TZImagePickerController
 
 class AvatarAuthenticationResultController: UIViewController, IndicatorDisplay {
     
@@ -156,19 +156,24 @@ class AvatarAuthenticationResultController: UIViewController, IndicatorDisplay {
     
     private func imagePicker()  {
         
-        let config = ZLPhotoConfiguration.default()
-        config.maxSelectCount = 1
-        config.allowSelectVideo = false
-        config.maxPreviewCount = 0
+        let imagePickerController = TZImagePickerController(maxImagesCount: 1, delegate: nil)!
+        imagePickerController.allowPickingVideo = false
+        imagePickerController.allowPickingImage = true
+        imagePickerController.allowCrop = true
         
-        let imagePickerController = ZLPhotoPreviewSheet(selectedAssets: [])
-        imagePickerController.selectImageBlock = { [weak self] (images, assets, isOriginal) in
-            if let image = images.first {
+        let size = UIScreen.main.bounds.width
+
+        let v = (UIScreen.main.bounds.height - size) / 2.0
+        
+        imagePickerController.cropRect = CGRect(x: 0, y: v, width: size, height: size)
+        imagePickerController.scaleAspectFillCrop = true
+        imagePickerController.didFinishPickingPhotosHandle = { [weak self] (images, _, _) in
+            if let image = images?.first {
                 self?.uploadImage(image)
             }
         }
-        
-        imagePickerController.showPhotoLibrary(sender: self)
-        
+            
+        imagePickerController.modalPresentationStyle = .fullScreen
+        present(imagePickerController, animated: true, completion: nil)
     }
 }

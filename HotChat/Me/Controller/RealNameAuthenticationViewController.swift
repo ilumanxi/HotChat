@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import ZLPhotoBrowser
-import MBProgressHUD
 import Kingfisher
+import TZImagePickerController
 
 
 
@@ -78,35 +77,28 @@ class RealNameAuthenticationViewController: UITableViewController, IndicatorDisp
     
     func photoPicker(complete: @escaping (UIImage, String) -> Void) {
         
-        let config = ZLPhotoConfiguration.default()
-        config.maxSelectCount = 1
-        config.allowSelectVideo = false
+        let imagePickerController = TZImagePickerController(maxImagesCount: 1, delegate: nil)!
+        imagePickerController.allowPickingVideo = false
+        imagePickerController.allowPickingImage = true
         
-        let contoler = ZLPhotoPreviewSheet(selectedAssets: [])
-        contoler.selectImageBlock = { [unowned self] (images, assets, isOriginal) in
-
-            let image = images.first!
-            
+        imagePickerController.didFinishPickingPhotosHandle = { [unowned self] (images, _, _) in
+            let image = images!.first!
             let url = writeImage(image)
-            
-            let hub = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
-            
+            showIndicatorOnWindow()
             self.uploadAPI.request(.upload(url), type: Response<[RemoteFile]>.self)
-                .subscribe(onSuccess: { response in
-                    hub.hide(animated: true)
-                    if response.isSuccessd {
-                        complete(image, response.data!.first!.picUrl)
-                    }
-                    else {
-                        self.show(response.msg)
-                    }
-                }, onError: { error in
-                    hub.hide(animated: false)
-                    self.show(error.localizedDescription)
+                .verifyResponse()
+                .subscribe(onSuccess: { [weak self] response in
+                    self?.hideIndicatorFromWindow()
+                    complete(image, response.data!.first!.picUrl)
+                }, onError: { [weak self] error in
+                    self?.hideIndicatorFromWindow()
+                    self?.showMessageOnWindow(error.localizedDescription)
                 })
                 .disposed(by: self.rx.disposeBag)
         }
-        contoler.showPhotoLibrary(sender: self)
+            
+        imagePickerController.modalPresentationStyle = .fullScreen
+        present(imagePickerController, animated: true, completion: nil)
     }
     
     

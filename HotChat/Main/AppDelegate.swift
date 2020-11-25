@@ -10,6 +10,7 @@ import UIKit
 import AuthenticationServices
 import SYBPush_normal
 import SwiftyStoreKit
+import Bugly
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,10 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        Bugly.start(withAppId: nil)
         TUIKit.sharedInstance()?.setup(withAppId: IM.appID, logLevel: .LOG_NONE)
         let config = TUIKitConfig.default()!
         config.avatarType = .TAvatarTypeRounded
         CallManager.shareInstance()?.initCall()
+        
         
         
         Appearance.default.configure()

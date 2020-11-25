@@ -8,8 +8,8 @@
 
 import UIKit
 import SwiftDate
-import ZLPhotoBrowser
 import Kingfisher
+import TZImagePickerController
 
 class UserInformationViewController: UITableViewController, IndicatorDisplay, StoryboardCreate {
    
@@ -99,18 +99,24 @@ class UserInformationViewController: UITableViewController, IndicatorDisplay, St
     
     
     func photoPicker() {
+        let imagePickerController = TZImagePickerController(maxImagesCount: 1, delegate: nil)!
+        imagePickerController.allowPickingVideo = false
+        imagePickerController.allowPickingImage = true
+        imagePickerController.allowCrop = true
         
-        let config = ZLPhotoConfiguration.default()
-        config.maxSelectCount = 1
-        config.allowSelectVideo = false
-        
-        let contoler = ZLPhotoPreviewSheet(selectedAssets: [])
-        contoler.selectImageBlock = { [unowned self] (images, assets, isOriginal) in
+        let size = UIScreen.main.bounds.width
 
-            let image = images.first!
-            self.uploadImage(image)
+        let v = (UIScreen.main.bounds.height - size) / 2.0
+        
+        imagePickerController.cropRect = CGRect(x: 0, y: v, width: size, height: size)
+        imagePickerController.scaleAspectFillCrop = true
+        imagePickerController.didFinishPickingPhotosHandle = { [weak self] (photos,assets, isSelectOriginalPhoto) in
+            let image = photos!.first!
+            self?.uploadImage(image)
         }
-        contoler.showPhotoLibrary(sender: self)
+        
+        imagePickerController.modalPresentationStyle = .fullScreen
+        present(imagePickerController, animated: true, completion: nil)
     }
     
     
@@ -142,6 +148,7 @@ class UserInformationViewController: UITableViewController, IndicatorDisplay, St
             vc.title = nil
             vc.navigationItem.title = nil
             vc.navigationItem.hidesBackButton = true
+            vc.hbd_backInteractive = false
             vc.sex = sex
             vc.onUpdated.delegate(on: self) { (self, _) in
                 let vc = ForYouViewController.loadFromStoryboard()

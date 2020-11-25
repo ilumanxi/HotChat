@@ -7,10 +7,10 @@
 //
 
 import UIKit
-import ZLPhotoBrowser
 import Photos
 import RxSwift
 import RxCocoa
+import TZImagePickerController
 
 class FiledFormEntry: NSObject, FormEntry {
     
@@ -77,7 +77,7 @@ class CardFormEntry: NSObject, FormEntry {
     
     @objc func cardButtonTapped() {
         imagePicker { (images, _, _) in
-            if let image = images.first {
+            if let image = images?.first {
                 let url =  writeImage(image)
                 self.onImageChanged.call(url)
             }
@@ -85,22 +85,21 @@ class CardFormEntry: NSObject, FormEntry {
         }
     }
     
-    private func imagePicker(_ selectImageBlock: @escaping ( ([UIImage], [PHAsset], Bool) -> Void )) {
-        
-        let config = ZLPhotoConfiguration.default()
-        config.maxSelectCount = 1
-        config.allowSelectVideo = false
-        config.maxPreviewCount = 0
-                
-        
-        let imagePickerController = ZLPhotoPreviewSheet(selectedAssets: [])
-        imagePickerController.selectImageBlock = selectImageBlock
+    private func imagePicker(_ selectImageBlock: @escaping ( ([UIImage]?, [Any]?, Bool) -> Void )) {
         
         guard let presentingViewController = onPresenting.call() else {
             return
         }
         
-        imagePickerController.showPhotoLibrary(sender: presentingViewController)
+        
+        let imagePickerController = TZImagePickerController(maxImagesCount: 1, delegate: nil)!
+        imagePickerController.allowPickingVideo = false
+        imagePickerController.allowPickingImage = true
+        imagePickerController.scaleAspectFillCrop = true
+        imagePickerController.didFinishPickingPhotosHandle = selectImageBlock
+
+        imagePickerController.modalPresentationStyle = .fullScreen
+        presentingViewController.present(imagePickerController, animated: true, completion: nil)
     }
     
 }
