@@ -90,8 +90,6 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
         collectionView.mj_header?.beginRefreshing()
         hiddenPhoneBindingView()
         observeLPhoneState()
-        checkUserInitState()
-        
         upgradeAPI.request(.updateChannel, type: Response<Upgrade>.self)
             .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in
@@ -101,6 +99,12 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
             .disposed(by: rx.disposeBag)
       
 
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        checkUserInitState()
     }
     
     

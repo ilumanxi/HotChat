@@ -18,6 +18,8 @@ extension Notification.Name {
     
     static let userDidChange = NSNotification.Name("com.friday.Chat.userDidChange")
     
+    static let appApprovedDidChange = NSNotification.Name("com.friday.Chat.appVersionApprovedDidChange")
+    
 }
 
 class LoginManager: NSObject {
@@ -47,6 +49,15 @@ class LoginManager: NSObject {
     }()
 
     var deviceToken: Data?
+    
+    /// 当前版本App Store 审核状态
+    var currentVersionApproved: Bool = false {
+        didSet {
+            if oldValue != currentVersionApproved {
+                NotificationCenter.default.post(name: .appApprovedDidChange, object: nil)
+            }
+        }
+    }
     
     @objc private(set) var user: User?
     
@@ -126,6 +137,7 @@ class LoginManager: NSObject {
     @objc func update(user: User) {
         if user.token.isEmpty {
             user.token = self.user?.token ?? ""
+            user.isInit = self.user?.isInit ?? false
         }
         
         self.user = user

@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Rb-aj-DED">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                     <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="bgd-U5-U0X"/>
@@ -73,13 +73,13 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="3Rb-aj-DED" secondAttribute="bottom" id="7uK-Ov-1Ig"/>
                 <constraint firstItem="vOR-yL-Yaw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="8aA-8w-4wQ"/>
                 <constraint firstAttribute="bottom" secondItem="vOR-yL-Yaw" secondAttribute="bottom" id="K4V-NQ-GtO"/>
                 <constraint firstItem="3Rb-aj-DED" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="NTZ-fj-tOw"/>
                 <constraint firstAttribute="trailing" secondItem="3Rb-aj-DED" secondAttribute="trailing" id="TNO-6k-RMQ"/>
                 <constraint firstItem="3Rb-aj-DED" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="b2z-IZ-9q5"/>
                 <constraint firstAttribute="trailing" secondItem="vOR-yL-Yaw" secondAttribute="trailing" id="b6p-UB-Ew3"/>
+                <constraint firstItem="vOR-yL-Yaw" firstAttribute="top" secondItem="3Rb-aj-DED" secondAttribute="bottom" id="ff6-Yc-lUR"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="105.80357142857143"/>
         </view>

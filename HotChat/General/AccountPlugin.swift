@@ -107,6 +107,16 @@ extension AccountPlugin: PluginType {
         guard case .success(let response)  = result else {
             return
         }
+        //currentVersionApproved
+        
+        
+        if let currentVersionApprovedString = response.response?.allHeaderFields["currentVersionApproved"] as? String,
+           let currentVersionApprovedValue = Int(currentVersionApprovedString)
+        {
+            LoginManager.shared.currentVersionApproved  =  NSNumber(value: currentVersionApprovedValue).boolValue
+        }
+        
+        Log.print()
         
         if let json = try? JSONSerialization.jsonObject(with: response.data, options: .allowFragments) as? [String : Any], let code = json["code"] as? CustomStringConvertible {
             

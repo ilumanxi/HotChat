@@ -158,13 +158,18 @@ class MeViewController: UITableViewController, Autorotate {
       
        var detailEntries: [FormEntry] = []
         
-        if !user.girlStatus {
+        if !user.girlStatus && LoginManager.shared.currentVersionApproved {
             
             detailEntries.append(RightDetailFormEntry(image: UIImage(named: "me-money"), text: "奖励任务", onTapped: pushTask))
         }
         
+        
+        
+        if LoginManager.shared.currentVersionApproved {
+            detailEntries.append(RightDetailFormEntry(image: UIImage(named: "me-invitation"), text: "我的邀请", onTapped: pushInvite))
+        }
+        
         detailEntries.append(contentsOf: [
-            RightDetailFormEntry(image: UIImage(named: "me-invitation"), text: "我的邀请", onTapped: pushInvite),
             RightDetailFormEntry(image: UIImage(named: "me-nobility"), text: "会员特权", onTapped: pushVip),
 //            RightDetailFormEntry(image: UIImage(named: "me-anti-fraud"), text: "防骗中心"),
 //            RightDetailFormEntry(image: UIImage(named: "me-call"), text: "通话设置"),
@@ -184,9 +189,13 @@ class MeViewController: UITableViewController, Autorotate {
             headerText: nil
         )
         
-        var basicEntries: [FormEntry] =  [
-            RightDetailFormEntry(image: UIImage(named: "me-grade"), text: "等级", onTapped: pushLevel),
-        ]
+        var basicEntries: [FormEntry] =  []
+        
+        
+        if LoginManager.shared.currentVersionApproved {
+            basicEntries.append(RightDetailFormEntry(image: UIImage(named: "me-grade"), text: "等级", onTapped: pushLevel))
+        }
+        
         
         if user.sex == .male {
             basicEntries.append( RightDetailFormEntry(image: UIImage(named: "me-authentication"), text: "认证", onTapped: pushAuthentication))

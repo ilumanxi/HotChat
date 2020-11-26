@@ -19,7 +19,6 @@ class UserInfoChatView: UIView {
     
     override class func awakeFromNib() {
         super.awakeFromNib()
-        
 
     }
     override func didMoveToSuperview() {
@@ -32,6 +31,8 @@ class UserInfoChatView: UIView {
             stackView.isHidden = false
             sayHellowButton.isHidden = true
         }
+        
+        isHidden = !LoginManager.shared.currentVersionApproved
     }
     
     var user: User!
