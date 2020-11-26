@@ -196,11 +196,16 @@
     }
     
     
+    collectionView.userInteractionEnabled = NO;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        collectionView.userInteractionEnabled = YES;
+    });
+    
+    
     Gift *giftData = self.gifts[index.intValue];
     giftData.count = self.count;
 
-    [NSObject cancelPreviousPerformRequestsWithTarget:self];
-    [self performSelector:@selector(afterDelayCall:) withObject:giftData afterDelay:0.3];
+    [self afterDelayCall:giftData];
     
 }
 

@@ -245,10 +245,18 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
         cell.onGiveTapped.delegate(on: self) { (self, sender) in
             if LoginManager.shared.user!.userId != self.user.userId {
                 self.selectedDynamic = dynamic
+                
                 let vc = GiftViewController()
+                vc.hbd_barHidden = true
+                vc.hbd_barAlpha = 0
+                vc.hbd_barTintColor = .clear
+                vc.hbd_barShadowHidden = true
                 vc.delegate = self
-                vc.modalPresentationStyle = .overFullScreen
-                self.present(vc, animated: true, completion: nil)
+                
+                let navController = BaseNavigationController(rootViewController: vc)
+                navController.modalPresentationStyle = .overFullScreen
+                navController.modalTransitionStyle = .coverVertical
+                self.present(navController, animated: true, completion: nil)
             }
         }
         

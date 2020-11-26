@@ -171,9 +171,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             pushMode: .development,
             withFirstAction: "launchAction",
             withSecondAction: "close",
-            withCategory: "Test",
+            withCategory: "HotChat",
             useBehaviorTextInput: true,
-            isDebug: true
+            isDebug: false
         )
         
         if let userInfo = launchOptions?[UIApplication.LaunchOptionsKey.remoteNotification] as? [String : Any]  {
