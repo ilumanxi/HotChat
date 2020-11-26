@@ -69,11 +69,13 @@ class ChatViewController: ChatController, IndicatorDisplay {
     func setupNavigationItem() {
         
         let setting = UIBarButtonItem(image: UIImage(named: "chat-setting"), style: .plain, target: self, action: #selector(userSetting))
+        var items = [setting]
+        if LoginManager.shared.currentVersionApproved {
+            let call = UIBarButtonItem(image: UIImage(named: "chat-call"), style: .plain, target: self, action: #selector(chatCall))
+            items.append(call)
+        }
         
-        let call = UIBarButtonItem(image: UIImage(named: "chat-call"), style: .plain, target: self, action: #selector(chatCall))
-        
-        navigationItem.rightBarButtonItems = [setting, call]
-        
+        navigationItem.rightBarButtonItems = items
     }
     
     

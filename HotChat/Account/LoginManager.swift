@@ -51,7 +51,7 @@ class LoginManager: NSObject {
     var deviceToken: Data?
     
     /// 当前版本App Store 审核状态
-    var currentVersionApproved: Bool = false {
+    @objc var currentVersionApproved: Bool = false {
         didSet {
             if oldValue != currentVersionApproved {
                 NotificationCenter.default.post(name: .appApprovedDidChange, object: nil)
