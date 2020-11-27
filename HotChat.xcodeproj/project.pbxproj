@@ -182,6 +182,7 @@
 		26B4E05B2564ECBB004EDCFE /* UpgradeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B4E05A2564ECBB004EDCFE /* UpgradeAPI.swift */; };
 		26B4E05E2564FCBA004EDCFE /* AuthenticationGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B4E05C2564FCBA004EDCFE /* AuthenticationGuideViewController.swift */; };
 		26B4E05F2564FCBA004EDCFE /* AuthenticationGuideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26B4E05D2564FCBA004EDCFE /* AuthenticationGuideViewController.xib */; };
+		26B86EB82570EAD700CAC5AE /* TUIMessageDataProviderService+Gift.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B86EB72570EAD700CAC5AE /* TUIMessageDataProviderService+Gift.m */; };
 		26BB187D2522F5810019BBFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2643EB412500AD7D00FBBE49 /* Main.storyboard */; };
 		26C31F2625403A9E0000D09D /* ReportUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C31F2525403A9E0000D09D /* ReportUserViewController.swift */; };
 		26C31F2B25404D280000D09D /* ForYouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C31F2A25404D280000D09D /* ForYouViewController.swift */; };
@@ -535,6 +536,8 @@
 		26B4E05A2564ECBB004EDCFE /* UpgradeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeAPI.swift; sourceTree = "<group>"; };
 		26B4E05C2564FCBA004EDCFE /* AuthenticationGuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationGuideViewController.swift; sourceTree = "<group>"; };
 		26B4E05D2564FCBA004EDCFE /* AuthenticationGuideViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthenticationGuideViewController.xib; sourceTree = "<group>"; };
+		26B86EB62570EAD700CAC5AE /* TUIMessageDataProviderService+Gift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TUIMessageDataProviderService+Gift.h"; sourceTree = "<group>"; };
+		26B86EB72570EAD700CAC5AE /* TUIMessageDataProviderService+Gift.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TUIMessageDataProviderService+Gift.m"; sourceTree = "<group>"; };
 		26BB186F2522F4B50019BBFD /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		26C31F2525403A9E0000D09D /* ReportUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportUserViewController.swift; sourceTree = "<group>"; };
 		26C31F2A25404D280000D09D /* ForYouViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouViewController.swift; sourceTree = "<group>"; };
@@ -1369,6 +1372,8 @@
 				26E291B025541C010032AE99 /* PIPWindow.m */,
 				2656F316254FDB5000552611 /* IMAPI.swift */,
 				2636A0BE2563D04A00664FFC /* GiftAPI.swift */,
+				26B86EB62570EAD700CAC5AE /* TUIMessageDataProviderService+Gift.h */,
+				26B86EB72570EAD700CAC5AE /* TUIMessageDataProviderService+Gift.m */,
 			);
 			path = IM;
 			sourceTree = "<group>";
@@ -1806,6 +1811,7 @@
 				F370D277251CE65500C2F708 /* ResetPasswordViewController.swift in Sources */,
 				26C81ED82547CE0500C1D563 /* GiftView.m in Sources */,
 				267954F9250757FE00A72954 /* ConversationViewController.swift in Sources */,
+				26B86EB82570EAD700CAC5AE /* TUIMessageDataProviderService+Gift.m in Sources */,
 				2696341F2531942000493C3D /* DynamicAPI.swift in Sources */,
 				2643EBBD2500B04100FBBE49 /* Helpers.swift in Sources */,
 				26E14E68251C861A00645F08 /* DatePickerViewController.swift in Sources */,

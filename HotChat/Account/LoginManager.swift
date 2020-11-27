@@ -136,8 +136,8 @@ class LoginManager: NSObject {
     
     @objc func update(user: User) {
         if user.token.isEmpty {
-            user.token = self.user?.token ?? ""
-            user.isInit = self.user?.isInit ?? false
+            user.token = [self.user?.token ?? "", user.token].first{ !$0.isEmpty } ?? ""
+            user.isInit = [self.user?.isInit ?? false, user.isInit].contains(true)
         }
         
         self.user = user

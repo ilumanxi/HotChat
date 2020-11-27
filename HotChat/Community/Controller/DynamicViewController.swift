@@ -66,6 +66,8 @@ class DynamicViewController: UITableViewController, IndicatorDisplay, Storyboard
     
     fileprivate var formEntries: [FormEntry] = []
     
+    let onSened = Delegate<Void, Void>()
+    
     var text: String? {
         didSet {
 //            reloadData()
@@ -199,12 +201,12 @@ class DynamicViewController: UITableViewController, IndicatorDisplay, Storyboard
         
                 
                 self.dynamicAPI.request(.releaseDynamic(parameters), type: ResponseEmpty.self)
+                    .verifyResponse()
                     .subscribe(onSuccess: { [weak self] response in
                         self?.hideIndicatorFromWindow()
                         self?.showMessageOnWindow(response.msg)
-                        if response.isSuccessd {
-                            self?.dismiss(animated: true, completion: nil)
-                        }
+                        self?.onSened.call()
+                        self?.dismiss(animated: true, completion: nil)
                     }, onError: { [weak self] error in
                         self?.hideIndicatorFromWindow()
                         self?.showMessageOnWindow(error.localizedDescription)

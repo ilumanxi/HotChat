@@ -219,6 +219,9 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     
     func presentDynamic() {
         let vc = DynamicViewController.loadFromStoryboard()
+        vc.onSened.delegate(on: self) { (self, _) in
+            self.refreshData()
+        }
         let navVC = UINavigationController(rootViewController: vc)
         navVC.modalPresentationStyle = .fullScreen
         present(navVC, animated: true, completion: nil)

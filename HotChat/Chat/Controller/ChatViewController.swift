@@ -10,6 +10,8 @@ import UIKit
 import SPAlertController
 import MJExtension
 import AVFoundation
+import RxCocoa
+import RxSwift
 
 class ChatViewController: ChatController, IndicatorDisplay {
     
@@ -63,6 +65,8 @@ class ChatViewController: ChatController, IndicatorDisplay {
         
 
         self.moreMenus = [video, audio, camera, photos]
+        
+        observerUserWallet()
     }
     
     
@@ -78,6 +82,18 @@ class ChatViewController: ChatController, IndicatorDisplay {
         navigationItem.rightBarButtonItems = items
     }
     
+    
+    func observerUserWallet() {
+        updateUserWallet
+            .flatMapLatest(userWallet)
+            .subscribe(onNext: { response in
+                let user = LoginManager.shared.user!
+                user.userTanbi = response.data!.userTanbi
+                user.userEnergy = response.data!.userEnergy
+                LoginManager.shared.update(user: user)
+            })
+            .disposed(by: rx.disposeBag)
+    }
     
     @objc func userSetting() {
         let user = User()
@@ -124,6 +140,10 @@ class ChatViewController: ChatController, IndicatorDisplay {
         return attributedString
     }
     
+    
+    let userAPI = Request<UserAPI>()
+    
+    let updateUserWallet = PublishSubject<Void>()
 
 }
 
@@ -132,6 +152,14 @@ extension ChatViewController: ChatControllerDelegate {
     
     func chatController(_ controller: ChatController!, didSendMessage msgCellData: TUIMessageCellData!) {
 
+        updateUserWallet.onNext(())
+    }
+    
+    
+    func userWallet() -> Single<Response<Wallet>>  {
+       return userAPI.request(.userWallet, type: Response<Wallet>.self)
+            .verifyResponse()
+           
     }
     
     func chatController(_ controller: ChatController!, onNewMessage msg: V2TIMMessage!) -> TUIMessageCellData! {
