@@ -66,7 +66,9 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
         }
         
         loadSignal
-            .subscribe(onNext: requestData)
+            .subscribe(onNext: { [weak self] parameters in
+                self?.requestData(parameters)
+            })
             .disposed(by: rx.disposeBag)
 
         state = .loadingContent

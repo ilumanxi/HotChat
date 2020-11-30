@@ -54,7 +54,9 @@ class ConsumerDetailsViewController: UIViewController, SegementSlideContentScrol
         setupView()
         
         loadSignal
-            .subscribe(onNext: requestData)
+            .subscribe(onNext: { [weak self] page in
+                self?.requestData(page)
+            })
             .disposed(by: rx.disposeBag)
         
         tableView.mj_header = MJRefreshNormalHeader { [weak self] in

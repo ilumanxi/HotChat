@@ -83,8 +83,8 @@ class AuthenticationViewController: UIViewController, IndicatorDisplay, LoadingS
         
         let section = FormSection(
             entries: [
-                RightDetailFormEntry(image: nil, text: "实名认证", detailText: authentication.realNameStatus.description, onTapped: pushRealName),
-                RightDetailFormEntry(image: nil, text: "头像认证", detailText: authentication.headStatus.description, onTapped: pushFace)
+                RightDetailFormEntry(image: nil, text: "实名认证", detailText: authentication.realNameStatus.description, onTapped: { [weak self] in self?.pushRealName()}),
+                RightDetailFormEntry(image: nil, text: "头像认证", detailText: authentication.headStatus.description, onTapped: {[weak self] in self?.pushFace()})
             ],
             headerText: nil
         )

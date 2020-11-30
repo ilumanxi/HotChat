@@ -21,6 +21,7 @@ PODS:
   - Cache (6.0.0)
   - CryptoSwift (1.3.7)
   - DynamicColor (5.0.1)
+  - FBRetainCycleDetector (0.1.4)
   - FSPagerView (0.8.3)
   - GKPhotoBrowser (2.1.2):
     - GKPhotoBrowser/SD (= 2.1.2)
@@ -39,6 +40,8 @@ PODS:
   - MBProgressHUD (1.2.0)
   - MJExtension (3.2.2)
   - MJRefresh (3.5.0)
+  - MLeaksFinder (1.0.0):
+    - FBRetainCycleDetector
   - MMLayout (0.2.0)
   - Moya/Core (14.0.0):
     - Alamofire (~> 5.0)
@@ -143,6 +146,7 @@ DEPENDENCIES:
   - MBProgressHUD
   - MJExtension
   - MJRefresh
+  - MLeaksFinder
   - Moya/Core
   - Moya/RxSwift
   - "NSObject+Rx"
@@ -176,6 +180,7 @@ SPEC REPOS:
     - Cache
     - CryptoSwift
     - DynamicColor
+    - FBRetainCycleDetector
     - FSPagerView
     - GKPhotoBrowser
     - HandyJSON
@@ -188,6 +193,7 @@ SPEC REPOS:
     - MBProgressHUD
     - MJExtension
     - MJRefresh
+    - MLeaksFinder
     - MMLayout
     - Moya
     - "NSObject+Rx"
@@ -228,6 +234,7 @@ SPEC CHECKSUMS:
   Cache: 4ca7e00363fca5455f26534e5607634c820ffc2d
   CryptoSwift: b6faad405e69964740422daf121918b5b1870f2b
   DynamicColor: d049834ef86d8ecf150b0ca1ebe54ee733a0ec22
+  FBRetainCycleDetector: 46f8179bbb1c587deee3ea838a1a3ee02acf5015
   FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
   GKPhotoBrowser: e8c35d4a9230b03fb0ae6f5f2f978390519245da
   HandyJSON: 88e8ea5f66ab65c3b8768499a1935d0509c460d4
@@ -240,6 +247,7 @@ SPEC CHECKSUMS:
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MJExtension: d9b9c74cbdeb724c1e9ecbb157b318276e62e876
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
+  MLeaksFinder: 8c435bd2f6d070af18cff082b503b21adc130fc0
   MMLayout: 3fb59d58eeb8656c64e61d550fb0088e10666c11
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   "NSObject+Rx": fa6bbcc1ab1faa06b01466bc09b1e0692bbc5946
@@ -271,6 +279,6 @@ SPEC CHECKSUMS:
   WechatOpenSDK: 6a4d1436c15b3b5fe2a0bd383f3046010186da44
   WKWebViewJavascriptBridge: 07ad0cab27cd61ccdb90b5deb223f6df3a03c3d7
 
-PODFILE CHECKSUM: b6ae54751d692e69c95ef96b25bee6abb47e513a
+PODFILE CHECKSUM: d62dbd258879c30eec41ee54692c2cb58f37eabf
 
 COCOAPODS: 1.10.0

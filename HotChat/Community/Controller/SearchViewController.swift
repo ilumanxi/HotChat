@@ -110,9 +110,15 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
                 self?.data = []
                 self?.searchBar.resignFirstResponder()
             })
-            .map(parameters)
-            .flatMapLatest(loadData)
-            .subscribe(onNext: handlerReponse, onError: handlerError)
+//            .map(parameters)
+//            .flatMapLatest(loadData)
+            .map{[unowned self] in self.parameters() }
+            .flatMapLatest{[unowned self] parameters in self.loadData(parameters: parameters)}
+            .subscribe(onNext: { [weak self] response in
+                self?.handlerReponse(response)
+            }, onError: { [weak self] error in
+                self?.handlerError(error)
+            })
             .disposed(by: rx.disposeBag)
     }
     

@@ -84,8 +84,10 @@ class ChatViewController: ChatController, IndicatorDisplay {
     
     
     func observerUserWallet() {
+        
         updateUserWallet
-            .flatMapLatest(userWallet)
+            .flatMapLatest{[unowned self] in self.userWallet() }
+//            .flatMapLatest(userWallet)
             .subscribe(onNext: { response in
                 let user = LoginManager.shared.user!
                 user.userTanbi = response.data!.userTanbi
