@@ -45,8 +45,7 @@ class PhoneBindingController: UIViewController, IndicatorDisplay {
         title = "绑定手机"
         scrollView.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
         
-        self.rx.observe(Bool.self, #keyPath(isCoding))
-            .debug()
+        self.rx.observeWeakly(Bool.self, #keyPath(isCoding))
             .compactMap{ !$0! }
             .bind(to: codeIndicator.rx.isHidden)
             .disposed(by: rx.disposeBag)
@@ -106,6 +105,7 @@ class PhoneBindingController: UIViewController, IndicatorDisplay {
             .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in
                 let user = response.data!
+                user.isInit = true
                 user.token = LoginManager.shared.user!.token
                 LoginManager.shared.update(user: user)
                 self?.hideIndicator()

@@ -59,7 +59,7 @@
     };
 
     NSDictionary *parameters = @{
-        @"type" : @(1),
+        @"type" : @(self.type),
         @"toUserId": self.userId
     };
 
@@ -103,7 +103,7 @@
     };
 
     NSDictionary *parameters = @{
-        @"type" : @(1),
+        @"type" : @(self.type),
         @"toUserId": self.userId
     };
     
@@ -221,11 +221,11 @@
     
     NSDictionary *parameters = @{
         @"callId" : self.billingStatus.callId,
-        @"nowTime": @(nowTime)
+        @"endTime": @(nowTime)
     };
     
    [self.manager
-        POST:@"Im/callContinued"
+        POST:@"Im/endCallChat"
         parameters:parameters
         headers:headers
         progress:nil

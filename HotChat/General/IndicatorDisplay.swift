@@ -56,6 +56,7 @@ extension IndicatorDisplay where Self: UIViewController {
     }
     
     func showIndicator(_ message: String?, in view: UIView) {
+        view.endEditing(true)
         let hub  = MBProgressHUD.showAdded(to: view, animated: true)
         if let message = message {
             hub.label.text = message
