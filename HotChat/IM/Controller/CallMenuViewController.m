@@ -331,6 +331,10 @@
             
             cellData.innerMessage = [[V2TIMManager sharedInstance] createCustomMessage:data];
             
+            User *user  = LoginManager.shared.user;
+            user.userEnergy = giveGift.userEnergy;
+            [LoginManager.shared updateWithUser:user];
+            
             [[GiftManager shared] sendGiftMessage:cellData userID:self.user.userId];
             
             [TUICallUtils getCallUserModel:[TUICallUtils loginUser] finished:^(CallUserModel * _Nonnull model) {

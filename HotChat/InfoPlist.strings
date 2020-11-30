@@ -7,3 +7,5 @@
 */
 
 CFBundleDisplayName = "贪聊";
+NSLocationAlwaysAndWhenInUseUsageDescription = "若不允许,你将无法使用位置发送、附近的人等功能.";
+NSLocationWhenInUseUsageDescription = "若不允许,你将无法使用位置发送、附近的人等功能.";
