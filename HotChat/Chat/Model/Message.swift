@@ -8,7 +8,7 @@
 
 import HandyJSON
 
-struct Messsage: HandyJSON {
+struct Message: HandyJSON {
     var userId: String = ""
     var isFollow: Bool = false
     var labelList: [LikeTag] = []

@@ -247,7 +247,7 @@ class PhotoAlbum: NSObject, FormEntry {
     
     let contentInsert: UIEdgeInsets = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
     
-    let onPresenting = Delegate<(), UIViewController>()
+    let onPresenting = Delegate<Void, UIViewController>()
     
     let onImageAdded = Delegate<[URL], Void>()
     

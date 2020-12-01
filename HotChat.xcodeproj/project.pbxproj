@@ -143,8 +143,8 @@
 		268458F025345352002B9C6E /* MediaViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268458EF25345352002B9C6E /* MediaViewCell.swift */; };
 		268458F525354481002B9C6E /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268458F425354481002B9C6E /* LoadingState.swift */; };
 		2684593925354EDB002B9C6E /* Reload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2684593825354EDB002B9C6E /* Reload.swift */; };
-		2684598E25359A8A002B9C6E /* MesssageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2684598D25359A8A002B9C6E /* MesssageAPI.swift */; };
-		2684599325359B91002B9C6E /* Messsage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2684599225359B91002B9C6E /* Messsage.swift */; };
+		2684598E25359A8A002B9C6E /* MessageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2684598D25359A8A002B9C6E /* MessageAPI.swift */; };
+		2684599325359B91002B9C6E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2684599225359B91002B9C6E /* Message.swift */; };
 		268BB25E251D9B3200001DF3 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268BB25D251D9B3200001DF3 /* UserAPI.swift */; };
 		268E3E602521D074000E4A33 /* RelationshipViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E3E5E2521D074000E4A33 /* RelationshipViewCell.swift */; };
 		268E3E612521D074000E4A33 /* RelationshipViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 268E3E5F2521D074000E4A33 /* RelationshipViewCell.xib */; };
@@ -489,8 +489,8 @@
 		268458EF25345352002B9C6E /* MediaViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewCell.swift; sourceTree = "<group>"; };
 		268458F425354481002B9C6E /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
 		2684593825354EDB002B9C6E /* Reload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reload.swift; sourceTree = "<group>"; };
-		2684598D25359A8A002B9C6E /* MesssageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesssageAPI.swift; sourceTree = "<group>"; };
-		2684599225359B91002B9C6E /* Messsage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messsage.swift; sourceTree = "<group>"; };
+		2684598D25359A8A002B9C6E /* MessageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageAPI.swift; sourceTree = "<group>"; };
+		2684599225359B91002B9C6E /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		268BB25D251D9B3200001DF3 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		268E3E5E2521D074000E4A33 /* RelationshipViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationshipViewCell.swift; sourceTree = "<group>"; };
 		268E3E5F2521D074000E4A33 /* RelationshipViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RelationshipViewCell.xib; sourceTree = "<group>"; };
@@ -1475,8 +1475,8 @@
 		F3C6B920251F4040006C06CB /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2684598D25359A8A002B9C6E /* MesssageAPI.swift */,
-				2684599225359B91002B9C6E /* Messsage.swift */,
+				2684598D25359A8A002B9C6E /* MessageAPI.swift */,
+				2684599225359B91002B9C6E /* Message.swift */,
 				26E1661F256B5DA200CF66BD /* CallHelper.swift */,
 			);
 			path = Model;
@@ -1785,7 +1785,7 @@
 				2643EBA72500B04100FBBE49 /* RealNameAuthenticationViewController.swift in Sources */,
 				26E14E5E251C6E8800645F08 /* HotChatButton.swift in Sources */,
 				265C8A63251352A800E220BD /* ForgotPasswordProtocols.swift in Sources */,
-				2684599325359B91002B9C6E /* Messsage.swift in Sources */,
+				2684599325359B91002B9C6E /* Message.swift in Sources */,
 				26A20B052518A5020061BBB8 /* HotChatError.swift in Sources */,
 				26B4E05B2564ECBB004EDCFE /* UpgradeAPI.swift in Sources */,
 				2643EBA32500B04100FBBE49 /* UserInfoEditingViewController.swift in Sources */,
@@ -1872,7 +1872,7 @@
 				2673FDBD255CE14400909A37 /* WebViewController.swift in Sources */,
 				26A20B0D2518BBC10061BBB8 /* Response.swift in Sources */,
 				26F25C96250A1B3800F808EA /* SeparatorLine.swift in Sources */,
-				2684598E25359A8A002B9C6E /* MesssageAPI.swift in Sources */,
+				2684598E25359A8A002B9C6E /* MessageAPI.swift in Sources */,
 				2643EBC82500D4C000FBBE49 /* MeContactViewController.swift in Sources */,
 				2643EBB32500B04100FBBE49 /* UserInfoIntroduceCell.swift in Sources */,
 				26CB6D4625515D6B00A9F4DD /* BDFaceImageShow.m in Sources */,

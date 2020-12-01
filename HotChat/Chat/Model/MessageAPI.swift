@@ -1,5 +1,5 @@
 //
-//  MesssageAPI.swift
+//  MessageAPI.swift
 //  HotChat
 //
 //  Created by 风起兮 on 2020/10/13.
@@ -8,12 +8,14 @@
 
 import Moya
 
-enum MesssageAPI {
+enum MessageAPI {
     case knowPeople
+    case readUser(userId: String)
+    case countPeople
 }
 
 
-extension MesssageAPI: TargetType {
+extension MessageAPI: TargetType {
     
     var baseURL: URL {
         return Constant.APIHostURL
@@ -23,6 +25,10 @@ extension MesssageAPI: TargetType {
         switch self {
         case .knowPeople:
             return "News/knowPeople"
+        case .readUser:
+            return "News/readUser"
+        case .countPeople:
+            return "News/countPeople"
         }
     }
     
@@ -39,6 +45,12 @@ extension MesssageAPI: TargetType {
         
         switch self {
         case .knowPeople:
+            parameters = [:]
+        case .readUser(let userId):
+            parameters = [
+                "userId" : userId
+            ]
+        case .countPeople:
             parameters = [:]
         }
         

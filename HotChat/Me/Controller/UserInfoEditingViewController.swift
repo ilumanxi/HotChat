@@ -69,7 +69,6 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay, St
             self.upload(urls.first!)
                 .map{ response -> [String : Any] in
                     let photoList = (response.data!.toJSON() as [[String: Any]?]).compactMap{ $0 }
-                    Log.print(type(of: photoList))
                     return [
                         "type" : 3,
                         "photoList" : photoList

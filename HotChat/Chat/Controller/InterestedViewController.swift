@@ -16,13 +16,13 @@ class InterestedViewController: UIViewController, IndicatorDisplay {
     
     @IBOutlet weak var kolodaView: KolodaView!
     
-    var data: [Messsage] = [] {
+    var data: [Message] = [] {
         didSet {
             kolodaView.reloadData()
         }
     }
     
-    let messsageAPI = Request<MesssageAPI>()
+    let messageAPI = Request<MessageAPI>()
     let dynamicAPI  = Request<DynamicAPI>()
     
     override func viewDidLoad() {
@@ -33,10 +33,10 @@ class InterestedViewController: UIViewController, IndicatorDisplay {
         
         showOrHideIndicator(loadingState: .initial)
         
-        messsageAPI.request(.knowPeople, type: Response<[String : Any]>.self)
+        messageAPI.request(.knowPeople, type: Response<[String : Any]>.self)
             .verifyResponse()
             .map {
-                return [Messsage].deserialize(from: $0.data?["list"] as? [Any])?.compactMap{ $0 } ?? []
+                return [Message].deserialize(from: $0.data?["list"] as? [Any])?.compactMap{ $0 } ?? []
             }
             .subscribe(onSuccess: { [weak self] result in
                 self?.data = result
@@ -53,12 +53,21 @@ class InterestedViewController: UIViewController, IndicatorDisplay {
     
     @IBAction func skipButtonTapped(_ sender: Any) {
         kolodaView.swipe(.left)
-    }
-    
-    @IBAction func followButtonTapped(_ sender: Any) {
-        kolodaView.swipe(.right)
+        
         let message = data[kolodaView.currentCardIndex - 1]
         
+        readUser(message: message)
+    }
+    
+    
+    func readUser(message: Message) {
+        messageAPI.request(.readUser(userId: message.userId), type: ResponseEmpty.self)
+            .verifyResponse()
+            .subscribe(onSuccess: nil, onError: nil)
+            .disposed(by: rx.disposeBag)
+    }
+    
+    func follow(message: Message){
         dynamicAPI.request(.follow(message.userId), type: ResponseEmpty.self)
             .subscribe(onSuccess: { response in
                 Log.print(response)
@@ -66,6 +75,13 @@ class InterestedViewController: UIViewController, IndicatorDisplay {
                 Log.print(error)
             })
             .disposed(by: rx.disposeBag)
+    }
+    
+    @IBAction func followButtonTapped(_ sender: Any) {
+        kolodaView.swipe(.right)
+        let message = data[kolodaView.currentCardIndex - 1]
+        follow(message: message)
+
     }
 }
 
@@ -85,6 +101,18 @@ extension InterestedViewController: KolodaViewDelegate {
     
     func koloda(_ koloda: KolodaView, didSelectCardAt index: Int) {
         
+    }
+    
+    func koloda(_ koloda: KolodaView, didSwipeCardAt index: Int, in direction: SwipeResultDirection) {
+        let message = data[index]
+        switch direction {
+        case .left:
+            readUser(message: message)
+        case .right:
+            follow(message: message)
+        default: break
+        }
+
     }
 
 }

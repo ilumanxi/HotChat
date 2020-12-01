@@ -52,5 +52,5 @@ target 'HotChat' do
     pod 'MJExtension'
     pod 'SPAlertController'
     pod 'MBProgressHUD'
-    pod 'MLeaksFinder',  :configuration => 'Debug'
+#    pod 'MLeaksFinder',  :configuration => 'Debug'
 end

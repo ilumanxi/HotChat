@@ -62,11 +62,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupViews];
     self.columnCountOfPerRow = 4;
     self.gifts = [GiftManager shared].cahcheGiftList;
     self.count = 1;
     
-    [self setupViews];
+    
     [[GiftManager shared] getGiftList:^(NSArray<Gift *> * _Nonnull giftList) {
         self.gifts = giftList;
         self.pageControl.numberOfPages = self.numberOfPages;
