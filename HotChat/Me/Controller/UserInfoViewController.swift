@@ -197,6 +197,26 @@ class UserInfoViewController: SegementSlideDefaultViewController, LoadingStateTy
             alpha = 0
         }
         
+        if alpha < 0.5 {
+            navigationItem.leftBarButtonItem?.image = UIImage(named: "circle-back-white")
+            if user.userId == LoginManager.shared.user!.userId {
+                navigationItem.rightBarButtonItem?.image = UIImage(named: "circle-edit-white")
+            }
+            else {
+                navigationItem.rightBarButtonItem?.image = UIImage(named: "circle-more-white")
+            }
+        }
+        else {
+            navigationItem.leftBarButtonItem?.image = UIImage(named: "navigation-bar-back")
+            
+            if user.userId == LoginManager.shared.user!.userId {
+                navigationItem.rightBarButtonItem?.image = UIImage(named: "edit-gray")
+            }
+            else {
+                navigationItem.rightBarButtonItem?.image =  UIImage(named: "more-gray")
+            }
+        }
+        
         let color = UIColor.textBlack.withAlphaComponent(alpha)
 
         hbd_barAlpha = Float(alpha)
