@@ -35,6 +35,11 @@ class UserInfoViewController: SegementSlideDefaultViewController, LoadingStateTy
         return .child
     }
     
+    override var backBarButtonImage: UIImage? {
+        
+        return UIImage(named: "circle-back-white")
+    }
+    
     lazy var viewControllers: [UIViewController & SegementSlideContentScrollViewDelegate] =  {
         let information = InformationViewController.loadFromStoryboard()
         information.title = "资料"
@@ -101,21 +106,25 @@ class UserInfoViewController: SegementSlideDefaultViewController, LoadingStateTy
             setupChatView()
         }
         reloadData()
-        refreshData()
         
-
         state = .loadingContent
         refreshData()
     }
     
+    @objc func pop() {
+        navigationController?.popViewController(animated: true)
+    }
+    
     func setupNavigationItem() {
         
+        navigationItem.setLeftBarButton(UIBarButtonItem(image: backBarButtonImage, style: .plain, target: self, action: #selector(pop)), animated: true)
+        
         if user.userId == LoginManager.shared.user!.userId {
-            let more = UIBarButtonItem(image: UIImage(named: "edit-gray"), style: .plain, target: self, action: #selector(editItemTapped))
+            let more = UIBarButtonItem(image: UIImage(named: "circle-edit-white"), style: .plain, target: self, action: #selector(editItemTapped))
             self.navigationItem.rightBarButtonItems = [more]
         }
         else {
-            let more = UIBarButtonItem(image: UIImage(named: "more-gray"), style: .plain, target: self, action: #selector(moreItemTapped))
+            let more = UIBarButtonItem(image: UIImage(named: "circle-more-white"), style: .plain, target: self, action: #selector(moreItemTapped))
             self.navigationItem.rightBarButtonItems = [more]
         }
     }
