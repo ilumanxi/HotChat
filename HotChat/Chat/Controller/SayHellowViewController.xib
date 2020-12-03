@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SayHellowViewController" customModule="HotChat" customModuleProvider="target">
+            <connections>
+                <outlet property="tableView" destination="GsL-7i-eJ7" id="k9U-JI-OME"/>
+                <outlet property="tableViewHeightLayout" destination="2Lb-5g-xMy" id="TDq-QD-kGx"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DLD-x4-EPx">
+                    <rect key="frame" x="51" y="242" width="312" height="412"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" image="chat-sayhellow" translatesAutoresizingMaskIntoConstraints="NO" id="03a-F2-FBi">
+                            <rect key="frame" x="0.0" y="0.0" width="312" height="60"/>
+                        </imageView>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="250" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GsL-7i-eJ7">
+                            <rect key="frame" x="0.0" y="60" width="312" height="200"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" priority="750" constant="200" id="2Lb-5g-xMy"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="NYt-U7-2De"/>
+                                <outlet property="delegate" destination="-1" id="yeY-ho-tpe"/>
+                            </connections>
+                        </tableView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xe9-ck-DCV">
+                            <rect key="frame" x="16" y="268" width="280" height="114"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mXq-zv-TWg">
+                                    <rect key="frame" x="0.0" y="0.0" width="280" height="47"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="47" id="X7L-6l-rbS"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <inset key="titleEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <state key="normal" title="设置你的个性招呼" image="add-sayhellow">
+                                        <color key="titleColor" red="0.31764705882352939" green="0.34901960784313724" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="addButtonTapped:" destination="-1" eventType="touchUpInside" id="yQG-pf-P0g"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zXi-fA-S5w">
+                                    <rect key="frame" x="0.0" y="67" width="280" height="47"/>
+                                    <color key="backgroundColor" red="1" green="0.37647058820000001" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="47" id="fv6-nZ-dcv"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <state key="normal" title="和ta打招呼" image="say-hello"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="23.5"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                            <real key="value" value="1"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                            <real key="value" value="8"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                            <color key="value" red="0.97647058819999999" green="0.24313725489999999" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                            <size key="value" width="0.0" height="0.0"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="sayHellowButtonTapped:" destination="-1" eventType="touchUpInside" id="Ukq-Fj-IGL"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailingMargin" secondItem="xe9-ck-DCV" secondAttribute="trailing" constant="8" id="42n-ws-hwQ"/>
+                        <constraint firstItem="GsL-7i-eJ7" firstAttribute="top" secondItem="03a-F2-FBi" secondAttribute="bottom" id="4qA-oi-flq"/>
+                        <constraint firstItem="GsL-7i-eJ7" firstAttribute="leading" secondItem="DLD-x4-EPx" secondAttribute="leading" id="7Jd-oj-7cJ"/>
+                        <constraint firstItem="xe9-ck-DCV" firstAttribute="top" secondItem="GsL-7i-eJ7" secondAttribute="bottom" constant="8" symbolic="YES" id="Bme-Il-khA"/>
+                        <constraint firstAttribute="bottom" secondItem="xe9-ck-DCV" secondAttribute="bottom" constant="30" id="EBx-Ak-7rJ"/>
+                        <constraint firstAttribute="trailing" secondItem="GsL-7i-eJ7" secondAttribute="trailing" id="ETi-lv-YcL"/>
+                        <constraint firstItem="03a-F2-FBi" firstAttribute="top" secondItem="DLD-x4-EPx" secondAttribute="top" id="FMd-oS-6bc"/>
+                        <constraint firstAttribute="trailing" secondItem="03a-F2-FBi" secondAttribute="trailing" id="Pnn-TM-1bH"/>
+                        <constraint firstItem="xe9-ck-DCV" firstAttribute="leading" secondItem="DLD-x4-EPx" secondAttribute="leadingMargin" constant="8" id="lf7-CM-vfr"/>
+                        <constraint firstItem="03a-F2-FBi" firstAttribute="leading" secondItem="DLD-x4-EPx" secondAttribute="leading" id="oTb-Yk-6Y3"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="DLD-x4-EPx" secondAttribute="bottom" constant="64" id="3xK-wY-4wn"/>
+                <constraint firstItem="DLD-x4-EPx" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="QvZ-nO-ZLQ"/>
+                <constraint firstItem="DLD-x4-EPx" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="64" id="qjZ-Ob-81r"/>
+                <constraint firstItem="DLD-x4-EPx" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="rGc-Ys-C1J"/>
+            </constraints>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                    <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="563.768115942029" y="81.696428571428569"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="add-sayhellow" width="12.5" height="12.5"/>
+        <image name="chat-sayhellow" width="312" height="60"/>
+        <image name="say-hello" width="19" height="19"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

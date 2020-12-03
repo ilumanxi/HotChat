@@ -99,12 +99,19 @@
 		2656F30F254FAC0500552611 /* GiftReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2656F30D254FAC0500552611 /* GiftReminderViewController.xib */; };
 		2656F317254FDB5000552611 /* IMAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2656F316254FDB5000552611 /* IMAPI.swift */; };
 		2656F322254FE0AF00552611 /* CallStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2656F321254FE0AF00552611 /* CallStatus.swift */; };
+		26597667257792E200E4B6A2 /* SayHellowSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26597665257792E200E4B6A2 /* SayHellowSettingViewController.swift */; };
+		26597668257792E200E4B6A2 /* SayHellowSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26597666257792E200E4B6A2 /* SayHellowSettingViewController.xib */; };
+		2659766D2577AD1000E4B6A2 /* SayHellowAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2659766B2577AD1000E4B6A2 /* SayHellowAddViewController.swift */; };
+		26597672257886A300E4B6A2 /* GreetingsAddedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26597671257886A300E4B6A2 /* GreetingsAddedView.swift */; };
+		26597676257886BB00E4B6A2 /* GreetingsAddedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26597675257886BB00E4B6A2 /* GreetingsAddedView.xib */; };
 		265C1ED62542D84700110564 /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C1ED52542D84700110564 /* InviteViewController.swift */; };
 		265C8A3D2513316200E220BD /* SigninViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C8A3C2513316200E220BD /* SigninViewModel.swift */; };
 		265C8A42251332E900E220BD /* SigninProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C8A41251332E900E220BD /* SigninProtocols.swift */; };
 		265C8A4A251348E200E220BD /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C8A49251348E200E220BD /* ForgotPasswordViewController.swift */; };
 		265C8A5B25134C3500E220BD /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C8A5A25134C3500E220BD /* ForgotPasswordViewModel.swift */; };
 		265C8A63251352A800E220BD /* ForgotPasswordProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C8A62251352A800E220BD /* ForgotPasswordProtocols.swift */; };
+		2666405F2577624500E30A09 /* SayHellowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2666405D2577624500E30A09 /* SayHellowViewController.swift */; };
+		266640602577624500E30A09 /* SayHellowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2666405E2577624500E30A09 /* SayHellowViewController.xib */; };
 		2668B09C25233C410073E25D /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2668B09B25233C410073E25D /* WalletViewController.swift */; };
 		2668B0A2252341F70073E25D /* WalletEnergyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2668B0A0252341F70073E25D /* WalletEnergyViewCell.swift */; };
 		2668B0A3252341F70073E25D /* WalletEnergyViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2668B0A1252341F70073E25D /* WalletEnergyViewCell.xib */; };
@@ -231,6 +238,8 @@
 		26CBE3B82508A9F20089A23C /* CommunityHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26CBE3B72508A9F20089A23C /* CommunityHeaderView.xib */; };
 		26CBE3BD2508D7920089A23C /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CBE3BC2508D7920089A23C /* DiscoverViewController.swift */; };
 		26CBE3C12508EB040089A23C /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CBE3C02508EB040089A23C /* Appearance.swift */; };
+		26CD99ED2578BB5C00235A8D /* ChatGreetAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CD99EC2578BB5C00235A8D /* ChatGreetAPI.swift */; };
+		26CD99F12578BDDD00235A8D /* ChatGreet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CD99F02578BDDD00235A8D /* ChatGreet.swift */; };
 		26D1E58B253D5F17004B9B29 /* CallManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D1E58A253D5F17004B9B29 /* CallManager.m */; };
 		26D1E594253D6000004B9B29 /* VideoCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D1E593253D6000004B9B29 /* VideoCallViewController.m */; };
 		26DBC373253D89DF0083BDFB /* AudioCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DBC372253D89DF0083BDFB /* AudioCallViewController.m */; };
@@ -444,12 +453,19 @@
 		2656F30D254FAC0500552611 /* GiftReminderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiftReminderViewController.xib; sourceTree = "<group>"; };
 		2656F316254FDB5000552611 /* IMAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMAPI.swift; sourceTree = "<group>"; };
 		2656F321254FE0AF00552611 /* CallStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallStatus.swift; sourceTree = "<group>"; };
+		26597665257792E200E4B6A2 /* SayHellowSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SayHellowSettingViewController.swift; sourceTree = "<group>"; };
+		26597666257792E200E4B6A2 /* SayHellowSettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SayHellowSettingViewController.xib; sourceTree = "<group>"; };
+		2659766B2577AD1000E4B6A2 /* SayHellowAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SayHellowAddViewController.swift; sourceTree = "<group>"; };
+		26597671257886A300E4B6A2 /* GreetingsAddedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingsAddedView.swift; sourceTree = "<group>"; };
+		26597675257886BB00E4B6A2 /* GreetingsAddedView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GreetingsAddedView.xib; sourceTree = "<group>"; };
 		265C1ED52542D84700110564 /* InviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
 		265C8A3C2513316200E220BD /* SigninViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewModel.swift; sourceTree = "<group>"; };
 		265C8A41251332E900E220BD /* SigninProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninProtocols.swift; sourceTree = "<group>"; };
 		265C8A49251348E200E220BD /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		265C8A5A25134C3500E220BD /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
 		265C8A62251352A800E220BD /* ForgotPasswordProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordProtocols.swift; sourceTree = "<group>"; };
+		2666405D2577624500E30A09 /* SayHellowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SayHellowViewController.swift; sourceTree = "<group>"; };
+		2666405E2577624500E30A09 /* SayHellowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SayHellowViewController.xib; sourceTree = "<group>"; };
 		2668B09B25233C410073E25D /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
 		2668B0A0252341F70073E25D /* WalletEnergyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletEnergyViewCell.swift; sourceTree = "<group>"; };
 		2668B0A1252341F70073E25D /* WalletEnergyViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletEnergyViewCell.xib; sourceTree = "<group>"; };
@@ -611,6 +627,8 @@
 		26CBE3B72508A9F20089A23C /* CommunityHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityHeaderView.xib; sourceTree = "<group>"; };
 		26CBE3BC2508D7920089A23C /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		26CBE3C02508EB040089A23C /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
+		26CD99EC2578BB5C00235A8D /* ChatGreetAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGreetAPI.swift; sourceTree = "<group>"; };
+		26CD99F02578BDDD00235A8D /* ChatGreet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGreet.swift; sourceTree = "<group>"; };
 		26D1E589253D5F17004B9B29 /* CallManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CallManager.h; sourceTree = "<group>"; };
 		26D1E58A253D5F17004B9B29 /* CallManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CallManager.m; sourceTree = "<group>"; };
 		26D1E592253D6000004B9B29 /* VideoCallViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoCallViewController.h; sourceTree = "<group>"; };
@@ -1038,6 +1056,7 @@
 				F3C6B920251F4040006C06CB /* Model */,
 				267954F4250756B400A72954 /* View */,
 				267954F3250756A400A72954 /* Controller */,
+				26CD99EC2578BB5C00235A8D /* ChatGreetAPI.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -1052,6 +1071,11 @@
 				2694580A253FF7B100EBCABB /* UserSettingViewController.swift */,
 				26AB26E125401C0D00C16025 /* RemarkViewController.swift */,
 				26C31F2525403A9E0000D09D /* ReportUserViewController.swift */,
+				2666405D2577624500E30A09 /* SayHellowViewController.swift */,
+				2666405E2577624500E30A09 /* SayHellowViewController.xib */,
+				26597665257792E200E4B6A2 /* SayHellowSettingViewController.swift */,
+				26597666257792E200E4B6A2 /* SayHellowSettingViewController.xib */,
+				2659766B2577AD1000E4B6A2 /* SayHellowAddViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1068,6 +1092,8 @@
 				26DF877F255A645C002162A9 /* SwitchViewCell.xib */,
 				26945814253FF81E00EBCABB /* UserViewCell.swift */,
 				26945819253FF86000EBCABB /* DestructiveViewCell.swift */,
+				26597671257886A300E4B6A2 /* GreetingsAddedView.swift */,
+				26597675257886BB00E4B6A2 /* GreetingsAddedView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1478,6 +1504,7 @@
 				2684598D25359A8A002B9C6E /* MessageAPI.swift */,
 				2684599225359B91002B9C6E /* Message.swift */,
 				26E1661F256B5DA200CF66BD /* CallHelper.swift */,
+				26CD99F02578BDDD00235A8D /* ChatGreet.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1603,11 +1630,13 @@
 				26C81EE62547E9E300C1D563 /* VoiceView.xib in Resources */,
 				2637D876255B8E5300020E98 /* BlacklistController.xib in Resources */,
 				26F5537D2553D3CD00840735 /* GiftEarningsViewController.xib in Resources */,
+				266640602577624500E30A09 /* SayHellowViewController.xib in Resources */,
 				26FBCF642558EF32001F3DFA /* ConsumerDetailsViewController.xib in Resources */,
 				26F8946C25203B7300A45648 /* TitleViewCell.xib in Resources */,
 				2693697525555E06002E224B /* PhoneBindingController.xib in Resources */,
 				267955042507637600A72954 /* Community.storyboard in Resources */,
 				26C81EEE25480B1900C1D563 /* GiftViewCell.xib in Resources */,
+				26597676257886BB00E4B6A2 /* GreetingsAddedView.xib in Resources */,
 				26CBE3B82508A9F20089A23C /* CommunityHeaderView.xib in Resources */,
 				26CB6D5125515D6B00A9F4DD /* com.baidu.idl.face.faceSDK.bundle in Resources */,
 				2636A0DA2564CDBF00664FFC /* UpgrateViewController.xib in Resources */,
@@ -1625,6 +1654,7 @@
 				2668B0AA2523432A0073E25D /* WalletProductViewCell.xib in Resources */,
 				267B98802506012F0008C81B /* Account.storyboard in Resources */,
 				26DF877E255A63BA002162A9 /* BasicCell.xib in Resources */,
+				26597668257792E200E4B6A2 /* SayHellowSettingViewController.xib in Resources */,
 				2643EBA02500B04100FBBE49 /* Me.storyboard in Resources */,
 				2668B0A3252341F70073E25D /* WalletEnergyViewCell.xib in Resources */,
 				26CB6D4C25515D6B00A9F4DD /* com.baidu.idl.face.live.action.image.bundle in Resources */,
@@ -1803,9 +1833,11 @@
 				268458E825343FA8002B9C6E /* DynamicDetailViewController.swift in Sources */,
 				26787E37251B2F8D00D511E8 /* User.swift in Sources */,
 				2615C9F8255E8B0C009B89F4 /* PlaceholderTextView.swift in Sources */,
+				26CD99ED2578BB5C00235A8D /* ChatGreetAPI.swift in Sources */,
 				26DF877D255A63BA002162A9 /* BasicCell.swift in Sources */,
 				26772822255A480900B98973 /* PrivacyViewController.swift in Sources */,
 				26C81EE12547E9C400C1D563 /* VoiceView.m in Sources */,
+				2666405F2577624500E30A09 /* SayHellowViewController.swift in Sources */,
 				263BC1E225494EA20081F5DF /* UIView+Additions.m in Sources */,
 				26CA6EDD2538215D0023E27B /* Channel.swift in Sources */,
 				F370D277251CE65500C2F708 /* ResetPasswordViewController.swift in Sources */,
@@ -1851,6 +1883,7 @@
 				2643EBC32500B05300FBBE49 /* TabBarController.swift in Sources */,
 				26A20AF425189F730061BBB8 /* AccessToken.swift in Sources */,
 				26DF8787255A80ED002162A9 /* Earning.swift in Sources */,
+				26597672257886A300E4B6A2 /* GreetingsAddedView.swift in Sources */,
 				26CBE3C12508EB040089A23C /* Appearance.swift in Sources */,
 				264A20CF25109B5000A264BE /* AccountAPI.swift in Sources */,
 				2682974D2511B0EC00949C7F /* SignupProtocols.swift in Sources */,
@@ -1869,6 +1902,7 @@
 				26F25C98250A359300F808EA /* InterestedViewController.swift in Sources */,
 				265C8A3D2513316200E220BD /* SigninViewModel.swift in Sources */,
 				2643EBA62500B04100FBBE49 /* PushSettingsViewController.swift in Sources */,
+				26597667257792E200E4B6A2 /* SayHellowSettingViewController.swift in Sources */,
 				2673FDBD255CE14400909A37 /* WebViewController.swift in Sources */,
 				26A20B0D2518BBC10061BBB8 /* Response.swift in Sources */,
 				26F25C96250A1B3800F808EA /* SeparatorLine.swift in Sources */,
@@ -1935,6 +1969,7 @@
 				26F8893A25318681001A14F2 /* DynamicViewController.swift in Sources */,
 				267B98752505E1AC0008C81B /* PlatformAuthorization.swift in Sources */,
 				26278B89256CFD64007044E1 /* JPGiftShowManager.m in Sources */,
+				26CD99F12578BDDD00235A8D /* ChatGreet.swift in Sources */,
 				26F8947625207A9A00A45648 /* UploadFileAPI.swift in Sources */,
 				2643EBB12500B04100FBBE49 /* UserInfoBasicInformationCell.swift in Sources */,
 				2643EBAB2500B04100FBBE49 /* MeHeaderView.swift in Sources */,
@@ -1947,6 +1982,7 @@
 				2643EBB02500B04100FBBE49 /* RealNameAuthenticationFooterView.swift in Sources */,
 				26CB6D4025515D6B00A9F4DD /* BDFaceAgreementViewController.m in Sources */,
 				26F710042542C6C000797E87 /* UserSettingsAPI.swift in Sources */,
+				2659766D2577AD1000E4B6A2 /* SayHellowAddViewController.swift in Sources */,
 				2639536825419E8300B5E3C0 /* CardViewCell.swift in Sources */,
 				26CBE3B42508A3FC0089A23C /* CommunityViewController.swift in Sources */,
 				26A731B22536D6B600CCECE5 /* ReportViewController.swift in Sources */,

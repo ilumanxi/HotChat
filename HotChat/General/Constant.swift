@@ -34,14 +34,14 @@ class Constant: NSObject {
 
 extension Constant {
 
-    static let APIHost = "pic.zhouwu5.com"
-
-    static let H5Host = "api.zhouwu5.com"
-    
-    
-//    static let APIHost = "ceshiapi.zhouwu5.com/gateway.php"
+//    static let APIHost = "pic.zhouwu5.com"
 //
-//    static let H5Host = "ceshiadmin.zhouwu5.com"
+//    static let H5Host = "api.zhouwu5.com"
+    
+    
+    static let APIHost = "ceshiapi.zhouwu5.com/gateway.php"
+
+    static let H5Host = "ceshiadmin.zhouwu5.com"
 
 //    static let APIHost = "192.168.0.251/gateway.php"
 //

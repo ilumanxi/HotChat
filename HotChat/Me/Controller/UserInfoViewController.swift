@@ -155,14 +155,47 @@ class UserInfoViewController: SegementSlideDefaultViewController, LoadingStateTy
             .disposed(by: rx.disposeBag)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        chatViewState()
+    }
+    
     private let chatViewHeight: CGFloat = 48
     
     private var chatView: UserInfoChatView!
+    
+    let API = Request<ChatGreetAPI>()
+    
+    func chatViewState() {
+        if LoginManager.shared.user!.girlStatus {
+            API.request(.checkGreet(toUserId: user.userId), type: Response<[String : Any]>.self)
+                .verifyResponse()
+                .subscribe(onSuccess: { [weak self] response in
+
+                    guard let resultCode = response.data?["resultCode"] as? Int else { return }
+                    
+                    if resultCode == 1005 {
+                        self?.chatView?.state = .sayHellow
+                    }
+                    else if resultCode == 1006 {
+                        self?.chatView?.state = .default
+                    }
+                    else if resultCode == 1007 {
+                        self?.chatView?.state = .notSayHellow
+                    }
+                    
+                }, onError: nil)
+                .disposed(by: rx.disposeBag)
+        }
+    }
     
     
     private func setupChatView() {
         
         chatView = UserInfoChatView.loadFromNib()
+        chatView.onSayHellowed.delegate(on: self) { (self, _) in
+            self.chatViewState()
+        }
         chatView.onPushing.delegate(on: self) { (self, _) -> (User, UINavigationController) in
             return (self.user, self.navigationController!)
         }

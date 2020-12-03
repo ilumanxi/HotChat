@@ -134,7 +134,7 @@ class UserInfoHeaderView: UIView, FSPagerViewDataSource, FSPagerViewDelegate {
     }
     
     func pagerViewWillEndDragging(_ pagerView: FSPagerView, targetIndex: Int) {
-//        pageControl.currentPage = targetIndex
+        pageControl.currentPage = targetIndex
 //        let isHidden = targetIndex != 0
 //        stackView.isHidden = isHidden
     }

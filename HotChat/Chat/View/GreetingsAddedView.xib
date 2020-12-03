@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SayHellowAddViewController" customModule="HotChat" customModuleProvider="target">
+            <connections>
+                <outlet property="addButton" destination="loz-cl-eVH" id="lTU-Bq-0v3"/>
+                <outlet property="limitLabel" destination="hfX-aa-qhm" id="dqW-Nk-4DT"/>
+                <outlet property="textView" destination="8kk-yB-7x4" id="YfL-2N-2f4"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="GreetingsAddedView" customModule="HotChat" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="203"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Ti-vX-YwU" userLabel="Content View">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="203"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vrt-26-D7W" userLabel="Bar View">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="添加打招呼内容" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R7c-Ih-SLL">
+                                    <rect key="frame" x="149.5" y="12" width="115" height="20"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view verifyAmbiguity="ignoreSizes" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3NC-S7-Tus" customClass="SeparatorLine" customModule="HotChat" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="43" width="414" height="1"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="R7c-Ih-SLL" firstAttribute="centerY" secondItem="vrt-26-D7W" secondAttribute="centerY" id="10S-Gb-NLL"/>
+                                <constraint firstItem="3NC-S7-Tus" firstAttribute="leading" secondItem="vrt-26-D7W" secondAttribute="leading" id="3bg-Is-eZc"/>
+                                <constraint firstAttribute="height" constant="44" id="HzN-pU-RBq"/>
+                                <constraint firstItem="R7c-Ih-SLL" firstAttribute="centerX" secondItem="vrt-26-D7W" secondAttribute="centerX" id="MoA-sT-YlH"/>
+                                <constraint firstAttribute="bottom" secondItem="3NC-S7-Tus" secondAttribute="bottom" id="fIb-A5-xzD"/>
+                                <constraint firstAttribute="trailing" secondItem="3NC-S7-Tus" secondAttribute="trailing" id="iX2-dt-XSe"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jpw-Pl-iIX" userLabel="Tab View">
+                            <rect key="frame" x="0.0" y="159" width="414" height="44"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="loz-cl-eVH">
+                                    <rect key="frame" x="12" y="5" width="390" height="34"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="34" id="aoc-Xb-7oD"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <state key="normal" title="确定添加">
+                                        <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="0.5"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                            <color key="value" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="17"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="addButtonTapped:" destination="-1" eventType="touchUpInside" id="WAI-RW-pIP"/>
+                                    </connections>
+                                </button>
+                                <view verifyAmbiguity="ignoreSizes" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KJC-xs-6SL" customClass="SeparatorLine" customModule="HotChat" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="8" width="414" height="1"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="KJC-xs-6SL" secondAttribute="trailing" id="Gn1-LI-MCa"/>
+                                <constraint firstItem="KJC-xs-6SL" firstAttribute="top" secondItem="jpw-Pl-iIX" secondAttribute="top" id="Kid-kV-PMa"/>
+                                <constraint firstItem="loz-cl-eVH" firstAttribute="leading" secondItem="jpw-Pl-iIX" secondAttribute="leading" constant="12" id="LdD-4Y-idZ"/>
+                                <constraint firstAttribute="trailing" secondItem="loz-cl-eVH" secondAttribute="trailing" constant="12" id="W7Q-9f-cHp"/>
+                                <constraint firstAttribute="height" constant="44" id="ZRH-9r-5lx"/>
+                                <constraint firstItem="KJC-xs-6SL" firstAttribute="leading" secondItem="jpw-Pl-iIX" secondAttribute="leading" id="Zes-aj-K0Q"/>
+                                <constraint firstItem="loz-cl-eVH" firstAttribute="centerY" secondItem="jpw-Pl-iIX" secondAttribute="centerY" id="vAI-8m-Mea"/>
+                            </constraints>
+                        </view>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8kk-yB-7x4" customClass="PlaceholderTextView" customModule="HotChat" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="44" width="414" height="115"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="115" id="Wdk-fX-Ht3"/>
+                            </constraints>
+                            <color key="textColor" systemColor="labelColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="有趣活泼的内容更容易获得回复"/>
+                            </userDefinedRuntimeAttributes>
+                        </textView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfX-aa-qhm">
+                            <rect key="frame" x="375.5" y="136" width="26.5" height="15"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="8kk-yB-7x4" secondAttribute="trailing" id="4hG-MZ-hLh"/>
+                        <constraint firstItem="8kk-yB-7x4" firstAttribute="leading" secondItem="7Ti-vX-YwU" secondAttribute="leading" id="8nZ-BS-abl"/>
+                        <constraint firstAttribute="trailing" secondItem="jpw-Pl-iIX" secondAttribute="trailing" id="C7O-ye-dAU"/>
+                        <constraint firstItem="hfX-aa-qhm" firstAttribute="bottom" secondItem="8kk-yB-7x4" secondAttribute="bottom" constant="-8" id="V6h-mH-bhb"/>
+                        <constraint firstAttribute="trailing" secondItem="vrt-26-D7W" secondAttribute="trailing" id="Vpg-n1-O0q"/>
+                        <constraint firstAttribute="bottom" secondItem="jpw-Pl-iIX" secondAttribute="bottom" id="bP8-ba-5yc"/>
+                        <constraint firstItem="vrt-26-D7W" firstAttribute="leading" secondItem="7Ti-vX-YwU" secondAttribute="leading" id="ekp-Lh-M5O"/>
+                        <constraint firstAttribute="trailing" secondItem="hfX-aa-qhm" secondAttribute="trailing" constant="12" id="kGb-tZ-1za"/>
+                        <constraint firstItem="jpw-Pl-iIX" firstAttribute="leading" secondItem="7Ti-vX-YwU" secondAttribute="leading" id="pfh-tg-PU7"/>
+                        <constraint firstItem="vrt-26-D7W" firstAttribute="top" secondItem="7Ti-vX-YwU" secondAttribute="top" id="qoq-H5-HxR"/>
+                        <constraint firstItem="jpw-Pl-iIX" firstAttribute="top" secondItem="8kk-yB-7x4" secondAttribute="bottom" id="rbS-f7-8Vg"/>
+                        <constraint firstItem="8kk-yB-7x4" firstAttribute="top" secondItem="vrt-26-D7W" secondAttribute="bottom" id="thp-XX-D5b"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="7Ti-vX-YwU" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="I7d-1u-RD9"/>
+                <constraint firstItem="7Ti-vX-YwU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Oob-kg-HtZ"/>
+                <constraint firstItem="7Ti-vX-YwU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="t2k-pC-3g9"/>
+                <constraint firstAttribute="trailing" secondItem="7Ti-vX-YwU" secondAttribute="trailing" id="zTY-vk-45d"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="137.68115942028987" y="132.92410714285714"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="3NC-S7-Tus">
+            <size key="intrinsicContentSize" width="414" height="1"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

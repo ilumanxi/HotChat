@@ -90,12 +90,15 @@ enum OnlineStatus: Int, HandyJSONEnum {
 }
 
 enum ValidationStatus: Int, HandyJSONEnum {
-    /// 未认证
+    /// 未审核
     case empty = 0
-    /// 审核中
-    case validating = 2
+    
     /// 审核通过
     case ok = 1
+    
+    /// 审核中
+    case validating = 2
+
     /// 审核失败
     case failed = 3
 }

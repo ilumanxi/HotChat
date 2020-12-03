@@ -24,7 +24,8 @@ extension LabelView {
             image = UIImage(named: "me-sex-woman")
             backgroundColor = UIColor(hexString: "#FB64F9")
         }
-        text = Date(timeIntervalSince1970: user.birthday).age.description
+//        text = Date(timeIntervalSince1970: user.birthday).age.description
+        text = user.age.description
         
     }
 }

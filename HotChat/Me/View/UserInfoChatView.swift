@@ -9,33 +9,55 @@
 import UIKit
 
 class UserInfoChatView: UIView {
-
-    let onPushing = Delegate<(), (User, UINavigationController)>()
     
+    enum State {
+        case `default`
+        case sayHellow
+        case notSayHellow
+    }
+    
+    let onPushing = Delegate<(), (User, UINavigationController)>()
+    let onSayHellowed = Delegate<Void, Void>()
     
     @IBOutlet weak var stackView: UIStackView!
     
     @IBOutlet weak var sayHellowButton: UIButton!
     
-    override class func awakeFromNib() {
-        super.awakeFromNib()
-
-    }
-    override func didMoveToSuperview() {
-        super.didMoveToSuperview()
-        if LoginManager.shared.user!.girlStatus {
-            stackView.isHidden = true
-            sayHellowButton.isHidden = false
+    var state: State = .default {
+        didSet{
+            changeState()
         }
-        else {
-            stackView.isHidden = false
-            sayHellowButton.isHidden = true
-        }
-        
-        isHidden = !LoginManager.shared.currentVersionApproved
     }
     
-    var user: User!
+    func changeState()  {
+        
+        switch state {
+        case .default:
+            stackView.isHidden = false
+            sayHellowButton.isHidden = true
+            
+        case .sayHellow:
+            stackView.isHidden = true
+            sayHellowButton.isHidden = false
+            sayHellowButton.isEnabled = true
+            sayHellowButton.setImage(UIImage(named: "say-hello"), for: .normal)
+            sayHellowButton.setTitle("和ta打招呼", for: .normal)
+            sayHellowButton.backgroundColor = UIColor(hexString: "#FF608F")
+        case .notSayHellow:
+            stackView.isHidden = true
+            sayHellowButton.isHidden = false
+            sayHellowButton.isEnabled = false
+            sayHellowButton.setImage(nil, for: .normal)
+            sayHellowButton.setTitle("已打过招呼，TA回复后即可畅聊", for: .normal)
+            sayHellowButton.setTitleColor(.white, for: .normal)
+            sayHellowButton.backgroundColor = UIColor(hexString: "#C7C7C7")
+        }
+    }
+    
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        isHidden = !LoginManager.shared.currentVersionApproved
+    }
     
     @IBAction func chatButtonTapped(_ sender: Any) {
         
@@ -76,11 +98,19 @@ class UserInfoChatView: UIView {
         
         let (user, navigationController) = data
         
-        let info = TUIConversationCellData()
-        info.userID = user.userId
-        let vc  = ChatViewController(conversation: info)!
-        vc.title = user.nick
-        navigationController.pushViewController(vc, animated: true)
+        let vc = SayHellowViewController()
+        vc.onAddButtonDidTapped.delegate(on: self) { (self, _) in
+            let settingVC = SayHellowSettingViewController()
+            navigationController.pushViewController(settingVC, animated: true)
+        }
+        vc.onSayHellowButtonDidTapped.delegate(on: self) { (self, message) in
+            let data = TUITextMessageCellData(direction: .MsgDirectionOutgoing)
+            data.content = message
+            GiftManager.shared().sendGiftMessage(data, userID: user.userId)
+            self.onSayHellowed.call()
+        }
+        navigationController.present(vc, animated: true, completion: nil)
+        
     }
     
 }

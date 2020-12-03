@@ -76,14 +76,48 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        chatViewState()
+    }
+    
     private let chatViewHeight: CGFloat = 48
     
     private var chatView: UserInfoChatView!
     
     
+    let API = Request<ChatGreetAPI>()
+    
+    func chatViewState() {
+        if LoginManager.shared.user!.girlStatus {
+            API.request(.checkGreet(toUserId: user.userId), type: Response<[String : Any]>.self)
+                .verifyResponse()
+                .subscribe(onSuccess: { [weak self] response in
+
+                    guard let resultCode = response.data?["resultCode"] as? Int else { return }
+                    
+                    if resultCode == 1005 {
+                        self?.chatView?.state = .sayHellow
+                    }
+                    else if resultCode == 1006 {
+                        self?.chatView?.state = .default
+                    }
+                    else if resultCode == 1007 {
+                        self?.chatView?.state = .notSayHellow
+                    }
+                    
+                }, onError: nil)
+                .disposed(by: rx.disposeBag)
+        }
+    }
+    
     private func setupChatView() {
         
         chatView = UserInfoChatView.loadFromNib()
+        chatView.onSayHellowed.delegate(on: self) { (self, _) in
+            self.chatViewState()
+        }
+        
         chatView.onPushing.delegate(on: self) { (self, _) -> (User, UINavigationController) in
             return (self.user, self.navigationController!)
         }
@@ -97,9 +131,8 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
             maker.bottom.equalToSuperview().offset(-34)
         }
         
-        if #available(iOS 11.0, *) {
-            additionalSafeAreaInsets = UIEdgeInsets(top: 0, left: 0, bottom: 48, right: 0)
-        }
+        chatView.state = LoginManager.shared.user!.girlStatus ? .sayHellow : .default
+        additionalSafeAreaInsets = UIEdgeInsets(top: 0, left: 0, bottom: 82, right: 0)
     }
     
     func endRefreshing(noContent: Bool = false) {
@@ -277,7 +310,7 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
             let photos = (0..<imageViews.count)
                 .compactMap { index -> GKPhoto? in
                     let photo = GKPhoto()
-                    photo.url = URL(string: dynamic.photoList[index].picUrl)
+                    photo.url = URL(string: dynamic.photoList[index].picUrl)!
                     photo.sourceImageView = imageViews[index]
                     return photo
                 }
@@ -288,7 +321,7 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
             browser.loadStyle = .indeterminateMask
             browser.maxZoomScale = 20
             browser.doubleZoomScale = 2
-            
+            browser.isFollowSystemRotation = true
             browser.show(fromVC: self)
         }
         
