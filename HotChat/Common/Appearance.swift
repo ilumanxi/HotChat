@@ -19,22 +19,17 @@ class Appearance {
     func configure() {
         
         let backButtonBackgroundImage = UIImage(named: "navigation-bar-back")
-//        let navigationBarBackgroundImage =  UIImage(color: .white, size: CGSize(width: UIScreen.main.bounds.width * scale, height: 88.0 * scale))
         
         let navigationBarAppearance = UINavigationBar.appearance()
-//        navigationBarAppearance.isTranslucent = false
         navigationBarAppearance.shadowImage = UIImage()
         navigationBarAppearance.backIndicatorImage = backButtonBackgroundImage
         navigationBarAppearance.backIndicatorTransitionMaskImage = backButtonBackgroundImage
         navigationBarAppearance.barTintColor = .white
-//        navigationBarAppearance.setBackgroundImage(navigationBarBackgroundImage, for: .default)
         navigationBarAppearance.titleTextAttributes = [
             .font : UIFont.navigationBarTitle,
             .foregroundColor : UIColor.titleBlack]
         
         let barButtonAppearance = UIBarButtonItem.appearance()
-        
-//        barButtonAppearance.setBackButtonTitlePositionAdjustment(UIOffset(horizontal: 0, vertical: -5), for: .default)
         
         barButtonAppearance.tintColor = UIColor(hexString: "#333333")
         
@@ -50,6 +45,9 @@ class Appearance {
         tableView.backgroundColor = .separator
         
         let tabBar = UITabBar.appearance()
+        tabBar.shadowImage = UIImage()
+        tabBar.barTintColor = .white
+        tabBar.isTranslucent = true
         tabBar.tintColor = .theme
         tabBar.unselectedItemTintColor = UIColor(hexString: "#333333")
         

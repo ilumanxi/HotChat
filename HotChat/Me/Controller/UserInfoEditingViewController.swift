@@ -239,8 +239,11 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay, St
         tableView.reloadData()
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 修复返回出现黑屏
+        extendedLayoutIncludesOpaqueBars = true
         setupUI()
         refreshData()
         

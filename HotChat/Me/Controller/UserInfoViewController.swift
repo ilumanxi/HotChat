@@ -98,6 +98,7 @@ class UserInfoViewController: SegementSlideDefaultViewController, LoadingStateTy
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        edgesForExtendedLayout = .all
         defaultSelectedIndex = 0
         updateNavigationBarStyle(scrollView)
         navigationItem.title = user.nick
@@ -254,9 +255,10 @@ class UserInfoViewController: SegementSlideDefaultViewController, LoadingStateTy
         let color = UIColor.textBlack.withAlphaComponent(alpha)
 
         hbd_barAlpha = Float(alpha)
+//        hbd_barTintColor = UIColor.white.withAlphaComponent(alpha)
         hbd_titleTextAttributes = [
             NSAttributedString.Key.foregroundColor : color]
-          hbd_setNeedsUpdateNavigationBar()
+        hbd_setNeedsUpdateNavigationBar()
     }
     
     

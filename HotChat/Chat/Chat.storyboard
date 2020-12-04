@@ -526,13 +526,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="96O-yC-Z5D" customClass="KolodaView" customModule="Koloda">
-                                <rect key="frame" x="20" y="82.5" width="374" height="464"/>
+                                <rect key="frame" x="20" y="216" width="374" height="464"/>
                                 <constraints>
                                     <constraint firstAttribute="height" secondItem="96O-yC-Z5D" secondAttribute="width" multiplier="1:1" constant="90" id="IAg-RI-ZOQ"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="V1N-me-lhO">
-                                <rect key="frame" x="122" y="576.5" width="170" height="60"/>
+                                <rect key="frame" x="122" y="778" width="170" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBH-YE-4u2">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
@@ -565,11 +565,11 @@
                         <viewLayoutGuide key="safeArea" id="uwl-Ha-Cw5"/>
                         <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="96O-yC-Z5D" firstAttribute="centerY" secondItem="jjh-m0-1pA" secondAttribute="centerY" id="1wc-eV-RnP"/>
                             <constraint firstItem="g3h-ho-Q7N" firstAttribute="centerX" secondItem="jjh-m0-1pA" secondAttribute="centerX" id="8h3-3b-EOU"/>
                             <constraint firstItem="V1N-me-lhO" firstAttribute="centerX" secondItem="jjh-m0-1pA" secondAttribute="centerX" id="KAl-HO-7CU"/>
-                            <constraint firstItem="96O-yC-Z5D" firstAttribute="top" secondItem="g3h-ho-Q7N" secondAttribute="bottom" constant="10" id="P3q-Zr-kSk"/>
                             <constraint firstItem="uwl-Ha-Cw5" firstAttribute="trailing" secondItem="96O-yC-Z5D" secondAttribute="trailing" constant="20" id="UbD-aT-pOb"/>
-                            <constraint firstItem="V1N-me-lhO" firstAttribute="top" secondItem="96O-yC-Z5D" secondAttribute="bottom" constant="30" id="dLj-iF-zUc"/>
+                            <constraint firstItem="uwl-Ha-Cw5" firstAttribute="bottom" secondItem="V1N-me-lhO" secondAttribute="bottom" constant="24" id="dFJ-ba-qnX"/>
                             <constraint firstItem="96O-yC-Z5D" firstAttribute="leading" secondItem="uwl-Ha-Cw5" secondAttribute="leading" constant="20" id="qxB-57-7OS"/>
                             <constraint firstItem="g3h-ho-Q7N" firstAttribute="top" secondItem="uwl-Ha-Cw5" secondAttribute="top" constant="15" id="rRD-Qx-WNg"/>
                         </constraints>

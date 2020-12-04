@@ -45,25 +45,7 @@ class BaseNavigationController: HBDNavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        let backButtonBackgroundImage = UIImage(named: "navigation-bar-back")
-//        let scale: CGFloat = UIScreen.main.scale
-//        let navigationBarBackgroundImage =  UIImage(color: .red, size: CGSize(width: UIScreen.main.bounds.width * scale, height: 44.0 * scale))
-//        
-////        let navigationBarAppearance = UINavigationBar.appearance(whenContainedInInstancesOf: [BaseNavigationController.self])
-//        let navigationBarAppearance = self.navigationBar
-//        navigationBarAppearance.isTranslucent = false
-//        navigationBarAppearance.shadowImage = UIImage()
-//        navigationBarAppearance.backIndicatorImage = backButtonBackgroundImage
-////        navigationBarAppearance.backIndicatorTransitionMaskImage = backButtonBackgroundImage
-//        navigationBarAppearance.setBackgroundImage(navigationBarBackgroundImage, for: .default)
-//        navigationBarAppearance.titleTextAttributes = [
-//            .font : UIFont.navigationBarTitle,
-//            .foregroundColor : UIColor.titleBlack]
-        
-        
-        
-        
+    
         self.viewControllers.forEach {
             let backBarButtton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
             $0.navigationItem.backBarButtonItem = backBarButtton
@@ -73,25 +55,11 @@ class BaseNavigationController: HBDNavigationController {
     
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         
-        
         viewController.hidesBottomBarWhenPushed =  viewControllers.count > 0 ? viewController.hidesTabBarWhenPushed : false
         
         // Provide an empty backBarButton to hide the 'Back' text present by default in the back button.
         let backBarButtton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         viewController.navigationItem.backBarButtonItem = backBarButtton
-        
-        /// hidden NavigationBar back text
-        //        let backBarButtton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        //        viewController.navigationItem.backBarButtonItem = backBarButtton
-        
-//        if viewControllers.count > 0 && viewController.navigationItem.leftBarButtonItems == nil {
-//
-//            let backButton = BackButton(type: .custom)
-//            backButton.addTarget(self, action:  #selector(pop), for: .touchUpInside)
-//            backButton.setImage(viewController.backBarButtonImage, for: .normal)
-//            let backBarButtton = UIBarButtonItem(customView: backButton)
-//            viewController.navigationItem.leftBarButtonItem = backBarButtton
-//        }
         
         if let tableViewController = viewController as? UITableViewController, tableViewController.tableView.style == .grouped {
             tableViewController.tableView.hiddenHeader()

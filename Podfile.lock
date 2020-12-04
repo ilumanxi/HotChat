@@ -121,7 +121,7 @@ PODS:
     - TXIMSDK_iOS (= 5.1.2)
     - TXLiteAVSDK_TRTC (= 7.8.9519)
   - TXLiteAVSDK_TRTC (7.8.9519)
-  - TZImagePickerController (3.5.5)
+  - TZImagePickerController (3.5.6)
   - WechatOpenSDK (1.8.7.1)
   - WKWebViewJavascriptBridge (1.2.1)
 
@@ -269,7 +269,7 @@ SPEC CHECKSUMS:
   TXIMSDK_iOS: b3bb21a7d2c0ec7dbe61fda67825b82e2ecd64b4
   TXIMSDK_TUIKit_iOS: ab4afb63efea2bde0623657a664ec6ab18673180
   TXLiteAVSDK_TRTC: c127880c4dbe844bdc7575a655be8042ce96024a
-  TZImagePickerController: e2bf4a66b4d2afe9913077e336b2b3ca4b15ec98
+  TZImagePickerController: c03f760cf13b45e0acf5c3d7a1f7be628489344b
   WechatOpenSDK: 6a4d1436c15b3b5fe2a0bd383f3046010186da44
   WKWebViewJavascriptBridge: 07ad0cab27cd61ccdb90b5deb223f6df3a03c3d7
 

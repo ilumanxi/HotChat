@@ -37,7 +37,7 @@ class DiscoverViewController: SegementSlideDefaultViewController, LoadingStateTy
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        self.edgesForExtendedLayout = .all
         state = .loadingContent
         requestData()
     }
