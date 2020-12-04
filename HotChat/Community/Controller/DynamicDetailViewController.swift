@@ -115,6 +115,7 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
         
         chatView = UserInfoChatView.loadFromNib()
         chatView.onSayHellowed.delegate(on: self) { (self, _) in
+            self.chatView.state = .notSayHellow
             self.chatViewState()
         }
         

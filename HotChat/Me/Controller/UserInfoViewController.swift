@@ -194,6 +194,7 @@ class UserInfoViewController: SegementSlideDefaultViewController, LoadingStateTy
         
         chatView = UserInfoChatView.loadFromNib()
         chatView.onSayHellowed.delegate(on: self) { (self, _) in
+            self.chatView.state = .notSayHellow
             self.chatViewState()
         }
         chatView.onPushing.delegate(on: self) { (self, _) -> (User, UINavigationController) in

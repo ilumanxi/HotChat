@@ -9,6 +9,20 @@
 import UIKit
 import SegementSlide
 
+extension Sex {
+    
+    var headerText: String {
+        
+        switch self {
+        case .female:
+            return "类型"
+        default:
+            return "喜欢的类型"
+        }
+    }
+    
+}
+
 class InformationViewController: UITableViewController, SegementSlideContentScrollViewDelegate, StoryboardCreate {
     
     
@@ -87,12 +101,13 @@ class InformationViewController: UITableViewController, SegementSlideContentScro
         
         if let _ = user {
             
+            
             var sections: [FormSection] = [
                 FormSection(entries: [information], headerText: "ta的信息")
             ]
             
             if !user.labelList.isEmpty {
-                sections.append(FormSection(entries: [likeObject], headerText: "ta的类型"))
+                sections.append(FormSection(entries: [likeObject], headerText: user.sex.headerText))
             }
             
             if !user.tipsList.isEmpty {
