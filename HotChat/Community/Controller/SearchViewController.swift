@@ -32,7 +32,8 @@ class SearchBarContainerView: UIView {
     func setupViews() {
         addSubview(searchBar)
         searchBar.snp.makeConstraints { maker in
-            maker.edges.equalToSuperview()
+            maker.leading.trailing.centerY.equalToSuperview()
+            maker.top.bottom.greaterThanOrEqualToSuperview()
         }
     }
     

@@ -49,7 +49,7 @@ class ReportViewController: UIViewController, IndicatorDisplay, StoryboardCreate
     
     
     @IBAction func closeButtonTapped(_ sender: Any) {
-        dismiss(animated: false, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     
@@ -75,7 +75,7 @@ class ReportViewController: UIViewController, IndicatorDisplay, StoryboardCreate
                 .subscribe(onSuccess: { [weak self] reponse in
                     self?.hideIndicatorFromWindow()
                     self?.showMessageOnWindow(reponse.msg)
-                    self?.dismiss(animated: false, completion: nil)
+                    self?.dismiss(animated: true, completion: nil)
                 }, onError: { [weak self] error in
                     self?.hideIndicatorFromWindow()
                     self?.showMessageOnWindow(error.localizedDescription)
@@ -91,7 +91,7 @@ class ReportViewController: UIViewController, IndicatorDisplay, StoryboardCreate
                 .subscribe(onSuccess: { [weak self] reponse in
                     self?.hideIndicatorFromWindow()
                     self?.showMessageOnWindow(reponse.msg)
-                    self?.dismiss(animated: false, completion: nil)
+                    self?.dismiss(animated: true, completion: nil)
                 }, onError: { [weak self] error in
                     self?.hideIndicatorFromWindow()
                     self?.showMessageOnWindow(error.localizedDescription)

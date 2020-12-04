@@ -54,6 +54,11 @@ class UserInfoChatView: UIView {
         }
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        changeState()
+    }
+    
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         isHidden = !LoginManager.shared.currentVersionApproved
