@@ -44,10 +44,11 @@ class SayHellowSettingViewController: UIViewController, LoadingStateType, Indica
     
     let API = Request<ChatGreetAPI>()
     
+    let limitCount: Int = 15
+    
     var data: [ChatGreet] = []
     {
         didSet {
-            
             tableView?.reloadData()
         }
     }
@@ -105,6 +106,11 @@ class SayHellowSettingViewController: UIViewController, LoadingStateType, Indica
     }
     
     @IBAction func addButtonTapped(_ sender: Any) {
+
+        if data.count >= limitCount {
+            show("提示“最多添加\(limitCount)条招呼语")
+            return
+        }
         
         let vc = SayHellowAddViewController()
         vc.onAdded.delegate(on: self) { (self, _) in

@@ -331,14 +331,46 @@
                                     <outlet property="delegate" destination="7kL-bk-kMs" id="EsW-NC-qsF"/>
                                 </connections>
                             </collectionView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IDV-b8-j08">
-                                <rect key="frame" x="0.0" y="770.5" width="414" height="91.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="IDV-b8-j08">
+                                <rect key="frame" x="0.0" y="754" width="414" height="108"/>
                                 <subviews>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yep-6Z-zh1">
+                                        <rect key="frame" x="334.5" y="-63.5" width="79.5" height="63.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Zx-Mf-jrb" customClass="QMUIButton">
+                                                <rect key="frame" x="8" y="0.0" width="63.5" height="63.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="63.5" id="Xkp-U7-sef"/>
+                                                    <constraint firstAttribute="height" constant="63.5" id="i7K-zN-FES"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <state key="normal" title="签到" image="signin-form" backgroundImage="signin-form-bg"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="spacingBetweenImageAndTitle">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="imagePosition">
+                                                        <integer key="value" value="0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="checkInButtonTapped:" destination="7kL-bk-kMs" eventType="touchUpInside" id="mHs-aF-s4i"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailingMargin" secondItem="4Zx-Mf-jrb" secondAttribute="trailing" id="87M-2w-G0c"/>
+                                            <constraint firstItem="4Zx-Mf-jrb" firstAttribute="top" secondItem="Yep-6Z-zh1" secondAttribute="top" id="Jbv-Ik-fpV"/>
+                                            <constraint firstItem="4Zx-Mf-jrb" firstAttribute="leading" secondItem="Yep-6Z-zh1" secondAttribute="leadingMargin" id="Lt8-Qw-N4x"/>
+                                            <constraint firstAttribute="bottom" secondItem="4Zx-Mf-jrb" secondAttribute="bottom" id="oYG-Vr-XQt"/>
+                                        </constraints>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6au-A1-Zjn">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="47.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYm-Ia-B2O">
-                                                <rect key="frame" x="308" y="0.0" width="98" height="35.5"/>
+                                                <rect key="frame" x="308" y="0.0" width="98" height="38"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <inset key="titleEdgeInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="发布动态" image="community-dynamic" backgroundImage="send-bg"/>
@@ -354,7 +386,6 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="47.5" id="Hsh-Dj-SQ5"/>
                                             <constraint firstItem="yYm-Ia-B2O" firstAttribute="top" secondItem="6au-A1-Zjn" secondAttribute="top" id="LXy-44-4oe"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="yYm-Ia-B2O" secondAttribute="trailing" id="PZH-s1-GY8"/>
                                             <constraint firstAttribute="bottom" secondItem="yYm-Ia-B2O" secondAttribute="bottom" constant="12" id="RkV-27-VKs"/>
@@ -362,7 +393,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4hH-iS-nJa">
-                                        <rect key="frame" x="0.0" y="47.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="64" width="414" height="44"/>
                                         <subviews>
                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zu5-jj-iom">
                                                 <rect key="frame" x="88" y="13.5" width="238" height="17"/>
@@ -435,6 +466,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="checkInView" destination="Yep-6Z-zh1" id="JSJ-Gw-R5t"/>
                         <outlet property="collectionView" destination="1ga-r6-SZX" id="XwY-Ju-lsE"/>
                         <outlet property="phoneBindingView" destination="4hH-iS-nJa" id="3SQ-Er-YQQ"/>
                     </connections>
@@ -949,6 +981,8 @@
         <image name="modal-close" width="16" height="16"/>
         <image name="more" width="3" height="14"/>
         <image name="send-bg" width="98" height="35.5"/>
+        <image name="signin-form" width="25.5" height="24"/>
+        <image name="signin-form-bg" width="63.5" height="63.5"/>
         <image name="tabbar-community-normal" width="19" height="19"/>
         <image name="tabbar-community-selected" width="19" height="19"/>
         <systemColor name="labelColor">

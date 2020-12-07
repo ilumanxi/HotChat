@@ -42,7 +42,9 @@ struct ResponseStateType: HandyJSON, State {
         
         let errorDescription = msgs.first { !$0.isEmpty } ?? "未知错误"
         
-        return NSError(domain: "HotChatError", code: 1, userInfo: [NSLocalizedDescriptionKey: errorDescription])
+        let code = [resulutCode, faceCode].first { $0 != 0 } ?? 0
+        
+        return NSError(domain: "", code: code, userInfo: [NSLocalizedDescriptionKey: errorDescription])
     }
     
 }
@@ -81,7 +83,7 @@ struct Response<T: HandyJSON>: HandyJSON, State {
             return nil
         }
         
-        return NSError(domain: "HotChatError", code: 1, userInfo: [NSLocalizedDescriptionKey: msg])
+        return NSError(domain: "HotChatError", code: code, userInfo: [NSLocalizedDescriptionKey: msg])
     }
 }
 

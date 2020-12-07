@@ -49,6 +49,7 @@ PODS:
     - RxSwift (~> 5.0)
   - "NSObject+Rx (5.1.0)":
     - RxSwift (~> 5.1)
+  - PIPKit (0.2.0)
   - pop (1.0.12)
   - ReachabilitySwift (4.3.1)
   - ReactiveObjC (3.1.1)
@@ -148,6 +149,7 @@ DEPENDENCIES:
   - Moya/Core
   - Moya/RxSwift
   - "NSObject+Rx"
+  - PIPKit
   - Reusable
   - RxCocoa
   - RxCoreLocation
@@ -193,6 +195,7 @@ SPEC REPOS:
     - MMLayout
     - Moya
     - "NSObject+Rx"
+    - PIPKit
     - pop
     - ReachabilitySwift
     - ReactiveObjC
@@ -245,6 +248,7 @@ SPEC CHECKSUMS:
   MMLayout: 3fb59d58eeb8656c64e61d550fb0088e10666c11
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   "NSObject+Rx": fa6bbcc1ab1faa06b01466bc09b1e0692bbc5946
+  PIPKit: 00fd62aa4967f9cef1eca1a5587d3192c23881e1
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
@@ -273,6 +277,6 @@ SPEC CHECKSUMS:
   WechatOpenSDK: 6a4d1436c15b3b5fe2a0bd383f3046010186da44
   WKWebViewJavascriptBridge: 07ad0cab27cd61ccdb90b5deb223f6df3a03c3d7
 
-PODFILE CHECKSUM: 71ea68ac0e2a3f7b61287e2f230d65b77d349a9a
+PODFILE CHECKSUM: 7d7b0470fae1eb59d2cf495a8fcc0ac19f390b2f
 
 COCOAPODS: 1.10.0

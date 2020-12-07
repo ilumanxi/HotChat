@@ -45,9 +45,15 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     
     let upgradeAPI = Request<UpgradeAPI>()
     
+    let checkInAPI = Request<CheckInAPI>()
+    
     var dynamics: [Dynamic] = []
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    var checkInResult: CheckInResult?
+    
+    @IBOutlet weak var checkInView: UIView!
     
     @IBOutlet weak var phoneBindingView: UIView!
     
@@ -105,6 +111,7 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         checkUserInitState()
+        checkInState()
     }
     
     
@@ -113,6 +120,21 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
             let vc = UserInformationViewController.loadFromStoryboard()
             navigationController?.pushViewController(vc, animated: false)
         }
+    }
+    
+    func checkInState() {
+        
+        checkInAPI.request(.checkUserSignInfo, type: Response<CheckInResult>.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { [weak self] response in
+                self?.checkInResult = response.data
+                self?.checkInView.isHidden = false
+                
+            }, onError: { [weak self] error in
+                self?.checkInResult = nil
+                self?.checkInView.isHidden = true
+            })
+            .disposed(by: rx.disposeBag)
     }
     
     
@@ -254,6 +276,15 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
                 self?.show(error.localizedDescription)
             })
             .disposed(by: rx.disposeBag)
+    }
+    
+    
+    @IBAction func checkInButtonTapped(_ sender: Any) {
+        let vc = CheckInViewController(day: checkInResult!.day)
+        vc.onCheckInSucceed.delegate(on: self) { (self, _) in
+            self.checkInState()
+        }
+        present(vc, animated: true, completion: nil)
     }
     
     @IBAction func bingPhone(_ sender: Any) {

@@ -37,6 +37,7 @@ target 'HotChat' do
     pod 'MagazineLayout'
     pod 'Blueprints'
     pod 'WKWebViewJavascriptBridge'
+    pod 'PIPKit'
     
     pod 'SYBPush-normal', '1.6.2.1'
     pod 'TXIMSDK_TUIKit_iOS'

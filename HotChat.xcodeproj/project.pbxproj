@@ -53,6 +53,10 @@
 		2639536925419E8300B5E3C0 /* CardViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2639536725419E8300B5E3C0 /* CardViewCell.xib */; };
 		2639536F2541A38B00B5E3C0 /* FiledViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2639536D2541A38B00B5E3C0 /* FiledViewCell.swift */; };
 		263953702541A38B00B5E3C0 /* FiledViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2639536E2541A38B00B5E3C0 /* FiledViewCell.xib */; };
+		263A6684257E0EF200F35714 /* CheckInCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263A6682257E0EF200F35714 /* CheckInCell.swift */; };
+		263A6685257E0EF200F35714 /* CheckInCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 263A6683257E0EF200F35714 /* CheckInCell.xib */; };
+		263A66C6257E347D00F35714 /* CheckIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263A66C5257E347D00F35714 /* CheckIn.swift */; };
+		263A66CA257E351700F35714 /* CheckInAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263A66C9257E351700F35714 /* CheckInAPI.swift */; };
 		263BC1E225494EA20081F5DF /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 263BC1E125494EA20081F5DF /* UIView+Additions.m */; };
 		263BC21D254956950081F5DF /* CallMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 263BC21C254956950081F5DF /* CallMenuViewController.m */; };
 		263BC22D254987770081F5DF /* BeautyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 263BC22B254987770081F5DF /* BeautyViewController.m */; };
@@ -260,6 +264,8 @@
 		26E291B62554FB810032AE99 /* AvatarAuthenticationResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E291B42554FB810032AE99 /* AvatarAuthenticationResultController.swift */; };
 		26E291B72554FB810032AE99 /* AvatarAuthenticationResultController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26E291B52554FB810032AE99 /* AvatarAuthenticationResultController.xib */; };
 		26E48901257DDFD1006C2ACE /* GirdLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E488FF257DDFD1006C2ACE /* GirdLayout.m */; };
+		26E48908257E087D006C2ACE /* CheckInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E48906257E087D006C2ACE /* CheckInViewController.swift */; };
+		26E48909257E087D006C2ACE /* CheckInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26E48907257E087D006C2ACE /* CheckInViewController.xib */; };
 		26EB2DA72558F157006698F9 /* SubsidiaryAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EB2DA52558F157006698F9 /* SubsidiaryAccountCell.swift */; };
 		26EB2DA82558F157006698F9 /* SubsidiaryAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26EB2DA62558F157006698F9 /* SubsidiaryAccountCell.xib */; };
 		26EB2DCA25593FCA006698F9 /* ConsumerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EB2DC925593FCA006698F9 /* ConsumerAPI.swift */; };
@@ -395,6 +401,10 @@
 		2639536725419E8300B5E3C0 /* CardViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardViewCell.xib; sourceTree = "<group>"; };
 		2639536D2541A38B00B5E3C0 /* FiledViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiledViewCell.swift; sourceTree = "<group>"; };
 		2639536E2541A38B00B5E3C0 /* FiledViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FiledViewCell.xib; sourceTree = "<group>"; };
+		263A6682257E0EF200F35714 /* CheckInCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInCell.swift; sourceTree = "<group>"; };
+		263A6683257E0EF200F35714 /* CheckInCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckInCell.xib; sourceTree = "<group>"; };
+		263A66C5257E347D00F35714 /* CheckIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckIn.swift; sourceTree = "<group>"; };
+		263A66C9257E351700F35714 /* CheckInAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInAPI.swift; sourceTree = "<group>"; };
 		263BC1E025494EA20081F5DF /* UIView+Additions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Additions.h"; sourceTree = "<group>"; };
 		263BC1E125494EA20081F5DF /* UIView+Additions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Additions.m"; sourceTree = "<group>"; };
 		263BC21B254956950081F5DF /* CallMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CallMenuViewController.h; sourceTree = "<group>"; };
@@ -656,6 +666,8 @@
 		26E291B52554FB810032AE99 /* AvatarAuthenticationResultController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvatarAuthenticationResultController.xib; sourceTree = "<group>"; };
 		26E488FF257DDFD1006C2ACE /* GirdLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GirdLayout.m; sourceTree = "<group>"; };
 		26E48900257DDFD1006C2ACE /* GirdLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GirdLayout.h; sourceTree = "<group>"; };
+		26E48906257E087D006C2ACE /* CheckInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInViewController.swift; sourceTree = "<group>"; };
+		26E48907257E087D006C2ACE /* CheckInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckInViewController.xib; sourceTree = "<group>"; };
 		26EB2DA52558F157006698F9 /* SubsidiaryAccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubsidiaryAccountCell.swift; sourceTree = "<group>"; };
 		26EB2DA62558F157006698F9 /* SubsidiaryAccountCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubsidiaryAccountCell.xib; sourceTree = "<group>"; };
 		26EB2DC925593FCA006698F9 /* ConsumerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumerAPI.swift; sourceTree = "<group>"; };
@@ -1132,6 +1144,12 @@
 				2636A0D82564CDBF00664FFC /* UpgrateViewController.xib */,
 				26B4E05C2564FCBA004EDCFE /* AuthenticationGuideViewController.swift */,
 				26B4E05D2564FCBA004EDCFE /* AuthenticationGuideViewController.xib */,
+				26E48906257E087D006C2ACE /* CheckInViewController.swift */,
+				26E48907257E087D006C2ACE /* CheckInViewController.xib */,
+				263A6682257E0EF200F35714 /* CheckInCell.swift */,
+				263A6683257E0EF200F35714 /* CheckInCell.xib */,
+				263A66C5257E347D00F35714 /* CheckIn.swift */,
+				263A66C9257E351700F35714 /* CheckInAPI.swift */,
 				2643EB412500AD7D00FBBE49 /* Main.storyboard */,
 				2643EB462500AD7E00FBBE49 /* LaunchScreen.storyboard */,
 				26B4E0582564EB34004EDCFE /* Upgrade.swift */,
@@ -1670,6 +1688,7 @@
 				26F45503256659750028ACC5 /* EarningCell.xib in Resources */,
 				267954FF250761B600A72954 /* Discover.storyboard in Resources */,
 				2639536925419E8300B5E3C0 /* CardViewCell.xib in Resources */,
+				26E48909257E087D006C2ACE /* CheckInViewController.xib in Resources */,
 				2679550A2507748C00A72954 /* UserInfoHeaderView.xib in Resources */,
 				26E291992553EABB0032AE99 /* GiftEarningsCell.xib in Resources */,
 				2656F30F254FAC0500552611 /* GiftReminderViewController.xib in Resources */,
@@ -1681,6 +1700,7 @@
 				26DF8780255A645C002162A9 /* SwitchViewCell.xib in Resources */,
 				26AE7C342520346500B55318 /* LabelViewCell.xib in Resources */,
 				26CB6D5025515D6B00A9F4DD /* com.baidu.idl.face.model.faceSDK.bundle in Resources */,
+				263A6685257E0EF200F35714 /* CheckInCell.xib in Resources */,
 				2695903E250B170B00763061 /* InterestedCardView.xib in Resources */,
 				269DED0B254A9DD5000AD5D9 /* CallMenuViewController.xib in Resources */,
 			);
@@ -1901,6 +1921,7 @@
 				26B4E0592564EB34004EDCFE /* Upgrade.swift in Sources */,
 				2679550C25079A1F00A72954 /* UserInfoChatView.swift in Sources */,
 				2643EBAC2500B04100FBBE49 /* UserInfoInterviewCell.swift in Sources */,
+				263A6684257E0EF200F35714 /* CheckInCell.swift in Sources */,
 				265C8A42251332E900E220BD /* SigninProtocols.swift in Sources */,
 				26CB6D4525515D6B00A9F4DD /* BDFaceCircleView.m in Sources */,
 				26CBE3B62508A9C30089A23C /* CommunityHeaderView.swift in Sources */,
@@ -1951,6 +1972,7 @@
 				2656F30E254FAC0500552611 /* GiftReminderViewController.m in Sources */,
 				26CB6C3E25512A0A00A9F4DD /* BillingStatus.m in Sources */,
 				26F3D66E25482683007D9136 /* IMData.m in Sources */,
+				263A66CA257E351700F35714 /* CheckInAPI.swift in Sources */,
 				263BC22D254987770081F5DF /* BeautyViewController.m in Sources */,
 				2643EB3A2500AD7D00FBBE49 /* AppDelegate.swift in Sources */,
 				26787E2A251B21A400D511E8 /* SignaturePlugin.swift in Sources */,
@@ -1967,6 +1989,7 @@
 				2695903C250B16D700763061 /* InterestedCardView.swift in Sources */,
 				267B98772505E1AC0008C81B /* Platform.swift in Sources */,
 				26F3D67725483433007D9136 /* GiftCell.m in Sources */,
+				263A66C6257E347D00F35714 /* CheckIn.swift in Sources */,
 				2668B0A92523432A0073E25D /* WalletProductViewCell.swift in Sources */,
 				26CB6D4225515D6B00A9F4DD /* BDFaceBaseViewController.m in Sources */,
 				267B98722505E1AC0008C81B /* WeChat.swift in Sources */,
@@ -1976,6 +1999,7 @@
 				267B98752505E1AC0008C81B /* PlatformAuthorization.swift in Sources */,
 				26278B89256CFD64007044E1 /* JPGiftShowManager.m in Sources */,
 				26CD99F12578BDDD00235A8D /* ChatGreet.swift in Sources */,
+				26E48908257E087D006C2ACE /* CheckInViewController.swift in Sources */,
 				26F8947625207A9A00A45648 /* UploadFileAPI.swift in Sources */,
 				2643EBB12500B04100FBBE49 /* UserInfoBasicInformationCell.swift in Sources */,
 				2643EBAB2500B04100FBBE49 /* MeHeaderView.swift in Sources */,
