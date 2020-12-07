@@ -37,7 +37,7 @@
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="GKD-oE-maB" secondAttribute="height" multiplier="2:1" constant="-1" id="ewY-4I-3Hj"/>
                                     </constraints>
-                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0ft-RK-K2b">
+                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0ft-RK-K2b" customClass="GirdLayout">
                                         <size key="itemSize" width="128" height="128"/>
                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -48,7 +48,7 @@
                                         <outlet property="delegate" destination="-1" id="vlI-CJ-ejb"/>
                                     </connections>
                                 </collectionView>
-                                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="AVR-BV-Rkx">
+                                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="AVR-BV-Rkx">
                                     <rect key="frame" x="145.5" y="207.5" width="123" height="28"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="28" id="wJS-10-qrK"/>

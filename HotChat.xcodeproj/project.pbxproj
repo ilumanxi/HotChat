@@ -259,6 +259,7 @@
 		26E291B125541C010032AE99 /* PIPWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E291B025541C010032AE99 /* PIPWindow.m */; };
 		26E291B62554FB810032AE99 /* AvatarAuthenticationResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E291B42554FB810032AE99 /* AvatarAuthenticationResultController.swift */; };
 		26E291B72554FB810032AE99 /* AvatarAuthenticationResultController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26E291B52554FB810032AE99 /* AvatarAuthenticationResultController.xib */; };
+		26E48901257DDFD1006C2ACE /* GirdLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E488FF257DDFD1006C2ACE /* GirdLayout.m */; };
 		26EB2DA72558F157006698F9 /* SubsidiaryAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EB2DA52558F157006698F9 /* SubsidiaryAccountCell.swift */; };
 		26EB2DA82558F157006698F9 /* SubsidiaryAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26EB2DA62558F157006698F9 /* SubsidiaryAccountCell.xib */; };
 		26EB2DCA25593FCA006698F9 /* ConsumerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EB2DC925593FCA006698F9 /* ConsumerAPI.swift */; };
@@ -653,6 +654,8 @@
 		26E291B025541C010032AE99 /* PIPWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIPWindow.m; sourceTree = "<group>"; };
 		26E291B42554FB810032AE99 /* AvatarAuthenticationResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarAuthenticationResultController.swift; sourceTree = "<group>"; };
 		26E291B52554FB810032AE99 /* AvatarAuthenticationResultController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvatarAuthenticationResultController.xib; sourceTree = "<group>"; };
+		26E488FF257DDFD1006C2ACE /* GirdLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GirdLayout.m; sourceTree = "<group>"; };
+		26E48900257DDFD1006C2ACE /* GirdLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GirdLayout.h; sourceTree = "<group>"; };
 		26EB2DA52558F157006698F9 /* SubsidiaryAccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubsidiaryAccountCell.swift; sourceTree = "<group>"; };
 		26EB2DA62558F157006698F9 /* SubsidiaryAccountCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubsidiaryAccountCell.xib; sourceTree = "<group>"; };
 		26EB2DC925593FCA006698F9 /* ConsumerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumerAPI.swift; sourceTree = "<group>"; };
@@ -1430,6 +1433,8 @@
 		26F3D673254833C8007D9136 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				26E48900257DDFD1006C2ACE /* GirdLayout.h */,
+				26E488FF257DDFD1006C2ACE /* GirdLayout.m */,
 				26C80E562546CCF000F4ECBC /* ChatController.h */,
 				26C80E572546CCF000F4ECBC /* ChatController.m */,
 				26F0D2522546DA8200D1018B /* InputController.h */,
@@ -1776,6 +1781,7 @@
 				2639536F2541A38B00B5E3C0 /* FiledViewCell.swift in Sources */,
 				26EE0E4C25245BD800233ED5 /* PayAPI.swift in Sources */,
 				267954E82507311E00A72954 /* LegalLiabilityViewController.swift in Sources */,
+				26E48901257DDFD1006C2ACE /* GirdLayout.m in Sources */,
 				2684593925354EDB002B9C6E /* Reload.swift in Sources */,
 				26C3F3302542764F00CDD533 /* AnchorAuthenticationViewController.swift in Sources */,
 				26278B8A256CFD64007044E1 /* JPGiftShowView.m in Sources */,

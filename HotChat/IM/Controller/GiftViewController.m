@@ -40,11 +40,7 @@
 
 @property(nonatomic, assign) NSInteger columnCountOfPerRow;
 
-@property (nonatomic, assign) NSInteger rowCount;
 
-@property (nonatomic, strong) NSMutableDictionary *itemIndexs;
-@property (nonatomic, assign) NSInteger sectionCount;
-@property (nonatomic, assign) NSInteger itemsInSection;
 
 
 @end
@@ -65,7 +61,6 @@
     [self setupViews];
     self.columnCountOfPerRow = 4;
     self.gifts = [GiftManager shared].cahcheGiftList;
-    self.count = 1;
     
     
     [[GiftManager shared] getGiftList:^(NSArray<Gift *> * _Nonnull giftList) {
@@ -79,39 +74,10 @@
 }
 
 - (void)setGifts:(NSArray<Gift *> *)gifts {
-    
     _gifts = gifts;
-    [self setupSections];
-}
-
-- (void)setupSections {
-    
-    
-    if (_gifts.count > _columnCountOfPerRow) {
-        _rowCount = 2;
-    }
-    else {
-        _rowCount = 1;
-    }
-    
-    _itemsInSection = _columnCountOfPerRow * _rowCount;
-    _sectionCount = ceil(_gifts.count * 1.0 / _itemsInSection);
-    
-    _itemIndexs = [NSMutableDictionary dictionary];
-    for (NSInteger curSection = 0; curSection < _sectionCount; ++curSection) {
-        for (NSInteger itemIndex = 0; itemIndex < _itemsInSection; ++itemIndex) {
-            // transpose line/row
-            NSInteger row = itemIndex % _rowCount;
-            NSInteger column = itemIndex / _rowCount;
-            NSInteger reIndex = _columnCountOfPerRow * row + column + curSection * _itemsInSection;
-            [_itemIndexs setObject:@(reIndex) forKey:[NSIndexPath indexPathForRow:itemIndex inSection:curSection]];
-        }
-    }
-    
+    _pageControl.numberOfPages = self.numberOfPages;
     [self.collectionView reloadData];
 }
-
-
 
 - (void)dealloc {
     
@@ -124,7 +90,7 @@
     
     _perRowCount = 4;
     _perPageCount = 8;
-    
+    _count = 1;
     _pageControl.numberOfPages = self.numberOfPages;
     
     [_energyButton setTitle:[NSString stringWithFormat:@"%ld",(long)[LoginManager shared].user.userEnergy]  forState:UIControlStateNormal];
@@ -158,52 +124,34 @@
     return  CGSizeMake(size, size);
 }
 
-
-
-
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return _sectionCount;
+    return 1;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return _itemsInSection;
+    return self.gifts.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    GiftViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GiftViewCell" forIndexPath:indexPath];
+        GiftViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GiftViewCell" forIndexPath:indexPath];
     
-    NSNumber *index = _itemIndexs[indexPath];
-    if(index.integerValue >= _gifts.count){
-        cell.imageView.image = nil;
-        cell.nameLabel.text = nil;
-        cell.energyLabel.text = nil;
-    }
-    else{
-        Gift *gift = self.gifts[index.intValue];
+        Gift *gift = self.gifts[indexPath.row];
         [cell.imageView sd_setImageWithURL:[NSURL URLWithString:gift.img]];
         cell.nameLabel.text = gift.name;
         cell.energyLabel.text = [NSString stringWithFormat:@"%ld能量",gift.energy];
-    }
     return  cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-    NSNumber *index = _itemIndexs[indexPath];
-    if(index.integerValue >= _gifts.count){
-        return;
-    }
-    
-    
     collectionView.userInteractionEnabled = NO;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         collectionView.userInteractionEnabled = YES;
     });
     
     
-    Gift *giftData = self.gifts[index.intValue];
+    Gift *giftData = self.gifts[indexPath.row];
     giftData.count = self.count;
 
     [self afterDelayCall:giftData];
