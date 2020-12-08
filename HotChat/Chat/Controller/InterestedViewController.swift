@@ -140,6 +140,7 @@ extension InterestedViewController: KolodaViewDataSource {
         cardView.avatarImageView.kf.setImage(with: URL(string: message.headPic))
         cardView.nicknameLabel.text = message.nick
         cardView.infoLabel.text = "\(message.age)岁 \(tags)"
+        cardView.contentLabel.text = message.content
         return cardView
         
     }

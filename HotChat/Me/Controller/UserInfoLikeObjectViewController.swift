@@ -34,9 +34,7 @@ class UserInfoLikeObjectViewController: UIViewController, IndicatorDisplay, Load
     let userAPI = Request<UserAPI>()
     
     
-    var maximumCount: Int {
-        return sex == .male ? 3 : 1
-    }
+    var maximumCount: Int = 3
     
     var labels: [LikeTag] = []
     

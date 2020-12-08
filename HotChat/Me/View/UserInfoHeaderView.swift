@@ -150,7 +150,9 @@ class UserInfoHeaderView: UIView, FSPagerViewDataSource, FSPagerViewDelegate {
         vipButton.setTitle(user.vipType.description, for: .normal)
         vipButton.isHidden = user.vipType.isHidden
         authenticationButton.alpha = user.headStatus.alpha
-        
+        locationLabel.text = user.region
+        statusLabel.text = user.onlineStatus.text
+        statusLabel.textColor = user.onlineStatus.color
         if LoginManager.shared.user!.userId == user.userId {
             followButton.alpha = 0
         }
