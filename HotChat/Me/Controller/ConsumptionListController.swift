@@ -40,7 +40,7 @@ class ConsumptionListController: SegementSlideDefaultViewController {
     lazy var contentViewControllers: [ConsumerDetailsViewController] = {
         return type.list
             .map {
-                let vc = ConsumerDetailsViewController(type: $0)
+                let vc = ConsumerDetailsViewController(type: $0, dataType: type)
                 vc.title = $0.text
                 return vc
             }

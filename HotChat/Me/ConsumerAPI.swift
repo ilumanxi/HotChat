@@ -14,6 +14,7 @@ enum ConsumerAPI {
     case profitImList
     case profitGiftList(page: Int)
     case countMonthProfit
+    case profitList(page: Int, tag: Int)
 }
 
 
@@ -35,6 +36,8 @@ extension ConsumerAPI: TargetType {
             return "ConsumerDetails/profitGiftList"
         case .countMonthProfit:
             return "ConsumerDetails/countMonthProfit"
+        case .profitList:
+            return "ConsumerDetails/profitList"
         }
     }
     
@@ -66,6 +69,11 @@ extension ConsumerAPI: TargetType {
             ]
         case .countMonthProfit:
             parameters = [:]
+        case .profitList(let page, let tag):
+            parameters = [
+                "page" : page,
+                "tag": tag
+            ]
         }
         
         let encoding: ParameterEncoding = (self.method == .post) ? JSONEncoding.default : URLEncoding.default

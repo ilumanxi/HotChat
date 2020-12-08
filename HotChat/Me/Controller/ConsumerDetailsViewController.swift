@@ -25,6 +25,7 @@ class ConsumerDetailsViewController: UIViewController, SegementSlideContentScrol
     @IBOutlet weak var tableView: UITableView!
     
     let type: Checklist
+    let dataType: ChecklistType
     
     @objc var scrollView: UIScrollView {
         return tableView
@@ -40,8 +41,9 @@ class ConsumerDetailsViewController: UIViewController, SegementSlideContentScrol
     
     var data: [Consumer] = []
     
-    init(type: Checklist) {
+    init(type: Checklist, dataType: ChecklistType) {
         self.type = type
+        self.dataType = dataType
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -110,7 +112,9 @@ class ConsumerDetailsViewController: UIViewController, SegementSlideContentScrol
     
     func loadData(_ page: Int) -> Single<Response<Pagination<Consumer>>> {
          
-        return consumerAPI.request(.detailsList(page: page, tag: type.tag))
+        let target = (dataType == .wallet) ? ConsumerAPI.detailsList(page: page, tag: type.tag) : ConsumerAPI.profitList(page: page, tag: type.tag)
+        
+        return consumerAPI.request(target)
     }
     
     func handlerReponse(_ response: Response<Pagination<Consumer>>){
