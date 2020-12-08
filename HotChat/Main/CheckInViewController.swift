@@ -81,6 +81,7 @@ class CheckInViewController: UIViewController, IndicatorDisplay {
                 self?.checkInView.isHidden = true
                 self?.resultTextLabel.text = response.data?.content
                 self?.checkInSucceedView.isHidden = false
+                self?.onCheckInSucceed.call()
             }, onError: { [weak self] error in
                 self?.dismiss(animated: false, completion: nil)
                 self?.showMessageOnWindow(error.localizedDescription)
