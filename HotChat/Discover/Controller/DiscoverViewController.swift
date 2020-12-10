@@ -10,6 +10,7 @@ import UIKit
 import SegementSlide
 import RxSwift
 import RxCocoa
+import SnapKit
 
 
 class DiscoverViewController: SegementSlideDefaultViewController, LoadingStateType, IndicatorDisplay {
@@ -34,12 +35,50 @@ class DiscoverViewController: SegementSlideDefaultViewController, LoadingStateTy
     }
     
     let cache = NSCache<NSString, UIViewController>()
+    
+    let sayHellowButton: UIButton = {
+        let button = UIButton(type: .custom)
+        let text = "一键打招呼"
+        button.setTitle(text, for: .normal)
+        button.setImage(#imageLiteral(resourceName: "say-hello"), for: .normal)
+        button.setImage(UIImage(named: "say-hello-gray"), for: .disabled)
+        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(UIColor(hexString: "#333333"), for: .disabled)
+        button.backgroundColor = UIColor(hexString: "#FF608F")
+        button.titleLabel?.font = .systemFont(ofSize: 12)
+        button.layer.cornerRadius = 17
+        button.contentHorizontalAlignment = .leading
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 18, bottom: 0, right: 0)
+//        button.isEnabled = false
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.edgesForExtendedLayout = .all
         state = .loadingContent
         requestData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupViews()
+    }
+    
+    func setupViews() {
+        
+        if LoginManager.shared.user!.girlStatus {
+            view.addSubview(sayHellowButton)
+            sayHellowButton.snp.makeConstraints { maker in
+                maker.size.equalTo(CGSize(width: 110, height: 34))
+                maker.trailingMargin.equalToSuperview()
+                maker.bottom.equalTo(view.safeBottom).offset(-34)
+            }
+        }
+        else {
+            
+        }
     }
     
     func requestData() {

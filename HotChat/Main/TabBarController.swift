@@ -26,14 +26,48 @@ class TabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        observerUnReadCount()
         
         if LoginManager.shared.isAuthorized && !LoginManager.shared.user!.isInit {//更新用户信息
             LoginManager.shared.autoLogin()
         }
+        
+        // 修复消息未读数量显示问题
+        selectedIndex = 2
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+            self.selectedIndex = 0
+        }
+    }
+    
+    func observerUnReadCount() {
+        NotificationCenter.default.rx.notification(.init(TUIKitNotification_onChangeUnReadCount))
+            .subscribe(onNext: { [weak self] noti in
+                self?.onChangeUnReadCount(noti)
+            })
+            .disposed(by: rx.disposeBag)
+    }
+    
+    func onChangeUnReadCount(_ noti: Notification) {
+        
+        guard let convList = noti.object as? [V2TIMConversation] else {
+            return
+        }
+        
+        let unReadCount = convList
+            .compactMap{ $0.unreadCount }
+            .reduce(0, +)
+        
+        let viewController =  viewControllers![2]
+        
+        if unReadCount == 0 {
+            viewController.tabBarItem.badgeValue = nil
+        }
+        else {
+            viewController.tabBarItem.badgeValue = unReadCount.description
+        }
     }
 
 }
-
 
 extension UIWindow {
     static func findKeyWindow() -> UIWindow? {

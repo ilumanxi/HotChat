@@ -305,6 +305,7 @@
 		26FC88F0253ECFBB00E4D82F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FC88EF253ECFBB00E4D82F /* SearchViewController.swift */; };
 		26FC88F5253ED49000E4D82F /* SearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FC88F4253ED49000E4D82F /* SearchAPI.swift */; };
 		26FC88FA253ED66600E4D82F /* SearchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FC88F9253ED66600E4D82F /* SearchViewCell.swift */; };
+		26FCB26825820149009D845F /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FCB26725820149009D845F /* GradientView.swift */; };
 		569A62C017EE594D27BBDD0C /* libPods-HotChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1A4E29DD020804E913333F /* libPods-HotChat.a */; };
 		F305482B2532BC0800844D00 /* DynamicViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F305482A2532BC0800844D00 /* DynamicViewCell.swift */; };
 		F370D277251CE65500C2F708 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F370D276251CE65500C2F708 /* ResetPasswordViewController.swift */; };
@@ -711,6 +712,7 @@
 		26FC88EF253ECFBB00E4D82F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		26FC88F4253ED49000E4D82F /* SearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPI.swift; sourceTree = "<group>"; };
 		26FC88F9253ED66600E4D82F /* SearchViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewCell.swift; sourceTree = "<group>"; };
+		26FCB26725820149009D845F /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		316CE69C043071315F0EB71A /* Pods-HotChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotChat.debug.xcconfig"; path = "Target Support Files/Pods-HotChat/Pods-HotChat.debug.xcconfig"; sourceTree = "<group>"; };
 		41171A0CC3850914D7B2BEAA /* Pods-HotChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotChat.release.xcconfig"; path = "Target Support Files/Pods-HotChat/Pods-HotChat.release.xcconfig"; sourceTree = "<group>"; };
 		7565AD81F41183F52F23D4B1 /* Pods-HotChat-HotChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotChat-HotChatTests.debug.xcconfig"; path = "Target Support Files/Pods-HotChat-HotChatTests/Pods-HotChat-HotChatTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -994,6 +996,7 @@
 				26F25C95250A1B3800F808EA /* SeparatorLine.swift */,
 				2673FDBC255CE14400909A37 /* WebViewController.swift */,
 				2615C9F7255E8B0C009B89F4 /* PlaceholderTextView.swift */,
+				26FCB26725820149009D845F /* GradientView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1796,6 +1799,7 @@
 				264DEA142552512C00AD97DE /* GiftManager.m in Sources */,
 				26425C16251DDF64006D2F4C /* UserBasicInformationViewController.swift in Sources */,
 				2643EBC02500B04100FBBE49 /* App.swift in Sources */,
+				26FCB26825820149009D845F /* GradientView.swift in Sources */,
 				26A20AEF25189E740061BBB8 /* LoginManager.swift in Sources */,
 				26FC88F5253ED49000E4D82F /* SearchAPI.swift in Sources */,
 				2639536F2541A38B00B5E3C0 /* FiledViewCell.swift in Sources */,

@@ -81,13 +81,11 @@ class ChatViewController: ChatController, IndicatorDisplay {
         
         navigationItem.rightBarButtonItems = items
     }
-    
-    
+        
     func observerUserWallet() {
         
         updateUserWallet
             .flatMapLatest{[unowned self] in self.userWallet() }
-//            .flatMapLatest(userWallet)
             .subscribe(onNext: { response in
                 let user = LoginManager.shared.user!
                 user.userTanbi = response.data!.userTanbi

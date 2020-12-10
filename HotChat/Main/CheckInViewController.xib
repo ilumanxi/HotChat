@@ -57,9 +57,24 @@
                                 <outlet property="delegate" destination="-1" id="dQ9-dK-rFc"/>
                             </connections>
                         </collectionView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ll5-84-7Er" customClass="GradientView" customModule="HotChat" customModuleProvider="target">
+                            <rect key="frame" x="23.5" y="269" width="265" height="47"/>
+                            <color key="backgroundColor" systemColor="linkColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="23.5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="string" keyPath="colorsString" value="#FCD36B,#FF628E"/>
+                                <userDefinedRuntimeAttribute type="point" keyPath="startPoint">
+                                    <point key="value" x="0.0" y="0.5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="point" keyPath="endPoint">
+                                    <point key="value" x="1" y="0.5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j9e-2P-yHG">
                             <rect key="frame" x="23.5" y="269" width="265" height="47"/>
-                            <color key="backgroundColor" red="0.31764705882352939" green="0.34901960784313724" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="47" id="5aa-fu-sXH"/>
                             </constraints>
@@ -78,9 +93,13 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="j9e-2P-yHG" secondAttribute="bottom" constant="25.5" id="0Op-EE-b6c"/>
+                        <constraint firstItem="j9e-2P-yHG" firstAttribute="bottom" secondItem="Ll5-84-7Er" secondAttribute="bottom" id="7Fn-Td-B0t"/>
                         <constraint firstItem="UNE-7K-8eq" firstAttribute="leading" secondItem="kHW-ii-2es" secondAttribute="leading" id="AIl-jj-dUi"/>
+                        <constraint firstItem="j9e-2P-yHG" firstAttribute="leading" secondItem="Ll5-84-7Er" secondAttribute="leading" id="CqW-4f-LD3"/>
                         <constraint firstItem="Dtd-uu-qQa" firstAttribute="centerX" secondItem="kHW-ii-2es" secondAttribute="centerX" id="FNL-Uw-Ezi"/>
                         <constraint firstAttribute="width" constant="312" id="KKf-6E-XAF"/>
+                        <constraint firstItem="j9e-2P-yHG" firstAttribute="top" secondItem="Ll5-84-7Er" secondAttribute="top" id="MuX-pV-YYL"/>
+                        <constraint firstItem="j9e-2P-yHG" firstAttribute="trailing" secondItem="Ll5-84-7Er" secondAttribute="trailing" id="THP-gr-MMc"/>
                         <constraint firstAttribute="trailing" secondItem="UNE-7K-8eq" secondAttribute="trailing" id="evg-vB-9Qf"/>
                         <constraint firstItem="UNE-7K-8eq" firstAttribute="top" secondItem="3lR-pS-Pw5" secondAttribute="bottom" id="gCx-uh-JzH"/>
                         <constraint firstItem="j9e-2P-yHG" firstAttribute="top" secondItem="UNE-7K-8eq" secondAttribute="bottom" id="ibx-9x-3gG"/>
@@ -114,9 +133,24 @@
                             <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jvO-z5-4tv" customClass="GradientView" customModule="HotChat" customModuleProvider="target">
+                            <rect key="frame" x="23" y="238" width="266" height="47"/>
+                            <color key="backgroundColor" systemColor="linkColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="23.5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="string" keyPath="colorsString" value="#FCD36B,#FF628E"/>
+                                <userDefinedRuntimeAttribute type="point" keyPath="startPoint">
+                                    <point key="value" x="0.0" y="0.5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="point" keyPath="endPoint">
+                                    <point key="value" x="1" y="0.5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eP7-Sv-n8e">
                             <rect key="frame" x="23" y="238" width="266" height="47"/>
-                            <color key="backgroundColor" red="0.31764705879999999" green="0.34901960780000002" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="47" id="1ov-gJ-Muc"/>
                             </constraints>
@@ -139,11 +173,15 @@
                         <constraint firstItem="eP7-Sv-n8e" firstAttribute="top" secondItem="26g-68-6yZ" secondAttribute="bottom" constant="24" id="Jlo-qb-peo"/>
                         <constraint firstAttribute="height" constant="302" id="XJR-0R-5OM"/>
                         <constraint firstItem="26g-68-6yZ" firstAttribute="centerX" secondItem="qJQ-oS-5I6" secondAttribute="centerX" id="fdY-D9-cM0"/>
+                        <constraint firstItem="eP7-Sv-n8e" firstAttribute="top" secondItem="jvO-z5-4tv" secondAttribute="top" id="g0m-Jv-kvC"/>
                         <constraint firstItem="iGP-u1-Zqj" firstAttribute="top" secondItem="qJQ-oS-5I6" secondAttribute="top" constant="25" id="irq-VM-p6e"/>
                         <constraint firstItem="SGT-HA-ONe" firstAttribute="centerX" secondItem="qJQ-oS-5I6" secondAttribute="centerX" id="iu6-pF-nEg"/>
+                        <constraint firstItem="eP7-Sv-n8e" firstAttribute="trailing" secondItem="jvO-z5-4tv" secondAttribute="trailing" id="n1F-XU-Ykk"/>
                         <constraint firstAttribute="width" constant="312" id="qcs-m1-qJ7"/>
                         <constraint firstItem="26g-68-6yZ" firstAttribute="top" secondItem="SGT-HA-ONe" secondAttribute="bottom" constant="14" id="sgR-HQ-kSR"/>
+                        <constraint firstItem="eP7-Sv-n8e" firstAttribute="leading" secondItem="jvO-z5-4tv" secondAttribute="leading" id="tFW-cQ-wPI"/>
                         <constraint firstItem="eP7-Sv-n8e" firstAttribute="leading" secondItem="qJQ-oS-5I6" secondAttribute="leading" constant="23" id="xc2-JH-YlT"/>
+                        <constraint firstItem="eP7-Sv-n8e" firstAttribute="bottom" secondItem="jvO-z5-4tv" secondAttribute="bottom" id="xvD-6V-1Sj"/>
                         <constraint firstItem="iGP-u1-Zqj" firstAttribute="centerX" secondItem="qJQ-oS-5I6" secondAttribute="centerX" id="yVZ-28-p4z"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
@@ -166,6 +204,9 @@
     </objects>
     <resources>
         <image name="checkin-award" width="192.5" height="112"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
