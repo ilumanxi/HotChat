@@ -123,7 +123,11 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     }
     
     func checkInState() {
-        
+        if LoginManager.shared.user!.girlStatus {
+            self.checkInResult = nil
+            self.checkInView.isHidden = true
+            return
+        }
         checkInAPI.request(.checkUserSignInfo, type: Response<CheckInResult>.self)
             .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in

@@ -37,7 +37,6 @@
 		26373C75250234AC0066FF3B /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26373C74250234AC0066FF3B /* Delegate.swift */; };
 		26373C77250234D00066FF3B /* FormSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26373C76250234D00066FF3B /* FormSection.swift */; };
 		26377FBE25303D2200D5A03D /* ConversationActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26377FBD25303D2200D5A03D /* ConversationActionViewController.swift */; };
-		26377FC3253042E300D5A03D /* IM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26377FC2253042E300D5A03D /* IM.swift */; };
 		26377FCE2530526800D5A03D /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26377FCD2530526800D5A03D /* ChatViewController.swift */; };
 		2637D86D255A895B00020E98 /* TalkEarningCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637D86B255A895B00020E98 /* TalkEarningCell.swift */; };
 		2637D86E255A895B00020E98 /* TalkEarningCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2637D86C255A895B00020E98 /* TalkEarningCell.xib */; };
@@ -386,7 +385,6 @@
 		26373C74250234AC0066FF3B /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
 		26373C76250234D00066FF3B /* FormSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormSection.swift; sourceTree = "<group>"; };
 		26377FBD25303D2200D5A03D /* ConversationActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationActionViewController.swift; sourceTree = "<group>"; };
-		26377FC2253042E300D5A03D /* IM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IM.swift; sourceTree = "<group>"; };
 		26377FCD2530526800D5A03D /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		2637D86B255A895B00020E98 /* TalkEarningCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkEarningCell.swift; sourceTree = "<group>"; };
 		2637D86C255A895B00020E98 /* TalkEarningCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TalkEarningCell.xib; sourceTree = "<group>"; };
@@ -447,7 +445,7 @@
 		2643EB892500B04100FBBE49 /* UserInfoIntroduceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoIntroduceCell.swift; sourceTree = "<group>"; };
 		2643EB922500B04100FBBE49 /* InterfaceOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceOrientation.swift; sourceTree = "<group>"; };
 		2643EB992500B04100FBBE49 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
-		2643EB9B2500B04100FBBE49 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		2643EB9B2500B04100FBBE49 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; tabWidth = 5; };
 		2643EB9C2500B04100FBBE49 /* CollectionViewGridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewGridLayout.swift; sourceTree = "<group>"; };
 		2643EB9D2500B04100FBBE49 /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		2643EB9E2500B04100FBBE49 /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
@@ -1411,7 +1409,6 @@
 				26F3D674254833F2007D9136 /* Model */,
 				26F3D673254833C8007D9136 /* Controller */,
 				26F3D672254833C1007D9136 /* View */,
-				26377FC2253042E300D5A03D /* IM.swift */,
 				26D1E589253D5F17004B9B29 /* CallManager.h */,
 				26D1E58A253D5F17004B9B29 /* CallManager.m */,
 				26CB6C36255124DB00A9F4DD /* BillingManager.h */,
@@ -1890,7 +1887,6 @@
 				26945810253FF80A00EBCABB /* SwitchViewCell.swift in Sources */,
 				26C80E582546CCF000F4ECBC /* ChatController.m in Sources */,
 				2656F322254FE0AF00552611 /* CallStatus.swift in Sources */,
-				26377FC3253042E300D5A03D /* IM.swift in Sources */,
 				26F8946B25203B7300A45648 /* TitleViewCell.swift in Sources */,
 				26CB6D4825515D6B00A9F4DD /* BDFaceLogoView.m in Sources */,
 				268297492511AF5800949C7F /* SignupViewModel.swift in Sources */,

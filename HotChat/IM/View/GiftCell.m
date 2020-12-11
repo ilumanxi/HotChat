@@ -16,28 +16,41 @@
 #import <SDWebImage/SDWebImage.h>
 #import "HotChat-Swift.h"
 
+@interface GiftCell ()
+
+@property(strong, nonatomic) UIView *contentBackgroundView;
+
+@end
+
+
 @implementation GiftCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        self.container.backgroundColor = [UIColor d_colorWithColorLight:TCell_Nomal dark:TCell_Nomal_Dark];
+   
+        _contentBackgroundView = [UIView new];
+        _contentBackgroundView.backgroundColor = [UIColor d_colorWithColorLight:TCell_Nomal dark:TCell_Nomal_Dark];
         
-        self.container.layer.cornerRadius = 4;
+        _contentBackgroundView.layer.cornerRadius = 4;
+        
+        [self.container addSubview:_contentBackgroundView];
+        
+        
         _giftImageView = [UIImageView new];
         _giftImageView.contentMode = UIViewContentModeScaleAspectFill;
         [_giftImageView setClipsToBounds:YES];
-        [self.container addSubview:_giftImageView];
+        [_contentBackgroundView addSubview:_giftImageView];
         
         _giftTextLabel = [UILabel new];
         _giftTextLabel.font = [UIFont systemFontOfSize:14];
         _giftTextLabel.textColor = [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1.0];
-        [self.container addSubview:_giftTextLabel];
+        [_contentBackgroundView addSubview:_giftTextLabel];
         
         _giftLabel = [UILabel new];
         _giftLabel.font = [UIFont systemFontOfSize:11];
         _giftLabel.textColor = [UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1.0];
-        [self.container addSubview:_giftLabel];
+        [_contentBackgroundView addSubview:_giftLabel];
         
     }
     
@@ -53,14 +66,11 @@
     _giftLabel.text = [NSString stringWithFormat:@"%@x%ld",data.gift.name, data.gift.count];
 }
 
-/*
- _name.mm_sizeToFitThan(0, _avatar.mm_h/3).mm_top(_avatar.mm_y).mm_left(_avatar.mm_maxX + TPersonalCommonCell_Margin);
- _identifier.mm_sizeToFitThan(80, _avatar.mm_h/3).mm__centerY(_avatar.mm_centerY).mm_left(_name.mm_x);
- _signature.mm_sizeToFitThan(80, _avatar.mm_h/3).mm_bottom(_avatar.mm_b).mm_left(_name.mm_x);
- */
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+    
+    _contentBackgroundView.mm_width(165).mm_height(64).mm_top(0).mm_left(0);
     
     self.giftImageView.mm_width(52).mm_height(52).mm_top(5).mm_left(8);
     

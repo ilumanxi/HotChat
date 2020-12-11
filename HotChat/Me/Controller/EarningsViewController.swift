@@ -32,10 +32,9 @@ struct EarningMonthFormEntry: FormEntry {
         
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: EarningCell.self)
         cell.currentMonthEnergyLabel.text = current.energy
-        cell.currentMonthTCoinLabel.text = current.tanbi
         
         cell.lastMonthEnergyLabel.text = last.energy
-        cell.lastMonthTCoinLabel.text = last.tanbi
+
         
         return cell
     }

@@ -44,13 +44,24 @@ class DiscoverViewController: SegementSlideDefaultViewController, LoadingStateTy
         button.setImage(UIImage(named: "say-hello-gray"), for: .disabled)
         button.setTitleColor(.white, for: .normal)
         button.setTitleColor(UIColor(hexString: "#333333"), for: .disabled)
-        button.backgroundColor = UIColor(hexString: "#FF608F")
         button.titleLabel?.font = .systemFont(ofSize: 12)
         button.layer.cornerRadius = 17
+        button.layer.masksToBounds = true
         button.contentHorizontalAlignment = .leading
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
         button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 18, bottom: 0, right: 0)
 //        button.isEnabled = false
+        
+        
+        let image = UIImage.gradientImage(
+            bounds: CGRect(x: 0, y: 0, width: 110, height: 34),
+            colors: [
+                UIColor(hexString: "#FE5788").cgColor,
+                UIColor(hexString: "#FB7099").cgColor
+            ])
+        
+        button.setBackgroundImage(image, for: .normal)
+        button.setBackgroundImage(UIImage(color: UIColor(hexString: "#DCDCDC"), size: CGSize(width: 110, height: 34)), for: .disabled)
         return button
     }()
 

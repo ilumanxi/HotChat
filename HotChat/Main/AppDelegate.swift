@@ -23,9 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         Bugly.start(withAppId: nil)
-        TUIKit.sharedInstance()?.setup(withAppId: IM.appID, logLevel: .LOG_NONE)
+        TUIKit.sharedInstance()?.setup(withAppId: Constant.IMAppID, logLevel: .LOG_NONE)
         let config = TUIKitConfig.default()!
         config.avatarType = .TAvatarTypeRounded
+        
         CallManager.shareInstance()?.initCall()
         
         

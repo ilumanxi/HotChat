@@ -113,10 +113,10 @@ class LoginManager: NSObject {
         try! storage.setObject( user.toJSONString()!, forKey: userCacheKey)
         
         TUIKit.sharedInstance()?.login(user.userId, userSig: user.imUserSig, succ: {
-            TUILocalStorage.sharedInstance().saveLogin(user.userId, withAppId: UInt(IM.appID), withUserSig: user.imUserSig)
+            TUILocalStorage.sharedInstance().saveLogin(user.userId, withAppId: UInt(Constant.IMAppID), withUserSig: user.imUserSig)
             if let deviceToken = self.deviceToken {
                 let config = V2TIMAPNSConfig()
-                config.businessID = Int32(IM.ANPSBusinessID)
+                config.businessID = Int32(Constant.ANPSBusinessID)
                 config.token = deviceToken
                 
                 V2TIMManager.sharedInstance()?.setAPNS(config, succ: {
@@ -151,11 +151,11 @@ class LoginManager: NSObject {
         }
         
         TUILocalStorage.sharedInstance().login { (userID, appId, userSig) in
-            if appId == IM.appID && !userID.isEmpty && !userSig.isEmpty {
+            if appId == Constant.IMAppID && !userID.isEmpty && !userSig.isEmpty {
                 TUIKit.sharedInstance()?.login(userID, userSig: userSig, succ: {
                     if let deviceToken = self.deviceToken {
                         let config = V2TIMAPNSConfig()
-                        config.businessID = Int32(IM.ANPSBusinessID)
+                        config.businessID = Int32(Constant.ANPSBusinessID)
                         config.token = deviceToken
                         
                         V2TIMManager.sharedInstance()?.setAPNS(config, succ: {
