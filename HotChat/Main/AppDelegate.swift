@@ -123,9 +123,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             object: nil
         )
         
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(tipLogout),
+            name: .init(TUIKitNotification_TIMUserStatusListener),
+            object: nil
+        )
+        
         if #available(iOS 13.0, *) {
             observeAppleSignInState()
         }
+    }
+    
+    
+    @objc func tipLogout() {
+        
+        let alertController = UIAlertController(title: "下线通知", message: "你的账号于另一台手机上登录。", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "确定", style: .default, handler: { _ in
+            LoginManager.shared.logout()
+        }))
+        self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
     }
     
     @objc func userDidLogin(_ noti: Notification) {
