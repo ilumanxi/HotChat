@@ -12,6 +12,24 @@ import RxSwift
 import RxCocoa
 import SnapKit
 
+extension TimeInterval {
+    
+    func toDownClock() -> String {
+        if isNaN {
+            return "00:00:00"
+        }
+        var Min = Int(self / 60)
+        let Sec = Int(self.truncatingRemainder(dividingBy: 60))
+        var Hour = 0
+        if Min >= 60 {
+            Hour = Int(Min / 60)
+            Min = Min - Hour*60
+            return String(format: "%02d:%02d:%02d", Hour, Min, Sec)
+        }
+        return String(format: "00:%02d:%02d", Min, Sec)
+    }
+}
+
 
 class DiscoverViewController: SegementSlideDefaultViewController, LoadingStateType, IndicatorDisplay {
     
@@ -25,6 +43,7 @@ class DiscoverViewController: SegementSlideDefaultViewController, LoadingStateTy
     }
     
     let discoverAPI = Request<DiscoverAPI>()
+    let chatGreetAPI = Request<ChatGreetAPI>()
     
     var channels: [Channel] = [] {
         didSet {
@@ -35,6 +54,10 @@ class DiscoverViewController: SegementSlideDefaultViewController, LoadingStateTy
     }
     
     let cache = NSCache<NSString, UIViewController>()
+    
+    private var sayHellowSeconds: TimeInterval = 0
+    
+    private var countdownTimer: Timer?
     
     let sayHellowButton: UIButton = {
         let button = UIButton(type: .custom)
@@ -50,9 +73,7 @@ class DiscoverViewController: SegementSlideDefaultViewController, LoadingStateTy
         button.contentHorizontalAlignment = .leading
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
         button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 18, bottom: 0, right: 0)
-//        button.isEnabled = false
-        
-        
+        button.addTarget(self, action: #selector(userCallChat), for: .touchUpInside)
         let image = UIImage.gradientImage(
             bounds: CGRect(x: 0, y: 0, width: 110, height: 34),
             colors: [
@@ -80,16 +101,89 @@ class DiscoverViewController: SegementSlideDefaultViewController, LoadingStateTy
     func setupViews() {
         
         if LoginManager.shared.user!.girlStatus {
-            view.addSubview(sayHellowButton)
-            sayHellowButton.snp.makeConstraints { maker in
-                maker.size.equalTo(CGSize(width: 110, height: 34))
-                maker.trailingMargin.equalToSuperview()
-                maker.bottom.equalTo(view.safeBottom).offset(-34)
-            }
+
+            checkUserCallChat()
         }
         else {
-            
+            sayHellowButton.removeFromSuperview()
         }
+    }
+    
+    
+    func addSayHellowButton() {
+        
+        if sayHellowSeconds <= 0 {
+            sayHellowButton.isEnabled = true
+        }
+        else {
+            sayHellowButton.isEnabled = false
+            sayHellowButton.setTitle(sayHellowSeconds.toDownClock(), for: .disabled)
+        }
+        
+        
+        view.addSubview(sayHellowButton)
+        sayHellowButton.snp.makeConstraints { maker in
+            maker.size.equalTo(CGSize(width: 110, height: 34))
+            maker.trailingMargin.equalToSuperview()
+            maker.bottom.equalTo(view.safeBottom).offset(-34)
+        }
+    }
+    
+    func countdown() {
+        
+        countdownTimer?.invalidate()
+        countdownTimer = nil
+       
+        countdownTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [unowned self] _ in
+            self.sayHellowSeconds -= 1
+            
+            if self.sayHellowSeconds <= 0 {
+                self.sayHellowSeconds = 0
+                self.sayHellowButton.isEnabled = true
+                self.countdownTimer?.invalidate()
+                self.countdownTimer = nil
+            }
+            else {
+                self.sayHellowButton.isEnabled = false
+                self.sayHellowButton.setTitle(self.sayHellowSeconds.toDownClock(), for: .disabled)
+            }
+        }
+        countdownTimer?.fire()
+    }
+    
+    func checkUserCallChat() {
+        chatGreetAPI.request(.checkUserCallChat, type: Response<ChatGreetResult>.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { [weak self] response in
+                if response.data!.isSuccessd {
+                    self?.sayHellowSeconds = 0
+                    self?.sayHellowButton.isEnabled = true
+                }
+                else {
+                    self?.sayHellowSeconds =  response.data!.endTime - Date().timeIntervalSince1970
+                    self?.countdown()
+                }
+                self?.addSayHellowButton()
+            }, onError: nil)
+            .disposed(by: rx.disposeBag)
+    }
+    
+   @objc func userCallChat() {
+        sayHellowButton.isUserInteractionEnabled = false
+        chatGreetAPI.request(.userCallChat, type: Response<[String : Any]>.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { [weak self] response in
+                self?.sayHellowButton.isUserInteractionEnabled = true
+                if let endTime = response.data?["endTime"] as? TimeInterval {
+                    self?.sayHellowSeconds =  endTime - Date().timeIntervalSince1970
+                    self?.countdown()
+                }
+                self?.show((response.data?["resultMsg"] as? String) ?? "打招呼成功")
+            }, onError: { [weak self] error in
+                self?.sayHellowButton.isUserInteractionEnabled = true
+                self?.show(error.localizedDescription)
+            })
+            .disposed(by: rx.disposeBag)
     }
     
     func requestData() {

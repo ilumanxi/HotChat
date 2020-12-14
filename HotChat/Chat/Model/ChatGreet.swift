@@ -29,3 +29,26 @@ struct ChatGreet: HandyJSON {
     var content: String = ""
     var status: ChatGreetStatus = .empty
 }
+
+
+struct ChatGreetResult: HandyJSON {
+
+    /// 1011 已经打招呼过了 1012 可以打招呼
+    var resultCode: Int = 0
+    var resultMsg: String = ""
+    var endTime: TimeInterval = 0
+    
+    
+    var isSuccessd: Bool {
+        return resultCode == 1012
+    }
+    
+    var error: Error? {
+        if isSuccessd {
+            return nil
+        }
+        
+        return NSError(domain: "", code: resultCode, userInfo: [NSLocalizedDescriptionKey : resultMsg])
+    }
+    
+}
