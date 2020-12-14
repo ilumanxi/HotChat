@@ -128,6 +128,8 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
             self.checkInView.isHidden = true
             return
         }
+        
+        self.checkInView.isHidden = true
         checkInAPI.request(.checkUserSignInfo, type: Response<CheckInResult>.self)
             .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in

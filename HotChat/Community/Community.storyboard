@@ -331,14 +331,14 @@
                                     <outlet property="delegate" destination="7kL-bk-kMs" id="EsW-NC-qsF"/>
                                 </connections>
                             </collectionView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="IDV-b8-j08">
-                                <rect key="frame" x="0.0" y="754" width="414" height="108"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="IDV-b8-j08">
+                                <rect key="frame" x="0.0" y="691" width="414" height="171"/>
                                 <subviews>
-                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yep-6Z-zh1">
-                                        <rect key="frame" x="334.5" y="-63.5" width="79.5" height="63.5"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yep-6Z-zh1">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="63.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Zx-Mf-jrb" customClass="QMUIButton">
-                                                <rect key="frame" x="8" y="0.0" width="63.5" height="63.5"/>
+                                                <rect key="frame" x="342.5" y="0.0" width="63.5" height="63.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="63.5" id="Xkp-U7-sef"/>
                                                     <constraint firstAttribute="height" constant="63.5" id="i7K-zN-FES"/>
@@ -362,15 +362,15 @@
                                         <constraints>
                                             <constraint firstAttribute="trailingMargin" secondItem="4Zx-Mf-jrb" secondAttribute="trailing" id="87M-2w-G0c"/>
                                             <constraint firstItem="4Zx-Mf-jrb" firstAttribute="top" secondItem="Yep-6Z-zh1" secondAttribute="top" id="Jbv-Ik-fpV"/>
-                                            <constraint firstItem="4Zx-Mf-jrb" firstAttribute="leading" secondItem="Yep-6Z-zh1" secondAttribute="leadingMargin" id="Lt8-Qw-N4x"/>
+                                            <constraint firstItem="4Zx-Mf-jrb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Yep-6Z-zh1" secondAttribute="leadingMargin" id="Lt8-Qw-N4x"/>
                                             <constraint firstAttribute="bottom" secondItem="4Zx-Mf-jrb" secondAttribute="bottom" id="oYG-Vr-XQt"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6au-A1-Zjn">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                        <rect key="frame" x="0.0" y="77.5" width="414" height="35.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYm-Ia-B2O">
-                                                <rect key="frame" x="308" y="0.0" width="98" height="38"/>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYm-Ia-B2O">
+                                                <rect key="frame" x="308" y="0.0" width="98" height="35.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <inset key="titleEdgeInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="发布动态" image="community-dynamic" backgroundImage="send-bg"/>
@@ -388,12 +388,12 @@
                                         <constraints>
                                             <constraint firstItem="yYm-Ia-B2O" firstAttribute="top" secondItem="6au-A1-Zjn" secondAttribute="top" id="LXy-44-4oe"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="yYm-Ia-B2O" secondAttribute="trailing" id="PZH-s1-GY8"/>
-                                            <constraint firstAttribute="bottom" secondItem="yYm-Ia-B2O" secondAttribute="bottom" constant="12" id="RkV-27-VKs"/>
+                                            <constraint firstAttribute="bottom" secondItem="yYm-Ia-B2O" secondAttribute="bottom" id="RkV-27-VKs"/>
                                             <constraint firstItem="yYm-Ia-B2O" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6au-A1-Zjn" secondAttribute="leading" id="jSa-A3-oVT"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4hH-iS-nJa">
-                                        <rect key="frame" x="0.0" y="64" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="127" width="414" height="44"/>
                                         <subviews>
                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zu5-jj-iom">
                                                 <rect key="frame" x="88" y="13.5" width="238" height="17"/>

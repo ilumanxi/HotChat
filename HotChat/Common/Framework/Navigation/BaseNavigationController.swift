@@ -49,12 +49,13 @@ class BaseNavigationController: HBDNavigationController {
         self.viewControllers.forEach {
             let backBarButtton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
             $0.navigationItem.backBarButtonItem = backBarButtton
+            $0.hbd_extendedLayoutDidSet = true
         }
     }
     
     
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
-        
+        viewController.hbd_extendedLayoutDidSet = true
         viewController.hidesBottomBarWhenPushed =  viewControllers.count > 0 ? viewController.hidesTabBarWhenPushed : false
         
         // Provide an empty backBarButton to hide the 'Back' text present by default in the back button.

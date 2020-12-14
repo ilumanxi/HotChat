@@ -33,10 +33,10 @@ class TabBarController: UITabBarController {
         }
         
         // 修复消息未读数量显示问题
-        selectedIndex = 2
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
-            self.selectedIndex = 0
-        }
+//        selectedIndex = 2
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+//            self.selectedIndex = 0
+//        }
     }
     
     func observerUnReadCount() {

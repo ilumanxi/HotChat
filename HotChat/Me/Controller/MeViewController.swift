@@ -121,8 +121,9 @@ class MeViewController: UITableViewController, Autorotate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.hbd_barHidden = true
+        hbd_barHidden = true
         
+        additionalSafeAreaInsets = UIEdgeInsets(top: -navigationController!.navigationBar.bounds.height, left: 0, bottom: 0, right: 0)
         setDisplay()
         
         NotificationCenter.default.rx.notification(.userDidChange)

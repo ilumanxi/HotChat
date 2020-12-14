@@ -46,7 +46,7 @@ class PhoneBindingController: UIViewController, IndicatorDisplay {
         scrollView.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
         
         self.rx.observeWeakly(Bool.self, #keyPath(isCoding))
-            .compactMap{ !$0! }
+            .compactMap{ !($0 ?? false) }
             .bind(to: codeIndicator.rx.isHidden)
             .disposed(by: rx.disposeBag)
     }

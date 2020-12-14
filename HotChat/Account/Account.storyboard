@@ -18,23 +18,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch-logo" translatesAutoresizingMaskIntoConstraints="NO" id="koS-eR-3YD">
-                                <rect key="frame" x="167.66666666666666" y="128" width="40" height="40"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="koS-eR-3YD">
+                                <rect key="frame" x="147.66666666666666" y="128" width="80" height="80"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="贪聊" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Fh-o3-Rpn">
-                                <rect key="frame" x="167" y="186" width="41" height="24"/>
+                                <rect key="frame" x="167" y="226" width="41" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <color key="textColor" red="0.20392156862745098" green="0.20392156862745098" blue="0.20392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="在这里，遇见你" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60h-nY-LqL">
-                                <rect key="frame" x="127" y="224" width="121.33333333333331" height="20.333333333333343"/>
+                                <rect key="frame" x="127" y="264" width="121.33333333333331" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.20392156859999999" green="0.20392156859999999" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="X3a-fq-rsw">
-                                <rect key="frame" x="30" y="582" width="315" height="115"/>
+                                <rect key="frame" x="30" y="598" width="315" height="115"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DzQ-D1-5Hh">
                                         <rect key="frame" x="0.0" y="0.0" width="315" height="50"/>
@@ -74,7 +74,7 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="35" translatesAutoresizingMaskIntoConstraints="NO" id="WrV-bB-6ju" customClass="LegalLiabilityToolBar" customModule="HotChat" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="737" width="375" height="35"/>
+                                <rect key="frame" x="0.0" y="743" width="375" height="35"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
@@ -88,12 +88,12 @@
                             <constraint firstItem="5Fh-o3-Rpn" firstAttribute="top" secondItem="koS-eR-3YD" secondAttribute="bottom" constant="18" id="IDC-HJ-rAa"/>
                             <constraint firstItem="5Fh-o3-Rpn" firstAttribute="centerX" secondItem="koS-eR-3YD" secondAttribute="centerX" id="Zoc-WD-hIr"/>
                             <constraint firstItem="koS-eR-3YD" firstAttribute="top" secondItem="uds-Ff-n4B" secondAttribute="top" constant="40" id="dfk-f2-Jwu"/>
-                            <constraint firstItem="WrV-bB-6ju" firstAttribute="top" secondItem="X3a-fq-rsw" secondAttribute="bottom" constant="40" id="jiR-8g-fIa"/>
+                            <constraint firstItem="WrV-bB-6ju" firstAttribute="top" secondItem="X3a-fq-rsw" secondAttribute="bottom" constant="30" id="jiR-8g-fIa"/>
                             <constraint firstItem="WrV-bB-6ju" firstAttribute="bottom" secondItem="uds-Ff-n4B" secondAttribute="bottom" priority="999" id="l6f-UX-oNF"/>
                             <constraint firstItem="uds-Ff-n4B" firstAttribute="trailing" secondItem="X3a-fq-rsw" secondAttribute="trailing" constant="30" id="oK8-LZ-uEq"/>
                             <constraint firstItem="uds-Ff-n4B" firstAttribute="trailing" secondItem="WrV-bB-6ju" secondAttribute="trailing" id="qCX-nX-Bek"/>
                             <constraint firstItem="60h-nY-LqL" firstAttribute="centerX" secondItem="koS-eR-3YD" secondAttribute="centerX" id="szC-cl-JWk"/>
-                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="WrV-bB-6ju" secondAttribute="bottom" constant="40" id="yeO-Ri-mdV"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="WrV-bB-6ju" secondAttribute="bottom" constant="20" id="yeO-Ri-mdV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Sbl-We-cx6"/>
@@ -1301,7 +1301,7 @@
         <image name="for-you-selected" width="12.666666984558105" height="12.666666984558105"/>
         <image name="for-you-unselected" width="12.666666984558105" height="12.666666984558105"/>
         <image name="form-submit-succeed" width="91" height="91"/>
-        <image name="launch-logo" width="40" height="40"/>
+        <image name="logo" width="80" height="80"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
