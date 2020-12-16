@@ -92,10 +92,14 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
             self?.loadMoreData()
         }
         
-        state = .loadingContent
-        collectionView.mj_header?.beginRefreshing()
+
         hiddenPhoneBindingView()
-        observeLPhoneState()
+        
+        state = .loadingContent
+//        collectionView.mj_header?.beginRefreshing()
+        refreshData()
+        
+        observePhoneState()
         upgradeAPI.request(.updateChannel, type: Response<Upgrade>.self)
             .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in
@@ -104,6 +108,9 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
             })
             .disposed(by: rx.disposeBag)
       
+
+        
+        
 
     }
     
@@ -144,7 +151,7 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     }
     
     
-    func observeLPhoneState() {
+    func observePhoneState() {
         NotificationCenter.default.rx.notification(.userDidChange)
             .subscribe(onNext: { [weak self] _ in
                 self?.hiddenPhoneBindingView()

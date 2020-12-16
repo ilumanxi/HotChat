@@ -142,7 +142,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         alertController.addAction(UIAlertAction(title: "确定", style: .default, handler: { _ in
             LoginManager.shared.logout()
         }))
-        self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
+        UIWindow.topMost?.present(alertController, animated: true, completion: nil)
     }
     
     @objc func userDidLogin(_ noti: Notification) {

@@ -204,6 +204,7 @@ enum VipType: Int, HandyJSONEnum {
     /// VIP
     var vipType: VipType = .empty
     
+    var vipExpireTime: String = ""
     
     /// 用户状态
     var userStatus: UserStatus = .unknown
