@@ -252,3 +252,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
+
+
+extension UIApplication {
+
+    /// clearing your app’s launch screen cache on iOS
+    /// https://rambo.codes/posts/2019-12-09-clearing-your-apps-launch-screen-cache-on-ios
+    func clearLaunchScreenCache() {
+        do {
+            try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Library/SplashBoard")
+        } catch {
+            print("Failed to delete launch screen cache: \(error)")
+        }
+    }
+
+}

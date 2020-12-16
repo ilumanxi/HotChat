@@ -33,23 +33,23 @@ class Constant: NSObject {
 
 
 extension Constant {
-
-//    static let APIHost = "pic.yuupni.com"
-//
-//    static let H5Host = "admin.yuupni.com"
     
     /// 正式
-//    static let IMAppID: UInt32 = 1400424749
+
+    static let APIHost = "pic.yuupni.com"
+
+    static let H5Host = "admin.yuupni.com"
     
-    /// 测试
-    static let IMAppID: UInt32 = 1400457429
+    static let IMAppID: UInt32 = 1400424749
     
     static let ANPSBusinessID = 23246
     
+    /// 测试
+//    static let IMAppID: UInt32 = 1400457429
     
-    static let APIHost = "ceshiapi.yuupni.com/gateway.php"
+//    static let APIHost = "ceshiapi.yuupni.com/gateway.php"
 
-    static let H5Host = "ceshiadmin.yuupni.com"
+//    static let H5Host = "ceshiadmin.yuupni.com"
 
     static let salt: String = "AJ265TT96e930d4d0YUddbcbPjc39CFK"
     static let hotChatScheme = "hotchatauth2"

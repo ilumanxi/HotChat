@@ -101,11 +101,17 @@
 
 - (void)sendGiftMessage:(TUIMessageCellData *)msg userID: (NSString *)userID
 {
-    if (![[UIApplication sharedApplication].keyWindow.rootViewController isKindOfClass:[UITabBarController class]]) {
-        return;
-    }
     
-    UITabBarController *tabBarController = (UITabBarController *) UIApplication.sharedApplication.keyWindow.rootViewController;
+    UITabBarController *tabBarController = nil;
+    
+    
+    for (UIWindow *window in [UIApplication sharedApplication].windows) {
+        if ([window.rootViewController isKindOfClass:[UITabBarController class]]) {
+           
+            tabBarController = (UITabBarController *) window.rootViewController;
+            break;
+        }
+    }
     
     if (![tabBarController.selectedViewController isKindOfClass:[UINavigationController class]]) {
         return;
