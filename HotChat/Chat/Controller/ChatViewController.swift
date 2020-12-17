@@ -55,6 +55,16 @@ class ChatViewController: ChatController, IndicatorDisplay {
         data.image = UIImage(named: "photos")
         return data
     }()
+    
+    
+    lazy var sayhHellow: TUIInputMoreCellData = {
+        let data = TUIInputMoreCellData()
+        data.title = "常用语"
+        data.image = UIImage(named: "sayhellow")
+        return data
+    }()
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +74,7 @@ class ChatViewController: ChatController, IndicatorDisplay {
         self.delegate = self
         
 
-        self.moreMenus = [video, audio, camera, photos]
+        self.moreMenus = [video, audio, camera, photos, sayhHellow]
         
         observerUserWallet()
     }

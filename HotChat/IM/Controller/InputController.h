@@ -17,6 +17,7 @@
 #import "VoiceView.h"
 #import "GiftViewController.h"
 
+
 @class InputController;
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -115,7 +116,6 @@
 @property (nonatomic, strong) TUIFaceView *faceView;
 
 @property (nonatomic, strong) GiftViewController *giftViewController;
-
 
 
 

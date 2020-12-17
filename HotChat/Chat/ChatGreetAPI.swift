@@ -17,6 +17,7 @@ enum ChatGreetAPI {
     case checkGreet(toUserId: String)
     case checkUserCallChat
     case userCallChat
+    case userChatWords
 }
 
 
@@ -40,6 +41,8 @@ extension ChatGreetAPI: TargetType {
             return "ChatGreet/checkUserCallChat"
         case .userCallChat:
             return "ChatGreet/userCallChat"
+        case .userChatWords:
+            return "ChatGreet/userChatWords"
         }
     }
     
@@ -64,7 +67,7 @@ extension ChatGreetAPI: TargetType {
             parameters = ["id": id]
         case .checkGreet(let toUserId):
             parameters = ["toUserId": toUserId]
-        case .checkUserCallChat, .userCallChat:
+        case .checkUserCallChat, .userCallChat, .userChatWords:
             parameters = [:]
         }
         

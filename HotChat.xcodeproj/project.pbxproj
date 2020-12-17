@@ -60,6 +60,7 @@
 		263BC21D254956950081F5DF /* CallMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 263BC21C254956950081F5DF /* CallMenuViewController.m */; };
 		263BC22D254987770081F5DF /* BeautyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 263BC22B254987770081F5DF /* BeautyViewController.m */; };
 		263BC22E254987770081F5DF /* BeautyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 263BC22C254987770081F5DF /* BeautyViewController.xib */; };
+		264219B5258B2AC600D46B9C /* GreetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264219B4258B2AC600D46B9C /* GreetingViewController.swift */; };
 		26425C16251DDF64006D2F4C /* UserBasicInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26425C15251DDF64006D2F4C /* UserBasicInformationViewController.swift */; };
 		2643EB3A2500AD7D00FBBE49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643EB392500AD7D00FBBE49 /* AppDelegate.swift */; };
 		2643EB452500AD7E00FBBE49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2643EB442500AD7E00FBBE49 /* Assets.xcassets */; };
@@ -97,6 +98,7 @@
 		2643EBCA2500DBF500FBBE49 /* MeRelationshipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643EBC92500DBF500FBBE49 /* MeRelationshipViewController.swift */; };
 		2643EBCC2500FDA300FBBE49 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643EBCB2500FDA300FBBE49 /* UserInfoViewController.swift */; };
 		264A20CF25109B5000A264BE /* AccountAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264A20CE25109B5000A264BE /* AccountAPI.swift */; };
+		264D15E0258B415300756EAF /* GreetingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 264D15DF258B415300756EAF /* GreetingViewController.xib */; };
 		264DEA142552512C00AD97DE /* GiftManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 264DEA132552512C00AD97DE /* GiftManager.m */; };
 		2656F30E254FAC0500552611 /* GiftReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2656F30C254FAC0500552611 /* GiftReminderViewController.m */; };
 		2656F30F254FAC0500552611 /* GiftReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2656F30D254FAC0500552611 /* GiftReminderViewController.xib */; };
@@ -413,6 +415,7 @@
 		263BC22A254987770081F5DF /* BeautyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeautyViewController.h; sourceTree = "<group>"; };
 		263BC22B254987770081F5DF /* BeautyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeautyViewController.m; sourceTree = "<group>"; };
 		263BC22C254987770081F5DF /* BeautyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BeautyViewController.xib; sourceTree = "<group>"; };
+		264219B4258B2AC600D46B9C /* GreetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingViewController.swift; sourceTree = "<group>"; };
 		26425C15251DDF64006D2F4C /* UserBasicInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBasicInformationViewController.swift; sourceTree = "<group>"; };
 		2643EB362500AD7D00FBBE49 /* HotChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2643EB392500AD7D00FBBE49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -457,6 +460,7 @@
 		2643EBC92500DBF500FBBE49 /* MeRelationshipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeRelationshipViewController.swift; sourceTree = "<group>"; };
 		2643EBCB2500FDA300FBBE49 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		264A20CE25109B5000A264BE /* AccountAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAPI.swift; sourceTree = "<group>"; };
+		264D15DF258B415300756EAF /* GreetingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GreetingViewController.xib; sourceTree = "<group>"; };
 		264DEA122552512C00AD97DE /* GiftManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftManager.h; sourceTree = "<group>"; };
 		264DEA132552512C00AD97DE /* GiftManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftManager.m; sourceTree = "<group>"; };
 		26546371250B774E00398F04 /* apple-app-site-association */ = {isa = PBXFileReference; lastKnownFileType = text; path = "apple-app-site-association"; sourceTree = "<group>"; };
@@ -1461,6 +1465,8 @@
 				26C80E572546CCF000F4ECBC /* ChatController.m */,
 				26F0D2522546DA8200D1018B /* InputController.h */,
 				26F0D2532546DA8200D1018B /* InputController.m */,
+				264219B4258B2AC600D46B9C /* GreetingViewController.swift */,
+				264D15DF258B415300756EAF /* GreetingViewController.xib */,
 				26D1E592253D6000004B9B29 /* VideoCallViewController.h */,
 				26D1E593253D6000004B9B29 /* VideoCallViewController.m */,
 				26DBC371253D89DF0083BDFB /* AudioCallViewController.h */,
@@ -1713,6 +1719,7 @@
 				26AE7C342520346500B55318 /* LabelViewCell.xib in Resources */,
 				26CB6D5025515D6B00A9F4DD /* com.baidu.idl.face.model.faceSDK.bundle in Resources */,
 				263A6685257E0EF200F35714 /* CheckInCell.xib in Resources */,
+				264D15E0258B415300756EAF /* GreetingViewController.xib in Resources */,
 				2695903E250B170B00763061 /* InterestedCardView.xib in Resources */,
 				269DED0B254A9DD5000AD5D9 /* CallMenuViewController.xib in Resources */,
 			);
@@ -1876,6 +1883,7 @@
 				26DF877D255A63BA002162A9 /* BasicCell.swift in Sources */,
 				26772822255A480900B98973 /* PrivacyViewController.swift in Sources */,
 				26C81EE12547E9C400C1D563 /* VoiceView.m in Sources */,
+				264219B5258B2AC600D46B9C /* GreetingViewController.swift in Sources */,
 				2666405F2577624500E30A09 /* SayHellowViewController.swift in Sources */,
 				263BC1E225494EA20081F5DF /* UIView+Additions.m in Sources */,
 				26CA6EDD2538215D0023E27B /* Channel.swift in Sources */,

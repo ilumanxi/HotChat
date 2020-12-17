@@ -23,6 +23,7 @@
 #import "TUICallUtils.h"
 #import "GiftReminderViewController.h"
 #import "GiftManager.h"
+#import "HotChat-Swift.h"
 
 
 typedef NS_ENUM(NSUInteger, InputStatus) {
@@ -34,8 +35,9 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
     Input_Status_Input_Gift
 };
 
-@interface InputController () <TextViewDelegate, TMenuViewDelegate, TFaceViewDelegate, TMoreViewDelegate, VoiceViewDelegate, GiftViewControllerDelegate>
+@interface InputController () <TextViewDelegate, TMenuViewDelegate, TFaceViewDelegate, TMoreViewDelegate, VoiceViewDelegate, GiftViewControllerDelegate, GreetingViewControllerDelegate>
 @property (nonatomic, assign) InputStatus status;
+@property (nonatomic, strong) GreetingViewController *greetingViewController;
 @end
 
 @implementation InputController
@@ -101,6 +103,8 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
         //[self hideFaceAnimation:NO];
         //[self hideMoreAnimation:NO];
     }
+    
+    [self hideGreetingAnimation];
     _status = Input_Status_Input_Keyboard;
 }
 
@@ -145,8 +149,27 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
         ws.giftViewController.view.alpha = 1.0;
         [ws.giftViewController.view removeFromSuperview];
         [ws.giftViewController didMoveToParentViewController:nil];
+        [ws.giftViewController removeFromParentViewController];
     }];
 }
+
+- (void)hideGreetingAnimation
+{
+    self.greetingViewController.view.hidden = NO;
+    self.greetingViewController.view.alpha = 1.0;
+
+    __weak typeof(self) ws = self;
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        ws.greetingViewController.view.alpha = 0.0;
+    } completion:^(BOOL finished) {
+        ws.greetingViewController.view.hidden = YES;
+        ws.greetingViewController.view.alpha = 1.0;
+        [ws.greetingViewController.view removeFromSuperview];
+        [ws.greetingViewController didMoveToParentViewController:nil];
+        [ws.greetingViewController removeFromParentViewController];
+    }];
+}
+
 
 - (void)hideVoiceAnimation
 {
@@ -207,6 +230,24 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
         ws.giftViewController.view.frame = newFrame;
     } completion:nil];
 }
+
+
+- (void)showGreetingAnimation {
+    [self addChildViewController:self.greetingViewController];
+    self.greetingViewController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    self.greetingViewController.view.frame = CGRectMake(0, Screen_Height, Screen_Width, GreetingViewController.contentHeight);
+    [self.view addSubview:self.greetingViewController.view];
+    
+    [self.greetingViewController didMoveToParentViewController:self];
+    self.greetingViewController.view.hidden = NO;
+    __weak typeof(self) ws = self;
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        CGRect newFrame = ws.greetingViewController.view.frame;
+        newFrame.origin.y = ws.inputBar.frame.origin.y + ws.inputBar.frame.size.height;
+        ws.greetingViewController.view.frame = newFrame;
+    } completion:nil];
+}
+
 
 
 - (void)showVoiceAnimation {
@@ -429,6 +470,7 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
         [self hideGiftAnimation];
     }
     [self hideVoiceAnimation];
+    [self hideGreetingAnimation];
     _status = Input_Status_Input;
     [_inputBar.inputTextView resignFirstResponder];
     [_inputBar resetToolButtonSelected];
@@ -507,9 +549,19 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
 }
 
 
+- (void)greetingViewController:(GreetingViewController *)greetingViewController didSelect:(NSString *)content {
+    
+    [self inputBar:self.inputBar didSendText:content];
+}
+
 #pragma mark - more view delegate
 - (void)moreView:(TUIMoreView *)moreView didSelectMoreCell:(TUIInputMoreCell *)cell
 {
+    
+    if ([cell.data.title isEqualToString:@"常用语"]) {
+        [self showGreetingAnimation];
+    }
+    
     if(_delegate && [_delegate respondsToSelector:@selector(inputController:didSelectMoreCell:)]){
         [_delegate inputController:self didSelectMoreCell:cell];
     }
@@ -533,6 +585,16 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
         _giftViewController.delegate = self;
     }
     return _giftViewController;
+}
+
+
+- (GreetingViewController *)greetingViewController {
+    
+    if (!_greetingViewController) {
+        _greetingViewController = [[GreetingViewController alloc] init];
+        _greetingViewController.delegate = self;
+    }
+    return  _greetingViewController;
 }
 
 - (VoiceView *)voiceView {
