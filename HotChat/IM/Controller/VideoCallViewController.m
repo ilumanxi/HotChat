@@ -116,8 +116,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];
-    
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -127,7 +125,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-   
+    [self playAlerm];
 }
 
 - (void)disMiss {
@@ -386,7 +384,6 @@
         case VideoCallState_OnInvitee:
         {
             
-            [self playAlerm];
             [self.hangup mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.leading.equalTo(self.view).offset(55);
                 make.bottom.equalTo(self.view.safeAreaLayoutGuideBottom).offset(-49);
