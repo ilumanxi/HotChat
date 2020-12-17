@@ -223,7 +223,8 @@ typedef NS_ENUM(NSInteger,VideoUserRemoveReason){
         [(AudioCallViewController *)self.callVC disMiss];
         [PIPWindow dismissViewControllerAnimated:YES completion:nil];
     }
-    [THelper makeToast:[NSString stringWithFormat:@"%@ 取消了通话",uid]];
+//    [THelper makeToast:[NSString stringWithFormat:@"%@ 取消了通话",uid]];
+    [THelper makeToast:[NSString stringWithFormat:@"取消通话"]];
 }
    
 -(void)onCallingTimeOut {

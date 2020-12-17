@@ -566,7 +566,11 @@
         return;
     }
     __weak typeof(self) weakSelf = self;
-    AudioServicesPlaySystemSoundWithCompletion(1012, ^{
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"bell" withExtension:@"mp3"];
+    
+    SystemSoundID systemSoundID;
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef _Nonnull)(url), &systemSoundID);
+    AudioServicesPlaySystemSoundWithCompletion(systemSoundID, ^{
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [weakSelf loopPlayAlert];
         });
