@@ -46,6 +46,8 @@
 @property(nonatomic,strong) dispatch_source_t timer;
 @property(nonatomic,assign) UInt32 callingTime;
 @property(nonatomic,assign) BOOL playingAlerm; // 播放响铃
+
+@property(nonatomic,assign) SystemSoundID systemSoundID;
 @end
 
 @implementation AudioCallViewController
@@ -86,6 +88,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+        NSError *setCategoryError = nil;
+        if (![session setCategory:AVAudioSessionCategoryPlayback
+                      withOptions:AVAudioSessionCategoryOptionMixWithOthers
+                            error:&setCategoryError]) {
+            NSLog(@"开启扬声器发生错误:%@",setCategoryError.localizedDescription);
+        }
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"bell" withExtension:@"mp3"];
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef _Nonnull)(url), &_systemSoundID);
     [self setupUI];
 }
 
@@ -558,6 +569,7 @@
 // 结束播放铃声
 - (void)stopAlerm {
     self.playingAlerm = NO;
+    AudioServicesDisposeSystemSoundID(_systemSoundID);
 }
 
 // 循环播放声音
@@ -566,11 +578,7 @@
         return;
     }
     __weak typeof(self) weakSelf = self;
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"bell" withExtension:@"mp3"];
-    
-    SystemSoundID systemSoundID;
-    AudioServicesCreateSystemSoundID((__bridge CFURLRef _Nonnull)(url), &systemSoundID);
-    AudioServicesPlaySystemSoundWithCompletion(systemSoundID, ^{
+    AudioServicesPlayAlertSoundWithCompletion(_systemSoundID, ^{
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [weakSelf loopPlayAlert];
         });

@@ -63,6 +63,7 @@
 	<string>如果不允许,你将无法再贪聊中拍摄照片和视频,也无法使用视频通话等功能</string>
 	<key>UIBackgroundModes</key>
 	<array>
+		<string>audio</string>
 		<string>remote-notification</string>
 		<string>voip</string>
 	</array>
