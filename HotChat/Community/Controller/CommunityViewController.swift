@@ -130,7 +130,7 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     }
     
     func checkInState() {
-        if LoginManager.shared.user!.girlStatus {
+        if LoginManager.shared.user!.girlStatus || !LoginManager.shared.currentVersionApproved {
             self.checkInResult = nil
             self.checkInView.isHidden = true
             return

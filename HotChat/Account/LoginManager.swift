@@ -50,7 +50,7 @@ class LoginManager: NSObject {
 
     var deviceToken: Data?
     
-    /// 当前版本App Store 审核状态
+    /// 当前版本App Store 审核通过
     @objc var currentVersionApproved: Bool = false {
         didSet {
             if oldValue != currentVersionApproved {
