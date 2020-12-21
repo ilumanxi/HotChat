@@ -22,21 +22,96 @@ extension UIWindow {
     }
 }
 
-class TabBarController: UITabBarController {
+class TabBarController: UITabBarController, IndicatorDisplay {
+    
+    private lazy var customTabBar: TabBar = {
+        let tabBar = TabBar()
+        tabBar.onComposeButtonDidTapped.delegate(on: self) { (self, _) in
+            if LoginManager.shared.user!.realNameStatus.isPresent {
+                self.presentDynamic()
+            }
+            else {
+                self.checkUserAttestation()
+            }
+        }
+        return tabBar
+    }()
+    
+    override func loadView() {
+        super.loadView()
+        setupUI()
 
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        delegate = self
+        
         observerUnReadCount()
         
         if LoginManager.shared.isAuthorized && !LoginManager.shared.user!.isInit {//更新用户信息
             LoginManager.shared.autoLogin()
         }
-        
-        // 修复消息未读数量显示问题
-//        selectedIndex = 2
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
-//            self.selectedIndex = 0
-//        }
+    }
+    
+    func presentDynamic() {
+        let vc = DynamicViewController.loadFromStoryboard()
+        vc.onSened.delegate(on: self) { (self, _) in
+            
+            if let navigationController =  self.children.first as? UINavigationController,
+               let controller = navigationController.viewControllers.first as? IndicatorDisplay {
+                controller.refreshData()
+            }
+        }
+        let navVC = UINavigationController(rootViewController: vc)
+        navVC.modalPresentationStyle = .fullScreen
+        present(navVC, animated: true, completion: nil)
+    }
+    
+    let authenticationAPI = Request<AuthenticationAPI>()
+    
+    func checkUserAttestation() {
+        showIndicator()
+        authenticationAPI.request(.checkUserAttestation, type: Response<Authentication>.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { [weak self] response in
+                guard let self = self else { return }
+                self.hideIndicator()
+                if response.data!.realNameStatus.isPresent {
+                    let user = LoginManager.shared.user!
+                    user.realNameStatus = response.data!.realNameStatus
+                    LoginManager.shared.update(user: user)
+                    self.presentDynamic()
+                }
+                else {
+                    let vc = AuthenticationGuideViewController()
+                    vc.onPushing.delegate(on: self) { (self, _) -> UINavigationController? in
+                        return self.navigationController
+                    }
+                    self.present(vc, animated: true, completion: nil)
+                }
+            }, onError: { [weak self] error in
+                self?.hideIndicator()
+                self?.show(error.localizedDescription)
+            })
+            .disposed(by: rx.disposeBag)
+    }
+    
+    func setupUI(){
+        setValue(customTabBar, forKey: "tabBar")
+        if #available(iOS 13.0, *) {
+            let standardAppearance = customTabBar.standardAppearance
+            standardAppearance.shadowColor = .clear
+            standardAppearance.backgroundColor = .white
+            customTabBar.standardAppearance = standardAppearance
+        }
+        else {
+            customTabBar.shadowImage = UIImage()
+            customTabBar.barTintColor = .white
+            customTabBar.backgroundImage = UIImage(color: .white, size: tabBar.bounds.size)
+            customTabBar.backgroundColor = .white
+        }
     }
     
     func observerUnReadCount() {
@@ -67,6 +142,28 @@ class TabBarController: UITabBarController {
         }
     }
 
+}
+
+extension TabBarController: UITabBarControllerDelegate {
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        
+        let selectIndex = children.firstIndex{ $0 == viewController }!
+        
+        let tabBarItem = tabBar.items?[selectIndex]
+        
+        
+        /// UITabBarSwappableImageView  UITabBarButton
+        if let button = tabBarItem?.value(forKey: "view") as? UIControl, let imageView =  button.subviews.first(where: { $0 is UIImageView }) {
+            //  bounceAnimation
+            let impliesAnimation = CAKeyframeAnimation(keyPath: "transform.scale")
+            impliesAnimation.values = [1.0 ,1.4, 0.9, 1.15, 0.95, 1.02, 1.0]
+            impliesAnimation.duration = 0.25 * 2
+            impliesAnimation.calculationMode = CAAnimationCalculationMode.cubic
+            imageView.layer.add(impliesAnimation, forKey: nil)
+        }
+        
+    }
 }
 
 extension UIWindow {

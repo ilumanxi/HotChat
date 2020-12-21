@@ -12,6 +12,7 @@
 		260A87782521932A00380FB4 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A87772521932A00380FB4 /* SettingViewController.swift */; };
 		260B96112521F15C00767076 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260B96102521F15C00767076 /* Authentication.swift */; };
 		260B96162521F2F400767076 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260B96152521F2F400767076 /* AuthenticationViewController.swift */; };
+		26137CCB2590673900DCBAD0 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26137CCA2590673900DCBAD0 /* TabBar.swift */; };
 		2615C9F8255E8B0C009B89F4 /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2615C9F7255E8B0C009B89F4 /* PlaceholderTextView.swift */; };
 		2619D18725625AAB0071CC85 /* GiftCountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2619D18625625AAB0071CC85 /* GiftCountViewController.m */; };
 		2619D192256260A90071CC85 /* GiftCountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2619D190256260A90071CC85 /* GiftCountCell.m */; };
@@ -355,6 +356,7 @@
 		260A87772521932A00380FB4 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		260B96102521F15C00767076 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		260B96152521F2F400767076 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
+		26137CCA2590673900DCBAD0 /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		2615C9F7255E8B0C009B89F4 /* PlaceholderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
 		2619D18525625AAB0071CC85 /* GiftCountViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftCountViewController.h; sourceTree = "<group>"; };
 		2619D18625625AAB0071CC85 /* GiftCountViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftCountViewController.m; sourceTree = "<group>"; };
@@ -1150,6 +1152,7 @@
 		267B98682505D3FA0008C81B /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				26137CCA2590673900DCBAD0 /* TabBar.swift */,
 				2643EB392500AD7D00FBBE49 /* AppDelegate.swift */,
 				2643EBC22500B05300FBBE49 /* TabBarController.swift */,
 				2636A0D72564CDBF00664FFC /* UpgrateViewController.swift */,
@@ -1846,6 +1849,7 @@
 				26CBE3BD2508D7920089A23C /* DiscoverViewController.swift in Sources */,
 				26E291982553EABB0032AE99 /* GiftEarningsCell.swift in Sources */,
 				F38CB8C82507BA8A00049A76 /* ChatNotificationSettingCell.swift in Sources */,
+				26137CCB2590673900DCBAD0 /* TabBar.swift in Sources */,
 				262C5F6D255550BE00126359 /* AccountSecurityController.swift in Sources */,
 				268E3E602521D074000E4A33 /* RelationshipViewCell.swift in Sources */,
 				2643EBBF2500B04100FBBE49 /* Application.swift in Sources */,

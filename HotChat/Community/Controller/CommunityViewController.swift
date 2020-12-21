@@ -241,57 +241,6 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
        
     }
     
-
-    
-    @IBAction func sendButtonTapped(_ sender: Any) {
-        if LoginManager.shared.user!.realNameStatus.isPresent {
-            presentDynamic()
-        }
-        else {
-            checkUserAttestation()
-        }
-    }
-    
-    func presentDynamic() {
-        let vc = DynamicViewController.loadFromStoryboard()
-        vc.onSened.delegate(on: self) { (self, _) in
-            self.refreshData()
-        }
-        let navVC = UINavigationController(rootViewController: vc)
-        navVC.modalPresentationStyle = .fullScreen
-        present(navVC, animated: true, completion: nil)
-    }
-    
-    let authenticationAPI = Request<AuthenticationAPI>()
-    
-    func checkUserAttestation() {
-        showIndicator()
-        authenticationAPI.request(.checkUserAttestation, type: Response<Authentication>.self)
-            .verifyResponse()
-            .subscribe(onSuccess: { [weak self] response in
-                guard let self = self else { return }
-                self.hideIndicator()
-                if response.data!.realNameStatus.isPresent {
-                    let user = LoginManager.shared.user!
-                    user.realNameStatus = response.data!.realNameStatus
-                    LoginManager.shared.update(user: user)
-                    self.presentDynamic()
-                }
-                else {
-                    let vc = AuthenticationGuideViewController()
-                    vc.onPushing.delegate(on: self) { (self, _) -> UINavigationController? in
-                        return self.navigationController
-                    }
-                    self.present(vc, animated: true, completion: nil)
-                }
-            }, onError: { [weak self] error in
-                self?.hideIndicator()
-                self?.show(error.localizedDescription)
-            })
-            .disposed(by: rx.disposeBag)
-    }
-    
-    
     @IBAction func checkInButtonTapped(_ sender: Any) {
         let vc = CheckInViewController(day: checkInResult!.day)
         vc.onCheckInSucceed.delegate(on: self) { (self, _) in

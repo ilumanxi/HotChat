@@ -50,7 +50,6 @@ class Appearance {
         tabBar.isTranslucent = true
         tabBar.tintColor = .theme
         tabBar.unselectedItemTintColor = UIColor(hexString: "#333333")
-        
     }
 
 }

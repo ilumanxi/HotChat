@@ -5,12 +5,12 @@
       "scale" : "1x"
     },
     {
-      "filename" : "tabbar-community-selected@2x.png",
+      "filename" : "tabbar-add@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "tabbar-community-selected@3x.png",
+      "filename" : "tabbar-add@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
@@ -18,8 +18,5 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
-  },
-  "properties" : {
-    "template-rendering-intent" : "original"
   }
 }
