@@ -87,7 +87,7 @@ class TabBarController: UITabBarController, IndicatorDisplay {
                 else {
                     let vc = AuthenticationGuideViewController()
                     vc.onPushing.delegate(on: self) { (self, _) -> UINavigationController? in
-                        return self.navigationController
+                        return self.selectedViewController as? UINavigationController
                     }
                     self.present(vc, animated: true, completion: nil)
                 }

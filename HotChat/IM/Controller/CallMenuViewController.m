@@ -30,6 +30,9 @@
 #import "GiftReminderViewController.h"
 #import "HotChat-Swift.h"
 #import "GiftManager.h"
+#import <ReplayKit/ReplayKit.h>
+#import "HotChat-Swift.h"
+#import <Toast/Toast.h>
 
 
 @interface CallMenuViewController ()<GiftViewControllerDelegate, V2TIMAdvancedMsgListener>
@@ -69,6 +72,10 @@
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 
 @property (weak, nonatomic) IBOutlet UIVisualEffectView *visualEffectView;
+ 
+@property (strong, nonatomic) ReportHelper *reportHelper;
+
+
 
 @end
 
@@ -113,14 +120,32 @@
 }
 - (IBAction)reportButtonTapped {
     
-    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Chat" bundle:nil];
+    if (self.style == CallMenuStyleAudio) {
+        UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Chat" bundle:nil];
+        
+        ReportUserViewController *vc = (ReportUserViewController *) [storyboard instantiateViewControllerWithIdentifier:@"ReportUserViewController"];
+        User * user = [[User alloc] init];
+        user.userId = self.user.userId;
+        vc.user = user;
     
-    ReportUserViewController *vc = (ReportUserViewController *) [storyboard instantiateViewControllerWithIdentifier:@"ReportUserViewController"];
-    User * user = [[User alloc] init];
-    user.userId = self.user.userId;
-    vc.user = user;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else {
+        [self snapshotImage];
+    }
+}
+
+- (void)snapshotImage {
     
-    [self.navigationController pushViewController:vc animated:YES];
+    [[TRTCCloud sharedInstance] snapshotVideo:self.user.userId type:TRTCVideoStreamTypeBig completionBlock:^(UIImage *image) {
+        
+        [self.reportHelper oneKeyReportWithReportUserId:self.user.userId img:image success:^(NSDictionary<NSString *,id> * _Nonnull result) {
+            [self.view makeToast:result[@"resultMsg"] duration:[CSToastManager defaultDuration] position:CSToastPositionCenter];
+        } failed:^(NSError * _Nonnull error) {
+            [self.view makeToast:error.localizedDescription duration:[CSToastManager defaultDuration] position:CSToastPositionCenter];
+        }];
+    }];
+    
 }
 
 
@@ -377,6 +402,14 @@
     }
     
     return _giftShowManager;
+}
+
+- (ReportHelper *)reportHelper {
+    
+    if (!_reportHelper) {
+        _reportHelper = [[ReportHelper alloc] init];
+    }
+    return _reportHelper;
 }
 
 - (void)onRecvNewMessage:(V2TIMMessage *)msg {
