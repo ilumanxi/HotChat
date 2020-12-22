@@ -275,6 +275,9 @@
 		26EB2DA82558F157006698F9 /* SubsidiaryAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26EB2DA62558F157006698F9 /* SubsidiaryAccountCell.xib */; };
 		26EB2DCA25593FCA006698F9 /* ConsumerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EB2DC925593FCA006698F9 /* ConsumerAPI.swift */; };
 		26EB2DCC255945C4006698F9 /* Consumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EB2DCB255945C4006698F9 /* Consumer.swift */; };
+		26EDE7EE2591C6B8002A2EC3 /* TUIMessageController+Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EDE7ED2591C6B8002A2EC3 /* TUIMessageController+Message.m */; };
+		26EDE7F92591D11F002A2EC3 /* GuidedRechargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EDE7F72591D11F002A2EC3 /* GuidedRechargeViewController.swift */; };
+		26EDE7FA2591D11F002A2EC3 /* GuidedRechargeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26EDE7F82591D11F002A2EC3 /* GuidedRechargeViewController.xib */; };
 		26EE0E4C25245BD800233ED5 /* PayAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EE0E4B25245BD800233ED5 /* PayAPI.swift */; };
 		26F0D2542546DA8200D1018B /* InputController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F0D2532546DA8200D1018B /* InputController.m */; };
 		26F0D25A2546DB9C00D1018B /* InputBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F0D2592546DB9C00D1018B /* InputBar.m */; };
@@ -681,6 +684,10 @@
 		26EB2DA62558F157006698F9 /* SubsidiaryAccountCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubsidiaryAccountCell.xib; sourceTree = "<group>"; };
 		26EB2DC925593FCA006698F9 /* ConsumerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumerAPI.swift; sourceTree = "<group>"; };
 		26EB2DCB255945C4006698F9 /* Consumer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consumer.swift; sourceTree = "<group>"; };
+		26EDE7EC2591C6B8002A2EC3 /* TUIMessageController+Message.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TUIMessageController+Message.h"; sourceTree = "<group>"; };
+		26EDE7ED2591C6B8002A2EC3 /* TUIMessageController+Message.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TUIMessageController+Message.m"; sourceTree = "<group>"; };
+		26EDE7F72591D11F002A2EC3 /* GuidedRechargeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidedRechargeViewController.swift; sourceTree = "<group>"; };
+		26EDE7F82591D11F002A2EC3 /* GuidedRechargeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GuidedRechargeViewController.xib; sourceTree = "<group>"; };
 		26EE0E4B25245BD800233ED5 /* PayAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayAPI.swift; sourceTree = "<group>"; };
 		26F0D2522546DA8200D1018B /* InputController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputController.h; sourceTree = "<group>"; };
 		26F0D2532546DA8200D1018B /* InputController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputController.m; sourceTree = "<group>"; };
@@ -1105,6 +1112,8 @@
 				26597665257792E200E4B6A2 /* SayHellowSettingViewController.swift */,
 				26597666257792E200E4B6A2 /* SayHellowSettingViewController.xib */,
 				2659766B2577AD1000E4B6A2 /* SayHellowAddViewController.swift */,
+				26EDE7F72591D11F002A2EC3 /* GuidedRechargeViewController.swift */,
+				26EDE7F82591D11F002A2EC3 /* GuidedRechargeViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1435,6 +1444,8 @@
 				2636A0BE2563D04A00664FFC /* GiftAPI.swift */,
 				26B86EB62570EAD700CAC5AE /* TUIMessageDataProviderService+Gift.h */,
 				26B86EB72570EAD700CAC5AE /* TUIMessageDataProviderService+Gift.m */,
+				26EDE7EC2591C6B8002A2EC3 /* TUIMessageController+Message.h */,
+				26EDE7ED2591C6B8002A2EC3 /* TUIMessageController+Message.m */,
 			);
 			path = IM;
 			sourceTree = "<group>";
@@ -1672,6 +1683,7 @@
 				26395362254198DB00B5E3C0 /* RightDetailViewCell.xib in Resources */,
 				26DF8784255A7969002162A9 /* EarningsDetailViewController.xib in Resources */,
 				262C5F6E255550BE00126359 /* AccountSecurityController.xib in Resources */,
+				26EDE7FA2591D11F002A2EC3 /* GuidedRechargeViewController.xib in Resources */,
 				26959042250B1DD900763061 /* InterestedCardOverlayView.xib in Resources */,
 				26CB6D4F25515D6B00A9F4DD /* idl-license.face-ios in Resources */,
 				26C81EE62547E9E300C1D563 /* VoiceView.xib in Resources */,
@@ -1891,6 +1903,7 @@
 				26DF877D255A63BA002162A9 /* BasicCell.swift in Sources */,
 				26772822255A480900B98973 /* PrivacyViewController.swift in Sources */,
 				26C81EE12547E9C400C1D563 /* VoiceView.m in Sources */,
+				26EDE7EE2591C6B8002A2EC3 /* TUIMessageController+Message.m in Sources */,
 				264219B5258B2AC600D46B9C /* GreetingViewController.swift in Sources */,
 				2666405F2577624500E30A09 /* SayHellowViewController.swift in Sources */,
 				263BC1E225494EA20081F5DF /* UIView+Additions.m in Sources */,
@@ -1994,6 +2007,7 @@
 				26373C75250234AC0066FF3B /* Delegate.swift in Sources */,
 				26C31F2B25404D280000D09D /* ForYouViewController.swift in Sources */,
 				26CA6EE7253829A70023E27B /* ChannelViewController.swift in Sources */,
+				26EDE7F92591D11F002A2EC3 /* GuidedRechargeViewController.swift in Sources */,
 				26787E2F251B228200D511E8 /* AccountPlugin.swift in Sources */,
 				26CB6D3F25515D6B00A9F4DD /* BDFaceLivenessViewController.m in Sources */,
 				26959040250B1D9400763061 /* InterestedCardOverlayView.swift in Sources */,

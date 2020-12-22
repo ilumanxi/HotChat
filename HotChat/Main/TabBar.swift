@@ -22,15 +22,21 @@ class TabBar: UITabBar {
     let onComposeButtonDidTapped = HotChat.Delegate<Void, Void>()
     
     func setupUI() {
+        addSubview(composeWrappView)
         addSubview(composeButton)
     }
     
-    lazy var composeButton: UIButton = {
+    private lazy var composeButton: UIButton = {
         let button = UIButton(type: .custom)
         button.contentVerticalAlignment = .top
         button.setImage(UIImage(named: "tabbar-add"), for: .normal)
         button.addTarget(self, action: #selector(composeButtonDidTapped), for: .touchUpInside)
         return button
+    }()
+    
+    private lazy var composeWrappView: UIView = {
+        let view = UIView()
+        return view
     }()
     
     @objc private func composeButtonDidTapped() {
@@ -73,11 +79,17 @@ class TabBar: UITabBar {
             frame.origin.x = dx
             view.frame = frame
         }
+        
+        let top: CGFloat = 5.5
 
-        composeButton.frame =  composeButton.frame.offsetBy(dx: 0, dy: -5).insetBy(dx: 0, dy: -5)
-        composeButton.layer.cornerRadius = composeButton.frame.width / 2.0
-        composeButton.contentEdgeInsets = UIEdgeInsets(top:  5, left: 0, bottom: 0, right: 0)
-        composeButton.backgroundColor = barTintColor
+        composeButton.frame =  composeButton.frame.offsetBy(dx: 0, dy: -top).insetBy(dx: 0, dy: -top)
+        composeButton.contentEdgeInsets = UIEdgeInsets(top:  top, left: 0, bottom: 0, right: 0)
+        
+        let v: CGFloat = 12
+        let size = composeButton.frame.height + v
+        composeWrappView.frame = CGRect(x:( bounds.width - size) / 2.0, y: -v, width: size, height: size)
+        composeWrappView.layer.cornerRadius = composeWrappView.frame.width / 2.0
+        composeWrappView.backgroundColor = barTintColor
     }
     
 }
