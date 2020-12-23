@@ -126,6 +126,9 @@ extension AccountPlugin: PluginType {
             else if code.description == "-201" { // 封号
                 NotificationCenter.default.post(name: .userDidBanned, object: nil, userInfo: json)
             }
+            else if  let data = json["data"] as? [String : Any], let  resultCode = data["resultCode"] as? Int, resultCode == -202 { // 销号
+                NotificationCenter.default.post(name: .userDidDestroy, object: nil, userInfo: data)
+            }
         }
         
 //        if !shouldHandleRequest(response.request!, prefixs: prefixs) { return }

@@ -46,7 +46,7 @@ extension Constant {
     
     /// 测试
     static let IMAppID: UInt32 = 1400457429
-    
+
     static let APIHost = "ceshiapi.yuupni.com/gateway.php"
 
     static let H5Host = "ceshiadmin.yuupni.com"

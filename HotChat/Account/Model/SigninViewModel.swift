@@ -68,11 +68,13 @@ class SigninViewModel {
         
         signedIn = input.signInTaps.withLatestFrom(phoneAndPassword)
             .flatMapLatest { pair in
-                return API.signin(pair.phone, password: pair.password)
+                return API.signin(pair.phone, password: pair.password).verifyResponse()
                     .do(onSuccess: { result in
                         wireframe.show(result.msg, in: UIApplication.shared.keyWindow!)
                     }, onError: { error in
-                        wireframe.show(error.localizedDescription, in: UIApplication.shared.keyWindow!)
+                        if error._code != -202 {
+                            wireframe.show(error.localizedDescription, in: UIApplication.shared.keyWindow!)
+                        }
                     })
                     .map { result in
                         return result.isSuccessd

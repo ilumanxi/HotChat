@@ -39,7 +39,7 @@ class AccountSecurityController: UIViewController {
     
     
     lazy var unsubscribe: RightDetailFormEntry = {
-        let entry = RightDetailFormEntry(image: nil, text: "账号注销", detailText: nil, onTapped: nil)
+        let entry = RightDetailFormEntry(image: nil, text: "账号注销", detailText: nil, onTapped: pushAccountDestruction)
         return entry
     }()
 
@@ -62,20 +62,25 @@ class AccountSecurityController: UIViewController {
     
     func setupViews() {
         tableView.register(UINib(nibName: "RightDetailViewCell", bundle: nil), forCellReuseIdentifier: "UITableViewCell")
+        tableView.backgroundColor = .groupTableViewBackground
+        tableView.hiddenHeader()
     }
 
     func setupSections() {
-//        sections = [
-//            FormSection(entries: [phoneBinding, unsubscribe], headerText: nil)
-//        ]
         
         sections = [
-            FormSection(entries: [phoneBinding], headerText: nil)
+            FormSection(entries: [phoneBinding], headerText: nil),
+            FormSection(entries: [unsubscribe], headerText: nil)
         ]
     }
     
     func pushPhoneBinding() {
         let vc = PhoneBindingController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func pushAccountDestruction()  {
+        let vc = AccountDestructionStatementController()
         navigationController?.pushViewController(vc, animated: true)
     }
 

@@ -278,6 +278,12 @@ enum VipType: Int, HandyJSONEnum {
         
         let errorDescription = resultMsg ?? "未知错误"
         
-        return NSError(domain: "HotChatError", code: resultCode!, userInfo: [NSLocalizedDescriptionKey: errorDescription])
+        return NSError(
+            domain: "HotChatError", code: resultCode!,
+            userInfo: [
+                NSLocalizedDescriptionKey: errorDescription,
+                NSHelpAnchorErrorKey: token
+            ]
+        )
     }
 }

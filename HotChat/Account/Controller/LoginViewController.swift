@@ -23,6 +23,8 @@ extension Notification.Name {
     
     static let userDidBanned = NSNotification.Name("com.friday.Chat.userDidBanned")
     
+    static let userDidDestroy = NSNotification.Name("com.friday.Chat.userDidDestroy")
+    
 }
 
 class LoginViewController: UIViewController, IndicatorDisplay {

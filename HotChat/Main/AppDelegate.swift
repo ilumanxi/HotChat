@@ -11,6 +11,7 @@ import AuthenticationServices
 import SYBPush_normal
 import SwiftyStoreKit
 import Bugly
+import Toast_Swift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -130,6 +131,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             object: nil
         )
         
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(userDidDestroy),
+            name: .userDidDestroy,
+            object: nil
+        )
+        
         if #available(iOS 13.0, *) {
             observeAppleSignInState()
         }
@@ -163,6 +171,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }))
         
         window?.rootViewController?.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    let logoutAPI = Request<LogoutAPI>()
+    
+    @objc func userDidDestroy(_ noti: Notification) {
+        
+        //  {"resultCode":-202,"resultMsg":" 您的账号（25862444）已申请 注销，您已被系统登出 您可以在30天内撤销注销 申请，之后将自动注销 ","userStatus":3,"token":"a217a28f5c1cc64e"}
+    
+        let message = noti.userInfo?["resultMsg"] as? String ?? "封号了"
+        
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "取消", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "撤销注销", style: .default, handler: { [unowned self] _ in
+            self.undoAccountDestroy(token: (noti.userInfo?["token"] as? String) ?? "")
+        }))
+        
+        window?.rootViewController?.present(alert, animated: true, completion: nil)
+    }
+    
+    func undoAccountDestroy(token: String){
+        
+        logoutAPI.request(.removeLogout(token: token), type: ResponseEmpty.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { [unowned self] response in
+                self.window?.makeToast(response.msg)
+            }, onError: { [unowned self] error in
+                self.window?.makeToast(error.localizedDescription)
+            })
+            .disposed(by: rx.disposeBag)
     }
 
     

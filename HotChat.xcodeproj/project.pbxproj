@@ -124,6 +124,7 @@
 		2668B0A92523432A0073E25D /* WalletProductViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2668B0A72523432A0073E25D /* WalletProductViewCell.swift */; };
 		2668B0AA2523432A0073E25D /* WalletProductViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2668B0A82523432A0073E25D /* WalletProductViewCell.xib */; };
 		2668B0AF2523479F0073E25D /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2668B0AE2523479F0073E25D /* Product.swift */; };
+		2668CF0925931B3D00C851F6 /* LogoutAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2668CF0825931B3D00C851F6 /* LogoutAPI.swift */; };
 		266E3C57258B737E00781E91 /* bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 266E3C56258B737E00781E91 /* bell.mp3 */; };
 		2673FDBD255CE14400909A37 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2673FDBC255CE14400909A37 /* WebViewController.swift */; };
 		26772822255A480900B98973 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26772820255A480900B98973 /* PrivacyViewController.swift */; };
@@ -271,6 +272,10 @@
 		26E48901257DDFD1006C2ACE /* GirdLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E488FF257DDFD1006C2ACE /* GirdLayout.m */; };
 		26E48908257E087D006C2ACE /* CheckInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E48906257E087D006C2ACE /* CheckInViewController.swift */; };
 		26E48909257E087D006C2ACE /* CheckInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26E48907257E087D006C2ACE /* CheckInViewController.xib */; };
+		26E4C67E2592F440005EAAC3 /* AccountDestructionStatementController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E4C67C2592F440005EAAC3 /* AccountDestructionStatementController.swift */; };
+		26E4C67F2592F440005EAAC3 /* AccountDestructionStatementController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26E4C67D2592F440005EAAC3 /* AccountDestructionStatementController.xib */; };
+		26E4C68425930F89005EAAC3 /* AccountDestructionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E4C68225930F89005EAAC3 /* AccountDestructionController.swift */; };
+		26E4C68525930F89005EAAC3 /* AccountDestructionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26E4C68325930F89005EAAC3 /* AccountDestructionController.xib */; };
 		26EB2DA72558F157006698F9 /* SubsidiaryAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EB2DA52558F157006698F9 /* SubsidiaryAccountCell.swift */; };
 		26EB2DA82558F157006698F9 /* SubsidiaryAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26EB2DA62558F157006698F9 /* SubsidiaryAccountCell.xib */; };
 		26EB2DCA25593FCA006698F9 /* ConsumerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EB2DC925593FCA006698F9 /* ConsumerAPI.swift */; };
@@ -494,6 +499,7 @@
 		2668B0A72523432A0073E25D /* WalletProductViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletProductViewCell.swift; sourceTree = "<group>"; };
 		2668B0A82523432A0073E25D /* WalletProductViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletProductViewCell.xib; sourceTree = "<group>"; };
 		2668B0AE2523479F0073E25D /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		2668CF0825931B3D00C851F6 /* LogoutAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutAPI.swift; sourceTree = "<group>"; };
 		266E3C56258B737E00781E91 /* bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bell.mp3; sourceTree = "<group>"; };
 		2673FDBC255CE14400909A37 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		26772820255A480900B98973 /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
@@ -680,6 +686,10 @@
 		26E48900257DDFD1006C2ACE /* GirdLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GirdLayout.h; sourceTree = "<group>"; };
 		26E48906257E087D006C2ACE /* CheckInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInViewController.swift; sourceTree = "<group>"; };
 		26E48907257E087D006C2ACE /* CheckInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckInViewController.xib; sourceTree = "<group>"; };
+		26E4C67C2592F440005EAAC3 /* AccountDestructionStatementController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDestructionStatementController.swift; sourceTree = "<group>"; };
+		26E4C67D2592F440005EAAC3 /* AccountDestructionStatementController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountDestructionStatementController.xib; sourceTree = "<group>"; };
+		26E4C68225930F89005EAAC3 /* AccountDestructionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDestructionController.swift; sourceTree = "<group>"; };
+		26E4C68325930F89005EAAC3 /* AccountDestructionController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountDestructionController.xib; sourceTree = "<group>"; };
 		26EB2DA52558F157006698F9 /* SubsidiaryAccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubsidiaryAccountCell.swift; sourceTree = "<group>"; };
 		26EB2DA62558F157006698F9 /* SubsidiaryAccountCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubsidiaryAccountCell.xib; sourceTree = "<group>"; };
 		26EB2DC925593FCA006698F9 /* ConsumerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumerAPI.swift; sourceTree = "<group>"; };
@@ -892,6 +902,7 @@
 				26EE0E4B25245BD800233ED5 /* PayAPI.swift */,
 				26F710032542C6C000797E87 /* UserSettingsAPI.swift */,
 				26EB2DC925593FCA006698F9 /* ConsumerAPI.swift */,
+				2668CF0825931B3D00C851F6 /* LogoutAPI.swift */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -941,6 +952,10 @@
 				262C5F6C255550BE00126359 /* AccountSecurityController.xib */,
 				2693697225555E06002E224B /* PhoneBindingController.swift */,
 				2693697325555E06002E224B /* PhoneBindingController.xib */,
+				26E4C67C2592F440005EAAC3 /* AccountDestructionStatementController.swift */,
+				26E4C67D2592F440005EAAC3 /* AccountDestructionStatementController.xib */,
+				26E4C68225930F89005EAAC3 /* AccountDestructionController.swift */,
+				26E4C68325930F89005EAAC3 /* AccountDestructionController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1695,6 +1710,7 @@
 				2693697525555E06002E224B /* PhoneBindingController.xib in Resources */,
 				267955042507637600A72954 /* Community.storyboard in Resources */,
 				26C81EEE25480B1900C1D563 /* GiftViewCell.xib in Resources */,
+				26E4C68525930F89005EAAC3 /* AccountDestructionController.xib in Resources */,
 				26597676257886BB00E4B6A2 /* GreetingsAddedView.xib in Resources */,
 				26CBE3B82508A9F20089A23C /* CommunityHeaderView.xib in Resources */,
 				26CB6D5125515D6B00A9F4DD /* com.baidu.idl.face.faceSDK.bundle in Resources */,
@@ -1711,6 +1727,7 @@
 				2643EB482500AD7E00FBBE49 /* LaunchScreen.storyboard in Resources */,
 				26E291B72554FB810032AE99 /* AvatarAuthenticationResultController.xib in Resources */,
 				2643EB452500AD7E00FBBE49 /* Assets.xcassets in Resources */,
+				26E4C67F2592F440005EAAC3 /* AccountDestructionStatementController.xib in Resources */,
 				2668B0AA2523432A0073E25D /* WalletProductViewCell.xib in Resources */,
 				267B98802506012F0008C81B /* Account.storyboard in Resources */,
 				26DF877E255A63BA002162A9 /* BasicCell.xib in Resources */,
@@ -1892,6 +1909,7 @@
 				2637D872255AA13D00020E98 /* GiftEarning.swift in Sources */,
 				2643EBA42500B04100FBBE49 /* UserInfoInputTextViewController.swift in Sources */,
 				26C81EF42548164100C1D563 /* Gift.m in Sources */,
+				26E4C67E2592F440005EAAC3 /* AccountDestructionStatementController.swift in Sources */,
 				2643EBC12500B04100FBBE49 /* UITableView+App.swift in Sources */,
 				2668B09C25233C410073E25D /* WalletViewController.swift in Sources */,
 				26AB26E225401C0D00C16025 /* RemarkViewController.swift in Sources */,
@@ -1927,6 +1945,7 @@
 				263BC21D254956950081F5DF /* CallMenuViewController.m in Sources */,
 				26945810253FF80A00EBCABB /* SwitchViewCell.swift in Sources */,
 				26C80E582546CCF000F4ECBC /* ChatController.m in Sources */,
+				26E4C68425930F89005EAAC3 /* AccountDestructionController.swift in Sources */,
 				2656F322254FE0AF00552611 /* CallStatus.swift in Sources */,
 				26F8946B25203B7300A45648 /* TitleViewCell.swift in Sources */,
 				26CB6D4825515D6B00A9F4DD /* BDFaceLogoView.m in Sources */,
@@ -1964,6 +1983,7 @@
 				2643EBAC2500B04100FBBE49 /* UserInfoInterviewCell.swift in Sources */,
 				263A6684257E0EF200F35714 /* CheckInCell.swift in Sources */,
 				265C8A42251332E900E220BD /* SigninProtocols.swift in Sources */,
+				2668CF0925931B3D00C851F6 /* LogoutAPI.swift in Sources */,
 				26CB6D4525515D6B00A9F4DD /* BDFaceCircleView.m in Sources */,
 				26CBE3B62508A9C30089A23C /* CommunityHeaderView.swift in Sources */,
 				26A20AFF2518A47F0061BBB8 /* KeychainStore.swift in Sources */,

@@ -20,16 +20,22 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B9r-Sp-n58">
-                    <rect key="frame" x="51" y="377" width="312" height="142"/>
+                    <rect key="frame" x="51" y="359" width="312" height="178"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="能量不足" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5S-mQ-j6Q">
-                            <rect key="frame" x="123.5" y="29" width="65.5" height="19.5"/>
+                            <rect key="frame" x="123.5" y="30" width="65.5" height="19.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="（开通会员即可免费聊天、获得超级权益）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcF-pg-dxd">
+                            <rect key="frame" x="39.5" y="62.5" width="233" height="14.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="bAq-AK-hkz">
-                            <rect key="frame" x="23" y="75" width="266" height="47"/>
+                            <rect key="frame" x="23" y="101" width="266" height="47"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="48" verticalCompressionResistancePriority="48" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qqc-P5-cJk">
                                     <rect key="frame" x="0.0" y="0.0" width="125.5" height="47"/>
@@ -73,11 +79,13 @@
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="bAq-AK-hkz" secondAttribute="trailing" constant="23" id="M5G-pR-ego"/>
                         <constraint firstAttribute="width" constant="312" id="PYo-9p-diW"/>
-                        <constraint firstItem="S5S-mQ-j6Q" firstAttribute="top" secondItem="B9r-Sp-n58" secondAttribute="top" constant="29" id="Rqs-dN-iyF"/>
+                        <constraint firstItem="wcF-pg-dxd" firstAttribute="top" secondItem="S5S-mQ-j6Q" secondAttribute="bottom" constant="13" id="Pgd-zb-BR1"/>
+                        <constraint firstItem="S5S-mQ-j6Q" firstAttribute="top" secondItem="B9r-Sp-n58" secondAttribute="top" constant="30" id="Rqs-dN-iyF"/>
                         <constraint firstItem="bAq-AK-hkz" firstAttribute="leading" secondItem="B9r-Sp-n58" secondAttribute="leading" constant="23" id="fIf-rd-Bau"/>
-                        <constraint firstAttribute="height" constant="142" id="iER-Eg-fdb"/>
+                        <constraint firstAttribute="height" constant="178" id="iER-Eg-fdb"/>
                         <constraint firstItem="S5S-mQ-j6Q" firstAttribute="centerX" secondItem="B9r-Sp-n58" secondAttribute="centerX" id="knJ-3f-AJO"/>
-                        <constraint firstAttribute="bottom" secondItem="bAq-AK-hkz" secondAttribute="bottom" constant="20" id="oic-AQ-xXL"/>
+                        <constraint firstItem="wcF-pg-dxd" firstAttribute="centerX" secondItem="B9r-Sp-n58" secondAttribute="centerX" id="oIX-eh-PZm"/>
+                        <constraint firstAttribute="bottom" secondItem="bAq-AK-hkz" secondAttribute="bottom" constant="30" id="oic-AQ-xXL"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

@@ -28,7 +28,7 @@ extension UIColor {
     
     static let borderGray: UIColor = UIColor(hexString: "#F1F1F1")
     
-    static let disabledGray: UIColor = UIColor(hexString: "#E6E6E6")
+    static let disabledGray: UIColor = UIColor(hexString: "#BDBDBD")
     
     static let normalGray: UIColor = UIColor(hexString: "#F6F5F5")
 }
