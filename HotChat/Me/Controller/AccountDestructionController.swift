@@ -95,7 +95,7 @@ class AccountDestructionController: UIViewController, IndicatorDisplay {
         button.titleLabel?.font = .systemFont(ofSize: 14)
         button.backgroundColor = .theme
         button.layer.cornerRadius = 4
-        button.frame = CGRect(x: 0, y: 0, width: 48, height: 30)
+        button.frame = CGRect(x: 0, y: 0, width: 50, height: 30)
         return button
     }()
     
@@ -216,7 +216,7 @@ class AccountDestructionController: UIViewController, IndicatorDisplay {
         API.request(.checkCodes(verifyCode: textField.text ?? ""), type: ResponseEmpty.self)
             .verifyResponse()
             .subscribe(onSuccess: { [unowned self] response in
-                UIApplication.shared.keyWindow?.setLoginViewController()
+                LoginManager.shared.logout()
                 self.showMessageOnWindow(response.msg)
             }, onError: { [unowned self] error in
                 self.show(error.localizedDescription)

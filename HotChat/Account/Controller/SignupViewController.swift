@@ -133,6 +133,6 @@ extension ObservableType where Element : RxAbstractInteger {
             .map{
                 seconds - $0
             }
-            .take(Int(seconds))
+            .take(Int(seconds + 1))
     }
 }
