@@ -20,6 +20,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NXR-mI-jme" customClass="HBDNavigationBar">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -334,38 +335,6 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="IDV-b8-j08">
                                 <rect key="frame" x="0.0" y="818" width="414" height="44"/>
                                 <subviews>
-                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yep-6Z-zh1">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="63.5"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Zx-Mf-jrb" customClass="QMUIButton">
-                                                <rect key="frame" x="342.5" y="0.0" width="63.5" height="63.5"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="63.5" id="Xkp-U7-sef"/>
-                                                    <constraint firstAttribute="height" constant="63.5" id="i7K-zN-FES"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                <state key="normal" title="签到" image="signin-form" backgroundImage="signin-form-bg"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="spacingBetweenImageAndTitle">
-                                                        <real key="value" value="5"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="imagePosition">
-                                                        <integer key="value" value="0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="checkInButtonTapped:" destination="7kL-bk-kMs" eventType="touchUpInside" id="mHs-aF-s4i"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailingMargin" secondItem="4Zx-Mf-jrb" secondAttribute="trailing" id="87M-2w-G0c"/>
-                                            <constraint firstItem="4Zx-Mf-jrb" firstAttribute="top" secondItem="Yep-6Z-zh1" secondAttribute="top" id="Jbv-Ik-fpV"/>
-                                            <constraint firstItem="4Zx-Mf-jrb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Yep-6Z-zh1" secondAttribute="leadingMargin" id="Lt8-Qw-N4x"/>
-                                            <constraint firstAttribute="bottom" secondItem="4Zx-Mf-jrb" secondAttribute="bottom" id="oYG-Vr-XQt"/>
-                                        </constraints>
-                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4hH-iS-nJa">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                         <subviews>
@@ -440,7 +409,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="checkInView" destination="Yep-6Z-zh1" id="JSJ-Gw-R5t"/>
                         <outlet property="collectionView" destination="1ga-r6-SZX" id="XwY-Ju-lsE"/>
                         <outlet property="phoneBindingView" destination="4hH-iS-nJa" id="3SQ-Er-YQQ"/>
                     </connections>
@@ -953,10 +921,8 @@
         <image name="like-selected" width="13" height="12"/>
         <image name="modal-close" width="16" height="16"/>
         <image name="more" width="3" height="14"/>
-        <image name="signin-form" width="25.5" height="24"/>
-        <image name="signin-form-bg" width="63.5" height="63.5"/>
         <image name="tabbar-community-normal" width="19" height="19"/>
-        <image name="tabbar-community-selected" width="19" height="19"/>
+        <image name="tabbar-community-selected" width="20" height="20"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

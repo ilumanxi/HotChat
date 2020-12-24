@@ -29,7 +29,7 @@ class CheckInViewController: UIViewController, IndicatorDisplay {
     
     var day: Int = 0
     
-    var data: [CheckIn] = [] {
+    var data: [[CheckIn]] = [] {
         didSet {
             collectionView.reloadData()
         }
@@ -58,7 +58,12 @@ class CheckInViewController: UIViewController, IndicatorDisplay {
         API.request(.signList, type: Response<[CheckIn]>.self)
             .verifyResponse()
             .subscribe(onSuccess: { [unowned self] response in
-                self.data = response.data!
+                
+                let sectionData = response.data!
+                let f = sectionData.prefix(3).compactMap{$0}
+                let s = sectionData.suffix(4).compactMap{$0}
+                
+                self.data = [f, s]
                 
             }, onError: { error in
                 
@@ -96,24 +101,46 @@ class CheckInViewController: UIViewController, IndicatorDisplay {
     }
     
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if touches.first?.view == view {
-            dismiss(animated: false, completion: nil)
-        }
+}
+
+
+extension CheckInViewController: UICollectionViewDelegateFlowLayout {
+    
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+
+        return insetForSectionAt(section: section)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 60, height: 80)
+    }
+    
+    func insetForSectionAt(section: Int) -> UIEdgeInsets {
+        let count = CGFloat(data[section].count)
+        
+        let activateWidth =  60 * count + 10.0 * (count - 1.0)
+        let x = (collectionView.bounds.width - activateWidth) / 2.0
+        return UIEdgeInsets(top: 10, left: x, bottom: 0, right: x)
     }
 }
 
 
 extension CheckInViewController: UICollectionViewDataSource {
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return data.count
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return data.count
+        return data[section].count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let model = data[indexPath.row]
+        let model = data[indexPath.section][indexPath.item]
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: CheckInCell.self)
         cell.configuration(model)
         return cell
@@ -125,19 +152,9 @@ extension CheckInCell {
     
     func configuration(_ data: CheckIn) {
         checkInImageView.isHidden = !data.status
-        
-        let attrString = NSMutableAttributedString(string: data.energy.description)
-        
-        let attr: [NSAttributedString.Key : Any] = [
-            .font: UIFont.systemFont(ofSize: 18, weight: .bold),
-            .foregroundColor: UIColor(hexString: "#FFE456"),
-            .strokeColor: UIColor(hexString: "#EF9925"),
-            .strokeWidth: -6]
-        
-        attrString.addAttributes(attr, range: NSRange(location: 0, length: attrString.length))
-        iconLabel.attributedText = attrString
+                
+        coinLabel.text = data.energy.description
         dayLabel.text = data.days.description
-        textLabel.text = data.title
         backgroundColor = UIColor(hexString: "#F8F8F8")
     }
 }

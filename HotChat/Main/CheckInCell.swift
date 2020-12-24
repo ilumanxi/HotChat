@@ -12,10 +12,8 @@ class CheckInCell: UICollectionViewCell {
 
     @IBOutlet weak var dayLabel: UILabel!
     
-    @IBOutlet weak var iconLabel: UILabel!
+    @IBOutlet weak var coinLabel: UILabel!
     
-    
-    @IBOutlet weak var textLabel: UILabel!
     
     @IBOutlet weak var checkInImageView: UIImageView!
     

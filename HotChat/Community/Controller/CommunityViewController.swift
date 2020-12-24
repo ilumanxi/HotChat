@@ -53,8 +53,6 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     
     var checkInResult: CheckInResult?
     
-    @IBOutlet weak var checkInView: UIView!
-    
     @IBOutlet weak var phoneBindingView: UIView!
     
     
@@ -107,11 +105,6 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
                 self?.present(vc, animated: true, completion: nil)
             })
             .disposed(by: rx.disposeBag)
-      
-
-        
-        
-
     }
     
     
@@ -132,20 +125,17 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     func checkInState() {
         if LoginManager.shared.user!.girlStatus || !LoginManager.shared.currentVersionApproved {
             self.checkInResult = nil
-            self.checkInView.isHidden = true
             return
         }
         
-        self.checkInView.isHidden = true
         checkInAPI.request(.checkUserSignInfo, type: Response<CheckInResult>.self)
             .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in
                 self?.checkInResult = response.data
-                self?.checkInView.isHidden = false
+                self?.presentCheckIn()
                 
             }, onError: { [weak self] error in
                 self?.checkInResult = nil
-                self?.checkInView.isHidden = true
             })
             .disposed(by: rx.disposeBag)
     }
@@ -241,7 +231,7 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
        
     }
     
-    @IBAction func checkInButtonTapped(_ sender: Any) {
+    func presentCheckIn() {
         let vc = CheckInViewController(day: checkInResult!.day)
         vc.onCheckInSucceed.delegate(on: self) { (self, _) in
             self.checkInState()
