@@ -15,7 +15,7 @@ PODS:
   - AFNetworking/Serialization (4.0.1)
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
-  - Alamofire (5.4.0)
+  - Alamofire (5.4.1)
   - Blueprints (0.13.1)
   - Bugly (2.5.71)
   - Cache (6.0.0)
@@ -50,7 +50,7 @@ PODS:
   - "NSObject+Rx (5.1.0)":
     - RxSwift (~> 5.1)
   - PIPKit (0.2.0)
-  - PMSuperButton (3.0.2)
+  - PKHUD (5.3.0)
   - pop (1.0.12)
   - ReachabilitySwift (4.3.1)
   - ReactiveObjC (3.1.1)
@@ -114,16 +114,16 @@ PODS:
   - TagListView (1.4.1)
   - Toast (4.0.0)
   - Toast-Swift (5.0.1)
-  - TXIMSDK_iOS (5.1.10)
-  - TXIMSDK_TUIKit_iOS (5.1.10):
+  - TXIMSDK_iOS (5.1.14)
+  - TXIMSDK_TUIKit_iOS (5.1.14):
     - MMLayout (= 0.2.0)
     - ReactiveObjC (= 3.1.1)
     - SDWebImage (= 5.9.0)
     - Toast (= 4.0.0)
-    - TXIMSDK_iOS (= 5.1.10)
+    - TXIMSDK_iOS (= 5.1.14)
     - TXLiteAVSDK_TRTC (= 7.8.9519)
   - TXLiteAVSDK_TRTC (7.8.9519)
-  - TZImagePickerController (3.5.7)
+  - TZImagePickerController (3.5.8)
   - WechatOpenSDK (1.8.7.1)
   - WKWebViewJavascriptBridge (1.2.1)
 
@@ -151,7 +151,7 @@ DEPENDENCIES:
   - Moya/RxSwift
   - "NSObject+Rx"
   - PIPKit
-  - PMSuperButton
+  - PKHUD
   - Reusable
   - RxCocoa
   - RxCoreLocation
@@ -198,7 +198,7 @@ SPEC REPOS:
     - Moya
     - "NSObject+Rx"
     - PIPKit
-    - PMSuperButton
+    - PKHUD
     - pop
     - ReachabilitySwift
     - ReactiveObjC
@@ -230,7 +230,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   ActiveLabel: 5e3f4de79a1952d4604b845a0610d4776e4b82b3
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
-  Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
+  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
   Blueprints: ddd6ab1e455c98471aaef2fdd0b09b5f9b53af5b
   Bugly: fd066c75c4a0eca1440f9b6a84bd37d51bfc85ac
   Cache: 4ca7e00363fca5455f26534e5607634c820ffc2d
@@ -252,7 +252,7 @@ SPEC CHECKSUMS:
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   "NSObject+Rx": fa6bbcc1ab1faa06b01466bc09b1e0692bbc5946
   PIPKit: 00fd62aa4967f9cef1eca1a5587d3192c23881e1
-  PMSuperButton: 72105fef415890c8792a9e5a784f75c461066f8b
+  PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
@@ -274,13 +274,13 @@ SPEC CHECKSUMS:
   TagListView: a1c236d17960a0cf64156725a76ce6d73ebce2be
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
-  TXIMSDK_iOS: dc60e32d33256cd0b358e24c1441c50b0ed66fb8
-  TXIMSDK_TUIKit_iOS: 9f3a833400ba2070b92c639083947ff8736e9106
+  TXIMSDK_iOS: 1825ea5223fba21b9addef5cf57c11e52f0b3e66
+  TXIMSDK_TUIKit_iOS: c1c0249b7d3617e4505f45a05373c92e23585351
   TXLiteAVSDK_TRTC: c127880c4dbe844bdc7575a655be8042ce96024a
-  TZImagePickerController: aff4b62eacce0194d2494ee4f42934bcff577cec
+  TZImagePickerController: 7fd9702897ef8c0b7c951e5463f4bcf398296f9e
   WechatOpenSDK: 6a4d1436c15b3b5fe2a0bd383f3046010186da44
   WKWebViewJavascriptBridge: 07ad0cab27cd61ccdb90b5deb223f6df3a03c3d7
 
-PODFILE CHECKSUM: 1fe544c48d50fa71cbe9b29a34220642c14ad4b6
+PODFILE CHECKSUM: b29703f34b1c2f33f684b7a3db9e0bfe0d693e6a
 
 COCOAPODS: 1.10.0

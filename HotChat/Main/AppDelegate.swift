@@ -12,6 +12,7 @@ import SYBPush_normal
 import SwiftyStoreKit
 import Bugly
 import Toast_Swift
+import PKHUD
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -30,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         CallManager.shareInstance()?.initCall()
         
-        
+        HUD.registerForKeyboardNotifications()
         
         Appearance.default.configure()
         registerANPSNotification(application, didFinishLaunchingWithOptions: launchOptions)
@@ -162,11 +163,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     @objc func userDidBanned(_ noti: Notification) {
-    
-        let message = noti.userInfo?["msg"] as? String ?? "封号了"
         
-        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "确认", style: .default, handler: { _ in
+        var message = "封号了"
+        
+        if let msg = noti.userInfo?["resultMsg"] as? String {
+            message = msg
+        }
+        else if let msg = noti.userInfo?["msg"] as? String  {
+            message = msg
+        }
+        
+        let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "确认", style: .default, handler: { [unowned self] _ in
+            if self.window?.rootViewController?.isKind(of: UINavigationController.self) ?? false { // 在登录页面
+                return
+            }
             LoginManager.shared.logout()
         }))
         
@@ -180,7 +191,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //  {"resultCode":-202,"resultMsg":" 您的账号（25862444）已申请 注销，您已被系统登出 您可以在30天内撤销注销 申请，之后将自动注销 ","userStatus":3,"token":"a217a28f5c1cc64e"}
     
-        let message = noti.userInfo?["resultMsg"] as? String ?? "封号了"
+        let message = noti.userInfo?["resultMsg"] as? String ?? "账号注销"
         
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "取消", style: .default, handler: nil))
@@ -281,11 +292,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-        
+
 //        if let viewContoller = self.window?.visibleViewController, viewContoller.conforms(to: Autorotate.self) { //  allButUpsideDown
 //            return viewContoller.supportedInterfaceOrientations
 //        }
-        
+
         return .portrait
     }
 

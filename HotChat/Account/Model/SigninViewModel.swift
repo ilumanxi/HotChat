@@ -72,9 +72,7 @@ class SigninViewModel {
                     .do(onSuccess: { result in
                         wireframe.show(result.msg, in: UIApplication.shared.keyWindow!)
                     }, onError: { error in
-                        if error._code != -202 {
-                            wireframe.show(error.localizedDescription, in: UIApplication.shared.keyWindow!)
-                        }
+                        wireframe.show(error, in: UIApplication.shared.keyWindow!)
                     })
                     .map { result in
                         return result.isSuccessd

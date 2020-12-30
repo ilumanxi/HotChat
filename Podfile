@@ -28,7 +28,7 @@ target 'HotChat' do
     pod 'Moya', :subspecs => ['Core', 'RxSwift']
     pod 'SwiftDate'
     pod 'SegementSlide'
-    pod 'PMSuperButton'
+    pod 'PKHUD'
 #    pod 'Aquaman'
 #    pod 'Trident'
     

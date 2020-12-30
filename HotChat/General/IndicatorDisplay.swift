@@ -8,11 +8,10 @@
 
 import UIKit
 import SnapKit
-import MBProgressHUD
-import Toast_Swift
+import PKHUD
 
 protocol IndicatorDisplay: NSObject {
-    
+    func show(_ error: Error, in view: UIView)
     func show(_ message: String?, in view: UIView)
     func showIndicator(_ message: String?, in view: UIView)
     func showOrHideIndicator(loadingState: LoadingState, in view: UIView, text: String?, image: UIImage?)
@@ -25,6 +24,18 @@ class IndicatorHolderView: UIView {}
 
 
 extension IndicatorDisplay where Self: UIViewController {
+    
+    func show(_ error: Error) {
+        
+        show(error.localizedDescription, in: view)
+    }
+    
+    func show(_ error: Error, in view: UIView) {
+        if [-201, -202].contains(error._code) {
+            return
+        }
+        show(error.localizedDescription, in: view)
+    }
     
     func show(_ message: String?) {
         show(message, in: view)
@@ -51,17 +62,16 @@ extension IndicatorDisplay where Self: UIViewController {
     }
     
     func show(_ message: String?, in view: UIView) {
-        view.endEditing(true)
-        view.makeToast(message, position: .center)
+        HUD.dimsBackground = false
+        HUD.allowsInteraction = true
+        HUD.flash(.label(message), onView: view, delay: 2.5, completion: nil)
     }
     
     func showIndicator(_ message: String?, in view: UIView) {
-        view.endEditing(true)
-        let hub  = MBProgressHUD.showAdded(to: view, animated: true)
-        if let message = message {
-            hub.label.text = message
-        }
-        hub.show(animated: true)
+        
+        HUD.dimsBackground = true
+        HUD.allowsInteraction = false
+        HUD.show(.labeledProgress(title: nil, subtitle: message), onView: view)
     }
     
     func showOrHideIndicator(loadingState: LoadingState, text: String? = nil, image: UIImage? = nil) {
@@ -154,8 +164,7 @@ extension IndicatorDisplay where Self: UIViewController {
     }
     
     func hideIndicator(from view: UIView) {
-        let hub = view.subviews.first { $0 is MBProgressHUD } as? MBProgressHUD
-        hub?.hide(animated: true)
+        HUD.hide(animated: true)
     }
     
     func refreshData() {
