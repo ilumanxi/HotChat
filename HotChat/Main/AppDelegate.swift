@@ -139,6 +139,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             object: nil
         )
         
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(userDidTokenInvalid),
+            name: .userDidTokenInvalid,
+            object: nil
+        )
+        
         if #available(iOS 13.0, *) {
             observeAppleSignInState()
         }
@@ -197,6 +204,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         alert.addAction(UIAlertAction(title: "取消", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "撤销注销", style: .default, handler: { [unowned self] _ in
             self.undoAccountDestroy(token: (noti.userInfo?["token"] as? String) ?? "")
+        }))
+        
+        window?.rootViewController?.present(alert, animated: true, completion: nil)
+    }
+    
+    @objc func userDidTokenInvalid(_ noti: Notification) {
+        
+        let message = noti.userInfo?["msg"] as? String ?? "Token失效"
+        
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "确定", style: .default, handler: {  _ in
+            LoginManager.shared.logout()
         }))
         
         window?.rootViewController?.present(alert, animated: true, completion: nil)

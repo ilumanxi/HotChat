@@ -13,20 +13,6 @@ import RxSwift
 import RxCocoa
 import MBProgressHUD
 
-extension Notification.Name {
-    
-    static let userDidLogin = NSNotification.Name("com.friday.Chat.userDidLogin")
-    
-    static let userDidLogout = NSNotification.Name("com.friday.Chat.userDidLogout")
-    
-    static let userDidSignedUp = NSNotification.Name("com.friday.Chat.userDidSignedUp")
-    
-    static let userDidBanned = NSNotification.Name("com.friday.Chat.userDidBanned")
-    
-    static let userDidDestroy = NSNotification.Name("com.friday.Chat.userDidDestroy")
-    
-}
-
 class LoginViewController: UIViewController, IndicatorDisplay {
     
     @IBOutlet weak var loginProviderStackView: UIStackView!

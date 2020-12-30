@@ -16,9 +16,23 @@ import Moya
  longitude：地理位置：经度
  latitude：地理位置：纬度
  channelId:推送设备ID
-
-
  */
+
+extension Notification.Name {
+    
+    static let userDidLogin = NSNotification.Name("com.friday.Chat.userDidLogin")
+    
+    static let userDidLogout = NSNotification.Name("com.friday.Chat.userDidLogout")
+    
+    static let userDidSignedUp = NSNotification.Name("com.friday.Chat.userDidSignedUp")
+    
+    static let userDidBanned = NSNotification.Name("com.friday.Chat.userDidBanned")
+    
+    static let userDidDestroy = NSNotification.Name("com.friday.Chat.userDidDestroy")
+    
+    static let userDidTokenInvalid = NSNotification.Name("com.friday.Chat.userDidTokenInvalid")
+    
+}
 
 final class AccountPlugin {
     
@@ -121,7 +135,7 @@ extension AccountPlugin: PluginType {
         if let json = try? JSONSerialization.jsonObject(with: response.data, options: .allowFragments) as? [String : Any], let code = json["code"] as? CustomStringConvertible {
             
             if code.description == "-200" { // token失效
-                LoginManager.shared.logout()
+                NotificationCenter.default.post(name: .userDidTokenInvalid, object: nil, userInfo: json)
             }
             else if code.description == "-201" { // 封号
                 NotificationCenter.default.post(name: .userDidBanned, object: nil, userInfo: json)
