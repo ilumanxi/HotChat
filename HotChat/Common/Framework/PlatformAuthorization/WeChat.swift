@@ -14,8 +14,8 @@ import UIKit
 class WeChat: NSObject {
     
     struct Config {
-        static let appId = "wxe17e385df8f45639"
-        static let appSecret = "9ad8fe522377fb1f9130816f87400391"
+        static let appId = "wx93797b7cf4948eaf"
+        static let appSecret = "bb8c1028514f714e1c9bc2b4cc28e0a1"
         static let scope = "snsapi_message,snsapi_userinfo,snsapi_friend,snsapi_contact" // @"post_timeline,sns"
         static let state = "HotChat"
         static let universalLink = "https://www.zhouwu5.com/"

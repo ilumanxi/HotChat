@@ -76,7 +76,7 @@ class InviteViewController: UIViewController, LoadingStateType, IndicatorDisplay
                 self?.hideIndicator()
                 
             }, onError: { [weak self]  error in
-                self?.show(error.localizedDescription)
+                self?.show(error)
                 self?.hideIndicator()
             })
             .disposed(by: rx.disposeBag)

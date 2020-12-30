@@ -64,7 +64,7 @@ class PhoneBindingController: UIViewController, IndicatorDisplay {
             }, onError: { [weak self] error in
                 self?.isCoding = false
                 self?.codeButton.setTitle("获取", for: .normal)
-                self?.show(error.localizedDescription)
+                self?.show(error)
             })
             .disposed(by: rx.disposeBag)
         
@@ -112,7 +112,7 @@ class PhoneBindingController: UIViewController, IndicatorDisplay {
                 self?.navigationController?.popViewController(animated: true)
             }, onError: { [weak self] error in
                 self?.hideIndicator()
-                self?.show(error.localizedDescription)
+                self?.show(error)
             })
             .disposed(by: rx.disposeBag)
         

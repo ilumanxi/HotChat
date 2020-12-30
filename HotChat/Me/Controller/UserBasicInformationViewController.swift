@@ -83,7 +83,7 @@ class UserBasicInformationViewController: UITableViewController, IndicatorDispla
                
             }, onError: { [weak self] error in
                 hub.hide(animated: true)
-                self?.show(error.localizedDescription)
+                self?.show(error)
                
             })
             .disposed(by: rx.disposeBag)

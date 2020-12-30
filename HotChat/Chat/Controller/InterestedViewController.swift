@@ -44,7 +44,7 @@ class InterestedViewController: UIViewController, IndicatorDisplay {
                     self?.showOrHideIndicator(loadingState: result.isEmpty ? .noContent : .contentLoaded)
                 }
             }, onError: { [weak self] error in
-                self?.show(error.localizedDescription)
+                self?.show(error)
                 self?.showOrHideIndicator(loadingState: .error)
             })
             .disposed(by: rx.disposeBag)

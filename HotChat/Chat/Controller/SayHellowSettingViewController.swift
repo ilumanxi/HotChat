@@ -100,7 +100,7 @@ class SayHellowSettingViewController: UIViewController, LoadingStateType, Indica
                 self.show(response.msg)
             }, onError: { [unowned self] error in
                 self.hideIndicator()
-                self.show(error.localizedDescription)
+                self.show(error)
             })
             .disposed(by: rx.disposeBag)
     }

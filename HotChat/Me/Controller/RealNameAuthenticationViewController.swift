@@ -68,7 +68,7 @@ class RealNameAuthenticationViewController: UITableViewController, IndicatorDisp
             }
         }, onError: { [weak self] error in
             self?.hideIndicatorFromWindow()
-            self?.show(error.localizedDescription)
+            self?.show(error)
         })
         .disposed(by: rx.disposeBag)
     }

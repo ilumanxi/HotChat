@@ -137,7 +137,7 @@ class SettingViewController: UITableViewController, StoryboardCreate, IndicatorD
                 self?.hideIndicator()
             }, onError: { [weak self] error in
                 self?.hideIndicator()
-                self?.show(error.localizedDescription)
+                self?.show(error)
             })
             .disposed(by: rx.disposeBag)
     }

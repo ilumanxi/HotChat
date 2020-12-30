@@ -93,7 +93,7 @@ class TabBarController: UITabBarController, IndicatorDisplay {
                 }
             }, onError: { [weak self] error in
                 self?.hideIndicator()
-                self?.show(error.localizedDescription)
+                self?.show(error)
             })
             .disposed(by: rx.disposeBag)
     }

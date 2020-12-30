@@ -181,7 +181,7 @@ class DiscoverViewController: SegementSlideDefaultViewController, LoadingStateTy
                 self?.show((response.data?["resultMsg"] as? String) ?? "打招呼成功")
             }, onError: { [weak self] error in
                 self?.sayHellowButton.isUserInteractionEnabled = true
-                self?.show(error.localizedDescription)
+                self?.show(error)
             })
             .disposed(by: rx.disposeBag)
     }

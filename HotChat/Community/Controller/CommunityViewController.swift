@@ -94,7 +94,7 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
         hiddenPhoneBindingView()
         
         state = .loadingContent
-//        collectionView.mj_header?.beginRefreshing()
+
         refreshData()
         
         observePhoneState()

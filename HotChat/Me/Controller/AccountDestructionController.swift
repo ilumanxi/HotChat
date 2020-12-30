@@ -140,7 +140,7 @@ class AccountDestructionController: UIViewController, IndicatorDisplay {
                 self.startCountdown()
             }, onError: { [unowned self] error in
                 self.codeButton.hideLoader()
-                self.show(error.localizedDescription)
+                self.show(error)
             })
             .disposed(by: rx.disposeBag)
     }
@@ -206,7 +206,7 @@ class AccountDestructionController: UIViewController, IndicatorDisplay {
                 let vc = AccountDestructionController(style: .code)
                 self.navigationController?.pushViewController(vc, animated: true)
             }, onError: { [unowned self] error in
-                self.show(error.localizedDescription)
+                self.show(error)
             })
             .disposed(by: rx.disposeBag)
     }
@@ -219,7 +219,7 @@ class AccountDestructionController: UIViewController, IndicatorDisplay {
                 LoginManager.shared.logout()
                 self.showMessageOnWindow(response.msg)
             }, onError: { [unowned self] error in
-                self.show(error.localizedDescription)
+                self.show(error)
             })
             .disposed(by: rx.disposeBag)
     }

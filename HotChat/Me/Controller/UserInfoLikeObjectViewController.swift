@@ -79,7 +79,7 @@ class UserInfoLikeObjectViewController: UIViewController, IndicatorDisplay, Load
                 
             }, onError: { [weak self]  error in
                 self?.state = .error
-                self?.show(error.localizedDescription)
+                self?.show(error)
             })
             .disposed(by: rx.disposeBag)
     }
@@ -157,7 +157,7 @@ extension UserInfoLikeObjectViewController: UICollectionViewDelegate, UICollecti
                 self?.hideIndicator()
             }, onError: { [weak self]  error in
                 self?.hideIndicator()
-                self?.show(error.localizedDescription)
+                self?.show(error)
             })
             .disposed(by: rx.disposeBag)
     }

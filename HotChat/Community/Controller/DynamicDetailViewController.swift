@@ -366,7 +366,7 @@ extension DynamicDetailViewController: GiftViewControllerDelegate {
         
         GiftManager.shared().giveGift(self.user.userId, type: 1, dynamicId: dynamic.dynamicId, gift: gift) { (responseObject, error) in
             if let error = error {
-                self.show(error.localizedDescription)
+                self.show(error)
                 return
             }
             let giveGift = GiveGift.mj_object(withKeyValues: responseObject?["data"])!

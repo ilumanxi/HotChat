@@ -75,7 +75,7 @@ class UserInfoViewController: SegementSlideDefaultViewController, LoadingStateTy
                     self.show(response.msg)
                 }, onError: { error in
                     sender.followButton.isUserInteractionEnabled = true
-                    self.show(error.localizedDescription)
+                    self.show(error)
                 })
                 .disposed(by: self.rx.disposeBag)
         }

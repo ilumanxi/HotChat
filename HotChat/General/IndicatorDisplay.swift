@@ -158,8 +158,19 @@ extension IndicatorDisplay where Self: UIViewController {
         }
          
         view.addSubview(holderView)
-        holderView.snp.makeConstraints { maker in
-            maker.edges.size.equalToSuperview()
+        
+        if let scrollView = view as? UIScrollView {
+            holderView.snp.makeConstraints { maker in
+                maker.leading.equalTo(scrollView.frameLayoutGuide.snp.leading)
+                maker.trailing.equalTo(scrollView.frameLayoutGuide.snp.trailing)
+                maker.top.equalTo(scrollView.frameLayoutGuide.snp.top)
+                maker.bottom.equalTo(scrollView.frameLayoutGuide.snp.bottom)
+            }
+        }
+        else {
+            holderView.snp.makeConstraints { maker in
+                maker.edges.size.equalToSuperview()
+            }
         }
     }
     

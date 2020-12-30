@@ -163,7 +163,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     func handlerError(_ error: Error) {
         endRefreshing()
-        show(error.localizedDescription)
+        show(error)
     }
     
     func endRefreshing(noContent: Bool = false) {

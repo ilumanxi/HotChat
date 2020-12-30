@@ -413,7 +413,7 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay, St
                 self?.hideIndicatorFromWindow()
             }, onError: { [weak self] error in
                 self?.hideIndicatorFromWindow()
-                self?.show(error.localizedDescription)
+                self?.show(error)
             })
             .disposed(by: rx.disposeBag)
     }
@@ -514,7 +514,7 @@ extension UserInfoEditingViewController {
                         self.hideIndicatorFromWindow()
                     }, onError: { [weak self] error in
                         self?.hideIndicatorFromWindow()
-                        self?.show(error.localizedDescription)
+                        self?.show(error)
                     })
                     .disposed(by: vc.rx.disposeBag)
             }

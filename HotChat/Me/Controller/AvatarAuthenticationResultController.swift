@@ -102,7 +102,7 @@ class AvatarAuthenticationResultController: UIViewController, IndicatorDisplay {
                 self?.show(response.msg)
             }, onError: { [weak self] error in
                 self?.hideIndicator()
-                self?.show(error.localizedDescription)
+                self?.show(error)
             })
             .disposed(by: rx.disposeBag)
     }
@@ -144,7 +144,7 @@ class AvatarAuthenticationResultController: UIViewController, IndicatorDisplay {
                 self.hideIndicator()
             }, onError: { [weak self]  error in
                 self?.hideIndicator()
-                self?.show(error.localizedDescription)
+                self?.show(error)
             })
             .disposed(by: self.rx.disposeBag)
     }

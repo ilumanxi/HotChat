@@ -181,7 +181,7 @@ class DynamicViewController: UITableViewController, IndicatorDisplay, Storyboard
             .flatMap{$0}
             .subscribe(onError: { [weak self] error in
                 self?.hideIndicatorFromWindow()
-                self?.show(error.localizedDescription)
+                self?.show(error)
             }, onCompleted: { [weak self] in
                 guard let self = self else { return }
                 
