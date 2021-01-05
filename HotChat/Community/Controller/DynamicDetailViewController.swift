@@ -256,6 +256,27 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
         
     }
     
+    func delete(_ dynamic: Dynamic)  {
+        
+        showIndicatorOnWindow()
+        dynamicAPI.request(.delDynamic(dynamic.dynamicId), type: ResponseEmpty.self)
+            .subscribe(onSuccess: {[weak self] response in
+               
+                self?.dynamics.removeAll{
+                    $0.dynamicId == dynamic.dynamicId
+                }
+                self?.tableView.reloadData()
+                
+                self?.hideIndicatorFromWindow()
+            }, onError: { [weak self] error in
+                self?.hideIndicatorFromWindow()
+                self?.showMessageOnWindow(error)
+            })
+            .disposed(by: rx.disposeBag)
+    }
+    
+    
+    
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dynamics.count
@@ -330,8 +351,8 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
             let alertController = SPAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             
             if LoginManager.shared.user!.userId == self.user.userId {
-                alertController.addAction(SPAlertAction(title: "删除", style: .default, handler: { _ in
-                    
+                alertController.addAction(SPAlertAction(title: "删除", style: .default, handler: { [weak self] _ in
+                    self?.tipDelete(dynamic)
                 }))
             }
             else {
@@ -353,6 +374,17 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
         return cell
     }
 
+    
+    func tipDelete(_ dynamic: Dynamic) {
+        
+        let alertController = UIAlertController(title: nil, message: "你确定删除这条动态吗", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "确定", style: .destructive, handler: { [weak self] _ in
+            self?.delete(dynamic)
+        }))
+        alertController.addAction(UIAlertAction(title: "取消", style: .default, handler: nil))
+        
+        present(alertController, animated: true, completion: nil)
+    }
 }
 
 

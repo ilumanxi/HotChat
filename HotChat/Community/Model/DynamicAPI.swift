@@ -15,6 +15,7 @@ enum DynamicAPI{
     case zan(String)
     case dynamicList([String : Any])
     case follow(String)
+    case delDynamic(String)
 }
 
 
@@ -35,6 +36,8 @@ extension DynamicAPI: TargetType {
             return "Dynamic/dynamicList"
         case .follow:
             return "Dynamic/follow"
+        case .delDynamic:
+            return "Dynamic/delDynamic"
         }
     }
     
@@ -60,6 +63,8 @@ extension DynamicAPI: TargetType {
             parameters = value
         case .follow(let followUserId):
             parameters = [ "followUserId" : followUserId]
+        case .delDynamic(let dynamicId):
+            parameters = [ "dynamicId" : dynamicId]
         }
         
         let encoding: ParameterEncoding = (method == .post) ? JSONEncoding.default : URLEncoding.default

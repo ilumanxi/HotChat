@@ -185,8 +185,8 @@
 		26A20AFF2518A47F0061BBB8 /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A20AFE2518A47F0061BBB8 /* KeychainStore.swift */; };
 		26A20B052518A5020061BBB8 /* HotChatError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A20B042518A5020061BBB8 /* HotChatError.swift */; };
 		26A20B0D2518BBC10061BBB8 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A20B0C2518BBC10061BBB8 /* Response.swift */; };
-		26A27B892583801E00AD581E /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 26A27B882583801E00AD581E /* SwiftPackageProductDependency */; };
-		26A27B8E2583806400AD581E /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 26A27B8D2583806400AD581E /* SwiftPackageProductDependency */; };
+		26A27B892583801E00AD581E /* Aquaman in Frameworks */ = {isa = PBXBuildFile; productRef = 26A27B882583801E00AD581E /* Aquaman */; };
+		26A27B8E2583806400AD581E /* Trident in Frameworks */ = {isa = PBXBuildFile; productRef = 26A27B8D2583806400AD581E /* Trident */; };
 		26A731B22536D6B600CCECE5 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A731B12536D6B600CCECE5 /* ReportViewController.swift */; };
 		26A8D4E9251C8F3E00B736CF /* Constellation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A8D4E8251C8F3E00B736CF /* Constellation.swift */; };
 		26AB26E225401C0D00C16025 /* RemarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AB26E125401C0D00C16025 /* RemarkViewController.swift */; };
@@ -281,6 +281,7 @@
 		26EB2DA82558F157006698F9 /* SubsidiaryAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26EB2DA62558F157006698F9 /* SubsidiaryAccountCell.xib */; };
 		26EB2DCA25593FCA006698F9 /* ConsumerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EB2DC925593FCA006698F9 /* ConsumerAPI.swift */; };
 		26EB2DCC255945C4006698F9 /* Consumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EB2DCB255945C4006698F9 /* Consumer.swift */; };
+		26EDD94D25A44A1D00913363 /* AppAudit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EDD94C25A44A1D00913363 /* AppAudit.swift */; };
 		26EDE7EE2591C6B8002A2EC3 /* TUIMessageController+Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EDE7ED2591C6B8002A2EC3 /* TUIMessageController+Message.m */; };
 		26EDE7F92591D11F002A2EC3 /* GuidedRechargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EDE7F72591D11F002A2EC3 /* GuidedRechargeViewController.swift */; };
 		26EDE7FA2591D11F002A2EC3 /* GuidedRechargeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26EDE7F82591D11F002A2EC3 /* GuidedRechargeViewController.xib */; };
@@ -697,6 +698,7 @@
 		26EB2DA62558F157006698F9 /* SubsidiaryAccountCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubsidiaryAccountCell.xib; sourceTree = "<group>"; };
 		26EB2DC925593FCA006698F9 /* ConsumerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumerAPI.swift; sourceTree = "<group>"; };
 		26EB2DCB255945C4006698F9 /* Consumer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consumer.swift; sourceTree = "<group>"; };
+		26EDD94C25A44A1D00913363 /* AppAudit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAudit.swift; sourceTree = "<group>"; };
 		26EDE7EC2591C6B8002A2EC3 /* TUIMessageController+Message.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TUIMessageController+Message.h"; sourceTree = "<group>"; };
 		26EDE7ED2591C6B8002A2EC3 /* TUIMessageController+Message.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TUIMessageController+Message.m"; sourceTree = "<group>"; };
 		26EDE7F72591D11F002A2EC3 /* GuidedRechargeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidedRechargeViewController.swift; sourceTree = "<group>"; };
@@ -759,9 +761,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				26CB6C93255153A500A9F4DD /* libc++.tbd in Frameworks */,
-				26A27B892583801E00AD581E /* BuildFile in Frameworks */,
+				26A27B892583801E00AD581E /* Aquaman in Frameworks */,
 				269590BF250B5FE900763061 /* StoreKit.framework in Frameworks */,
-				26A27B8E2583806400AD581E /* BuildFile in Frameworks */,
+				26A27B8E2583806400AD581E /* Trident in Frameworks */,
 				2636A0D22564BFE700664FFC /* IDLFaceSDK.framework in Frameworks */,
 				569A62C017EE594D27BBDD0C /* libPods-HotChat.a in Frameworks */,
 			);
@@ -1192,6 +1194,7 @@
 				263A6683257E0EF200F35714 /* CheckInCell.xib */,
 				263A66C5257E347D00F35714 /* CheckIn.swift */,
 				263A66C9257E351700F35714 /* CheckInAPI.swift */,
+				26EDD94C25A44A1D00913363 /* AppAudit.swift */,
 				2643EB412500AD7D00FBBE49 /* Main.storyboard */,
 				2643EB462500AD7E00FBBE49 /* LaunchScreen.storyboard */,
 				26B4E0582564EB34004EDCFE /* Upgrade.swift */,
@@ -1600,8 +1603,8 @@
 			);
 			name = HotChat;
 			packageProductDependencies = (
-				26A27B882583801E00AD581E /* SwiftPackageProductDependency */,
-				26A27B8D2583806400AD581E /* SwiftPackageProductDependency */,
+				26A27B882583801E00AD581E /* Aquaman */,
+				26A27B8D2583806400AD581E /* Trident */,
 			);
 			productName = HotChat;
 			productReference = 2643EB362500AD7D00FBBE49 /* HotChat.app */;
@@ -1678,8 +1681,8 @@
 			);
 			mainGroup = 2643EB2D2500AD7D00FBBE49;
 			packageReferences = (
-				26A27B872583801E00AD581E /* RemoteSwiftPackageReference */,
-				26A27B8C2583806400AD581E /* RemoteSwiftPackageReference */,
+				26A27B872583801E00AD581E /* XCRemoteSwiftPackageReference "Aquaman" */,
+				26A27B8C2583806400AD581E /* XCRemoteSwiftPackageReference "Trident" */,
 			);
 			productRefGroup = 2643EB372500AD7D00FBBE49 /* Products */;
 			projectDirPath = "";
@@ -1912,6 +1915,7 @@
 				26FC88FA253ED66600E4D82F /* SearchViewCell.swift in Sources */,
 				26F889352531854B001A14F2 /* TextInputViewCell.swift in Sources */,
 				2637D872255AA13D00020E98 /* GiftEarning.swift in Sources */,
+				26EDD94D25A44A1D00913363 /* AppAudit.swift in Sources */,
 				2643EBA42500B04100FBBE49 /* UserInfoInputTextViewController.swift in Sources */,
 				26C81EF42548164100C1D563 /* Gift.m in Sources */,
 				26E4C67E2592F440005EAAC3 /* AccountDestructionStatementController.swift in Sources */,
@@ -2633,7 +2637,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		26A27B872583801E00AD581E /* RemoteSwiftPackageReference */ = {
+		26A27B872583801E00AD581E /* XCRemoteSwiftPackageReference "Aquaman" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/bawn/Aquaman";
 			requirement = {
@@ -2641,7 +2645,7 @@
 				minimumVersion = 0.1.3;
 			};
 		};
-		26A27B8C2583806400AD581E /* RemoteSwiftPackageReference */ = {
+		26A27B8C2583806400AD581E /* XCRemoteSwiftPackageReference "Trident" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/bawn/Trident";
 			requirement = {
@@ -2652,14 +2656,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		26A27B882583801E00AD581E /* SwiftPackageProductDependency */ = {
+		26A27B882583801E00AD581E /* Aquaman */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 26A27B872583801E00AD581E /* RemoteSwiftPackageReference */;
+			package = 26A27B872583801E00AD581E /* XCRemoteSwiftPackageReference "Aquaman" */;
 			productName = Aquaman;
 		};
-		26A27B8D2583806400AD581E /* SwiftPackageProductDependency */ = {
+		26A27B8D2583806400AD581E /* Trident */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 26A27B8C2583806400AD581E /* RemoteSwiftPackageReference */;
+			package = 26A27B8C2583806400AD581E /* XCRemoteSwiftPackageReference "Trident" */;
 			productName = Trident;
 		};
 /* End XCSwiftPackageProductDependency section */

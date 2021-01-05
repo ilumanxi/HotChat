@@ -100,7 +100,9 @@ class DiscoverViewController: SegementSlideDefaultViewController, LoadingStateTy
     
     func setupViews() {
         
-        if LoginManager.shared.user!.girlStatus && LoginManager.shared.currentVersionApproved {
+        
+        
+        if LoginManager.shared.user!.girlStatus && !AppAudit.share.energyStatus {
 
             checkUserCallChat()
         }

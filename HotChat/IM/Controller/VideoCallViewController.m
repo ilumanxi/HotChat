@@ -566,7 +566,7 @@
         _chargeReminderLabel.font = [UIFont systemFontOfSize:12];
         _chargeReminderLabel.textColor = [UIColor colorWithRed:241/255.0 green:238/255.0 blue:11/255.0 alpha:1.0];
         _chargeReminderLabel.text = @"2500能量/分钟";
-        _chargeReminderLabel.hidden = !LoginManager.shared.currentVersionApproved;
+        _chargeReminderLabel.hidden = AppAudit.share.imcallStatus;
         [self.view addSubview:_chargeReminderLabel];
     }
     return _chargeReminderLabel;

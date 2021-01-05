@@ -127,7 +127,7 @@ extension AccountPlugin: PluginType {
         if let currentVersionApprovedString = response.response?.allHeaderFields["currentVersionApproved"] as? String,
            let currentVersionApprovedValue = Int(currentVersionApprovedString)
         {
-            LoginManager.shared.currentVersionApproved  =  NSNumber(value: currentVersionApprovedValue).boolValue
+//            LoginManager.shared.currentVersionApproved  =  NSNumber(value: currentVersionApprovedValue).boolValue
         }
         
         Log.print()

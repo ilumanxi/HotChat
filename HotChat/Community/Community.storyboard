@@ -152,6 +152,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="authenticationButton" destination="C5e-zb-wO4" id="Ktv-T1-bho"/>
                                             <outlet property="avatarImageView" destination="3a6-5b-tAu" id="tbq-qk-Y8q"/>
                                             <outlet property="introduceLabel" destination="Y2u-gv-wRg" id="cgC-YK-cV6"/>
                                             <outlet property="locationLabel" destination="8sl-cU-Wpt" id="P2o-ec-G6M"/>

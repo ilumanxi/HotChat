@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupFaceSDK()
        
         appStart()
-        
+        appAudit()
         // see notes below for the meaning of Atomic / Non-Atomic
             SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
                 for purchase in purchases {
@@ -69,6 +69,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func appStart() {
         userSettingsAPI.request(.appStart, type: ResponseEmpty.self)
             .subscribe(onSuccess: nil, onError: nil)
+            .disposed(by: rx.disposeBag)
+    }
+    
+    func appAudit() {
+        userSettingsAPI.request(.appAudit, type: Response<AppAudit>.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { respoonse in
+                AppAudit.share = respoonse.data!
+            }, onError: nil)
             .disposed(by: rx.disposeBag)
     }
     

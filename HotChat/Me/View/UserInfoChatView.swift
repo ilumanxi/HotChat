@@ -61,7 +61,7 @@ class UserInfoChatView: UIView {
     
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
-        isHidden = !LoginManager.shared.currentVersionApproved
+        isHidden = AppAudit.share.imcallStatus
     }
     
     @IBAction func chatButtonTapped(_ sender: Any) {

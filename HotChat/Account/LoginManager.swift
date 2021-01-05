@@ -51,13 +51,13 @@ class LoginManager: NSObject {
     var deviceToken: Data?
     
     /// 当前版本App Store 审核通过
-    @objc var currentVersionApproved: Bool = false {
-        didSet {
-            if oldValue != currentVersionApproved {
-                NotificationCenter.default.post(name: .appApprovedDidChange, object: nil)
-            }
-        }
-    }
+//    @objc var currentVersionApproved: Bool = false {
+//        didSet {
+//            if oldValue != currentVersionApproved {
+//                NotificationCenter.default.post(name: .appApprovedDidChange, object: nil)
+//            }
+//        }
+//    }
     
     @objc private(set) var user: User?
     

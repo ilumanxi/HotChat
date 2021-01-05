@@ -16,6 +16,7 @@ enum UserSettingsAPI {
     case location(CLLocation)
     case bindPhone(phone: String, verifyCode: String, password: String)
     case appStart
+    case appAudit
 }
 
 
@@ -37,6 +38,8 @@ extension UserSettingsAPI: TargetType {
             return "UserSettings/bindPhone"
         case .appStart:
             return "UserSettings/appStart"
+        case .appAudit:
+            return "UserSettings/appAudit"
         }
     }
     
@@ -71,7 +74,7 @@ extension UserSettingsAPI: TargetType {
                 "verifyCode" : verifyCode,
                 "password" : password
             ]
-        case .appStart:
+        case .appStart, .appAudit:
             parameters = [:]
         }
         

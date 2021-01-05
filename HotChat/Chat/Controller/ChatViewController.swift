@@ -82,9 +82,10 @@ class ChatViewController: ChatController, IndicatorDisplay {
     
     func setupNavigationItem() {
         
-        let setting = UIBarButtonItem(image: UIImage(named: "chat-setting"), style: .plain, target: self, action: #selector(userSetting))
+        let setting = UIBarButtonItem(image: UIImage(named: "chat-setting"), style: .plain, target: self, action: #selector(pushUserSetting))
         var items = [setting]
-        if LoginManager.shared.currentVersionApproved {
+        
+        if !AppAudit.share.imcallStatus {
             let call = UIBarButtonItem(image: UIImage(named: "chat-call"), style: .plain, target: self, action: #selector(chatCall))
             items.append(call)
         }
@@ -104,10 +105,13 @@ class ChatViewController: ChatController, IndicatorDisplay {
             })
             .disposed(by: rx.disposeBag)
     }
+    @objc func pushUserSetting() {
+        userSetting(userId: conversationData.userID)
+    }
     
-    @objc func userSetting() {
+    @objc func userSetting(userId: String) {
         let user = User()
-        user.userId = conversationData.userID
+        user.userId = userId
         
         let vc = UserSettingViewController.loadFromStoryboard()
         vc.user = user
@@ -213,7 +217,7 @@ extension ChatViewController: ChatControllerDelegate {
     }
     
     func chatController(_ controller: ChatController!, onSelectMessageAvatar cell: TUIMessageCell!) {
-        
+        userSetting(userId: cell.messageData.identifier)
     }
     
     func chatController(_ controller: ChatController!, onSelectMessageContent cell: TUIMessageCell!) {

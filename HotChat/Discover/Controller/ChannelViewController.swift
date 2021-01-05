@@ -191,5 +191,6 @@ extension ChannelCell {
        vipButton.isHidden = user.vipType.isHidden
        vipButton.setTitle(user.vipType.description, for: .normal)
        vipButton.backgroundColor = user.vipType.backgroundColor
+       authenticationButton.isHidden = !user.girlStatus
     }
 }

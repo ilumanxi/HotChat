@@ -165,14 +165,14 @@ class MeViewController: UITableViewController, Autorotate {
       
        var detailEntries: [FormEntry] = []
         
-        if !user.girlStatus && LoginManager.shared.currentVersionApproved {
+        if !user.girlStatus && !AppAudit.share.taskStatus {
             
             detailEntries.append(RightDetailFormEntry(image: UIImage(named: "me-money"), text: "奖励任务", onTapped: pushTask))
         }
         
         
         
-        if LoginManager.shared.currentVersionApproved {
+        if !AppAudit.share.inviteStatus {
             detailEntries.append(RightDetailFormEntry(image: UIImage(named: "me-invitation"), text: "我的邀请", onTapped: pushInvite))
         }
         var detailText: String? = nil
@@ -204,7 +204,7 @@ class MeViewController: UITableViewController, Autorotate {
         var basicEntries: [FormEntry] =  []
         
         
-        if LoginManager.shared.currentVersionApproved {
+        if !AppAudit.share.gradeStatus {
             basicEntries.append(RightDetailFormEntry(image: UIImage(named: "me-grade"), text: "等级", onTapped: pushLevel))
         }
         

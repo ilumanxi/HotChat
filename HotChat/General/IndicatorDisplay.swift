@@ -49,6 +49,10 @@ extension IndicatorDisplay where Self: UIViewController {
         hideIndicator(from: view)
     }
     
+    func showMessageOnWindow(_ error: Error) {
+        show(error.localizedDescription, in: UIApplication.shared.keyWindow ?? view)
+    }
+    
     func showMessageOnWindow(_ message: String?) {
         show(message, in: UIApplication.shared.keyWindow ?? view)
     }

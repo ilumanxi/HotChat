@@ -24,4 +24,6 @@ class ChannelCell: UITableViewCell {
     @IBOutlet weak var statusLabel: UILabel!
     
     @IBOutlet weak var introduceLabel: UILabel!
+    
+    @IBOutlet weak var authenticationButton: UIButton!
 }

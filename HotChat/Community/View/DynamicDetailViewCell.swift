@@ -101,7 +101,6 @@ class DynamicDetailViewCell: UITableViewCell {
         let isSelf = LoginManager.shared.user!.userId == dynamic.userInfo.userId
         
         commentButton.alpha = isSelf ? 0 : 1
-        moreButton.isHidden = isSelf
         collectionViewHeightConstraint.constant = collectionViewHeight(for: CGFloat(dynamic.photoList.count))
         setNeedsLayout()
         layoutIfNeeded()
