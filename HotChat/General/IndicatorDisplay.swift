@@ -69,7 +69,7 @@ extension IndicatorDisplay where Self: UIViewController {
     
     func showIndicator(_ message: String?, in view: UIView) {
         
-        HUD.dimsBackground = true
+        HUD.dimsBackground = false
         HUD.allowsInteraction = false
         HUD.show(.labeledProgress(title: nil, subtitle: message), onView: view)
     }

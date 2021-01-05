@@ -55,6 +55,7 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     
     @IBOutlet weak var phoneBindingView: UIView!
     
+    private var isShowCheckIn = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -123,7 +124,7 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     }
     
     func checkInState() {
-        if LoginManager.shared.user!.girlStatus || !LoginManager.shared.currentVersionApproved {
+        if LoginManager.shared.user!.girlStatus || !LoginManager.shared.currentVersionApproved  || !isShowCheckIn {
             self.checkInResult = nil
             return
         }
@@ -236,7 +237,9 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
         vc.onCheckInSucceed.delegate(on: self) { (self, _) in
             self.checkInState()
         }
-        present(vc, animated: true, completion: nil)
+        present(vc, animated: true) {
+            self.isShowCheckIn = false
+        }
     }
     
     @IBAction func bingPhone(_ sender: Any) {

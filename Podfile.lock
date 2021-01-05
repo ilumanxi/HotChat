@@ -22,18 +22,16 @@ PODS:
   - CryptoSwift (1.3.8)
   - DynamicColor (5.0.1)
   - FSPagerView (0.8.3)
-  - GKPhotoBrowser (2.1.3):
-    - GKPhotoBrowser/SD (= 2.1.3)
-  - GKPhotoBrowser/Core (2.1.3)
-  - GKPhotoBrowser/SD (2.1.3):
+  - GKPhotoBrowser (2.1.4):
+    - GKPhotoBrowser/SD (= 2.1.4)
+  - GKPhotoBrowser/Core (2.1.4)
+  - GKPhotoBrowser/SD (2.1.4):
     - GKPhotoBrowser/Core
     - SDWebImage (~> 5.0)
   - HandyJSON (5.0.3-beta)
   - HBDNavigationBar (1.7.7)
   - InputKitSwift (1.2.1)
-  - Kingfisher (5.15.8):
-    - Kingfisher/Core (= 5.15.8)
-  - Kingfisher/Core (5.15.8)
+  - Kingfisher (6.0.0)
   - Koloda (5.0.1):
     - pop (~> 1.0)
   - MagazineLayout (1.6.3)
@@ -237,11 +235,11 @@ SPEC CHECKSUMS:
   CryptoSwift: 01b0f0cba1d5c212e5a335ff6c054fb75a204f00
   DynamicColor: d049834ef86d8ecf150b0ca1ebe54ee733a0ec22
   FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
-  GKPhotoBrowser: b1f7535f9c04f0d3a17b36f138e4b8de3b4cccb4
+  GKPhotoBrowser: 1f7c0bdd21fc617f1c7cd18d15f26488abf0f973
   HandyJSON: 88e8ea5f66ab65c3b8768499a1935d0509c460d4
   HBDNavigationBar: 6ba38b99637039c831ce460364d5398f29fa0685
   InputKitSwift: 5532ed4a41706aeebe6ad6dfafb3bee32e02f1c6
-  Kingfisher: a3c03d702433fa6cfedabb2bddbe076fb8f2e902
+  Kingfisher: 13f6e68c928eb50439b5cb2ea75d6035018438ea
   Koloda: d07b9199a383abc5898b62aa945a599f5e7c0c4b
   MagazineLayout: 159da0d4d874e04e6b17e580b990cccd00328c5b
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201

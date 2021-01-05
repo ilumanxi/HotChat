@@ -14,6 +14,7 @@
 		260B96162521F2F400767076 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260B96152521F2F400767076 /* AuthenticationViewController.swift */; };
 		26137CCB2590673900DCBAD0 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26137CCA2590673900DCBAD0 /* TabBar.swift */; };
 		2615C9F8255E8B0C009B89F4 /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2615C9F7255E8B0C009B89F4 /* PlaceholderTextView.swift */; };
+		26193EC725A41370009C37FA /* TUITextMessageCellData+Call.m in Sources */ = {isa = PBXBuildFile; fileRef = 26193EC625A41370009C37FA /* TUITextMessageCellData+Call.m */; };
 		2619D18725625AAB0071CC85 /* GiftCountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2619D18625625AAB0071CC85 /* GiftCountViewController.m */; };
 		2619D192256260A90071CC85 /* GiftCountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2619D190256260A90071CC85 /* GiftCountCell.m */; };
 		2619D193256260A90071CC85 /* GiftCountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2619D191256260A90071CC85 /* GiftCountCell.xib */; };
@@ -184,8 +185,8 @@
 		26A20AFF2518A47F0061BBB8 /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A20AFE2518A47F0061BBB8 /* KeychainStore.swift */; };
 		26A20B052518A5020061BBB8 /* HotChatError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A20B042518A5020061BBB8 /* HotChatError.swift */; };
 		26A20B0D2518BBC10061BBB8 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A20B0C2518BBC10061BBB8 /* Response.swift */; };
-		26A27B892583801E00AD581E /* Aquaman in Frameworks */ = {isa = PBXBuildFile; productRef = 26A27B882583801E00AD581E /* Aquaman */; };
-		26A27B8E2583806400AD581E /* Trident in Frameworks */ = {isa = PBXBuildFile; productRef = 26A27B8D2583806400AD581E /* Trident */; };
+		26A27B892583801E00AD581E /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 26A27B882583801E00AD581E /* SwiftPackageProductDependency */; };
+		26A27B8E2583806400AD581E /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 26A27B8D2583806400AD581E /* SwiftPackageProductDependency */; };
 		26A731B22536D6B600CCECE5 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A731B12536D6B600CCECE5 /* ReportViewController.swift */; };
 		26A8D4E9251C8F3E00B736CF /* Constellation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A8D4E8251C8F3E00B736CF /* Constellation.swift */; };
 		26AB26E225401C0D00C16025 /* RemarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AB26E125401C0D00C16025 /* RemarkViewController.swift */; };
@@ -366,6 +367,8 @@
 		260B96152521F2F400767076 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		26137CCA2590673900DCBAD0 /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		2615C9F7255E8B0C009B89F4 /* PlaceholderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
+		26193EC525A41370009C37FA /* TUITextMessageCellData+Call.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TUITextMessageCellData+Call.h"; sourceTree = "<group>"; };
+		26193EC625A41370009C37FA /* TUITextMessageCellData+Call.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TUITextMessageCellData+Call.m"; sourceTree = "<group>"; };
 		2619D18525625AAB0071CC85 /* GiftCountViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftCountViewController.h; sourceTree = "<group>"; };
 		2619D18625625AAB0071CC85 /* GiftCountViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftCountViewController.m; sourceTree = "<group>"; };
 		2619D18F256260A90071CC85 /* GiftCountCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftCountCell.h; sourceTree = "<group>"; };
@@ -756,9 +759,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				26CB6C93255153A500A9F4DD /* libc++.tbd in Frameworks */,
-				26A27B892583801E00AD581E /* Aquaman in Frameworks */,
+				26A27B892583801E00AD581E /* BuildFile in Frameworks */,
 				269590BF250B5FE900763061 /* StoreKit.framework in Frameworks */,
-				26A27B8E2583806400AD581E /* Trident in Frameworks */,
+				26A27B8E2583806400AD581E /* BuildFile in Frameworks */,
 				2636A0D22564BFE700664FFC /* IDLFaceSDK.framework in Frameworks */,
 				569A62C017EE594D27BBDD0C /* libPods-HotChat.a in Frameworks */,
 			);
@@ -1461,6 +1464,8 @@
 				26B86EB72570EAD700CAC5AE /* TUIMessageDataProviderService+Gift.m */,
 				26EDE7EC2591C6B8002A2EC3 /* TUIMessageController+Message.h */,
 				26EDE7ED2591C6B8002A2EC3 /* TUIMessageController+Message.m */,
+				26193EC525A41370009C37FA /* TUITextMessageCellData+Call.h */,
+				26193EC625A41370009C37FA /* TUITextMessageCellData+Call.m */,
 			);
 			path = IM;
 			sourceTree = "<group>";
@@ -1585,9 +1590,9 @@
 				2643EB322500AD7D00FBBE49 /* Sources */,
 				2643EB332500AD7D00FBBE49 /* Frameworks */,
 				2643EB342500AD7D00FBBE49 /* Resources */,
-				5C62613C886FDA87662A76D3 /* [CP] Embed Pods Frameworks */,
 				65E1731636F77F71257BF696 /* [CP] Copy Pods Resources */,
 				2636A0D42564BFE700664FFC /* Embed Frameworks */,
+				51334BAED1DF512B04EEFDE2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1595,8 +1600,8 @@
 			);
 			name = HotChat;
 			packageProductDependencies = (
-				26A27B882583801E00AD581E /* Aquaman */,
-				26A27B8D2583806400AD581E /* Trident */,
+				26A27B882583801E00AD581E /* SwiftPackageProductDependency */,
+				26A27B8D2583806400AD581E /* SwiftPackageProductDependency */,
 			);
 			productName = HotChat;
 			productReference = 2643EB362500AD7D00FBBE49 /* HotChat.app */;
@@ -1673,8 +1678,8 @@
 			);
 			mainGroup = 2643EB2D2500AD7D00FBBE49;
 			packageReferences = (
-				26A27B872583801E00AD581E /* XCRemoteSwiftPackageReference "Aquaman" */,
-				26A27B8C2583806400AD581E /* XCRemoteSwiftPackageReference "Trident" */,
+				26A27B872583801E00AD581E /* RemoteSwiftPackageReference */,
+				26A27B8C2583806400AD581E /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = 2643EB372500AD7D00FBBE49 /* Products */;
 			projectDirPath = "";
@@ -1778,7 +1783,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5C62613C886FDA87662A76D3 /* [CP] Embed Pods Frameworks */ = {
+		51334BAED1DF512B04EEFDE2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2018,6 +2023,7 @@
 				26278B88256CFD64007044E1 /* JPHorizontalLayout.m in Sources */,
 				26278B8B256CFD64007044E1 /* JPGiftCollectionViewCell.m in Sources */,
 				26278B87256CFD64007044E1 /* JPGiftView.m in Sources */,
+				26193EC725A41370009C37FA /* TUITextMessageCellData+Call.m in Sources */,
 				26278B8D256CFD64007044E1 /* JPGiftOperation.m in Sources */,
 				2643EBBE2500B04100FBBE49 /* CollectionViewGridLayout.swift in Sources */,
 				2619D192256260A90071CC85 /* GiftCountCell.m in Sources */,
@@ -2627,7 +2633,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		26A27B872583801E00AD581E /* XCRemoteSwiftPackageReference "Aquaman" */ = {
+		26A27B872583801E00AD581E /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/bawn/Aquaman";
 			requirement = {
@@ -2635,7 +2641,7 @@
 				minimumVersion = 0.1.3;
 			};
 		};
-		26A27B8C2583806400AD581E /* XCRemoteSwiftPackageReference "Trident" */ = {
+		26A27B8C2583806400AD581E /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/bawn/Trident";
 			requirement = {
@@ -2646,14 +2652,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		26A27B882583801E00AD581E /* Aquaman */ = {
+		26A27B882583801E00AD581E /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 26A27B872583801E00AD581E /* XCRemoteSwiftPackageReference "Aquaman" */;
+			package = 26A27B872583801E00AD581E /* RemoteSwiftPackageReference */;
 			productName = Aquaman;
 		};
-		26A27B8D2583806400AD581E /* Trident */ = {
+		26A27B8D2583806400AD581E /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 26A27B8C2583806400AD581E /* XCRemoteSwiftPackageReference "Trident" */;
+			package = 26A27B8C2583806400AD581E /* RemoteSwiftPackageReference */;
 			productName = Trident;
 		};
 /* End XCSwiftPackageProductDependency section */
