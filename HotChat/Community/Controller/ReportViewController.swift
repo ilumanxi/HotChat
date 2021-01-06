@@ -78,7 +78,7 @@ class ReportViewController: UIViewController, IndicatorDisplay, StoryboardCreate
                     self?.dismiss(animated: true, completion: nil)
                 }, onError: { [weak self] error in
                     self?.hideIndicatorFromWindow()
-                    self?.showMessageOnWindow(error.localizedDescription)
+                    self?.showMessageOnWindow(error)
                     
                 })
                 .disposed(by: rx.disposeBag)
@@ -94,7 +94,7 @@ class ReportViewController: UIViewController, IndicatorDisplay, StoryboardCreate
                     self?.dismiss(animated: true, completion: nil)
                 }, onError: { [weak self] error in
                     self?.hideIndicatorFromWindow()
-                    self?.showMessageOnWindow(error.localizedDescription)
+                    self?.showMessageOnWindow(error)
                     
                 })
                 .disposed(by: rx.disposeBag)

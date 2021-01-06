@@ -96,7 +96,7 @@ class ReportUserViewController: UIViewController, UITableViewDataSource, UITable
                
             }, onError: { [weak self] error in
                 self?.hideIndicatorFromWindow()
-                self?.showMessageOnWindow(error.localizedDescription)
+                self?.showMessageOnWindow(error)
                 
             })
             .disposed(by: rx.disposeBag)

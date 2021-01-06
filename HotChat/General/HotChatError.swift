@@ -11,6 +11,7 @@ import Foundation
 
 enum HotChatError: Error {
     
+    
     enum AuthorizeErrorReason {
         
         /// An error occurs while accessing the keychain. It prevents the LINE SDK from

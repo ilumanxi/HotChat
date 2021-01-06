@@ -89,7 +89,7 @@ class CheckInViewController: UIViewController, IndicatorDisplay {
                 self?.onCheckInSucceed.call()
             }, onError: { [weak self] error in
                 self?.dismiss(animated: false, completion: nil)
-                self?.showMessageOnWindow(error.localizedDescription)
+                self?.showMessageOnWindow(error)
             })
             .disposed(by: rx.disposeBag)
         

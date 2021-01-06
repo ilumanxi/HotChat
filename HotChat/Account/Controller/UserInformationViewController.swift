@@ -131,7 +131,7 @@ class UserInformationViewController: UITableViewController, IndicatorDisplay, St
                 self?.hideIndicatorFromWindow()
             }, onError: { [weak self] error in
                 self?.hideIndicatorFromWindow()
-                self?.showMessageOnWindow(error.localizedDescription)
+                self?.showMessageOnWindow(error)
             })
             .disposed(by: self.rx.disposeBag)
     }
@@ -191,7 +191,7 @@ class UserInformationViewController: UITableViewController, IndicatorDisplay, St
                 self?.hideIndicatorFromWindow()
             }, onError: { [weak self] error in
                 self?.hideIndicatorFromWindow()
-                self?.showMessageOnWindow(error.localizedDescription)
+                self?.showMessageOnWindow(error)
             })
             .disposed(by: rx.disposeBag)
     }

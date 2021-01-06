@@ -34,6 +34,35 @@ extension Notification.Name {
     
 }
 
+extension HotChatError {
+    
+    enum Code: Int {
+        /// Token失效
+        case tokenInvalid = -200
+        /// 封号
+        case banned = -201
+        /// 销号
+        case destroy = -202
+    }
+}
+
+extension NotificationCenter {
+    
+    func post(code aCode:HotChatError.Code, object anObject: Any?, userInfo aUserInfo: [AnyHashable : Any]? = nil) {
+        switch aCode {
+        case .tokenInvalid:
+            post(name: .userDidTokenInvalid, object: anObject, userInfo: aUserInfo)
+        case .banned:
+            post(name: .userDidBanned, object: anObject, userInfo: aUserInfo)
+        case .destroy:
+            post(name: .userDidDestroy, object: anObject, userInfo: aUserInfo)
+        }
+    }
+}
+
+
+
+
 final class AccountPlugin {
     
     let jsonDecoder = JSONDecoder()
@@ -121,30 +150,22 @@ extension AccountPlugin: PluginType {
         guard case .success(let response)  = result else {
             return
         }
-        //currentVersionApproved
         
-        
-        if let currentVersionApprovedString = response.response?.allHeaderFields["currentVersionApproved"] as? String,
-           let currentVersionApprovedValue = Int(currentVersionApprovedString)
-        {
+//        if let currentVersionApprovedString = response.response?.allHeaderFields["currentVersionApproved"] as? String,
+//           let currentVersionApprovedValue = Int(currentVersionApprovedString)
+//        {
 //            LoginManager.shared.currentVersionApproved  =  NSNumber(value: currentVersionApprovedValue).boolValue
-        }
+//        }
         
-        Log.print()
         
-        if let json = try? JSONSerialization.jsonObject(with: response.data, options: .allowFragments) as? [String : Any], let code = json["code"] as? CustomStringConvertible {
+        if let json = try? JSONSerialization.jsonObject(with: response.data, options: .allowFragments) as? [String : Any], let aCode = json["code"] as? CustomStringConvertible, let code = Int(aCode.description) {
             
-            if code.description == "-200" { // token失效
-                NotificationCenter.default.post(name: .userDidTokenInvalid, object: nil, userInfo: json)
+            if let anCode = HotChatError.Code(rawValue: code) {
+                NotificationCenter.default.post(code: anCode, object: nil)
             }
-            else if code.description == "-201" { // 封号
-                NotificationCenter.default.post(name: .userDidBanned, object: nil, userInfo: json)
-            }
-            else if  let data = json["data"] as? [String : Any], let  resultCode = data["resultCode"] as? Int, resultCode == -201 { // 封号
-                NotificationCenter.default.post(name: .userDidBanned, object: nil, userInfo: data)
-            }
-            else if  let data = json["data"] as? [String : Any], let  resultCode = data["resultCode"] as? Int, resultCode == -202 { // 销号
-                NotificationCenter.default.post(name: .userDidDestroy, object: nil, userInfo: data)
+            else if  let data = json["data"] as? [String : Any], let code = data["resultCode"] as? Int, let anCode = HotChatError.Code(rawValue: code) {
+                
+                NotificationCenter.default.post(code: anCode, object: nil)
             }
         }
         

@@ -45,7 +45,10 @@ class Appearance {
         tableView.backgroundColor = .separator
         
         let tabBar = UITabBar.appearance()
+        tabBar.backgroundColor = .white
+        tabBar.backgroundImage = UIImage(color: .white, size: CGSize(width: 1, height: 1))
         tabBar.shadowImage = UIImage()
+        tabBar.selectionIndicatorImage = UIImage(color: .red, size: CGSize(width: 1, height: 1))
         tabBar.barTintColor = .white
         tabBar.isTranslucent = true
         tabBar.tintColor = .theme

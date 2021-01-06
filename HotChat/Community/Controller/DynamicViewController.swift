@@ -209,7 +209,7 @@ class DynamicViewController: UITableViewController, IndicatorDisplay, Storyboard
                         self?.dismiss(animated: true, completion: nil)
                     }, onError: { [weak self] error in
                         self?.hideIndicatorFromWindow()
-                        self?.showMessageOnWindow(error.localizedDescription)
+                        self?.showMessageOnWindow(error)
                     })
                     .disposed(by: self.rx.disposeBag)
                 

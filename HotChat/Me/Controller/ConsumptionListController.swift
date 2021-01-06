@@ -15,6 +15,7 @@ enum Checklist: CaseIterable {
     case expenditure
     case recharge
     case earning
+    case conversion
 }
 
 enum ChecklistType {
@@ -27,7 +28,7 @@ extension ChecklistType {
     var list: [Checklist] {
         switch self {
         case .earnings:
-            return [.all , .earning]
+            return [.all , .earning, .conversion]
         default:
             return [.all, .earn, .expenditure, .recharge]
         }
@@ -116,6 +117,8 @@ extension Checklist {
             return "充值"
         case .earning:
             return "每日收益"
+        case .conversion:
+            return "兑换"
         }
     }
 }

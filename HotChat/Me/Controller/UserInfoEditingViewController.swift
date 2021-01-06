@@ -49,7 +49,7 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay, St
                     }
                 }, onError: { [weak self]  error in
                     self?.hideIndicatorFromWindow()
-                    self?.showMessageOnWindow(error.localizedDescription)
+                    self?.showMessageOnWindow(error)
                 })
                 .disposed(by: self.rx.disposeBag)
             
@@ -82,7 +82,7 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay, St
                     self?.hideIndicatorFromWindow()
                 }, onError: { [weak self]  error in
                     self?.hideIndicatorFromWindow()
-                    self?.showMessageOnWindow(error.localizedDescription)
+                    self?.showMessageOnWindow(error)
                 })
                 .disposed(by: self.rx.disposeBag)
         }
@@ -114,7 +114,7 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay, St
                     self?.hideIndicatorFromWindow()
                 }, onError: { [weak self]  error in
                     self?.hideIndicatorFromWindow()
-                    self?.showMessageOnWindow(error.localizedDescription)
+                    self?.showMessageOnWindow(error)
                 })
                 .disposed(by: self.rx.disposeBag)
         }
@@ -130,7 +130,7 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay, St
                     self?.hideIndicatorFromWindow()
                 }, onError: { [weak self]  error in
                     self?.hideIndicatorFromWindow()
-                    self?.showMessageOnWindow(error.localizedDescription)
+                    self?.showMessageOnWindow(error)
                 })
                 .disposed(by: self.rx.disposeBag)
         }
@@ -255,7 +255,7 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay, St
                 self?.hideIndicatorFromWindow()
             }, onError: { [weak self] error in
                 self?.hideIndicatorFromWindow()
-                self?.showMessageOnWindow(error.localizedDescription)
+                self?.showMessageOnWindow(error)
             })
             .disposed(by: rx.disposeBag)
     }
@@ -338,7 +338,7 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay, St
                 self?.hideIndicatorFromWindow()
             }, onError: { [weak self]  error in
                 self?.hideIndicatorFromWindow()
-                self?.showMessageOnWindow(error.localizedDescription)
+                self?.showMessageOnWindow(error)
             })
             .disposed(by: rx.disposeBag)
     }
@@ -358,7 +358,7 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay, St
                 self?.hideIndicatorFromWindow()
             }, onError: { [weak self] error in
                 self?.hideIndicatorFromWindow()
-                self?.showMessageOnWindow(error.localizedDescription)
+                self?.showMessageOnWindow(error)
             })
             .disposed(by: rx.disposeBag)
         
@@ -370,7 +370,7 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay, St
                     self.hideIndicatorFromWindow()
                 }, onError: { error in
                     self.hideIndicatorFromWindow()
-                    self.showMessageOnWindow(error.localizedDescription)
+                    self.showMessageOnWindow(error)
                 })
                 .disposed(by: vc.rx.disposeBag)
         }
@@ -397,7 +397,7 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay, St
                     self.hideIndicatorFromWindow()
                 }, onError: { [weak self] error in
                     self?.hideIndicatorFromWindow()
-                    self?.showMessageOnWindow(error.localizedDescription)
+                    self?.showMessageOnWindow(error)
                 })
                 .disposed(by: vc.rx.disposeBag)
         }
@@ -440,7 +440,7 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay, St
                     
                 }, onError: { [weak self] error in
                     self?.hideIndicatorFromWindow()
-                    self?.showMessageOnWindow(error.localizedDescription)
+                    self?.showMessageOnWindow(error)
                 })
                 .disposed(by: vc.rx.disposeBag)
         }
@@ -455,7 +455,7 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay, St
                 self?.hideIndicatorFromWindow()
             }, onError: { [weak self] error in
                 self?.hideIndicatorFromWindow()
-                self?.showMessageOnWindow(error.localizedDescription)
+                self?.showMessageOnWindow(error)
             })
             .disposed(by: rx.disposeBag)
     }
@@ -495,7 +495,7 @@ extension UserInfoEditingViewController {
                         self.hideIndicatorFromWindow()
                     }, onError: { [weak self] error in
                         self?.hideIndicatorFromWindow()
-                        self?.showMessageOnWindow(error.localizedDescription)
+                        self?.showMessageOnWindow(error)
                        
                     })
                     .disposed(by: vc.rx.disposeBag)

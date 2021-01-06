@@ -59,7 +59,7 @@ class BaseNavigationController: HBDNavigationController {
         viewController.hidesBottomBarWhenPushed =  viewControllers.count > 0 ? viewController.hidesTabBarWhenPushed : false
         
         // Provide an empty backBarButton to hide the 'Back' text present by default in the back button.
-        let backBarButtton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        let backBarButtton = UIBarButtonItem(title: nil, style: .plain, target: nil, action: nil)
         viewController.navigationItem.backBarButtonItem = backBarButtton
         
         if let tableViewController = viewController as? UITableViewController, tableViewController.tableView.style == .grouped {

@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 import PKHUD
+import StoreKit
 
 protocol IndicatorDisplay: NSObject {
     func show(_ error: Error, in view: UIView)
@@ -26,15 +27,32 @@ class IndicatorHolderView: UIView {}
 extension IndicatorDisplay where Self: UIViewController {
     
     func show(_ error: Error) {
-        
-        show(error.localizedDescription, in: view)
+        show(error, in: view)
     }
     
     func show(_ error: Error, in view: UIView) {
-        if [-201, -202].contains(error._code) {
+        if !shouldHandler(error) {
             return
         }
-        show(error.localizedDescription, in: view)
+        
+        show(message(error), in: view)
+    }
+    
+    private func shouldHandler(_ error: Error) -> Bool {
+        let invalidCodes = [
+            HotChatError.Code.banned.rawValue,
+            HotChatError.Code.destroy.rawValue
+        ]
+        return !invalidCodes.contains(error._code)
+    }
+    
+    private func message(_ error: Error) -> String {
+        var text = error.localizedDescription
+        text = text.replacingOccurrences(of: "URLSessionTask failed with error: ", with: "")
+        if text.contains(SKErrorDomain), let index = text.firstIndex(of: "。") {
+            text = String(text[text.startIndex...index])
+        }
+        return text
     }
     
     func show(_ message: String?) {
@@ -50,7 +68,7 @@ extension IndicatorDisplay where Self: UIViewController {
     }
     
     func showMessageOnWindow(_ error: Error) {
-        show(error.localizedDescription, in: UIApplication.shared.keyWindow ?? view)
+        show(error, in: UIApplication.shared.keyWindow ?? view)
     }
     
     func showMessageOnWindow(_ message: String?) {

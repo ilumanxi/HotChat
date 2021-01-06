@@ -197,6 +197,8 @@ extension Checklist {
             return 2
         case .earning:
             return 4
+        case .conversion:
+            return 5
         }
     }
 }

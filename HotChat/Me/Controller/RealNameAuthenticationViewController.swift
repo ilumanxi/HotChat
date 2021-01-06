@@ -92,7 +92,7 @@ class RealNameAuthenticationViewController: UITableViewController, IndicatorDisp
                     complete(image, response.data!.first!.picUrl)
                 }, onError: { [weak self] error in
                     self?.hideIndicatorFromWindow()
-                    self?.showMessageOnWindow(error.localizedDescription)
+                    self?.showMessageOnWindow(error)
                 })
                 .disposed(by: self.rx.disposeBag)
         }
