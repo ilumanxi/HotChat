@@ -112,8 +112,11 @@ class SignupViewController: LegalLiabilityViewController, IndicatorDisplay {
             .disposed(by: rx.disposeBag)
         
          viewModel.signedUp
-            .drive(onNext: {  isSucceed in
-                Log.print("signedUp \(isSucceed)")
+            .drive(onNext: { [weak self]  isSucceed in
+                if isSucceed {
+                    let vc = UserInformationViewController()
+                    self?.navigationController?.pushViewController(vc, animated: true)
+                }
             })
             .disposed(by: rx.disposeBag)
     }

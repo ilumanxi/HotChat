@@ -26,9 +26,9 @@ extension Notification.Name {
     
     static let userDidSignedUp = NSNotification.Name("com.friday.Chat.userDidSignedUp")
     
-    static let userDidBanned = NSNotification.Name("com.friday.Chat.userDidBanned")
+    static let userDidAccountBanned = NSNotification.Name("com.friday.Chat.userDidAccountBanned")
     
-    static let userDidDestroy = NSNotification.Name("com.friday.Chat.userDidDestroy")
+    static let userDidAccountDestroy = NSNotification.Name("com.friday.Chat.userDidAccountDestroy")
     
     static let userDidTokenInvalid = NSNotification.Name("com.friday.Chat.userDidTokenInvalid")
     
@@ -40,9 +40,9 @@ extension HotChatError {
         /// Token失效
         case tokenInvalid = -200
         /// 封号
-        case banned = -201
+        case accountBanned = -201
         /// 销号
-        case destroy = -202
+        case accountDestroy = -202
     }
 }
 
@@ -52,10 +52,10 @@ extension NotificationCenter {
         switch aCode {
         case .tokenInvalid:
             post(name: .userDidTokenInvalid, object: anObject, userInfo: aUserInfo)
-        case .banned:
-            post(name: .userDidBanned, object: anObject, userInfo: aUserInfo)
-        case .destroy:
-            post(name: .userDidDestroy, object: anObject, userInfo: aUserInfo)
+        case .accountBanned:
+            post(name: .userDidAccountBanned, object: anObject, userInfo: aUserInfo)
+        case .accountDestroy:
+            post(name: .userDidAccountDestroy, object: anObject, userInfo: aUserInfo)
         }
     }
 }

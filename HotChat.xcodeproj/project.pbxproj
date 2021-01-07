@@ -251,6 +251,7 @@
 		26CBE3C12508EB040089A23C /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CBE3C02508EB040089A23C /* Appearance.swift */; };
 		26CD99ED2578BB5C00235A8D /* ChatGreetAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CD99EC2578BB5C00235A8D /* ChatGreetAPI.swift */; };
 		26CD99F12578BDDD00235A8D /* ChatGreet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CD99F02578BDDD00235A8D /* ChatGreet.swift */; };
+		26D0034F25A6E97C00168796 /* UserInformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26D0034E25A6E97C00168796 /* UserInformationViewController.xib */; };
 		26D1E58B253D5F17004B9B29 /* CallManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D1E58A253D5F17004B9B29 /* CallManager.m */; };
 		26D1E594253D6000004B9B29 /* VideoCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D1E593253D6000004B9B29 /* VideoCallViewController.m */; };
 		26DBC373253D89DF0083BDFB /* AudioCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DBC372253D89DF0083BDFB /* AudioCallViewController.m */; };
@@ -662,6 +663,7 @@
 		26CBE3C02508EB040089A23C /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		26CD99EC2578BB5C00235A8D /* ChatGreetAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGreetAPI.swift; sourceTree = "<group>"; };
 		26CD99F02578BDDD00235A8D /* ChatGreet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGreet.swift; sourceTree = "<group>"; };
+		26D0034E25A6E97C00168796 /* UserInformationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInformationViewController.xib; sourceTree = "<group>"; };
 		26D1E589253D5F17004B9B29 /* CallManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CallManager.h; sourceTree = "<group>"; };
 		26D1E58A253D5F17004B9B29 /* CallManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CallManager.m; sourceTree = "<group>"; };
 		26D1E592253D6000004B9B29 /* VideoCallViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoCallViewController.h; sourceTree = "<group>"; };
@@ -1076,6 +1078,7 @@
 				265C8A49251348E200E220BD /* ForgotPasswordViewController.swift */,
 				F370D276251CE65500C2F708 /* ResetPasswordViewController.swift */,
 				26E14E62251C766900645F08 /* UserInformationViewController.swift */,
+				26D0034E25A6E97C00168796 /* UserInformationViewController.xib */,
 				26E14E67251C861A00645F08 /* DatePickerViewController.swift */,
 			);
 			path = Controller;
@@ -1718,6 +1721,7 @@
 				2693697525555E06002E224B /* PhoneBindingController.xib in Resources */,
 				267955042507637600A72954 /* Community.storyboard in Resources */,
 				26C81EEE25480B1900C1D563 /* GiftViewCell.xib in Resources */,
+				26D0034F25A6E97C00168796 /* UserInformationViewController.xib in Resources */,
 				26E4C68525930F89005EAAC3 /* AccountDestructionController.xib in Resources */,
 				26597676257886BB00E4B6A2 /* GreetingsAddedView.xib in Resources */,
 				26CBE3B82508A9F20089A23C /* CommunityHeaderView.xib in Resources */,
@@ -2287,7 +2291,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -2411,7 +2415,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

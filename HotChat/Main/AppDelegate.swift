@@ -76,7 +76,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         userSettingsAPI.request(.appAudit, type: Response<AppAudit>.self)
             .verifyResponse()
             .subscribe(onSuccess: { respoonse in
-                AppAudit.share = respoonse.data!
+                if let data = respoonse.data{
+                    AppAudit.share = data
+                }
             }, onError: nil)
             .disposed(by: rx.disposeBag)
     }
@@ -129,8 +131,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(userDidBanned),
-            name: .userDidBanned,
+            selector: #selector(userDidAccountBanned),
+            name: .userDidAccountBanned,
             object: nil
         )
         
@@ -143,8 +145,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(userDidDestroy),
-            name: .userDidDestroy,
+            selector: #selector(userDidAccountDestroy),
+            name: .userDidAccountDestroy,
             object: nil
         )
         
@@ -178,7 +180,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.setLoginViewController()
     }
     
-    @objc func userDidBanned(_ noti: Notification) {
+    @objc func userDidAccountBanned(_ noti: Notification) {
         
         var message = "封号了"
         
@@ -203,7 +205,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let logoutAPI = Request<LogoutAPI>()
     
-    @objc func userDidDestroy(_ noti: Notification) {
+    @objc func userDidAccountDestroy(_ noti: Notification) {
         
         //  {"resultCode":-202,"resultMsg":" 您的账号（25862444）已申请 注销，您已被系统登出 您可以在30天内撤销注销 申请，之后将自动注销 ","userStatus":3,"token":"a217a28f5c1cc64e"}
     

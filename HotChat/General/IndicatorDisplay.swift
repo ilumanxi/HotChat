@@ -40,8 +40,8 @@ extension IndicatorDisplay where Self: UIViewController {
     
     private func shouldHandler(_ error: Error) -> Bool {
         let invalidCodes = [
-            HotChatError.Code.banned.rawValue,
-            HotChatError.Code.destroy.rawValue
+            HotChatError.Code.accountBanned.rawValue,
+            HotChatError.Code.accountDestroy.rawValue
         ]
         return !invalidCodes.contains(error._code)
     }

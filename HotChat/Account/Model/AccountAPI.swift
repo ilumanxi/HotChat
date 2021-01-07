@@ -31,6 +31,7 @@ enum AccountAPI {
     case editUser(headPic: String, sex: Int, nick: String, birthday: Int)
     case labelList
     case recommendList
+    case createUserAccount(sex: Sex)
 }
 
 extension AccountAPI: TargetType {
@@ -62,6 +63,8 @@ extension AccountAPI: TargetType {
             return "login/quit"
         case .recommendList:
             return "login/recommendList"
+        case .createUserAccount:
+            return "login/createUserAccount"
         }
 
     }
@@ -139,6 +142,10 @@ extension AccountAPI: TargetType {
             parameters = [:]
         case .recommendList:
             parameters = [:]
+        case .createUserAccount(let sex):
+            parameters = [
+                "sex": sex.rawValue
+            ]
         }
         
         let encoding: ParameterEncoding = (self.method == .post) ? JSONEncoding.default : URLEncoding.default

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserInformationViewController" customModule="HotChat" customModuleProvider="target">
+            <connections>
+                <outlet property="femaleButton" destination="GHH-GI-NTn" id="4hX-Yq-Jzr"/>
+                <outlet property="maleButton" destination="NXA-HT-93S" id="auL-ky-B7N"/>
+                <outlet property="submitButton" destination="Cu5-qF-Xoe" id="LaN-lJ-pdm"/>
+                <outlet property="view" destination="iN0-l3-epB" id="PLI-ne-x5D"/>
+                <outletCollection property="maleButtons" destination="0Ng-xv-HdM" collectionClass="NSMutableArray" id="Uey-Mx-9YJ"/>
+                <outletCollection property="maleButtons" destination="NXA-HT-93S" collectionClass="NSMutableArray" id="9xi-bO-VeQ"/>
+                <outletCollection property="femaleButtons" destination="dEt-5l-0nL" collectionClass="NSMutableArray" id="k2G-Wj-XNt"/>
+                <outletCollection property="femaleButtons" destination="GHH-GI-NTn" collectionClass="NSMutableArray" id="Mng-v0-vpv"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请选择性别" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p0n-OD-5Nn">
+                    <rect key="frame" x="171.5" y="159" width="71.5" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="6g2-Jp-8U7">
+                    <rect key="frame" x="89.5" y="198" width="235" height="139.5"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Dcs-d8-Mtf">
+                            <rect key="frame" x="0.0" y="0.0" width="117.5" height="139.5"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ng-xv-HdM">
+                                    <rect key="frame" x="0.0" y="0.0" width="117.5" height="117.5"/>
+                                    <state key="normal" image="male-normal"/>
+                                    <state key="selected" image="male-selected"/>
+                                    <connections>
+                                        <action selector="maleButtonDidTag:" destination="-1" eventType="touchUpInside" id="MqK-Mv-C6M"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXA-HT-93S">
+                                    <rect key="frame" x="30" y="117.5" width="58" height="22"/>
+                                    <color key="backgroundColor" red="0.55294117647058827" green="0.63137254901960782" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="58" id="Jht-ye-oMT"/>
+                                        <constraint firstAttribute="height" constant="22" id="VCc-Q5-FVd"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <state key="normal" title="男生" image="male"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="5"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="maleButtonDidTag:" destination="-1" eventType="touchUpInside" id="FOb-Di-ErV"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Jo6-EF-v2L">
+                            <rect key="frame" x="117.5" y="0.0" width="117.5" height="139.5"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dEt-5l-0nL">
+                                    <rect key="frame" x="0.0" y="0.0" width="117.5" height="117.5"/>
+                                    <state key="normal" image="female-normal"/>
+                                    <state key="selected" image="female-selected"/>
+                                    <connections>
+                                        <action selector="femaleButtonDidTag:" destination="-1" eventType="touchUpInside" id="mEi-15-L0h"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GHH-GI-NTn">
+                                    <rect key="frame" x="30" y="117.5" width="58" height="22"/>
+                                    <color key="backgroundColor" red="0.55294117649999996" green="0.63137254899999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="58" id="YI9-9K-v2A"/>
+                                        <constraint firstAttribute="height" constant="22" id="dY0-on-blJ"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <state key="normal" title="女生" image="female"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="5"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="femaleButtonDidTag:" destination="-1" eventType="touchUpInside" id="vgf-Xz-8Ok"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cu5-qF-Xoe">
+                    <rect key="frame" x="30" y="806" width="354" height="50"/>
+                    <color key="backgroundColor" red="0.31764705882352939" green="0.34901960784313724" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="CjV-fl-2oe"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="确定"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="25"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="submitButtonDidTap:" destination="-1" eventType="touchUpInside" id="gaL-Kx-vR3"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="性别选择后将不能修改" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqV-23-TcA">
+                    <rect key="frame" x="135.5" y="777" width="143" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Cu5-qF-Xoe" secondAttribute="trailing" constant="30" id="7Up-oM-avy"/>
+                <constraint firstAttribute="bottom" secondItem="Cu5-qF-Xoe" secondAttribute="bottom" constant="40" id="BQ2-SA-TLm"/>
+                <constraint firstItem="p0n-OD-5Nn" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="EYt-a4-1wm"/>
+                <constraint firstItem="6g2-Jp-8U7" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="HI6-GX-3kn"/>
+                <constraint firstItem="Cu5-qF-Xoe" firstAttribute="top" secondItem="aqV-23-TcA" secondAttribute="bottom" constant="12" id="LIz-Tw-PCb"/>
+                <constraint firstItem="Cu5-qF-Xoe" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="avC-Bx-hfe"/>
+                <constraint firstItem="6g2-Jp-8U7" firstAttribute="top" secondItem="p0n-OD-5Nn" secondAttribute="bottom" constant="22" id="kpg-Tx-cK7"/>
+                <constraint firstItem="aqV-23-TcA" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="wUi-AQ-3yK"/>
+                <constraint firstItem="p0n-OD-5Nn" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="115" id="xG7-Xn-eUW"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="129"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="female" width="12" height="12.5"/>
+        <image name="female-normal" width="117.5" height="117.5"/>
+        <image name="female-selected" width="117.5" height="117.5"/>
+        <image name="male" width="12" height="12.5"/>
+        <image name="male-normal" width="117.5" height="117.5"/>
+        <image name="male-selected" width="117.5" height="117.5"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

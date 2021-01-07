@@ -11,8 +11,10 @@ import MBProgressHUD
 
 
 
-class UserInfoLikeObjectViewController: UIViewController, IndicatorDisplay, LoadingStateType {
+class UserInfoLikeObjectViewController: UIViewController, IndicatorDisplay, LoadingStateType, StoryboardCreate {
     
+    
+    static var storyboardNamed: String { return "Me" }
     
     var state: LoadingState = .initial {
         didSet {

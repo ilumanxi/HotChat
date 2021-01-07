@@ -43,7 +43,7 @@ class LoginViewController: UIViewController, IndicatorDisplay {
         
         NotificationCenter.default.rx.notification(.userDidSignedUp)
             .subscribe(onNext: { [weak self] _ in
-                let vc = UserInformationViewController.loadFromStoryboard()
+                let vc = UserInformationViewController()
                 self?.navigationController?.pushViewController(vc, animated: true)
             })
             .disposed(by: rx.disposeBag)
