@@ -35,6 +35,8 @@ struct EarningPreview: HandyJSON {
     
     var currentMonth: EarningMonth = EarningMonth()
     var lastMonth: EarningMonth = EarningMonth()
+    var balanceEnergy:  EarningMonth = EarningMonth()
+    
     var weekList: [EarningWeek] = []
 }
 

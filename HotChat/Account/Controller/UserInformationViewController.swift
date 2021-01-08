@@ -86,10 +86,16 @@ class UserInformationViewController: UIViewController, IndicatorDisplay {
         
         API.request(.createUserAccount(sex: sex), type: Response<User>.self)
             .verifyResponse()
-            .subscribe(onSuccess: {[weak self] response in
+            .subscribe(onSuccess: {[unowned self] response in
                 LoginManager.shared.update(user: response.data!)
-                self?.pushUserInfoLikeObject()
-                self?.hideIndicatorFromWindow()
+                
+                if self.sex == .male {
+                    self.pushForYouViewController()
+                }
+                else {
+                    self.pushUserInfoLikeObject()
+                }
+                self.hideIndicatorFromWindow()
             }, onError: { [weak self] error in
                 self?.hideIndicatorFromWindow()
                 self?.showMessageOnWindow(error)
@@ -110,6 +116,13 @@ class UserInformationViewController: UIViewController, IndicatorDisplay {
             vc.sex = self.sex
             self.navigationController?.pushViewController(vc, animated: true)
         }
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func pushForYouViewController() {
+        
+        let vc = ForYouViewController.loadFromStoryboard()
+        vc.sex = self.sex
         navigationController?.pushViewController(vc, animated: true)
     }
     

@@ -30,8 +30,22 @@ class MeHeaderView: UIView {
     
     @IBOutlet weak var fansButton: UIButton!
     
+    @IBOutlet weak var taskView: UIStackView!
     
-    @IBOutlet var backgroundViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var walletView: UIStackView!
+    
+    @IBOutlet weak var earningsView: UIStackView!
+    
+    @IBOutlet weak var vipView: UIStackView!
+    
+    @IBOutlet weak var inviteView: UIStackView!
+    
+    
+    @IBOutlet var backgroundViewHeightConstraint: NSLayoutConstraint! {
+        didSet {
+            backgroundViewHeightConstraint.constant = 204 + 44 + UIApplication.shared.statusBarFrame.height
+        }
+    }
     
 //    override class var requiresConstraintBasedLayout: Bool {
 //        return true
@@ -42,10 +56,12 @@ class MeHeaderView: UIView {
         
 //        translatesAutoresizingMaskIntoConstraints = false
         
-        widthAnchor.constraint(equalTo: superview!.widthAnchor).isActive = true
+        if let superview = superview {
+            widthAnchor.constraint(equalTo: superview.widthAnchor).isActive = true
+        }
         
         // 可以根据 srollview offset 改变高度
-        backgroundViewHeightConstraint.constant = UIScreen.main.bounds.height
+        backgroundViewHeightConstraint.constant = 204 + 44 + UIApplication.shared.statusBarFrame.height
         
         super.awakeFromNib()
     }

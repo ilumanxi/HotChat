@@ -100,6 +100,10 @@
 		2643EBCA2500DBF500FBBE49 /* MeRelationshipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643EBC92500DBF500FBBE49 /* MeRelationshipViewController.swift */; };
 		2643EBCC2500FDA300FBBE49 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643EBCB2500FDA300FBBE49 /* UserInfoViewController.swift */; };
 		264A20CF25109B5000A264BE /* AccountAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264A20CE25109B5000A264BE /* AccountAPI.swift */; };
+		264BF97825A8366E00F873DD /* AccostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264BF97625A8366E00F873DD /* AccostViewController.swift */; };
+		264BF97925A8366E00F873DD /* AccostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 264BF97725A8366E00F873DD /* AccostViewController.xib */; };
+		264BF97E25A83BB200F873DD /* AccostViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264BF97C25A83BB200F873DD /* AccostViewCell.swift */; };
+		264BF97F25A83BB200F873DD /* AccostViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 264BF97D25A83BB200F873DD /* AccostViewCell.xib */; };
 		264D15E0258B415300756EAF /* GreetingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 264D15DF258B415300756EAF /* GreetingViewController.xib */; };
 		264DEA142552512C00AD97DE /* GiftManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 264DEA132552512C00AD97DE /* GiftManager.m */; };
 		2656F30E254FAC0500552611 /* GiftReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2656F30C254FAC0500552611 /* GiftReminderViewController.m */; };
@@ -476,6 +480,10 @@
 		2643EBC92500DBF500FBBE49 /* MeRelationshipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeRelationshipViewController.swift; sourceTree = "<group>"; };
 		2643EBCB2500FDA300FBBE49 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		264A20CE25109B5000A264BE /* AccountAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAPI.swift; sourceTree = "<group>"; };
+		264BF97625A8366E00F873DD /* AccostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccostViewController.swift; sourceTree = "<group>"; };
+		264BF97725A8366E00F873DD /* AccostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccostViewController.xib; sourceTree = "<group>"; };
+		264BF97C25A83BB200F873DD /* AccostViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccostViewCell.swift; sourceTree = "<group>"; };
+		264BF97D25A83BB200F873DD /* AccostViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccostViewCell.xib; sourceTree = "<group>"; };
 		264D15DF258B415300756EAF /* GreetingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GreetingViewController.xib; sourceTree = "<group>"; };
 		264DEA122552512C00AD97DE /* GiftManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftManager.h; sourceTree = "<group>"; };
 		264DEA132552512C00AD97DE /* GiftManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftManager.m; sourceTree = "<group>"; };
@@ -1194,7 +1202,11 @@
 				26E48906257E087D006C2ACE /* CheckInViewController.swift */,
 				26E48907257E087D006C2ACE /* CheckInViewController.xib */,
 				263A6682257E0EF200F35714 /* CheckInCell.swift */,
+				264BF97C25A83BB200F873DD /* AccostViewCell.swift */,
+				264BF97D25A83BB200F873DD /* AccostViewCell.xib */,
 				263A6683257E0EF200F35714 /* CheckInCell.xib */,
+				264BF97625A8366E00F873DD /* AccostViewController.swift */,
+				264BF97725A8366E00F873DD /* AccostViewController.xib */,
 				263A66C5257E347D00F35714 /* CheckIn.swift */,
 				263A66C9257E351700F35714 /* CheckInAPI.swift */,
 				26EDD94C25A44A1D00913363 /* AppAudit.swift */,
@@ -1709,6 +1721,7 @@
 				26395362254198DB00B5E3C0 /* RightDetailViewCell.xib in Resources */,
 				26DF8784255A7969002162A9 /* EarningsDetailViewController.xib in Resources */,
 				262C5F6E255550BE00126359 /* AccountSecurityController.xib in Resources */,
+				264BF97F25A83BB200F873DD /* AccostViewCell.xib in Resources */,
 				26EDE7FA2591D11F002A2EC3 /* GuidedRechargeViewController.xib in Resources */,
 				26959042250B1DD900763061 /* InterestedCardOverlayView.xib in Resources */,
 				26CB6D4F25515D6B00A9F4DD /* idl-license.face-ios in Resources */,
@@ -1760,6 +1773,7 @@
 				2656F30F254FAC0500552611 /* GiftReminderViewController.xib in Resources */,
 				267E36E92547C2E100EB2097 /* GiftView.xib in Resources */,
 				26772823255A480900B98973 /* PrivacyViewController.xib in Resources */,
+				264BF97925A8366E00F873DD /* AccostViewController.xib in Resources */,
 				F38CB8C62507B14700049A76 /* InfoPlist.strings in Resources */,
 				268E3E612521D074000E4A33 /* RelationshipViewCell.xib in Resources */,
 				263953702541A38B00B5E3C0 /* FiledViewCell.xib in Resources */,
@@ -1892,6 +1906,7 @@
 				F38CB8C82507BA8A00049A76 /* ChatNotificationSettingCell.swift in Sources */,
 				26137CCB2590673900DCBAD0 /* TabBar.swift in Sources */,
 				262C5F6D255550BE00126359 /* AccountSecurityController.swift in Sources */,
+				264BF97E25A83BB200F873DD /* AccostViewCell.swift in Sources */,
 				268E3E602521D074000E4A33 /* RelationshipViewCell.swift in Sources */,
 				2643EBBF2500B04100FBBE49 /* Application.swift in Sources */,
 				2605A4762513187900017241 /* UIImageExtensions.swift in Sources */,
@@ -1914,6 +1929,7 @@
 				26A20B052518A5020061BBB8 /* HotChatError.swift in Sources */,
 				26B4E05B2564ECBB004EDCFE /* UpgradeAPI.swift in Sources */,
 				2643EBA32500B04100FBBE49 /* UserInfoEditingViewController.swift in Sources */,
+				264BF97825A8366E00F873DD /* AccostViewController.swift in Sources */,
 				2643EBA52500B04100FBBE49 /* ApplicationSettingsViewController.swift in Sources */,
 				268458E225342B7D002B9C6E /* DynamicDetailViewCell.swift in Sources */,
 				26FC88FA253ED66600E4D82F /* SearchViewCell.swift in Sources */,

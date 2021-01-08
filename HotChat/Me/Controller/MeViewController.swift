@@ -33,6 +33,47 @@ extension LabelView {
 
 typealias TappedAction  = () -> Void
 
+
+class InsetGroupedCell: UITableViewCell {
+    
+    override var frame: CGRect {
+        get {
+            super.frame
+        }
+        set {
+//            if #available(iOS 13.0, *) {
+//                super.frame = newValue
+//            } else {
+                super.frame = newValue.insetBy(dx: 20, dy: 0)
+//            }
+        }
+    }
+    
+    
+    var rectCorner: UIRectCorner = []
+    
+    override func layoutSubviews() {
+        
+//        if #available(iOS 13.0, *) {
+//
+//        } else {
+            if rectCorner == [] {
+                layer.mask = nil
+            }
+            else {
+                let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: rectCorner, cornerRadii: CGSize(width: 10, height: 10))
+                
+                let maskLayer = CAShapeLayer()
+                maskLayer.frame = bounds
+                maskLayer.path = path.cgPath
+                layer.mask = maskLayer
+            }
+//        }
+        
+        super.layoutSubviews()
+    }
+}
+
 class RightDetailFormEntry: FormEntry {
 
     let image: UIImage?
@@ -210,7 +251,7 @@ class MeViewController: UITableViewController, Autorotate {
         
         
         if user.sex == .male {
-            basicEntries.append( RightDetailFormEntry(image: UIImage(named: "me-authentication"), text: "认证", onTapped: pushAuthentication))
+            basicEntries.append( RightDetailFormEntry(image: UIImage(named: "me-authentication"), text: "用户认证", onTapped: pushAuthentication))
         }
         
         basicEntries.append(RightDetailFormEntry(image: UIImage(named: "me-help"), text: "帮助", onTapped: pushHelp))
@@ -282,6 +323,9 @@ class MeViewController: UITableViewController, Autorotate {
         meHeaderView.followButton.setTitle("\(user.userFollowNum) 关注", for: .normal)
         meHeaderView.fansButton.setTitle("\(user.userFansNum) 粉丝", for: .normal)
         
+//        meHeaderView.walletView.isHidden = user.girlStatus
+//        meHeaderView.earningsView.isHidden = !user.girlStatus
+        
         meHeaderView.setNeedsLayout()
         meHeaderView.layoutIfNeeded()
     }
@@ -291,17 +335,18 @@ class MeViewController: UITableViewController, Autorotate {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    func pushInvite() {
+    @IBAction func pushInvite() {
         let vc = WebViewController.H5(path: "index/index/myintive")
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    func pushTask()   {
+
+    @IBAction func pushTask()   {
         let vc = WebViewController.H5(path: "h5/sign")
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    func pushVip() {
+    @IBAction func pushVip() {
         
         let vc = WebViewController.H5(path: "h5/vip")
         navigationController?.pushViewController(vc, animated: true)
@@ -312,12 +357,12 @@ class MeViewController: UITableViewController, Autorotate {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    func pushWallet()  {
+    @IBAction func pushWallet()  {
         let vc = WalletViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    func pushEarnings() {
+    @IBAction func pushEarnings() {
         let vc = EarningsViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -350,6 +395,25 @@ class MeViewController: UITableViewController, Autorotate {
         let cell = sections[indexPath.section].formEntries[indexPath.row].cell(tableView, indexPath: indexPath)
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        guard let inserCell = cell  as? InsetGroupedCell else { return  }
+        
+        if self.tableView(tableView, numberOfRowsInSection: indexPath.section) == 1 {
+            
+            inserCell.rectCorner = .allCorners
+        }
+        else if indexPath.row == 0 {
+            inserCell.rectCorner = [.topLeft, .topRight]
+        }
+        else if indexPath.row == (self.tableView(tableView, numberOfRowsInSection: indexPath.section) - 1) {
+            inserCell.rectCorner = [.bottomLeft, .bottomRight]
+        }
+        else {
+            inserCell.rectCorner = []
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

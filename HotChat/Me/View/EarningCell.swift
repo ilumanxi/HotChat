@@ -12,8 +12,11 @@ class EarningCell: UITableViewCell {
     
     @IBOutlet weak var currentMonthEnergyLabel: UILabel!
     
-    
     @IBOutlet weak var lastMonthEnergyLabel: UILabel!
+    
+    @IBOutlet weak var balanceEnergyLabel: UILabel!
+    
+    
     
     
 }

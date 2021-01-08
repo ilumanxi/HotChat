@@ -22,10 +22,12 @@ struct EarningMonthFormEntry: FormEntry {
     
     let current: EarningMonth
     let last: EarningMonth
+    let balance: EarningMonth
     
-    init(current: EarningMonth, last: EarningMonth) {
+    init(current: EarningMonth, last: EarningMonth, balance: EarningMonth) {
         self.current = current
         self.last = last
+        self.balance = balance
     }
     
     func cell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
@@ -34,7 +36,7 @@ struct EarningMonthFormEntry: FormEntry {
         cell.currentMonthEnergyLabel.text = current.energy
         
         cell.lastMonthEnergyLabel.text = last.energy
-
+        cell.balanceEnergyLabel.text = balance.energy
         
         return cell
     }
@@ -96,8 +98,16 @@ class EarningsViewController: UIViewController, LoadingStateType, IndicatorDispl
     func setupViews()  {
         title = "我的收益"
         
+        
         let recordItem = UIBarButtonItem(title: "明细", style: .plain, target: self, action: #selector(pushExpensesRecord))
+        recordItem.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
         navigationItem.rightBarButtonItem = recordItem
+        
+        hbd_barAlpha = 0
+        hbd_tintColor = .white
+        hbd_titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+         
+        
         
         tableView.register(UINib(nibName: "EarningCell", bundle: nil), forCellReuseIdentifier: "EarningCell")
         tableView.register(UINib(nibName: "EarningDetailCell", bundle: nil), forCellReuseIdentifier: "EarningDetailCell")
@@ -108,7 +118,7 @@ class EarningsViewController: UIViewController, LoadingStateType, IndicatorDispl
 
         guard let data = data else { return }
         
-       let month = EarningMonthFormEntry(current: data.currentMonth, last: data.lastMonth)
+        let month = EarningMonthFormEntry(current: data.currentMonth, last: data.lastMonth, balance: data.balanceEnergy)
         
      
        let weeks =  data.weekList
@@ -118,9 +128,9 @@ class EarningsViewController: UIViewController, LoadingStateType, IndicatorDispl
         
         let entries: [FormEntry] = [month] + weeks
         
-        let section =  FormSection(entries: entries)
-        
-        self.sections = [section]
+        self.sections = entries.compactMap {
+            FormSection(entries: [$0])
+        }
         
         tableView.reloadData()
     }
@@ -167,7 +177,13 @@ extension EarningsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        return sections[indexPath.section].formEntries[indexPath.row].cell(tableView, indexPath: indexPath)
+        let cell = sections[indexPath.section].formEntries[indexPath.row].cell(tableView, indexPath: indexPath)
+        
+        if let insetGroupedCell = cell as? InsetGroupedCell {
+            insetGroupedCell.rectCorner = .allCorners
+        }
+        
+        return cell
     }
     
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WalletViewCell: UITableViewCell {
+class WalletViewCell: InsetGroupedCell {
     
     @IBOutlet weak var iconImageView: UIImageView!
     

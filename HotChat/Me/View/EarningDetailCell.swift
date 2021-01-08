@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EarningDetailCell: UITableViewCell {
+class EarningDetailCell: InsetGroupedCell {
     
     
     @IBOutlet weak var titleLabel: UILabel!
