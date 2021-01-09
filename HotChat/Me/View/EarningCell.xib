@@ -111,8 +111,8 @@
             <inset key="separatorInset" minX="10000" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="balanceEnergyLabel" destination="R1C-gk-7Ho" id="g9k-Wm-i2I"/>
-                <outlet property="currentMonthEnergyLabel" destination="f6t-jo-GDF" id="n5u-OI-mKw"/>
-                <outlet property="lastMonthEnergyLabel" destination="Mbr-fM-0t6" id="D6W-9L-As0"/>
+                <outlet property="currentMonthEnergyLabel" destination="Mbr-fM-0t6" id="iH0-qU-PA1"/>
+                <outlet property="lastMonthEnergyLabel" destination="f6t-jo-GDF" id="kEi-yO-QS5"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="216.96428571428569"/>
         </tableViewCell>

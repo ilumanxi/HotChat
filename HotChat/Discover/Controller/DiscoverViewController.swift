@@ -136,7 +136,8 @@ class DiscoverViewController: SegementSlideDefaultViewController, LoadingStateTy
         countdownTimer?.invalidate()
         countdownTimer = nil
        
-        countdownTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [unowned self] _ in
+        countdownTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+            guard let self = self else { return }
             self.sayHellowSeconds -= 1
             
             if self.sayHellowSeconds <= 0 {
