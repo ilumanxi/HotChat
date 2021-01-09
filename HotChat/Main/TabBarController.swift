@@ -18,6 +18,10 @@ extension UIWindow {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let tabBarController = storyboard.instantiateInitialViewController() as? UITabBarController {
             rootViewController = tabBarController
+            
+            if let nav = tabBarController.children[2] as? UINavigationController {
+                nav.topViewController?.view
+            }
         }
     }
 }

@@ -59,8 +59,6 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     
     private var isShowCheckIn = true
     
-    private var isCheckAccost = true
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -116,8 +114,9 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         checkUserInitState()
-        checkInState()
-        checkAccost()
+        if LoginManager.shared.user!.isInit {
+            checkInState()
+        }
     }
     
     
@@ -144,22 +143,6 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
             }, onError: { [weak self] error in
                 self?.checkInResult = nil
             })
-            .disposed(by: rx.disposeBag)
-    }
-    
-    func checkAccost() {
-        
-        if LoginManager.shared.user!.girlStatus  || !isCheckAccost {
-            return
-        }
-        
-        chatGreetAPI.request(.checkAccost, type: Response<[String : Any]>.self)
-            .verifyResponse()
-            .subscribe(onSuccess: { [unowned self] response in
-                if let resultCode = response.data?["resultCode"] as? Int, resultCode == 1005 {
-                    self.presentAccost()
-                }
-            }, onError: nil)
             .disposed(by: rx.disposeBag)
     }
     
@@ -260,13 +243,6 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
         }
         present(vc, animated: true) {
             self.isShowCheckIn = false
-        }
-    }
-    
-    func presentAccost()  {
-        let vc = AccostViewController()
-        present(vc, animated: true) {
-            self.isCheckAccost = false
         }
     }
     

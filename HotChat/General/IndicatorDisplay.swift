@@ -8,8 +8,10 @@
 
 import UIKit
 import SnapKit
-import PKHUD
+//import PKHUD
 import StoreKit
+import MBProgressHUD
+import Toast_Swift
 
 protocol IndicatorDisplay: NSObject {
     func show(_ error: Error, in view: UIView)
@@ -84,16 +86,17 @@ extension IndicatorDisplay where Self: UIViewController {
     }
     
     func show(_ message: String?, in view: UIView) {
-        HUD.dimsBackground = false
-        HUD.allowsInteraction = true
-        HUD.flash(.label(message), onView: view, delay: 2.5, completion: nil)
+        view.endEditing(true)
+        view.makeToast(message, position: .center)
     }
     
     func showIndicator(_ message: String?, in view: UIView) {
-        
-        HUD.dimsBackground = false
-        HUD.allowsInteraction = false
-        HUD.show(.labeledProgress(title: nil, subtitle: message), onView: view)
+        view.endEditing(true)
+        let hub  = MBProgressHUD.showAdded(to: view, animated: true)
+        if let message = message {
+            hub.label.text = message
+        }
+        hub.show(animated: true)
     }
     
     func showOrHideIndicator(loadingState: LoadingState, text: String? = nil, image: UIImage? = nil) {
@@ -197,7 +200,8 @@ extension IndicatorDisplay where Self: UIViewController {
     }
     
     func hideIndicator(from view: UIView) {
-        HUD.hide(animated: true)
+        let hub = view.subviews.first { $0 is MBProgressHUD } as? MBProgressHUD
+        hub?.hide(animated: true)
     }
     
     func refreshData() {

@@ -35,6 +35,11 @@ class RealNameAuthenticationViewController: UITableViewController, IndicatorDisp
     
     func setupUI(){
 
+        let textFields = [nicknameTextField, IDCardTexField]
+        
+        textFields.forEach {
+            $0?.attributedPlaceholder = NSAttributedString(string: $0?.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor : UIColor.placeholderRed])
+        }
     }
     
     

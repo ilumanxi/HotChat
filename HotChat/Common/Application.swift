@@ -31,6 +31,10 @@ extension UIColor {
     static let disabledGray: UIColor = UIColor(hexString: "#BDBDBD")
     
     static let normalGray: UIColor = UIColor(hexString: "#F6F5F5")
+    
+    static let placeholderRed: UIColor = UIColor(hexString: "#FF0000")
+    
+   
 }
 
 extension UIFont {

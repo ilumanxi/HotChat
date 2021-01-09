@@ -85,6 +85,8 @@ class DiscoverViewController: SegementSlideDefaultViewController, LoadingStateTy
         button.setBackgroundImage(UIImage(color: UIColor(hexString: "#DCDCDC"), size: CGSize(width: 110, height: 34)), for: .disabled)
         return button
     }()
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,9 +100,12 @@ class DiscoverViewController: SegementSlideDefaultViewController, LoadingStateTy
         setupViews()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        checkAccost()
+    }
+    
     func setupViews() {
-        
-        
         
         if LoginManager.shared.user!.girlStatus && !AppAudit.share.energyStatus {
 
@@ -108,6 +113,31 @@ class DiscoverViewController: SegementSlideDefaultViewController, LoadingStateTy
         }
         else {
             sayHellowButton.removeFromSuperview()
+        }
+    }
+    
+    private var isCheckAccost = true
+    
+    func checkAccost() {
+        
+        if LoginManager.shared.user!.girlStatus  || !isCheckAccost {
+            return
+        }
+        
+        chatGreetAPI.request(.checkAccost, type: Response<[String : Any]>.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { [unowned self] response in
+                if let resultCode = response.data?["resultCode"] as? Int, resultCode == 1005 {
+                    self.presentAccost()
+                }
+            }, onError: nil)
+            .disposed(by: rx.disposeBag)
+    }
+    
+    func presentAccost()  {
+        let vc = AccostViewController()
+        present(vc, animated: true) {
+            self.isCheckAccost = false
         }
     }
     

@@ -18,6 +18,7 @@ class FiledFormEntry: NSObject, FormEntry {
     var text: String?
     var isEdit: Bool
     let onTextChanged = Delegate<String, Void>()
+    var placeholderColor: UIColor = UIColor.gray.withAlphaComponent(0.7)
     private var disposeBag: DisposeBag!
     init(title: String, text: String?, isEdit: Bool = true) {
         self.title = title
@@ -31,6 +32,7 @@ class FiledFormEntry: NSObject, FormEntry {
         cell.fieldTextLabel.text = title
         cell.textField.text = text
         cell.textField.isEnabled = isEdit
+        cell.textField.attributedText = NSAttributedString(string: cell.textField.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor : placeholderColor])
         
         disposeBag = DisposeBag()
         
@@ -130,6 +132,7 @@ class AnchorAuthenticationViewController: UIViewController, IndicatorDisplay {
     
     private var nameForm: FiledFormEntry {
         let entry  = FiledFormEntry(title: "姓名", text: anchorAuthentication.name)
+        entry.placeholderColor = .placeholderRed
         entry.onTextChanged.delegate(on: self) { (self, text) in
             self.anchorAuthentication.name = text
         }
@@ -138,6 +141,7 @@ class AnchorAuthenticationViewController: UIViewController, IndicatorDisplay {
     
     private var cardForm: FiledFormEntry {
         let entry  = FiledFormEntry(title: "身份证", text: anchorAuthentication.card)
+        entry.placeholderColor = .placeholderRed
         entry.onTextChanged.delegate(on: self) { (self, text) in
             self.anchorAuthentication.card = text
         }
@@ -147,6 +151,7 @@ class AnchorAuthenticationViewController: UIViewController, IndicatorDisplay {
     
     private var cardPhotoForm: FiledFormEntry {
         let entry  = FiledFormEntry(title: "手持身份照", text: nil, isEdit: false)
+        entry.placeholderColor = .placeholderRed
         return entry
     }
     
