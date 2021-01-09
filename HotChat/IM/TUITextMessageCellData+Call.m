@@ -17,49 +17,64 @@
 @implementation TUITextMessageCellData (Call)
 
 
-- (NSAttributedString *)formatMessageString:(NSString *)text
-{
-    //先判断text是否存在
-    if (text == nil || text.length == 0) {
-        NSLog(@"TTextMessageCell formatMessageString failed , current text is nil");
-        return [[NSMutableAttributedString alloc] initWithString:@""];
-    }
-    
-
-    
-    //1、创建一个可变的属性字符串
-    NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:text];
-    
-    
+- (BOOL)isAV {
     if (self.innerMessage.elemType == V2TIM_ELEM_TYPE_CUSTOM) {
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:self.innerMessage.customElem.data options:NSJSONReadingFragmentsAllowed error: nil];
         
         NSDictionary *data = [NSJSONSerialization JSONObjectWithData:[dict[@"data"] dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingFragmentsAllowed error: nil];
         
         if ([data[@"businessID"] isEqualToString:AVCall] && [data[@"call_type"] integerValue] != CallType_Unknown) {
-            
-            NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
-            
-            if ([data[@"call_type"] integerValue] == CallType_Audio) {
-                textAttachment.image = [UIImage imageNamed:@"call-audio"];
-            }
-            else if ([data[@"call_type"] integerValue] == CallType_Video) {
-                textAttachment.image = [UIImage imageNamed:@"call-video"];
-            }
-            
-            // 图片间距
-            [attributeString addAttribute:NSKernAttributeName value:@(8) range:NSMakeRange(attributeString.length - 1, 1)];
-            
-            //给附件添加图片
-           
-            //调整一下图片的位置,如果你的图片偏上或者偏下，调整一下bounds的y值即可
-            textAttachment.bounds = CGRectMake(0, -(self.textFont.lineHeight-self.textFont.pointSize) / 2,  textAttachment.image.size.width, textAttachment.image.size.height);
-            //把附件转换成可变字符串，用于替换掉源字符串中的表情文字
-            NSAttributedString *imageStr = [NSAttributedString attributedStringWithAttachment:textAttachment];
-            [attributeString appendAttributedString:imageStr];
+            return  YES;
         }
     }
     
+    return NO;
+    
+}
+
+- (NSAttributedString *)formatMessageString:(NSString *)text
+{
+    NSString *chatText = text;
+    
+    //先判断text是否存在
+    if (chatText == nil || chatText.length == 0) {
+        NSLog(@"TTextMessageCell formatMessageString failed , current text is nil");
+        return [[NSMutableAttributedString alloc] initWithString:@""];
+    }
+    
+    
+    if ([self isAV]) {
+        chatText = [chatText stringByReplacingOccurrencesOfString:@"结束通话，" withString:@""];
+    }
+
+    //1、创建一个可变的属性字符串
+    NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:chatText];
+    
+    if ([self isAV]) {
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:self.innerMessage.customElem.data options:NSJSONReadingFragmentsAllowed error: nil];
+        
+        NSDictionary *data = [NSJSONSerialization JSONObjectWithData:[dict[@"data"] dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingFragmentsAllowed error: nil];
+        
+        NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
+        
+        if ([data[@"call_type"] integerValue] == CallType_Audio) {
+            textAttachment.image = [UIImage imageNamed:@"call-audio"];
+        }
+        else if ([data[@"call_type"] integerValue] == CallType_Video) {
+            textAttachment.image = [UIImage imageNamed:@"call-video"];
+        }
+        
+        // 图片间距
+        [attributeString addAttribute:NSKernAttributeName value:@(8) range:NSMakeRange(attributeString.length - 1, 1)];
+        
+        //给附件添加图片
+       
+        //调整一下图片的位置,如果你的图片偏上或者偏下，调整一下bounds的y值即可
+        textAttachment.bounds = CGRectMake(0, -(self.textFont.lineHeight-self.textFont.pointSize) / 2,  textAttachment.image.size.width, textAttachment.image.size.height);
+        //把附件转换成可变字符串，用于替换掉源字符串中的表情文字
+        NSAttributedString *imageStr = [NSAttributedString attributedStringWithAttachment:textAttachment];
+        [attributeString appendAttributedString:imageStr];
+    }
 
     if([TUIKit sharedInstance].config.faceGroups.count == 0){
         [attributeString addAttribute:NSFontAttributeName value:self.textFont range:NSMakeRange(0, attributeString.length)];
@@ -76,7 +91,7 @@
         return attributeString;
     }
 
-    NSArray *resultArray = [re matchesInString:text options:0 range:NSMakeRange(0, text.length)];
+    NSArray *resultArray = [re matchesInString:chatText options:0 range:NSMakeRange(0, chatText.length)];
 
     TFaceGroup *group = [TUIKit sharedInstance].config.faceGroups[0];
 
@@ -88,7 +103,7 @@
         //获取数组元素中得到range
         NSRange range = [match range];
         //获取原字符串中对应的值
-        NSString *subStr = [text substringWithRange:range];
+        NSString *subStr = [chatText substringWithRange:range];
 
         for (TFaceCellData *face in group.faces) {
             if ([face.name isEqualToString:subStr]) {
