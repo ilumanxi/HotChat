@@ -43,7 +43,7 @@ class MeHeaderView: UIView {
     
     @IBOutlet var backgroundViewHeightConstraint: NSLayoutConstraint! {
         didSet {
-            backgroundViewHeightConstraint.constant = 204 + 44 + UIApplication.shared.statusBarFrame.height
+//            backgroundViewHeightConstraint.constant = 204 + 44 + UIApplication.shared.statusBarFrame.height
         }
     }
     
@@ -61,7 +61,7 @@ class MeHeaderView: UIView {
         }
         
         // 可以根据 srollview offset 改变高度
-        backgroundViewHeightConstraint.constant = 204 + 44 + UIApplication.shared.statusBarFrame.height
+//        backgroundViewHeightConstraint.constant = 204 + 44 + UIApplication.shared.statusBarFrame.height
         
         super.awakeFromNib()
     }

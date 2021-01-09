@@ -153,13 +153,13 @@ extension TabBarController: UITabBarControllerDelegate {
         let tabBarItem = tabBar.items?[selectIndex]
         
         
-        /// UITabBarSwappableImageView  UITabBarButton
-        if let button = tabBarItem?.value(forKey: "view") as? UIControl, let imageView =  button.subviews.first(where: { $0 is UIImageView }) {
+        ///  UITabBarButton UITabBarSwappableImageView
+        if let button = tabBarItem?.value(forKey: "view") as? UIControl, let imageView =  button.subviews.last(where: { $0 is UIImageView }) {
             //  bounceAnimation
             let impliesAnimation = CAKeyframeAnimation(keyPath: "transform.scale")
             impliesAnimation.values = [1.0 ,1.4, 0.9, 1.15, 0.95, 1.02, 1.0]
             impliesAnimation.duration = 0.25 * 2
-            impliesAnimation.calculationMode = CAAnimationCalculationMode.cubic
+            impliesAnimation.calculationMode = .cubic
             imageView.layer.add(impliesAnimation, forKey: nil)
         }
         

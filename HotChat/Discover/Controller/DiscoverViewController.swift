@@ -96,9 +96,6 @@ class DiscoverViewController: SegementSlideDefaultViewController, LoadingStateTy
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupViews()
-        
-        let vc = AccostViewController()
-        present(vc, animated: true, completion: nil)
     }
     
     func setupViews() {

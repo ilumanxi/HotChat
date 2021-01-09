@@ -47,6 +47,8 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     
     let checkInAPI = Request<CheckInAPI>()
     
+    let chatGreetAPI = Request<ChatGreetAPI>()
+    
     var dynamics: [Dynamic] = []
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -56,6 +58,8 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     @IBOutlet weak var phoneBindingView: UIView!
     
     private var isShowCheckIn = true
+    
+    private var isCheckAccost = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,6 +117,7 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
         super.viewDidAppear(animated)
         checkUserInitState()
         checkInState()
+        checkAccost()
     }
     
     
@@ -142,6 +147,21 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
             .disposed(by: rx.disposeBag)
     }
     
+    func checkAccost() {
+        
+        if LoginManager.shared.user!.girlStatus  || !isCheckAccost {
+            return
+        }
+        
+        chatGreetAPI.request(.checkAccost, type: Response<[String : Any]>.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { [unowned self] response in
+                if let resultCode = response.data?["resultCode"] as? Int, resultCode == 1005 {
+                    self.presentAccost()
+                }
+            }, onError: nil)
+            .disposed(by: rx.disposeBag)
+    }
     
     func observePhoneState() {
         NotificationCenter.default.rx.notification(.userDidChange)
@@ -240,6 +260,13 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
         }
         present(vc, animated: true) {
             self.isShowCheckIn = false
+        }
+    }
+    
+    func presentAccost()  {
+        let vc = AccostViewController()
+        present(vc, animated: true) {
+            self.isCheckAccost = false
         }
     }
     
