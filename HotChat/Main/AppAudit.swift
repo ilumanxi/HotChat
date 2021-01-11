@@ -42,6 +42,9 @@ import HandyJSON
     /// 签到弹窗
     @objc var signinStatus = false
     
+    /// 一键搭讪
+    @objc var accostStatus = false
+    
     @objc static var  share = AppAudit() {
         didSet {
             NotificationCenter.default.post(name: .appApprovedDidChange, object: nil)

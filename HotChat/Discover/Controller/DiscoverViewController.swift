@@ -120,7 +120,7 @@ class DiscoverViewController: SegementSlideDefaultViewController, LoadingStateTy
     
     func checkAccost() {
         
-        if LoginManager.shared.user!.girlStatus  || !isCheckAccost {
+        if LoginManager.shared.user!.girlStatus  || !isCheckAccost  || AppAudit.share.accostStatus  {
             return
         }
         
