@@ -220,6 +220,7 @@ class DiscoverViewController: SegementSlideDefaultViewController, LoadingStateTy
     }
     
     func requestData() {
+        state = .refreshingContent
         loadData()
             .subscribe(onSuccess: { [unowned self] response in
                 self.channels = response.data ?? []

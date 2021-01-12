@@ -15,3 +15,8 @@
 #import "FaceParameterConfig.h"
 #import "BDFaceDetectionViewController.h"
 #import "GiftManager.h"
+
+
+#import "XGPush.h"
+#import "XGPushPrivate.h"
+//#import "XGExtension.h"

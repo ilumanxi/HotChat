@@ -113,18 +113,7 @@ class LoginManager: NSObject {
         try! storage.setObject( user.toJSONString()!, forKey: userCacheKey)
         
         TUIKit.sharedInstance()?.login(user.userId, userSig: user.imUserSig, succ: {
-            TUILocalStorage.sharedInstance().saveLogin(user.userId, withAppId: UInt(Constant.IMAppID), withUserSig: user.imUserSig)
-            if let deviceToken = self.deviceToken {
-                let config = V2TIMAPNSConfig()
-                config.businessID = Int32(Constant.ANPSBusinessID)
-                config.token = deviceToken
-                
-                V2TIMManager.sharedInstance()?.setAPNS(config, succ: {
-                    Log.print("-----> 设置 IM APNS 成功")
-                }, fail: { (code, msg) in
-                    Log.print("-----> 设置 APNS 失败: \(code)  \(msg ?? "")")
-                })
-            }
+            TUILocalStorage.sharedInstance().saveLogin(user.userId, withAppId: UInt(Constant.IM.appID), withUserSig: user.imUserSig)
         }, fail: { (code, msg) in
             Log.print("检查IM配置是否正确: \(code) \(String(describing: msg))")
         })
@@ -151,19 +140,8 @@ class LoginManager: NSObject {
         }
         
         TUILocalStorage.sharedInstance().login { (userID, appId, userSig) in
-            if appId == Constant.IMAppID && !userID.isEmpty && !userSig.isEmpty {
+            if appId == Constant.IM.appID && !userID.isEmpty && !userSig.isEmpty {
                 TUIKit.sharedInstance()?.login(userID, userSig: userSig, succ: {
-                    if let deviceToken = self.deviceToken {
-                        let config = V2TIMAPNSConfig()
-                        config.businessID = Int32(Constant.ANPSBusinessID)
-                        config.token = deviceToken
-                        
-                        V2TIMManager.sharedInstance()?.setAPNS(config, succ: {
-                            Log.print("-----> 设置 IM APNS 成功")
-                        }, fail: { (code, msg) in
-                            Log.print("-----> 设置 APNS 失败: \(code)  \(msg ?? "")")
-                        })
-                    }
                 }, fail: { (code, msg) in
                     Log.print("检查IM配置是否正确: \(code) \(String(describing: msg))")
                 })

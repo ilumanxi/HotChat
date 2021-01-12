@@ -18,12 +18,16 @@
 
 
 - (BOOL)isAV {
-    if (self.innerMessage.elemType == V2TIM_ELEM_TYPE_CUSTOM) {
+    if (self.innerMessage.elemType == V2TIM_ELEM_TYPE_CUSTOM && self.innerMessage.customElem.data != nil) {
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:self.innerMessage.customElem.data options:NSJSONReadingFragmentsAllowed error: nil];
+        
+        if (dict[@"data"] == nil) {
+            return  false;
+        }
         
         NSDictionary *data = [NSJSONSerialization JSONObjectWithData:[dict[@"data"] dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingFragmentsAllowed error: nil];
         
-        if ([data[@"businessID"] isEqualToString:AVCall] && [data[@"call_type"] integerValue] != CallType_Unknown) {
+        if (data != nil && [data[@"businessID"] isEqualToString:AVCall] && [data[@"call_type"] integerValue] != CallType_Unknown) {
             return  YES;
         }
     }
@@ -54,7 +58,6 @@
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:self.innerMessage.customElem.data options:NSJSONReadingFragmentsAllowed error: nil];
         
         NSDictionary *data = [NSJSONSerialization JSONObjectWithData:[dict[@"data"] dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingFragmentsAllowed error: nil];
-        
         NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
         
         if ([data[@"call_type"] integerValue] == CallType_Audio) {

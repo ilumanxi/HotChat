@@ -1,6 +1,7 @@
 # Uncomment the next line to define a global platform for your project
  platform :ios, '11.0'
-
+ #plugin 'cocoapods-binary'
+# https://blog.csdn.net/weixin_34183910/article/details/91389266
 # ignore all warnings from all pods
 #inhibit_all_warnings!
 
@@ -43,8 +44,8 @@ target 'HotChat' do
     pod 'WKWebViewJavascriptBridge'
     pod 'PIPKit'
     
-    pod 'SYBPush-normal', '1.6.2.1'
     pod 'TXIMSDK_TUIKit_iOS'
+    pod 'TPNS-iOS'
     pod 'GKPhotoBrowser'
     pod 'Masonry'
     pod 'AFNetworking'

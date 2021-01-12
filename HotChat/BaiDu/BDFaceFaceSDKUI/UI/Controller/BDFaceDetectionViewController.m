@@ -132,7 +132,7 @@ int remindCode = -1;
             case DetectRemindCodeOK: {
                 weakSelf.hasFinished = YES;
                 [self warningStatus:CommonStatus warning:@"非常好"];
-                if (images[@"image"] != nil && [images[@"image"] count] != 0) {
+                if (images[@"image"] != nil && [(NSArray *) images[@"image"] count] != 0) {
                     
                     NSArray *imageArr = images[@"image"];
                     for (FaceCropImageInfo * image in imageArr) {

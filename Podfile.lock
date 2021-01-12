@@ -31,7 +31,7 @@ PODS:
   - HandyJSON (5.0.3-beta)
   - HBDNavigationBar (1.7.7)
   - InputKitSwift (1.2.1)
-  - Kingfisher (6.0.0)
+  - Kingfisher (6.0.1)
   - Koloda (5.0.1):
     - pop (~> 1.0)
   - MagazineLayout (1.6.3)
@@ -108,17 +108,17 @@ PODS:
   - SwifterSwift/SwiftStdlib (5.2.0)
   - SwifterSwift/UIKit (5.2.0)
   - SwiftyStoreKit (0.16.1)
-  - SYBPush-normal (1.6.2.1)
   - TagListView (1.4.1)
   - Toast (4.0.0)
   - Toast-Swift (5.0.1)
-  - TXIMSDK_iOS (5.1.14)
-  - TXIMSDK_TUIKit_iOS (5.1.14):
+  - TPNS-iOS (1.2.9.0)
+  - TXIMSDK_iOS (5.1.20)
+  - TXIMSDK_TUIKit_iOS (5.1.20):
     - MMLayout (= 0.2.0)
     - ReactiveObjC (= 3.1.1)
     - SDWebImage (= 5.9.0)
     - Toast (= 4.0.0)
-    - TXIMSDK_iOS (= 5.1.14)
+    - TXIMSDK_iOS (= 5.1.20)
     - TXLiteAVSDK_TRTC (= 7.8.9519)
   - TXLiteAVSDK_TRTC (7.8.9519)
   - TZImagePickerController (3.5.8)
@@ -162,9 +162,9 @@ DEPENDENCIES:
   - SwiftDate
   - SwifterSwift
   - SwiftyStoreKit
-  - SYBPush-normal (= 1.6.2.1)
   - TagListView
   - Toast-Swift
+  - TPNS-iOS
   - TXIMSDK_TUIKit_iOS
   - TZImagePickerController
   - WechatOpenSDK
@@ -214,10 +214,10 @@ SPEC REPOS:
     - SwiftDate
     - SwifterSwift
     - SwiftyStoreKit
-    - SYBPush-normal
     - TagListView
     - Toast
     - Toast-Swift
+    - TPNS-iOS
     - TXIMSDK_iOS
     - TXIMSDK_TUIKit_iOS
     - TXLiteAVSDK_TRTC
@@ -239,7 +239,7 @@ SPEC CHECKSUMS:
   HandyJSON: 88e8ea5f66ab65c3b8768499a1935d0509c460d4
   HBDNavigationBar: 6ba38b99637039c831ce460364d5398f29fa0685
   InputKitSwift: 5532ed4a41706aeebe6ad6dfafb3bee32e02f1c6
-  Kingfisher: 13f6e68c928eb50439b5cb2ea75d6035018438ea
+  Kingfisher: adde87a4f74f6a3845395769354efff593581740
   Koloda: d07b9199a383abc5898b62aa945a599f5e7c0c4b
   MagazineLayout: 159da0d4d874e04e6b17e580b990cccd00328c5b
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
@@ -268,17 +268,17 @@ SPEC CHECKSUMS:
   SwiftDate: 72d28954e8e1c6c1c0f917ccc8005e4f83c7d4b2
   SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
   SwiftyStoreKit: 6b9c08810269f030586dac1fae8e75871a82e84a
-  SYBPush-normal: 204054ccc1ff6441b9782fe2a22573f25d617a4d
   TagListView: a1c236d17960a0cf64156725a76ce6d73ebce2be
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
-  TXIMSDK_iOS: 1825ea5223fba21b9addef5cf57c11e52f0b3e66
-  TXIMSDK_TUIKit_iOS: c1c0249b7d3617e4505f45a05373c92e23585351
+  TPNS-iOS: 373cd379931f8bc1d863a0f63be0697fb4f02d74
+  TXIMSDK_iOS: ca5a627214e735af601f0304236a0b36053da3af
+  TXIMSDK_TUIKit_iOS: 984b39d1fb398d494e4bdf15436030e166950a1b
   TXLiteAVSDK_TRTC: c127880c4dbe844bdc7575a655be8042ce96024a
   TZImagePickerController: 7fd9702897ef8c0b7c951e5463f4bcf398296f9e
   WechatOpenSDK: 6a4d1436c15b3b5fe2a0bd383f3046010186da44
   WKWebViewJavascriptBridge: 07ad0cab27cd61ccdb90b5deb223f6df3a03c3d7
 
-PODFILE CHECKSUM: b29703f34b1c2f33f684b7a3db9e0bfe0d693e6a
+PODFILE CHECKSUM: c859e3142cd37b0afd94def3810f45e0ac2b6cd2
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1

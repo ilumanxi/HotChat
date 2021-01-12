@@ -8,7 +8,6 @@
 
 import UIKit
 import AuthenticationServices
-import SYBPush_normal
 import SwiftyStoreKit
 import Bugly
 import Toast_Swift
@@ -25,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         Bugly.start(withAppId: nil)
-        TUIKit.sharedInstance()?.setup(withAppId: Constant.IMAppID, logLevel: .LOG_NONE)
+        TUIKit.sharedInstance()?.setup(withAppId: Constant.IM.appID, logLevel: .LOG_NONE)
         let config = TUIKitConfig.default()!
         config.avatarType = .TAvatarTypeRounded
         
@@ -263,21 +262,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        BPush.registerChannel(
-            launchOptions, apiKey: "ApjAMhQwbBbeGfku2ecVe1DO",
-            pushMode: .development,
-            withFirstAction: "launchAction",
-            withSecondAction: "close",
-            withCategory: "HotChat",
-            useBehaviorTextInput: true,
-            isDebug: false
-        )
-        
-        if let userInfo = launchOptions?[UIApplication.LaunchOptionsKey.remoteNotification] as? [String : Any]  {
-            BPush.handleNotification(userInfo)
-        }
-        
-        BPush.disableLbs()
+        tpns()
     }
     
     func setupFaceSDK() {
@@ -299,21 +284,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         LoginManager.shared.deviceToken = deviceToken
-        BPush.registerDeviceToken(deviceToken)
-        BPush.bindChannel { result, error in
-            
-            // 需要在绑定成功后进行 settag listtag deletetag unbind 操作否则会失败
-            
-            if let _ = error { return }
-            
-            if let json = result as? [String : Any], let code = json[BPushRequestErrorCodeKey] as? Int, code == 0 {
-                return
-            }
-            
-            BPush.setTag("tag") { result, error in
-                
-            }
-        }
+        
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
@@ -330,6 +301,81 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return .portrait
     }
 
+}
+
+extension AppDelegate: XGPushDelegate {
+    
+    func tpns() {
+        /// 控制台打印TPNS日志，开发调试建议开启
+        XGPush.defaultManager().isEnableDebug = true;
+        
+        /// 自定义通知栏消息行为，有自定义消息行为需要使用
+        // setNotificationConfigure()
+
+        /// 非广州集群，请开启对应集群配置（广州集群无需使用），此函数需要在startXGWithAccessID函数之前调用
+        // configHost()
+        
+        
+        XGPush.defaultManager().startXG(withAccessID: Constant.TPNS.accessID, accessKey: Constant.TPNS.accessKey, delegate: self)
+        
+        if XGPush.defaultManager().xgApplicationBadgeNumber > 0 {
+            XGPush.defaultManager().xgApplicationBadgeNumber = 0
+        }
+    }
+    
+    /// 自定义通知栏消息行为（无自定义需求无需使用）
+    func setNotificationConfigure() {
+        let action1 = XGNotificationAction.action(withIdentifier: "xgaction001", title: "xgAction1", options: .none)
+        let action2 = XGNotificationAction.action(withIdentifier: "xgaction002", title: "xgAction2", options: .destructive)
+        
+        if let act1 = action1, let act2 = action2 {
+            if let category = XGNotificationCategory.category(withIdentifier: "xgCategory", actions: [act1, act2], intentIdentifiers: [], options: XGNotificationCategoryOptions.init(rawValue: 0)) as? AnyHashable {
+                if let configure = XGNotificationConfigure.init(notificationWithCategories: Set([category]), types: [.alert, .badge, .sound]) {
+                    XGPush.defaultManager().notificationConfigure = configure
+                }
+            }
+        }
+    }
+    
+    /// 注册推送服务成功回调
+    /// @param deviceToken APNs 生成的Device Token
+    /// @param xgToken TPNS 生成的 Token，推送消息时需要使用此值。TPNS 维护此值与APNs 的 Device Token的映射关系
+    /// @param error 错误信息，若error为nil则注册推送服务成功
+    func xgPushDidRegisteredDeviceToken(_ deviceToken: String?, xgToken: String?, error: Error?) {
+        
+        let msg = NSLocalizedString("register_app", comment: "") + (error == nil ? NSLocalizedString("success", comment: "") : NSLocalizedString("fail", comment: "") + String(describing: error))
+        Log.print(msg)
+    }
+    
+    /// 注销推送服务回调
+    func xgPushDidFinishStop(_ isSuccess: Bool, error: Error?) {
+        let msg = NSLocalizedString("unregister_app", comment: "") + (error == nil ? NSLocalizedString("success", comment: "") : NSLocalizedString("fail", comment: "") + String(describing: error))
+        Log.print(msg)
+    }
+    
+    /// 统一接收消息回调
+    func xgPushDidReceiveRemoteNotification(_ notification: Any, withCompletionHandler completionHandler: ((UInt) -> Void)? = nil) {
+        if notification is Dictionary<String, Any> {
+            Log.print(notification)
+            completionHandler?(UIBackgroundFetchResult.newData.rawValue)
+        } else if notification is UNNotification {
+            Log.print(notification)
+            let options = UNNotificationPresentationOptions(arrayLiteral: [.alert, .badge, .sound])
+            completionHandler?(options.rawValue)
+        }
+    }
+    
+    /// 统一点击回调
+    /// @param response 如果iOS 10+/macOS 10.14+则为UNNotificationResponse，低于目标版本则为NSDictionary
+    func xgPushDidReceiveNotificationResponse(_ response: Any, withCompletionHandler completionHandler: @escaping () -> Void) {
+        completionHandler()
+    }
+    
+    /// 角标设置回调
+    func xgPushDidSetBadge(_ isSuccess: Bool, error: Error?) {
+        let msg = NSLocalizedString("badge_section", comment: "") + (error == nil ? NSLocalizedString("success", comment: "") : NSLocalizedString("fail", comment: "") + String(describing: error))
+        Log.print(msg)
+    }
 }
 
 

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SYBPush_normal
 
 
 class Constant: NSObject {
@@ -22,38 +21,63 @@ class Constant: NSObject {
     }
     
     @objc static var APIHostURL: URL {
-        return URL(string: "http://\(APIHost)")!
+        return URL(string: "http://\(Constant.Server.APIHost)")!
     }
     
     static var H5HostURL: URL {
-        return URL(string: "http://\(H5Host)")!
+        return URL(string: "http://\(Constant.Server.H5Host)")!
     }
     
+    static let hotChatScheme = "hotchatauth2"
 }
 
 
 extension Constant {
     
-    /// 正式
-
-    static let APIHost = "pic.yuupni.com"
-
-    static let H5Host = "admin.yuupni.com"
-
-    static let IMAppID: UInt32 = 1400424749
+    struct TPNS {
+        
+        static var accessID: UInt32 = 1600016588
+        static var accessKey = "I72KQO6K5I84"
+    }
     
-    /// 测试
-    
-//    static let APIHost = "ceshiapi.yuupni.com/gateway.php"
+}
+
+
+/// 正式
+//extension Constant {
 //
-//    static let H5Host = "ceshiadmin.yuupni.com"
+//    struct IM {
 //
-//    static let IMAppID: UInt32 = 1400457429
-    
-    static let ANPSBusinessID = 23246
+//        static let appID: UInt32 = 1400457429
+//        static let businessID = 23246
+//    }
+//
+//    struct Server {
+//
+//        static let APIHost = "pic.yuupni.com"
+//        static let H5Host = "admin.yuupni.com"
+//        static let salt: String = "AJ265TT96e930d4d0YUddbcbPjc39CFK"
+//    }
+//
+//}
 
-    static let salt: String = "AJ265TT96e930d4d0YUddbcbPjc39CFK"
-    static let hotChatScheme = "hotchatauth2"
+
+/// 测试
+extension Constant {
+    
+    struct IM {
+    
+        static let appID: UInt32 = 1400457429
+        static let businessID = 23246
+    }
+    
+    
+    struct Server {
+        
+        static let APIHost = "ceshiapi.yuupni.com/gateway.php"
+        static let H5Host = "ceshiadmin.yuupni.com"
+        static let salt: String = "AJ265TT96e930d4d0YUddbcbPjc39CFK"
+    }
 }
 
 
@@ -61,6 +85,6 @@ extension Constant {
     
     static var pushChannelId: String? {
         
-        return BPush.getChannelId()
+        return XGPushTokenManager.default().xgTokenString
     }
 }
