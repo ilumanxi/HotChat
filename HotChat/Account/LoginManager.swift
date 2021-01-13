@@ -103,16 +103,41 @@ class LoginManager: NSObject {
         self.user = user
         try! storage.setObject( user.toJSONString()!, forKey: userCacheKey)
         
-        TUIKit.sharedInstance()?.login(user.userId, userSig: user.imUserSig, succ: {
-            TUILocalStorage.sharedInstance().saveLogin(user.userId, withAppId: UInt(Constant.IM.appID), withUserSig: user.imUserSig)
-            self.setAPNS()
-        }, fail: { (code, msg) in
-            Log.print("检查IM配置是否正确: \(code) \(String(describing: msg))")
-        })
+        imLogin(userID: user.userId, appId: UInt(Constant.IM.appID), userSig: user.imUserSig)
 
         if sendNotification {
             NotificationCenter.default.post(name: .userDidLogin, object: nil)
         }
+    }
+    
+    func autoLogin() {
+        guard let user = LoginManager.shared.user else {
+            return
+        }
+        
+        TUILocalStorage.sharedInstance().login { (userID, appId, userSig) in
+            if appId == Constant.IM.appID && !userID.isEmpty && !userSig.isEmpty {
+                self.imLogin(userID: userID, appId: appId, userSig: userSig)
+            }
+        }
+        
+        SigninDefaultAPI.share.signin(user.token)
+            .verifyResponse()
+            .subscribe(onSuccess:{ [weak self] response in
+                self?.update(user: response.data!)
+            }, onError: { error in
+                Log.print(error)
+            })
+            .disposed(by: rx.disposeBag)
+    }
+    
+    private func imLogin(userID: String, appId: UInt, userSig: String) {
+        TUIKit.sharedInstance()?.login(userID, userSig: userSig, succ: {
+            TUILocalStorage.sharedInstance().saveLogin(userID, withAppId:appId, withUserSig: userSig)
+            self.setAPNS()
+        }, fail: { (code, msg) in
+            Log.print("检查IM配置是否正确: \(code) \(String(describing: msg))")
+        })
     }
     
     
@@ -123,9 +148,9 @@ class LoginManager: NSObject {
             config.token = deviceToken
             
             V2TIMManager.sharedInstance()?.setAPNS(config, succ: {
-                Log.print("-----> 设置 IM APNS 成功")
+                Log.print("设置 IM APNS 成功")
             }, fail: { (code, msg) in
-                Log.print("-----> 设置 APNS 失败: \(code)  \(msg ?? "")")
+                Log.print("设置 APNS 失败: \(code)  \(msg ?? "")")
             })
         }
     }
@@ -140,31 +165,6 @@ class LoginManager: NSObject {
         self.user = user
         try! storage.setObject( user.toJSONString()!, forKey: userCacheKey)
         NotificationCenter.default.post(name: .userDidChange, object: nil, userInfo: nil)
-    }
-    
-    func autoLogin() {
-        guard let user = LoginManager.shared.user else {
-            return
-        }
-        
-        TUILocalStorage.sharedInstance().login { (userID, appId, userSig) in
-            if appId == Constant.IM.appID && !userID.isEmpty && !userSig.isEmpty {
-                TUIKit.sharedInstance()?.login(userID, userSig: userSig, succ: {
-                    self.setAPNS()
-                }, fail: { (code, msg) in
-                    Log.print("检查IM配置是否正确: \(code) \(String(describing: msg))")
-                })
-            }
-        }
-        
-        SigninDefaultAPI.share.signin(user.token)
-            .verifyResponse()
-            .subscribe(onSuccess:{ [weak self] response in
-                self?.update(user: response.data!)
-            }, onError: { error in
-                Log.print(error)
-            })
-            .disposed(by: rx.disposeBag)
     }
     
     func logout() {

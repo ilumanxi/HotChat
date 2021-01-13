@@ -29,7 +29,7 @@ static PIPWindow *_share = nil;
     _share = [[PIPWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     _share.windowLevel =  PIPWindowLevelNormal;
     _share.rootViewController = navigationController;
-    _share.hidden = false;
+    _share.hidden = NO;
     [UIApplication.sharedApplication.keyWindow endEditing:YES];
     
 }
@@ -39,7 +39,8 @@ static PIPWindow *_share = nil;
     if (_share == nil) {
         return;
     }
-    
+    _share.hidden = YES;
+    [_share.rootViewController.presentedViewController dismissViewControllerAnimated:NO completion:nil];
     _share.rootViewController = nil;
     
     _share = nil;

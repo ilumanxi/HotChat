@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Appearance.default.configure()
         registerANPSNotification(application, didFinishLaunchingWithOptions: launchOptions)
         
-        setupWindowRootController()
+        setupWindowRootController(launchOptions: launchOptions)
         
         observeLoginState()
         
@@ -82,12 +82,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .disposed(by: rx.disposeBag)
     }
     
-    func setupWindowRootController() {
+    func setupWindowRootController(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         
         let window = UIWindow(frame: UIScreen.main.bounds)
         
         if LoginManager.shared.isAuthorized {
             window.setMainViewController()
+            if let _ = launchOptions?[UIApplication.LaunchOptionsKey.remoteNotification] {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.jumpChat()
+                }
+            }
             LoginManager.shared.autoLogin()
         }
         else {
@@ -368,7 +373,16 @@ extension AppDelegate: XGPushDelegate {
     /// 统一点击回调
     /// @param response 如果iOS 10+/macOS 10.14+则为UNNotificationResponse，低于目标版本则为NSDictionary
     func xgPushDidReceiveNotificationResponse(_ response: Any, withCompletionHandler completionHandler: @escaping () -> Void) {
+        jumpChat()
         completionHandler()
+    }
+    
+    func jumpChat() {
+        Thread.safeAsync {
+            if let tabBarController = self.window?.rootViewController as? UITabBarController {
+                tabBarController.selectedIndex = 2
+            }
+        }
     }
     
     /// 角标设置回调

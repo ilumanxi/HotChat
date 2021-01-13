@@ -44,41 +44,41 @@ extension Constant {
 
 
 /// 正式
-extension Constant {
-
-    struct IM {
-
-        static let appID: UInt32 = 1400424749
-        static let businessID: Int32 = 23246
-    }
-
-    struct Server {
-
-        static let APIHost = "pic.yuupni.com"
-        static let H5Host = "admin.yuupni.com"
-        static let salt: String = "AJ265TT96e930d4d0YUddbcbPjc39CFK"
-    }
-
-}
-
-
-/// 测试
 //extension Constant {
 //
 //    struct IM {
 //
-//        static let appID: UInt32 = 1400457429
-//        static let businessID: Int32 = 24634
+//        static let appID: UInt32 = 1400424749
+//        static let businessID: Int32 = 23246
 //    }
-//
 //
 //    struct Server {
 //
-//        static let APIHost = "ceshiapi.yuupni.com/gateway.php"
-//        static let H5Host = "ceshiadmin.yuupni.com"
+//        static let APIHost = "pic.yuupni.com"
+//        static let H5Host = "admin.yuupni.com"
 //        static let salt: String = "AJ265TT96e930d4d0YUddbcbPjc39CFK"
 //    }
+//
 //}
+
+
+/// 测试
+extension Constant {
+
+    struct IM {
+
+        static let appID: UInt32 = 1400457429
+        static let businessID: Int32 = 24634
+    }
+
+
+    struct Server {
+
+        static let APIHost = "ceshiapi.yuupni.com/gateway.php"
+        static let H5Host = "ceshiadmin.yuupni.com"
+        static let salt: String = "AJ265TT96e930d4d0YUddbcbPjc39CFK"
+    }
+}
 
 
 extension Constant {

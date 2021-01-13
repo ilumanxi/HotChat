@@ -176,7 +176,7 @@ enum VipType: Int, HandyJSONEnum {
     var industryList: [LikeTag] = []
     
     ///  昵称
-    var nick: String = ""
+   @objc  var nick: String = ""
     
     /// 备注
     var friendNick: String = ""

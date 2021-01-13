@@ -45,6 +45,12 @@
     }
     // 设置推送
     V2TIMOfflinePushInfo *info = [[V2TIMOfflinePushInfo alloc] init];
+    
+    if ([msg isKindOfClass:[GiftCellData class]]) {
+        GiftCellData *giftData = (GiftCellData *)msg;
+        info.desc = [NSString stringWithFormat:@"%@:送来%ld个[%@]",LoginManager.shared.user.nick, giftData.gift.count, giftData.gift.name];
+    }
+    
     int chatType = 0;
     NSString *sender = @"";
     if (self.conversationData.groupID.length > 0) {
