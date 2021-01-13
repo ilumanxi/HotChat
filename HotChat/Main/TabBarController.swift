@@ -19,9 +19,9 @@ extension UIWindow {
         if let tabBarController = storyboard.instantiateInitialViewController() as? UITabBarController {
             rootViewController = tabBarController
             
-            if let nav = tabBarController.children[2] as? UINavigationController {
-                nav.topViewController?.view
-            }
+//            if let nav = tabBarController.children[2] as? UINavigationController {
+//                nav.topViewController?.view
+//            }
         }
     }
 }

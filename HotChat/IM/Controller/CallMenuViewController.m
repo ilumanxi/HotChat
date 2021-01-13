@@ -367,7 +367,17 @@
             }];
         }
         else if (giveGift.resultCode == 3) { //能量不足，需要充值
+            [self.presentedViewController dismissViewControllerAnimated:NO completion:nil];
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"您的能量不足、请充值！" preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:@"立即充值" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+  
+                WalletViewController *walletController = [[WalletViewController alloc] init];
+                [self.navigationController pushViewController:walletController animated:YES];
+                
+            }]];
+            [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
             
+            [self presentViewController:alert animated:YES completion:nil];
         }
         else {
             [THelper makeToast:giveGift.msg];

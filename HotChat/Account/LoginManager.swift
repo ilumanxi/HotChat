@@ -50,15 +50,6 @@ class LoginManager: NSObject {
 
     var deviceToken: Data?
     
-    /// 当前版本App Store 审核通过
-//    @objc var currentVersionApproved: Bool = false {
-//        didSet {
-//            if oldValue != currentVersionApproved {
-//                NotificationCenter.default.post(name: .appApprovedDidChange, object: nil)
-//            }
-//        }
-//    }
-    
     @objc private(set) var user: User?
     
     let manager = CLLocationManager()
@@ -114,6 +105,7 @@ class LoginManager: NSObject {
         
         TUIKit.sharedInstance()?.login(user.userId, userSig: user.imUserSig, succ: {
             TUILocalStorage.sharedInstance().saveLogin(user.userId, withAppId: UInt(Constant.IM.appID), withUserSig: user.imUserSig)
+            self.setAPNS()
         }, fail: { (code, msg) in
             Log.print("检查IM配置是否正确: \(code) \(String(describing: msg))")
         })
@@ -123,9 +115,25 @@ class LoginManager: NSObject {
         }
     }
     
+    
+    private func setAPNS() {
+        if let deviceToken = self.deviceToken {
+            let config = V2TIMAPNSConfig()
+            config.businessID = Constant.IM.businessID
+            config.token = deviceToken
+            
+            V2TIMManager.sharedInstance()?.setAPNS(config, succ: {
+                Log.print("-----> 设置 IM APNS 成功")
+            }, fail: { (code, msg) in
+                Log.print("-----> 设置 APNS 失败: \(code)  \(msg ?? "")")
+            })
+        }
+    }
+    
     @objc func update(user: User) {
         if user.token.isEmpty {
             user.token = [self.user?.token ?? "", user.token].first{ !$0.isEmpty } ?? ""
+            user.imUserSig = [self.user?.imUserSig ?? "", user.imUserSig].first{ !$0.isEmpty } ?? ""
             user.isInit = [self.user?.isInit ?? false, user.isInit].contains(true)
         }
         
@@ -142,6 +150,7 @@ class LoginManager: NSObject {
         TUILocalStorage.sharedInstance().login { (userID, appId, userSig) in
             if appId == Constant.IM.appID && !userID.isEmpty && !userSig.isEmpty {
                 TUIKit.sharedInstance()?.login(userID, userSig: userSig, succ: {
+                    self.setAPNS()
                 }, fail: { (code, msg) in
                     Log.print("检查IM配置是否正确: \(code) \(String(describing: msg))")
                 })
