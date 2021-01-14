@@ -24,11 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         Bugly.start(withAppId: nil)
-        TUIKit.sharedInstance()?.setup(withAppId: Constant.IM.appID, logLevel: .LOG_NONE)
-        let config = TUIKitConfig.default()!
-        config.avatarType = .TAvatarTypeRounded
         
-        CallManager.shareInstance()?.initCall()
+        setupIM()
         
         HUD.registerForKeyboardNotifications()
         
@@ -44,25 +41,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        
         appStart()
         appAudit()
-        // see notes below for the meaning of Atomic / Non-Atomic
-            SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
-                for purchase in purchases {
-                    switch purchase.transaction.transactionState {
-                    case .purchased, .restored:
-                        if purchase.needsFinishTransaction {
-                            // Deliver content from server, then:
-                            SwiftyStoreKit.finishTransaction(purchase.transaction)
-                        }
-                        // Unlock content
-                    case .failed, .purchasing, .deferred:
-                        break // do nothing
-                    @unknown default:
-                        print("@unknown default")
-                    }
-                }
-            }
+        store()
         
         return true
+    }
+    
+    func store()  {
+        // see notes below for the meaning of Atomic / Non-Atomic
+        SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
+            for purchase in purchases {
+                switch purchase.transaction.transactionState {
+                case .purchased, .restored:
+                    if purchase.needsFinishTransaction {
+                        // Deliver content from server, then:
+                        SwiftyStoreKit.finishTransaction(purchase.transaction)
+                    }
+                    // Unlock content
+                case .failed, .purchasing, .deferred:
+                    break // do nothing
+                @unknown default:
+                    print("@unknown default")
+                }
+            }
+        }
+    }
+    
+    func setupIM()  {
+        
+        #if DEBUG
+            TUIKit.sharedInstance()?.setup(withAppId: Constant.IM.appID, logLevel: .LOG_DEBUG)
+        #else
+            TUIKit.sharedInstance()?.setup(withAppId: Constant.IM.appID, logLevel: .LOG_WARN)
+        #endif
+        
+        let config = TUIKitConfig.default()!
+        config.avatarType = .TAvatarTypeRounded
+        
+        CallManager.shareInstance()?.initCall()
     }
     
     func appStart() {

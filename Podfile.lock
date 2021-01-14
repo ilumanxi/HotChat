@@ -37,7 +37,7 @@ PODS:
   - MagazineLayout (1.6.3)
   - Masonry (1.1.0)
   - MBProgressHUD (1.2.0)
-  - MJExtension (3.2.2)
+  - MJExtension (3.2.3)
   - MJRefresh (3.5.0)
   - MMLayout (0.2.0)
   - Moya/Core (14.0.0):
@@ -244,7 +244,7 @@ SPEC CHECKSUMS:
   MagazineLayout: 159da0d4d874e04e6b17e580b990cccd00328c5b
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
-  MJExtension: d9b9c74cbdeb724c1e9ecbb157b318276e62e876
+  MJExtension: a6fd35a527dafd7f3f1259017ee57551d58b3bb8
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   MMLayout: 3fb59d58eeb8656c64e61d550fb0088e10666c11
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
