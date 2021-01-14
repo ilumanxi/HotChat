@@ -109,18 +109,46 @@ class TabBarController: UITabBarController, IndicatorDisplay {
         else {
             customTabBar.shadowImage = UIImage()
             customTabBar.barTintColor = .white
-//            customTabBar.backgroundImage = UIImage(color: .white, size: tabBar.bounds.size)
-//            customTabBar.backgroundColor = .white
+            customTabBar.backgroundImage = UIImage(color: .white, size: tabBar.bounds.size)
         }
     }
     
     func observerUnReadCount() {
+        
+        V2TIMManager.sharedInstance()?.getConversationList(0, count: Int32.max, succ: { [weak self] (list, lastTS, isFinished) in
+            self?.onChangeUnReadCount(list)
+        }, fail: { (code, error) in
+            
+        })
+        
         NotificationCenter.default.rx.notification(.init(TUIKitNotification_onChangeUnReadCount))
             .subscribe(onNext: { [weak self] noti in
-                self?.onChangeUnReadCount(noti)
+                self?.onChangeUnReadCount(noti.object as? [V2TIMConversation])
             })
             .disposed(by: rx.disposeBag)
     }
+
+    
+    func onChangeUnReadCount(_ convList: [V2TIMConversation]?) {
+        
+        guard let convList = convList else {
+            return
+        }
+        
+        let unReadCount = convList
+            .compactMap{ $0.unreadCount }
+            .reduce(0, +)
+        
+        let viewController =  viewControllers![2]
+        
+        if unReadCount == 0 {
+            viewController.tabBarItem.badgeValue = nil
+        }
+        else {
+            viewController.tabBarItem.badgeValue = unReadCount.description
+        }
+    }
+
     
     func onChangeUnReadCount(_ noti: Notification) {
         

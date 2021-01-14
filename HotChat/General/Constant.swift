@@ -20,14 +20,6 @@ class Constant: NSObject {
         return URL(string: "\(Constant.hotChatScheme)://authorize/")!
     }
     
-    @objc static var APIHostURL: URL {
-        return URL(string: "http://\(Constant.Server.APIHost)")!
-    }
-    
-    static var H5HostURL: URL {
-        return URL(string: "http://\(Constant.Server.H5Host)")!
-    }
-    
     static let hotChatScheme = "hotchatauth2"
 }
 
@@ -43,27 +35,19 @@ extension Constant {
 }
 
 
-/// 正式
-//extension Constant {
-//
-//    struct IM {
-//
-//        static let appID: UInt32 = 1400424749
-//        static let businessID: Int32 = 23246
-//    }
-//
-//    struct Server {
-//
-//        static let APIHost = "pic.yuupni.com"
-//        static let H5Host = "admin.yuupni.com"
-//        static let salt: String = "AJ265TT96e930d4d0YUddbcbPjc39CFK"
-//    }
-//
-//}
-
+#if DEBUG
 
 /// 测试
 extension Constant {
+
+    @objc static var APIHostURL: URL {
+        return URL(string: "http://\(Constant.Server.APIHost)")!
+    }
+
+    static var H5HostURL: URL {
+        return URL(string: "http://\(Constant.Server.H5Host)")!
+    }
+
 
     struct IM {
 
@@ -80,6 +64,37 @@ extension Constant {
     }
 }
 
+
+#else
+
+/// 正式
+extension Constant {
+
+    @objc static var APIHostURL: URL {
+        return URL(string: "https://\(Constant.Server.APIHost)")!
+    }
+
+    static var H5HostURL: URL {
+        return URL(string: "https://\(Constant.Server.H5Host)")!
+    }
+
+
+    struct IM {
+
+        static let appID: UInt32 = 1400424749
+        static let businessID: Int32 = 23246
+    }
+
+    struct Server {
+
+        static let APIHost = "pic.yuupni.com"
+        static let H5Host = "admin.yuupni.com"
+        static let salt: String = "AJ265TT96e930d4d0YUddbcbPjc39CFK"
+    }
+
+}
+
+#endif
 
 extension Constant {
     
