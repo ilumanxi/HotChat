@@ -90,9 +90,7 @@ class DynamicDetailViewCell: UITableViewCell {
         nicknameLabel.text = dynamic.userInfo.nick
         nicknameLabel.textColor = dynamic.userInfo.vipType.textColor
         contentLabel.text = dynamic.content
-        vipButton.isHidden = dynamic.userInfo.vipType.isHidden
-        vipButton.backgroundColor = dynamic.userInfo.vipType.backgroundColor
-        vipButton.setTitle(dynamic.userInfo.vipType.description, for: .normal)
+        vipButton.setVIP(dynamic.userInfo.vipType)        
         likeButton.setTitle(dynamic.zanNum.description, for: .normal)
         likeButton.isSelected = dynamic.isSelfZan
         giveButton.setTitle(dynamic.giftNum.description, for: .normal)

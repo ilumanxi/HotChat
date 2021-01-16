@@ -15,15 +15,12 @@ class DynamicViewCell: UICollectionViewCell {
     
     @IBOutlet weak var textLabel: UILabel!
     
-    @IBOutlet weak var profileImageView: UIImageView!
-    
-    
-    @IBOutlet weak var nicknameLabel: UILabel!
-    
-    
     @IBOutlet weak var likeButton: UIButton!
     
     @IBOutlet weak var likeLabel: UILabel!
+    
+    
+    @IBOutlet weak var regionButton: HotChatButton!
     
     let onLikeClicked = Delegate<DynamicViewCell, Void>()
     

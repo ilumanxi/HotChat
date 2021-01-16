@@ -1,57 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="KGk-i7-Jjw" customClass="WalletProductViewCell" customModule="HotChat" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="-70" id="KGk-i7-Jjw" customClass="WalletProductViewCell" customModule="HotChat" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="190"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="190"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="85Z-X9-C5i">
-                        <rect key="frame" x="16" y="15" width="41" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择金额" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ari-jb-oeS">
+                        <rect key="frame" x="16" y="11" width="65.5" height="20"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Vw-jQ-dDK">
-                        <rect key="frame" x="245" y="13" width="59" height="24"/>
-                        <color key="backgroundColor" red="0.31764705882352939" green="0.34901960784313724" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="24" id="ld3-Gg-OZr"/>
-                            <constraint firstAttribute="width" constant="59" id="oOX-hh-eMd"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                        <state key="normal" title="Button"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="3"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </button>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Jy3-0t-B4y">
+                        <rect key="frame" x="16" y="46" width="288" height="133"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oMd-4O-8WV">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <connections>
+                            <outlet property="dataSource" destination="KGk-i7-Jjw" id="6QN-XK-3Bf"/>
+                            <outlet property="delegate" destination="KGk-i7-Jjw" id="Bsb-8T-sYh"/>
+                        </connections>
+                    </collectionView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="9Vw-jQ-dDK" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="6Eb-tM-qYc"/>
-                    <constraint firstItem="9Vw-jQ-dDK" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="DRS-jz-HrG"/>
-                    <constraint firstItem="85Z-X9-C5i" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Z1F-CY-P5y"/>
-                    <constraint firstItem="85Z-X9-C5i" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="eE6-fj-nj5"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Jy3-0t-B4y" secondAttribute="trailing" id="00b-dJ-8tR"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Jy3-0t-B4y" secondAttribute="bottom" id="4tn-23-bAy"/>
+                    <constraint firstItem="Ari-jb-oeS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="7DO-PE-heS"/>
+                    <constraint firstItem="Jy3-0t-B4y" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="oLL-Fg-kT7"/>
+                    <constraint firstItem="Ari-jb-oeS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="tf0-5m-DxR"/>
+                    <constraint firstItem="Jy3-0t-B4y" firstAttribute="top" secondItem="Ari-jb-oeS" secondAttribute="bottom" constant="15" id="xX1-Jz-nXk"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="priceButton" destination="9Vw-jQ-dDK" id="xw6-Vp-guz"/>
-                <outlet property="titleLabel" destination="85Z-X9-C5i" id="UHD-5k-Kds"/>
+                <outlet property="collectionView" destination="Jy3-0t-B4y" id="gTY-o8-jkH"/>
             </connections>
-            <point key="canvasLocation" x="139" y="114"/>
+            <point key="canvasLocation" x="137.68115942028987" y="73.660714285714278"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

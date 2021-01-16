@@ -15,24 +15,52 @@ import DynamicColor
 
 extension LabelView {
     
-    func setUser(_ user: User) {
+    func setSex(_ user: User) {
         switch user.sex {
         case .male:
             image = UIImage(named: "me-sex-man")
-            backgroundColor = UIColor(hexString: "#91D2FF")
+            colors = [UIColor(hexString: "#7854EE"), UIColor(hexString: "#2C6AF5")]
         default:
             image = UIImage(named: "me-sex-woman")
-            backgroundColor = UIColor(hexString: "#FB64F9")
+            colors = [UIColor(hexString: "#FEB21F"), UIColor(hexString: "#F73E74")]
         }
-//        text = Date(timeIntervalSince1970: user.birthday).age.description
         text = user.age.description
-        
+    }
+
+}
+
+extension UIButton {
+    
+    func setVIP(_ vipType: VipType) {
+       isHidden = vipType.isHidden
+       setImage(vipType.image, for: .normal)
     }
 }
 
 
 typealias TappedAction  = () -> Void
 
+
+extension UIRectCorner {
+    
+    
+    var maskedCorners: CACornerMask {
+        switch self {
+        case .topLeft:
+        return .layerMinXMinYCorner
+        case .topRight:
+            return .layerMaxXMinYCorner
+        case .bottomLeft:
+            return .layerMinXMaxYCorner
+        case .bottomRight:
+            return .layerMaxXMaxYCorner
+        case .allCorners:
+            return [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        default:
+            return []
+        }
+    }
+}
 
 class InsetGroupedCell: UITableViewCell {
     
@@ -41,35 +69,23 @@ class InsetGroupedCell: UITableViewCell {
             super.frame
         }
         set {
-//            if #available(iOS 13.0, *) {
-//                super.frame = newValue
-//            } else {
-                super.frame = newValue.insetBy(dx: 20, dy: 0)
-//            }
+            super.frame = newValue.insetBy(dx: 20, dy: 0)
         }
     }
     
-    
     var rectCorner: UIRectCorner = []
-    
+
     override func layoutSubviews() {
-        
-//        if #available(iOS 13.0, *) {
-//
-//        } else {
-            if rectCorner == [] {
-                layer.mask = nil
-            }
-            else {
-                let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: rectCorner, cornerRadii: CGSize(width: 10, height: 10))
-                
-                let maskLayer = CAShapeLayer()
-                maskLayer.frame = bounds
-                maskLayer.path = path.cgPath
-                layer.mask = maskLayer
-            }
-//        }
-        
+        let path = UIBezierPath(
+            roundedRect: bounds,
+            byRoundingCorners: rectCorner,
+            cornerRadii: CGSize(width: 10, height: 10))
+
+        let maskLayer = CAShapeLayer()
+        maskLayer.frame = bounds
+        maskLayer.path = path.cgPath
+        layer.mask = maskLayer
+
         super.layoutSubviews()
     }
 }
@@ -118,6 +134,7 @@ class WalletFormEntry: FormEntry {
     func cell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: WalletViewCell.self)
+        cell.layoutMargins = UIEdgeInsets(top: 8, left: 20, bottom: 8, right: 20)
         cell.iconImageView.image = image
         cell.titleLabel.text = text
         cell.energyLabel.text = energy
@@ -199,71 +216,44 @@ class MeViewController: UITableViewController, Autorotate {
             walletEntries.append(WalletFormEntry(image: UIImage(named: "me-wallet"), text: "我的钱包", energy: user.userEnergy.description, tCoin: user.userTanbi.description, onTapped: pushWallet))
         }
         
-        let wallet: FormSection  = FormSection(
-            entries: walletEntries,
-            headerText: nil
-        )
-      
-       var detailEntries: [FormEntry] = []
-        
-        if !user.girlStatus && !AppAudit.share.taskStatus {
-            
-            detailEntries.append(RightDetailFormEntry(image: UIImage(named: "me-money"), text: "奖励任务", onTapped: pushTask))
-        }
-        
-        
-        
-        if !AppAudit.share.inviteStatus {
-            detailEntries.append(RightDetailFormEntry(image: UIImage(named: "me-invitation"), text: "我的邀请", onTapped: pushInvite))
-        }
-        var detailText: String? = nil
-        
-        if !user.vipExpireTime.isEmpty {
-            detailText = "\(user.vipExpireTime)到期"
-        }
-        
-        detailEntries.append(contentsOf: [
-            RightDetailFormEntry(image: UIImage(named: "me-nobility"), text: "会员特权", detailText: detailText, onTapped: pushVip),
-//            RightDetailFormEntry(image: UIImage(named: "me-anti-fraud"), text: "防骗中心"),
-//            RightDetailFormEntry(image: UIImage(named: "me-call"), text: "通话设置"),
-        ])
-        
-        if user.sex == .female {
-            detailEntries.append(RightDetailFormEntry(image: UIImage(named: "me-anchor"), text: "主播认证", onTapped: pushAuthentication))
-        }
+
+       var userEntrys: [FormEntry] = []
         
         if user.girlStatus {
-            
-            detailEntries.append(RightDetailFormEntry(image: UIImage(named: "me-wallet"), text: "我的钱包", detailText: "能量\(user.userEnergy)", onTapped: pushWallet))
+            userEntrys.append(RightDetailFormEntry(image: UIImage(named: "me-wallet"), text: "我的钱包", detailText: "能量\(user.userEnergy)", onTapped: pushWallet))
         }
-
-       let detail =  FormSection(
-            entries: detailEntries,
-            headerText: nil
-        )
         
-        var basicEntries: [FormEntry] =  []
+        
+        if user.sex == .female {
+            userEntrys.append(RightDetailFormEntry(image: UIImage(named: "me-anchor"), text: "主播认证", onTapped: pushAuthentication))
+        }
+        
+        if user.sex == .male {
+            userEntrys.append( RightDetailFormEntry(image: UIImage(named: "me-authentication"), text: "用户认证", onTapped: pushAuthentication))
+        }
         
         
         if !AppAudit.share.gradeStatus {
-            basicEntries.append(RightDetailFormEntry(image: UIImage(named: "me-grade"), text: "等级", onTapped: pushLevel))
+            userEntrys.append(RightDetailFormEntry(image: UIImage(named: "me-grade"), text: "我的等级", onTapped: pushLevel))
         }
         
+       let userSection =  FormSection(
+            entries: userEntrys,
+            headerText: nil
+        )
         
-        if user.sex == .male {
-            basicEntries.append( RightDetailFormEntry(image: UIImage(named: "me-authentication"), text: "用户认证", onTapped: pushAuthentication))
-        }
+        var outlineEntries: [FormEntry] =  []
         
-        basicEntries.append(RightDetailFormEntry(image: UIImage(named: "me-help"), text: "帮助", onTapped: pushHelp))
+        outlineEntries.append(RightDetailFormEntry(image: UIImage(named: "me-help"), text: "帮助", onTapped: pushHelp))
+        
+        outlineEntries.append(RightDetailFormEntry(image: UIImage(named: "me-setting"), text: "设置", onTapped: pushSetting))
 
-        basicEntries.append(RightDetailFormEntry(image: UIImage(named: "me-setting"), text: "设置", onTapped: pushSetting))
-        
-        let basic =  FormSection(
-             entries: basicEntries,
+        let outlineSection =  FormSection(
+             entries: outlineEntries,
              headerText: nil
          )
         
-        self.sections = [wallet, detail, basic]
+        self.sections = [userSection, outlineSection]
         
         tableView.reloadData()
     }
@@ -316,15 +306,13 @@ class MeViewController: UITableViewController, Autorotate {
         
         meHeaderView.avatarImageView.kf.setImage(with: URL(string: user.headPic))
         meHeaderView.nicknameLabel.text = user.nick
-        meHeaderView.sexView.setUser(user)
-        meHeaderView.vipButton.isHidden = user.vipType.isHidden
-        meHeaderView.vipButton.setTitle(user.vipType.description, for: .normal)
-        meHeaderView.vipButton.backgroundColor = user.vipType.backgroundColor
+        meHeaderView.sexView.setSex(user)
+        meHeaderView.vipButton.setVIP(user.vipType)
         meHeaderView.followButton.setTitle("\(user.userFollowNum) 关注", for: .normal)
         meHeaderView.fansButton.setTitle("\(user.userFansNum) 粉丝", for: .normal)
         
-//        meHeaderView.walletView.isHidden = user.girlStatus
-//        meHeaderView.earningsView.isHidden = !user.girlStatus
+        meHeaderView.walletView.isHidden = user.girlStatus
+        meHeaderView.earningsView.isHidden = !user.girlStatus
         
         meHeaderView.setNeedsLayout()
         meHeaderView.layoutIfNeeded()
@@ -469,6 +457,19 @@ extension VipType: CustomStringConvertible {
             return "季VIP"
         case .year:
             return "年VIP"
+        }
+    }
+    
+    var image: UIImage? {
+        switch self {
+        case.empty:
+            return nil
+        case .month:
+            return UIImage(named: "vip-month")
+        case .quarter:
+            return UIImage(named: "vip-quarter")
+        case .year:
+            return UIImage(named: "vip-year")
         }
     }
     

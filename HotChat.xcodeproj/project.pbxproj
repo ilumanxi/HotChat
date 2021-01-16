@@ -106,6 +106,7 @@
 		264BF97F25A83BB200F873DD /* AccostViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 264BF97D25A83BB200F873DD /* AccostViewCell.xib */; };
 		264D15E0258B415300756EAF /* GreetingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 264D15DF258B415300756EAF /* GreetingViewController.xib */; };
 		264DEA142552512C00AD97DE /* GiftManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 264DEA132552512C00AD97DE /* GiftManager.m */; };
+		264E6D8E25B2CE7900C97CD8 /* ChannelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 264E6D8D25B2CE7900C97CD8 /* ChannelCell.xib */; };
 		2656F30E254FAC0500552611 /* GiftReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2656F30C254FAC0500552611 /* GiftReminderViewController.m */; };
 		2656F30F254FAC0500552611 /* GiftReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2656F30D254FAC0500552611 /* GiftReminderViewController.xib */; };
 		2656F317254FDB5000552611 /* IMAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2656F316254FDB5000552611 /* IMAPI.swift */; };
@@ -131,6 +132,9 @@
 		2668B0AF2523479F0073E25D /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2668B0AE2523479F0073E25D /* Product.swift */; };
 		2668CF0925931B3D00C851F6 /* LogoutAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2668CF0825931B3D00C851F6 /* LogoutAPI.swift */; };
 		266E3C57258B737E00781E91 /* bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 266E3C56258B737E00781E91 /* bell.mp3 */; };
+		26710DEF25B28B33000F41BC /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26710DEE25B28B33000F41BC /* GradientButton.swift */; };
+		26710DF425B293BE000F41BC /* WalletProducItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26710DF225B293BE000F41BC /* WalletProducItemCell.swift */; };
+		26710DF525B293BE000F41BC /* WalletProducItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26710DF325B293BE000F41BC /* WalletProducItemCell.xib */; };
 		2673FDBD255CE14400909A37 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2673FDBC255CE14400909A37 /* WebViewController.swift */; };
 		26772822255A480900B98973 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26772820255A480900B98973 /* PrivacyViewController.swift */; };
 		26772823255A480900B98973 /* PrivacyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26772821255A480900B98973 /* PrivacyViewController.xib */; };
@@ -487,6 +491,7 @@
 		264D15DF258B415300756EAF /* GreetingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GreetingViewController.xib; sourceTree = "<group>"; };
 		264DEA122552512C00AD97DE /* GiftManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftManager.h; sourceTree = "<group>"; };
 		264DEA132552512C00AD97DE /* GiftManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftManager.m; sourceTree = "<group>"; };
+		264E6D8D25B2CE7900C97CD8 /* ChannelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChannelCell.xib; sourceTree = "<group>"; };
 		26546371250B774E00398F04 /* apple-app-site-association */ = {isa = PBXFileReference; lastKnownFileType = text; path = "apple-app-site-association"; sourceTree = "<group>"; };
 		2656F30B254FAC0500552611 /* GiftReminderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftReminderViewController.h; sourceTree = "<group>"; };
 		2656F30C254FAC0500552611 /* GiftReminderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftReminderViewController.m; sourceTree = "<group>"; };
@@ -514,6 +519,9 @@
 		2668B0AE2523479F0073E25D /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		2668CF0825931B3D00C851F6 /* LogoutAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutAPI.swift; sourceTree = "<group>"; };
 		266E3C56258B737E00781E91 /* bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bell.mp3; sourceTree = "<group>"; };
+		26710DEE25B28B33000F41BC /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
+		26710DF225B293BE000F41BC /* WalletProducItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletProducItemCell.swift; sourceTree = "<group>"; };
+		26710DF325B293BE000F41BC /* WalletProducItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletProducItemCell.xib; sourceTree = "<group>"; };
 		2673FDBC255CE14400909A37 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		26772820255A480900B98973 /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
 		26772821255A480900B98973 /* PrivacyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrivacyViewController.xib; sourceTree = "<group>"; };
@@ -1025,6 +1033,8 @@
 				26F45501256659750028ACC5 /* EarningCell.xib */,
 				26F4550425665F600028ACC5 /* EarningDetailCell.swift */,
 				26F4550525665F600028ACC5 /* EarningDetailCell.xib */,
+				26710DF225B293BE000F41BC /* WalletProducItemCell.swift */,
+				26710DF325B293BE000F41BC /* WalletProducItemCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1045,6 +1055,7 @@
 				2673FDBC255CE14400909A37 /* WebViewController.swift */,
 				2615C9F7255E8B0C009B89F4 /* PlaceholderTextView.swift */,
 				26FCB26725820149009D845F /* GradientView.swift */,
+				26710DEE25B28B33000F41BC /* GradientButton.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1447,6 +1458,7 @@
 			isa = PBXGroup;
 			children = (
 				26CA6EEB25382DC40023E27B /* ChannelCell.swift */,
+				264E6D8D25B2CE7900C97CD8 /* ChannelCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1763,6 +1775,7 @@
 				26CB6D4E25515D6B00A9F4DD /* idl-key.face-ios in Resources */,
 				26F4550725665F600028ACC5 /* EarningDetailCell.xib in Resources */,
 				26B4E05F2564FCBA004EDCFE /* AuthenticationGuideViewController.xib in Resources */,
+				26710DF525B293BE000F41BC /* WalletProducItemCell.xib in Resources */,
 				26EB2DA82558F157006698F9 /* SubsidiaryAccountCell.xib in Resources */,
 				26F45503256659750028ACC5 /* EarningCell.xib in Resources */,
 				267954FF250761B600A72954 /* Discover.storyboard in Resources */,
@@ -1780,6 +1793,7 @@
 				26DF8780255A645C002162A9 /* SwitchViewCell.xib in Resources */,
 				26AE7C342520346500B55318 /* LabelViewCell.xib in Resources */,
 				26CB6D5025515D6B00A9F4DD /* com.baidu.idl.face.model.faceSDK.bundle in Resources */,
+				264E6D8E25B2CE7900C97CD8 /* ChannelCell.xib in Resources */,
 				263A6685257E0EF200F35714 /* CheckInCell.xib in Resources */,
 				264D15E0258B415300756EAF /* GreetingViewController.xib in Resources */,
 				2695903E250B170B00763061 /* InterestedCardView.xib in Resources */,
@@ -2056,6 +2070,7 @@
 				260B96162521F2F400767076 /* AuthenticationViewController.swift in Sources */,
 				26373C75250234AC0066FF3B /* Delegate.swift in Sources */,
 				26C31F2B25404D280000D09D /* ForYouViewController.swift in Sources */,
+				26710DEF25B28B33000F41BC /* GradientButton.swift in Sources */,
 				26CA6EE7253829A70023E27B /* ChannelViewController.swift in Sources */,
 				26EDE7F92591D11F002A2EC3 /* GuidedRechargeViewController.swift in Sources */,
 				26787E2F251B228200D511E8 /* AccountPlugin.swift in Sources */,
@@ -2089,6 +2104,7 @@
 				269DED1B254AAC4D000AD5D9 /* GiftViewController.m in Sources */,
 				26F8893A25318681001A14F2 /* DynamicViewController.swift in Sources */,
 				267B98752505E1AC0008C81B /* PlatformAuthorization.swift in Sources */,
+				26710DF425B293BE000F41BC /* WalletProducItemCell.swift in Sources */,
 				26278B89256CFD64007044E1 /* JPGiftShowManager.m in Sources */,
 				26CD99F12578BDDD00235A8D /* ChatGreet.swift in Sources */,
 				26E48908257E087D006C2ACE /* CheckInViewController.swift in Sources */,

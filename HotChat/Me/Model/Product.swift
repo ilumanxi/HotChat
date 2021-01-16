@@ -7,7 +7,7 @@
 //
 
 import HandyJSON
-
+import StoreKit
 
 struct Product: HandyJSON {
     
@@ -23,14 +23,20 @@ struct Product: HandyJSON {
 }
 
 
-struct Ordrer: HandyJSON {
+struct ItemProduct {
+    
+    let product: Product
+    let appleProduct: SKProduct
+}
 
+struct Ordrer: HandyJSON {
     
     var outTradeNo: String!
     var payType: String = ""
     var amount: String = ""
     var subject: String = ""
     
+    var itemProduct: ItemProduct!
 }
 
 

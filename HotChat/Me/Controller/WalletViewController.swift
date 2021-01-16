@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 import StoreKit
 import SwiftyStoreKit
+import ActiveLabel
 
 // MARK: - SKProduct
 extension SKProduct {
@@ -57,7 +58,7 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     convenience init() {
-        self.init(style: .plain)
+        self.init(style: .grouped)
     }
     
     required init?(coder: NSCoder) {
@@ -66,6 +67,42 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
 
     var tableView: UITableView!
+    
+    lazy fileprivate var textLabel: ActiveLabel = {
+       let label = ActiveLabel()
+       label.numberOfLines = 0
+       label.font = .systemFont(ofSize: 12)
+       label.textAlignment = .center
+       label.textColor = .textGray
+       let agreementType = ActiveType.custom(pattern: "《用户充值协议》")
+       let privacyType = ActiveType.custom(pattern: "联系客服>")
+       let normalColor = UIColor(hexString: "#525AF8")
+       let selectedColor = normalColor.withAlphaComponent(0.7)
+       label.customColor[agreementType] = normalColor
+       label.customColor[privacyType] = normalColor
+       label.customSelectedColor[agreementType] = selectedColor
+       label.customSelectedColor[privacyType] = selectedColor
+       label.enabledTypes = [agreementType, privacyType]
+
+       label.handleCustomTap(for: agreementType) { [weak self] element in
+            let vc = WebViewController.H5(path: "h5/payAgreement")
+            self?.navigationController?.pushViewController(vc, animated: true)
+       }
+       label.handleCustomTap(for: privacyType) { [weak self] element in
+            let vc = WebViewController.H5(path: "h5/customer")
+            self?.navigationController?.pushViewController(vc, animated: true)
+       }
+        
+        label.lineSpacing = 9
+        
+        let text = """
+        充值即代表你已成年，并同意《用户充值协议》
+        充值遇到问题，请及时 联系客服>
+        """
+        label.text = text
+        label.sizeToFit()
+       return label
+   }()
     
 
     var data: [Section] = [] {
@@ -77,15 +114,14 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
     let payAPI = Request<PayAPI>()
     
     
-    
     var user: User = LoginManager.shared.user!
     
-    var products: [(Product, SKProduct)] = []
+    var products: [ItemProduct] = []
     
     override func loadView() {
         super.loadView()
-        tableView.frame = view.bounds
         tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        tableView.frame = view.bounds
         view.addSubview(tableView)
     }
     
@@ -109,6 +145,8 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         tableView.register(UINib(nibName: "WalletEnergyViewCell", bundle: nil), forCellReuseIdentifier: "WalletEnergyViewCell")
         tableView.register(UINib(nibName: "WalletProductViewCell", bundle: nil), forCellReuseIdentifier: "WalletProductViewCell")
+        
+        tableView.tableFooterView = textLabel
     }
     
     @objc private func pushExpensesRecord() {
@@ -156,21 +194,22 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func setupSections() {
         let energySection = Section(type: .energy, elements: [user])
-        let productSection = Section(type: .product, elements: products)
+        let productSection = Section(type: .product, elements: [products])
         
         self.data = [energySection, productSection]
         self.tableView.reloadData()
         
     }
     
-    func productInfo() -> Single<[(Product, SKProduct)]> {
+    func productInfo() -> Single<[ItemProduct]> {
         
         return API.request(.amountList(type: 2), type: Response<[Product]>.self)
-            .flatMap{ response -> Single<([Product], [SKProduct])> in
+            .flatMap{ response -> Single<[ItemProduct]> in
 
                 guard let data = response.data else {
                     throw HotChatError.generalError(reason: HotChatError.GeneralErrorReason.conversionError(string: response.msg, encoding: .utf8))
                 }
+                
 
                 let productIds = data.compactMap{ "com.friday.Chat.energy.\($0.money.intValue)" }
                
@@ -182,7 +221,18 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
                             single(.error(error))
                         }
                         else {
-                            single(.success((data, Array(result.retrievedProducts))))
+                            
+                            let retrievedProducts = Array(result.retrievedProducts)
+                            var items: [ItemProduct] = []
+                            
+                            retrievedProducts.forEach { appleProduct in
+                                
+                                if let product = data.first(where: { appleProduct.productIdentifier == "com.friday.Chat.energy.\($0.money.intValue)" }) {
+                                    items.append(ItemProduct(product: product, appleProduct: appleProduct))
+                                    
+                                }
+                            }
+                            single(.success(items))
                         }
                     }
 
@@ -195,25 +245,25 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     
-    func productSorted(_ product: ([Product], [SKProduct])) -> [(Product, SKProduct)] {
-        let sourceProduct = product.0
-        let appleProduct = product.1
-        
-        func findProduct(_ product: SKProduct) -> Product {
-            return sourceProduct.first {
-                "com.friday.Chat.energy.\($0.money.intValue)" == product.productIdentifier
-            }!
-        }
-        return appleProduct
-            .compactMap{ (findProduct($0), $0) }
+    func productSorted(_ products: [ItemProduct]) -> [ItemProduct] {
+
+        return products
             .sorted { (l, r) -> Bool in
-                l.1.price.intValue < r.1.price.intValue
+                l.appleProduct.price.intValue < r.appleProduct.price.intValue
             }
     }
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return data.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 10
     }
     
     
@@ -223,9 +273,9 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         switch type {
         case .energy:
-            return 95
+            return 126
         default:
-            return 50
+            return 190
         }
     }
 
@@ -240,55 +290,66 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         if section.type == .energy {
             let cell = tableView.dequeueReusableCell(for: indexPath, cellType: WalletEnergyViewCell.self)
-            cell.titleLabel.text = "能量：\(user.userEnergy.description)"
+            cell.energyLabel.text = user.userEnergy.description
+            cell.coinLabel.text = user.userTanbi.description
             return cell
+        }
+        else {           
+            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: WalletProductViewCell.self)
+            cell.products = products
+            cell.onSelectedIndexPath.delegate(on: self) { (self, indexPath) in
+                self.payProduct(self.products[indexPath.item])
+            }
+            return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        guard let inserCell = cell  as? InsetGroupedCell else { return  }
+        
+        if self.tableView(tableView, numberOfRowsInSection: indexPath.section) == 1 {
+            
+            inserCell.rectCorner = .allCorners
+        }
+        else if indexPath.row == 0 {
+            inserCell.rectCorner = [.topLeft, .topRight]
+        }
+        else if indexPath.row == (self.tableView(tableView, numberOfRowsInSection: indexPath.section) - 1) {
+            inserCell.rectCorner = [.bottomLeft, .bottomRight]
         }
         else {
-            let content = section.elements as! [(Product, SKProduct)]
-            
-            let product = content[indexPath.row]
-           
-            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: WalletProductViewCell.self)
-            cell.titleLabel.text = product.1.localizedTitle
-            cell.priceButton.setTitle( product.1.regularPrice?.replacingOccurrences(of: ".00", with: ""), for: .normal)
-            return cell
+            inserCell.rectCorner = []
         }
     }
     
-    /// Starts a purchase when the user taps an available product row.
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let section = data[indexPath.section]
-        
-        // Only available products can be bought.
-        if section.type == .product, let content = section.elements as? [(Product, SKProduct)] {
-            let product = content[indexPath.row]
-            showIndicatorOnWindow()
-            createOrder(product)
-                .flatMap(payOrder)
-                .subscribe(onSuccess: { [weak self] response in
-                    self?.requestUserInfo()
-                    self?.hideIndicatorFromWindow()
-                }, onError: { [weak self] error in
-                    self?.hideIndicatorFromWindow()
-                    self?.show(error)
-                    
-                })
-                .disposed(by: rx.disposeBag)
-            
-        }
+    func payProduct(_ product: ItemProduct) {
+        showIndicatorOnWindow()
+        createOrder(product)
+            .flatMap(payOrder)
+            .subscribe(onSuccess: { [weak self] response in
+                self?.requestUserInfo()
+                self?.hideIndicatorFromWindow()
+            }, onError: { [weak self] error in
+                self?.hideIndicatorFromWindow()
+                self?.show(error)
+                
+            })
+            .disposed(by: rx.disposeBag)
     }
     
-    func payOrder(_ order: (Ordrer, Product, SKProduct)) -> Single<ResponseEmpty> {
+    
+    func payOrder(_ order: Ordrer) -> Single<ResponseEmpty> {
         return Single.create { single in
             
             // Attempt to purchase the tapped product.
-            SwiftyStoreKit.purchaseProduct(order.2, atomically: true, applicationUsername: order.0.outTradeNo) { result in
+            SwiftyStoreKit.purchaseProduct(order.itemProduct.appleProduct, atomically: true, applicationUsername: order.outTradeNo) { result in
                 switch result {
                 case .success(let purchase):
                     
                     let receipt =  try! Data(contentsOf: Bundle.main.appStoreReceiptURL!)
                     
-                    var orderId: String =  order.0.outTradeNo
+                    var orderId: String =  order.outTradeNo
                     if let transaction = purchase.transaction as? SKPaymentTransaction, let applicationUsername =  transaction.payment.applicationUsername {
                         orderId =  applicationUsername
                     }
@@ -316,21 +377,22 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return payAPI.request(.notify(parameters), type: ResponseEmpty.self)
     }
     
-    func createOrder(_ product: (Product, SKProduct)) -> Single<(Ordrer, Product, SKProduct)> {
+    func createOrder(_ itemProduct: ItemProduct) -> Single<Ordrer> {
         
         let parameters: [String : Any] =  [
-            "subject" : product.1.localizedTitle,
-            "body": product.1.localizedDescription,
-            "amount" : product.1.price.doubleValue,
-            "moneyId" : product.0.moneyId,
-            "energy" : product.0.energy
+            "subject" : itemProduct.appleProduct.localizedTitle,
+            "body": itemProduct.appleProduct.localizedDescription,
+            "amount" : itemProduct.appleProduct.price.doubleValue,
+            "moneyId" : itemProduct.product.moneyId,
+            "energy" : itemProduct.product.energy
         ]
         
         return payAPI.request(.ceateOrder(parameters), type: Response<[String : Any]>.self)
             .verifyResponse()
             .map { response in
-                let order =  Ordrer.deserialize(from: response.data, designatedPath: "params")!
-                return (order, product.0, product.1)
+                var order =  Ordrer.deserialize(from: response.data, designatedPath: "params")!
+                order.itemProduct = itemProduct
+                return order
             }
     }
 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WXB-hf-8mf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WXB-hf-8mf">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -90,10 +90,10 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="NHL-MH-7RP">
-                                                    <rect key="frame" x="79" y="16.5" width="141.5" height="37.5"/>
+                                                    <rect key="frame" x="79" y="16.5" width="109.5" height="37.5"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="gU7-tH-qrd">
-                                                            <rect key="frame" x="0.0" y="0.0" width="141.5" height="17"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="gU7-tH-qrd">
+                                                            <rect key="frame" x="0.0" y="0.0" width="109.5" height="17"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fq0-hA-C1R">
                                                                     <rect key="frame" x="0.0" y="0.0" width="35.5" height="17"/>
@@ -102,7 +102,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="32" placeholderIntrinsicHeight="16" translatesAutoresizingMaskIntoConstraints="NO" id="ARc-8U-DdT" customClass="LabelView" customModule="HotChat" customModuleProvider="target">
-                                                                    <rect key="frame" x="56.5" y="0.0" width="32" height="17"/>
+                                                                    <rect key="frame" x="40.5" y="0.5" width="32" height="16"/>
                                                                     <color key="backgroundColor" red="0.43137254901960786" green="0.87058823529411766" blue="0.63137254901960782" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="image" keyPath="image" value="me-sex-man"/>
@@ -110,7 +110,7 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="32" placeholderIntrinsicHeight="16" translatesAutoresizingMaskIntoConstraints="NO" id="yCH-hD-QQI" customClass="LabelView" customModule="HotChat" customModuleProvider="target">
-                                                                    <rect key="frame" x="109.5" y="0.0" width="32" height="17"/>
+                                                                    <rect key="frame" x="77.5" y="0.5" width="32" height="16"/>
                                                                     <color key="backgroundColor" red="0.43137254899999999" green="0.87058823529999996" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="image" keyPath="image" value="me-attention"/>
@@ -246,7 +246,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hTR-lR-X4w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2116" y="1538"/>
+            <point key="canvasLocation" x="2115.9420289855075" y="1537.5"/>
         </scene>
         <!--备注名-->
         <scene sceneID="b7E-XD-EF7">
@@ -594,8 +594,8 @@
         <image name="common-close" width="12" height="12"/>
         <image name="me-attention" width="7" height="7"/>
         <image name="me-sex-man" width="7" height="7"/>
-        <image name="tabbar-message-normal" width="19" height="19"/>
-        <image name="tabbar-message-selected" width="19" height="19"/>
+        <image name="tabbar-message-normal" width="21" height="21"/>
+        <image name="tabbar-message-selected" width="20" height="20"/>
         <systemColor name="groupTableViewBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

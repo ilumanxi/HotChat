@@ -49,6 +49,8 @@ class ChannelViewController: UIViewController, LoadingStateType, IndicatorDispla
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.register(UINib(nibName: "ChannelCell", bundle: nil), forCellReuseIdentifier: "ChannelCell")
 
         loadSignal
             .subscribe(onNext: requestData)
@@ -183,14 +185,12 @@ extension ChannelCell {
        avatarImageView.kf.setImage(with: URL(string: user.headPic))
        nicknameLabel.text = user.nick
        nicknameLabel.textColor = user.vipType.textColor
-       sexView.setUser(user)
+       sexView.setSex(user)
        locationLabel.text = user.region
        introduceLabel.text = user.introduce
        statusLabel.text = user.onlineStatus.text
        statusLabel.textColor = user.onlineStatus.color
-       vipButton.isHidden = user.vipType.isHidden
-       vipButton.setTitle(user.vipType.description, for: .normal)
-       vipButton.backgroundColor = user.vipType.backgroundColor
+       vipButton.setVIP(user.vipType)
        authenticationButton.isHidden = !user.girlStatus
     }
 }

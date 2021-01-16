@@ -144,11 +144,9 @@ class UserInfoHeaderView: UIView, FSPagerViewDataSource, FSPagerViewDelegate {
         pageControl.numberOfPages = count
         pagerView.reloadData()
         nicknameLabel.text = user.nick
-        sexView.setUser(user)
+        sexView.setSex(user)
         followView.text = user.userFollowNum.description
-        vipButton.backgroundColor = user.vipType.backgroundColor
-        vipButton.setTitle(user.vipType.description, for: .normal)
-        vipButton.isHidden = user.vipType.isHidden
+        vipButton.setVIP(user.vipType)
         authenticationButton.alpha = user.headStatus.alpha
         locationLabel.text = user.region
         statusLabel.text = user.onlineStatus.text

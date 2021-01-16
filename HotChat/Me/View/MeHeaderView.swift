@@ -17,6 +17,8 @@ class MeHeaderView: UIView {
     
     @IBOutlet weak var avatarImageView: UIImageView!
     
+    @IBOutlet weak var avatarButton: UIButton!
+    
     @IBOutlet weak var nicknameLabel: UILabel!
     
     @IBOutlet weak var sexView: LabelView!
@@ -41,27 +43,20 @@ class MeHeaderView: UIView {
     @IBOutlet weak var inviteView: UIStackView!
     
     
-    @IBOutlet var backgroundViewHeightConstraint: NSLayoutConstraint! {
-        didSet {
-//            backgroundViewHeightConstraint.constant = 204 + 44 + UIApplication.shared.statusBarFrame.height
-        }
-    }
+    @IBOutlet var backgroundViewHeightConstraint: NSLayoutConstraint!
     
-//    override class var requiresConstraintBasedLayout: Bool {
-//        return true
-//    }
 
-    
+
     override func awakeFromNib() {
-        
-//        translatesAutoresizingMaskIntoConstraints = false
-        
+                
         if let superview = superview {
             widthAnchor.constraint(equalTo: superview.widthAnchor).isActive = true
         }
         
+        layoutMargins = UIEdgeInsets(top: 8, left: 20, bottom: 8, right: 20)
+        
         // 可以根据 srollview offset 改变高度
-//        backgroundViewHeightConstraint.constant = 204 + 44 + UIApplication.shared.statusBarFrame.height
+        backgroundViewHeightConstraint.constant = UIScreen.main.bounds.height
         
         super.awakeFromNib()
     }

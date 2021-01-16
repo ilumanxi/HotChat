@@ -87,6 +87,8 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.register(UINib(nibName: "ChannelCell", bundle: nil), forCellReuseIdentifier: "ChannelCell")
+        
         navigationItem.titleView = searchBarContainerView
         navigationItem.hidesBackButton = true
         

@@ -75,7 +75,7 @@ class MeRelationshipViewController: UITableViewController, SegementSlideContentS
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: RelationshipViewCell.self)
         cell.avatarImageView.kf.setImage(with: URL(string: user.headPic))
         cell.nicknameLabel.text = user.nick
-        cell.sexView.setUser(user)
+        cell.sexView.setSex(user)
         cell.introduceLabel.text = user.introduce
         cell.followButton.isHidden = user.isFollow
         

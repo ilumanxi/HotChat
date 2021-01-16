@@ -32,6 +32,12 @@ class WebViewController: UIViewController {
     
     var webViewConfiguration = WKWebViewConfiguration()
     
+    var statusBarStyle: UIStatusBarStyle = .default
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return statusBarStyle
+    }
+    
     lazy var webView: WKWebView = {
         let view = WKWebView(frame: .zero, configuration: webViewConfiguration)
         view.allowsBackForwardNavigationGestures = true
@@ -109,6 +115,11 @@ class WebViewController: UIViewController {
             self?.pushInvite(paramters, callback: callback)
             
         }
+        
+        bridge.register(handlerName: "navigationBarAppearance") {[weak self] (paramters, callback) in
+            
+            self?.navigationBarAppearance(paramters, callback: callback)
+        }
     }
     
     func loadURL() {
@@ -164,6 +175,30 @@ extension WebViewController {
     
     public typealias Callback = (_ responseData: Any?) -> Void
     
+    
+    func navigationBarAppearance(_ parameters: Parameters?, callback: Callback?)  {
+        
+        if let backBarButtonItemTintColor = parameters?["backBarButtonItemTintColor"] as? String {
+            hbd_tintColor = UIColor(hexString: backBarButtonItemTintColor)
+        }
+        
+        if let navigationBarAlpha = parameters?["navigationBarAlpha"] as? Float  {
+            hbd_barAlpha = navigationBarAlpha
+        }
+       
+        if let statusBarStyle = parameters?["statusBarStyle"] as? String  {
+            if statusBarStyle == "lightContent" {
+                self.statusBarStyle = .lightContent
+            }
+            else if statusBarStyle == "default" {
+                self.statusBarStyle = .default
+            }
+        }
+        hbd_setNeedsUpdateNavigationBar()
+        setNeedsStatusBarAppearanceUpdate()
+    }
+    
+  
     
     func pushInvite(_ parameters: Parameters?, callback: Callback?) {
         let vc = InviteViewController.loadFromStoryboard()

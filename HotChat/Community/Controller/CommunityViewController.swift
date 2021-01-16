@@ -311,19 +311,19 @@ extension CommunityViewController: UICollectionViewDataSource, UICollectionViewD
     
     func layoutCellCalculatedSize(forItemAt indexPath: IndexPath) -> CGSize {
         
-        let layoutCellForSize = collectionView.dequeueReusableCell(for: indexPath, cellType: DynamicViewCell.self)
-        let data =  dynamics[indexPath.item]
-        layoutCellForSize.textLabel.text = data.content
-        layoutCellForSize.setNeedsLayout()
-        layoutCellForSize.layoutIfNeeded()
+//        let layoutCellForSize = collectionView.dequeueReusableCell(for: indexPath, cellType: DynamicViewCell.self)
+//        let data =  dynamics[indexPath.item]
+//        layoutCellForSize.textLabel.text = data.content
+//        layoutCellForSize.setNeedsLayout()
+//        layoutCellForSize.layoutIfNeeded()
         let cellWidth = widthForCellInCurrentLayout()
-        let cellHeight: CGFloat = 0
-        let cellTargetSize = CGSize(width: cellWidth, height: cellHeight)
-        let cellSize = layoutCellForSize.contentView.systemLayoutSizeFitting(
-            cellTargetSize,
-            withHorizontalFittingPriority: UILayoutPriority(900),
-            verticalFittingPriority: .fittingSizeLevel)
-        return cellSize
+//        let cellHeight: CGFloat = 0
+//        let cellTargetSize = CGSize(width: cellWidth, height: cellHeight)
+//        let cellSize = layoutCellForSize.contentView.systemLayoutSizeFitting(
+//            cellTargetSize,
+//            withHorizontalFittingPriority: UILayoutPriority(900),
+//            verticalFittingPriority: .fittingSizeLevel)
+        return CGSize(width: cellWidth, height: cellWidth)
     }
 
     func widthForCellInCurrentLayout() -> CGFloat {
@@ -348,10 +348,9 @@ extension CommunityViewController: UICollectionViewDataSource, UICollectionViewD
         
         cell.textLabel.text = data.content
         cell.imageView.kf.setImage(with: URL(string: data.coverUrl))
-        cell.nicknameLabel.text = data.userInfo.nick
-        cell.profileImageView.kf.setImage(with: URL(string: data.userInfo.headPic))
         cell.likeLabel.text = data.zanNum.description
         cell.likeButton.isSelected = data.isSelfZan
+        cell.regionButton.setTitle(data.userInfo.region, for: .normal)
         cell.layer.cornerRadius = 8
         
         cell.onLikeClicked.delegate(on: self) { (self, _) in

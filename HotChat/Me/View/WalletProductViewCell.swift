@@ -7,23 +7,145 @@
 //
 
 import UIKit
+import MagazineLayout
 
-class WalletProductViewCell: UITableViewCell {
+class WalletProductViewCell: InsetGroupedCell {
     
+    let layout = MagazineLayout()
     
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var rechargeLabel: UILabel!
     
-    @IBOutlet weak var priceButton: UIButton!
+    @IBOutlet weak var serviceLabel: UILabel!
+    
+    let onSelectedIndexPath = Delegate<IndexPath, Void>()
+    
+    var products: [ItemProduct] = [] {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
+    
     override func awakeFromNib() {
+        collectionView.setCollectionViewLayout(layout, animated: false)
+        collectionView.register(UINib(nibName: "WalletProducItemCell", bundle: nil), forCellWithReuseIdentifier: "WalletProducItemCell")
+        
         super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
+}
+
+extension WalletProductViewCell: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        onSelectedIndexPath.call(indexPath)
+    }
+}
+
+extension WalletProductViewCell: UICollectionViewDataSource {
+    
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: WalletProducItemCell.self)
+        cell.item = products[indexPath.item]
+        return cell
+    }
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return products.count
+    }
+}
+
+
+// MARK: UICollectionViewDelegateMagazineLayout
+
+extension WalletProductViewCell: UICollectionViewDelegateMagazineLayout {
+
+ func collectionView(
+   _ collectionView: UICollectionView,
+   layout collectionViewLayout: UICollectionViewLayout,
+   sizeModeForItemAt indexPath: IndexPath)
+   -> MagazineLayoutItemSizeMode
+ {
+   return MagazineLayoutItemSizeMode(widthMode: .thirdWidth, heightMode: .static(height: 58))
+ }
+
+ func collectionView(
+   _ collectionView: UICollectionView,
+   layout collectionViewLayout: UICollectionViewLayout,
+   visibilityModeForHeaderInSectionAtIndex index: Int)
+   -> MagazineLayoutHeaderVisibilityMode
+ {
+   return .hidden
+ }
+
+ func collectionView(
+   _ collectionView: UICollectionView,
+   layout collectionViewLayout: UICollectionViewLayout,
+   visibilityModeForFooterInSectionAtIndex index: Int)
+   -> MagazineLayoutFooterVisibilityMode
+ {
+   return .hidden
+ }
+
+ func collectionView(
+   _ collectionView: UICollectionView,
+   layout collectionViewLayout: UICollectionViewLayout,
+   visibilityModeForBackgroundInSectionAtIndex index: Int)
+   -> MagazineLayoutBackgroundVisibilityMode
+ {
+   return .hidden
+ }
+
+ func collectionView(
+   _ collectionView: UICollectionView,
+   layout collectionViewLayout: UICollectionViewLayout,
+   horizontalSpacingForItemsInSectionAtIndex index: Int)
+   -> CGFloat
+ {
+   return 10
+ }
+
+ func collectionView(
+   _ collectionView: UICollectionView,
+   layout collectionViewLayout: UICollectionViewLayout,
+   verticalSpacingForElementsInSectionAtIndex index: Int)
+   -> CGFloat
+ {
+   return 15
+ }
+
+ func collectionView(
+   _ collectionView: UICollectionView,
+   layout collectionViewLayout: UICollectionViewLayout,
+   insetsForSectionAtIndex index: Int)
+   -> UIEdgeInsets
+ {
+    return UIEdgeInsets(top: 1, left: 1, bottom: 1, right: 1)
+ }
+
+ func collectionView(
+   _ collectionView: UICollectionView,
+   layout collectionViewLayout: UICollectionViewLayout,
+   insetsForItemsInSectionAtIndex index: Int)
+   -> UIEdgeInsets
+ {
+   return .zero
+ }
+
+ func collectionView(
+   _ collectionView: UICollectionView,
+   layout collectionViewLayout: UICollectionViewLayout,
+   finalLayoutAttributesForRemovedItemAt indexPath: IndexPath,
+   byModifying finalLayoutAttributes: UICollectionViewLayoutAttributes)
+ {
+   // Fade and drop out
+   finalLayoutAttributes.alpha = 0
+   finalLayoutAttributes.transform = .init(scaleX: 0.2, y: 0.2)
+ }
+
 }
