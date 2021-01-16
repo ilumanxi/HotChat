@@ -532,34 +532,23 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="V1N-me-lhO">
-                                <rect key="frame" x="122" y="778" width="170" height="60"/>
+                                <rect key="frame" x="107.5" y="763.5" width="199" height="74.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBH-YE-4u2">
-                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="OFb-BS-GTC"/>
-                                            <constraint firstAttribute="width" secondItem="cBH-YE-4u2" secondAttribute="height" multiplier="1:1" id="pwF-qn-0Ci"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="0.0" width="74.5" height="74.5"/>
                                         <state key="normal" image="chat-skip"/>
                                         <connections>
                                             <action selector="skipButtonTapped:" destination="kp4-zB-vdz" eventType="touchUpInside" id="jZw-PV-X40"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WVd-M9-VnV">
-                                        <rect key="frame" x="110" y="0.0" width="60" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="mK9-HM-85V"/>
-                                            <constraint firstAttribute="width" secondItem="WVd-M9-VnV" secondAttribute="height" multiplier="1:1" id="vfo-9z-yU7"/>
-                                        </constraints>
+                                        <rect key="frame" x="124.5" y="0.0" width="74.5" height="74.5"/>
                                         <state key="normal" image="chat-follow"/>
                                         <connections>
                                             <action selector="followButtonTapped:" destination="kp4-zB-vdz" eventType="touchUpInside" id="bgn-yL-XCq"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="WVd-M9-VnV" firstAttribute="width" secondItem="WVd-M9-VnV" secondAttribute="height" multiplier="1:1" id="Sji-xn-4T8"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uwl-Ha-Cw5"/>
