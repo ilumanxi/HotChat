@@ -30,8 +30,6 @@ target 'HotChat' do
     pod 'SwiftDate'
     pod 'SegementSlide'
     pod 'PKHUD'
-#    pod 'Aquaman'
-#    pod 'Trident'
     
     pod 'FSPagerView'
     pod 'ActiveLabel'

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2604D4E125B5752400A864C1 /* BannerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2604D4E025B5752400A864C1 /* BannerAPI.swift */; };
 		2605A4762513187900017241 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2605A4752513187900017241 /* UIImageExtensions.swift */; };
 		2607319B2536DD1B00B1093C /* ReportAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2607319A2536DD1B00B1093C /* ReportAPI.swift */; };
 		260A87782521932A00380FB4 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A87772521932A00380FB4 /* SettingViewController.swift */; };
@@ -370,6 +371,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2604D4E025B5752400A864C1 /* BannerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAPI.swift; sourceTree = "<group>"; };
 		2605A4752513187900017241 /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		2607319A2536DD1B00B1093C /* ReportAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAPI.swift; sourceTree = "<group>"; };
 		260A87772521932A00380FB4 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -1225,6 +1227,7 @@
 				2643EB462500AD7E00FBBE49 /* LaunchScreen.storyboard */,
 				26B4E0582564EB34004EDCFE /* Upgrade.swift */,
 				26B4E05A2564ECBB004EDCFE /* UpgradeAPI.swift */,
+				2604D4E025B5752400A864C1 /* BannerAPI.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -2099,6 +2102,7 @@
 				263A66C6257E347D00F35714 /* CheckIn.swift in Sources */,
 				2668B0A92523432A0073E25D /* WalletProductViewCell.swift in Sources */,
 				26CB6D4225515D6B00A9F4DD /* BDFaceBaseViewController.m in Sources */,
+				2604D4E125B5752400A864C1 /* BannerAPI.swift in Sources */,
 				267B98722505E1AC0008C81B /* WeChat.swift in Sources */,
 				26377FBE25303D2200D5A03D /* ConversationActionViewController.swift in Sources */,
 				269DED1B254AAC4D000AD5D9 /* GiftViewController.m in Sources */,

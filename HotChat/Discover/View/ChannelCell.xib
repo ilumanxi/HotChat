@@ -17,20 +17,20 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W2e-N5-Jkh">
-                        <rect key="frame" x="20" y="15" width="74" height="74"/>
+                        <rect key="frame" x="20" y="18" width="68" height="68"/>
                         <color key="backgroundColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="74" id="4gO-mJ-Mhu"/>
+                            <constraint firstAttribute="width" constant="68" id="4gO-mJ-Mhu"/>
                             <constraint firstAttribute="width" secondItem="W2e-N5-Jkh" secondAttribute="height" multiplier="1:1" id="PVd-HV-QAb"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="37"/>
+                                <real key="value" value="34"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="CFk-id-l6J">
-                        <rect key="frame" x="104" y="22.5" width="62" height="59.5"/>
+                        <rect key="frame" x="98" y="22.5" width="62" height="59.5"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="LdT-v8-ie7">
                                 <rect key="frame" x="0.0" y="0.0" width="62" height="17"/>

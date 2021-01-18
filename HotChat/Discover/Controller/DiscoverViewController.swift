@@ -11,6 +11,15 @@ import SegementSlide
 import RxSwift
 import RxCocoa
 import SnapKit
+import Aquaman
+import Trident
+import FSPagerView
+
+extension TridentMenuView {
+    public override var intrinsicContentSize: CGSize {
+        return UIView.layoutFittingExpandedSize
+    }
+}
 
 extension TimeInterval {
     
@@ -31,7 +40,55 @@ extension TimeInterval {
 }
 
 
-class DiscoverViewController: SegementSlideDefaultViewController, LoadingStateType, IndicatorDisplay {
+class DiscoverViewController: AquamanPageViewController, LoadingStateType, IndicatorDisplay {
+    
+    
+    lazy var menuView: TridentMenuView = {
+        let view = TridentMenuView(parts:
+            .normalTextColor(UIColor(hexString: "#666666")),
+            .selectedTextColor(UIColor(hexString: "#1B1B1B")),
+            .normalTextFont(UIFont.systemFont(ofSize: 14.0, weight: .medium)),
+            .selectedTextFont(UIFont.systemFont(ofSize: 19.0, weight: .bold)),
+            .switchStyle(.line),
+            .sliderStyle(
+                SliderViewStyle(parts:
+                    .backgroundColor(.theme),
+                    .height(2.5),
+                    .cornerRadius(1.5),
+                    .position(.bottom),
+//                    .extraWidth(indexPath.row == 0 ? -10.0 : 4.0),
+                    .shape(.line)
+                )
+            ),
+            .bottomLineStyle(
+                BottomLineViewStyle(parts:
+                    .hidden(true)
+                )
+            )
+        )
+        view.backgroundColor = .white
+        view.delegate = self
+        return view
+    }()
+    
+    
+    lazy var bannerView: FSPagerView = {
+        let bannerView =  FSPagerView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: headerViewHeight))
+        bannerView.bounces = false
+        bannerView.delegate = self
+        bannerView.dataSource = self
+//        bannerView.itemSize = FSPagerViewAutomaticSize // Fill parent
+        bannerView.itemSize = bannerView.frame.insetBy(dx: 24, dy: 20).size
+        bannerView.interitemSpacing = 24
+        bannerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "FSPagerViewCell")
+        return bannerView
+    }()
+    
+    var headerViewHeight: CGFloat {
+        
+        return (view.bounds.width / (2 / 0.75)).rounded(.down)
+    }
+    private var menuViewHeight: CGFloat = 54.0
     
     
     var state: LoadingState = .initial {
@@ -44,17 +101,24 @@ class DiscoverViewController: SegementSlideDefaultViewController, LoadingStateTy
     
     let discoverAPI = Request<DiscoverAPI>()
     let chatGreetAPI = Request<ChatGreetAPI>()
+    let bannerAPI = Request<BannerAPI>()
     
     var channels: [Channel] = [] {
         didSet {
-            defaultSelectedIndex = 0
+            menuView.titles = channels.compactMap{ $0.tagName }
             reloadData()
-            selectItem(at: 0, animated: false)
         }
     }
     
-    let cache = NSCache<NSString, UIViewController>()
+    var banners: [Banner] = [] {
+        didSet {
+            bannerView.reloadData()
+            reloadData()
+        }
+    }
     
+    
+
     private var sayHellowSeconds: TimeInterval = 0
     
     private var countdownTimer: Timer?
@@ -90,7 +154,10 @@ class DiscoverViewController: SegementSlideDefaultViewController, LoadingStateTy
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.edgesForExtendedLayout = .all
+        
+        menuView.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        navigationItem.titleView = menuView
+        
         state = .loadingContent
         requestData()
     }
@@ -229,6 +296,13 @@ class DiscoverViewController: SegementSlideDefaultViewController, LoadingStateTy
                 self?.state = .error
             })
             .disposed(by: rx.disposeBag)
+        
+        bannerAPI.request(.bannerList(type: 1), type: Response<[Banner]>.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { [weak self] response in
+                self?.banners = response.data ?? []
+            }, onError: nil)
+            .disposed(by: rx.disposeBag)
     }
     
     func loadData() -> Single<Response<[Channel]>> {
@@ -240,12 +314,13 @@ class DiscoverViewController: SegementSlideDefaultViewController, LoadingStateTy
         requestData()
     }
 
+    let cache = NSCache<NSString, UIViewController>()
     
-    func viewController(at index: Int) -> SegementSlideContentScrollViewDelegate {
+    func viewController(at index: Int) -> UIViewController {
         
         let channel  = channels[index]
         
-        guard let controller = cache.object(forKey: channel.labelId.description as NSString) as? SegementSlideContentScrollViewDelegate else {
+        guard let controller = cache.object(forKey: channel.labelId.description as NSString)  else {
             let vc = ChannelViewController.loadFromStoryboard()
             vc.channel = channel
             cache.setObject(vc, forKey: channel.labelId.description as NSString)
@@ -255,21 +330,103 @@ class DiscoverViewController: SegementSlideDefaultViewController, LoadingStateTy
         return controller
     }
     
-    override var bouncesType: BouncesType {
-        return .child
+    override func headerViewFor(_ pageController: AquamanPageViewController) -> UIView {
+        return bannerView
     }
     
+    override func headerViewHeightFor(_ pageController: AquamanPageViewController) -> CGFloat {
+        return headerViewHeight
+    }
+    
+    override func numberOfViewControllers(in pageController: AquamanPageViewController) -> Int {
+        return channels.count
+    }
+    
+    override func pageController(_ pageController: AquamanPageViewController, viewControllerAt index: Int) -> (UIViewController & AquamanChildViewController) {
+        
+        return viewController(at: index) as! AquamanChildViewController
+    }
+    
+    // 默认显示的 ViewController 的 index
+    override func originIndexFor(_ pageController: AquamanPageViewController) -> Int {
+       return 0
+    }
+    
+    override func menuViewFor(_ pageController: AquamanPageViewController) -> UIView {
+        return UIView()
+    }
+    
+    override func menuViewHeightFor(_ pageController: AquamanPageViewController) -> CGFloat {
+        return 0
+    }
+    
+    override func menuViewPinHeightFor(_ pageController: AquamanPageViewController) -> CGFloat {
+        return 0.0
+    }
 
-    override func segementSlideHeaderView() -> UIView? {
-        return nil
+    
+    override func pageController(_ pageController: AquamanPageViewController, mainScrollViewDidScroll scrollView: UIScrollView) {
+        
     }
     
-    override var titlesInSwitcher: [String] {
-        return channels.compactMap{ $0.tagName }
+    override func pageController(_ pageController: AquamanPageViewController, contentScrollViewDidScroll scrollView: UIScrollView) {
+        menuView.updateLayout(scrollView)
     }
     
-    override func segementSlideContentViewController(at index: Int) -> SegementSlideContentScrollViewDelegate? {
-        return viewController(at: index)
+    override func pageController(_ pageController: AquamanPageViewController,
+                                 contentScrollViewDidEndScroll scrollView: UIScrollView) {
+        
     }
+    
+    override func pageController(_ pageController: AquamanPageViewController, menuView isAdsorption: Bool) {
 
+    }
+    
+    
+    override func pageController(_ pageController: AquamanPageViewController, willDisplay viewController: (UIViewController & AquamanChildViewController), forItemAt index: Int) {
+    }
+    
+    override func pageController(_ pageController: AquamanPageViewController, didDisplay viewController: (UIViewController & AquamanChildViewController), forItemAt index: Int) {
+        menuView.checkState(animation: true)
+    }
+    
+    override func contentInsetFor(_ pageController: AquamanPageViewController) -> UIEdgeInsets {
+        return .zero
+    }
+    
+}
+
+extension DiscoverViewController: TridentMenuViewDelegate {
+    func menuView(_ menuView: TridentMenuView, didSelectedItemAt index: Int) {
+        guard index < channels.count else {
+            return
+        }
+        setSelect(index: index, animation: false)
+    }
+}
+
+
+extension DiscoverViewController: FSPagerViewDataSource, FSPagerViewDelegate {
+    
+    
+    func numberOfItems(in pagerView: FSPagerView) -> Int {
+        return banners.count
+    }
+    
+    func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
+        let model = banners[index]
+        
+        let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "FSPagerViewCell", at: index)
+        cell.imageView?.kf.setImage(with: URL(string: model.img))
+        return cell
+    }
+    
+    func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
+        
+        let model = banners[index]
+        let url = URL(string: model.url)
+        let vc = WebViewController(url: url)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }

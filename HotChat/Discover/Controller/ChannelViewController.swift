@@ -7,13 +7,13 @@
 //
 
 import UIKit
-import SegementSlide
+import Aquaman
 import RxSwift
 import RxCocoa
 import MJRefresh
 import Kingfisher
 
-class ChannelViewController: UIViewController, LoadingStateType, IndicatorDisplay, SegementSlideContentScrollViewDelegate, StoryboardCreate {
+class ChannelViewController: UIViewController, LoadingStateType, IndicatorDisplay, AquamanChildViewController, StoryboardCreate {
     
     var state: LoadingState = .initial {
         didSet {
@@ -40,8 +40,7 @@ class ChannelViewController: UIViewController, LoadingStateType, IndicatorDispla
     
     @IBOutlet weak var tableView: UITableView!
     
-    
-    @objc var scrollView: UIScrollView {
+    func aquamanChildScrollView() -> UIScrollView {
         return tableView
     }
     
