@@ -29,7 +29,7 @@ extension Constant {
     struct TPNS {
         
         static var accessID: UInt32 = 1600016588
-        static var accessKey = "I72KQO6K5I84"
+        static var accessKey = "I72KQO6K5I84" 
     }
     
 }

@@ -153,15 +153,7 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay, St
     
     private var basicInformation: BasicInformation {
         
-        let date = Date(timeIntervalSince1970: user.birthday)
-        let entry = BasicInformation(
-            name: user.nick,
-            sex: user.sex ,
-            dateOfBirth: date,
-            follow: 6,
-            isCertification: true,
-            ID: user.userId.description)
-        
+        let entry = BasicInformation(user: user)
         return entry
     }
     

@@ -456,26 +456,10 @@ class Information: FormEntry {
 
 class BasicInformation: FormEntry {
 
-    var name: String
-    let sex: Sex
-    var dateOfBirth: Date
-    let follow: Int
-    let isCertification: Bool
-    let ID: String
+    let user: User
     
-    var age: Int {
-        let calendar = Calendar.current
-        let dateComponents = calendar.dateComponents([.year], from: dateOfBirth, to: Date())
-        return dateComponents.year!
-    }
-    
-    init(name: String, sex: Sex, dateOfBirth: Date, follow: Int, isCertification: Bool, ID: String) {
-        self.name = name
-        self.sex = sex
-        self.dateOfBirth = dateOfBirth
-        self.follow = follow
-        self.isCertification  = isCertification
-        self.ID = ID
+    init(user: User) {
+        self.user = user
     }
     
     func cell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
@@ -487,11 +471,10 @@ class BasicInformation: FormEntry {
     }
     
     private func render(_ cell: UserInfoBasicInformationCell) {
-        cell.nameLabel.text = name
-        cell.certificationView.backgroundColor = isCertification ? .red : .borderGray
-        cell.sexImageView.image = sex.image
-        cell.ageLabel.text = age.description
-        cell.followLabel.text = follow.description
+        cell.nameLabel.text = user.nick
+        cell.certificationView.isHidden = user.realNameStatus != .ok
+        cell.sexView.setSex(user)
+        cell.followLabel.text = user.userFollowNum.description
     }
     
 }

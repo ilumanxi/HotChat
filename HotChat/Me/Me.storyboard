@@ -1061,7 +1061,7 @@
                                             <rect key="frame" x="20" y="8" width="355" height="43"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Bsz-2T-KYX">
-                                                    <rect key="frame" x="0.0" y="0.0" width="156" height="19.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="118" height="19.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="风起兮" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMc-gy-tyP">
                                                             <rect key="frame" x="0.0" y="0.0" width="49" height="19.5"/>
@@ -1070,13 +1070,13 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Z2A-al-BgY">
-                                                            <rect key="frame" x="55" y="2.5" width="101" height="15"/>
+                                                            <rect key="frame" x="55" y="2.5" width="63" height="15"/>
                                                             <subviews>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nAd-8e-8ty" userLabel="Certification View">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="31" height="15"/>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nAd-8e-8ty" userLabel="Certification View" customClass="GradientView" customModule="HotChat" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="1.5" width="28" height="12"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="认证" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="mYP-5o-g0z">
-                                                                            <rect key="frame" x="6.5" y="2" width="18.5" height="11"/>
+                                                                            <rect key="frame" x="5" y="0.5" width="18.5" height="11"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
@@ -1084,54 +1084,30 @@
                                                                     </subviews>
                                                                     <color key="backgroundColor" red="0.57254901960000004" green="0.82352941180000006" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="15" id="4rd-JS-jdY"/>
+                                                                        <constraint firstAttribute="height" constant="12" id="4rd-JS-jdY"/>
                                                                         <constraint firstItem="mYP-5o-g0z" firstAttribute="centerX" secondItem="nAd-8e-8ty" secondAttribute="centerX" id="ZfI-W4-i1M"/>
                                                                         <constraint firstItem="mYP-5o-g0z" firstAttribute="centerY" secondItem="nAd-8e-8ty" secondAttribute="centerY" id="cWp-Oj-FNG"/>
-                                                                        <constraint firstAttribute="width" constant="31" id="stN-Nl-meJ"/>
+                                                                        <constraint firstAttribute="width" constant="28" id="stN-Nl-meJ"/>
                                                                     </constraints>
                                                                     <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                            <real key="value" value="7.5"/>
+                                                                        <userDefinedRuntimeAttribute type="string" keyPath="colorsString" value="#D66AFA,#8415E2"/>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                            <real key="value" value="6"/>
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </view>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A1d-3f-f0Y" userLabel="Sex View">
-                                                                    <rect key="frame" x="35" y="0.0" width="31" height="15"/>
-                                                                    <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="me-sex-man" translatesAutoresizingMaskIntoConstraints="NO" id="BWA-0Q-zLF">
-                                                                            <rect key="frame" x="5" y="4" width="6.5" height="7"/>
-                                                                        </imageView>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="26" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Snr-Rn-ZOl">
-                                                                            <rect key="frame" x="14.5" y="2" width="11.5" height="11"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                    </subviews>
-                                                                    <color key="backgroundColor" red="0.57254901960000004" green="0.82352941180000006" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" constant="31" id="142-Gb-QCw"/>
-                                                                        <constraint firstItem="BWA-0Q-zLF" firstAttribute="leading" secondItem="A1d-3f-f0Y" secondAttribute="leading" constant="5" id="1xf-8z-5u8"/>
-                                                                        <constraint firstItem="Snr-Rn-ZOl" firstAttribute="centerY" secondItem="A1d-3f-f0Y" secondAttribute="centerY" id="FKp-6G-rgz"/>
-                                                                        <constraint firstItem="Snr-Rn-ZOl" firstAttribute="leading" secondItem="BWA-0Q-zLF" secondAttribute="trailing" constant="3" id="LyB-yT-4ub"/>
-                                                                        <constraint firstItem="BWA-0Q-zLF" firstAttribute="centerY" secondItem="A1d-3f-f0Y" secondAttribute="centerY" id="MXO-cD-fPK"/>
-                                                                        <constraint firstAttribute="trailing" secondItem="Snr-Rn-ZOl" secondAttribute="trailing" constant="5" id="QeD-im-q72"/>
-                                                                        <constraint firstAttribute="height" constant="15" id="ypM-nw-zvb"/>
-                                                                    </constraints>
-                                                                    <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                            <real key="value" value="7.5"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                    </userDefinedRuntimeAttributes>
+                                                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="31" placeholderIntrinsicHeight="15" translatesAutoresizingMaskIntoConstraints="NO" id="3FA-eL-Sx1" customClass="LabelView" customModule="HotChat" customModuleProvider="target">
+                                                                    <rect key="frame" x="32" y="0.0" width="31" height="15"/>
+                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 </view>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZK7-bl-Xml" userLabel="Attention View">
-                                                                    <rect key="frame" x="70" y="0.0" width="31" height="15"/>
+                                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZK7-bl-Xml" userLabel="Attention View">
+                                                                    <rect key="frame" x="63" y="1.5" width="28" height="12"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="me-attention" translatesAutoresizingMaskIntoConstraints="NO" id="YAk-U7-clw">
-                                                                            <rect key="frame" x="5" y="4" width="7" height="7"/>
+                                                                            <rect key="frame" x="5" y="2.5" width="7" height="7"/>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="2hI-0c-dGl">
-                                                                            <rect key="frame" x="15" y="2" width="11" height="11"/>
+                                                                            <rect key="frame" x="15" y="0.5" width="8" height="11"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
@@ -1142,14 +1118,14 @@
                                                                         <constraint firstAttribute="trailing" secondItem="2hI-0c-dGl" secondAttribute="trailing" constant="5" id="Arv-WR-t2B"/>
                                                                         <constraint firstItem="YAk-U7-clw" firstAttribute="centerY" secondItem="ZK7-bl-Xml" secondAttribute="centerY" id="D8w-3N-Ma4"/>
                                                                         <constraint firstItem="2hI-0c-dGl" firstAttribute="centerY" secondItem="ZK7-bl-Xml" secondAttribute="centerY" id="TP2-qx-GnS"/>
-                                                                        <constraint firstAttribute="height" constant="15" id="a8T-i2-48W"/>
+                                                                        <constraint firstAttribute="height" constant="12" id="a8T-i2-48W"/>
                                                                         <constraint firstItem="YAk-U7-clw" firstAttribute="leading" secondItem="ZK7-bl-Xml" secondAttribute="leading" constant="5" id="bJr-dw-Bh7"/>
                                                                         <constraint firstItem="2hI-0c-dGl" firstAttribute="leading" secondItem="YAk-U7-clw" secondAttribute="trailing" constant="3" id="cQC-Ne-i55"/>
-                                                                        <constraint firstAttribute="width" constant="31" id="uTt-Jr-Kxa"/>
+                                                                        <constraint firstAttribute="width" constant="28" id="uTt-Jr-Kxa"/>
                                                                     </constraints>
                                                                     <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                            <real key="value" value="7.5"/>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                            <real key="value" value="6"/>
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </view>
@@ -1174,11 +1150,10 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="ageLabel" destination="Snr-Rn-ZOl" id="mrI-xN-TI5"/>
                                     <outlet property="certificationView" destination="nAd-8e-8ty" id="00v-TM-xHB"/>
                                     <outlet property="followLabel" destination="2hI-0c-dGl" id="y8F-OW-yir"/>
                                     <outlet property="nameLabel" destination="eMc-gy-tyP" id="RS4-GJ-wP0"/>
-                                    <outlet property="sexImageView" destination="BWA-0Q-zLF" id="KB3-bO-vPs"/>
+                                    <outlet property="sexView" destination="3FA-eL-Sx1" id="01w-Co-6bz"/>
                                     <segue destination="3Uv-mh-RQa" kind="show" id="N7P-Kl-4Kr"/>
                                 </connections>
                             </tableViewCell>
@@ -1948,7 +1923,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="1JQ-xp-DcX">
-                                                            <rect key="frame" x="0.0" y="38.5" width="77" height="16"/>
+                                                            <rect key="frame" x="0.0" y="38.5" width="32" height="16"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="32" placeholderIntrinsicHeight="16" translatesAutoresizingMaskIntoConstraints="NO" id="443-pL-rNJ" customClass="LabelView" customModule="HotChat" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="32" height="16"/>
@@ -1961,8 +1936,8 @@
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </view>
-                                                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="32" placeholderIntrinsicHeight="16" translatesAutoresizingMaskIntoConstraints="NO" id="Sb4-TW-dif" customClass="LabelView" customModule="HotChat" customModuleProvider="target">
-                                                                    <rect key="frame" x="45" y="0.0" width="32" height="16"/>
+                                                                <view hidden="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="32" placeholderIntrinsicHeight="16" translatesAutoresizingMaskIntoConstraints="NO" id="Sb4-TW-dif" customClass="LabelView" customModule="HotChat" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="16"/>
                                                                     <color key="backgroundColor" red="0.40405184030000002" green="0.80718392130000005" blue="0.86648201940000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="image" keyPath="image" value="me-attention"/>

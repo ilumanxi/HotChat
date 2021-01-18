@@ -15,9 +15,7 @@ class UserInfoBasicInformationCell: UITableViewCell {
     
     @IBOutlet weak var certificationView: UIView!
     
-    @IBOutlet weak var sexImageView: UIImageView!
-    
-    @IBOutlet weak var ageLabel: UILabel!
+    @IBOutlet weak var sexView: LabelView!
     
     @IBOutlet weak var followLabel: UILabel!
     

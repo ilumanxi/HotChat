@@ -14,11 +14,6 @@ class ChatNotificationSettingCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        settingView.layer.shadowOpacity = 1
-        settingView.layer.shadowColor = UIColor.black.withAlphaComponent(0.1).cgColor
-        settingView.layer.shadowOffset = CGSize(width: -4, height: 2)
-        settingView.layer.shadowRadius = 4
-        settingView.layer.cornerRadius = 8
     }
     
 }

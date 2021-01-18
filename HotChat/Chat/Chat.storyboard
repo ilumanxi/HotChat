@@ -392,19 +392,19 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="112"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cB7-6a-BRN">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cB7-6a-BRN" customClass="GradientView" customModule="HotChat" customModuleProvider="target">
                                                     <rect key="frame" x="20" y="12" width="374" height="88"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Y5-W1-BeU">
                                                             <rect key="frame" x="265" y="30" width="75" height="28"/>
-                                                            <color key="backgroundColor" red="0.31764705882352939" green="0.34901960784313724" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="28" id="4M2-c1-npw"/>
                                                                 <constraint firstAttribute="width" constant="75" id="cxG-Dc-HJG"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <state key="normal" title="去开启">
-                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="titleColor" red="0.31764705882352939" green="0.34901960784313724" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                                                             </state>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -417,7 +417,8 @@
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7bo-nv-6Ps">
                                                             <rect key="frame" x="352" y="33" width="12" height="22"/>
-                                                            <state key="normal" image="common-close"/>
+                                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <state key="normal" image="close-white-small"/>
                                                             <connections>
                                                                 <action selector="closeButtonTapped:" destination="csS-6k-fQY" eventType="touchUpInside" id="TD8-0p-seL"/>
                                                             </connections>
@@ -428,19 +429,19 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="打开推送，接收重要消息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ws-li-y1A">
                                                                     <rect key="frame" x="0.0" y="0.0" width="157.5" height="17"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="交友率成功率提高10倍" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtV-AC-gSD">
                                                                     <rect key="frame" x="0.0" y="27" width="103.5" height="12"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" red="0.043137254901960784" green="0.71764705882352942" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="v7a-zw-BwF" firstAttribute="leading" secondItem="cB7-6a-BRN" secondAttribute="leading" constant="20" id="4mU-XM-pmh"/>
                                                         <constraint firstItem="v7a-zw-BwF" firstAttribute="centerY" secondItem="cB7-6a-BRN" secondAttribute="centerY" id="8NZ-DH-KQU"/>
@@ -449,6 +450,12 @@
                                                         <constraint firstItem="7bo-nv-6Ps" firstAttribute="leading" secondItem="0Y5-W1-BeU" secondAttribute="trailing" constant="12" id="bCf-5I-e7k"/>
                                                         <constraint firstAttribute="trailing" secondItem="7bo-nv-6Ps" secondAttribute="trailing" constant="10" id="eYp-Vs-vln"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="colorsString" value="#0BB7DC,#5159F8"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -580,7 +587,7 @@
         <image name="chat-interested" width="50" height="50"/>
         <image name="chat-more" width="3.5" height="16.5"/>
         <image name="chat-skip" width="74.5" height="74.5"/>
-        <image name="common-close" width="12" height="12"/>
+        <image name="close-white-small" width="12" height="12"/>
         <image name="me-attention" width="7" height="7"/>
         <image name="me-sex-man" width="7" height="7"/>
         <image name="tabbar-message-normal" width="21" height="21"/>

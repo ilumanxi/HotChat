@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,7 +17,7 @@
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hbm-Hz-7sa">
                     <rect key="frame" x="20" y="0.0" width="374" height="48"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gbo-kE-z1z">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gbo-kE-z1z" customClass="GradientButton" customModule="HotChat" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
                             <color key="backgroundColor" red="0.32156862745098036" green="0.3529411764705882" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
@@ -30,12 +30,13 @@
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                     <real key="value" value="24"/>
                                 </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="string" keyPath="colorsString" value="#0BB7DC,#5159F8"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="chatButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="7Cm-NY-KxK"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zyP-Ll-ZhF">
+                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zyP-Ll-ZhF" customClass="GradientButton" customModule="HotChat" customModuleProvider="target">
                             <rect key="frame" x="68" y="0.0" width="143" height="48"/>
                             <color key="backgroundColor" red="1" green="0.37647058823529411" blue="0.56470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
@@ -45,12 +46,13 @@
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                     <real key="value" value="24"/>
                                 </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="string" keyPath="colorsString" value="#FB8557,#FC542C"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="videoButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="mgE-6d-3eC"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C1J-dW-rpH">
+                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C1J-dW-rpH" customClass="GradientButton" customModule="HotChat" customModuleProvider="target">
                             <rect key="frame" x="231" y="0.0" width="143" height="48"/>
                             <color key="backgroundColor" red="0.98039215686274506" green="0.69019607843137254" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
@@ -60,6 +62,7 @@
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                     <real key="value" value="24"/>
                                 </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="string" keyPath="colorsString" value="#F8CC1E,#F78B17"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="audioButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="QBl-FY-NOt"/>
@@ -70,7 +73,7 @@
                         <constraint firstItem="C1J-dW-rpH" firstAttribute="width" secondItem="zyP-Ll-ZhF" secondAttribute="width" id="Ffm-2W-eeq"/>
                     </constraints>
                 </stackView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ne4-fn-JhL">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ne4-fn-JhL" customClass="GradientButton" customModule="HotChat" customModuleProvider="target">
                     <rect key="frame" x="98" y="0.0" width="218" height="48"/>
                     <color key="backgroundColor" red="1" green="0.37647058823529411" blue="0.5607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -83,6 +86,7 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                             <real key="value" value="24"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="string" keyPath="colorsString" value="#FF608F,#BF51F8"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="sayHelloButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="2XU-91-XEG"/>
