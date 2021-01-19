@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SegementSlide
+import Aquaman
 
 extension Sex {
     
@@ -23,7 +23,7 @@ extension Sex {
     
 }
 
-class InformationViewController: UITableViewController, SegementSlideContentScrollViewDelegate, StoryboardCreate {
+class InformationViewController: UITableViewController, AquamanChildViewController, StoryboardCreate {
     
     
     var user: User! {
@@ -34,7 +34,7 @@ class InformationViewController: UITableViewController, SegementSlideContentScro
     
     static var storyboardNamed: String { return "Me" }
     
-    var scrollView: UIScrollView {
+    func aquamanChildScrollView() -> UIScrollView {
         return tableView
     }
     
@@ -91,7 +91,7 @@ class InformationViewController: UITableViewController, SegementSlideContentScro
     override func viewDidLoad() {
         super.viewDidLoad()
         refreshData()
-
+        tableView.allowsSelection = false
         tableView.register(UserInfoEditingHeaderView.self, forHeaderFooterViewReuseIdentifier: "UserInfoEditingHeaderView")
     }
     

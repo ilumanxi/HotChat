@@ -12,9 +12,9 @@ import SPAlertController
 import MJRefresh
 import RxSwift
 import RxCocoa
-import SegementSlide
+import Aquaman
 
-class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableViewDataSource, UITableViewDelegate, SegementSlideContentScrollViewDelegate, StoryboardCreate {
+class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableViewDataSource, UITableViewDelegate, AquamanChildViewController, StoryboardCreate {
 
     
     static var storyboardNamed: String { return "Community" }
@@ -36,8 +36,8 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
             }
         }
     }
-    
-    @objc var scrollView: UIScrollView {
+        
+    func aquamanChildScrollView() -> UIScrollView {
         return tableView
     }
     

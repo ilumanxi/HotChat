@@ -42,6 +42,18 @@ extension TimeInterval {
 
 class DiscoverViewController: AquamanPageViewController, LoadingStateType, IndicatorDisplay {
     
+    lazy var bannerView: FSPagerView = {
+        let bannerView =  FSPagerView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: headerViewHeight))
+        bannerView.bounces = false
+        bannerView.delegate = self
+        bannerView.dataSource = self
+//        bannerView.itemSize = FSPagerViewAutomaticSize // Fill parent
+        bannerView.itemSize = bannerView.frame.insetBy(dx: 24, dy: 20).size
+        bannerView.interitemSpacing = 24
+        bannerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "FSPagerViewCell")
+        return bannerView
+    }()
+    
     
     lazy var menuView: TridentMenuView = {
         let view = TridentMenuView(parts:
@@ -66,23 +78,12 @@ class DiscoverViewController: AquamanPageViewController, LoadingStateType, Indic
                 )
             )
         )
+        view.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         view.backgroundColor = .white
         view.delegate = self
         return view
     }()
     
-    
-    lazy var bannerView: FSPagerView = {
-        let bannerView =  FSPagerView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: headerViewHeight))
-        bannerView.bounces = false
-        bannerView.delegate = self
-        bannerView.dataSource = self
-//        bannerView.itemSize = FSPagerViewAutomaticSize // Fill parent
-        bannerView.itemSize = bannerView.frame.insetBy(dx: 24, dy: 20).size
-        bannerView.interitemSpacing = 24
-        bannerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "FSPagerViewCell")
-        return bannerView
-    }()
     
     var headerViewHeight: CGFloat {
         
@@ -155,7 +156,6 @@ class DiscoverViewController: AquamanPageViewController, LoadingStateType, Indic
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        menuView.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         navigationItem.titleView = menuView
         
         state = .loadingContent

@@ -101,7 +101,7 @@
                         </stackView>
                     </subviews>
                 </stackView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cu5-qF-Xoe">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cu5-qF-Xoe" customClass="GradientButton" customModule="HotChat" customModuleProvider="target">
                     <rect key="frame" x="30" y="806" width="354" height="50"/>
                     <color key="backgroundColor" red="0.31764705882352939" green="0.34901960784313724" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -113,6 +113,7 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                             <real key="value" value="25"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="string" keyPath="colorsString" value="#0BB7DC,#5159F8"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="submitButtonDidTap:" destination="-1" eventType="touchUpInside" id="gaL-Kx-vR3"/>

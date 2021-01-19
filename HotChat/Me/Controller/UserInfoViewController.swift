@@ -7,14 +7,51 @@
 //
 
 import UIKit
-import SegementSlide
+import Aquaman
+import Trident
 import HBDNavigationBar
 import RxCocoa
 import RxSwift
 import NSObject_Rx
 import SnapKit
 
-class UserInfoViewController: SegementSlideDefaultViewController, LoadingStateType, IndicatorDisplay {
+class UserInfoViewController: AquamanPageViewController, LoadingStateType, IndicatorDisplay {
+    
+    lazy var menuView: TridentMenuView = {
+        let view = TridentMenuView(parts:
+            .normalTextColor(UIColor(hexString: "#666666")),
+            .selectedTextColor(UIColor(hexString: "#1B1B1B")),
+            .normalTextFont(UIFont.systemFont(ofSize: 14.0, weight: .medium)),
+            .selectedTextFont(UIFont.systemFont(ofSize: 19.0, weight: .bold)),
+            .switchStyle(.line),
+            .sliderStyle(
+                SliderViewStyle(parts:
+                    .backgroundColor(.theme),
+                    .height(2.5),
+                    .cornerRadius(1.5),
+                    .position(.bottom),
+//                    .extraWidth(indexPath.row == 0 ? -10.0 : 4.0),
+                    .shape(.line)
+                )
+            ),
+            .bottomLineStyle(
+                BottomLineViewStyle(parts:
+                    .hidden(true)
+                )
+            )
+        )
+        view.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        view.backgroundColor = .white
+        view.delegate = self
+        return view
+    }()
+    
+    
+    var headerViewHeight: CGFloat {
+        
+        return 110.0 + view.bounds.width
+    }
+    private var menuViewHeight: CGFloat = 54.0
     
     var state: LoadingState = .initial {
         didSet {
@@ -30,17 +67,13 @@ class UserInfoViewController: SegementSlideDefaultViewController, LoadingStateTy
             userInfoHeaderView.user = user
         }
     }
-
-    override var bouncesType: BouncesType {
-        return .child
-    }
     
     override var backBarButtonImage: UIImage? {
         
         return UIImage(named: "circle-back-white")
     }
     
-    lazy var viewControllers: [UIViewController & SegementSlideContentScrollViewDelegate] =  {
+    lazy var viewControllers: [UIViewController] =  {
         let information = InformationViewController.loadFromStoryboard()
         information.title = "资料"
         information.user = user
@@ -56,9 +89,7 @@ class UserInfoViewController: SegementSlideDefaultViewController, LoadingStateTy
     }()
     
     
-    override var titlesInSwitcher: [String] {
-        return viewControllers.compactMap{ $0.title }
-    }
+
     
     
     private lazy var userInfoHeaderView: UserInfoHeaderView = {
@@ -82,27 +113,17 @@ class UserInfoViewController: SegementSlideDefaultViewController, LoadingStateTy
         return headerView
     }()
     
-    override func segementSlideHeaderView() -> UIView {
-       
-        return userInfoHeaderView
-    }
-    
-    override func segementSlideContentViewController(at index: Int) -> SegementSlideContentScrollViewDelegate? {
-        
-        return viewControllers[index]
-    }
-    
     let userAPI = Request<UserAPI>()
     
     let dynamicAPI = Request<DynamicAPI>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        edgesForExtendedLayout = .all
-        defaultSelectedIndex = 0
-        updateNavigationBarStyle(scrollView)
+//        edgesForExtendedLayout = .all
+//        defaultSelectedIndex = 0
+        updateNavigationBarStyle(mainScrollView)
         navigationItem.title = user.nick
-        
+        menuView.titles = viewControllers.compactMap{ $0.title }
         if user.userId != LoginManager.shared.user!.userId {
             setupChatView()
         }
@@ -216,17 +237,10 @@ class UserInfoViewController: SegementSlideDefaultViewController, LoadingStateTy
         }
     }
     
-    override func scrollViewDidScroll(_ scrollView: UIScrollView, isParent: Bool) {
-        super.scrollViewDidScroll(scrollView, isParent: isParent)
-        guard isParent else {
-            return
-        }
-        updateNavigationBarStyle(scrollView)
-    }
     
     private func updateNavigationBarStyle(_ scrollView: UIScrollView) {
        
-        var alpha = max(min(scrollView.contentOffset.y / headerStickyHeight, 1), 0)
+        var alpha = max(min(scrollView.contentOffset.y / headerViewHeight, 1), 0)
         
         if alpha.isNaN {
             alpha = 0
@@ -261,5 +275,83 @@ class UserInfoViewController: SegementSlideDefaultViewController, LoadingStateTy
         hbd_setNeedsUpdateNavigationBar()
     }
     
+    override func headerViewFor(_ pageController: AquamanPageViewController) -> UIView {
+        return userInfoHeaderView
+    }
+    
+    override func headerViewHeightFor(_ pageController: AquamanPageViewController) -> CGFloat {
+        return headerViewHeight
+    }
+    
+    override func numberOfViewControllers(in pageController: AquamanPageViewController) -> Int {
+        return viewControllers.count
+    }
+    
+    override func pageController(_ pageController: AquamanPageViewController, viewControllerAt index: Int) -> (UIViewController & AquamanChildViewController) {
+        
+        return viewControllers[index] as! AquamanChildViewController
+    }
+    
+    // 默认显示的 ViewController 的 index
+    override func originIndexFor(_ pageController: AquamanPageViewController) -> Int {
+       return 0
+    }
+    
+    override func menuViewFor(_ pageController: AquamanPageViewController) -> UIView {
+        return menuView
+    }
+    
+    override func menuViewHeightFor(_ pageController: AquamanPageViewController) -> CGFloat {
+        return menuViewHeight
+    }
+    
+    override func menuViewPinHeightFor(_ pageController: AquamanPageViewController) -> CGFloat {
+        return (UIApplication.shared.statusBarFrame.height + (navigationController?.navigationBar.bounds.height ?? 0))
+    }
+
+    
+    override func pageController(_ pageController: AquamanPageViewController, mainScrollViewDidScroll scrollView: UIScrollView) {
+        updateNavigationBarStyle(scrollView)
+    }
+    
+    override func pageController(_ pageController: AquamanPageViewController, contentScrollViewDidScroll scrollView: UIScrollView) {
+        menuView.updateLayout(scrollView)
+    }
+    
+    override func pageController(_ pageController: AquamanPageViewController,
+                                 contentScrollViewDidEndScroll scrollView: UIScrollView) {
+        
+    }
+    
+    override func pageController(_ pageController: AquamanPageViewController, menuView isAdsorption: Bool) {
+
+    }
+    
+    
+    override func pageController(_ pageController: AquamanPageViewController, willDisplay viewController: (UIViewController & AquamanChildViewController), forItemAt index: Int) {
+    }
+    
+    override func pageController(_ pageController: AquamanPageViewController, didDisplay viewController: (UIViewController & AquamanChildViewController), forItemAt index: Int) {
+        menuView.checkState(animation: true)
+    }
+    
+    override func contentInsetFor(_ pageController: AquamanPageViewController) -> UIEdgeInsets {
+        return UIEdgeInsets(
+            top: -(UIApplication.shared.statusBarFrame.height + (navigationController?.navigationBar.bounds.height ?? 0)),
+            left: 0,
+            bottom: 0,
+            right: 0
+        )
+    }
     
 }
+
+extension UserInfoViewController: TridentMenuViewDelegate {
+    func menuView(_ menuView: TridentMenuView, didSelectedItemAt index: Int) {
+        guard index < viewControllers.count else {
+            return
+        }
+        setSelect(index: index, animation: false)
+    }
+}
+
