@@ -68,7 +68,6 @@ class DiscoverViewController: AquamanPageViewController, LoadingStateType, Indic
                     .height(2.5),
                     .cornerRadius(1.5),
                     .position(.bottom),
-//                    .extraWidth(indexPath.row == 0 ? -10.0 : 4.0),
                     .shape(.line)
                 )
             ),
@@ -79,7 +78,7 @@ class DiscoverViewController: AquamanPageViewController, LoadingStateType, Indic
             )
         )
         view.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-        view.backgroundColor = .white
+        view.backgroundColor = .clear
         view.delegate = self
         return view
     }()
@@ -89,7 +88,7 @@ class DiscoverViewController: AquamanPageViewController, LoadingStateType, Indic
         
         return (view.bounds.width / (2 / 0.75)).rounded(.down)
     }
-    private var menuViewHeight: CGFloat = 54.0
+    private var menuViewHeight: CGFloat = 44.0
     
     
     var state: LoadingState = .initial {

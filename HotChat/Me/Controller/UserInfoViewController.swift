@@ -51,7 +51,7 @@ class UserInfoViewController: AquamanPageViewController, LoadingStateType, Indic
         
         return 110.0 + view.bounds.width
     }
-    private var menuViewHeight: CGFloat = 54.0
+    private var menuViewHeight: CGFloat = 44.0
     
     var state: LoadingState = .initial {
         didSet {
@@ -88,10 +88,7 @@ class UserInfoViewController: AquamanPageViewController, LoadingStateType, Indic
         ]
     }()
     
-    
 
-    
-    
     private lazy var userInfoHeaderView: UserInfoHeaderView = {
         let headerView = UserInfoHeaderView.loadFromNib()
         headerView.onFollowButtonTapped.delegate(on: self) { (self, sender) in
@@ -119,8 +116,8 @@ class UserInfoViewController: AquamanPageViewController, LoadingStateType, Indic
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        edgesForExtendedLayout = .all
-//        defaultSelectedIndex = 0
+
+        mainScrollView.contentInsetAdjustmentBehavior = .never
         updateNavigationBarStyle(mainScrollView)
         navigationItem.title = user.nick
         menuView.titles = viewControllers.compactMap{ $0.title }

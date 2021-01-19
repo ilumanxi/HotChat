@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -32,22 +32,22 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="b9O-1f-IJY">
-                        <rect key="frame" x="70" y="-1.5" width="103.5" height="73"/>
+                        <rect key="frame" x="70" y="14" width="81.5" height="42.5"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="qVH-vv-l1s">
-                                <rect key="frame" x="0.0" y="0.0" width="103.5" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="81.5" height="19.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwQ-Ke-XnG">
-                                        <rect key="frame" x="0.0" y="15.5" width="39.5" height="19.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="39.5" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="2oO-jG-7Hr">
-                                        <rect key="frame" x="53.5" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="53.5" y="3.5" width="28" height="12"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IG8-W4-BCl" customClass="LabelView" customModule="HotChat" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="28" placeholderIntrinsicHeight="12" translatesAutoresizingMaskIntoConstraints="NO" id="IG8-W4-BCl" customClass="LabelView" customModule="HotChat" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="28" height="12"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="image" keyPath="image" value="me-sex-man"/>
@@ -59,7 +59,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AuJ-Xg-zdN">
-                                <rect key="frame" x="0.0" y="56" width="35.5" height="17"/>
+                                <rect key="frame" x="0.0" y="25.5" width="35.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -81,6 +81,7 @@
                     <constraint firstAttribute="trailingMargin" secondItem="bjs-71-dkD" secondAttribute="trailing" id="QQf-vR-C2u"/>
                     <constraint firstItem="bjs-71-dkD" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hCU-z0-h2h"/>
                     <constraint firstItem="b9O-1f-IJY" firstAttribute="leading" secondItem="gCc-6l-IE9" secondAttribute="trailing" constant="8" id="oOs-iv-D7M"/>
+                    <constraint firstItem="bjs-71-dkD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="b9O-1f-IJY" secondAttribute="trailing" constant="8" id="p8i-dL-dRu"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import SegementSlide
+import Aquaman
+import Trident
 
 enum Checklist: CaseIterable {
     case all
@@ -35,7 +36,40 @@ extension ChecklistType {
     }
 }
 
-class ConsumptionListController: SegementSlideDefaultViewController {
+class ConsumptionListController: AquamanPageViewController {
+    
+    lazy var menuView: TridentMenuView = {
+        let view = TridentMenuView(parts:
+            .normalTextColor(UIColor(hexString: "#666666")),
+            .selectedTextColor(UIColor(hexString: "#1B1B1B")),
+            .normalTextFont(UIFont.systemFont(ofSize: 14.0, weight: .medium)),
+            .selectedTextFont(UIFont.systemFont(ofSize: 19.0, weight: .bold)),
+            .switchStyle(.line),
+            .sliderStyle(
+                SliderViewStyle(parts:
+                    .backgroundColor(.theme),
+                    .height(2.5),
+                    .cornerRadius(1.5),
+                    .position(.bottom),
+                    .extraWidth(0),
+                    .shape(.line)
+                )
+            ),
+            .bottomLineStyle(
+                BottomLineViewStyle(parts:
+                    .hidden(true)
+                )
+            )
+        )
+        view.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        view.backgroundColor = .white
+        view.delegate = self
+        return view
+    }()
+    
+    let headerView = UIView()
+    let headerViewHeight: CGFloat = 1
+    private var menuViewHeight: CGFloat = 44.0
     
     
     lazy var contentViewControllers: [ConsumerDetailsViewController] = {
@@ -47,11 +81,7 @@ class ConsumptionListController: SegementSlideDefaultViewController {
             }
     }()
     
-    override var titlesInSwitcher: [String] {
-        return contentViewControllers.compactMap{ $0.title }
-    }
-    
-    
+
     let type: ChecklistType
     
     init(type: ChecklistType) {
@@ -67,41 +97,87 @@ class ConsumptionListController: SegementSlideDefaultViewController {
         super.viewDidLoad()
         title = "明细"
         
-        defaultSelectedIndex = 0
+        menuView.titles = contentViewControllers.compactMap{ $0.title }
+        
         reloadData()
 
         // Do any additional setup after loading the view.
     }
     
-    override var bouncesType: BouncesType {
-        return .child
+    override func headerViewFor(_ pageController: AquamanPageViewController) -> UIView {
+        return headerView
     }
     
-    override var switcherConfig: SegementSlideDefaultSwitcherConfig {
-        var config = super.switcherConfig
-        
-        if type == .earnings {
-            config.type = .segement
-        }
-        else {
-            config.type = .tab
-        }
-        return config
+    override func headerViewHeightFor(_ pageController: AquamanPageViewController) -> CGFloat {
+        return headerViewHeight
     }
     
-    override func showBadgeInSwitcher(at index: Int) -> BadgeType {
-        return .none
+    override func numberOfViewControllers(in pageController: AquamanPageViewController) -> Int {
+        return contentViewControllers.count
     }
     
-
-    override func segementSlideContentViewController(at index: Int) -> SegementSlideContentScrollViewDelegate? {
+    override func pageController(_ pageController: AquamanPageViewController, viewControllerAt index: Int) -> (UIViewController & AquamanChildViewController) {
         
         return contentViewControllers[index]
     }
     
+    // 默认显示的 ViewController 的 index
+    override func originIndexFor(_ pageController: AquamanPageViewController) -> Int {
+       return 0
+    }
+    
+    override func menuViewFor(_ pageController: AquamanPageViewController) -> UIView {
+        return menuView
+    }
+    
+    override func menuViewHeightFor(_ pageController: AquamanPageViewController) -> CGFloat {
+        return menuViewHeight
+    }
+    
+    override func menuViewPinHeightFor(_ pageController: AquamanPageViewController) -> CGFloat {
+        return 0
+    }
 
+    
+    override func pageController(_ pageController: AquamanPageViewController, mainScrollViewDidScroll scrollView: UIScrollView) {
+        
+    }
+    
+    override func pageController(_ pageController: AquamanPageViewController, contentScrollViewDidScroll scrollView: UIScrollView) {
+        menuView.updateLayout(scrollView)
+    }
+    
+    override func pageController(_ pageController: AquamanPageViewController,
+                                 contentScrollViewDidEndScroll scrollView: UIScrollView) {
+        
+    }
+    
+    override func pageController(_ pageController: AquamanPageViewController, menuView isAdsorption: Bool) {
+
+    }
+    
+    
+    override func pageController(_ pageController: AquamanPageViewController, willDisplay viewController: (UIViewController & AquamanChildViewController), forItemAt index: Int) {
+    }
+    
+    override func pageController(_ pageController: AquamanPageViewController, didDisplay viewController: (UIViewController & AquamanChildViewController), forItemAt index: Int) {
+        menuView.checkState(animation: true)
+    }
+    
+    override func contentInsetFor(_ pageController: AquamanPageViewController) -> UIEdgeInsets {
+        return .zero
+    }
+    
 }
 
+extension ConsumptionListController: TridentMenuViewDelegate {
+    func menuView(_ menuView: TridentMenuView, didSelectedItemAt index: Int) {
+        guard index < contentViewControllers.count else {
+            return
+        }
+        setSelect(index: index, animation: false)
+    }
+}
 
 extension Checklist {
     

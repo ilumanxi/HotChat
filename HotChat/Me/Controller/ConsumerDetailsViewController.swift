@@ -7,12 +7,14 @@
 //
 
 import UIKit
-import SegementSlide
+import Aquaman
 import RxSwift
 import RxCocoa
 import MJRefresh
 
-class ConsumerDetailsViewController: UIViewController, SegementSlideContentScrollViewDelegate, LoadingStateType, IndicatorDisplay {
+class ConsumerDetailsViewController: UIViewController, AquamanChildViewController, LoadingStateType, IndicatorDisplay {
+
+    
     
     var state: LoadingState = .initial  {
         didSet {
@@ -73,9 +75,14 @@ class ConsumerDetailsViewController: UIViewController, SegementSlideContentScrol
         tableView.mj_header?.beginRefreshing()
     }
     
+    func aquamanChildScrollView() -> UIScrollView {
+        return tableView
+    }
+    
     func setupView() {
         tableView.rowHeight = 60
         tableView.estimatedRowHeight = 0
+        tableView.allowsSelection = false
         tableView.register(UINib(nibName: "SubsidiaryAccountCell", bundle: nil), forCellReuseIdentifier: "SubsidiaryAccountCell")
     }
     
