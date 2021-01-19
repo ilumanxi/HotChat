@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftDate
 
 class DatePickerViewController: UIViewController {
     
@@ -22,7 +23,8 @@ class DatePickerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        datePicker.maximumDate = Date()
+        datePicker.maximumDate =  Date() - 18.years
+        datePicker.minimumDate = Date() - 60.years
         datePicker.date = date
     }
     
