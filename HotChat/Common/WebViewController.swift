@@ -14,6 +14,8 @@ import StoreKit
 import SwiftyStoreKit
 import RxSwift
 import RxCocoa
+import RangersAppLog
+
 
 extension WebViewController {
     
@@ -276,6 +278,16 @@ extension WebViewController {
             SwiftyStoreKit.purchaseProduct(order.product, atomically: true, applicationUsername: order.orderNo) { result in
                 switch result {
                 case .success(let purchase):
+                    
+                    BDAutoTrack.purchaseEvent(
+                        withContentType: "能量",
+                        contentName: purchase.product.localizedTitle,
+                        contentID: purchase.product.productIdentifier,
+                        contentNumber: UInt(purchase.quantity),
+                        paymentChannel: "Apple",
+                        currency: "￥",
+                        currency_amount: UInt64(purchase.product.price.int64Value * 100),
+                        isSuccess: true)
                     
                     let receipt =  try! Data(contentsOf: Bundle.main.appStoreReceiptURL!)
                     

@@ -12,6 +12,7 @@ import RxCocoa
 import StoreKit
 import SwiftyStoreKit
 import ActiveLabel
+import RangersAppLog
 
 // MARK: - SKProduct
 extension SKProduct {
@@ -346,6 +347,17 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
             SwiftyStoreKit.purchaseProduct(order.itemProduct.appleProduct, atomically: true, applicationUsername: order.outTradeNo) { result in
                 switch result {
                 case .success(let purchase):
+                   
+                    BDAutoTrack.purchaseEvent(
+                        withContentType: "能量",
+                        contentName: purchase.product.localizedTitle,
+                        contentID: purchase.product.productIdentifier,
+                        contentNumber: UInt(purchase.quantity),
+                        paymentChannel: "Apple",
+                        currency: "￥",
+                        currency_amount: UInt64(purchase.product.price.int64Value * 100),
+                        isSuccess: true)
+                        
                     
                     let receipt =  try! Data(contentsOf: Bundle.main.appStoreReceiptURL!)
                     

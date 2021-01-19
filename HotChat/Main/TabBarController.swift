@@ -107,7 +107,7 @@ class TabBarController: UITabBarController, IndicatorDisplay {
             customTabBar.standardAppearance = standardAppearance
         }
         else {
-            customTabBar.shadowImage = UIImage()
+            customTabBar.shadowImage = UIImage(color: UIColor.black.withAlphaComponent(0.1), size: CGSize(width: UIScreen.main.bounds.width, height: 1.0 / 3.0 ))
             customTabBar.barTintColor = .white
             customTabBar.backgroundImage = UIImage(color: .white, size: tabBar.bounds.size)
         }

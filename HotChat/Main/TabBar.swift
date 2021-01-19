@@ -7,6 +7,38 @@
 
 import UIKit
 
+class TabBarShadowView: UIView {
+    
+    override class var layerClass: AnyClass {
+        return CAShapeLayer.self
+    }
+    
+    var shapeLayer: CAShapeLayer {
+        return self.layer as! CAShapeLayer
+    }
+    
+    var diameter: CGFloat = 46.5
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        shapeLayer.lineWidth =  1
+        shapeLayer.fillColor = UIColor.white.cgColor
+        shapeLayer.strokeColor = UIColor.separator.cgColor
+        
+        let path = UIBezierPath()
+        path.move(to: CGPoint(x: 0, y: bounds.height))
+        path.addLine(to: CGPoint(x: (bounds.width -  diameter) / 2 , y: bounds.height))
+        path.addQuadCurve(
+            to: CGPoint(x: (bounds.width -  diameter) / 2 + diameter, y: bounds.height),
+            controlPoint: CGPoint(x: bounds.width / 2, y: -bounds.height / 2))
+        path.addLine(to: CGPoint(x: bounds.width, y: bounds.height))
+        shapeLayer.path = path.cgPath
+        
+    }
+    
+}
+
 class TabBar: UITabBar {
     
     override init(frame: CGRect) {
@@ -22,9 +54,14 @@ class TabBar: UITabBar {
     let onComposeButtonDidTapped = HotChat.Delegate<Void, Void>()
     
     func setupUI() {
-        addSubview(composeWrappView)
+        addSubview(shadowView)
         addSubview(composeButton)
     }
+    
+    lazy var shadowView: TabBarShadowView = {
+        let view = TabBarShadowView()
+        return view
+    }()
     
     private lazy var composeButton: UIButton = {
         let button = UIButton(type: .custom)
@@ -32,11 +69,6 @@ class TabBar: UITabBar {
         button.setImage(UIImage(named: "tabbar-add"), for: .normal)
         button.addTarget(self, action: #selector(composeButtonDidTapped), for: .touchUpInside)
         return button
-    }()
-    
-    private lazy var composeWrappView: UIView = {
-        let view = UIView()
-        return view
     }()
     
     @objc private func composeButtonDidTapped() {
@@ -51,7 +83,7 @@ class TabBar: UITabBar {
     override func layoutSubviews() {
         
         super.layoutSubviews()
- 
+        
         var views =  self.items?
             .compactMap{
                 $0.value(forKey: "view") as? UIView
@@ -86,10 +118,9 @@ class TabBar: UITabBar {
         composeButton.contentEdgeInsets = UIEdgeInsets(top:  top, left: 0, bottom: 0, right: 0)
         
         let v: CGFloat = 12
-        let size = composeButton.frame.height + v
-        composeWrappView.frame = CGRect(x:( bounds.width - size) / 2.0, y: -v, width: size, height: size)
-        composeWrappView.layer.cornerRadius = composeWrappView.frame.width / 2.0
-        composeWrappView.backgroundColor = barTintColor
+        
+        shadowView.frame =  CGRect(x: 0, y: 0, width: self.bounds.width, height: v).offsetBy(dx: 0, dy: -v)
+        
     }
     
 }

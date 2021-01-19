@@ -29,7 +29,7 @@ PODS:
     - GKPhotoBrowser/Core
     - SDWebImage (~> 5.0)
   - HandyJSON (5.0.3-beta)
-  - HBDNavigationBar (1.7.7)
+  - HBDNavigationBar (1.8.0)
   - InputKitSwift (1.2.1)
   - Kingfisher (6.0.1)
   - Koloda (5.0.1):
@@ -37,7 +37,7 @@ PODS:
   - MagazineLayout (1.6.3)
   - Masonry (1.1.0)
   - MBProgressHUD (1.2.0)
-  - MJExtension (3.2.3)
+  - MJExtension (3.2.4)
   - MJRefresh (3.5.0)
   - MMLayout (0.2.0)
   - Moya/Core (14.0.0):
@@ -50,6 +50,15 @@ PODS:
   - PIPKit (0.2.0)
   - PKHUD (5.3.0)
   - pop (1.0.12)
+  - RangersAppLog (4.4.4):
+    - RangersAppLog/Core (= 4.4.4)
+    - RangersAppLog/Picker (= 4.4.4)
+    - RangersAppLog/UITracker (= 4.4.4)
+  - RangersAppLog/Core (4.4.4)
+  - RangersAppLog/Picker (4.4.4):
+    - RangersAppLog/UITracker
+  - RangersAppLog/UITracker (4.4.4):
+    - RangersAppLog/Core
   - ReachabilitySwift (4.3.1)
   - ReactiveObjC (3.1.1)
   - Reusable (4.1.1):
@@ -112,13 +121,13 @@ PODS:
   - Toast (4.0.0)
   - Toast-Swift (5.0.1)
   - TPNS-iOS (1.2.9.0)
-  - TXIMSDK_iOS (5.1.20)
-  - TXIMSDK_TUIKit_iOS (5.1.20):
+  - TXIMSDK_iOS (5.1.21)
+  - TXIMSDK_TUIKit_iOS (5.1.21):
     - MMLayout (= 0.2.0)
     - ReactiveObjC (= 3.1.1)
     - SDWebImage (= 5.9.0)
     - Toast (= 4.0.0)
-    - TXIMSDK_iOS (= 5.1.20)
+    - TXIMSDK_iOS (= 5.1.21)
     - TXLiteAVSDK_TRTC (= 7.8.9519)
   - TXLiteAVSDK_TRTC (7.8.9519)
   - TZImagePickerController (3.5.8)
@@ -150,6 +159,7 @@ DEPENDENCIES:
   - "NSObject+Rx"
   - PIPKit
   - PKHUD
+  - RangersAppLog
   - Reusable
   - RxCocoa
   - RxCoreLocation
@@ -198,6 +208,7 @@ SPEC REPOS:
     - PIPKit
     - PKHUD
     - pop
+    - RangersAppLog
     - ReachabilitySwift
     - ReactiveObjC
     - Reusable
@@ -237,14 +248,14 @@ SPEC CHECKSUMS:
   FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
   GKPhotoBrowser: 1f7c0bdd21fc617f1c7cd18d15f26488abf0f973
   HandyJSON: 88e8ea5f66ab65c3b8768499a1935d0509c460d4
-  HBDNavigationBar: 6ba38b99637039c831ce460364d5398f29fa0685
+  HBDNavigationBar: 8a24d0348ad4371614569e3d015d46e41824b061
   InputKitSwift: 5532ed4a41706aeebe6ad6dfafb3bee32e02f1c6
   Kingfisher: adde87a4f74f6a3845395769354efff593581740
   Koloda: d07b9199a383abc5898b62aa945a599f5e7c0c4b
   MagazineLayout: 159da0d4d874e04e6b17e580b990cccd00328c5b
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
-  MJExtension: a6fd35a527dafd7f3f1259017ee57551d58b3bb8
+  MJExtension: 88e0900751b6cac8de1cf724ca9838a0b28d5acb
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   MMLayout: 3fb59d58eeb8656c64e61d550fb0088e10666c11
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
@@ -252,6 +263,7 @@ SPEC CHECKSUMS:
   PIPKit: 00fd62aa4967f9cef1eca1a5587d3192c23881e1
   PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
+  RangersAppLog: 3a8c9b31227ca2229a67a011cfcd80b5d88a404b
   ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
   Reusable: 53a9acf5c536f229b31b5865782414b508252ddb
@@ -272,13 +284,13 @@ SPEC CHECKSUMS:
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   TPNS-iOS: 373cd379931f8bc1d863a0f63be0697fb4f02d74
-  TXIMSDK_iOS: ca5a627214e735af601f0304236a0b36053da3af
-  TXIMSDK_TUIKit_iOS: 984b39d1fb398d494e4bdf15436030e166950a1b
+  TXIMSDK_iOS: 7659d94e2f684bd132b12f565782c93ec2691fe1
+  TXIMSDK_TUIKit_iOS: 410663a2e7cddecbe4bbdeeb8710e68e93eb97dd
   TXLiteAVSDK_TRTC: c127880c4dbe844bdc7575a655be8042ce96024a
   TZImagePickerController: 7fd9702897ef8c0b7c951e5463f4bcf398296f9e
   WechatOpenSDK: 6a4d1436c15b3b5fe2a0bd383f3046010186da44
   WKWebViewJavascriptBridge: 07ad0cab27cd61ccdb90b5deb223f6df3a03c3d7
 
-PODFILE CHECKSUM: c859e3142cd37b0afd94def3810f45e0ac2b6cd2
+PODFILE CHECKSUM: 5561b0ff078b4855743125775d308d5303650ba0
 
 COCOAPODS: 1.10.1

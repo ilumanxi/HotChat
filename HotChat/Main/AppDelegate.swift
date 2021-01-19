@@ -12,6 +12,7 @@ import SwiftyStoreKit
 import Bugly
 import Toast_Swift
 import PKHUD
+import RangersAppLog
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        setupTrack()
         
         Bugly.start(withAppId: nil)
         
@@ -66,12 +69,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    func setupTrack()  {
+        let config = BDAutoTrackConfig()
+        config.serviceVendor = .CN
+        config.appID = 211417.description
+        config.appName = "tanliaoios"
+        config.channel = "App Store"
+        
+        #if DEBUG
+        config.showDebugLog = true
+        config.logNeedEncrypt = false
+        #else
+        config.showDebugLog = false
+        config.logNeedEncrypt = true
+        #endif
+        
+        
+        BDAutoTrack.start(with: config)
+    }
+    
     func setupIM()  {
         
         #if DEBUG
-            TUIKit.sharedInstance()?.setup(withAppId: Constant.IM.appID, logLevel: .LOG_DEBUG)
+        TUIKit.sharedInstance()?.setup(withAppId: Constant.IM.appID, logLevel: .LOG_NONE)
         #else
-            TUIKit.sharedInstance()?.setup(withAppId: Constant.IM.appID, logLevel: .LOG_WARN)
+        TUIKit.sharedInstance()?.setup(withAppId: Constant.IM.appID, logLevel: .LOG_NONE)
         #endif
         
         let config = TUIKitConfig.default()!

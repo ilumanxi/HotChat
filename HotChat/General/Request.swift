@@ -60,11 +60,18 @@ extension Moya.Response {
 class Request<Target: TargetType>: MoyaProvider<Target> {
 
     convenience init() {
+        #if DEBUG
         let plugins: [PluginType] = [
             SignaturePlugin(salt: Constant.Server.salt),
             AccountPlugin(),
             NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))
         ]
+        #else
+        let plugins: [PluginType] = [
+            SignaturePlugin(salt: Constant.Server.salt),
+            AccountPlugin()
+        ]
+        #endif
         self.init(plugins: plugins)
     }
     

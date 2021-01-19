@@ -10,6 +10,7 @@ import UIKit
 import SwiftDate
 import Kingfisher
 import TZImagePickerController
+import RangersAppLog
 
 class UserInformationViewController: UIViewController, IndicatorDisplay {
    
@@ -88,13 +89,13 @@ class UserInformationViewController: UIViewController, IndicatorDisplay {
             .verifyResponse()
             .subscribe(onSuccess: {[unowned self] response in
                 LoginManager.shared.update(user: response.data!)
-                
                 if self.sex == .male {
                     self.pushForYouViewController()
                 }
                 else {
                     self.pushUserInfoLikeObject()
                 }
+                BDAutoTrack.registerEvent(byMethod: "normal", isSuccess: true)
                 self.hideIndicatorFromWindow()
             }, onError: { [weak self] error in
                 self?.hideIndicatorFromWindow()
