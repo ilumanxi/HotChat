@@ -391,7 +391,13 @@ class DiscoverViewController: AquamanPageViewController, LoadingStateType, Indic
     }
     
     override func contentInsetFor(_ pageController: AquamanPageViewController) -> UIEdgeInsets {
-        return .zero
+        return UIEdgeInsets(top: 0, left: 0, bottom: safeAreaInsets.bottom, right: 0)
+    }
+    
+    override func viewSafeAreaInsetsDidChange() {
+        
+        print(self.safeAreaInsets)
+        super.viewSafeAreaInsetsDidChange()
     }
     
 }
