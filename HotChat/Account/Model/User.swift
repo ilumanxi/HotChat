@@ -120,6 +120,9 @@ enum VipType: Int, HandyJSONEnum {
     case quarter = 2
     /// 年会员
     case year = 3
+    
+    /// 体验会员
+    case experience = 99
 }
 
 

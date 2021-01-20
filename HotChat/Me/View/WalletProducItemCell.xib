@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,41 +11,58 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="WalletProducItemCell" customModule="HotChat" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="100" height="58"/>
+            <rect key="frame" x="0.0" y="0.0" width="105" height="92"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="100" height="58"/>
+                <rect key="frame" x="0.0" y="0.0" width="105" height="92"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="sda-d1-Jj1">
-                        <rect key="frame" x="29" y="10" width="35.5" height="39.5"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="first-recharge" translatesAutoresizingMaskIntoConstraints="NO" id="fqi-7D-cSu">
+                        <rect key="frame" x="0.0" y="0.0" width="28" height="27.5"/>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="sda-d1-Jj1">
+                        <rect key="frame" x="8" y="12" width="89" height="68"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4200" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aka-lO-gLu">
-                                <rect key="frame" x="0.0" y="0.0" width="35.5" height="17"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                <rect key="frame" x="23.5" y="0.0" width="42.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="highlightedColor" red="0.31764705882352939" green="0.34901960784313724" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Bt-y7-NjC">
-                                <rect key="frame" x="7.5" y="25" width="20" height="14.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <rect key="frame" x="33" y="28.5" width="23.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="highlightedColor" red="0.31764705879999999" green="0.34901960780000002" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="赠送300能量+1天会员" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n7r-rb-buD">
+                                <rect key="frame" x="0.0" y="53.5" width="89" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.31764705882352939" green="0.34901960784313724" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                     </stackView>
                 </subviews>
             </view>
-            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="sda-d1-Jj1" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="1Xx-Hh-6rH"/>
-                <constraint firstItem="sda-d1-Jj1" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="vUU-ml-d5k"/>
+                <constraint firstItem="fqi-7D-cSu" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="BVL-U4-4Q9"/>
+                <constraint firstAttribute="trailing" secondItem="sda-d1-Jj1" secondAttribute="trailing" constant="8" id="I2r-hz-aYO"/>
+                <constraint firstItem="sda-d1-Jj1" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Ohm-SZ-CNW"/>
+                <constraint firstItem="sda-d1-Jj1" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="dsk-uR-cFt"/>
+                <constraint firstItem="fqi-7D-cSu" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="e3r-dj-v2w"/>
+                <constraint firstItem="sda-d1-Jj1" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="zVA-11-Tde"/>
             </constraints>
             <connections>
+                <outlet property="firstRechargeImageView" destination="fqi-7D-cSu" id="XDG-BL-JjZ"/>
                 <outlet property="priceLabel" destination="9Bt-y7-NjC" id="uup-vp-n2F"/>
+                <outlet property="textLabel" destination="n7r-rb-buD" id="goS-n0-gMl"/>
                 <outlet property="titleLabel" destination="aka-lO-gLu" id="gK7-Ef-aeB"/>
             </connections>
             <point key="canvasLocation" x="139" y="81"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="first-recharge" width="28" height="27.5"/>
+    </resources>
 </document>

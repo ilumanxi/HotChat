@@ -30,6 +30,7 @@ target 'HotChat' do
     pod 'SwiftDate'
     pod 'SegementSlide'
     pod 'PKHUD'
+    pod 'URLNavigator'
     
     pod 'FSPagerView'
     pod 'ActiveLabel'
@@ -57,6 +58,7 @@ target 'HotChat' do
     pod 'SPAlertController'
     pod 'MBProgressHUD'
     pod 'RangersAppLog'
+    
     #, :subspecs => [
      # 'Core',
       #'Log',

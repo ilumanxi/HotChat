@@ -117,7 +117,11 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var user: User = LoginManager.shared.user!
     
-    var products: [ItemProduct] = []
+    var products: [ItemProduct] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     override func loadView() {
         super.loadView()
@@ -276,7 +280,7 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
         case .energy:
             return 126
         default:
-            return 190
+            return 357
         }
     }
 
@@ -330,6 +334,7 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
             .flatMap(payOrder)
             .subscribe(onSuccess: { [weak self] response in
                 self?.requestUserInfo()
+                self?.requestProductInfo()
                 self?.hideIndicatorFromWindow()
             }, onError: { [weak self] error in
                 self?.hideIndicatorFromWindow()

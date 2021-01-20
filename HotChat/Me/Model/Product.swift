@@ -16,6 +16,10 @@ struct Product: HandyJSON {
     var money: NSDecimalNumber!
     var title: String = ""
     
+    var isFirstRecharge: Bool = false
+    var giveEnergy: String = ""
+    var vipDay: String = ""
+    
     mutating func mapping(mapper: HelpingMapper) {
         mapper <<<
             money <-- NSDecimalNumberTransform()

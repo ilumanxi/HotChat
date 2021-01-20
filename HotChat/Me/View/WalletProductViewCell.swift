@@ -71,7 +71,7 @@ extension WalletProductViewCell: UICollectionViewDelegateMagazineLayout {
    sizeModeForItemAt indexPath: IndexPath)
    -> MagazineLayoutItemSizeMode
  {
-   return MagazineLayoutItemSizeMode(widthMode: .thirdWidth, heightMode: .static(height: 58))
+   return MagazineLayoutItemSizeMode(widthMode: .halfWidth, heightMode: .static(height: 92))
  }
 
  func collectionView(
@@ -116,7 +116,7 @@ extension WalletProductViewCell: UICollectionViewDelegateMagazineLayout {
    verticalSpacingForElementsInSectionAtIndex index: Int)
    -> CGFloat
  {
-   return 15
+   return 10
  }
 
  func collectionView(

@@ -185,6 +185,8 @@
 		26959042250B1DD900763061 /* InterestedCardOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26959041250B1DD900763061 /* InterestedCardOverlayView.xib */; };
 		269590BF250B5FE900763061 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 269590BE250B5FE900763061 /* StoreKit.framework */; };
 		2696341F2531942000493C3D /* DynamicAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2696341E2531942000493C3D /* DynamicAPI.swift */; };
+		269AB20A25B825EC00B970A5 /* Trident in Frameworks */ = {isa = PBXBuildFile; productRef = 269AB20925B825EC00B970A5 /* Trident */; };
+		269AB20D25B8262B00B970A5 /* Aquaman in Frameworks */ = {isa = PBXBuildFile; productRef = 269AB20C25B8262B00B970A5 /* Aquaman */; };
 		269DED0B254A9DD5000AD5D9 /* CallMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 269DED0A254A9DD5000AD5D9 /* CallMenuViewController.xib */; };
 		269DED1B254AAC4D000AD5D9 /* GiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 269DED19254AAC4D000AD5D9 /* GiftViewController.m */; };
 		269DED1C254AAC4D000AD5D9 /* GiftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 269DED1A254AAC4D000AD5D9 /* GiftViewController.xib */; };
@@ -194,8 +196,6 @@
 		26A20AFF2518A47F0061BBB8 /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A20AFE2518A47F0061BBB8 /* KeychainStore.swift */; };
 		26A20B052518A5020061BBB8 /* HotChatError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A20B042518A5020061BBB8 /* HotChatError.swift */; };
 		26A20B0D2518BBC10061BBB8 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A20B0C2518BBC10061BBB8 /* Response.swift */; };
-		26A27B892583801E00AD581E /* Aquaman in Frameworks */ = {isa = PBXBuildFile; productRef = 26A27B882583801E00AD581E /* Aquaman */; };
-		26A27B8E2583806400AD581E /* Trident in Frameworks */ = {isa = PBXBuildFile; productRef = 26A27B8D2583806400AD581E /* Trident */; };
 		26A731B22536D6B600CCECE5 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A731B12536D6B600CCECE5 /* ReportViewController.swift */; };
 		26A8D4E9251C8F3E00B736CF /* Constellation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A8D4E8251C8F3E00B736CF /* Constellation.swift */; };
 		26AB26E225401C0D00C16025 /* RemarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AB26E125401C0D00C16025 /* RemarkViewController.swift */; };
@@ -313,6 +313,7 @@
 		26F553772553D16E00840735 /* TalkEarningsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26F553752553D16E00840735 /* TalkEarningsViewController.xib */; };
 		26F5537C2553D3CD00840735 /* GiftEarningsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F5537A2553D3CD00840735 /* GiftEarningsViewController.swift */; };
 		26F5537D2553D3CD00840735 /* GiftEarningsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26F5537B2553D3CD00840735 /* GiftEarningsViewController.xib */; };
+		26F5AB2925B805240000AE31 /* NavigationMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F5AB2825B805240000AE31 /* NavigationMap.swift */; };
 		26F70FFF2542B3A900797E87 /* AuthenticationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F70FFE2542B3A900797E87 /* AuthenticationAPI.swift */; };
 		26F710042542C6C000797E87 /* UserSettingsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F710032542C6C000797E87 /* UserSettingsAPI.swift */; };
 		26F710092542C77A00797E87 /* InfoSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F710082542C77A00797E87 /* InfoSettings.swift */; };
@@ -745,6 +746,7 @@
 		26F553752553D16E00840735 /* TalkEarningsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TalkEarningsViewController.xib; sourceTree = "<group>"; };
 		26F5537A2553D3CD00840735 /* GiftEarningsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftEarningsViewController.swift; sourceTree = "<group>"; };
 		26F5537B2553D3CD00840735 /* GiftEarningsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiftEarningsViewController.xib; sourceTree = "<group>"; };
+		26F5AB2825B805240000AE31 /* NavigationMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMap.swift; sourceTree = "<group>"; };
 		26F70FFE2542B3A900797E87 /* AuthenticationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationAPI.swift; sourceTree = "<group>"; };
 		26F710032542C6C000797E87 /* UserSettingsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsAPI.swift; sourceTree = "<group>"; };
 		26F710082542C77A00797E87 /* InfoSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSettings.swift; sourceTree = "<group>"; };
@@ -781,9 +783,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				26CB6C93255153A500A9F4DD /* libc++.tbd in Frameworks */,
-				26A27B892583801E00AD581E /* Aquaman in Frameworks */,
+				269AB20A25B825EC00B970A5 /* Trident in Frameworks */,
 				269590BF250B5FE900763061 /* StoreKit.framework in Frameworks */,
-				26A27B8E2583806400AD581E /* Trident in Frameworks */,
+				269AB20D25B8262B00B970A5 /* Aquaman in Frameworks */,
 				2636A0D22564BFE700664FFC /* IDLFaceSDK.framework in Frameworks */,
 				569A62C017EE594D27BBDD0C /* libPods-HotChat.a in Frameworks */,
 			);
@@ -1291,6 +1293,7 @@
 				26373C74250234AC0066FF3B /* Delegate.swift */,
 				268458F425354481002B9C6E /* LoadingState.swift */,
 				2684593825354EDB002B9C6E /* Reload.swift */,
+				26F5AB2825B805240000AE31 /* NavigationMap.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -1633,8 +1636,8 @@
 			);
 			name = HotChat;
 			packageProductDependencies = (
-				26A27B882583801E00AD581E /* Aquaman */,
-				26A27B8D2583806400AD581E /* Trident */,
+				269AB20925B825EC00B970A5 /* Trident */,
+				269AB20C25B8262B00B970A5 /* Aquaman */,
 			);
 			productName = HotChat;
 			productReference = 2643EB362500AD7D00FBBE49 /* HotChat.app */;
@@ -1711,8 +1714,8 @@
 			);
 			mainGroup = 2643EB2D2500AD7D00FBBE49;
 			packageReferences = (
-				26A27B872583801E00AD581E /* XCRemoteSwiftPackageReference "Aquaman" */,
-				26A27B8C2583806400AD581E /* XCRemoteSwiftPackageReference "Trident" */,
+				269AB20825B825EC00B970A5 /* XCRemoteSwiftPackageReference "Trident" */,
+				269AB20B25B8262B00B970A5 /* XCRemoteSwiftPackageReference "Aquaman" */,
 			);
 			productRefGroup = 2643EB372500AD7D00FBBE49 /* Products */;
 			projectDirPath = "";
@@ -1986,6 +1989,7 @@
 				2694580B253FF7B100EBCABB /* UserSettingViewController.swift in Sources */,
 				26DF8783255A7969002162A9 /* EarningsDetailViewController.swift in Sources */,
 				2668B0AF2523479F0073E25D /* Product.swift in Sources */,
+				26F5AB2925B805240000AE31 /* NavigationMap.swift in Sources */,
 				26F0D25A2546DB9C00D1018B /* InputBar.m in Sources */,
 				260B96112521F15C00767076 /* Authentication.swift in Sources */,
 				263BC21D254956950081F5DF /* CallMenuViewController.m in Sources */,
@@ -2673,15 +2677,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		26A27B872583801E00AD581E /* XCRemoteSwiftPackageReference "Aquaman" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/bawn/Aquaman";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.3;
-			};
-		};
-		26A27B8C2583806400AD581E /* XCRemoteSwiftPackageReference "Trident" */ = {
+		269AB20825B825EC00B970A5 /* XCRemoteSwiftPackageReference "Trident" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/bawn/Trident";
 			requirement = {
@@ -2689,18 +2685,26 @@
 				minimumVersion = 0.7.0;
 			};
 		};
+		269AB20B25B8262B00B970A5 /* XCRemoteSwiftPackageReference "Aquaman" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bawn/Aquaman";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		26A27B882583801E00AD581E /* Aquaman */ = {
+		269AB20925B825EC00B970A5 /* Trident */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 26A27B872583801E00AD581E /* XCRemoteSwiftPackageReference "Aquaman" */;
-			productName = Aquaman;
-		};
-		26A27B8D2583806400AD581E /* Trident */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 26A27B8C2583806400AD581E /* XCRemoteSwiftPackageReference "Trident" */;
+			package = 269AB20825B825EC00B970A5 /* XCRemoteSwiftPackageReference "Trident" */;
 			productName = Trident;
+		};
+		269AB20C25B8262B00B970A5 /* Aquaman */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 269AB20B25B8262B00B970A5 /* XCRemoteSwiftPackageReference "Aquaman" */;
+			productName = Aquaman;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

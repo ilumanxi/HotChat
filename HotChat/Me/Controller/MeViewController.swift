@@ -460,6 +460,8 @@ extension VipType: CustomStringConvertible {
             return "季VIP"
         case .year:
             return "年VIP"
+        case .experience:
+            return "体验VIP"
         }
     }
     
@@ -473,6 +475,8 @@ extension VipType: CustomStringConvertible {
             return UIImage(named: "vip-quarter")
         case .year:
             return UIImage(named: "vip-year")
+        case .experience:
+            return UIImage(named: "vip-experience")
         }
     }
     

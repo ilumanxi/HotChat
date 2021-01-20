@@ -11,14 +11,22 @@ import UIKit
 class WalletProducItemCell: UICollectionViewCell {
     
     
+    @IBOutlet weak var firstRechargeImageView: UIImageView!
+    
     @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var priceLabel: UILabel!
     
+    
+    @IBOutlet weak var textLabel: UILabel!
+    
     var item: ItemProduct!{
         didSet {
+            firstRechargeImageView.isHidden = !item.product.isFirstRecharge
             titleLabel.text = item.appleProduct.localizedTitle
             priceLabel.text = item.appleProduct.localizedPrice
+            textLabel.isHidden = !item.product.isFirstRecharge
+            textLabel.text = "赠送\(item.product.giveEnergy)能量+\(item.product.vipDay)天会员"
         }
     }
     

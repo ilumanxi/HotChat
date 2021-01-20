@@ -14,6 +14,7 @@ import SnapKit
 import Aquaman
 import Trident
 import FSPagerView
+import URLNavigator
 
 extension TridentMenuView {
     public override var intrinsicContentSize: CGSize {
@@ -405,6 +406,21 @@ extension DiscoverViewController: TridentMenuViewDelegate {
 }
 
 
+extension FSPagerViewCell {
+    
+    open override var isHighlighted: Bool {
+        didSet {
+            
+        }
+    }
+    
+    open override var isSelected: Bool {
+        didSet {
+            
+        }
+    }
+}
+
 extension DiscoverViewController: FSPagerViewDataSource, FSPagerViewDelegate {
     
     
@@ -416,6 +432,7 @@ extension DiscoverViewController: FSPagerViewDataSource, FSPagerViewDelegate {
         let model = banners[index]
         
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "FSPagerViewCell", at: index)
+        cell.contentView.layer.shadowColor = UIColor.clear.cgColor
         cell.imageView?.kf.setImage(with: URL(string: model.img))
         return cell
     }
@@ -423,9 +440,11 @@ extension DiscoverViewController: FSPagerViewDataSource, FSPagerViewDelegate {
     func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
         
         let model = banners[index]
-        let url = URL(string: model.url)
-        let vc = WebViewController(url: url)
-        navigationController?.pushViewController(vc, animated: true)
+        guard let url = URL(string: model.url) else { return }
+        
+        Navigator.share.push(url)
+        
+
     }
     
 }

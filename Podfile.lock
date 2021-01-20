@@ -131,6 +131,7 @@ PODS:
     - TXLiteAVSDK_TRTC (= 7.8.9519)
   - TXLiteAVSDK_TRTC (7.8.9519)
   - TZImagePickerController (3.5.8)
+  - URLNavigator (2.3.0)
   - WechatOpenSDK (1.8.7.1)
   - WKWebViewJavascriptBridge (1.2.1)
 
@@ -177,6 +178,7 @@ DEPENDENCIES:
   - TPNS-iOS
   - TXIMSDK_TUIKit_iOS
   - TZImagePickerController
+  - URLNavigator
   - WechatOpenSDK
   - WKWebViewJavascriptBridge
 
@@ -233,6 +235,7 @@ SPEC REPOS:
     - TXIMSDK_TUIKit_iOS
     - TXLiteAVSDK_TRTC
     - TZImagePickerController
+    - URLNavigator
     - WechatOpenSDK
     - WKWebViewJavascriptBridge
 
@@ -288,9 +291,10 @@ SPEC CHECKSUMS:
   TXIMSDK_TUIKit_iOS: 410663a2e7cddecbe4bbdeeb8710e68e93eb97dd
   TXLiteAVSDK_TRTC: c127880c4dbe844bdc7575a655be8042ce96024a
   TZImagePickerController: 7fd9702897ef8c0b7c951e5463f4bcf398296f9e
+  URLNavigator: 2593c0e2d293732ec5c44503cf54dceba1a68085
   WechatOpenSDK: 6a4d1436c15b3b5fe2a0bd383f3046010186da44
   WKWebViewJavascriptBridge: 07ad0cab27cd61ccdb90b5deb223f6df3a03c3d7
 
-PODFILE CHECKSUM: 5561b0ff078b4855743125775d308d5303650ba0
+PODFILE CHECKSUM: 34fde1d38f1e41e8cd554254a2d90f6ef7b25927
 
 COCOAPODS: 1.10.1

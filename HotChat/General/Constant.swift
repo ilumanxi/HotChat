@@ -20,7 +20,7 @@ class Constant: NSObject {
         return URL(string: "\(Constant.hotChatScheme)://authorize/")!
     }
     
-    static let hotChatScheme = "hotchatauth2"
+    static let hotChatScheme = "tanliao"
 }
 
 

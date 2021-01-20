@@ -13,6 +13,11 @@ import Bugly
 import Toast_Swift
 import PKHUD
 import RangersAppLog
+import URLNavigator
+
+
+
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,6 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+    
+        // Initialize navigation map
+        NavigationMap.initialize(navigator: Navigator.share)
         
         setupTrack()
         
@@ -314,6 +323,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        // Try presenting the URL first
+        if Navigator.share.present(url, wrap: UINavigationController.self) != nil {
+          print("[Navigator] present: \(url)")
+          return true
+        }
+        // Try opening the URL
+        else if Navigator.share.open(url) == true {
+          print("[Navigator] open: \(url)")
+          return true
+        }
 
         return PlatformAuthorization.application(app, open: url, options: options)
     }
@@ -322,7 +342,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         return PlatformAuthorization.application(application, continue: userActivity, restorationHandler: restorationHandler)
     }
-    
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         LoginManager.shared.deviceToken = deviceToken
