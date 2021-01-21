@@ -44,6 +44,7 @@ extension TimeInterval {
 class DiscoverViewController: AquamanPageViewController, LoadingStateType, IndicatorDisplay {
     
     lazy var bannerView: FSPagerView = {
+        let headerViewHeight =  (view.bounds.width / (2 / 0.75)).rounded(.down)
         let bannerView =  FSPagerView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: headerViewHeight))
         bannerView.bounces = false
         bannerView.delegate = self
@@ -86,7 +87,9 @@ class DiscoverViewController: AquamanPageViewController, LoadingStateType, Indic
     
     
     var headerViewHeight: CGFloat {
-        
+        if banners.isEmpty {
+            return 1
+        }
         return (view.bounds.width / (2 / 0.75)).rounded(.down)
     }
     private var menuViewHeight: CGFloat = 44.0
@@ -393,13 +396,7 @@ class DiscoverViewController: AquamanPageViewController, LoadingStateType, Indic
     override func contentInsetFor(_ pageController: AquamanPageViewController) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 0, bottom: safeAreaInsets.bottom, right: 0)
     }
-    
-    override func viewSafeAreaInsetsDidChange() {
         
-        print(self.safeAreaInsets)
-        super.viewSafeAreaInsetsDidChange()
-    }
-    
 }
 
 extension DiscoverViewController: TridentMenuViewDelegate {

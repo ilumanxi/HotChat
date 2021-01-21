@@ -325,7 +325,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         
         // Try presenting the URL first
-        if Navigator.share.present(url, wrap: UINavigationController.self) != nil {
+        
+        if Navigator.share.pushURL(url) != nil {
+          print("[Navigator] push: \(url)")
+          return true
+        }
+        else if Navigator.share.present(url, wrap: UINavigationController.self) != nil {
           print("[Navigator] present: \(url)")
           return true
         }

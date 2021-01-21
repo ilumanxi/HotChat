@@ -22,6 +22,39 @@ enum NavigationMap {
         
       return WalletViewController()
     }
+    
+    navigator.register("\(Constant.hotChatScheme)://jump/bindingPhone") { url, values, context in
+      return PhoneBindingController()
+    }
+    
+    navigator.register("\(Constant.hotChatScheme)://jump/editProfile") { url, values, context in
+        return  UserInfoEditingViewController.loadFromStoryboard()
+    }
+    
+    navigator.register("\(Constant.hotChatScheme)://jump/editLabel") { url, values, context in
+        let vc = UserInfoLikeObjectViewController.loadFromStoryboard()
+        vc.onUpdated.delegate(on: vc) {  (controller, _) in
+            controller.navigationController?.popViewController(animated: true)
+        }
+      vc.sex = LoginManager.shared.user!.sex
+      return  vc
+    }
+    
+    navigator.register("\(Constant.hotChatScheme)://jump/editIntroduction") { url, values, context in
+        return  UserInfoInputTextViewController.loadFromStoryboard()
+    }
+    
+    navigator.register("\(Constant.hotChatScheme)://jump/nameAuthentication") { url, values, context in
+        
+        if LoginManager.shared.user?.sex == .female  {
+            return AnchorAuthenticationViewController()
+        }
+        else {
+            return RealNameAuthenticationViewController.loadFromStoryboard()
+        }
+    }
+    
+    
     navigator.register("http://<path:_>", self.webViewControllerFactory)
     navigator.register("https://<path:_>", self.webViewControllerFactory)
 
