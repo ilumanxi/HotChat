@@ -15,6 +15,7 @@ import SwiftyStoreKit
 import RxSwift
 import RxCocoa
 import RangersAppLog
+import URLNavigator
 
 
 extension WebViewController {
@@ -30,9 +31,48 @@ extension WebViewController {
     }
 }
 
+class HotChatWKURLSchemeHandler: NSObject, WKURLSchemeHandler {
+    
+    func webView(_ webView: WKWebView, start urlSchemeTask: WKURLSchemeTask) {
+        
+        guard let url = urlSchemeTask.request.url else { return }
+       
+        if Navigator.share.pushURL(url) != nil {
+            print("[Navigator] push: \(url)")
+            urlSchemeTask.didReceive(URLResponse(url: url, mimeType: nil, expectedContentLength: 0, textEncodingName: nil))
+            urlSchemeTask.didFinish()
+        }
+        else if Navigator.share.present(url, wrap: BaseNavigationController.self) != nil {
+            print("[Navigator] present: \( urlSchemeTask.request.url!)")
+            urlSchemeTask.didReceive(URLResponse(url: url, mimeType: nil, expectedContentLength: 0, textEncodingName: nil))
+            urlSchemeTask.didFinish()
+        }
+        // Try opening the URL
+        else if Navigator.share.open(url){
+            print("[Navigator] open: \(url)")
+            urlSchemeTask.didReceive(URLResponse(url: url, mimeType: nil, expectedContentLength: 0, textEncodingName: nil))
+            urlSchemeTask.didFinish()
+        }
+        
+    }
+    
+    func webView(_ webView: WKWebView, stop urlSchemeTask: WKURLSchemeTask) {
+        
+    }
+    
+    
+}
+
 class WebViewController: UIViewController {
     
-    var webViewConfiguration = WKWebViewConfiguration()
+    
+    let hotChatSchemeHandler = HotChatWKURLSchemeHandler()
+    
+    lazy var webViewConfiguration: WKWebViewConfiguration = {
+        let configuration = WKWebViewConfiguration()
+        configuration.setURLSchemeHandler(hotChatSchemeHandler, forURLScheme: Constant.hotChatScheme)
+        return configuration
+    }()
     
     var statusBarStyle: UIStatusBarStyle = .default
     
@@ -73,6 +113,13 @@ class WebViewController: UIViewController {
         loadURL()
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+       
+        webView.evaluateJavaScript("window.vueFun.reViewSign()")
+        
+        super.viewWillAppear(animated)
+    }
     
     override var hbd_backInteractive: Bool {
         get {

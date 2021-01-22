@@ -14,24 +14,33 @@ extension Navigator {
     static let share = Navigator()
 }
 
+
+
+func HotChatURLString(path: String) -> String {
+    return "\(Constant.hotChatScheme)://\(path)"
+}
+
+
 enum NavigationMap {
   static func initialize(navigator: NavigatorType) {
     
-    
-    navigator.register("\(Constant.hotChatScheme)://jump/recharge") { url, values, context in
+   
+    navigator.register(HotChatURLString(path: "jump/recharge")) { url, values, context in
         
       return WalletViewController()
     }
     
-    navigator.register("\(Constant.hotChatScheme)://jump/bindingPhone") { url, values, context in
+    navigator.register(HotChatURLString(path: "jump/bindingPhone")) { url, values, context in
       return PhoneBindingController()
     }
     
-    navigator.register("\(Constant.hotChatScheme)://jump/editProfile") { url, values, context in
+    
+    navigator.register(HotChatURLString(path: "jump/editProfile")) { url, values, context in
         return  UserInfoEditingViewController.loadFromStoryboard()
     }
     
-    navigator.register("\(Constant.hotChatScheme)://jump/editLabel") { url, values, context in
+    
+    navigator.register(HotChatURLString(path: "jump/editLabel")) { url, values, context in
         let vc = UserInfoLikeObjectViewController.loadFromStoryboard()
         vc.onUpdated.delegate(on: vc) {  (controller, _) in
             controller.navigationController?.popViewController(animated: true)
@@ -40,11 +49,11 @@ enum NavigationMap {
       return  vc
     }
     
-    navigator.register("\(Constant.hotChatScheme)://jump/editIntroduction") { url, values, context in
+    navigator.register(HotChatURLString(path: "jump/editIntroduction")) { url, values, context in
         return  UserInfoInputTextViewController.loadFromStoryboard()
     }
     
-    navigator.register("\(Constant.hotChatScheme)://jump/nameAuthentication") { url, values, context in
+    navigator.register(HotChatURLString(path: "jump/nameAuthentication")) { url, values, context in
         
         if LoginManager.shared.user?.sex == .female  {
             return AnchorAuthenticationViewController()
@@ -53,7 +62,8 @@ enum NavigationMap {
             return RealNameAuthenticationViewController.loadFromStoryboard()
         }
     }
-    
+     
+    navigator.handle(HotChatURLString(path: "jump/home"), self.home(navigator: navigator))
     
     navigator.register("http://<path:_>", self.webViewControllerFactory)
     navigator.register("https://<path:_>", self.webViewControllerFactory)
@@ -75,6 +85,22 @@ enum NavigationMap {
     guard let url = url.urlValue else { return nil }
     
     return WebViewController(url: url)
+  }
+    
+  //  tanliao://jump/home?index=1
+  private static func home(navigator: NavigatorType) -> URLOpenHandlerFactory {
+    return { url, values, context in
+        guard let indexStringValue = url.queryParameters["index"], let index = Int(indexStringValue) else { return false }
+ 
+        guard let tabBarController = UIApplication.shared.keyWindow?.rootViewController as? UITabBarController else { return false }
+        
+        guard let navigationController = tabBarController.selectedViewController as? UINavigationController else { return false }
+        
+        navigationController.popToRootViewController(animated: false)
+        tabBarController.selectedIndex = index
+        
+        return true
+    }
   }
 
   private static func alert(navigator: NavigatorType) -> URLOpenHandlerFactory {

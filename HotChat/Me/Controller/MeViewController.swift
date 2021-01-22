@@ -367,10 +367,10 @@ class MeViewController: UITableViewController, Autorotate {
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 10
+        return 5
     }
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 10
+        return 5
     }
         
     override func numberOfSections(in tableView: UITableView) -> Int {
