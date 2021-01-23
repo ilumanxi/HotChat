@@ -403,6 +403,8 @@ extension UIImage {
         let gradient = CAGradientLayer()
         gradient.frame = bounds
         gradient.colors = colors
+        gradient.startPoint = CGPoint(x: 0, y: 0.5)
+        gradient.endPoint = CGPoint(x: 1, y: 0.5)
         
         UIGraphicsBeginImageContext(gradient.bounds.size)
         gradient.render(in: UIGraphicsGetCurrentContext()!)

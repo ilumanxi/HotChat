@@ -45,6 +45,7 @@ target 'HotChat' do
     
     pod 'TXIMSDK_TUIKit_iOS'
     pod 'TPNS-iOS'
+    
     pod 'GKPhotoBrowser'
     pod 'Masonry'
     pod 'AFNetworking'

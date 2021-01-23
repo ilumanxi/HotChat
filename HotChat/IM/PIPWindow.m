@@ -16,6 +16,12 @@ static PIPWindow *_share = nil;
 
 @implementation PIPWindow
 
++ (PIPWindow *)share {
+    
+    return  _share;
+    
+}
+
 + (void)presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion {
     
     if (_share != nil) {

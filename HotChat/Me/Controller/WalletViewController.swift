@@ -53,7 +53,7 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     init(style: UITableView.Style) {
         super.init(nibName: nil, bundle: nil)
-        self.tableView = UITableView(frame: .zero, style: style)
+        self.tableView = UITableView(frame: .zero, style: .grouped)
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }
@@ -102,6 +102,7 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
         """
         label.text = text
         label.sizeToFit()
+        label.frame = label.frame.insetBy(dx: 0, dy: -10)
        return label
    }()
     
@@ -150,7 +151,9 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         tableView.register(UINib(nibName: "WalletEnergyViewCell", bundle: nil), forCellReuseIdentifier: "WalletEnergyViewCell")
         tableView.register(UINib(nibName: "WalletProductViewCell", bundle: nil), forCellReuseIdentifier: "WalletProductViewCell")
-        
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 10))
+        tableView.sectionHeaderHeight = 5
+        tableView.sectionFooterHeight = 5
         tableView.tableFooterView = textLabel
     }
     
@@ -262,15 +265,6 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func numberOfSections(in tableView: UITableView) -> Int {
         return data.count
     }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 10
-    }
-    
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 10
-    }
-    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         

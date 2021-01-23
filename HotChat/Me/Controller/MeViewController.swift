@@ -180,6 +180,8 @@ class MeViewController: UITableViewController, Autorotate {
         super.viewDidLoad()
         
         hbd_barHidden = true
+        tableView.sectionHeaderHeight = 10
+        tableView.sectionFooterHeight = .leastNonzeroMagnitude
         
         additionalSafeAreaInsets = UIEdgeInsets(top: -navigationController!.navigationBar.bounds.height, left: 0, bottom: 0, right: 0)
         setDisplay()
@@ -365,14 +367,7 @@ class MeViewController: UITableViewController, Autorotate {
         let vc = SettingViewController.loadFromStoryboard()
         navigationController?.pushViewController(vc, animated: true)
     }
-    
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 5
-    }
-    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 5
-    }
-        
+            
     override func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
     }

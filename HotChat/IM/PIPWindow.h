@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PIPWindow : UIWindow
 
+@property(class, nonatomic, readonly) PIPWindow *share;
+
 
 + (void)presentViewController:(UIViewController *)viewControllerToPresent animated: (BOOL)flag completion:(void (^ __nullable)(void))completion API_AVAILABLE(ios(5.0));
 // The completion handler, if provided, will be invoked after the dismissed controller's viewDidDisappear: callback is invoked.
