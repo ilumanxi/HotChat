@@ -32,10 +32,10 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="b9O-1f-IJY">
-                        <rect key="frame" x="70" y="14" width="81.5" height="42.5"/>
+                        <rect key="frame" x="70" y="14" width="114.5" height="42.5"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="qVH-vv-l1s">
-                                <rect key="frame" x="0.0" y="0.0" width="81.5" height="19.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="114.5" height="19.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwQ-Ke-XnG">
                                         <rect key="frame" x="0.0" y="0.0" width="39.5" height="19.5"/>
@@ -43,8 +43,8 @@
                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="2oO-jG-7Hr">
-                                        <rect key="frame" x="53.5" y="3.5" width="28" height="12"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="2oO-jG-7Hr">
+                                        <rect key="frame" x="53.5" y="3.5" width="61" height="12"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" placeholderIntrinsicWidth="28" placeholderIntrinsicHeight="12" translatesAutoresizingMaskIntoConstraints="NO" id="IG8-W4-BCl" customClass="LabelView" customModule="HotChat" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="28" height="12"/>
@@ -54,6 +54,9 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="26"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="28" placeholderIntrinsicHeight="12" translatesAutoresizingMaskIntoConstraints="NO" id="g6A-hM-AFj">
+                                                <rect key="frame" x="33" y="0.0" width="28" height="12"/>
+                                            </imageView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -88,6 +91,7 @@
             <connections>
                 <outlet property="avatarImageView" destination="gCc-6l-IE9" id="5r3-xk-Kh2"/>
                 <outlet property="followButton" destination="bjs-71-dkD" id="QT7-sT-ihk"/>
+                <outlet property="gradeView" destination="g6A-hM-AFj" id="QXF-si-jtC"/>
                 <outlet property="introduceLabel" destination="AuJ-Xg-zdN" id="qiQ-uy-RbV"/>
                 <outlet property="nicknameLabel" destination="vwQ-Ke-XnG" id="NMY-On-u0Q"/>
                 <outlet property="sexView" destination="IG8-W4-BCl" id="bjv-55-nL7"/>

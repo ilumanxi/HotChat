@@ -69,8 +69,8 @@ class UserInfoHeaderView: UIView, FSPagerViewDataSource, FSPagerViewDelegate {
     
     @IBOutlet weak var sexView: LabelView!
     
-    
-    @IBOutlet weak var followView: LabelView!
+
+    @IBOutlet weak var gradeView: UIImageView!
     
     
     let onFollowButtonTapped = Delegate<UserInfoHeaderView, Void>()
@@ -145,7 +145,7 @@ class UserInfoHeaderView: UIView, FSPagerViewDataSource, FSPagerViewDelegate {
         pagerView.reloadData()
         nicknameLabel.text = user.nick
         sexView.setSex(user)
-        followView.text = user.userFollowNum.description
+        gradeView.setGrade(user)
         vipButton.setVIP(user.vipType)
         authenticationButton.alpha = user.headStatus.alpha
         locationLabel.text = user.region

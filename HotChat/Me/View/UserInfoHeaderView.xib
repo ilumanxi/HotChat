@@ -147,13 +147,9 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="28" height="12"/>
                                                     <color key="backgroundColor" systemColor="systemTealColor"/>
                                                 </view>
-                                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="28" placeholderIntrinsicHeight="12" translatesAutoresizingMaskIntoConstraints="NO" id="APo-v8-AKO" customClass="LabelView" customModule="HotChat" customModuleProvider="target">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="28" placeholderIntrinsicHeight="12" translatesAutoresizingMaskIntoConstraints="NO" id="TSj-kP-l9s">
                                                     <rect key="frame" x="33" y="0.0" width="28" height="12"/>
-                                                    <color key="backgroundColor" red="0.43137254901960786" green="0.87058823529411766" blue="0.63137254901960782" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="image" keyPath="image" value="me-attention"/>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
+                                                </imageView>
                                             </subviews>
                                         </stackView>
                                     </subviews>
@@ -200,7 +196,7 @@
                 <outlet property="authenticationButton" destination="GeQ-d5-6BO" id="ZI5-pr-NS4"/>
                 <outlet property="contentView" destination="4AD-g7-yEI" id="TeL-ud-kWh"/>
                 <outlet property="followButton" destination="4VA-rX-A01" id="eZc-3d-pEB"/>
-                <outlet property="followView" destination="APo-v8-AKO" id="eOU-fl-L61"/>
+                <outlet property="gradeView" destination="TSj-kP-l9s" id="N6H-OM-W4i"/>
                 <outlet property="locationLabel" destination="9c6-m5-bdN" id="hvH-bw-zgU"/>
                 <outlet property="nicknameLabel" destination="dX4-WC-QMz" id="hSL-uq-iHA"/>
                 <outlet property="pageControl" destination="7tt-qf-xLN" id="yHD-QE-CoJ"/>
@@ -214,7 +210,6 @@
         </view>
     </objects>
     <resources>
-        <image name="me-attention" width="7" height="7"/>
         <image name="me-certified" width="12.5" height="15"/>
         <image name="me-follow" width="7" height="7"/>
         <image name="vip-month" width="22.5" height="13"/>

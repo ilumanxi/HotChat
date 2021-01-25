@@ -26,4 +26,7 @@ class ChannelCell: UITableViewCell {
     @IBOutlet weak var introduceLabel: UILabel!
     
     @IBOutlet weak var authenticationButton: UIButton!
+    
+    @IBOutlet weak var gradeView: UIImageView!
+    
 }

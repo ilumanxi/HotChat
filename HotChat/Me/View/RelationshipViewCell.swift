@@ -21,6 +21,8 @@ class RelationshipViewCell: UITableViewCell {
     @IBOutlet weak var sexView: LabelView!
     
     
+    @IBOutlet weak var gradeView: UIImageView!
+    
     @IBOutlet weak var introduceLabel: UILabel!
     
     

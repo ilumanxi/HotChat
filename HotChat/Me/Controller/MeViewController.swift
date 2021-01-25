@@ -312,9 +312,10 @@ class MeViewController: UITableViewController, Autorotate {
         meHeaderView.vipButton.setVIP(user.vipType)
         meHeaderView.followButton.setTitle("\(user.userFollowNum) 关注", for: .normal)
         meHeaderView.fansButton.setTitle("\(user.userFansNum) 粉丝", for: .normal)
-        
+        meHeaderView.gradeView.setGrade(user)
         meHeaderView.walletView.isHidden = user.girlStatus
         meHeaderView.earningsView.isHidden = !user.girlStatus
+        meHeaderView.taskView.isHidden = user.girlStatus
         
         meHeaderView.setNeedsLayout()
         meHeaderView.layoutIfNeeded()

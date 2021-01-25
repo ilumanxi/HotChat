@@ -54,6 +54,7 @@ class ChannelViewController: UIViewController, LoadingStateType, IndicatorDispla
         bannerView.interitemSpacing = 24
         bannerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "FSPagerViewCell")
         bannerView.backgroundColor = .white
+        bannerView.automaticSlidingInterval = 3
         return bannerView
     }()
     
@@ -228,6 +229,7 @@ extension ChannelCell {
        statusLabel.text = user.onlineStatus.text
        statusLabel.textColor = user.onlineStatus.color
        vipButton.setVIP(user.vipType)
+       gradeView.setGrade(user)
        authenticationButton.isHidden = !user.girlStatus
     }
 }

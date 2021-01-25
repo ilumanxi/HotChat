@@ -78,7 +78,7 @@ class MeRelationshipViewController: UITableViewController, SegementSlideContentS
         cell.sexView.setSex(user)
         cell.introduceLabel.text = user.introduce
         cell.followButton.isHidden = user.isFollow
-        
+        cell.gradeView.setGrade(user)
         cell.onFollowButtonTapped.delegate(on: self) { (self, _) in
             self.follow(user: user)
         }

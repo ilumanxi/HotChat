@@ -7,6 +7,23 @@
 //
 
 import UIKit
+import Kingfisher
+
+extension UIImageView {
+    
+    func setGrade(_ user: User) {
+        if user.girlStatus {
+            kf.setImage(with: URL(string: user.girlRankIcon))
+        }
+        else {
+            kf.setImage(with: URL(string: user.userRankIcon))
+        }
+        
+        translatesAutoresizingMaskIntoConstraints = false
+        widthAnchor.constraint(equalToConstant: 28).isActive = true
+        heightAnchor.constraint(equalToConstant: 12).isActive = true
+    }
+}
 
 class MeHeaderView: UIView {
     
@@ -23,7 +40,7 @@ class MeHeaderView: UIView {
     
     @IBOutlet weak var sexView: LabelView!
     
-    @IBOutlet weak var gradeView: LabelView!
+    @IBOutlet weak var gradeView: UIImageView!
     
     @IBOutlet weak var vipButton: UIButton!
     

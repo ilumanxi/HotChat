@@ -105,8 +105,10 @@ class DiscoverViewController: TabmanViewController, LoadingStateType, IndicatorD
         // Customize bar properties including layout and other styling.
         bar.layout.contentInset = UIEdgeInsets(top: 0.0, left: 16.0, bottom: 4.0, right: 16.0)
         bar.layout.interButtonSpacing = 24.0
-        bar.indicator.weight = .light
+        bar.indicator.weight = .custom(value: 2.5)
         bar.indicator.cornerStyle = .eliptical
+        bar.indicator.overscrollBehavior = .none
+        bar.layout.showSeparators = false
         bar.fadesContentEdges = true
         bar.spacing = 16.0
         bar.backgroundView.style = .clear

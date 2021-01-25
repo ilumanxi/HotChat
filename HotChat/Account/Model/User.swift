@@ -212,6 +212,16 @@ enum VipType: Int, HandyJSONEnum {
     /// 用户状态
     var userStatus: UserStatus = .unknown
     
+    /// 用户等级
+    var userRank: Int = 0
+    /// 用户等级Icon
+    var userRankIcon: String = ""
+    
+    /// 主播等级
+    var girlRank: Int = 0
+    
+    /// 主播等级Icon,
+    var girlRankIcon: String = ""
     
     /// 手机号
     var phone: String = ""

@@ -30,7 +30,7 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="CFk-id-l6J">
-                        <rect key="frame" x="98" y="22.5" width="62" height="59.5"/>
+                        <rect key="frame" x="98" y="22.5" width="92" height="59.5"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="LdT-v8-ie7">
                                 <rect key="frame" x="0.0" y="0.0" width="62" height="17"/>
@@ -54,7 +54,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Sw9-Ce-u0P">
-                                <rect key="frame" x="0.0" y="25" width="60" height="12"/>
+                                <rect key="frame" x="0.0" y="25" width="92" height="12"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" placeholderIntrinsicWidth="28" placeholderIntrinsicHeight="12" translatesAutoresizingMaskIntoConstraints="NO" id="8Sc-Py-gKZ" customClass="LabelView" customModule="HotChat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="28" height="12"/>
@@ -76,6 +76,9 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="colorsString" value="#D66AFA,#8415E2"/>
                                         </userDefinedRuntimeAttributes>
                                     </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="28" placeholderIntrinsicHeight="12" translatesAutoresizingMaskIntoConstraints="NO" id="Ldj-m0-HLR">
+                                        <rect key="frame" x="64" y="0.0" width="28" height="12"/>
+                                    </imageView>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0Q-pr-K0d">
@@ -116,6 +119,7 @@
             <connections>
                 <outlet property="authenticationButton" destination="HGP-UO-9le" id="8rX-zY-LIm"/>
                 <outlet property="avatarImageView" destination="W2e-N5-Jkh" id="Bwz-8s-YUh"/>
+                <outlet property="gradeView" destination="Ldj-m0-HLR" id="d2x-B5-K93"/>
                 <outlet property="introduceLabel" destination="c0Q-pr-K0d" id="CiC-qs-br6"/>
                 <outlet property="locationLabel" destination="dyS-gK-vvd" id="Pff-1C-UEP"/>
                 <outlet property="nicknameLabel" destination="fXL-Af-2Pa" id="YPp-xi-Qn0"/>
