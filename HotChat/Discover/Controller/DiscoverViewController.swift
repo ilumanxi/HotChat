@@ -7,14 +7,13 @@
 //
 
 import UIKit
-import SegementSlide
 import RxSwift
 import RxCocoa
 import SnapKit
-import Aquaman
 import Trident
-import FSPagerView
-import URLNavigator
+import Tabman
+import Pageboy
+
 
 extension TridentMenuView {
     public override var intrinsicContentSize: CGSize {
@@ -41,59 +40,7 @@ extension TimeInterval {
 }
 
 
-class DiscoverViewController: AquamanPageViewController, LoadingStateType, IndicatorDisplay {
-    
-    lazy var bannerView: FSPagerView = {
-        let headerViewHeight =  (view.bounds.width / (2 / 0.75)).rounded(.down)
-        let bannerView =  FSPagerView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: headerViewHeight))
-        bannerView.bounces = false
-        bannerView.delegate = self
-        bannerView.dataSource = self
-//        bannerView.itemSize = FSPagerViewAutomaticSize // Fill parent
-        bannerView.itemSize = bannerView.frame.insetBy(dx: 24, dy: 20).size
-        bannerView.interitemSpacing = 24
-        bannerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "FSPagerViewCell")
-        return bannerView
-    }()
-    
-    
-    lazy var menuView: TridentMenuView = {
-        let view = TridentMenuView(parts:
-            .normalTextColor(UIColor(hexString: "#666666")),
-            .selectedTextColor(UIColor(hexString: "#1B1B1B")),
-            .normalTextFont(UIFont.systemFont(ofSize: 14.0, weight: .medium)),
-            .selectedTextFont(UIFont.systemFont(ofSize: 19.0, weight: .bold)),
-            .switchStyle(.line),
-            .sliderStyle(
-                SliderViewStyle(parts:
-                    .backgroundColor(.theme),
-                    .height(2.5),
-                    .cornerRadius(1.5),
-                    .position(.bottom),
-                    .shape(.line)
-                )
-            ),
-            .bottomLineStyle(
-                BottomLineViewStyle(parts:
-                    .hidden(true)
-                )
-            )
-        )
-        view.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-        view.backgroundColor = .clear
-        view.delegate = self
-        return view
-    }()
-    
-    
-    var headerViewHeight: CGFloat {
-        if banners.isEmpty {
-            return 1
-        }
-        return (view.bounds.width / (2 / 0.75)).rounded(.down)
-    }
-    private var menuViewHeight: CGFloat = 44.0
-    
+class DiscoverViewController: TabmanViewController, LoadingStateType, IndicatorDisplay {
     
     var state: LoadingState = .initial {
         didSet {
@@ -105,24 +52,14 @@ class DiscoverViewController: AquamanPageViewController, LoadingStateType, Indic
     
     let discoverAPI = Request<DiscoverAPI>()
     let chatGreetAPI = Request<ChatGreetAPI>()
-    let bannerAPI = Request<BannerAPI>()
+    
     
     var channels: [Channel] = [] {
         didSet {
-            menuView.titles = channels.compactMap{ $0.tagName }
             reloadData()
         }
     }
     
-    var banners: [Banner] = [] {
-        didSet {
-            bannerView.reloadData()
-            reloadData()
-        }
-    }
-    
-    
-
     private var sayHellowSeconds: TimeInterval = 0
     
     private var countdownTimer: Timer?
@@ -159,7 +96,33 @@ class DiscoverViewController: AquamanPageViewController, LoadingStateType, Indic
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.titleView = menuView
+        // Set PageboyViewControllerDataSource dataSource to configure page view controller.
+        dataSource = self
+        
+        // Create a bar
+        let bar = TMBarView.ButtonBar()
+        
+        // Customize bar properties including layout and other styling.
+        bar.layout.contentInset = UIEdgeInsets(top: 0.0, left: 16.0, bottom: 4.0, right: 16.0)
+        bar.layout.interButtonSpacing = 24.0
+        bar.indicator.weight = .light
+        bar.indicator.cornerStyle = .eliptical
+        bar.fadesContentEdges = true
+        bar.spacing = 16.0
+        bar.backgroundView.style = .clear
+        
+        // Set tint colors for the bar buttons and indicator.
+        bar.buttons.customize {
+            $0.tintColor = UIColor(hexString: "#1B1B1B").withAlphaComponent(0.4)
+            $0.selectedTintColor = UIColor(hexString: "#1B1B1B")
+        }
+        bar.indicator.tintColor = .theme
+        
+        // Add bar to the view - as a .systemBar() to add UIKit style system background views.
+//        addBar(bar.systemBar(), dataSource: self, at: .top)
+        
+        addBar(bar.hiding(trigger: .manual), dataSource: self, at: .navigationItem(item: navigationItem))
+        
         
         state = .loadingContent
         requestData()
@@ -300,12 +263,6 @@ class DiscoverViewController: AquamanPageViewController, LoadingStateType, Indic
             })
             .disposed(by: rx.disposeBag)
         
-        bannerAPI.request(.bannerList(type: 1), type: Response<[Banner]>.self)
-            .verifyResponse()
-            .subscribe(onSuccess: { [weak self] response in
-                self?.banners = response.data ?? []
-            }, onError: nil)
-            .disposed(by: rx.disposeBag)
     }
     
     func loadData() -> Single<Response<[Channel]>> {
@@ -333,121 +290,34 @@ class DiscoverViewController: AquamanPageViewController, LoadingStateType, Indic
         return controller
     }
     
-    override func headerViewFor(_ pageController: AquamanPageViewController) -> UIView {
-        return bannerView
-    }
-    
-    override func headerViewHeightFor(_ pageController: AquamanPageViewController) -> CGFloat {
-        return headerViewHeight
-    }
-    
-    override func numberOfViewControllers(in pageController: AquamanPageViewController) -> Int {
-        return channels.count
-    }
-    
-    override func pageController(_ pageController: AquamanPageViewController, viewControllerAt index: Int) -> (UIViewController & AquamanChildViewController) {
-        
-        return viewController(at: index) as! AquamanChildViewController
-    }
-    
-    // 默认显示的 ViewController 的 index
-    override func originIndexFor(_ pageController: AquamanPageViewController) -> Int {
-       return 0
-    }
-    
-    override func menuViewFor(_ pageController: AquamanPageViewController) -> UIView {
-        return UIView()
-    }
-    
-    override func menuViewHeightFor(_ pageController: AquamanPageViewController) -> CGFloat {
-        return 0
-    }
-    
-    override func menuViewPinHeightFor(_ pageController: AquamanPageViewController) -> CGFloat {
-        return 0.0
-    }
-
-    
-    override func pageController(_ pageController: AquamanPageViewController, mainScrollViewDidScroll scrollView: UIScrollView) {
-        
-    }
-    
-    override func pageController(_ pageController: AquamanPageViewController, contentScrollViewDidScroll scrollView: UIScrollView) {
-        menuView.updateLayout(scrollView)
-    }
-    
-    override func pageController(_ pageController: AquamanPageViewController,
-                                 contentScrollViewDidEndScroll scrollView: UIScrollView) {
-        
-    }
-    
-    override func pageController(_ pageController: AquamanPageViewController, menuView isAdsorption: Bool) {
-
-    }
-    
-    
-    override func pageController(_ pageController: AquamanPageViewController, willDisplay viewController: (UIViewController & AquamanChildViewController), forItemAt index: Int) {
-    }
-    
-    override func pageController(_ pageController: AquamanPageViewController, didDisplay viewController: (UIViewController & AquamanChildViewController), forItemAt index: Int) {
-        menuView.checkState(animation: true)
-    }
-    
-    override func contentInsetFor(_ pageController: AquamanPageViewController) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: safeAreaInsets.bottom, right: 0)
-    }
-        
 }
 
-extension DiscoverViewController: TridentMenuViewDelegate {
-    func menuView(_ menuView: TridentMenuView, didSelectedItemAt index: Int) {
-        guard index < channels.count else {
-            return
-        }
-        setSelect(index: index, animation: false)
+
+
+extension DiscoverViewController: PageboyViewControllerDataSource, TMBarDataSource {
+    
+    // MARK: PageboyViewControllerDataSource
+    
+    func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
+        channels.count // How many view controllers to display in the page view controller.
+    }
+    
+    func viewController(for pageboyViewController: PageboyViewController, at index: PageboyViewController.PageIndex) -> UIViewController? {
+        
+        viewController(at: index) // View controller to display at a specific index for the page view controller.
+    }
+    
+    func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
+        nil // Default page to display in the page view controller (nil equals default/first index).
+    }
+    
+    // MARK: TMBarDataSource
+    
+    func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
+        
+        return TMBarItem(title: channels[index].tagName) // Item to display for a specific index in the bar.
     }
 }
 
 
-extension FSPagerViewCell {
-    
-    open override var isHighlighted: Bool {
-        didSet {
-            
-        }
-    }
-    
-    open override var isSelected: Bool {
-        didSet {
-            
-        }
-    }
-}
 
-extension DiscoverViewController: FSPagerViewDataSource, FSPagerViewDelegate {
-    
-    
-    func numberOfItems(in pagerView: FSPagerView) -> Int {
-        return banners.count
-    }
-    
-    func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
-        let model = banners[index]
-        
-        let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "FSPagerViewCell", at: index)
-        cell.contentView.layer.shadowColor = UIColor.clear.cgColor
-        cell.imageView?.kf.setImage(with: URL(string: model.img))
-        return cell
-    }
-    
-    func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
-        
-        let model = banners[index]
-        guard let url = URL(string: model.url) else { return }
-        
-        Navigator.share.push(url)
-        
-
-    }
-    
-}

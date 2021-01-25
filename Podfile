@@ -31,6 +31,7 @@ target 'HotChat' do
     pod 'SegementSlide'
     pod 'PKHUD'
     pod 'URLNavigator'
+    pod 'Tabman'
     
     pod 'FSPagerView'
     pod 'ActiveLabel'

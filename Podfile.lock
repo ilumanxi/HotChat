@@ -47,6 +47,7 @@ PODS:
     - RxSwift (~> 5.0)
   - "NSObject+Rx (5.1.0)":
     - RxSwift (~> 5.1)
+  - Pageboy (3.6.2)
   - PIPKit (0.2.0)
   - PKHUD (5.3.0)
   - pop (1.0.12)
@@ -117,6 +118,8 @@ PODS:
   - SwifterSwift/SwiftStdlib (5.2.0)
   - SwifterSwift/UIKit (5.2.0)
   - SwiftyStoreKit (0.16.1)
+  - Tabman (2.10.0):
+    - Pageboy (~> 3.6.0)
   - TagListView (1.4.1)
   - Toast (4.0.0)
   - Toast-Swift (5.0.1)
@@ -173,6 +176,7 @@ DEPENDENCIES:
   - SwiftDate
   - SwifterSwift
   - SwiftyStoreKit
+  - Tabman
   - TagListView
   - Toast-Swift
   - TPNS-iOS
@@ -207,6 +211,7 @@ SPEC REPOS:
     - MMLayout
     - Moya
     - "NSObject+Rx"
+    - Pageboy
     - PIPKit
     - PKHUD
     - pop
@@ -227,6 +232,7 @@ SPEC REPOS:
     - SwiftDate
     - SwifterSwift
     - SwiftyStoreKit
+    - Tabman
     - TagListView
     - Toast
     - Toast-Swift
@@ -263,6 +269,7 @@ SPEC CHECKSUMS:
   MMLayout: 3fb59d58eeb8656c64e61d550fb0088e10666c11
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   "NSObject+Rx": fa6bbcc1ab1faa06b01466bc09b1e0692bbc5946
+  Pageboy: cf121b9dd48c63f3f281b2a9ec93d02e0f23879b
   PIPKit: 00fd62aa4967f9cef1eca1a5587d3192c23881e1
   PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
@@ -283,6 +290,7 @@ SPEC CHECKSUMS:
   SwiftDate: 72d28954e8e1c6c1c0f917ccc8005e4f83c7d4b2
   SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
   SwiftyStoreKit: 6b9c08810269f030586dac1fae8e75871a82e84a
+  Tabman: d8d6ab0b483c7db375a71ac227d3ef791b56a049
   TagListView: a1c236d17960a0cf64156725a76ce6d73ebce2be
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
@@ -295,6 +303,6 @@ SPEC CHECKSUMS:
   WechatOpenSDK: 6a4d1436c15b3b5fe2a0bd383f3046010186da44
   WKWebViewJavascriptBridge: 07ad0cab27cd61ccdb90b5deb223f6df3a03c3d7
 
-PODFILE CHECKSUM: 9bcf8de6b01d21fe95be8971d200622f44572fb3
+PODFILE CHECKSUM: 15f191b15eb9994952593c7c6b7b1ada0235538d
 
 COCOAPODS: 1.10.1

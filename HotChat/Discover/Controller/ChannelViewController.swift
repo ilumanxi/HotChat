@@ -7,13 +7,14 @@
 //
 
 import UIKit
-import Aquaman
 import RxSwift
 import RxCocoa
 import MJRefresh
 import Kingfisher
+import FSPagerView
+import URLNavigator
 
-class ChannelViewController: UIViewController, LoadingStateType, IndicatorDisplay, AquamanChildViewController, StoryboardCreate {
+class ChannelViewController: UIViewController, LoadingStateType, IndicatorDisplay, StoryboardCreate {
     
     var state: LoadingState = .initial {
         didSet {
@@ -39,12 +40,43 @@ class ChannelViewController: UIViewController, LoadingStateType, IndicatorDispla
     
     
     @IBOutlet weak var tableView: UITableView!
+        
+    static var storyboardNamed: String { return "Discover" }
     
-    func aquamanChildScrollView() -> UIScrollView {
-        return tableView
+    lazy var bannerView: FSPagerView = {
+        let headerViewHeight =  self.headerViewHeight
+        let bannerView =  FSPagerView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: headerViewHeight))
+        bannerView.bounces = false
+        bannerView.delegate = self
+        bannerView.dataSource = self
+//        bannerView.itemSize = FSPagerViewAutomaticSize // Fill parent
+        bannerView.itemSize = bannerView.frame.insetBy(dx: 24, dy: 20).size
+        bannerView.interitemSpacing = 24
+        bannerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "FSPagerViewCell")
+        bannerView.backgroundColor = .white
+        return bannerView
+    }()
+    
+    let bannerAPI = Request<BannerAPI>()
+    
+    var headerViewHeight: CGFloat {
+        return (view.bounds.width / (2 / 0.75)).rounded(.down)
     }
     
-    static var storyboardNamed: String { return "Discover" }
+    var banners: [Banner] = [] {
+        didSet {
+         
+            if banners.isEmpty {
+                self.tableView.tableHeaderView = nil
+            }
+           
+            if self.bannerView.superview == nil {
+                self.tableView.tableHeaderView = bannerView
+            }
+            
+            bannerView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,11 +109,17 @@ class ChannelViewController: UIViewController, LoadingStateType, IndicatorDispla
         else {
             tableView.mj_footer?.endRefreshing()
         }
-        
     }
     
     func refreshData() {
         loadSignal.onNext((type: channel.type, labelId: channel.labelId, index: refreshPageIndex))
+        
+        bannerAPI.request(.bannerList(type: 1), type: Response<[Banner]>.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { [weak self] response in
+                self?.banners = response.data ?? []
+            }, onError: nil)
+            .disposed(by: rx.disposeBag)
     }
 
     func loadMoreData() {
@@ -192,4 +230,46 @@ extension ChannelCell {
        vipButton.setVIP(user.vipType)
        authenticationButton.isHidden = !user.girlStatus
     }
+}
+
+
+extension FSPagerViewCell {
+    
+    open override var isHighlighted: Bool {
+        didSet {
+            
+        }
+    }
+    
+    open override var isSelected: Bool {
+        didSet {
+            
+        }
+    }
+}
+
+extension ChannelViewController: FSPagerViewDataSource, FSPagerViewDelegate {
+    
+    
+    func numberOfItems(in pagerView: FSPagerView) -> Int {
+        return banners.count
+    }
+    
+    func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
+        let model = banners[index]
+        
+        let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "FSPagerViewCell", at: index)
+        cell.contentView.layer.shadowColor = UIColor.clear.cgColor
+        cell.imageView?.kf.setImage(with: URL(string: model.img))
+        return cell
+    }
+    
+    func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
+        
+        let model = banners[index]
+        guard let url = URL(string: model.url) else { return }
+        
+        Navigator.share.push(url)
+    }
+    
 }
