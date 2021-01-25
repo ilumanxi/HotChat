@@ -55,6 +55,7 @@ class ChannelViewController: UIViewController, LoadingStateType, IndicatorDispla
         bannerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "FSPagerViewCell")
         bannerView.backgroundColor = .white
         bannerView.automaticSlidingInterval = 3
+        bannerView.isInfinite = true
         return bannerView
     }()
     
