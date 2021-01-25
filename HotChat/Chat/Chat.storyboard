@@ -89,11 +89,11 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="NHL-MH-7RP">
-                                                    <rect key="frame" x="79" y="16.5" width="109.5" height="37.5"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="NHL-MH-7RP">
+                                                    <rect key="frame" x="78" y="16" width="105.5" height="37.5"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="gU7-tH-qrd">
-                                                            <rect key="frame" x="0.0" y="0.0" width="109.5" height="17"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="105.5" height="17"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fq0-hA-C1R">
                                                                     <rect key="frame" x="0.0" y="0.0" width="35.5" height="17"/>
@@ -109,14 +109,9 @@
                                                                         <userDefinedRuntimeAttribute type="string" keyPath="text" value="18"/>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </view>
-                                                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="32" placeholderIntrinsicHeight="16" translatesAutoresizingMaskIntoConstraints="NO" id="yCH-hD-QQI" customClass="LabelView" customModule="HotChat" customModuleProvider="target">
-                                                                    <rect key="frame" x="77.5" y="0.5" width="32" height="16"/>
-                                                                    <color key="backgroundColor" red="0.43137254899999999" green="0.87058823529999996" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="image" keyPath="image" value="me-attention"/>
-                                                                        <userDefinedRuntimeAttribute type="string" keyPath="text" value="0"/>
-                                                                    </userDefinedRuntimeAttributes>
-                                                                </view>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="28" placeholderIntrinsicHeight="12" translatesAutoresizingMaskIntoConstraints="NO" id="jur-sg-xo3">
+                                                                    <rect key="frame" x="77.5" y="2.5" width="28" height="12"/>
+                                                                </imageView>
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="FjE-gs-ouJ">
@@ -150,7 +145,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="avatarImageView" destination="iqP-UX-fcp" id="Z2N-Xs-s16"/>
-                                            <outlet property="followView" destination="yCH-hD-QQI" id="jmw-aS-Irq"/>
+                                            <outlet property="gradeView" destination="jur-sg-xo3" id="p45-c7-v8W"/>
                                             <outlet property="locationLabel" destination="6Ii-Zi-JIM" id="fGM-6n-KEE"/>
                                             <outlet property="nicknameLabel" destination="Fq0-hA-C1R" id="8nb-yF-alA"/>
                                             <outlet property="statusLabel" destination="4di-Q3-Ucf" id="ulj-VN-0CK"/>
@@ -588,7 +583,6 @@
         <image name="chat-more" width="3.5" height="16.5"/>
         <image name="chat-skip" width="74.5" height="74.5"/>
         <image name="close-white-small" width="12" height="12"/>
-        <image name="me-attention" width="7" height="7"/>
         <image name="me-sex-man" width="7" height="7"/>
         <image name="tabbar-message-normal" width="21" height="21"/>
         <image name="tabbar-message-selected" width="20" height="20"/>

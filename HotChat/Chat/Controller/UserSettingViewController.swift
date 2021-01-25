@@ -36,7 +36,7 @@ class UserFormEntry: NSObject,FormEntry {
         cell.avatarImageView.kf.setImage(with: URL(string: user.headPic))
         cell.nicknameLabel.text = user.friendNick.isEmpty ? user.nick : user.friendNick
         cell.userView.setSex(user)
-        cell.followView.text = user.userFollowNum.description
+        cell.gradeView.setGrade(user)
         cell.locationLabel.text = user.region
         cell.statusLabel.text = user.onlineStatus.text
         cell.statusLabel.textColor = user.onlineStatus.color

@@ -132,6 +132,12 @@ class LoginManager: NSObject {
     }
     
     private func imLogin(userID: String, appId: UInt, userSig: String) {
+        
+        if V2TIMManager.sharedInstance()!.getLoginStatus() != .STATUS_LOGOUT {
+            Log.print("IM: 已登录，尝试登录")
+            return
+        }
+        
         TUIKit.sharedInstance()?.login(userID, userSig: userSig, succ: {
             TUILocalStorage.sharedInstance().saveLogin(userID, withAppId:appId, withUserSig: userSig)
             self.setAPNS()

@@ -16,8 +16,8 @@ class UserViewCell: UITableViewCell {
     @IBOutlet weak var nicknameLabel: UILabel!
     
     @IBOutlet weak var userView: LabelView!
-    
-    @IBOutlet weak var followView: LabelView!
+        
+    @IBOutlet weak var gradeView: UIImageView!
     
     @IBOutlet weak var locationLabel: UILabel!
     
