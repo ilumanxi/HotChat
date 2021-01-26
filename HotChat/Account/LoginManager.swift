@@ -33,6 +33,7 @@ class LoginManager: NSObject {
             case weChat = 2
             case apple = 3
             case um = 4
+            case phone = 5
         }
         
         case phone(phone: String, password: String)

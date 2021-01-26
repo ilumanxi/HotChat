@@ -13,13 +13,14 @@ import NSObject_Rx
 import RxSwiftUtilities
 import Moya
 
-class SignupViewController: LegalLiabilityViewController, IndicatorDisplay {
-
+class SignupViewController: LegalLiabilityViewController, IndicatorDisplay, StoryboardCreate {
+    
+    
+    static var storyboardNamed: String { return "Account" }
+    
     @IBOutlet weak var phoneTextField: UITextField!
     
     @IBOutlet weak var codeTextField: UITextField!
-    
-    @IBOutlet weak var passwordTextField: UITextField!
     
     @IBOutlet weak var codeButton: UIButton!
     
@@ -50,7 +51,6 @@ class SignupViewController: LegalLiabilityViewController, IndicatorDisplay {
         let viewModel = SignupViewModel(
             input: (
                 phone: phoneTextField.rx.text.orEmpty.asDriver(),
-                password: passwordTextField.rx.text.orEmpty.asDriver(),
                 code: codeTextField.rx.text.orEmpty.asDriver(),
                 codeTaps: codeButton.rx.tap.asSignal(),
                 signUpTaps: signUpButton.rx.tap.asSignal()

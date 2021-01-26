@@ -35,7 +35,7 @@ enum SignupState {
 protocol SignupAPI {
     
     func sendCode(_ phone: String) -> Single<ResponseEmpty>
-    func signup(_ phone: String, password: String, code: String) -> Single<ResponseEmpty>
+    func signup(_ phone: String, code: String) -> Single<ResponseEmpty>
 }
 
 
@@ -55,11 +55,11 @@ class SignupDefaultAPI: SignupAPI {
     let API  = Request<AccountAPI>()
     
     func sendCode(_ phone: String) -> Single<ResponseEmpty> {
-        return API.request(.sendCode(phone: phone, type: .signUp))
+        return API.request(.sendCode(phone: phone, type: .signIn))
     }
     
-    func signup(_ phone: String, password: String, code: String) -> Single<ResponseEmpty> {
-        return API.request(.signUp(phone: phone, password: password, code: code))
+    func signup(_ phone: String, code: String) -> Single<ResponseEmpty> {
+        return API.request(.signUp(phone: phone, code: code))
     }
 }
 

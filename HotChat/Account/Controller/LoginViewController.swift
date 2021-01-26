@@ -71,7 +71,7 @@ class LoginViewController: UIViewController, IndicatorDisplay {
                 self.phoneLogin()
             }
             else {
-                self.pushPhoneSignin()
+                self.pushSignup()
             }
         }
     }
@@ -135,7 +135,7 @@ class LoginViewController: UIViewController, IndicatorDisplay {
                 
                
                 if code == PNSCodeInterfaceTimeout {
-                    self.pushPhoneSignin()
+                    self.pushSignup()
                 }
                 if code == PNSCodeSuccess, let token = info["token"] as? String {
                     //点击登录按钮获取登录Token成功回调
@@ -164,17 +164,17 @@ class LoginViewController: UIViewController, IndicatorDisplay {
         
         let button = UIButton(type: .custom)
         button.setAttributedTitle(attrString, for: .normal)
-        button.addTarget(self, action: #selector(pushPhoneSignin), for: .touchUpInside)
+        button.addTarget(self, action: #selector(pushSignup), for: .touchUpInside)
         return button
     }()
     
     
-    
-    @objc private func pushPhoneSignin() {
+    /// 登录注册
+    @objc private func pushSignup() {
         UMCommonHandler.cancelLoginVC(animated: false) {
             
         }
-        let vc = PhoneSigninViewController.loadFromStoryboard()
+        let vc = SignupViewController.loadFromStoryboard()
         navigationController?.pushViewController(vc, animated: true)
     }
     

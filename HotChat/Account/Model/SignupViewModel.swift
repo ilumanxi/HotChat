@@ -19,7 +19,6 @@ class SignupViewModel {
     static var countdownSeconds: Int = 60
     
     let validatedPhone: Driver<ValidationResult>
-    let validatedPassword: Driver<ValidationResult>
     let validatedCode: Driver<ValidationResult>
     
     // Is code button enabled
@@ -52,7 +51,6 @@ class SignupViewModel {
     init (
         input: (
             phone: Driver<String>,
-            password: Driver<String>,
             code: Driver<String>,
             codeTaps: Signal<()>,
             signUpTaps: Signal<()>
@@ -75,11 +73,7 @@ class SignupViewModel {
             .map { phone in
                 return validationService.validatePhone(phone)
             }
-        
-        validatedPassword = input.password
-            .map { password in
-                return validationService.validatePassword(password)
-            }
+    
         
         validatedCode = input.code
             .map { code in
@@ -132,18 +126,18 @@ class SignupViewModel {
             .asDriver(onErrorJustReturn: true)
 
         
-        let phoneAndPasswordAndCode = Driver.combineLatest(input.phone, input.password, input.code) { (phone: $0, password: $1, code: $2) }
+        let phoneAndCode = Driver.combineLatest(input.phone, input.code) { (phone: $0, code: $1) }
         
         let signingUp = ActivityIndicator()
         self.signingUp = signingUp.asDriver()
         
-        signedUp = input.signUpTaps.withLatestFrom(phoneAndPasswordAndCode)
+        signedUp = input.signUpTaps.withLatestFrom(phoneAndCode)
             .flatMapLatest { tuple in
-                return API.signup(tuple.phone, password: tuple.password, code: tuple.code)
+                return API.signup(tuple.phone, code: tuple.code)
                     .do(onSuccess: { result in
                         wireframe.show(result.msg, in: UIApplication.shared.keyWindow!)
                     }, onError: { error in
-                        wireframe.show(error.localizedDescription, in: UIApplication.shared.keyWindow!)
+                        wireframe.show(error, in: UIApplication.shared.keyWindow!)
                     })
                     .map { result in
                         return result.isSuccessd
@@ -164,12 +158,10 @@ class SignupViewModel {
         
         signupEnabled = Driver.combineLatest(
             validatedPhone,
-            validatedPassword,
             validatedCode,
             signingUp
-        ) { phone, password, code, signingUp in
+        ) { phone, code, signingUp in
                 phone.isValid &&
-                password.isValid &&
                 code.isValid &&
                 !signingUp
          }

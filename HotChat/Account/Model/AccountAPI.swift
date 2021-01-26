@@ -22,7 +22,7 @@ enum CodeType: Int {
 
 enum AccountAPI {
     case sendCode(phone: String, type: CodeType)
-    case signUp(phone: String, password: String, code: String)
+    case signUp(phone: String, code: String)
     case phoneSignin(phone: String, password: String)
     case tokenSignin(token: String)
     case otherSignin(code: String, type: Int)
@@ -46,7 +46,7 @@ extension AccountAPI: TargetType {
         case .sendCode:
             return "login/sendCode"
         case .signUp:
-            return "login/regist"
+            return "login/otherLogin"
         case .phoneSignin:
             return "login/login"
         case .tokenSignin:
@@ -91,12 +91,12 @@ extension AccountAPI: TargetType {
                 "phone": phone,
                 "type": type.rawValue
             ]
-        case .signUp(phone: let phone, password: let password, code: let code):
+        case .signUp(phone: let phone, code: let code):
             parameters = [
                 "phone": phone,
-                "password": password.md5(),
-                "verifyCode" : code,
-                "timeStamp" : Int(Date().timeIntervalSince1970)
+                "code" : code,
+                "type" : TokenType.phone.rawValue,
+                
             ]
         case .phoneSignin(phone: let phone, password: let password):
             parameters = [
