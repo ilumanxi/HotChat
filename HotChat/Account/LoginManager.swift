@@ -28,10 +28,11 @@ class LoginManager: NSObject {
     
     enum Parameters {
         
-        enum TokenIdentifier: Int { // Token登陆类型 1app启动登陆 2微信登陆 3苹果登陆
+        enum TokenIdentifier: Int { // Token登陆类型 1app启动登陆 2微信登陆 3苹果登陆 4友盟手机登录
             case launch = 1
             case weChat = 2
             case apple = 3
+            case um = 4
         }
         
         case phone(phone: String, password: String)

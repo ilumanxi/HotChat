@@ -28,10 +28,18 @@ extension Constant {
     
     struct TPNS {
         
-        static var accessID: UInt32 = 1600016588
-        static var accessKey = "I72KQO6K5I84" 
+        static let accessID: UInt32 = 1600016588
+        static let accessKey = "I72KQO6K5I84"
     }
     
+}
+
+extension Constant {
+    
+    struct UMVerify {
+        static let appkey = "600e71676a2a470e8f898d0f"
+        static let info="cUt55WR7ougCBgxgRFnl0A939u1TiO6OkxwppnyhenpKlOW8bagoBvrADKI0KQqSf8UoBO1l2RF1vWnPzgvcQzW0qppojWd5Y6KxoocS803fP1+Y1JZr8fekumUcApC+cSNaqGajdcguBzCUAsT7URL71xUm3gQtR7RaT3vo5bEw4v8UsWi4d60i0GFxJN+HNlVIjPojdX4ooKpqOYeuvZqNK3RwuRSyWiQ+Mdk+5pVxsU3dnEXV77HST8uQi9VnmNHN5lgVzYA="
+    }
 }
 
 

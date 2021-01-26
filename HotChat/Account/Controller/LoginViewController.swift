@@ -57,9 +57,128 @@ class LoginViewController: UIViewController, IndicatorDisplay {
 //        }
     }
     
+    
+    
+    
+    @IBAction func phoneDidLogin(_ sender: Any) {
+        
+        UMCommonHandler.checkEnvAvailable(with: .loginToken) {  [unowned self] info in
+            Log.print("UMVerify: \(info as Any)")
+            
+            guard let code = info?["resultCode"] as? String else { return }
+            
+            if code == PNSCodeSuccess {
+                self.phoneLogin()
+            }
+            else {
+                self.pushPhoneSignin()
+            }
+        }
+    }
+    
+    private func phoneLogin() {
+        
+        let model = UMCustomModel()
+        model.alertTitleBarColor = .white
+        model.alertBlurViewAlpha = 0.2
+        model.alertTitle = NSAttributedString(string: "免密码登录", attributes: [NSAttributedString.Key.foregroundColor : UIColor(hexString: "#333333")])
+        model.logoImage = UIImage(named: "login-logo")!
+        model.changeBtnIsHidden = true
+        model.checkBoxIsChecked = true
+        model.alertCornerRadiusArray = [NSNumber(value: 10), NSNumber(value: 0), NSNumber(value: 0), NSNumber(value: 10)]
+        let safeAreaInsetsBottom = self.safeAreaInsets.bottom
+        
+        model.contentViewFrameBlock = { (screenSize, superViewSize, frame) in
+            frame.inset(by: UIEdgeInsets(top: frame.height - 374 - safeAreaInsetsBottom, left: 0, bottom: 0, right: 0))
+        }
+        
+        model.logoFrameBlock = { (screenSize, superViewSize, frame) in
+            CGRect(x: (superViewSize.width - 54) / 2, y: 20, width: 54, height: 54)
+        }
+        
+        model.numberFrameBlock = { (screenSize, superViewSize, frame) in
+            let logoViewFrame = CGRect(x: (superViewSize.width - 54) / 2, y: 33.5, width: 54, height: 54)
+            return CGRect(x: frame.minX, y: logoViewFrame.maxY + 8, width: frame.width, height: frame.height)
+        }
+        
+        model.sloganFrameBlock = { (screenSize, superViewSize, frame) in
+            let logoViewFrame = CGRect(x: (superViewSize.width - 54) / 2, y: 33.5, width: 54, height: 54)
+            let numberViewFrame =  CGRect(x: frame.minX, y: logoViewFrame.maxY + 8, width: frame.width, height: frame.height)
+            return CGRect(x: frame.minX, y: numberViewFrame.maxY + 30, width: frame.width, height: frame.height)
+        }
+        
+        model.loginBtnFrameBlock = { (screenSize, superViewSize, frame) in
+            let logoViewFrame = CGRect(x: (superViewSize.width - 54) / 2, y: 33.5, width: 54, height: 54)
+            let numberViewFrame =  CGRect(x: frame.minX, y: logoViewFrame.maxY + 8, width: frame.width, height: frame.height)
+            let sloganViewFrame =  CGRect(x: frame.minX, y: numberViewFrame.maxY + 30, width: frame.width, height: frame.height)
+            return CGRect(x: frame.minX, y: sloganViewFrame.maxY - 30, width: frame.width, height: frame.height)
+        }
+        
+    
+        model.customViewBlock = { [unowned self] superCustomView in
+            superCustomView.addSubview(self.phoneLoginButton)
+        }
+        
+        //
+        model.customViewLayoutBlock = { [unowned self] (screenSize, contentViewFrame, navFrame, titleBarFrame, logoFrame, sloganFrame, numberFrame, loginFrame, changeBtnFrame, privacyFrame) in
+            
+            self.phoneLoginButton.sizeToFit()
+            
+            self.phoneLoginButton.frame = CGRect(x: (contentViewFrame.width - self.phoneLoginButton.frame.width) / 2, y: loginFrame.maxY + 14, width: self.phoneLoginButton.frame.width, height: self.phoneLoginButton.frame.height)
+        }
+        
+        UMCommonHandler.accelerateLoginPage(withTimeout: 3) { [unowned self] _ in
+            
+            UMCommonHandler.getLoginToken(withTimeout: 3, controller: self, model: model) { info in
+             
+                guard let code = info["resultCode"] as? String else { return }
+                
+               
+                if code == PNSCodeInterfaceTimeout {
+                    self.pushPhoneSignin()
+                }
+                if code == PNSCodeSuccess, let token = info["token"] as? String {
+                    //点击登录按钮获取登录Token成功回调
+                    self.login(token, tokenType: .um)
+
+                    UMCommonHandler.cancelLoginVC(animated: true) {
+                        
+                    }
+                }
+            }
+        }
+        
+       
+    }
+    
+    lazy var phoneLoginButton: UIButton = {
+        
+        let attrString = NSMutableAttributedString(string: "切换到手机验证码登录")
+        let attr: [NSAttributedString.Key : Any] = [
+            .font: UIFont.systemFont(ofSize: 12),
+            .foregroundColor: UIColor(red: 0.2, green: 0.2, blue: 0.2,alpha:1),
+            .underlineStyle: NSUnderlineStyle.single.rawValue,
+            .underlineColor: UIColor(red: 0.2, green: 0.2, blue: 0.2,alpha:1
+            )]
+        attrString.addAttributes(attr, range: NSRange(location: 0, length: attrString.length))
+        
+        let button = UIButton(type: .custom)
+        button.setAttributedTitle(attrString, for: .normal)
+        button.addTarget(self, action: #selector(pushPhoneSignin), for: .touchUpInside)
+        return button
+    }()
+    
+    
+    
+    @objc private func pushPhoneSignin() {
+        UMCommonHandler.cancelLoginVC(animated: false) {
+            
+        }
+        let vc = PhoneSigninViewController.loadFromStoryboard()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     /// - Tag: add_wechat_login
-    
-    
     @IBAction func weChatDidLogin(_ sender: Any) {
         
         PlatformAuthorization.login(.wechat) { [weak self] _, result in

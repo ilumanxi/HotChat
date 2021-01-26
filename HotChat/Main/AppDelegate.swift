@@ -34,6 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NavigationMap.initialize(navigator: Navigator.share)
         
         setupTrack()
+        setupUMVerify()
         
         Bugly.start(withAppId: nil)
         
@@ -76,6 +77,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }
+    }
+    
+    func setupUMVerify() {
+        
+        UMConfigure.initWithAppkey(Constant.UMVerify.appkey, channel: "App Store");
+        UMCommonHandler.setVerifySDKInfo(Constant.UMVerify.info) { info in
+            Log.print("UMVerify: \(info)")
+        }
+        
+        UMCommonHandler.accelerateVerify(withTimeout: 3) { info in
+            Log.print("UMVerify: \(info)")
+        }
+        
+        UMCommonHandler.accelerateVerify(withTimeout: 3) { info in
+            Log.print("UMVerify: \(info)")
+        }
+        #if DEBUG
+        UMConfigure.setLogEnabled(true)
+        #endif
     }
     
     func setupTrack()  {

@@ -13,7 +13,9 @@ import RxCocoa
 
 
 
-class PhoneSigninViewController: LegalLiabilityViewController, IndicatorDisplay {
+class PhoneSigninViewController: LegalLiabilityViewController, IndicatorDisplay, StoryboardCreate {
+    
+    static var storyboardNamed: String { return "Account"  }
     
     @IBOutlet weak var phoneTextField: UITextField!
     

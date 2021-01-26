@@ -41,7 +41,7 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="colorsString" value="#0BB7DC,#5159F8"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="fXh-mk-jg9" kind="show" id="J2A-e5-8bW"/>
+                                            <action selector="phoneDidLogin:" destination="nZ8-LB-QhU" eventType="touchUpInside" id="l9j-lx-fA7"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8VN-Rm-IV3" customClass="GradientButton" customModule="HotChat" customModuleProvider="target">
@@ -86,6 +86,7 @@
                     <connections>
                         <outlet property="loginProviderStackView" destination="X3a-fq-rsw" id="z54-n1-elN"/>
                         <outlet property="toolBar" destination="WrV-bB-6ju" id="goz-Mt-P5s"/>
+                        <segue destination="fXh-mk-jg9" kind="show" id="EYZ-fF-4vK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sza-Nt-MY6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -95,7 +96,7 @@
         <!--手机登录-->
         <scene sceneID="5yB-Ec-UUg">
             <objects>
-                <tableViewController title="手机登录" modalPresentationStyle="fullScreen" id="fXh-mk-jg9" customClass="PhoneSigninViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PhoneSigninViewController" title="手机登录" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fXh-mk-jg9" customClass="PhoneSigninViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Yi7-AX-2Y2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

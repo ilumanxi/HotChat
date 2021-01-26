@@ -16,6 +16,8 @@
 #import "BDFaceDetectionViewController.h"
 #import "GiftManager.h"
 
+#import <UMCommon/UMCommon.h>
+#import <UMVerify/UMVerify.h>
 
 #import "XGPush.h"
 #import "XGPushPrivate.h"

@@ -120,13 +120,15 @@ extension AccountAPI: TargetType {
                 parameters = [
                     "code" : code,
                     "type" : type,
-                    "channelId" : channelId
+                    "channelId" : channelId,
+                    "umengKey" : type == 4 ? Constant.UMVerify.appkey : ""
                 ]
             }
             else {
                 parameters = [
                     "code": code,
                     "type": type,
+                    "umengKey" : type == 4 ? Constant.UMVerify.appkey : ""
                 ]
             }
         case .editUser(headPic: let headPic, sex: let sex, nick: let nick, birthday: let birthday):
