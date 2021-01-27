@@ -22,9 +22,9 @@ class SignupViewController: LegalLiabilityViewController, IndicatorDisplay, Stor
     
     @IBOutlet weak var codeTextField: UITextField!
     
-    @IBOutlet weak var codeButton: UIButton!
+    @IBOutlet weak var codeButton: GradientButton!
     
-    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var signUpButton: GradientButton!
     
     @IBOutlet weak var codeActivityIndicatorView: UIActivityIndicatorView! 
     
@@ -89,7 +89,13 @@ class SignupViewController: LegalLiabilityViewController, IndicatorDisplay, Stor
         viewModel.codeEnabled
             .drive(onNext: { [weak self] isEnabled in
                 self?.codeButton.isEnabled = isEnabled
-                self?.codeButton.backgroundColor = isEnabled ? .theme : .disabledGray
+                if isEnabled {
+                    self?.codeButton.colors = [UIColor(hexString: "#0BB7DC"), UIColor(hexString: "#5159F8"),]
+                }
+                else {
+                    self?.codeButton.colors = [.disabledGray]
+                    self?.codeButton.backgroundColor = .disabledGray
+                }
             })
             .disposed(by: rx.disposeBag)
         
@@ -107,7 +113,12 @@ class SignupViewController: LegalLiabilityViewController, IndicatorDisplay, Stor
         viewModel.signupEnabled
             .drive(onNext: { [weak self] isEnabled in
                 self?.signUpButton.isEnabled = isEnabled
-                self?.signUpButton.backgroundColor = isEnabled ? .theme : .disabledGray
+                if isEnabled {
+                    self?.signUpButton.colors = [UIColor(hexString: "#0BB7DC"), UIColor(hexString: "#5159F8"),]
+                }
+                else {
+                    self?.signUpButton.colors = [.disabledGray, .disabledGray]
+                }
             })
             .disposed(by: rx.disposeBag)
         

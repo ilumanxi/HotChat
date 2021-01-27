@@ -14,7 +14,7 @@ import Toast_Swift
 import PKHUD
 import RangersAppLog
 import URLNavigator
-
+import UMVerify
 
 
 

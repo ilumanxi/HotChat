@@ -60,6 +60,7 @@ target 'HotChat' do
     pod 'SPAlertController'
     pod 'MBProgressHUD'
     pod 'RangersAppLog'
+    pod 'UMVerify'
     
     #, :subspecs => [
      # 'Core',

@@ -8,12 +8,7 @@
 
 import HandyJSON
 
-struct Message: HandyJSON {
-    var userId: String = ""
-    var isFollow: Bool = false
-    var labelList: [LikeTag] = []
-    var headPic: String = ""
-    var nick: String = ""
+class Message: User {
+
     var content: String = ""
-    var age: Int = 0
 }

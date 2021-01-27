@@ -132,7 +132,6 @@ extension InterestedViewController: KolodaViewDataSource {
     func koloda(_ koloda: KolodaView, viewForCardAt index: Int) -> UIView {
         
         
-        
         let message = data[index]
         let tags =  message.labelList.compactMap{ $0.label }.joined(separator: " ")
         
@@ -141,6 +140,9 @@ extension InterestedViewController: KolodaViewDataSource {
         cardView.nicknameLabel.text = message.nick
         cardView.infoLabel.text = "\(message.age)岁 \(tags)"
         cardView.contentLabel.text = message.content
+        cardView.sexView.setSex(message)
+        cardView.gradeView.setGrade(message)
+        cardView.authenticationButton.isHidden = !message.girlStatus
         return cardView
         
     }

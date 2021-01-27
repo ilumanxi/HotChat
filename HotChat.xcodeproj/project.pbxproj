@@ -170,9 +170,6 @@
 		2684593925354EDB002B9C6E /* Reload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2684593825354EDB002B9C6E /* Reload.swift */; };
 		2684598E25359A8A002B9C6E /* MessageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2684598D25359A8A002B9C6E /* MessageAPI.swift */; };
 		2684599325359B91002B9C6E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2684599225359B91002B9C6E /* Message.swift */; };
-		26868E9225BFF9C100F7D566 /* UMVerify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26868E8F25BFF9C100F7D566 /* UMVerify.framework */; };
-		26868E9325BFF9C100F7D566 /* UMCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26868E9025BFF9C100F7D566 /* UMCommon.framework */; };
-		26868E9425BFF9C100F7D566 /* ATAuthSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 26868E9125BFF9C100F7D566 /* ATAuthSDK.bundle */; };
 		268BB25E251D9B3200001DF3 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268BB25D251D9B3200001DF3 /* UserAPI.swift */; };
 		268E3E602521D074000E4A33 /* RelationshipViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E3E5E2521D074000E4A33 /* RelationshipViewCell.swift */; };
 		268E3E612521D074000E4A33 /* RelationshipViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 268E3E5F2521D074000E4A33 /* RelationshipViewCell.xib */; };
@@ -563,9 +560,6 @@
 		2684593825354EDB002B9C6E /* Reload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reload.swift; sourceTree = "<group>"; };
 		2684598D25359A8A002B9C6E /* MessageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageAPI.swift; sourceTree = "<group>"; };
 		2684599225359B91002B9C6E /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		26868E8F25BFF9C100F7D566 /* UMVerify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMVerify.framework; sourceTree = "<group>"; };
-		26868E9025BFF9C100F7D566 /* UMCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMCommon.framework; sourceTree = "<group>"; };
-		26868E9125BFF9C100F7D566 /* ATAuthSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ATAuthSDK.bundle; sourceTree = "<group>"; };
 		268BB25D251D9B3200001DF3 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		268E3E5E2521D074000E4A33 /* RelationshipViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationshipViewCell.swift; sourceTree = "<group>"; };
 		268E3E5F2521D074000E4A33 /* RelationshipViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RelationshipViewCell.xib; sourceTree = "<group>"; };
@@ -789,10 +783,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				26CB6C93255153A500A9F4DD /* libc++.tbd in Frameworks */,
-				26868E9325BFF9C100F7D566 /* UMCommon.framework in Frameworks */,
 				269AB20A25B825EC00B970A5 /* Trident in Frameworks */,
 				269590BF250B5FE900763061 /* StoreKit.framework in Frameworks */,
-				26868E9225BFF9C100F7D566 /* UMVerify.framework in Frameworks */,
 				269AB20D25B8262B00B970A5 /* Aquaman in Frameworks */,
 				2636A0D22564BFE700664FFC /* IDLFaceSDK.framework in Frameworks */,
 				569A62C017EE594D27BBDD0C /* libPods-HotChat.a in Frameworks */,
@@ -884,7 +876,6 @@
 			children = (
 				269590C0250B5FF900763061 /* HotChatRelease.entitlements */,
 				269590BD250B5FC300763061 /* HotChat.entitlements */,
-				26868E8E25BFF9C100F7D566 /* UMFramework */,
 				26CB6D0E25515D6B00A9F4DD /* BaiDu */,
 				26EF524625398DC700E73774 /* IM */,
 				26A20B032518A4E30061BBB8 /* General */,
@@ -1266,16 +1257,6 @@
 				26A20AEE25189E740061BBB8 /* LoginManager.swift */,
 			);
 			path = Account;
-			sourceTree = "<group>";
-		};
-		26868E8E25BFF9C100F7D566 /* UMFramework */ = {
-			isa = PBXGroup;
-			children = (
-				26868E8F25BFF9C100F7D566 /* UMVerify.framework */,
-				26868E9025BFF9C100F7D566 /* UMCommon.framework */,
-				26868E9125BFF9C100F7D566 /* ATAuthSDK.bundle */,
-			);
-			path = UMFramework;
 			sourceTree = "<group>";
 		};
 		269DEE03254BF735000AD5D9 /* QMUIButton */ = {
@@ -1785,7 +1766,6 @@
 				2637D87A255B8EDF00020E98 /* BlacklistCell.xib in Resources */,
 				267954F62507579700A72954 /* Chat.storyboard in Resources */,
 				26BB187D2522F5810019BBFD /* Main.storyboard in Resources */,
-				26868E9425BFF9C100F7D566 /* ATAuthSDK.bundle in Resources */,
 				2619D193256260A90071CC85 /* GiftCountCell.xib in Resources */,
 				2643EB482500AD7E00FBBE49 /* LaunchScreen.storyboard in Resources */,
 				26E291B72554FB810032AE99 /* AvatarAuthenticationResultController.xib in Resources */,
@@ -2352,7 +2332,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 1.4.11;
+				MARKETING_VERSION = 1.4.12;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -2475,7 +2455,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 1.4.11;
+				MARKETING_VERSION = 1.4.12;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

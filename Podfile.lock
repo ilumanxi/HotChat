@@ -123,7 +123,7 @@ PODS:
   - TagListView (1.4.1)
   - Toast (4.0.0)
   - Toast-Swift (5.0.1)
-  - TPNS-iOS (1.2.9.0)
+  - TPNS-iOS (1.3.0.0)
   - TXIMSDK_iOS (5.1.21)
   - TXIMSDK_TUIKit_iOS (5.1.21):
     - MMLayout (= 0.2.0)
@@ -134,6 +134,11 @@ PODS:
     - TXLiteAVSDK_TRTC (= 7.8.9519)
   - TXLiteAVSDK_TRTC (7.8.9519)
   - TZImagePickerController (3.5.8)
+  - UMCommon (7.2.5):
+    - UMDevice
+  - UMDevice (1.1.0)
+  - UMVerify (2.2.0):
+    - UMCommon
   - URLNavigator (2.3.0)
   - WechatOpenSDK (1.8.7.1)
   - WKWebViewJavascriptBridge (1.2.1)
@@ -182,6 +187,7 @@ DEPENDENCIES:
   - TPNS-iOS
   - TXIMSDK_TUIKit_iOS
   - TZImagePickerController
+  - UMVerify
   - URLNavigator
   - WechatOpenSDK
   - WKWebViewJavascriptBridge
@@ -241,6 +247,9 @@ SPEC REPOS:
     - TXIMSDK_TUIKit_iOS
     - TXLiteAVSDK_TRTC
     - TZImagePickerController
+    - UMCommon
+    - UMDevice
+    - UMVerify
     - URLNavigator
     - WechatOpenSDK
     - WKWebViewJavascriptBridge
@@ -294,15 +303,18 @@ SPEC CHECKSUMS:
   TagListView: a1c236d17960a0cf64156725a76ce6d73ebce2be
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
-  TPNS-iOS: 373cd379931f8bc1d863a0f63be0697fb4f02d74
+  TPNS-iOS: 4f61f76d71c8db1365763bb3a40b0c5ce9ce7b89
   TXIMSDK_iOS: 7659d94e2f684bd132b12f565782c93ec2691fe1
   TXIMSDK_TUIKit_iOS: 410663a2e7cddecbe4bbdeeb8710e68e93eb97dd
   TXLiteAVSDK_TRTC: c127880c4dbe844bdc7575a655be8042ce96024a
   TZImagePickerController: 7fd9702897ef8c0b7c951e5463f4bcf398296f9e
+  UMCommon: b5aabdb9fad44330ff8738d9bc46ebf93db14bf2
+  UMDevice: 28d21a568c8e8322e5a03bbd53b138d0c098d3b3
+  UMVerify: 77a56b687036d6cffca75fbb7b16fa85b5696375
   URLNavigator: 2593c0e2d293732ec5c44503cf54dceba1a68085
   WechatOpenSDK: 6a4d1436c15b3b5fe2a0bd383f3046010186da44
   WKWebViewJavascriptBridge: 07ad0cab27cd61ccdb90b5deb223f6df3a03c3d7
 
-PODFILE CHECKSUM: 15f191b15eb9994952593c7c6b7b1ada0235538d
+PODFILE CHECKSUM: 0e4e953e12cf2cfb81abbf31ae9f0a0e0318d0ff
 
 COCOAPODS: 1.10.1

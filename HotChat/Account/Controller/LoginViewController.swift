@@ -65,7 +65,10 @@ class LoginViewController: UIViewController, IndicatorDisplay {
         UMCommonHandler.checkEnvAvailable(with: .loginToken) {  [unowned self] info in
             Log.print("UMVerify: \(info as Any)")
             
-            guard let code = info?["resultCode"] as? String else { return }
+            guard let code = info?["resultCode"] as? String else {
+                self.pushSignup()
+                return
+            }
             
             if code == PNSCodeSuccess {
                 self.phoneLogin()
@@ -127,28 +130,25 @@ class LoginViewController: UIViewController, IndicatorDisplay {
             self.phoneLoginButton.frame = CGRect(x: (contentViewFrame.width - self.phoneLoginButton.frame.width) / 2, y: loginFrame.maxY + 14, width: self.phoneLoginButton.frame.width, height: self.phoneLoginButton.frame.height)
         }
         
-        UMCommonHandler.accelerateLoginPage(withTimeout: 3) { [unowned self] _ in
+        UMCommonHandler.getLoginToken(withTimeout: 3, controller: self, model: model) { info in
+         
+            guard let code = info["resultCode"] as? String else { return }
             
-            UMCommonHandler.getLoginToken(withTimeout: 3, controller: self, model: model) { info in
-             
-                guard let code = info["resultCode"] as? String else { return }
-                
-               
-                if code == PNSCodeInterfaceTimeout {
-                    self.pushSignup()
+            if code == PNSCodeInterfaceTimeout {
+                UMCommonHandler.cancelLoginVC(animated: false) {
+                    
                 }
-                if code == PNSCodeSuccess, let token = info["token"] as? String {
-                    //点击登录按钮获取登录Token成功回调
-                    self.login(token, tokenType: .um)
+                self.pushSignup()
+            }
+            if code == PNSCodeSuccess, let token = info["token"] as? String {
+                //点击登录按钮获取登录Token成功回调
+                self.login(token, tokenType: .um)
 
-                    UMCommonHandler.cancelLoginVC(animated: true) {
-                        
-                    }
+                UMCommonHandler.cancelLoginVC(animated: true) {
+                    
                 }
             }
         }
-        
-       
     }
     
     lazy var phoneLoginButton: UIButton = {
@@ -171,9 +171,6 @@ class LoginViewController: UIViewController, IndicatorDisplay {
     
     /// 登录注册
     @objc private func pushSignup() {
-        UMCommonHandler.cancelLoginVC(animated: false) {
-            
-        }
         let vc = SignupViewController.loadFromStoryboard()
         navigationController?.pushViewController(vc, animated: true)
     }
