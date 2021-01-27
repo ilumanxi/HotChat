@@ -227,7 +227,7 @@ enum VipType: Int, HandyJSONEnum {
     var phone: String = ""
     
     /// 位置
-    var region: String = "未知距离"
+    var region: String = ""
     
     ///  头像
     var headPic: String = ""

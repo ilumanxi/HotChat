@@ -86,7 +86,6 @@
                     <connections>
                         <outlet property="loginProviderStackView" destination="X3a-fq-rsw" id="z54-n1-elN"/>
                         <outlet property="toolBar" destination="WrV-bB-6ju" id="goz-Mt-P5s"/>
-                        <segue destination="fXh-mk-jg9" kind="show" id="EYZ-fF-4vK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sza-Nt-MY6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -223,7 +222,7 @@
                             <outlet property="delegate" destination="fXh-mk-jg9" id="l2Y-zg-EWa"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="手机登录" id="DFS-iV-nJE"/>
+                    <navigationItem key="navigationItem" title="登录" id="DFS-iV-nJE"/>
                     <connections>
                         <outlet property="passwordTextField" destination="bcB-VG-9pR" id="Mz9-dX-FAw"/>
                         <outlet property="phoneTextField" destination="Kte-37-fLP" id="iFv-ss-UNy"/>

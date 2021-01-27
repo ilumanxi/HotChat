@@ -62,19 +62,25 @@ class LoginViewController: UIViewController, IndicatorDisplay {
     
     @IBAction func phoneDidLogin(_ sender: Any) {
         
-        UMCommonHandler.checkEnvAvailable(with: .loginToken) {  [unowned self] info in
-            Log.print("UMVerify: \(info as Any)")
-            
-            guard let code = info?["resultCode"] as? String else {
-                self.pushSignup()
-                return
-            }
-            
-            if code == PNSCodeSuccess {
-                self.phoneLogin()
-            }
-            else {
-                self.pushSignup()
+        if AppAudit.share.oneKeyLoginStatus {
+            let vc = PhoneSigninViewController.loadFromStoryboard()
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        else {
+            UMCommonHandler.checkEnvAvailable(with: .loginToken) {  [unowned self] info in
+                Log.print("UMVerify: \(info as Any)")
+                
+                guard let code = info?["resultCode"] as? String else {
+                    self.pushSignup()
+                    return
+                }
+                
+                if code == PNSCodeSuccess {
+                    self.phoneLogin()
+                }
+                else {
+                    self.pushSignup()
+                }
             }
         }
     }

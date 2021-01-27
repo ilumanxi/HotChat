@@ -138,7 +138,19 @@ extension InterestedViewController: KolodaViewDataSource {
         let cardView = InterestedCardView.loadFromNib()
         cardView.avatarImageView.kf.setImage(with: URL(string: message.headPic))
         cardView.nicknameLabel.text = message.nick
-        cardView.infoLabel.text = "\(message.age)岁 \(tags)"
+        
+        var text = ""
+        
+        if !message.region.isEmpty {
+            text.append(" \(message.region)")
+        }
+        
+        if !tags.isEmpty {
+            text.append(" \(tags)")
+        }
+        
+        cardView.infoLabel.text = text
+        
         cardView.contentLabel.text = message.content
         cardView.sexView.setSex(message)
         cardView.gradeView.setGrade(message)

@@ -9,7 +9,9 @@
 import HandyJSON
 
 
-@objc class AppAudit: NSObject, HandyJSON { // false 显示。true 不显示
+@objc class AppAudit: NSObject, HandyJSON {
+    
+    /// 是否禁用。false。true
     
     required override init() {
         
@@ -44,6 +46,9 @@ import HandyJSON
     
     /// 一键搭讪
     @objc var accostStatus = false
+    
+    /// 一键登录
+    @objc var oneKeyLoginStatus = false
     
     @objc static var  share = AppAudit() {
         didSet {
