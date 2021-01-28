@@ -59,6 +59,10 @@
 		263A6685257E0EF200F35714 /* CheckInCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 263A6683257E0EF200F35714 /* CheckInCell.xib */; };
 		263A66C6257E347D00F35714 /* CheckIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263A66C5257E347D00F35714 /* CheckIn.swift */; };
 		263A66CA257E351700F35714 /* CheckInAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263A66C9257E351700F35714 /* CheckInAPI.swift */; };
+		263A6BE925C2B3A200FD43B6 /* FateMatchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263A6BE825C2B3A200FD43B6 /* FateMatchAPI.swift */; };
+		263A6C3825C2DA4800FD43B6 /* PairCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263A6C3625C2DA4800FD43B6 /* PairCallViewController.swift */; };
+		263A6C3925C2DA4800FD43B6 /* PairCallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 263A6C3725C2DA4800FD43B6 /* PairCallViewController.xib */; };
+		263A6C3C25C2DDEB00FD43B6 /* pair.svga in Resources */ = {isa = PBXBuildFile; fileRef = 263A6BEE25C2D74900FD43B6 /* pair.svga */; };
 		263BC1E225494EA20081F5DF /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 263BC1E125494EA20081F5DF /* UIView+Additions.m */; };
 		263BC21D254956950081F5DF /* CallMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 263BC21C254956950081F5DF /* CallMenuViewController.m */; };
 		263BC22D254987770081F5DF /* BeautyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 263BC22B254987770081F5DF /* BeautyViewController.m */; };
@@ -210,6 +214,7 @@
 		26B4E05E2564FCBA004EDCFE /* AuthenticationGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B4E05C2564FCBA004EDCFE /* AuthenticationGuideViewController.swift */; };
 		26B4E05F2564FCBA004EDCFE /* AuthenticationGuideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26B4E05D2564FCBA004EDCFE /* AuthenticationGuideViewController.xib */; };
 		26B86EB82570EAD700CAC5AE /* TUIMessageDataProviderService+Gift.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B86EB72570EAD700CAC5AE /* TUIMessageDataProviderService+Gift.m */; };
+		26BA8CF025C29DAD00E42479 /* PairsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BA8CEF25C29DAC00E42479 /* PairsViewController.swift */; };
 		26BB187D2522F5810019BBFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2643EB412500AD7D00FBBE49 /* Main.storyboard */; };
 		26C31F2625403A9E0000D09D /* ReportUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C31F2525403A9E0000D09D /* ReportUserViewController.swift */; };
 		26C31F2B25404D280000D09D /* ForYouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C31F2A25404D280000D09D /* ForYouViewController.swift */; };
@@ -435,6 +440,10 @@
 		263A6683257E0EF200F35714 /* CheckInCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckInCell.xib; sourceTree = "<group>"; };
 		263A66C5257E347D00F35714 /* CheckIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckIn.swift; sourceTree = "<group>"; };
 		263A66C9257E351700F35714 /* CheckInAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInAPI.swift; sourceTree = "<group>"; };
+		263A6BE825C2B3A200FD43B6 /* FateMatchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FateMatchAPI.swift; sourceTree = "<group>"; };
+		263A6BEE25C2D74900FD43B6 /* pair.svga */ = {isa = PBXFileReference; lastKnownFileType = file; path = pair.svga; sourceTree = "<group>"; };
+		263A6C3625C2DA4800FD43B6 /* PairCallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairCallViewController.swift; sourceTree = "<group>"; };
+		263A6C3725C2DA4800FD43B6 /* PairCallViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PairCallViewController.xib; sourceTree = "<group>"; };
 		263BC1E025494EA20081F5DF /* UIView+Additions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Additions.h"; sourceTree = "<group>"; };
 		263BC1E125494EA20081F5DF /* UIView+Additions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Additions.m"; sourceTree = "<group>"; };
 		263BC21B254956950081F5DF /* CallMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CallMenuViewController.h; sourceTree = "<group>"; };
@@ -607,6 +616,7 @@
 		26B4E05D2564FCBA004EDCFE /* AuthenticationGuideViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthenticationGuideViewController.xib; sourceTree = "<group>"; };
 		26B86EB62570EAD700CAC5AE /* TUIMessageDataProviderService+Gift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TUIMessageDataProviderService+Gift.h"; sourceTree = "<group>"; };
 		26B86EB72570EAD700CAC5AE /* TUIMessageDataProviderService+Gift.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TUIMessageDataProviderService+Gift.m"; sourceTree = "<group>"; };
+		26BA8CEF25C29DAC00E42479 /* PairsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairsViewController.swift; sourceTree = "<group>"; };
 		26BB186F2522F4B50019BBFD /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		26C31F2525403A9E0000D09D /* ReportUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportUserViewController.swift; sourceTree = "<group>"; };
 		26C31F2A25404D280000D09D /* ForYouViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouViewController.swift; sourceTree = "<group>"; };
@@ -895,6 +905,7 @@
 				26BB186F2522F4B50019BBFD /* Cartfile */,
 				2633EC5125315706009F0F27 /* carthage.sh */,
 				266E3C56258B737E00781E91 /* bell.mp3 */,
+				263A6BEE25C2D74900FD43B6 /* pair.svga */,
 			);
 			path = HotChat;
 			sourceTree = "<group>";
@@ -1417,6 +1428,9 @@
 		26CBE3B02508A3C40089A23C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				26BA8CEF25C29DAC00E42479 /* PairsViewController.swift */,
+				263A6C3625C2DA4800FD43B6 /* PairCallViewController.swift */,
+				263A6C3725C2DA4800FD43B6 /* PairCallViewController.xib */,
 				26CBE3B32508A3FC0089A23C /* CommunityViewController.swift */,
 				26F8893925318681001A14F2 /* DynamicViewController.swift */,
 				268458E725343FA8002B9C6E /* DynamicDetailViewController.swift */,
@@ -1447,6 +1461,7 @@
 				2696341E2531942000493C3D /* DynamicAPI.swift */,
 				2607319A2536DD1B00B1093C /* ReportAPI.swift */,
 				26FC88F4253ED49000E4D82F /* SearchAPI.swift */,
+				263A6BE825C2B3A200FD43B6 /* FateMatchAPI.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1735,6 +1750,7 @@
 			files = (
 				26C3F3312542764F00CDD533 /* AnchorAuthenticationViewController.xib in Resources */,
 				269DED1C254AAC4D000AD5D9 /* GiftViewController.xib in Resources */,
+				263A6C3925C2DA4800FD43B6 /* PairCallViewController.xib in Resources */,
 				263BC22E254987770081F5DF /* BeautyViewController.xib in Resources */,
 				26395362254198DB00B5E3C0 /* RightDetailViewCell.xib in Resources */,
 				26DF8784255A7969002162A9 /* EarningsDetailViewController.xib in Resources */,
@@ -1750,6 +1766,7 @@
 				26FBCF642558EF32001F3DFA /* ConsumerDetailsViewController.xib in Resources */,
 				26F8946C25203B7300A45648 /* TitleViewCell.xib in Resources */,
 				2693697525555E06002E224B /* PhoneBindingController.xib in Resources */,
+				263A6C3C25C2DDEB00FD43B6 /* pair.svga in Resources */,
 				267955042507637600A72954 /* Community.storyboard in Resources */,
 				26C81EEE25480B1900C1D563 /* GiftViewCell.xib in Resources */,
 				26D0034F25A6E97C00168796 /* UserInformationViewController.xib in Resources */,
@@ -1953,6 +1970,7 @@
 				2643EBA52500B04100FBBE49 /* ApplicationSettingsViewController.swift in Sources */,
 				268458E225342B7D002B9C6E /* DynamicDetailViewCell.swift in Sources */,
 				26FC88FA253ED66600E4D82F /* SearchViewCell.swift in Sources */,
+				26BA8CF025C29DAD00E42479 /* PairsViewController.swift in Sources */,
 				26F889352531854B001A14F2 /* TextInputViewCell.swift in Sources */,
 				2637D872255AA13D00020E98 /* GiftEarning.swift in Sources */,
 				26EDD94D25A44A1D00913363 /* AppAudit.swift in Sources */,
@@ -1962,6 +1980,7 @@
 				2643EBC12500B04100FBBE49 /* UITableView+App.swift in Sources */,
 				2668B09C25233C410073E25D /* WalletViewController.swift in Sources */,
 				26AB26E225401C0D00C16025 /* RemarkViewController.swift in Sources */,
+				263A6C3825C2DA4800FD43B6 /* PairCallViewController.swift in Sources */,
 				F3C6B919251F3117006C06CB /* LabelViewController.swift in Sources */,
 				268458E825343FA8002B9C6E /* DynamicDetailViewController.swift in Sources */,
 				26787E37251B2F8D00D511E8 /* User.swift in Sources */,
@@ -1984,6 +2003,7 @@
 				26E14E68251C861A00645F08 /* DatePickerViewController.swift in Sources */,
 				26373C77250234D00066FF3B /* FormSection.swift in Sources */,
 				26373C732502340D0066FF3B /* FormEntry.swift in Sources */,
+				263A6BE925C2B3A200FD43B6 /* FateMatchAPI.swift in Sources */,
 				26E16620256B5DA200CF66BD /* CallHelper.swift in Sources */,
 				F305482B2532BC0800844D00 /* DynamicViewCell.swift in Sources */,
 				2694580B253FF7B100EBCABB /* UserSettingViewController.swift in Sources */,

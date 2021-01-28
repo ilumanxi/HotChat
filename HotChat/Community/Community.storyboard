@@ -755,18 +755,177 @@
             </objects>
             <point key="canvasLocation" x="3398.5507246376815" y="-699.10714285714278"/>
         </scene>
+        <!--Pairs View Controller-->
+        <scene sceneID="CUl-cR-azA">
+            <objects>
+                <viewController storyboardIdentifier="PairsViewController" id="Jj6-cF-fL6" customClass="PairsViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="z1f-vj-43H">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pair-bg" translatesAutoresizingMaskIntoConstraints="NO" id="YLv-iJ-keX">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S41-LH-Xzd" userLabel="Container View">
+                                <rect key="frame" x="86" y="137" width="242" height="242"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F9w-7P-ph4" customClass="CircleView" customModule="HotChat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="242" height="242"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="242" id="9uM-sU-Kox"/>
+                                            <constraint firstAttribute="height" constant="242" id="V7Z-Bo-WGz"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uvB-0G-hW8" customClass="CircleView" customModule="HotChat" customModuleProvider="target">
+                                        <rect key="frame" x="40" y="40" width="162" height="162"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bule-planet" translatesAutoresizingMaskIntoConstraints="NO" id="3es-Hj-kqW" customClass="CircleImageView" customModule="HotChat" customModuleProvider="target">
+                                        <rect key="frame" x="197" y="116" width="10" height="10"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orange-planet" translatesAutoresizingMaskIntoConstraints="NO" id="75Z-sa-SDd" customClass="CircleImageView" customModule="HotChat" customModuleProvider="target">
+                                        <rect key="frame" x="35.5" y="116.5" width="9" height="9"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pink-planet" translatesAutoresizingMaskIntoConstraints="NO" id="ZXP-HX-Wgn" customClass="CircleImageView" customModule="HotChat" customModuleProvider="target">
+                                        <rect key="frame" x="116" y="-5" width="10.5" height="10.5"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cyan-planet" translatesAutoresizingMaskIntoConstraints="NO" id="xVo-l6-tnA" customClass="CircleImageView" customModule="HotChat" customModuleProvider="target">
+                                        <rect key="frame" x="116" y="237" width="10" height="10"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="F9w-7P-ph4" firstAttribute="leading" secondItem="S41-LH-Xzd" secondAttribute="leading" id="0az-T6-5Sk"/>
+                                    <constraint firstItem="ZXP-HX-Wgn" firstAttribute="centerY" secondItem="F9w-7P-ph4" secondAttribute="top" id="3MX-dE-coZ"/>
+                                    <constraint firstItem="xVo-l6-tnA" firstAttribute="centerY" secondItem="F9w-7P-ph4" secondAttribute="bottom" id="Dap-VW-6NU"/>
+                                    <constraint firstItem="uvB-0G-hW8" firstAttribute="leading" secondItem="S41-LH-Xzd" secondAttribute="leadingMargin" id="Dnp-GI-PQx"/>
+                                    <constraint firstItem="3es-Hj-kqW" firstAttribute="centerX" secondItem="uvB-0G-hW8" secondAttribute="trailing" id="EtG-La-tVY"/>
+                                    <constraint firstItem="uvB-0G-hW8" firstAttribute="top" secondItem="S41-LH-Xzd" secondAttribute="topMargin" id="HXE-AM-iUc"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="uvB-0G-hW8" secondAttribute="bottom" id="KmO-s6-MVb"/>
+                                    <constraint firstItem="F9w-7P-ph4" firstAttribute="top" secondItem="S41-LH-Xzd" secondAttribute="top" id="OBA-qi-AXD"/>
+                                    <constraint firstAttribute="bottom" secondItem="F9w-7P-ph4" secondAttribute="bottom" id="PWd-vh-uTA"/>
+                                    <constraint firstItem="uvB-0G-hW8" firstAttribute="centerY" secondItem="S41-LH-Xzd" secondAttribute="centerY" id="SCN-RX-d0s"/>
+                                    <constraint firstItem="3es-Hj-kqW" firstAttribute="centerY" secondItem="uvB-0G-hW8" secondAttribute="centerY" id="VC2-AL-p3A"/>
+                                    <constraint firstItem="75Z-sa-SDd" firstAttribute="centerX" secondItem="uvB-0G-hW8" secondAttribute="leading" id="ag1-dX-BCO"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="uvB-0G-hW8" secondAttribute="trailing" id="d3N-YR-349"/>
+                                    <constraint firstAttribute="trailing" secondItem="F9w-7P-ph4" secondAttribute="trailing" id="kPZ-ZA-Z2V"/>
+                                    <constraint firstItem="ZXP-HX-Wgn" firstAttribute="centerX" secondItem="F9w-7P-ph4" secondAttribute="centerX" id="n3t-e8-xgN"/>
+                                    <constraint firstItem="75Z-sa-SDd" firstAttribute="centerY" secondItem="S41-LH-Xzd" secondAttribute="centerY" id="tHM-Zh-LN1"/>
+                                    <constraint firstItem="xVo-l6-tnA" firstAttribute="centerX" secondItem="F9w-7P-ph4" secondAttribute="centerX" id="zod-05-9yL"/>
+                                </constraints>
+                                <edgeInsets key="layoutMargins" top="40" left="40" bottom="40" right="40"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oMy-M1-sIP" customClass="GradientButton" customModule="HotChat" customModuleProvider="target">
+                                <rect key="frame" x="87.5" y="696" width="239" height="68"/>
+                                <color key="backgroundColor" red="0.96862745098039216" green="0.43137254901960786" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="239" id="VRh-6e-FMO"/>
+                                    <constraint firstAttribute="height" constant="68" id="lkE-6Q-JyE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="34"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="colorsString" value="#F96CD2,#F76E88"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="pairButtonTapped:" destination="Jj6-cF-fL6" eventType="touchUpInside" id="g7o-Cg-1X3"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SfT-ie-xPN" userLabel="Indicator View">
+                                <rect key="frame" x="193" y="859" width="28" height="3"/>
+                                <color key="backgroundColor" red="0.92941176470588238" green="0.31372549019607843" blue="0.50980392156862742" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="28" id="8Y8-f6-WAh"/>
+                                    <constraint firstAttribute="height" constant="3" id="nGK-ma-tV6"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="1.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSo-J5-5rx" userLabel="Video Button">
+                                <rect key="frame" x="182.5" y="817" width="49" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="视频聊">
+                                    <color key="titleColor" red="0.92549019607843142" green="0.30980392156862746" blue="0.50588235294117645" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="videoButtonTapped:" destination="Jj6-cF-fL6" eventType="touchUpInside" id="jca-Zp-aGe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q4S-f4-m2h" userLabel="Audio Button">
+                                <rect key="frame" x="251.5" y="817" width="49" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="语音聊">
+                                    <color key="titleColor" red="0.88627450980392153" green="0.60784313725490191" blue="0.68627450980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="audioButtonTapped:" destination="Jj6-cF-fL6" eventType="touchUpInside" id="71q-mg-efn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="jjv-SK-BRa"/>
+                        <color key="backgroundColor" systemColor="systemFillColor"/>
+                        <constraints>
+                            <constraint firstItem="S41-LH-Xzd" firstAttribute="top" secondItem="jjv-SK-BRa" secondAttribute="top" constant="93" id="2p5-Cq-lDB"/>
+                            <constraint firstItem="SfT-ie-xPN" firstAttribute="centerX" secondItem="hSo-J5-5rx" secondAttribute="centerX" priority="750" id="2xn-IX-BW0"/>
+                            <constraint firstItem="Q4S-f4-m2h" firstAttribute="leading" secondItem="hSo-J5-5rx" secondAttribute="trailing" constant="20" id="4HO-Hg-ap6"/>
+                            <constraint firstItem="jjv-SK-BRa" firstAttribute="bottom" secondItem="oMy-M1-sIP" secondAttribute="bottom" constant="98" id="5tu-a1-kKg"/>
+                            <constraint firstItem="SfT-ie-xPN" firstAttribute="top" secondItem="hSo-J5-5rx" secondAttribute="bottom" constant="10" id="DSH-SV-M6u"/>
+                            <constraint firstItem="Q4S-f4-m2h" firstAttribute="centerY" secondItem="hSo-J5-5rx" secondAttribute="centerY" id="Jfl-wL-RAg"/>
+                            <constraint firstItem="SfT-ie-xPN" firstAttribute="bottom" secondItem="jjv-SK-BRa" secondAttribute="bottom" id="KkD-Zb-5VL"/>
+                            <constraint firstItem="S41-LH-Xzd" firstAttribute="centerX" secondItem="z1f-vj-43H" secondAttribute="centerX" id="OoE-Eo-YUq"/>
+                            <constraint firstItem="SfT-ie-xPN" firstAttribute="centerX" secondItem="Q4S-f4-m2h" secondAttribute="centerX" priority="749" id="WkO-xI-cV8"/>
+                            <constraint firstAttribute="bottom" secondItem="YLv-iJ-keX" secondAttribute="bottom" id="b2O-4k-7Vj"/>
+                            <constraint firstItem="YLv-iJ-keX" firstAttribute="top" secondItem="z1f-vj-43H" secondAttribute="top" id="gip-4Y-hTC"/>
+                            <constraint firstItem="SfT-ie-xPN" firstAttribute="centerX" secondItem="z1f-vj-43H" secondAttribute="centerX" id="mpS-We-RHk"/>
+                            <constraint firstItem="YLv-iJ-keX" firstAttribute="leading" secondItem="z1f-vj-43H" secondAttribute="leading" id="uDQ-fe-Kie"/>
+                            <constraint firstItem="oMy-M1-sIP" firstAttribute="centerX" secondItem="z1f-vj-43H" secondAttribute="centerX" id="wLf-OX-OW6"/>
+                            <constraint firstAttribute="trailing" secondItem="YLv-iJ-keX" secondAttribute="trailing" id="yCM-ce-mhQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="audioButton" destination="Q4S-f4-m2h" id="zFy-nS-cTI"/>
+                        <outlet property="audioCenterXConstraint" destination="WkO-xI-cV8" id="k9s-5Q-oIx"/>
+                        <outlet property="buleImageView" destination="3es-Hj-kqW" id="Kp0-7O-g9L"/>
+                        <outlet property="containerView" destination="S41-LH-Xzd" id="bMk-Pm-bLN"/>
+                        <outlet property="cyanImageView" destination="xVo-l6-tnA" id="mGR-tU-QU6"/>
+                        <outlet property="innerCircleView" destination="uvB-0G-hW8" id="nNB-QD-gsr"/>
+                        <outlet property="orangeImageView" destination="75Z-sa-SDd" id="q8G-DT-ref"/>
+                        <outlet property="outerCircleView" destination="F9w-7P-ph4" id="ziB-Pr-Ket"/>
+                        <outlet property="pairButton" destination="oMy-M1-sIP" id="lgM-3S-wgk"/>
+                        <outlet property="pinkImageView" destination="ZXP-HX-Wgn" id="t7E-PI-ZKQ"/>
+                        <outlet property="videoButton" destination="hSo-J5-5rx" id="Tly-6f-RmT"/>
+                        <outlet property="videoCenterXConstraint" destination="2xn-IX-BW0" id="25N-k8-mQH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="obe-eq-0kT" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-146.37681159420291" y="93.75"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="bule-planet" width="10" height="10"/>
         <image name="close-white" width="16" height="16"/>
         <image name="comment" width="13" height="13"/>
         <image name="common-search" width="17" height="17"/>
         <image name="community-region" width="7" height="8.5"/>
+        <image name="cyan-planet" width="10" height="10"/>
         <image name="give" width="13" height="13"/>
         <image name="like-normal" width="13" height="12"/>
-        <image name="like-selected" width="13" height="12"/>
+        <image name="like-selected" width="11" height="11"/>
         <image name="like-white-normal" width="11" height="11"/>
         <image name="modal-close" width="16" height="16"/>
         <image name="more" width="3" height="14"/>
+        <image name="orange-planet" width="9" height="9"/>
+        <image name="pair-bg" width="750" height="1334"/>
+        <image name="pink-planet" width="10.5" height="10.5"/>
         <image name="tabbar-community-normal" width="20" height="20"/>
         <image name="tabbar-community-selected" width="20" height="20"/>
         <image name="vip-month" width="22.5" height="13"/>
@@ -778,6 +937,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemFillColor">
+            <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

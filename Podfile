@@ -43,6 +43,7 @@ target 'HotChat' do
     pod 'Blueprints'
     pod 'WKWebViewJavascriptBridge'
     pod 'PIPKit'
+    pod 'AMPopTip'
     
     pod 'TXIMSDK_TUIKit_iOS'
     pod 'TPNS-iOS'
@@ -61,6 +62,7 @@ target 'HotChat' do
     pod 'MBProgressHUD'
     pod 'RangersAppLog'
     pod 'UMVerify'
+    pod 'SVGAPlayer'
     
     #, :subspecs => [
      # 'Core',
