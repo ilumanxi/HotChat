@@ -430,6 +430,7 @@ class PairsViewController: UIViewController, StoryboardCreate, IndicatorDisplay 
                     DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
                         if let _ = vc.navigationController {
                             vc.navigationController?.popViewController(animated: true)
+                            self?.showMessageOnWindow("你与她擦肩而过...")
                         }
                     }
                 }
@@ -478,7 +479,11 @@ class PairsViewController: UIViewController, StoryboardCreate, IndicatorDisplay 
         
         let string =  NSMutableAttributedString()
         string.append(title)
-        string.append(price)
+        
+        if !AppAudit.share.energyStatus {
+            string.append(price)
+        }
+        
         pairButton.titleLabel?.numberOfLines = 2
         pairButton.titleLabel?.textAlignment = .center
         pairButton.setAttributedTitle(string, for: .normal)
