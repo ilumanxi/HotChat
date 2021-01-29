@@ -758,7 +758,7 @@
         <!--Pairs View Controller-->
         <scene sceneID="CUl-cR-azA">
             <objects>
-                <viewController storyboardIdentifier="PairsViewController" id="Jj6-cF-fL6" customClass="PairsViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="PairsViewController" storyboardIdentifier="PairsViewController" id="Jj6-cF-fL6" customClass="PairsViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="z1f-vj-43H">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -878,8 +878,9 @@
                             <constraint firstItem="Q4S-f4-m2h" firstAttribute="leading" secondItem="hSo-J5-5rx" secondAttribute="trailing" constant="20" id="4HO-Hg-ap6"/>
                             <constraint firstItem="jjv-SK-BRa" firstAttribute="bottom" secondItem="oMy-M1-sIP" secondAttribute="bottom" constant="98" id="5tu-a1-kKg"/>
                             <constraint firstItem="SfT-ie-xPN" firstAttribute="top" secondItem="hSo-J5-5rx" secondAttribute="bottom" constant="10" id="DSH-SV-M6u"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="SfT-ie-xPN" secondAttribute="bottom" constant="20" id="FE6-yG-3qw"/>
                             <constraint firstItem="Q4S-f4-m2h" firstAttribute="centerY" secondItem="hSo-J5-5rx" secondAttribute="centerY" id="Jfl-wL-RAg"/>
-                            <constraint firstItem="SfT-ie-xPN" firstAttribute="bottom" secondItem="jjv-SK-BRa" secondAttribute="bottom" id="KkD-Zb-5VL"/>
+                            <constraint firstItem="SfT-ie-xPN" firstAttribute="bottom" secondItem="jjv-SK-BRa" secondAttribute="bottom" priority="750" id="KkD-Zb-5VL"/>
                             <constraint firstItem="S41-LH-Xzd" firstAttribute="centerX" secondItem="z1f-vj-43H" secondAttribute="centerX" id="OoE-Eo-YUq"/>
                             <constraint firstItem="SfT-ie-xPN" firstAttribute="centerX" secondItem="Q4S-f4-m2h" secondAttribute="centerX" priority="749" id="WkO-xI-cV8"/>
                             <constraint firstAttribute="bottom" secondItem="YLv-iJ-keX" secondAttribute="bottom" id="b2O-4k-7Vj"/>

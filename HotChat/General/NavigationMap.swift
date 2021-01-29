@@ -49,6 +49,11 @@ enum NavigationMap {
       return  vc
     }
     
+    
+    navigator.register(HotChatURLString(path: "jump/chatmatch")) { url, values, context in
+        return  PairsViewController.loadFromStoryboard()
+    }
+
     navigator.register(HotChatURLString(path: "jump/editIntroduction")) { url, values, context in
         return  UserInfoInputTextViewController.loadFromStoryboard()
     }

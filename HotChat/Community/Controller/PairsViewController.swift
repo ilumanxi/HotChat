@@ -211,6 +211,8 @@ class PairsViewController: UIViewController, StoryboardCreate, IndicatorDisplay 
     
     @IBOutlet weak var pairButton: GradientButton!
     
+    var callType: CallType = .video
+    
     let API = Request<FateMatchAPI>()
     
     var users: [User] = [] {
@@ -233,6 +235,9 @@ class PairsViewController: UIViewController, StoryboardCreate, IndicatorDisplay 
         hbd_titleTextAttributes = [NSAttributedString.Key.foregroundColor : textColor]
         
         commonLayout()
+        
+        view.setNeedsLayout()
+        view.layoutIfNeeded()
 
         circleAnimation(
             animationView: pinkImageView,
@@ -411,18 +416,26 @@ class PairsViewController: UIViewController, StoryboardCreate, IndicatorDisplay 
     @IBAction func pairButtonTapped(_ sender: Any) {
         
         showIndicator()
-        API.request(.matchGirl, type: Response<[String :Any]>.self)
+        API.request(.matchGirl(callType), type: Response<[String :Any]>.self)
             .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in
                 self?.hideIndicator()
                 if let userId = response.data?["userId"] as? String {
-                    let vc = PairCallViewController()
-                    self?.navigationController?.pushViewController(vc, animated: true)
                     CallHelper.share.call(userID: userId, callType: .video,callSubType: .pair)
                 }
-                
+                else {
+                    let vc = PairCallViewController()
+                    self?.navigationController?.pushViewController(vc, animated: true)
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+                        if let _ = vc.navigationController {
+                            vc.navigationController?.popViewController(animated: true)
+                        }
+                    }
+                }
             }, onError: { [weak self] error in
                 self?.hideIndicator()
+                self?.show(error)
             })
             .disposed(by: rx.disposeBag)
         
@@ -436,6 +449,7 @@ class PairsViewController: UIViewController, StoryboardCreate, IndicatorDisplay 
         
         if videoButton == button {
             
+            callType = .video
             price = NSAttributedString(string: "\n(2500能量/分钟)", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 12)])
             
             videoCenterXConstraint.priority = .defaultHigh
@@ -448,6 +462,8 @@ class PairsViewController: UIViewController, StoryboardCreate, IndicatorDisplay 
             audioButton.setTitleColor(disabledTextColor, for: .normal)
         }
         else {
+            
+            callType = .audio
             price = NSAttributedString(string: "\n(1000能量/分钟)", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 12)])
             
             videoCenterXConstraint.priority = .defaultHigh - 1

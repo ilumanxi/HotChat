@@ -33,11 +33,16 @@ static PIPWindow *_share = nil;
     
     UIWindowLevel PIPWindowLevelNormal = UIWindowLevelNormal + 1;
     
-    _share = [[PIPWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    _share = [[PIPWindow alloc] initWithFrame: CGRectMake(UIScreen.mainScreen.bounds.size.width, 0, UIScreen.mainScreen.bounds.size.width,  UIScreen.mainScreen.bounds.size.height)];
     _share.windowLevel =  PIPWindowLevelNormal;
     _share.rootViewController = navigationController;
+    
     _share.hidden = NO;
     [UIApplication.sharedApplication.keyWindow endEditing:YES];
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        _share.frame = CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width,  UIScreen.mainScreen.bounds.size.height);
+    }];
     
 }
 
@@ -46,12 +51,11 @@ static PIPWindow *_share = nil;
     if (_share == nil) {
         return;
     }
+    
     _share.hidden = YES;
     [_share.rootViewController.presentedViewController dismissViewControllerAnimated:NO completion:nil];
     _share.rootViewController = nil;
-    
     _share = nil;
-    
 }
 
 @end

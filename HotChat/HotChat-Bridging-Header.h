@@ -14,6 +14,8 @@
 #import "CallMenuViewController.h"
 #import "FaceParameterConfig.h"
 #import "BDFaceDetectionViewController.h"
+#import "VideoCallViewController.h"
+#import "AudioCallViewController.h"
 #import "GiftManager.h"
 
 #import <UMCommon/UMCommon.h>

@@ -10,7 +10,8 @@ import Moya
 
 enum FateMatchAPI {
     case matchList
-    case matchGirl
+    /// 1.语音 2.视频
+    case matchGirl(CallType)
 }
 
 extension FateMatchAPI: TargetType {
@@ -41,8 +42,8 @@ extension FateMatchAPI: TargetType {
         switch self {
         case .matchList:
             parameters = [:]
-        case .matchGirl:
-            parameters = [:]
+        case .matchGirl(let type):
+            parameters = ["type" : type == .audio ? 1 : 2]
         }
         
         let encoding: ParameterEncoding = (method == .post) ? JSONEncoding.default : URLEncoding.default

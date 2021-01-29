@@ -16,6 +16,7 @@
 #import "AudioCallViewController.h"
 #import "THelper.h"
 #import "PIPWindow.h"
+#import "HotChat-Swift.h"
 
 typedef NS_ENUM(NSInteger,VideoUserRemoveReason){
     VideoUserRemoveReason_Leave = 0,
@@ -208,18 +209,45 @@ typedef NS_ENUM(NSInteger,VideoUserRemoveReason){
     [self removeUserFromCallVC:uid reason:VideoUserRemoveReason_Leave];
 }
 
+///   拒绝
 -(void)onReject:(NSString *)uid {
     NSLog(@"📳 onReject uid:%@",uid);
     [self removeUserFromCallVC:uid reason:VideoUserRemoveReason_Reject];
+    
+    if (self.subtype == CallSubType_Pair && self.userId == uid) { //拨号方
+        [THelper makeToast:@"缘分有点忙…"];
+    }
 }
 
+///   无人接听
 -(void)onNoResp:(NSString *)uid {
     NSLog(@"📳 onNoResp uid:%@",uid);
     [self removeUserFromCallVC:uid reason:VideoUserRemoveReason_Noresp];
 }
 
+///    占线
+
 -(void)onLineBusy:(NSString *)uid {
     NSLog(@"📳 onLineBusy uid:%@",uid);
+    if (self.subtype == CallSubType_Pair && self.userId == uid) { //拨号方
+        if ([UIApplication.sharedApplication.keyWindow.rootViewController isKindOfClass:[UITabBarController class]]) {
+            UITabBarController *tabBarController = (UITabBarController *) UIApplication.sharedApplication.keyWindow.rootViewController;
+            UINavigationController *navigationController = tabBarController.selectedViewController;
+            PairCallViewController *vc = [[PairCallViewController alloc] init];
+            
+            NSMutableArray<UIViewController *> * viewControllers =navigationController.viewControllers.mutableCopy;
+            [viewControllers addObject:vc];
+            [navigationController setViewControllers:viewControllers];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                
+                if (vc.navigationController != nil) {
+                    [vc.navigationController popViewControllerAnimated:YES];
+                    [THelper makeToast:@"你与她擦肩而过..."];
+                }
+            });
+        }
+    }
+   
     [self removeUserFromCallVC:uid reason:VideoUserRemoveReason_Busy];
 }
 
@@ -237,6 +265,7 @@ typedef NS_ENUM(NSInteger,VideoUserRemoveReason){
     [THelper makeToast:[NSString stringWithFormat:@"取消通话"]];
 }
    
+///    超时
 -(void)onCallingTimeOut {
     NSLog(@"📳 onCallingTimeOut");
     if ([self.callVC isKindOfClass:[VideoCallViewController class]]) {
@@ -246,6 +275,10 @@ typedef NS_ENUM(NSInteger,VideoUserRemoveReason){
     if ([self.callVC isKindOfClass:[AudioCallViewController class]]) {
         [(AudioCallViewController *)self.callVC disMiss];
         [PIPWindow dismissViewControllerAnimated:YES completion:nil];
+    }
+    
+    if (self.subtype == CallSubType_Pair) {
+        [THelper makeToast:@"你与她擦肩而过..."];
     }
 }
 

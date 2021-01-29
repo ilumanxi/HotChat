@@ -58,8 +58,6 @@
 
 @property(nonatomic,assign) CallSubType callSubType;
 
-
-
 @end
 
 @implementation VideoCallViewController
@@ -132,10 +130,10 @@
     [self setupUI];
     
     if (self.callSubType == CallSubType_Pair) {
-        
         PairCallViewController *vc = [[PairCallViewController alloc] init];
-        vc.modalPresentationStyle = UIModalPresentationOverFullScreen;
-        [self presentViewController:vc animated:NO completion:nil];
+        BaseNavigationController *nav = [[BaseNavigationController alloc] initWithRootViewController:vc];
+        nav.modalPresentationStyle = UIModalPresentationOverFullScreen;
+        [self presentViewController:nav animated:NO completion:nil];
     }
 }
 
@@ -146,6 +144,10 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
+    if (self.curSponsor  == nil  && self.callSubType == CallSubType_Pair) { //缘分配对拨打方不响铃
+        return;
+    }
     [self playAlerm];
 }
 
@@ -183,6 +185,13 @@
         [self.renderViews addObject:renderView];
         [[TUICall shareInstance] startRemoteView:user.userId view:renderView];
         [self stopAlerm];
+        
+        if ([self.presentedViewController isKindOfClass:[BaseNavigationController class]] ) {
+            UINavigationController *navVc = (UINavigationController *) self.presentedViewController;
+            if ([navVc.topViewController isKindOfClass:[PairCallViewController class]]) {
+                [self.presentedViewController dismissViewControllerAnimated:NO completion:nil];
+            }
+        }
     }
     self.curState = VideoCallState_Calling;
     [self updateUser:user animate:YES];

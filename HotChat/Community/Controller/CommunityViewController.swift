@@ -108,13 +108,6 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
                 self?.present(vc, animated: true, completion: nil)
             })
             .disposed(by: rx.disposeBag)
-        
-        var items = navigationItem.rightBarButtonItems ?? []
-        
-        items.append( UIBarButtonItem(title: "缘分", style: .plain, target: self, action: #selector(pairc)))
-       
-        navigationItem.rightBarButtonItems = items
-        
     }
     
     @objc func pairc() {

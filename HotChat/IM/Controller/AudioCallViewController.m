@@ -23,6 +23,7 @@
 #import "HotChat-Swift.h"
 #import "PIPWindow.h"
 
+
 #define kUserCalledView_Width  200
 #define kUserCalledView_Top  200
 
@@ -48,6 +49,7 @@
 @property(nonatomic,assign) BOOL playingAlerm; // 播放响铃
 
 @property(nonatomic,assign) SystemSoundID systemSoundID;
+@property(nonatomic,assign) CallSubType callSubType;
 @end
 
 @implementation AudioCallViewController
@@ -65,6 +67,7 @@
 - (instancetype)initWithSponsor:(CallUserModel *)sponsor userList:(NSMutableArray<CallUserModel *> *)userList callSubType: (CallSubType) callSubType {
     self = [super init];
     if (self) {
+        self.callSubType = callSubType;
         self.curSponsor = sponsor;
         if (sponsor) {
             self.curState = AudioCallState_OnInvitee;
@@ -98,6 +101,12 @@
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"bell" withExtension:@"mp3"];
     AudioServicesCreateSystemSoundID((__bridge CFURLRef _Nonnull)(url), &_systemSoundID);
     [self setupUI];
+    if (self.callSubType == CallSubType_Pair) {
+        PairCallViewController *vc = [[PairCallViewController alloc] init];
+        BaseNavigationController *nav = [[BaseNavigationController alloc] initWithRootViewController:vc];
+        nav.modalPresentationStyle = UIModalPresentationOverFullScreen;
+        [self presentViewController:nav animated:NO completion:nil];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -107,6 +116,9 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    if (self.curSponsor  == nil  && self.callSubType == CallSubType_Pair) { //缘分配对拨打方不响铃
+        return;
+    }
     [self playAlerm];
 }
 
@@ -152,6 +164,13 @@
     [self updateUser:user animate:YES];
     if (![user.userId isEqualToString:[TUICallUtils loginUser]]) {
         [self stopAlerm];
+        
+        if ([self.presentedViewController isKindOfClass:[BaseNavigationController class]] ) {
+            UINavigationController *navVc = (UINavigationController *) self.presentedViewController;
+            if ([navVc.topViewController isKindOfClass:[PairCallViewController  class]]) {
+                [self.presentedViewController dismissViewControllerAnimated:NO completion:nil];
+            }
+        }
     }
     
     if (self.manager.isCharge) {

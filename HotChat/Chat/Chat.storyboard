@@ -472,14 +472,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="想认识你的人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="90O-T6-N5s">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="缘分配对" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="90O-T6-N5s">
                                                     <rect key="frame" x="85" y="0.0" width="290" height="80"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="chat-interested" id="X4e-4s-Nv9">
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="chat-pair" id="X4e-4s-Nv9">
                                                     <rect key="frame" x="20" y="15" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
@@ -487,7 +487,32 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="kp4-zB-vdz" kind="show" id="uVk-ZB-RHT"/>
+                                            <segue destination="IAH-SS-GPb" kind="show" id="y77-cG-2mq"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="riV-b1-oNq" imageView="Xjv-eW-b7P" rowHeight="80" style="IBUITableViewCellStyleDefault" id="pgE-Rt-WCb">
+                                        <rect key="frame" x="0.0" y="220" width="414" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pgE-Rt-WCb" id="gAA-T4-7Jz">
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="想认识你的人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="riV-b1-oNq">
+                                                    <rect key="frame" x="85" y="0.0" width="290" height="80"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="chat-interested" id="Xjv-eW-b7P">
+                                                    <rect key="frame" x="20" y="15" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="kp4-zB-vdz" kind="show" id="hk0-DG-VXK"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -511,7 +536,17 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jKM-oP-uqu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1378.2608695652175" y="855.80357142857144"/>
+            <point key="canvasLocation" x="1328" y="747"/>
+        </scene>
+        <!--PairsViewController-->
+        <scene sceneID="BOu-W0-oex">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Community" referencedIdentifier="PairsViewController" id="IAH-SS-GPb" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="MqT-8Q-6Ka"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FHz-k6-t9y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2160" y="428"/>
         </scene>
         <!--想认识你的人-->
         <scene sceneID="69N-PI-SAt">
@@ -581,6 +616,7 @@
         <image name="chat-follow" width="74.5" height="74.5"/>
         <image name="chat-interested" width="50" height="50"/>
         <image name="chat-more" width="3.5" height="16.5"/>
+        <image name="chat-pair" width="50" height="50"/>
         <image name="chat-skip" width="74.5" height="74.5"/>
         <image name="close-white-small" width="12" height="12"/>
         <image name="me-sex-man" width="7" height="7"/>

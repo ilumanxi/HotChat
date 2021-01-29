@@ -39,7 +39,18 @@ class PairCallViewController: UIViewController {
     }
 
     @objc func back() {
-        navigationController?.popViewController(animated: true)
+        if let navController =  self.presentingViewController as? UINavigationController  {
+            if let videoController = navController.viewControllers.first(where: { $0 is VideoCallViewController}) as? VideoCallViewController {
+                videoController.hangupClick()
+            }
+
+            if let audioController = navController.viewControllers.first(where: { $0 is AudioCallViewController }) as? AudioCallViewController {
+                audioController.hangupClick()
+            }
+        }
+        else {
+            navigationController?.popViewController(animated: true)
+        }
     }
 
 }

@@ -13,6 +13,7 @@ class ConversationActionViewController: UITableViewController, StoryboardCreate 
     
     enum Row: Int, CaseIterable  {
         case settings
+        case pair
         case interested
     }
     
@@ -116,6 +117,8 @@ extension ConversationActionViewController.Row {
         case .settings:
             return 112
         case .interested:
+            return 80
+        case .pair:
             return 80
         }
     }

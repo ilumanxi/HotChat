@@ -36,6 +36,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 ///通过 userID 获取通话用户的 model 信息
 - (CallUserModel *)getUserById:(NSString *)userID;
+
+- (void)hangupClick;
 @end
 
 NS_ASSUME_NONNULL_END
