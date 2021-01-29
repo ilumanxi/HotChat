@@ -56,6 +56,10 @@
 
 @property(nonatomic,assign) SystemSoundID systemSoundID;
 
+@property(nonatomic,assign) CallSubType callSubType;
+
+
+
 @end
 
 @implementation VideoCallViewController
@@ -69,9 +73,10 @@
     NSMutableArray *_userList;
 }
 
-- (instancetype)initWithSponsor:(CallUserModel *)sponsor userList:(NSMutableArray<CallUserModel *> *)userList {
+- (instancetype)initWithSponsor:(CallUserModel *)sponsor userList:(NSMutableArray<CallUserModel *> *)userList callSubType: (CallSubType) callSubType {
     self = [super init];
     if (self) {
+        self.callSubType = callSubType;
         self.curSponsor = sponsor;
         if (sponsor) {
             self.curState = VideoCallState_OnInvitee;
@@ -125,6 +130,13 @@
             NSLog(@"开启扬声器发生错误:%@",setCategoryError.localizedDescription);
         }
     [self setupUI];
+    
+    if (self.callSubType == CallSubType_Pair) {
+        
+        PairCallViewController *vc = [[PairCallViewController alloc] init];
+        vc.modalPresentationStyle = UIModalPresentationOverFullScreen;
+        [self presentViewController:vc animated:NO completion:nil];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {

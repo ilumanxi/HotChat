@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TUICallModel.h"
 #import "BillingManager.h"
+#import "CallManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic,strong) DismissBlock dismissBlock;
 ///如果是自己主动发起的邀请，sponsor 传 nil，如果是自己被其他人然邀请，sponsor 传邀请人的 userModel
-- (instancetype)initWithSponsor:(CallUserModel *)sponsor userList:(NSMutableArray<CallUserModel *> *)userList;
+- (instancetype)initWithSponsor:(CallUserModel *)sponsor userList:(NSMutableArray<CallUserModel *> *)userList callSubType: (CallSubType) callSubType;
 
 ///有用户进入通话
 - (void)enterUser:(CallUserModel *)user;

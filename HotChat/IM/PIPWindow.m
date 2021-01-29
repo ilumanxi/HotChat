@@ -9,6 +9,7 @@
 #import "PIPWindow.h"
 #import <HBDNavigationBar/HBDNavigationController.h>
 #import <HBDNavigationBar/UIViewController+HBD.h>
+#import "HotChat-Swift.h"
 
 static PIPWindow *_share = nil;
 
@@ -28,7 +29,7 @@ static PIPWindow *_share = nil;
         return;
     }
     viewControllerToPresent.hbd_barHidden= YES;
-    HBDNavigationController *navigationController = [[HBDNavigationController alloc] initWithRootViewController:viewControllerToPresent];
+    BaseNavigationController *navigationController = [[BaseNavigationController alloc] initWithRootViewController:viewControllerToPresent];
     
     UIWindowLevel PIPWindowLevelNormal = UIWindowLevelNormal + 1;
     

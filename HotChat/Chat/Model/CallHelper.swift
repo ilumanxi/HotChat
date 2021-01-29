@@ -17,23 +17,23 @@ import AVFoundation
     
     let imAPI = Request<IMAPI>()
     
-    func call(userID: String, callType: CallType) {
+    func call(userID: String, callType: CallType, callSubType: CallSubType = .none) {
         
         switch callType {
         case .video:
-            handleCallVideo(userID: userID)
+            handleCallVideo(userID: userID, callSubType: callSubType)
         case .audio:
-            handleCallAudio(userID: userID)
+            handleCallAudio(userID: userID, callSubType: callSubType)
         default:  break
         }
     }
 
     
-    private func handleCallVideo(userID: String) {
+    private func handleCallVideo(userID: String, callSubType: CallSubType) {
       
         if checkAuthorization(for: .video) {
             if checkAuthorization(for: .audio) {
-                makeCall(userID: userID, callType: .video)
+                makeCall(userID: userID, callType: .video, callSubType: callSubType)
             }
             else {
                showAudioPermissionnNotification()
@@ -76,10 +76,10 @@ import AVFoundation
     }
     
     
-    private func handleCallAudio(userID: String) {
+    private func handleCallAudio(userID: String, callSubType: CallSubType) {
       
         if checkAuthorization(for: .audio) {
-            makeCall(userID: userID, callType: .audio)
+            makeCall(userID: userID, callType: .audio, callSubType: callSubType)
         }
         else {
             showAudioPermissionnNotification()
@@ -87,7 +87,7 @@ import AVFoundation
     }
 
     
-    private func makeCall(userID: String, callType: CallType) {
+    private func makeCall(userID: String, callType: CallType, callSubType: CallSubType) {
         
         let type  = (callType == .video) ? 1 : 2
         
@@ -96,7 +96,7 @@ import AVFoundation
             .subscribe(onSuccess: { [weak self] response in
                 guard let self = self else {return }
                 if response.data!.isSuccessd  && response.data!.callCode == 1{
-                    CallManager.shareInstance()?.call(nil, userID: userID, callType: callType)
+                    CallManager.shareInstance()?.call(nil, userID: userID, callType: callType, callSubType: callSubType)
                 }
                 else if response.data!.callCode == 4 {
                     let alert = UIAlertController(title: nil, message: "您的能量不足、请充值！", preferredStyle: .alert)

@@ -209,10 +209,10 @@ extension ChatViewController: ChatControllerDelegate {
     
     func chatController(_ chatController: ChatController!, onSelect cell: TUIInputMoreCell!) {
         if cell.data.title == video.title {
-            CallHelper.share.call(userID: conversationData.userID, callType: .video)
+            CallHelper.share.call(userID: conversationData.userID, callType: .video, callSubType: .pair)
         }
         else if cell.data.title == audio.title {
-            CallHelper.share.call(userID: conversationData.userID, callType: .audio)
+            CallHelper.share.call(userID: conversationData.userID, callType: .audio, callSubType: .pair)
         }
     }
     

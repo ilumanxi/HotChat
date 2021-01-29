@@ -62,7 +62,7 @@
     UIButton *_handsfree;
 }
 
-- (instancetype)initWithSponsor:(CallUserModel *)sponsor userList:(NSMutableArray<CallUserModel *> *)userList {
+- (instancetype)initWithSponsor:(CallUserModel *)sponsor userList:(NSMutableArray<CallUserModel *> *)userList callSubType: (CallSubType) callSubType {
     self = [super init];
     if (self) {
         self.curSponsor = sponsor;

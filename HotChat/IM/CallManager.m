@@ -29,6 +29,9 @@ typedef NS_ENUM(NSInteger,VideoUserRemoveReason){
 @property(nonatomic,copy)NSString *userId;
 @property(nonatomic,strong)UIViewController *callVC;
 @property(nonatomic,assign)CallType type;
+@property(nonatomic,assign)CallSubType subtype;
+
+
 @end
 
 @implementation CallManager
@@ -49,11 +52,18 @@ typedef NS_ENUM(NSInteger,VideoUserRemoveReason){
     [[TUICall shareInstance] setDelegate:nil];
 }
 
-- (void)call:(NSString *)groupID userID:(NSString *)userID callType:(CallType)callType {
+- (void)call:(NSString *)groupID userID:(NSString *)userID callType:(CallType)callType callSubType:(CallSubType)callSubType {
     self.groupId = groupID;
     self.userId = userID;
     self.type = callType;
+    self.subtype = callSubType;
     [self setupUI];
+    
+}
+
+- (void)call:(NSString *)groupID userID:(NSString *)userID callType:(CallType)callType {
+
+    [self call:groupID userID:userID callType:callType callSubType: CallSubType_None];
 }
 
 - (void)onReceiveGroupCallAPNs:(V2TIMSignalingInfo *)signalingInfo {
@@ -92,7 +102,7 @@ typedef NS_ENUM(NSInteger,VideoUserRemoveReason){
 
 - (void)showCallVC:(NSMutableArray<CallUserModel *> *)invitedList sponsor:(CallUserModel *)sponsor {
     if (self.type == CallType_Video) {
-        self.callVC = [[VideoCallViewController alloc] initWithSponsor:sponsor userList:invitedList];
+        self.callVC = [[VideoCallViewController alloc] initWithSponsor:sponsor userList:invitedList callSubType:self.subtype];
         VideoCallViewController *videoVC = (VideoCallViewController *)self.callVC;
         videoVC.dismissBlock = ^{
             self.callVC = nil;
@@ -100,7 +110,7 @@ typedef NS_ENUM(NSInteger,VideoUserRemoveReason){
         [videoVC setModalPresentationStyle:UIModalPresentationFullScreen];
         [PIPWindow presentViewController:self.callVC animated:YES completion:nil];
     } else {
-        self.callVC = [[AudioCallViewController alloc] initWithSponsor:sponsor userList:invitedList];
+        self.callVC = [[AudioCallViewController alloc] initWithSponsor:sponsor userList:invitedList callSubType:self.subtype];
         AudioCallViewController *audioVC = (AudioCallViewController *)self.callVC;
         audioVC.dismissBlock = ^{
             self.callVC = nil;

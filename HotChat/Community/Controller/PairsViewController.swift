@@ -418,7 +418,7 @@ class PairsViewController: UIViewController, StoryboardCreate, IndicatorDisplay 
                 if let userId = response.data?["userId"] as? String {
                     let vc = PairCallViewController()
                     self?.navigationController?.pushViewController(vc, animated: true)
-                    CallHelper.share.call(userID: userId, callType: .video)
+                    CallHelper.share.call(userID: userId, callType: .video,callSubType: .pair)
                 }
                 
             }, onError: { [weak self] error in

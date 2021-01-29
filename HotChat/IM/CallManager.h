@@ -12,6 +12,11 @@
 #import "TUICall.h"
 #import "TUICall+Signal.h"
 
+typedef NS_ENUM(NSInteger,CallSubType) {
+    CallSubType_None,        //未知类型
+    CallSubType_Pair         //缘分配对
+};
+
 @interface CallManager : NSObject
 
 /**
@@ -37,6 +42,8 @@
  *  @param callType 视频通话类型，目前支持视频通话和语音通话
  */
 - (void)call:(NSString *)groupID userID:(NSString *)userID callType:(CallType)callType;
+
+- (void)call:(NSString *)groupID userID:(NSString *)userID callType:(CallType)callType callSubType:(CallSubType)callSubType;
 
 /**
  *  收到群通话邀请 APNs
