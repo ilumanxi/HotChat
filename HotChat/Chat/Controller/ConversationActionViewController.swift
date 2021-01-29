@@ -28,7 +28,9 @@ class ConversationActionViewController: UITableViewController, StoryboardCreate 
         if !isShowSettings {
             height -= Row.settings.height
         }
-        
+        if LoginManager.shared.user!.girlStatus {
+            height -= Row.pair.height
+        }
         return height
     }
     
@@ -82,6 +84,10 @@ class ConversationActionViewController: UITableViewController, StoryboardCreate 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         let row = Row(rawValue: indexPath.row)!
+        
+        if row == .pair && LoginManager.shared.user!.girlStatus {
+            return  0
+        }
         
         if row == .settings && !isShowSettings {
             return 0

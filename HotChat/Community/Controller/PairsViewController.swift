@@ -227,7 +227,7 @@ class PairsViewController: UIViewController, StoryboardCreate, IndicatorDisplay 
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        title = "缘分配对"
+        title = "缘分匹配"
         
         navigationItem.leftBarButtonItems =  [UIBarButtonItem(image: UIImage(named: "back-red"), style: .plain, target: self, action: #selector(back))]
         

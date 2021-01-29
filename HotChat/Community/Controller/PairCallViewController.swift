@@ -14,14 +14,14 @@ class PairCallViewController: UIViewController {
     
     @IBOutlet weak var player: SVGAPlayer!
     
-    let parser = SVGAParser()
+    static let parser = SVGAParser()
     
     let textColor = UIColor(hexString: "#EC4F81")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "缘分配对"
+        title = "缘分匹配"
 
         navigationItem.leftBarButtonItems =  [UIBarButtonItem(image: UIImage(named: "back-red"), style: .plain, target: self, action: #selector(back))]
         
@@ -29,13 +29,15 @@ class PairCallViewController: UIViewController {
         hbd_titleTextAttributes = [NSAttributedString.Key.foregroundColor : textColor]
         
         
-        parser.parse(withNamed: "pair", in: nil) { videoItem in
+        PairCallViewController.parser.parse(withNamed: "pair", in: nil) { videoItem in
             self.player.videoItem = videoItem
             self.player.startAnimation()
         } failureBlock: { error in
             print(error)
         }
 
+        self.view.setNeedsLayout()
+        self.view.layoutIfNeeded()
     }
 
     @objc func back() {
