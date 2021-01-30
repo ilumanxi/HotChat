@@ -419,18 +419,20 @@ class PairsViewController: UIViewController, StoryboardCreate, IndicatorDisplay 
         API.request(.matchGirl(callType), type: Response<[String :Any]>.self)
             .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in
-                self?.hideIndicator()
+                
+                guard let self = self else { return }
+                self.hideIndicator()
                 if let userId = response.data?["userId"] as? String {
-                    CallHelper.share.call(userID: userId, callType: .video,callSubType: .pair)
+                    CallHelper.share.call(userID: userId, callType: self.callType, callSubType: .pair)
                 }
                 else {
                     let vc = PairCallViewController()
-                    self?.navigationController?.pushViewController(vc, animated: true)
+                    self.navigationController?.pushViewController(vc, animated: true)
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
                         if let _ = vc.navigationController {
                             vc.navigationController?.popViewController(animated: true)
-                            self?.showMessageOnWindow("你与她擦肩而过...")
+                            self.showMessageOnWindow("你与她擦肩而过...")
                         }
                     }
                 }
