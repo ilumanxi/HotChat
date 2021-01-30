@@ -17,6 +17,8 @@
 #import "VideoCallViewController.h"
 #import "AudioCallViewController.h"
 #import "GiftManager.h"
+#import "ImageMessageCellData.h"
+#import "ImageMessageCell.h"
 
 #import <UMCommon/UMCommon.h>
 #import <UMVerify/UMVerify.h>

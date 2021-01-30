@@ -10,7 +10,7 @@
 #import "Gift.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
+// type 100
 @interface GiftCellData : TUIMessageCellData
 
 @property(nonatomic, strong) Gift *gift;

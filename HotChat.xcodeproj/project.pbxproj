@@ -15,6 +15,8 @@
 		260B96162521F2F400767076 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260B96152521F2F400767076 /* AuthenticationViewController.swift */; };
 		26137CCB2590673900DCBAD0 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26137CCA2590673900DCBAD0 /* TabBar.swift */; };
 		2615C9F8255E8B0C009B89F4 /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2615C9F7255E8B0C009B89F4 /* PlaceholderTextView.swift */; };
+		2617D3EB25C54478009AAE16 /* ImageMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2617D3EA25C54478009AAE16 /* ImageMessageCell.m */; };
+		2617D3F025C5455D009AAE16 /* ImageMessageCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2617D3EF25C5455D009AAE16 /* ImageMessageCellData.m */; };
 		26193EC725A41370009C37FA /* TUITextMessageCellData+Call.m in Sources */ = {isa = PBXBuildFile; fileRef = 26193EC625A41370009C37FA /* TUITextMessageCellData+Call.m */; };
 		2619D18725625AAB0071CC85 /* GiftCountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2619D18625625AAB0071CC85 /* GiftCountViewController.m */; };
 		2619D192256260A90071CC85 /* GiftCountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2619D190256260A90071CC85 /* GiftCountCell.m */; };
@@ -385,6 +387,10 @@
 		260B96152521F2F400767076 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		26137CCA2590673900DCBAD0 /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		2615C9F7255E8B0C009B89F4 /* PlaceholderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
+		2617D3E925C54478009AAE16 /* ImageMessageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageMessageCell.h; sourceTree = "<group>"; };
+		2617D3EA25C54478009AAE16 /* ImageMessageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageMessageCell.m; sourceTree = "<group>"; };
+		2617D3EE25C5455D009AAE16 /* ImageMessageCellData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageMessageCellData.h; sourceTree = "<group>"; };
+		2617D3EF25C5455D009AAE16 /* ImageMessageCellData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageMessageCellData.m; sourceTree = "<group>"; };
 		26193EC525A41370009C37FA /* TUITextMessageCellData+Call.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TUITextMessageCellData+Call.h"; sourceTree = "<group>"; };
 		26193EC625A41370009C37FA /* TUITextMessageCellData+Call.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TUITextMessageCellData+Call.m"; sourceTree = "<group>"; };
 		2619D18525625AAB0071CC85 /* GiftCountViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftCountViewController.h; sourceTree = "<group>"; };
@@ -1540,6 +1546,8 @@
 				2619D18F256260A90071CC85 /* GiftCountCell.h */,
 				2619D190256260A90071CC85 /* GiftCountCell.m */,
 				2619D191256260A90071CC85 /* GiftCountCell.xib */,
+				2617D3E925C54478009AAE16 /* ImageMessageCell.h */,
+				2617D3EA25C54478009AAE16 /* ImageMessageCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1594,6 +1602,8 @@
 				264DEA122552512C00AD97DE /* GiftManager.h */,
 				264DEA132552512C00AD97DE /* GiftManager.m */,
 				2636A0C92563D25500664FFC /* GiftCountDescription.swift */,
+				2617D3EE25C5455D009AAE16 /* ImageMessageCellData.h */,
+				2617D3EF25C5455D009AAE16 /* ImageMessageCellData.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1983,6 +1993,7 @@
 				263A6C3825C2DA4800FD43B6 /* PairCallViewController.swift in Sources */,
 				F3C6B919251F3117006C06CB /* LabelViewController.swift in Sources */,
 				268458E825343FA8002B9C6E /* DynamicDetailViewController.swift in Sources */,
+				2617D3F025C5455D009AAE16 /* ImageMessageCellData.m in Sources */,
 				26787E37251B2F8D00D511E8 /* User.swift in Sources */,
 				2615C9F8255E8B0C009B89F4 /* PlaceholderTextView.swift in Sources */,
 				26CD99ED2578BB5C00235A8D /* ChatGreetAPI.swift in Sources */,
@@ -2045,6 +2056,7 @@
 				2682974D2511B0EC00949C7F /* SignupProtocols.swift in Sources */,
 				265C1ED62542D84700110564 /* InviteViewController.swift in Sources */,
 				26C65FB325301737006B9B7E /* InformationCell.swift in Sources */,
+				2617D3EB25C54478009AAE16 /* ImageMessageCell.m in Sources */,
 				26AE7C2F2520309F00B55318 /* LabelViewCell.swift in Sources */,
 				26CB6D4725515D6B00A9F4DD /* BDFaceRemindAnimationView.m in Sources */,
 				2668B0A2252341F70073E25D /* WalletEnergyViewCell.swift in Sources */,

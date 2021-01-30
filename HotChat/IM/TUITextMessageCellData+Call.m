@@ -21,7 +21,7 @@
     if (self.innerMessage.elemType == V2TIM_ELEM_TYPE_CUSTOM && self.innerMessage.customElem.data != nil) {
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:self.innerMessage.customElem.data options:NSJSONReadingFragmentsAllowed error: nil];
         
-        if (dict[@"data"] == nil) {
+        if (dict[@"data"] == nil || ![dict[@"data"] isKindOfClass:[NSString class]]) {
             return  false;
         }
         

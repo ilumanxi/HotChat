@@ -12,6 +12,7 @@ import MJExtension
 import AVFoundation
 import RxCocoa
 import RxSwift
+import GKPhotoBrowser
 
 class ChatViewController: ChatController, IndicatorDisplay {
     
@@ -180,12 +181,20 @@ extension ChatViewController: ChatControllerDelegate {
         
         if msg.elemType == .ELEM_TYPE_CUSTOM , let param = TUICallUtils.jsonData2Dictionary(msg.customElem.data) as? [String : Any], let imData = IMData.mj_object(withKeyValues: param) {
             
-            if imData.type == 100 {
+            if imData.type == 100 { // 礼物
                 
                 let cellData = GiftCellData(direction: msg.isSelf ? .MsgDirectionOutgoing : .MsgDirectionIncoming)
                 cellData.innerMessage = msg;
                 cellData.msgID = msg.msgID
                 cellData.gift = Gift.mj_object(withKeyValues: imData.data)
+                return cellData
+            }
+            else if imData.type == 101 { // 图片
+                //ImageMessageCellData
+                let cellData = ImageMessageCellData(direction: msg.isSelf ? .MsgDirectionOutgoing : .MsgDirectionIncoming)
+                cellData.innerMessage = msg;
+                cellData.msgID = msg.msgID
+                cellData.mj_setKeyValues(imData.data)
                 return cellData
                 
             }
@@ -201,6 +210,13 @@ extension ChatViewController: ChatControllerDelegate {
             
             let cell = GiftCell(style: .default, reuseIdentifier: "GiftCell")
             cell.fill(with: cellData)
+            return cell
+        }
+        
+        if cellData.isKind(of: ImageMessageCellData.self) {
+            
+            let cell = ImageMessageCell(style: .default, reuseIdentifier: "ImageMessageCell")
+            cell.fill(with: cellData as! ImageMessageCellData)
             return cell
         }
         
@@ -222,6 +238,21 @@ extension ChatViewController: ChatControllerDelegate {
     
     func chatController(_ controller: ChatController!, onSelectMessageContent cell: TUIMessageCell!) {
         
+        if let imageMessageCell = cell as? ImageMessageCell  {
+           
+            let photo = GKPhoto()
+            photo.url = URL(string: imageMessageCell.imageData.url)!
+            photo.sourceImageView = imageMessageCell.thumb
+            
+            let browser = GKPhotoBrowser(photos: [photo], currentIndex: 0)
+            browser.showStyle = .zoom
+            browser.hideStyle = .zoomScale
+            browser.loadStyle = .indeterminateMask
+            browser.maxZoomScale = 20
+            browser.doubleZoomScale = 2
+            browser.isFollowSystemRotation = true
+            browser.show(fromVC: self)
+        }
 
     }
     

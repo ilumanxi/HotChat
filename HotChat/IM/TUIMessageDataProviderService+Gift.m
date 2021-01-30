@@ -55,6 +55,9 @@ void swizzleMethod(Class class, SEL originalSelector, SEL swizzledSelector)
     if (info == nil && param != nil && [param[@"type"] intValue] == 100) {
         return  @"[礼物]";
     }
+    if (info == nil && param != nil && [param[@"type"] intValue] == 101) {
+        return  @"[图片]";
+    }
     return [self swizzledGetCustomElemContent:message];
 }
    
