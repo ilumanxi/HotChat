@@ -223,6 +223,9 @@ typedef NS_ENUM(NSInteger,VideoUserRemoveReason){
 -(void)onNoResp:(NSString *)uid {
     NSLog(@"📳 onNoResp uid:%@",uid);
     [self removeUserFromCallVC:uid reason:VideoUserRemoveReason_Noresp];
+    if (self.subtype == CallSubType_Pair) {
+        [THelper makeToast:@"你与她擦肩而过..."];
+    }
 }
 
 ///    占线
@@ -277,9 +280,6 @@ typedef NS_ENUM(NSInteger,VideoUserRemoveReason){
         [PIPWindow dismissViewControllerAnimated:YES completion:nil];
     }
     
-    if (self.subtype == CallSubType_Pair) {
-        [THelper makeToast:@"你与她擦肩而过..."];
-    }
 }
 
 -(void)onCallEnd {

@@ -50,6 +50,12 @@ class PairCallViewController: UIViewController {
                 audioController.hangupClick()
             }
         }
+        else if let videoController = self.parent?.parent as? VideoCallViewController {
+            videoController.hangupClick()
+        }
+        else if let audioController = self.parent?.parent as? AudioCallViewController {
+            audioController.hangupClick()
+        }
         else {
             navigationController?.popViewController(animated: true)
         }

@@ -32,7 +32,7 @@ class FiledFormEntry: NSObject, FormEntry {
         cell.fieldTextLabel.text = title
         cell.textField.text = text
         cell.textField.isEnabled = isEdit
-        cell.textField.attributedText = NSAttributedString(string: cell.textField.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor : placeholderColor])
+        cell.textField.attributedPlaceholder = NSAttributedString(string: cell.textField.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor : placeholderColor])
         
         disposeBag = DisposeBag()
         
@@ -140,7 +140,7 @@ class AnchorAuthenticationViewController: UIViewController, IndicatorDisplay {
     }
     
     private var cardForm: FiledFormEntry {
-        let entry  = FiledFormEntry(title: "身份证", text: anchorAuthentication.card)
+        let entry  = FiledFormEntry(title: "身份证号", text: anchorAuthentication.card)
         entry.placeholderColor = .placeholderRed
         entry.onTextChanged.delegate(on: self) { (self, text) in
             self.anchorAuthentication.card = text
@@ -244,6 +244,7 @@ class AnchorAuthenticationViewController: UIViewController, IndicatorDisplay {
 
     
     func setupTableView() {
+        tableView.keyboardDismissMode = .onDrag
         tableView.backgroundColor = .groupTableViewBackground
         tableView.register(UINib(nibName: CardViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: CardViewCell.reuseIdentifier)
         tableView.register(UINib(nibName: FiledViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: FiledViewCell.reuseIdentifier)
@@ -251,6 +252,15 @@ class AnchorAuthenticationViewController: UIViewController, IndicatorDisplay {
     
     
     @IBAction func submitButtonTapped(_ sender: Any) {
+        if anchorAuthentication.name == nil ||  anchorAuthentication.name?.isEmpty ?? true {
+            self.show("请填写姓名")
+            return
+        }
+        
+        if anchorAuthentication.card == nil ||  anchorAuthentication.card?.isEmpty ?? true {
+            self.show("请填写身份证号")
+            return
+        }
         
         self.showIndicator()
         authenticationAPI.request(.liveEditAttestation(anchorAuthentication), type: Response<Authentication>.self)

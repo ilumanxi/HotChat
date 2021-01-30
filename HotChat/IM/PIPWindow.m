@@ -28,7 +28,7 @@ static PIPWindow *_share = nil;
     if (_share != nil) {
         return;
     }
-    viewControllerToPresent.hbd_barHidden= YES;
+    viewControllerToPresent.hbd_barHidden = YES;
     BaseNavigationController *navigationController = [[BaseNavigationController alloc] initWithRootViewController:viewControllerToPresent];
     
     UIWindowLevel PIPWindowLevelNormal = UIWindowLevelNormal + 1;

@@ -33,6 +33,11 @@ class RealNameAuthenticationViewController: UITableViewController, IndicatorDisp
         setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        nicknameTextField.becomeFirstResponder()
+        super.viewWillAppear(animated)
+    }
+    
     func setupUI(){
 
         let textFields = [nicknameTextField, IDCardTexField]

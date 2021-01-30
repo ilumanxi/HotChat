@@ -50,6 +50,7 @@
 
 @property(nonatomic,assign) SystemSoundID systemSoundID;
 @property(nonatomic,assign) CallSubType callSubType;
+@property(nonatomic,strong) BaseNavigationController *pairController;
 @end
 
 @implementation AudioCallViewController
@@ -103,9 +104,11 @@
     [self setupUI];
     if (self.callSubType == CallSubType_Pair) {
         PairCallViewController *vc = [[PairCallViewController alloc] init];
-        BaseNavigationController *nav = [[BaseNavigationController alloc] initWithRootViewController:vc];
-        nav.modalPresentationStyle = UIModalPresentationOverFullScreen;
-        [self presentViewController:nav animated:NO completion:nil];
+        self.pairController = [[BaseNavigationController alloc] initWithRootViewController:vc];
+        [self addChildViewController:self.pairController];
+        self.pairController.view.frame = self.view.bounds;
+        [self.view addSubview:self.pairController.view];
+        [self.pairController didMoveToParentViewController:self];
     }
 }
 
@@ -165,11 +168,10 @@
     if (![user.userId isEqualToString:[TUICallUtils loginUser]]) {
         [self stopAlerm];
         
-        if ([self.presentedViewController isKindOfClass:[BaseNavigationController class]] ) {
-            UINavigationController *navVc = (UINavigationController *) self.presentedViewController;
-            if ([navVc.topViewController isKindOfClass:[PairCallViewController  class]]) {
-                [self.presentedViewController dismissViewControllerAnimated:NO completion:nil];
-            }
+        if (self.pairController != nil) {
+            [self.pairController.view removeFromSuperview];
+            [self.pairController didMoveToParentViewController:nil];
+            self.pairController = nil;
         }
     }
     
@@ -356,37 +358,6 @@
             }];
             
             self.hangup.hidden = YES;
-               
-//            [self.hangup mas_remakeConstraints:^(MASConstraintMaker *make) {
-//                make.centerX.equalTo(self.view.mas_centerX);
-//                make.bottom.equalTo(self.view.safeAreaLayoutGuideBottom).offset(-49);
-//            }];
-//
-//            [self.mute mas_remakeConstraints:^(MASConstraintMaker *make) {
-//                make.trailing.equalTo(self.hangup.mas_leading).offset(-60);
-//                make.bottom.equalTo(self.hangup);
-//            }];
-//
-//
-//            [self.handsfree mas_remakeConstraints:^(MASConstraintMaker *make) {
-//                make.leading.equalTo(self.hangup.mas_trailing).offset(60);
-//                make.bottom.equalTo(self.hangup);
-//            }];
-//
-//            [self.callTimeLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-//                make.bottom.equalTo(self.hangup.mas_top).offset(-20);
-//                make.centerX.equalTo(self.hangup);
-//            }];
-//
-//            self.invite.text = @"正在通话中...";
-//
-//            self.mute.hidden = NO;
-//            self.handsfree.hidden = NO;
-//            self.callTimeLabel.hidden = NO;
-////            self.sponsorPanel.hidden = YES;
-//            self.userCollectionView.hidden = NO;
-//            self.mute.alpha = 0.0;
-//            self.handsfree.alpha = 0.0;
             [self startCallTiming];
         }
             break;
@@ -406,6 +377,10 @@
     if (self.curState == AudioCallState_Calling) {
         self.mute.alpha = 1.0;
         self.handsfree.alpha = 1.0;
+    }
+    
+    if (self.callSubType == CallSubType_Pair &&  self.pairController != nil) {
+        [self.view bringSubviewToFront:self.pairController.view];
     }
 }
 

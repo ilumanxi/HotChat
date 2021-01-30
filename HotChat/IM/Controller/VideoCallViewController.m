@@ -58,6 +58,8 @@
 
 @property(nonatomic,assign) CallSubType callSubType;
 
+@property(nonatomic,strong) BaseNavigationController *pairController;
+
 @end
 
 @implementation VideoCallViewController
@@ -131,9 +133,11 @@
     
     if (self.callSubType == CallSubType_Pair) {
         PairCallViewController *vc = [[PairCallViewController alloc] init];
-        BaseNavigationController *nav = [[BaseNavigationController alloc] initWithRootViewController:vc];
-        nav.modalPresentationStyle = UIModalPresentationOverFullScreen;
-        [self presentViewController:nav animated:NO completion:nil];
+        self.pairController = [[BaseNavigationController alloc] initWithRootViewController:vc];
+        [self addChildViewController:self.pairController];
+        self.pairController.view.frame = self.view.bounds;
+        [self.view addSubview:self.pairController.view];
+        [self.pairController didMoveToParentViewController:self];
     }
 }
 
@@ -186,11 +190,10 @@
         [[TUICall shareInstance] startRemoteView:user.userId view:renderView];
         [self stopAlerm];
         
-        if ([self.presentedViewController isKindOfClass:[BaseNavigationController class]] ) {
-            UINavigationController *navVc = (UINavigationController *) self.presentedViewController;
-            if ([navVc.topViewController isKindOfClass:[PairCallViewController class]]) {
-                [self.presentedViewController dismissViewControllerAnimated:NO completion:nil];
-            }
+        if (self.pairController != nil ) {
+            [self.pairController.view removeFromSuperview];
+            [self.pairController didMoveToParentViewController:nil];
+            self.pairController = nil;
         }
     }
     self.curState = VideoCallState_Calling;
@@ -300,6 +303,9 @@
     
     if (self.manager.isCharge) {
         [self.view bringSubviewToFront:self.chargeReminderLabel];
+    }
+    if (self.callSubType == CallSubType_Pair &&  self.pairController != nil) {
+        [self.view bringSubviewToFront:self.pairController.view];
     }
 }
 
