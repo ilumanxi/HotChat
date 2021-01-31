@@ -5,12 +5,12 @@
       "scale" : "1x"
     },
     {
-      "filename" : "add-gray@2x.png",
+      "filename" : "dynamic-image@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "add-gray@3x.png",
+      "filename" : "dynamic-image@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

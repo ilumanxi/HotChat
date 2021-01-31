@@ -47,7 +47,8 @@ target 'HotChat' do
     
     pod 'TXIMSDK_TUIKit_iOS'
     pod 'TPNS-iOS'
-    
+    pod 'YBImageBrowser/Video'
+    pod 'YYImage', :git => 'https://github.com/QiuYeHong90/YYImage.git'
     pod 'GKPhotoBrowser'
     pod 'Masonry'
     pod 'AFNetworking'

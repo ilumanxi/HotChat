@@ -15,6 +15,7 @@ import RxSwift
 enum UploadFileAPI {
     
     case upload(URL)
+    case uploadFile(URL)
     
 }
 
@@ -25,8 +26,12 @@ extension UploadFileAPI: TargetType {
     }
     
     var path: String {
-        
-        return "upload/upload"
+        switch self {
+        case .upload:
+            return "upload/upload"
+        case .uploadFile: 
+            return "upload/uploadFile"
+        }
     }
     
     var method: Moya.Method {
@@ -41,6 +46,8 @@ extension UploadFileAPI: TargetType {
         switch self {
         case .upload(let url):
             return .uploadMultipart([MultipartFormData(provider: .file(url), name: "image")])
+        case .uploadFile(let url):
+            return .uploadMultipart([MultipartFormData(provider: .file(url), name: "file")])
         }
     }
     

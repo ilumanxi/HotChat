@@ -136,7 +136,7 @@ class LoginViewController: UIViewController, IndicatorDisplay {
             self.phoneLoginButton.frame = CGRect(x: (contentViewFrame.width - self.phoneLoginButton.frame.width) / 2, y: loginFrame.maxY + 14, width: self.phoneLoginButton.frame.width, height: self.phoneLoginButton.frame.height)
         }
         
-        UMCommonHandler.getLoginToken(withTimeout: 3, controller: self, model: model) { info in
+        UMCommonHandler.getLoginToken(withTimeout: 1, controller: self, model: model) { info in
          
             guard let code = info["resultCode"] as? String else { return }
             

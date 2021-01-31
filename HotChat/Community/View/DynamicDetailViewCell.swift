@@ -99,7 +99,14 @@ class DynamicDetailViewCell: UITableViewCell {
         let isSelf = LoginManager.shared.user!.userId == dynamic.userInfo.userId
         
         commentButton.alpha = isSelf ? 0 : 1
-        collectionViewHeightConstraint.constant = collectionViewHeight(for: CGFloat(dynamic.photoList.count))
+        
+        if dynamic.type == .video {
+            collectionViewHeightConstraint.constant = collectionViewHeight(for: 1)
+        }
+        else {
+            collectionViewHeightConstraint.constant = collectionViewHeight(for: CGFloat(max(dynamic.photoList.count, 1)))
+        }
+        
         setNeedsLayout()
         layoutIfNeeded()
         collectionView.reloadData()
@@ -149,16 +156,30 @@ extension DynamicDetailViewCell: UICollectionViewDataSource {
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dynamic?.photoList.count ?? 0
+        
+        guard let dynamic = dynamic else { return 0 }
+        
+        if dynamic.type == .video {
+            return 1
+        }
+        
+        return dynamic.photoList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let data = dynamic.photoList[indexPath.item]
-        
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: MediaViewCell.self)
         cell.layer.cornerRadius = 8
-        cell.imageView.kf.setImage(with: URL(string: data.picUrl))
+        
+        if dynamic.type == .video {
+            cell.imageView.kf.setImage(with: URL(string: dynamic.video!.coverUrl))
+            cell.playImageView.isHidden = false
+        }
+        else {
+            let data = dynamic.photoList[indexPath.item]
+            cell.imageView.kf.setImage(with: URL(string: data.picUrl))
+            cell.playImageView.isHidden = true
+        }
         return cell
     }
     

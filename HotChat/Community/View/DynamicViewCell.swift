@@ -13,6 +13,9 @@ class DynamicViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     
+    
+    @IBOutlet weak var typeImageView: UIImageView!
+    
     @IBOutlet weak var textLabel: UILabel!
     
     @IBOutlet weak var likeButton: UIButton!

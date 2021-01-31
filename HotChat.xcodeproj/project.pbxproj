@@ -17,6 +17,7 @@
 		2615C9F8255E8B0C009B89F4 /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2615C9F7255E8B0C009B89F4 /* PlaceholderTextView.swift */; };
 		2617D3EB25C54478009AAE16 /* ImageMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2617D3EA25C54478009AAE16 /* ImageMessageCell.m */; };
 		2617D3F025C5455D009AAE16 /* ImageMessageCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2617D3EF25C5455D009AAE16 /* ImageMessageCellData.m */; };
+		2617D3F425C55F45009AAE16 /* DynamicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2617D3F325C55F45009AAE16 /* DynamicViewController.xib */; };
 		26193EC725A41370009C37FA /* TUITextMessageCellData+Call.m in Sources */ = {isa = PBXBuildFile; fileRef = 26193EC625A41370009C37FA /* TUITextMessageCellData+Call.m */; };
 		2619D18725625AAB0071CC85 /* GiftCountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2619D18625625AAB0071CC85 /* GiftCountViewController.m */; };
 		2619D192256260A90071CC85 /* GiftCountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2619D190256260A90071CC85 /* GiftCountCell.m */; };
@@ -298,6 +299,10 @@
 		26EB2DA82558F157006698F9 /* SubsidiaryAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26EB2DA62558F157006698F9 /* SubsidiaryAccountCell.xib */; };
 		26EB2DCA25593FCA006698F9 /* ConsumerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EB2DC925593FCA006698F9 /* ConsumerAPI.swift */; };
 		26EB2DCC255945C4006698F9 /* Consumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EB2DCB255945C4006698F9 /* Consumer.swift */; };
+		26ED000625C5731200480CEC /* MediaItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ED000425C5731200480CEC /* MediaItemViewCell.swift */; };
+		26ED000725C5731200480CEC /* MediaItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26ED000525C5731200480CEC /* MediaItemViewCell.xib */; };
+		26ED001D25C69BC900480CEC /* MediaItemAddViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ED001B25C69BC900480CEC /* MediaItemAddViewCell.swift */; };
+		26ED001E25C69BC900480CEC /* MediaItemAddViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26ED001C25C69BC900480CEC /* MediaItemAddViewCell.xib */; };
 		26EDD94D25A44A1D00913363 /* AppAudit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EDD94C25A44A1D00913363 /* AppAudit.swift */; };
 		26EDE7EE2591C6B8002A2EC3 /* TUIMessageController+Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EDE7ED2591C6B8002A2EC3 /* TUIMessageController+Message.m */; };
 		26EDE7F92591D11F002A2EC3 /* GuidedRechargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EDE7F72591D11F002A2EC3 /* GuidedRechargeViewController.swift */; };
@@ -391,6 +396,7 @@
 		2617D3EA25C54478009AAE16 /* ImageMessageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageMessageCell.m; sourceTree = "<group>"; };
 		2617D3EE25C5455D009AAE16 /* ImageMessageCellData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageMessageCellData.h; sourceTree = "<group>"; };
 		2617D3EF25C5455D009AAE16 /* ImageMessageCellData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageMessageCellData.m; sourceTree = "<group>"; };
+		2617D3F325C55F45009AAE16 /* DynamicViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DynamicViewController.xib; sourceTree = "<group>"; };
 		26193EC525A41370009C37FA /* TUITextMessageCellData+Call.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TUITextMessageCellData+Call.h"; sourceTree = "<group>"; };
 		26193EC625A41370009C37FA /* TUITextMessageCellData+Call.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TUITextMessageCellData+Call.m"; sourceTree = "<group>"; };
 		2619D18525625AAB0071CC85 /* GiftCountViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftCountViewController.h; sourceTree = "<group>"; };
@@ -735,6 +741,10 @@
 		26EB2DA62558F157006698F9 /* SubsidiaryAccountCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubsidiaryAccountCell.xib; sourceTree = "<group>"; };
 		26EB2DC925593FCA006698F9 /* ConsumerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumerAPI.swift; sourceTree = "<group>"; };
 		26EB2DCB255945C4006698F9 /* Consumer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consumer.swift; sourceTree = "<group>"; };
+		26ED000425C5731200480CEC /* MediaItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaItemViewCell.swift; sourceTree = "<group>"; };
+		26ED000525C5731200480CEC /* MediaItemViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MediaItemViewCell.xib; sourceTree = "<group>"; };
+		26ED001B25C69BC900480CEC /* MediaItemAddViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaItemAddViewCell.swift; sourceTree = "<group>"; };
+		26ED001C25C69BC900480CEC /* MediaItemAddViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MediaItemAddViewCell.xib; sourceTree = "<group>"; };
 		26EDD94C25A44A1D00913363 /* AppAudit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAudit.swift; sourceTree = "<group>"; };
 		26EDE7EC2591C6B8002A2EC3 /* TUIMessageController+Message.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TUIMessageController+Message.h"; sourceTree = "<group>"; };
 		26EDE7ED2591C6B8002A2EC3 /* TUIMessageController+Message.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TUIMessageController+Message.m"; sourceTree = "<group>"; };
@@ -1439,6 +1449,7 @@
 				263A6C3725C2DA4800FD43B6 /* PairCallViewController.xib */,
 				26CBE3B32508A3FC0089A23C /* CommunityViewController.swift */,
 				26F8893925318681001A14F2 /* DynamicViewController.swift */,
+				2617D3F325C55F45009AAE16 /* DynamicViewController.xib */,
 				268458E725343FA8002B9C6E /* DynamicDetailViewController.swift */,
 				26A731B12536D6B600CCECE5 /* ReportViewController.swift */,
 				26FC88EF253ECFBB00E4D82F /* SearchViewController.swift */,
@@ -1456,6 +1467,10 @@
 				268458E025342B7D002B9C6E /* DynamicDetailViewCell.swift */,
 				268458EF25345352002B9C6E /* MediaViewCell.swift */,
 				26FC88F9253ED66600E4D82F /* SearchViewCell.swift */,
+				26ED000425C5731200480CEC /* MediaItemViewCell.swift */,
+				26ED000525C5731200480CEC /* MediaItemViewCell.xib */,
+				26ED001B25C69BC900480CEC /* MediaItemAddViewCell.swift */,
+				26ED001C25C69BC900480CEC /* MediaItemAddViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1786,6 +1801,7 @@
 				26CB6D5125515D6B00A9F4DD /* com.baidu.idl.face.faceSDK.bundle in Resources */,
 				2636A0DA2564CDBF00664FFC /* UpgrateViewController.xib in Resources */,
 				26F553772553D16E00840735 /* TalkEarningsViewController.xib in Resources */,
+				2617D3F425C55F45009AAE16 /* DynamicViewController.xib in Resources */,
 				2637D86E255A895B00020E98 /* TalkEarningCell.xib in Resources */,
 				2679550E25079A4A00A72954 /* UserInfoChatView.xib in Resources */,
 				266E3C57258B737E00781E91 /* bell.mp3 in Resources */,
@@ -1793,6 +1809,7 @@
 				2637D87A255B8EDF00020E98 /* BlacklistCell.xib in Resources */,
 				267954F62507579700A72954 /* Chat.storyboard in Resources */,
 				26BB187D2522F5810019BBFD /* Main.storyboard in Resources */,
+				26ED001E25C69BC900480CEC /* MediaItemAddViewCell.xib in Resources */,
 				2619D193256260A90071CC85 /* GiftCountCell.xib in Resources */,
 				2643EB482500AD7E00FBBE49 /* LaunchScreen.storyboard in Resources */,
 				26E291B72554FB810032AE99 /* AvatarAuthenticationResultController.xib in Resources */,
@@ -1823,6 +1840,7 @@
 				F38CB8C62507B14700049A76 /* InfoPlist.strings in Resources */,
 				268E3E612521D074000E4A33 /* RelationshipViewCell.xib in Resources */,
 				263953702541A38B00B5E3C0 /* FiledViewCell.xib in Resources */,
+				26ED000725C5731200480CEC /* MediaItemViewCell.xib in Resources */,
 				26DF8780255A645C002162A9 /* SwitchViewCell.xib in Resources */,
 				26AE7C342520346500B55318 /* LabelViewCell.xib in Resources */,
 				26CB6D5025515D6B00A9F4DD /* com.baidu.idl.face.model.faceSDK.bundle in Resources */,
@@ -1968,6 +1986,7 @@
 				268458F025345352002B9C6E /* MediaViewCell.swift in Sources */,
 				26808FE12519D5BE00C9803C /* Constant.swift in Sources */,
 				26C31F3025404FE90000D09D /* ForYouCell.swift in Sources */,
+				26ED001D25C69BC900480CEC /* MediaItemAddViewCell.swift in Sources */,
 				26CB6D4125515D6B00A9F4DD /* BDFaceDetectionViewController.m in Sources */,
 				2643EBA72500B04100FBBE49 /* RealNameAuthenticationViewController.swift in Sources */,
 				26E14E5E251C6E8800645F08 /* HotChatButton.swift in Sources */,
@@ -2062,6 +2081,7 @@
 				2668B0A2252341F70073E25D /* WalletEnergyViewCell.swift in Sources */,
 				26B4E0592564EB34004EDCFE /* Upgrade.swift in Sources */,
 				2679550C25079A1F00A72954 /* UserInfoChatView.swift in Sources */,
+				26ED000625C5731200480CEC /* MediaItemViewCell.swift in Sources */,
 				2643EBAC2500B04100FBBE49 /* UserInfoInterviewCell.swift in Sources */,
 				263A6684257E0EF200F35714 /* CheckInCell.swift in Sources */,
 				265C8A42251332E900E220BD /* SigninProtocols.swift in Sources */,
@@ -2364,7 +2384,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 1.4.13;
+				MARKETING_VERSION = 1.4.15;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -2487,7 +2507,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 1.4.13;
+				MARKETING_VERSION = 1.4.15;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

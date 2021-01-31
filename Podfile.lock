@@ -153,6 +153,14 @@ PODS:
   - URLNavigator (2.3.0)
   - WechatOpenSDK (1.8.7.1)
   - WKWebViewJavascriptBridge (1.2.1)
+  - YBImageBrowser/Core (3.0.9):
+    - SDWebImage (>= 5.0.0)
+    - YYImage
+  - YBImageBrowser/Video (3.0.9):
+    - YBImageBrowser/Core
+  - YYImage (1.0.4):
+    - YYImage/Core (= 1.0.4)
+  - YYImage/Core (1.0.4)
 
 DEPENDENCIES:
   - ActiveLabel
@@ -204,6 +212,8 @@ DEPENDENCIES:
   - URLNavigator
   - WechatOpenSDK
   - WKWebViewJavascriptBridge
+  - YBImageBrowser/Video
+  - YYImage (from `https://github.com/QiuYeHong90/YYImage.git`)
 
 SPEC REPOS:
   trunk:
@@ -270,6 +280,16 @@ SPEC REPOS:
     - URLNavigator
     - WechatOpenSDK
     - WKWebViewJavascriptBridge
+    - YBImageBrowser
+
+EXTERNAL SOURCES:
+  YYImage:
+    :git: https://github.com/QiuYeHong90/YYImage.git
+
+CHECKOUT OPTIONS:
+  YYImage:
+    :commit: 4164acb76e8979c0612530bd874e099a1fa51e9d
+    :git: https://github.com/QiuYeHong90/YYImage.git
 
 SPEC CHECKSUMS:
   ActiveLabel: 5e3f4de79a1952d4604b845a0610d4776e4b82b3
@@ -335,7 +355,9 @@ SPEC CHECKSUMS:
   URLNavigator: 2593c0e2d293732ec5c44503cf54dceba1a68085
   WechatOpenSDK: 6a4d1436c15b3b5fe2a0bd383f3046010186da44
   WKWebViewJavascriptBridge: 07ad0cab27cd61ccdb90b5deb223f6df3a03c3d7
+  YBImageBrowser: 7ecc8bf33ffa5f3b94c397c29b4f3638dd37f527
+  YYImage: 20ec986d18a8d0ad421619d166a9e628097e2433
 
-PODFILE CHECKSUM: 4989a1d5081ca949e53c5ef74a84fa166505deed
+PODFILE CHECKSUM: 58538e68dc615f5f5ae1a5c3ea49c6715b21f890
 
 COCOAPODS: 1.10.1

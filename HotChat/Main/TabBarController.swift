@@ -56,7 +56,7 @@ class TabBarController: UITabBarController, IndicatorDisplay {
     }
     
     func presentDynamic() {
-        let vc = DynamicViewController.loadFromStoryboard()
+        let vc = DynamicViewController()
         vc.onSened.delegate(on: self) { (self, _) in
             
             if let navigationController =  self.children.first as? UINavigationController,

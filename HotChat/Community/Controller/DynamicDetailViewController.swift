@@ -13,6 +13,7 @@ import MJRefresh
 import RxSwift
 import RxCocoa
 import Aquaman
+import YBImageBrowser
 
 class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableViewDataSource, UITableViewDelegate, AquamanChildViewController, StoryboardCreate {
 
@@ -329,22 +330,31 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
             
             let (_, index, imageViews) = sender
             
-            let photos = (0..<imageViews.count)
-                .compactMap { index -> GKPhoto? in
-                    let photo = GKPhoto()
-                    photo.url = URL(string: dynamic.photoList[index].picUrl)!
-                    photo.sourceImageView = imageViews[index]
-                    return photo
-                }
+            let photos: [YBIBDataProtocol]
             
-            let browser = GKPhotoBrowser(photos: photos, currentIndex: index)
-            browser.showStyle = .zoom
-            browser.hideStyle = .zoomScale
-            browser.loadStyle = .indeterminateMask
-            browser.maxZoomScale = 20
-            browser.doubleZoomScale = 2
-            browser.isFollowSystemRotation = true
-            browser.show(fromVC: self)
+            if dynamic.type == .video {
+                let video = YBIBVideoData()
+                video.videoURL = URL(string: dynamic.video!.url)!
+                video.projectiveView = imageViews[index]
+                photos = [video]
+            }
+            else {
+                photos = (0..<imageViews.count)
+                    .compactMap { index -> YBIBImageData? in
+                        let photo = YBIBImageData()
+                        photo.imageURL = URL(string: dynamic.photoList[index].picUrl)!
+                        photo.projectiveView = imageViews[index]
+                        return photo
+                    }
+            }
+            
+            let  browser = YBImageBrowser()
+            browser.dataSourceArray = photos
+            browser.currentPage = index
+            // 只有一个保存操作的时候，可以直接右上角显示保存按钮
+            browser.defaultToolViewHandler?.topView.operationButton.isHidden = true
+            browser.show()
+            
         }
         
         cell.onMoreButtonTapped.delegate(on: self) { (self, _) in

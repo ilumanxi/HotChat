@@ -19,6 +19,30 @@ struct Pagination<T: HandyJSON>: HandyJSON {
     var handleType: Int = 1
 }
 
+enum DynamicType: Int, HandyJSONEnum {
+    case image = 1
+    case video = 2
+}
+
+extension DynamicType {
+    var image: UIImage? {
+        switch self {
+        case .image:
+            return UIImage(named: "dynamic-type-image")
+        case .video:
+            return UIImage(named: "dynamic-type-video")
+        }
+    }
+}
+
+class DynamicVideo: NSObject, HandyJSON {
+    
+    var coverUrl: String = ""
+    var url: String = ""
+    required override init() {
+        super.init()
+    }
+}
 
 class Dynamic: NSObject, HandyJSON {
     
@@ -26,10 +50,11 @@ class Dynamic: NSObject, HandyJSON {
     var timeFormat: String = ""
     var content: String = ""
     var photoList: [RemoteFile] = []
+    var video: DynamicVideo?
+    var type: DynamicType = .image
     var isSelfZan: Bool = false
     var zanNum: Int = 0
     var giftNum: Int = 0
-    var type: Int = 0
     var coverUrl: String = ""
     var userInfo: User!
     var commentCount: Int = 0

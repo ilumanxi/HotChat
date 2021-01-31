@@ -352,6 +352,7 @@ extension CommunityViewController: UICollectionViewDataSource, UICollectionViewD
         
         cell.textLabel.text = data.content
         cell.imageView.kf.setImage(with: URL(string: data.coverUrl))
+        cell.typeImageView.image = data.type.image
         cell.likeLabel.text = data.zanNum.description
         cell.likeButton.isSelected = data.isSelfZan
         cell.regionButton.setTitle(data.userInfo.region, for: .normal)
