@@ -120,7 +120,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setupIM()  {
         
         #if DEBUG
-        TUIKit.sharedInstance()?.setup(withAppId: Constant.IM.appID, logLevel: .LOG_DEBUG)
+        TUIKit.sharedInstance()?.setup(withAppId: Constant.IM.appID, logLevel: .LOG_NONE)
         #else
         TUIKit.sharedInstance()?.setup(withAppId: Constant.IM.appID, logLevel: .LOG_NONE)
         #endif

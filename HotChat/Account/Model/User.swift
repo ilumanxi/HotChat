@@ -247,6 +247,12 @@ enum VipType: Int, HandyJSONEnum {
         return sex.rawValue
     }
     
+    /// 访客记录数量
+    var visitorNum: Int = 0
+    
+    /// 访客记录  {"headPic":"https:\/\/tanliao-1303101692.cos.ap-guangzhou.myqcloud.com\/tu\/20210122163936390654.png"}
+    var visitorList: [[String : Any]] = []
+    
     ///  喜欢的ta
     var labelList: [LikeTag] = []
     

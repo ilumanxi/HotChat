@@ -177,6 +177,9 @@ class LoginViewController: UIViewController, IndicatorDisplay {
     
     /// 登录注册
     @objc private func pushSignup() {
+        UMCommonHandler.cancelLoginVC(animated: false) {
+            
+        }
         let vc = SignupViewController.loadFromStoryboard()
         navigationController?.pushViewController(vc, animated: true)
     }

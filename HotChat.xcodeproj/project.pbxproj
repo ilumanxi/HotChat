@@ -33,6 +33,12 @@
 		26278B8D256CFD64007044E1 /* JPGiftOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 26278B83256CFD64007044E1 /* JPGiftOperation.m */; };
 		262C5F6D255550BE00126359 /* AccountSecurityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C5F6B255550BE00126359 /* AccountSecurityController.swift */; };
 		262C5F6E255550BE00126359 /* AccountSecurityController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 262C5F6C255550BE00126359 /* AccountSecurityController.xib */; };
+		2635215E25C7EA2200855487 /* VisitorsAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2635215D25C7EA2200855487 /* VisitorsAvatarView.swift */; };
+		2635216225C7EA4E00855487 /* VisitorsAvatarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2635216125C7EA4E00855487 /* VisitorsAvatarView.xib */; };
+		2635216725C7F18800855487 /* VisitorsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2635216525C7F18800855487 /* VisitorsController.swift */; };
+		2635216825C7F18800855487 /* VisitorsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2635216625C7F18800855487 /* VisitorsController.xib */; };
+		2635216D25C7F4F900855487 /* VisitorsVipController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2635216B25C7F4F900855487 /* VisitorsVipController.swift */; };
+		2635216E25C7F4F900855487 /* VisitorsVipController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2635216C25C7F4F900855487 /* VisitorsVipController.xib */; };
 		2636A0BF2563D04A00664FFC /* GiftAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2636A0BE2563D04A00664FFC /* GiftAPI.swift */; };
 		2636A0CA2563D25500664FFC /* GiftCountDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2636A0C92563D25500664FFC /* GiftCountDescription.swift */; };
 		2636A0D22564BFE700664FFC /* IDLFaceSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26CB6D3825515D6B00A9F4DD /* IDLFaceSDK.framework */; };
@@ -425,6 +431,12 @@
 		262C5F6B255550BE00126359 /* AccountSecurityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSecurityController.swift; sourceTree = "<group>"; };
 		262C5F6C255550BE00126359 /* AccountSecurityController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountSecurityController.xib; sourceTree = "<group>"; };
 		2633EC5125315706009F0F27 /* carthage.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = carthage.sh; sourceTree = SOURCE_ROOT; };
+		2635215D25C7EA2200855487 /* VisitorsAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorsAvatarView.swift; sourceTree = "<group>"; };
+		2635216125C7EA4E00855487 /* VisitorsAvatarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VisitorsAvatarView.xib; sourceTree = "<group>"; };
+		2635216525C7F18800855487 /* VisitorsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorsController.swift; sourceTree = "<group>"; };
+		2635216625C7F18800855487 /* VisitorsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VisitorsController.xib; sourceTree = "<group>"; };
+		2635216B25C7F4F900855487 /* VisitorsVipController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorsVipController.swift; sourceTree = "<group>"; };
+		2635216C25C7F4F900855487 /* VisitorsVipController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VisitorsVipController.xib; sourceTree = "<group>"; };
 		2636A0BE2563D04A00664FFC /* GiftAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftAPI.swift; sourceTree = "<group>"; };
 		2636A0C92563D25500664FFC /* GiftCountDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCountDescription.swift; sourceTree = "<group>"; };
 		2636A0D72564CDBF00664FFC /* UpgrateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgrateViewController.swift; sourceTree = "<group>"; };
@@ -1010,6 +1022,10 @@
 				26E4C67D2592F440005EAAC3 /* AccountDestructionStatementController.xib */,
 				26E4C68225930F89005EAAC3 /* AccountDestructionController.swift */,
 				26E4C68325930F89005EAAC3 /* AccountDestructionController.xib */,
+				2635216525C7F18800855487 /* VisitorsController.swift */,
+				2635216625C7F18800855487 /* VisitorsController.xib */,
+				2635216B25C7F4F900855487 /* VisitorsVipController.swift */,
+				2635216C25C7F4F900855487 /* VisitorsVipController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1066,6 +1082,8 @@
 				26F4550525665F600028ACC5 /* EarningDetailCell.xib */,
 				26710DF225B293BE000F41BC /* WalletProducItemCell.swift */,
 				26710DF325B293BE000F41BC /* WalletProducItemCell.xib */,
+				2635215D25C7EA2200855487 /* VisitorsAvatarView.swift */,
+				2635216125C7EA4E00855487 /* VisitorsAvatarView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1808,8 +1826,10 @@
 				26F553712553AFB500840735 /* EarningsViewController.xib in Resources */,
 				2637D87A255B8EDF00020E98 /* BlacklistCell.xib in Resources */,
 				267954F62507579700A72954 /* Chat.storyboard in Resources */,
+				2635216E25C7F4F900855487 /* VisitorsVipController.xib in Resources */,
 				26BB187D2522F5810019BBFD /* Main.storyboard in Resources */,
 				26ED001E25C69BC900480CEC /* MediaItemAddViewCell.xib in Resources */,
+				2635216225C7EA4E00855487 /* VisitorsAvatarView.xib in Resources */,
 				2619D193256260A90071CC85 /* GiftCountCell.xib in Resources */,
 				2643EB482500AD7E00FBBE49 /* LaunchScreen.storyboard in Resources */,
 				26E291B72554FB810032AE99 /* AvatarAuthenticationResultController.xib in Resources */,
@@ -1834,6 +1854,7 @@
 				2679550A2507748C00A72954 /* UserInfoHeaderView.xib in Resources */,
 				26E291992553EABB0032AE99 /* GiftEarningsCell.xib in Resources */,
 				2656F30F254FAC0500552611 /* GiftReminderViewController.xib in Resources */,
+				2635216825C7F18800855487 /* VisitorsController.xib in Resources */,
 				267E36E92547C2E100EB2097 /* GiftView.xib in Resources */,
 				26772823255A480900B98973 /* PrivacyViewController.xib in Resources */,
 				264BF97925A8366E00F873DD /* AccostViewController.xib in Resources */,
@@ -1968,6 +1989,7 @@
 				2636A0CA2563D25500664FFC /* GiftCountDescription.swift in Sources */,
 				26CBE3BD2508D7920089A23C /* DiscoverViewController.swift in Sources */,
 				26E291982553EABB0032AE99 /* GiftEarningsCell.swift in Sources */,
+				2635216D25C7F4F900855487 /* VisitorsVipController.swift in Sources */,
 				F38CB8C82507BA8A00049A76 /* ChatNotificationSettingCell.swift in Sources */,
 				26137CCB2590673900DCBAD0 /* TabBar.swift in Sources */,
 				262C5F6D255550BE00126359 /* AccountSecurityController.swift in Sources */,
@@ -2010,6 +2032,7 @@
 				2668B09C25233C410073E25D /* WalletViewController.swift in Sources */,
 				26AB26E225401C0D00C16025 /* RemarkViewController.swift in Sources */,
 				263A6C3825C2DA4800FD43B6 /* PairCallViewController.swift in Sources */,
+				2635216725C7F18800855487 /* VisitorsController.swift in Sources */,
 				F3C6B919251F3117006C06CB /* LabelViewController.swift in Sources */,
 				268458E825343FA8002B9C6E /* DynamicDetailViewController.swift in Sources */,
 				2617D3F025C5455D009AAE16 /* ImageMessageCellData.m in Sources */,
@@ -2079,6 +2102,7 @@
 				26AE7C2F2520309F00B55318 /* LabelViewCell.swift in Sources */,
 				26CB6D4725515D6B00A9F4DD /* BDFaceRemindAnimationView.m in Sources */,
 				2668B0A2252341F70073E25D /* WalletEnergyViewCell.swift in Sources */,
+				2635215E25C7EA2200855487 /* VisitorsAvatarView.swift in Sources */,
 				26B4E0592564EB34004EDCFE /* Upgrade.swift in Sources */,
 				2679550C25079A1F00A72954 /* UserInfoChatView.swift in Sources */,
 				26ED000625C5731200480CEC /* MediaItemViewCell.swift in Sources */,

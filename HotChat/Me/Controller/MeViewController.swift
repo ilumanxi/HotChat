@@ -96,11 +96,14 @@ class RightDetailFormEntry: FormEntry {
     let text: String
     let detailText: String?
     let onTapped: TappedAction?
+    let accessoryView: UIView?
     
-    init(image: UIImage?, text: String, detailText: String? = nil, onTapped: TappedAction? = nil) {
+    
+    init(image: UIImage?, text: String, detailText: String? = nil, accessoryView: UIView? = nil, onTapped: TappedAction? = nil) {
         self.image = image
         self.text = text
         self.detailText = detailText
+        self.accessoryView = accessoryView
         self.onTapped = onTapped
     }
     
@@ -111,6 +114,7 @@ class RightDetailFormEntry: FormEntry {
         cell.imageView?.image = image
         cell.textLabel?.text = text
         cell.detailTextLabel?.text = detailText
+        cell.accessoryView = accessoryView
         
         return cell
     }
@@ -234,6 +238,43 @@ class MeViewController: UITableViewController, Autorotate {
             userEntrys.append( RightDetailFormEntry(image: UIImage(named: "me-authentication"), text: "用户认证", onTapped: pushAuthentication))
         }
         
+        let visitorList = user.visitorList.compactMap{ $0["headPic"] as? String }
+        
+        if visitorList.isEmpty {
+            userEntrys.append(RightDetailFormEntry(image: UIImage(named: "me-visitor"), text: "我的访客", onTapped: pushVisitor))
+        }
+        else {
+            
+            let accessoryView: VisitorsAvatarView  = VisitorsAvatarView.loadFromNib()
+            
+            accessoryView.countLabel.text = "+\(user.visitorNum)"
+            
+            accessoryView.avatarStackView.subviews.forEach { view in
+                accessoryView.avatarStackView.removeArrangedSubview(view)
+                view.removeFromSuperview()
+            }
+            
+            let imageViews = visitorList
+                .map { url -> UIImageView in
+                    let imageView = UIImageView(frame: .zero)
+                    imageView.kf.setImage(with: URL(string: url))
+                    return imageView
+                }
+            
+            imageViews.forEach { imageView in
+                accessoryView.avatarStackView.addArrangedSubview(imageView)
+                imageView.heightAnchor.constraint(equalToConstant: 34).isActive = true
+                imageView.widthAnchor.constraint(equalToConstant: 34).isActive = true
+                imageView.layer.cornerRadius = 17
+                imageView.clipsToBounds = true
+            }
+//            let size = accessoryView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+            
+            accessoryView.frame = CGRect(origin: .zero, size: CGSize(width: 150, height: 34))
+            
+            userEntrys.append(RightDetailFormEntry(image: UIImage(named: "me-visitor"), text: "我的访客", accessoryView: accessoryView, onTapped: pushVisitor))
+        }
+        
         
         if !AppAudit.share.gradeStatus {
             userEntrys.append(RightDetailFormEntry(image: UIImage(named: "me-grade"), text: "我的等级", onTapped: pushLevel))
@@ -324,6 +365,23 @@ class MeViewController: UITableViewController, Autorotate {
     func pushLevel() {
         let vc = WebViewController.H5(path: "index/index/level")
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func pushVisitor() {
+        
+        if LoginManager.shared.user!.vipType == .empty {
+            
+            let vc = VisitorsVipController()
+            vc.onVIPTapped.delegate(on: self) { (self, _) in
+                self.pushVip()
+            }
+            present(vc, animated: true, completion: nil)
+        }
+        else {
+            let vc = VisitorsController()
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        
     }
     
     @IBAction func pushInvite() {
