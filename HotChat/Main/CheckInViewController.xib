@@ -16,6 +16,7 @@
                 <outlet property="collectionView" destination="UNE-7K-8eq" id="ZCA-5y-Xp1"/>
                 <outlet property="detailTextLabel" destination="3lR-pS-Pw5" id="rma-hV-Iiu"/>
                 <outlet property="resultTextLabel" destination="SGT-HA-ONe" id="iwe-GD-g1S"/>
+                <outlet property="resultTitleLabel" destination="qIJ-fb-ZIO" id="BbV-db-ZVJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -25,19 +26,25 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kHW-ii-2es">
-                    <rect key="frame" x="29.5" y="177.5" width="355" height="501.5"/>
+                    <rect key="frame" x="29.5" y="170" width="355" height="516.5"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check-in-bg" translatesAutoresizingMaskIntoConstraints="NO" id="P4y-Dw-qfC">
-                            <rect key="frame" x="0.0" y="0.0" width="355" height="468"/>
+                            <rect key="frame" x="0.0" y="0.0" width="355" height="483"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你已连续签到0天" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lR-pS-Pw5">
                             <rect key="frame" x="123" y="175" width="109" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" red="0.94117647058823528" green="0.51372549019607838" blue="0.0" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.94117647058823528" green="0.51372549019607838" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="（会员签到奖励翻倍）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2k4-aJ-z5T">
+                            <rect key="frame" x="95.5" y="199.5" width="164" height="20"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" red="0.94117647058823528" green="0.51372549019607838" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="UNE-7K-8eq">
-                            <rect key="frame" x="30" y="192" width="295" height="202"/>
+                            <rect key="frame" x="30" y="219.5" width="295" height="194.5"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Skx-bJ-NcI">
                                 <size key="itemSize" width="55" height="65"/>
@@ -51,7 +58,7 @@
                             </connections>
                         </collectionView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j9e-2P-yHG">
-                            <rect key="frame" x="45" y="394" width="265" height="45"/>
+                            <rect key="frame" x="45" y="414" width="265" height="45"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="45" id="0pD-fH-vCN"/>
                             </constraints>
@@ -64,7 +71,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ERA-He-Mrc" userLabel="Close Button">
-                            <rect key="frame" x="164.5" y="476" width="26" height="25.5"/>
+                            <rect key="frame" x="164.5" y="491" width="26" height="25.5"/>
                             <state key="normal" image="upgrate-close"/>
                             <connections>
                                 <action selector="doneButtonTapped:" destination="-1" eventType="touchUpInside" id="mZU-Ja-Ccc"/>
@@ -74,18 +81,20 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="3lR-pS-Pw5" firstAttribute="top" secondItem="kHW-ii-2es" secondAttribute="top" constant="175" id="7Xp-Yw-uoT"/>
-                        <constraint firstItem="P4y-Dw-qfC" firstAttribute="bottom" secondItem="j9e-2P-yHG" secondAttribute="bottom" constant="29" id="8zV-Bf-L2N"/>
+                        <constraint firstItem="2k4-aJ-z5T" firstAttribute="top" secondItem="3lR-pS-Pw5" secondAttribute="bottom" constant="7.5" id="8tg-O0-z6o"/>
+                        <constraint firstItem="P4y-Dw-qfC" firstAttribute="bottom" secondItem="j9e-2P-yHG" secondAttribute="bottom" constant="24" id="8zV-Bf-L2N"/>
                         <constraint firstAttribute="bottom" secondItem="ERA-He-Mrc" secondAttribute="bottom" id="9Ep-2Z-1fH"/>
                         <constraint firstItem="UNE-7K-8eq" firstAttribute="leading" secondItem="kHW-ii-2es" secondAttribute="leading" constant="30" id="AIl-jj-dUi"/>
                         <constraint firstItem="ERA-He-Mrc" firstAttribute="centerX" secondItem="kHW-ii-2es" secondAttribute="centerX" id="CZk-wi-LiX"/>
                         <constraint firstAttribute="trailing" secondItem="P4y-Dw-qfC" secondAttribute="trailing" id="GoE-jd-WBX"/>
+                        <constraint firstItem="UNE-7K-8eq" firstAttribute="top" secondItem="2k4-aJ-z5T" secondAttribute="bottom" id="K0L-ou-rpy"/>
                         <constraint firstItem="P4y-Dw-qfC" firstAttribute="top" secondItem="kHW-ii-2es" secondAttribute="top" id="Vnd-pn-4hT"/>
                         <constraint firstItem="ERA-He-Mrc" firstAttribute="top" secondItem="P4y-Dw-qfC" secondAttribute="bottom" constant="8" id="Zjg-59-HKy"/>
                         <constraint firstItem="P4y-Dw-qfC" firstAttribute="leading" secondItem="kHW-ii-2es" secondAttribute="leading" id="ep9-qt-UB8"/>
                         <constraint firstAttribute="trailing" secondItem="UNE-7K-8eq" secondAttribute="trailing" constant="30" id="evg-vB-9Qf"/>
-                        <constraint firstItem="UNE-7K-8eq" firstAttribute="top" secondItem="3lR-pS-Pw5" secondAttribute="bottom" id="gCx-uh-JzH"/>
                         <constraint firstItem="j9e-2P-yHG" firstAttribute="centerX" secondItem="kHW-ii-2es" secondAttribute="centerX" id="icM-0f-KLS"/>
                         <constraint firstItem="j9e-2P-yHG" firstAttribute="top" secondItem="UNE-7K-8eq" secondAttribute="bottom" id="jDh-R7-5n8"/>
+                        <constraint firstItem="2k4-aJ-z5T" firstAttribute="centerX" secondItem="kHW-ii-2es" secondAttribute="centerX" id="pfS-KH-FyZ"/>
                         <constraint firstItem="3lR-pS-Pw5" firstAttribute="centerX" secondItem="kHW-ii-2es" secondAttribute="centerX" id="wPH-R3-dGB"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
@@ -172,11 +181,11 @@
                 <constraint firstItem="qJQ-oS-5I6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="FN1-b5-ylD"/>
                 <constraint firstItem="qJQ-oS-5I6" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-30" id="FYI-0A-ziE"/>
             </constraints>
-            <point key="canvasLocation" x="139" y="129"/>
+            <point key="canvasLocation" x="137.68115942028987" y="128.57142857142856"/>
         </view>
     </objects>
     <resources>
-        <image name="check-in-bg" width="355" height="468"/>
+        <image name="check-in-bg" width="355" height="483"/>
         <image name="check-in-btn-bg" width="265" height="45"/>
         <image name="check-in-coin-bg" width="336.5" height="383.5"/>
         <image name="upgrate-close" width="25.5" height="25.5"/>

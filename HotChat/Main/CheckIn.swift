@@ -24,6 +24,7 @@ struct CheckInResult: HandyJSON, State {
     var day: Int = 0
     var energy: Int = 0
     var content: String = ""
+    var isDouble: Bool = false
     /// １０１０：签到成功　1008未签到 1009已签到
 
     var resultCode: Int = 0

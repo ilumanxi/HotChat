@@ -369,19 +369,17 @@ class MeViewController: UITableViewController, Autorotate {
     
     func pushVisitor() {
         
-        if LoginManager.shared.user!.vipType == .empty {
-            
+        if LoginManager.shared.user!.vipType != .empty || LoginManager.shared.user!.girlStatus {
+            let vc = VisitorsController()
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        else {
             let vc = VisitorsVipController()
             vc.onVIPTapped.delegate(on: self) { (self, _) in
                 self.pushVip()
             }
             present(vc, animated: true, completion: nil)
         }
-        else {
-            let vc = VisitorsController()
-            navigationController?.pushViewController(vc, animated: true)
-        }
-        
     }
     
     @IBAction func pushInvite() {

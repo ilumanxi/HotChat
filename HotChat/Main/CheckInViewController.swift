@@ -13,6 +13,7 @@ class CheckInViewController: UIViewController, IndicatorDisplay {
     
     @IBOutlet weak var detailTextLabel: UILabel!
     
+    @IBOutlet weak var resultTitleLabel: UILabel!
     
     @IBOutlet weak var resultTextLabel: UILabel!
     
@@ -84,7 +85,11 @@ class CheckInViewController: UIViewController, IndicatorDisplay {
             .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in
                 self?.checkInView.isHidden = true
-                self?.resultTextLabel.text = response.data?.content
+                
+                if let data = response.data {
+                    self?.resultTextLabel.text = data.content
+                    self?.resultTitleLabel.text = data.isDouble ? "获得加倍签到奖励" : "获得签到奖励"
+                }
                 self?.checkInSucceedView.isHidden = false
                 self?.onCheckInSucceed.call()
             }, onError: { [weak self] error in

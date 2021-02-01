@@ -180,6 +180,11 @@ class LoginViewController: UIViewController, IndicatorDisplay {
         UMCommonHandler.cancelLoginVC(animated: false) {
             
         }
+        
+        if navigationController?.viewControllers.contains(where: { $0 is SignupViewController }) ?? false {
+            return
+        }
+        
         let vc = SignupViewController.loadFromStoryboard()
         navigationController?.pushViewController(vc, animated: true)
     }
