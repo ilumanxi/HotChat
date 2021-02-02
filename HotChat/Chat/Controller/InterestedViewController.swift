@@ -101,6 +101,11 @@ extension InterestedViewController: KolodaViewDelegate {
     
     func koloda(_ koloda: KolodaView, didSelectCardAt index: Int) {
         
+        let user  = data[index]
+        
+        let vc = UserInfoViewController()
+        vc.user = user
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func koloda(_ koloda: KolodaView, didSwipeCardAt index: Int, in direction: SwipeResultDirection) {
