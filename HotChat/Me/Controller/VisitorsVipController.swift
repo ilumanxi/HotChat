@@ -13,6 +13,7 @@ class VisitorsVipController: UIViewController {
     init() {
         super.init(nibName: nil, bundle: nil)
         super.modalPresentationStyle = .overFullScreen
+        super.modalTransitionStyle = .crossDissolve
     }
     
     required init?(coder: NSCoder) {
