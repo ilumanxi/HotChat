@@ -32,7 +32,7 @@ PODS:
   - HandyJSON (5.0.3-beta)
   - HBDNavigationBar (1.8.0)
   - InputKitSwift (1.2.1)
-  - Kingfisher (6.0.1)
+  - Kingfisher (6.1.0)
   - Koloda (5.0.1):
     - pop (~> 1.0)
   - MagazineLayout (1.6.3)
@@ -306,7 +306,7 @@ SPEC CHECKSUMS:
   HandyJSON: 88e8ea5f66ab65c3b8768499a1935d0509c460d4
   HBDNavigationBar: 8a24d0348ad4371614569e3d015d46e41824b061
   InputKitSwift: 5532ed4a41706aeebe6ad6dfafb3bee32e02f1c6
-  Kingfisher: adde87a4f74f6a3845395769354efff593581740
+  Kingfisher: f5d8d60a0ef3edd642fd781bae60918599901aff
   Koloda: d07b9199a383abc5898b62aa945a599f5e7c0c4b
   MagazineLayout: 159da0d4d874e04e6b17e580b990cccd00328c5b
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201

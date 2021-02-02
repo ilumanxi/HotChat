@@ -7,6 +7,14 @@
 //
 
 import Moya
+import Kingfisher
+
+extension UIImageView {
+    @objc func setKF(_ url: URL?) {
+        kf.indicatorType = .activity
+        kf.setImage(with: url)
+    }
+}
 
 enum IMAPI {
     case call(type: Int, toUserId: String)

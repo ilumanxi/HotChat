@@ -11,6 +11,7 @@
 #import "THelper.h"
 #import "MMLayout/UIView+MMLayout.h"
 #import <SDWebImage/SDWebImage.h>
+#import "HotChat-Swift.h"
 
 @implementation ImageMessageCell
 
@@ -36,8 +37,7 @@
     [super fillWithData:data];
     self.imageData = data;
     _thumb.image = nil;
-    
-    [_thumb sd_setImageWithURL:[NSURL URLWithString:data.url]];
+    [_thumb setKF:[NSURL URLWithString:data.url]];
 }
 
 
