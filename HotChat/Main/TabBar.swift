@@ -68,6 +68,7 @@ class TabBar: UITabBar {
         button.contentVerticalAlignment = .top
         button.setImage(UIImage(named: "tabbar-add"), for: .normal)
         button.addTarget(self, action: #selector(composeButtonDidTapped), for: .touchUpInside)
+        button.sizeToFit()
         return button
     }()
     
@@ -83,6 +84,15 @@ class TabBar: UITabBar {
     override func layoutSubviews() {
         
         super.layoutSubviews()
+        
+        if LoginManager.shared.user?.girlStatus ?? false {
+            shadowView.isHidden = true
+            composeButton.isHidden = true
+            return
+        }
+        
+        shadowView.isHidden = false
+        composeButton.isHidden = false
         
         var views =  self.items?
             .compactMap{

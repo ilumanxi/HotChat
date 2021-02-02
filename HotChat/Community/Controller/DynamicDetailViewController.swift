@@ -51,13 +51,16 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
     var selectedDynamic: Dynamic!
     
     
+    @IBOutlet weak var sendButton: GradientButton!
+    
+
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if user.userId != LoginManager.shared.user!.userId {
-            setupChatView()
-        }
-
+        setupChatView()
+    
         tableView.mj_header = MJRefreshNormalHeader { [weak self] in
             self?.refreshData()
         }
@@ -114,27 +117,50 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
     
     private func setupChatView() {
         
-        chatView = UserInfoChatView.loadFromNib()
-        chatView.onSayHellowed.delegate(on: self) { (self, _) in
-            self.chatView.state = .notSayHellow
-            self.chatViewState()
+        if !(parent?.isKind(of: UINavigationController.self) ?? false) {
+            self.sendButton.isHidden = true
+            return
         }
         
-        chatView.onPushing.delegate(on: self) { (self, _) -> (User, UINavigationController) in
-            return (self.user, self.navigationController!)
+        if user.userId != LoginManager.shared.user!.userId {
+            self.sendButton.isHidden = true
+            chatView = UserInfoChatView.loadFromNib()
+            chatView.onSayHellowed.delegate(on: self) { (self, _) in
+                self.chatView.state = .notSayHellow
+                self.chatViewState()
+            }
+            
+            chatView.onPushing.delegate(on: self) { (self, _) -> (User, UINavigationController) in
+                return (self.user, self.navigationController!)
+            }
+            chatView.backgroundColor = .clear
+            view.addSubview(chatView)
+            
+            chatView.snp.makeConstraints { maker in
+                maker.height.equalTo(48)
+                maker.leading.trailing.equalToSuperview()
+                maker.bottom.equalTo(self.safeBottom).offset(-20).priority(999)
+                maker.bottom.equalToSuperview().offset(-34)
+            }
+            
+            chatView.state = LoginManager.shared.user!.girlStatus ? .sayHellow : .default
+            additionalSafeAreaInsets = UIEdgeInsets(top: 0, left: 0, bottom: 48, right: 0)
         }
-        chatView.backgroundColor = .clear
-        view.addSubview(chatView)
-        
-        chatView.snp.makeConstraints { maker in
-            maker.height.equalTo(48)
-            maker.leading.trailing.equalToSuperview()
-            maker.bottom.equalTo(self.safeBottom).offset(-20).priority(999)
-            maker.bottom.equalToSuperview().offset(-34)
+        else {
+            self.sendButton.isHidden = false
+            
+            additionalSafeAreaInsets = UIEdgeInsets(top: 0, left: 0, bottom: 34, right: 0)
         }
         
-        chatView.state = LoginManager.shared.user!.girlStatus ? .sayHellow : .default
-        additionalSafeAreaInsets = UIEdgeInsets(top: 0, left: 0, bottom: 82, right: 0)
+
+    }
+    
+    @IBAction func sendButtonTapped(_ sender: Any) {
+        
+        let vc = DynamicViewController()
+        let nav = BaseNavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        present(nav, animated: true, completion: nil)
     }
     
     func endRefreshing(noContent: Bool = false) {

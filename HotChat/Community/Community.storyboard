@@ -187,10 +187,42 @@
                                 </connections>
                             </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="IDV-b8-j08">
-                                <rect key="frame" x="0.0" y="818" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="758" width="414" height="92"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9S1-7E-34u">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="34"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHl-rQ-5TD" customClass="GradientButton" customModule="HotChat" customModuleProvider="target">
+                                                <rect key="frame" x="314" y="0.0" width="92" height="34"/>
+                                                <color key="backgroundColor" red="0.31764705882352939" green="0.34901960784313724" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="92" id="3Zc-Gz-IyR"/>
+                                                    <constraint firstAttribute="height" constant="34" id="YXO-Qj-yNC"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <inset key="titleEdgeInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="发布动态" image="community-dynamic">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="17"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="colorsString" value="#0BB7DC,#5159F8"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="sendButtonTapped:" destination="7kL-bk-kMs" eventType="touchUpInside" id="Xac-iw-f48"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="aHl-rQ-5TD" secondAttribute="bottom" id="UsL-9e-jVe"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="aHl-rQ-5TD" secondAttribute="trailing" id="Ygf-8l-Utc"/>
+                                            <constraint firstAttribute="height" constant="34" id="g2b-Ix-8wl"/>
+                                        </constraints>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4hH-iS-nJa">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                                         <subviews>
                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zu5-jj-iom">
                                                 <rect key="frame" x="88" y="13.5" width="238" height="17"/>
@@ -248,7 +280,7 @@
                         <constraints>
                             <constraint firstItem="IDV-b8-j08" firstAttribute="leading" secondItem="eIY-MU-AyU" secondAttribute="leading" id="7D9-px-HhQ"/>
                             <constraint firstAttribute="trailing" secondItem="1ga-r6-SZX" secondAttribute="trailing" id="Afh-bi-ktW"/>
-                            <constraint firstItem="eIY-MU-AyU" firstAttribute="bottom" secondItem="IDV-b8-j08" secondAttribute="bottom" id="JQ1-IN-g6j"/>
+                            <constraint firstItem="eIY-MU-AyU" firstAttribute="bottom" secondItem="IDV-b8-j08" secondAttribute="bottom" constant="12" id="JQ1-IN-g6j"/>
                             <constraint firstItem="1ga-r6-SZX" firstAttribute="leading" secondItem="lDM-Gr-8uc" secondAttribute="leading" id="QJ1-hM-LzN"/>
                             <constraint firstAttribute="bottom" secondItem="1ga-r6-SZX" secondAttribute="bottom" id="dRM-vm-LlJ"/>
                             <constraint firstItem="eIY-MU-AyU" firstAttribute="trailing" secondItem="IDV-b8-j08" secondAttribute="trailing" id="iYR-WU-dQZ"/>
@@ -503,18 +535,43 @@
                                     <outlet property="delegate" destination="709-N9-IVE" id="yDD-wV-Son"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oSY-pe-qWG" customClass="GradientButton" customModule="HotChat" customModuleProvider="target">
+                                <rect key="frame" x="161" y="828" width="92" height="34"/>
+                                <color key="backgroundColor" red="0.31764705882352939" green="0.34901960784313724" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="5pM-Rs-97J"/>
+                                    <constraint firstAttribute="width" constant="92" id="xO5-BH-gBW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <inset key="titleEdgeInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="发布动态" image="community-dynamic">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="17"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="colorsString" value="#0BB7DC,#5159F8"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="sendButtonTapped:" destination="709-N9-IVE" eventType="touchUpInside" id="pDB-1P-1DM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Ol-38-1ND"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="oSY-pe-qWG" firstAttribute="centerX" secondItem="n7R-xe-dZj" secondAttribute="centerX" id="2G6-fL-7aa"/>
                             <constraint firstAttribute="trailing" secondItem="wxT-bH-xFf" secondAttribute="trailing" id="3WS-c9-0aD"/>
                             <constraint firstItem="wxT-bH-xFf" firstAttribute="leading" secondItem="n7R-xe-dZj" secondAttribute="leading" id="7wl-4G-2mq"/>
                             <constraint firstAttribute="bottom" secondItem="wxT-bH-xFf" secondAttribute="bottom" id="Z95-ua-L8B"/>
                             <constraint firstItem="wxT-bH-xFf" firstAttribute="top" secondItem="n7R-xe-dZj" secondAttribute="top" id="eRI-cn-AcV"/>
+                            <constraint firstAttribute="bottom" secondItem="oSY-pe-qWG" secondAttribute="bottom" constant="34" id="fxg-qT-Mtn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="动态详情" id="BA7-CB-IKx"/>
                     <connections>
+                        <outlet property="sendButton" destination="oSY-pe-qWG" id="cKc-kR-wYJ"/>
                         <outlet property="tableView" destination="wxT-bH-xFf" id="c2K-wb-7gg"/>
                     </connections>
                 </viewController>
@@ -795,6 +852,7 @@
         <image name="close-white" width="16" height="16"/>
         <image name="comment" width="13" height="13"/>
         <image name="common-search" width="17" height="17"/>
+        <image name="community-dynamic" width="17" height="16"/>
         <image name="community-region" width="7" height="8.5"/>
         <image name="cyan-planet" width="10" height="10"/>
         <image name="give" width="13" height="13"/>

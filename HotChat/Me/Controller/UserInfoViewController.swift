@@ -121,9 +121,9 @@ class UserInfoViewController: AquamanPageViewController, LoadingStateType, Indic
         updateNavigationBarStyle(mainScrollView)
         navigationItem.title = user.nick
         menuView.titles = viewControllers.compactMap{ $0.title }
-        if user.userId != LoginManager.shared.user!.userId {
-            setupChatView()
-        }
+        
+        setupChatView()
+        
         reloadData()
         
         state = .loadingContent
@@ -183,6 +183,8 @@ class UserInfoViewController: AquamanPageViewController, LoadingStateType, Indic
     
     private var chatView: UserInfoChatView!
     
+    private var sendButton: GradientButton!
+    
     let API = Request<ChatGreetAPI>()
     
     func chatViewState() {
@@ -211,27 +213,56 @@ class UserInfoViewController: AquamanPageViewController, LoadingStateType, Indic
     
     private func setupChatView() {
         
-        chatView = UserInfoChatView.loadFromNib()
-        chatView.onSayHellowed.delegate(on: self) { (self, _) in
-            self.chatView.state = .notSayHellow
-            self.chatViewState()
-        }
-        chatView.onPushing.delegate(on: self) { (self, _) -> (User, UINavigationController) in
-            return (self.user, self.navigationController!)
-        }
-        chatView.backgroundColor = .clear
-        view.addSubview(chatView)
-        
-        chatView.snp.makeConstraints { maker in
-            maker.height.equalTo(48)
-            maker.leading.trailing.equalToSuperview()
-            maker.bottom.equalTo(self.safeBottom).offset(-20).priority(999)
-            maker.bottom.equalToSuperview().offset(-34)
-        }
-        
-        if #available(iOS 11.0, *) {
+        if user.userId != LoginManager.shared.user!.userId {
+            chatView = UserInfoChatView.loadFromNib()
+            chatView.onSayHellowed.delegate(on: self) { (self, _) in
+                self.chatView.state = .notSayHellow
+                self.chatViewState()
+            }
+            chatView.onPushing.delegate(on: self) { (self, _) -> (User, UINavigationController) in
+                return (self.user, self.navigationController!)
+            }
+            chatView.backgroundColor = .clear
+            view.addSubview(chatView)
+            
+            chatView.snp.makeConstraints { maker in
+                maker.height.equalTo(48)
+                maker.leading.trailing.equalToSuperview()
+                maker.bottom.equalTo(self.safeBottom).offset(-20).priority(999)
+                maker.bottom.equalToSuperview().offset(-34)
+            }
+            
             additionalSafeAreaInsets = UIEdgeInsets(top: 0, left: 0, bottom: 48, right: 0)
         }
+        else {
+            sendButton = GradientButton(type: .system)
+            sendButton.colors = [UIColor(hexString: "#0BB7DC"), UIColor(hexString: "#5159F8")]
+            sendButton.layer.cornerRadius = 17
+            sendButton.setImage(UIImage(named: "community-dynamic")?.original, for: .normal)
+            sendButton.setTitle("发送动态", for: .normal)
+            sendButton.titleLabel?.font = .systemFont(ofSize: 12)
+            sendButton.setTitleColor(.white, for: .normal)
+            sendButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 3, bottom: 0, right: 0)
+            sendButton.addTarget(self, action: #selector(sendButtonTapped(_:)), for: .touchUpInside)
+            view.addSubview(sendButton)
+            
+            sendButton.snp.makeConstraints { maker in
+                maker.centerX.equalToSuperview()
+                maker.bottom.equalToSuperview().offset(-34)
+                maker.size.equalTo(CGSize(width: 92, height: 34))
+            }
+            
+            additionalSafeAreaInsets = UIEdgeInsets(top: 0, left: 0, bottom: 34, right: 0)
+        }
+
+    }
+    
+    @IBAction func sendButtonTapped(_ sender: Any) {
+        
+        let vc = DynamicViewController()
+        let nav = BaseNavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        present(nav, animated: true, completion: nil)
     }
     
     

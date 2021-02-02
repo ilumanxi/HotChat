@@ -27,12 +27,7 @@ class TabBarController: UITabBarController, IndicatorDisplay {
     private lazy var customTabBar: TabBar = {
         let tabBar = TabBar()
         tabBar.onComposeButtonDidTapped.delegate(on: self) { (self, _) in
-            if LoginManager.shared.user!.realNameStatus.isPresent {
-                self.presentDynamic()
-            }
-            else {
-                self.checkUserAttestation()
-            }
+            self.pushPair()
         }
         return tabBar
     }()
@@ -55,48 +50,15 @@ class TabBarController: UITabBarController, IndicatorDisplay {
         }
     }
     
-    func presentDynamic() {
-        let vc = DynamicViewController()
-        vc.onSened.delegate(on: self) { (self, _) in
-            
-            if let navigationController =  self.children.first as? UINavigationController,
-               let controller = navigationController.viewControllers.first as? IndicatorDisplay {
-                controller.refreshData()
-            }
-        }
-        let navVC = UINavigationController(rootViewController: vc)
-        navVC.modalPresentationStyle = .fullScreen
-        present(navVC, animated: true, completion: nil)
+    func pushPair()  {
+        
+        guard let navigationController = selectedViewController as? UINavigationController else { return }
+        
+        let vc = PairsViewController.loadFromStoryboard()
+        navigationController.pushViewController(vc, animated: true)
     }
     
-    let authenticationAPI = Request<AuthenticationAPI>()
-    
-    func checkUserAttestation() {
-        showIndicator()
-        authenticationAPI.request(.checkUserAttestation, type: Response<Authentication>.self)
-            .verifyResponse()
-            .subscribe(onSuccess: { [weak self] response in
-                guard let self = self else { return }
-                self.hideIndicator()
-                if response.data!.realNameStatus.isPresent {
-                    let user = LoginManager.shared.user!
-                    user.realNameStatus = response.data!.realNameStatus
-                    LoginManager.shared.update(user: user)
-                    self.presentDynamic()
-                }
-                else {
-                    let vc = AuthenticationGuideViewController()
-                    vc.onPushing.delegate(on: self) { (self, _) -> UINavigationController? in
-                        return self.selectedViewController as? UINavigationController
-                    }
-                    self.present(vc, animated: true, completion: nil)
-                }
-            }, onError: { [weak self] error in
-                self?.hideIndicator()
-                self?.show(error)
-            })
-            .disposed(by: rx.disposeBag)
-    }
+
     
     func setupUI(){
         setValue(customTabBar, forKey: "tabBar")
