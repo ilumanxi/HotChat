@@ -67,7 +67,7 @@ static const NSInteger animationTime = 5;
     self.giftImageView = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.userNameLabel.frame), 0, showGiftView_GiftIcon_W, showGiftView_GiftIcon_H)];
     [self addSubview:self.giftImageView];
     
-    self.countLabel = [[JPGiftCountLabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.giftImageView.frame)+showGiftView_XNum_L, (showGiftView_GiftIcon_H-showGiftView_XNum_H)*0.5, showGiftView_XNum_W, showGiftView_XNum_H)];
+    self.countLabel = [[JPGiftCountLabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.giftImageView.frame)+showGiftView_XNum_L, (showGiftView_GiftIcon_H-showGiftView_XNum_H)*0.5, 100, showGiftView_XNum_H)];
     self.countLabel.textColor = [UIColor whiteColor];
     self.countLabel.font = [UIFont systemFontOfSize:20];
     self.countLabel.textAlignment = NSTextAlignmentCenter;
