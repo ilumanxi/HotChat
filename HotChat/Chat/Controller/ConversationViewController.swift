@@ -90,12 +90,13 @@ class ConversationViewController: UIViewController {
     
     func confirmClearanceRecord() {
         
-        let message = "确定清空聊天纪律列表吗？清空后，你与好友的聊天纪律将不可恢复"
+        let message = "确定清空聊天记录列表吗？清空后，你与好友的聊天记录将不可恢复"
         let vc = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         vc.addAction(UIAlertAction(title: "确定", style: .default, handler: { _ in
             self.conversationListController.viewModel.dataList.forEach {
                 self.conversationListController.viewModel.remove($0)
             }
+            self.parent?.tabBarItem.badgeValue = nil
         }))
         
         vc.addAction(UIAlertAction(title: "取消", style: .default, handler: nil))
