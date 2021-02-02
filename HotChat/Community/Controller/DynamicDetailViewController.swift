@@ -157,11 +157,58 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
     
     @IBAction func sendButtonTapped(_ sender: Any) {
         
-        let vc = DynamicViewController()
-        let nav = BaseNavigationController(rootViewController: vc)
-        nav.modalPresentationStyle = .fullScreen
-        present(nav, animated: true, completion: nil)
+        if LoginManager.shared.user!.realNameStatus.isPresent {
+            self.presentDynamic()
+        }
+        else {
+            self.checkUserAttestation()
+        }
     }
+    
+    func presentDynamic() {
+        let vc = DynamicViewController()
+        vc.onSened.delegate(on: self) { (self, _) in
+            
+            if let navigationController =  self.children.first as? UINavigationController,
+               let controller = navigationController.viewControllers.first as? IndicatorDisplay {
+                controller.refreshData()
+            }
+        }
+        let navVC = UINavigationController(rootViewController: vc)
+        navVC.modalPresentationStyle = .fullScreen
+        present(navVC, animated: true, completion: nil)
+    }
+    
+    let authenticationAPI = Request<AuthenticationAPI>()
+    
+    func checkUserAttestation() {
+        showIndicator()
+        authenticationAPI.request(.checkUserAttestation, type: Response<Authentication>.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { [weak self] response in
+                guard let self = self else { return }
+                self.hideIndicator()
+                if response.data!.realNameStatus.isPresent {
+                    let user = LoginManager.shared.user!
+                    user.realNameStatus = response.data!.realNameStatus
+                    LoginManager.shared.update(user: user)
+                    self.presentDynamic()
+                }
+                else {
+                    let vc = AuthenticationGuideViewController()
+                    vc.onPushing.delegate(on: self) { (self, _) -> UINavigationController? in
+                        return self.navigationController
+                    }
+                    self.present(vc, animated: true, completion: nil)
+                }
+            }, onError: { [weak self] error in
+                self?.hideIndicator()
+                self?.show(error)
+            })
+            .disposed(by: rx.disposeBag)
+    }
+    
+    
     
     func endRefreshing(noContent: Bool = false) {
         tableView.reloadData()

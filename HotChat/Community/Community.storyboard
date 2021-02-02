@@ -297,6 +297,7 @@
                     <connections>
                         <outlet property="collectionView" destination="1ga-r6-SZX" id="XwY-Ju-lsE"/>
                         <outlet property="phoneBindingView" destination="4hH-iS-nJa" id="3SQ-Er-YQQ"/>
+                        <outlet property="sendView" destination="9S1-7E-34u" id="oh0-BQ-4k0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gaF-ai-iDJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

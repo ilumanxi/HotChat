@@ -118,6 +118,9 @@ class DynamicViewController: UIViewController, IndicatorDisplay {
         }
     }
     
+    
+    @IBOutlet weak var videoButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -162,6 +165,9 @@ class DynamicViewController: UIViewController, IndicatorDisplay {
     
 
     func setupViews() {
+                
+        videoButton.isHidden = !LoginManager.shared.user!.girlStatus
+        
         collectionView.register(UINib(nibName: "MediaItemAddViewCell", bundle: nil), forCellWithReuseIdentifier: "MediaItemAddViewCell")
         collectionView.register(UINib(nibName: "MediaItemViewCell", bundle: nil), forCellWithReuseIdentifier: "MediaItemViewCell")
         collectionView.setCollectionViewLayout(layout, animated: false)

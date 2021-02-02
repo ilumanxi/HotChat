@@ -16,6 +16,7 @@
                 <outlet property="collectionViewHeightConstraint" destination="yNl-EM-Y9f" id="B2A-Lf-HRm"/>
                 <outlet property="limitedCountLabel" destination="T7i-Nr-EYT" id="hvj-Jb-j5v"/>
                 <outlet property="textView" destination="P86-eY-4U7" id="wxE-j7-8mW"/>
+                <outlet property="videoButton" destination="AP3-Lh-wJ3" id="yb5-dh-oZI"/>
                 <outlet property="view" destination="iN0-l3-epB" id="u1r-NC-DHR"/>
             </connections>
         </placeholder>

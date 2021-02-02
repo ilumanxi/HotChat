@@ -55,6 +55,9 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     
     var checkInResult: CheckInResult?
     
+    
+    @IBOutlet weak var sendView: UIView!
+    
     @IBOutlet weak var phoneBindingView: UIView!
     
     private var isShowCheckIn = true
@@ -94,6 +97,7 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
         }
         
 
+        hiddenSendView()
         hiddenPhoneBindingView()
         
         state = .loadingContent
@@ -156,6 +160,12 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
                 self?.hiddenPhoneBindingView()
             })
             .disposed(by: rx.disposeBag)
+    }
+    
+    func hiddenSendView() {
+        if !LoginManager.shared.user!.girlStatus {
+            sendView?.removeFromSuperview()
+        }
     }
     
     func hiddenPhoneBindingView() {
