@@ -310,19 +310,16 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
         dynamicAPI.request(.zan(dynamic.dynamicId), type: Response<[String : Any]>.self)
             .subscribe(onSuccess: {[weak self] response in
                
-                guard let index = self?.dynamics.lastIndex(where: { $0.dynamicId == dynamic.dynamicId }),
+                guard
                       let zanNum = response.data?["zanNum"] as? Int,
                       let isSelfZan = response.data?["type"] as? Bool else {
                     return
                 }
                 
-                self?.dynamics.modifyElement(at: index, { element in
-                    element.zanNum = zanNum
-                    element.isSelfZan = isSelfZan
-                })
+                dynamic.zanNum = zanNum
+                dynamic.isSelfZan = isSelfZan
                 self?.tableView.reloadData()
                 
-                Log.print(response)
             }, onError: { error in
                 Log.print(error)
             })
