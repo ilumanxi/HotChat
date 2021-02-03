@@ -30,8 +30,8 @@ class VisitorsVipController: UIViewController {
     
     
     @IBAction func vipButonTapped(_ sender: Any) {
-        
         onVIPTapped.call()
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func closeButtonTapped(_ sender: Any) {
