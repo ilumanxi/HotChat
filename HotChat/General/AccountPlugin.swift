@@ -7,6 +7,8 @@
 //
 
 import Moya
+import AdSupport
+import AppTrackingTransparency
 
 /*
  
@@ -139,7 +141,38 @@ extension AccountPlugin: PluginType {
             request.setValue(location.coordinate.latitude.description, forHTTPHeaderField: "latitude")
             
         }
-
+        
+        
+        if #available(iOS 14, *) {
+            if ATTrackingManager.trackingAuthorizationStatus == .authorized {
+                request.setValue(ASIdentifierManager.shared().advertisingIdentifier.uuidString, forHTTPHeaderField: "idfa")
+            }
+            else if ATTrackingManager.trackingAuthorizationStatus == .notDetermined {
+                ATTrackingManager.requestTrackingAuthorization { status in
+                    switch status {
+                    case .authorized:
+                        request.setValue(ASIdentifierManager.shared().advertisingIdentifier.uuidString, forHTTPHeaderField: "idfa")
+                    case .denied:
+                        Log.print("请在设置-隐私-跟踪中允许App请求跟踪")
+                    case .notDetermined:
+                        Log.print("允许App请求跟踪还没做出决定")
+                    case .restricted:
+                        Log.print("广告权限受到限制")
+                    @unknown default:
+                        break
+                    }
+                }
+            }
+        } else {
+            if ASIdentifierManager.shared().isAdvertisingTrackingEnabled {
+                request.setValue(ASIdentifierManager.shared().advertisingIdentifier.uuidString, forHTTPHeaderField: "idfa")
+            }
+            else {
+                Log.print("请在设置-隐私-广告中打开广告跟踪功能")
+            }
+        }
+        
+        request.setValue((Bundle.main.infoDictionary?["CFBundleIdentifier"] as? String) ?? "", forHTTPHeaderField: "appid");
         
         return request
     }
