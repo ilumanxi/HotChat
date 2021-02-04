@@ -186,6 +186,8 @@ extension ChatViewController: ChatControllerDelegate {
                 let cellData = GiftCellData(direction: msg.isSelf ? .MsgDirectionOutgoing : .MsgDirectionIncoming)
                 cellData.innerMessage = msg;
                 cellData.msgID = msg.msgID
+                cellData.avatarUrl = URL(string: msg.faceURL ?? "")
+                cellData.identifier = msg.sender
                 cellData.gift = Gift.mj_object(withKeyValues: imData.data)
                 return cellData
             }
@@ -194,7 +196,9 @@ extension ChatViewController: ChatControllerDelegate {
                 let cellData = ImageMessageCellData(direction: msg.isSelf ? .MsgDirectionOutgoing : .MsgDirectionIncoming)
                 cellData.innerMessage = msg;
                 cellData.msgID = msg.msgID
+                cellData.avatarUrl = URL(string: msg.faceURL ?? "")
                 cellData.mj_setKeyValues(imData.data)
+                cellData.identifier = msg.sender
                 return cellData
                 
             }
