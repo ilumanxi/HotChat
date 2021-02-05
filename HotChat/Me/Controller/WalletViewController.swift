@@ -385,7 +385,7 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func payStatus(_ parameters: [String : Any]) -> Single<ResponseEmpty> {
-        return payAPI.request(.notify(parameters), type: ResponseEmpty.self)
+        return payAPI.request(.notify(parameters), type: ResponseEmpty.self).verifyResponse()
     }
     
     func createOrder(_ itemProduct: ItemProduct) -> Single<Ordrer> {
