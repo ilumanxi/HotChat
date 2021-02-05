@@ -95,12 +95,8 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="209" height="284"/>
                                                     <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                 </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SYO-OA-rHk">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="15" placeholderIntrinsicHeight="15" translatesAutoresizingMaskIntoConstraints="NO" id="SYO-OA-rHk">
                                                     <rect key="frame" x="189" y="5" width="15" height="15"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="15" id="P5U-ZP-ew8"/>
-                                                        <constraint firstAttribute="width" constant="15" id="eyD-VJ-fJG"/>
-                                                    </constraints>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RSI-rW-Hgb" userLabel="Bottom View" customClass="GradientView" customModule="HotChat" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="231" width="209" height="53"/>
@@ -857,8 +853,8 @@
         <image name="community-region" width="7" height="8.5"/>
         <image name="cyan-planet" width="10" height="10"/>
         <image name="give" width="13" height="13"/>
-        <image name="like-normal" width="13" height="12"/>
-        <image name="like-selected" width="11" height="11"/>
+        <image name="like-normal" width="13" height="13"/>
+        <image name="like-selected" width="13" height="13"/>
         <image name="like-white-normal" width="11" height="11"/>
         <image name="modal-close" width="16" height="16"/>
         <image name="more" width="3" height="14"/>
