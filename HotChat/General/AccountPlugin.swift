@@ -172,7 +172,7 @@ extension AccountPlugin: PluginType {
             }
         }
         
-        request.setValue((Bundle.main.infoDictionary?["CFBundleIdentifier"] as? String) ?? "", forHTTPHeaderField: "appid");
+        request.setValue("1531445328", forHTTPHeaderField: "appid");
         
         return request
     }
