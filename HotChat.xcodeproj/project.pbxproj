@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -198,8 +198,6 @@
 		26959042250B1DD900763061 /* InterestedCardOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26959041250B1DD900763061 /* InterestedCardOverlayView.xib */; };
 		269590BF250B5FE900763061 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 269590BE250B5FE900763061 /* StoreKit.framework */; };
 		2696341F2531942000493C3D /* DynamicAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2696341E2531942000493C3D /* DynamicAPI.swift */; };
-		269AB20A25B825EC00B970A5 /* Trident in Frameworks */ = {isa = PBXBuildFile; productRef = 269AB20925B825EC00B970A5 /* Trident */; };
-		269AB20D25B8262B00B970A5 /* Aquaman in Frameworks */ = {isa = PBXBuildFile; productRef = 269AB20C25B8262B00B970A5 /* Aquaman */; };
 		269DED0B254A9DD5000AD5D9 /* CallMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 269DED0A254A9DD5000AD5D9 /* CallMenuViewController.xib */; };
 		269DED1B254AAC4D000AD5D9 /* GiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 269DED19254AAC4D000AD5D9 /* GiftViewController.m */; };
 		269DED1C254AAC4D000AD5D9 /* GiftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 269DED1A254AAC4D000AD5D9 /* GiftViewController.xib */; };
@@ -821,9 +819,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				26CB6C93255153A500A9F4DD /* libc++.tbd in Frameworks */,
-				269AB20A25B825EC00B970A5 /* Trident in Frameworks */,
 				269590BF250B5FE900763061 /* StoreKit.framework in Frameworks */,
-				269AB20D25B8262B00B970A5 /* Aquaman in Frameworks */,
 				2636A0D22564BFE700664FFC /* IDLFaceSDK.framework in Frameworks */,
 				569A62C017EE594D27BBDD0C /* libPods-HotChat.a in Frameworks */,
 			);
@@ -1694,8 +1690,6 @@
 			);
 			name = HotChat;
 			packageProductDependencies = (
-				269AB20925B825EC00B970A5 /* Trident */,
-				269AB20C25B8262B00B970A5 /* Aquaman */,
 			);
 			productName = HotChat;
 			productReference = 2643EB362500AD7D00FBBE49 /* HotChat.app */;
@@ -1772,8 +1766,6 @@
 			);
 			mainGroup = 2643EB2D2500AD7D00FBBE49;
 			packageReferences = (
-				269AB20825B825EC00B970A5 /* XCRemoteSwiftPackageReference "Trident" */,
-				269AB20B25B8262B00B970A5 /* XCRemoteSwiftPackageReference "Aquaman" */,
 			);
 			productRefGroup = 2643EB372500AD7D00FBBE49 /* Products */;
 			projectDirPath = "";
@@ -2433,12 +2425,10 @@
 					"-l\"Masonry\"",
 					"-l\"Moya\"",
 					"-l\"NSObject+Rx\"",
-					"-l\"ReachabilitySwift\"",
 					"-l\"ReactiveObjC\"",
 					"-l\"Reusable\"",
 					"-l\"RxCocoa\"",
 					"-l\"RxCoreLocation\"",
-					"-l\"RxReachability\"",
 					"-l\"RxRelay\"",
 					"-l\"RxSwift\"",
 					"-l\"RxSwiftUtilities\"",
@@ -2556,12 +2546,10 @@
 					"-l\"Masonry\"",
 					"-l\"Moya\"",
 					"-l\"NSObject+Rx\"",
-					"-l\"ReachabilitySwift\"",
 					"-l\"ReactiveObjC\"",
 					"-l\"Reusable\"",
 					"-l\"RxCocoa\"",
 					"-l\"RxCoreLocation\"",
-					"-l\"RxReachability\"",
 					"-l\"RxRelay\"",
 					"-l\"RxSwift\"",
 					"-l\"RxSwiftUtilities\"",
@@ -2753,38 +2741,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		269AB20825B825EC00B970A5 /* XCRemoteSwiftPackageReference "Trident" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/bawn/Trident";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.7.0;
-			};
-		};
-		269AB20B25B8262B00B970A5 /* XCRemoteSwiftPackageReference "Aquaman" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/bawn/Aquaman";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.3;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		269AB20925B825EC00B970A5 /* Trident */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 269AB20825B825EC00B970A5 /* XCRemoteSwiftPackageReference "Trident" */;
-			productName = Trident;
-		};
-		269AB20C25B8262B00B970A5 /* Aquaman */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 269AB20B25B8262B00B970A5 /* XCRemoteSwiftPackageReference "Aquaman" */;
-			productName = Aquaman;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2643EB2E2500AD7D00FBBE49 /* Project object */;
 }

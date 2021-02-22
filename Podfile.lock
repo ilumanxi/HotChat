@@ -17,6 +17,7 @@ PODS:
     - AFNetworking/NSURLSession
   - Alamofire (5.4.1)
   - AMPopTip (4.5.3)
+  - Aquaman (0.1.2)
   - Blueprints (0.13.1)
   - Bugly (2.5.71)
   - Cache (6.0.0)
@@ -62,7 +63,6 @@ PODS:
     - RangersAppLog/UITracker
   - RangersAppLog/UITracker (4.4.4):
     - RangersAppLog/Core
-  - ReachabilitySwift (5.0.0)
   - ReactiveObjC (3.1.1)
   - Reusable (4.1.1):
     - Reusable/Storyboard (= 4.1.1)
@@ -77,10 +77,6 @@ PODS:
   - RxCoreLocation/Core (1.5.0):
     - RxCocoa (~> 5.1)
     - RxSwift (~> 5.1)
-  - RxReachability (1.1.0):
-    - ReachabilitySwift (~> 5.0)
-    - RxCocoa (~> 5)
-    - RxSwift (~> 5)
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
   - RxSwift (5.1.1)
@@ -135,6 +131,7 @@ PODS:
   - Toast (4.0.0)
   - Toast-Swift (5.0.1)
   - TPNS-iOS (1.3.0.0)
+  - Trident (0.6.0)
   - TXIMSDK_iOS (5.1.50)
   - TXIMSDK_TUIKit_iOS (5.1.50):
     - MMLayout (= 0.2.0)
@@ -166,6 +163,7 @@ DEPENDENCIES:
   - ActiveLabel
   - AFNetworking
   - AMPopTip
+  - Aquaman (from `https://github.com/bawn/Aquaman.git`, commit `f97de87`)
   - Blueprints
   - Bugly
   - Cache
@@ -192,7 +190,6 @@ DEPENDENCIES:
   - Reusable
   - RxCocoa
   - RxCoreLocation
-  - RxReachability
   - RxSwift
   - RxSwiftUtilities
   - SegementSlide
@@ -206,6 +203,7 @@ DEPENDENCIES:
   - TagListView
   - Toast-Swift
   - TPNS-iOS
+  - Trident (from `https://github.com/bawn/Trident.git`, commit `2eed75e`)
   - TXIMSDK_TUIKit_iOS
   - TZImagePickerController
   - UMVerify
@@ -247,12 +245,10 @@ SPEC REPOS:
     - pop
     - Protobuf
     - RangersAppLog
-    - ReachabilitySwift
     - ReactiveObjC
     - Reusable
     - RxCocoa
     - RxCoreLocation
-    - RxReachability
     - RxRelay
     - RxSwift
     - RxSwiftUtilities
@@ -283,10 +279,22 @@ SPEC REPOS:
     - YBImageBrowser
 
 EXTERNAL SOURCES:
+  Aquaman:
+    :commit: f97de87
+    :git: https://github.com/bawn/Aquaman.git
+  Trident:
+    :commit: 2eed75e
+    :git: https://github.com/bawn/Trident.git
   YYImage:
     :git: https://github.com/QiuYeHong90/YYImage.git
 
 CHECKOUT OPTIONS:
+  Aquaman:
+    :commit: f97de87
+    :git: https://github.com/bawn/Aquaman.git
+  Trident:
+    :commit: 2eed75e
+    :git: https://github.com/bawn/Trident.git
   YYImage:
     :commit: 4164acb76e8979c0612530bd874e099a1fa51e9d
     :git: https://github.com/QiuYeHong90/YYImage.git
@@ -296,6 +304,7 @@ SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
   AMPopTip: 77eef4793d50709bef83825b72da4f501263b91d
+  Aquaman: a9f48d6b1c3049f3e511779a77a570bf541a2470
   Blueprints: ddd6ab1e455c98471aaef2fdd0b09b5f9b53af5b
   Bugly: fd066c75c4a0eca1440f9b6a84bd37d51bfc85ac
   Cache: 4ca7e00363fca5455f26534e5607634c820ffc2d
@@ -322,12 +331,10 @@ SPEC CHECKSUMS:
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   Protobuf: 0cde852566359049847168e51bd1c690e0f70056
   RangersAppLog: 3a8c9b31227ca2229a67a011cfcd80b5d88a404b
-  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
   Reusable: 53a9acf5c536f229b31b5865782414b508252ddb
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxCoreLocation: 4789d980742b21c087062387f6758b456221fb2f
-  RxReachability: 3da1c23ba6d93dabc004290cda61dd9e7884422d
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   RxSwiftUtilities: 59e2d82daf74b9962f732b09e6da85a26281cfc0
@@ -345,6 +352,7 @@ SPEC CHECKSUMS:
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   TPNS-iOS: 4f61f76d71c8db1365763bb3a40b0c5ce9ce7b89
+  Trident: aa83273ba05bf77f434bb35925356c87bd4c2f75
   TXIMSDK_iOS: 749bfa0cabdef7aab49afc2703e86a0daa04ec8c
   TXIMSDK_TUIKit_iOS: 04192203679beebb402817af7f11cb7d541c793c
   TXLiteAVSDK_TRTC: c127880c4dbe844bdc7575a655be8042ce96024a
@@ -358,6 +366,6 @@ SPEC CHECKSUMS:
   YBImageBrowser: 7ecc8bf33ffa5f3b94c397c29b4f3638dd37f527
   YYImage: 20ec986d18a8d0ad421619d166a9e628097e2433
 
-PODFILE CHECKSUM: 78326e4538909e4349601a1b06cbe86346d296bc
+PODFILE CHECKSUM: 3f482d3601ec205318a37d3f4eacb8dac2bd7cf7
 
 COCOAPODS: 1.10.1

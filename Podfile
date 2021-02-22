@@ -15,7 +15,6 @@ target 'HotChat' do
     pod 'RxSwift'
     pod 'RxCocoa'
     pod 'NSObject+Rx'
-    pod 'RxReachability'
     pod 'RxSwiftUtilities'
     pod 'RxCoreLocation'
     pod 'CryptoSwift'
@@ -44,6 +43,8 @@ target 'HotChat' do
     pod 'WKWebViewJavascriptBridge'
     pod 'PIPKit'
     pod 'AMPopTip'
+    pod 'Aquaman', :git=> "https://github.com/bawn/Aquaman.git", :commit=> "f97de87"
+    pod 'Trident', :git=> "https://github.com/bawn/Trident.git", :commit=> "2eed75e"
     
     pod 'TXIMSDK_TUIKit_iOS'
     pod 'TPNS-iOS'
