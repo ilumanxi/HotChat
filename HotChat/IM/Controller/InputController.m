@@ -539,13 +539,53 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
     IMData *imData = [IMData defaultData];
     imData.data = [giftData mj_JSONString];
     
-    NSData *data = [TUICallUtils dictionary2JsonData:[imData mj_keyValues]];
+
+    ChatViewController *chatController = (ChatViewController *) self.parentViewController;
+    TUIConversationCellData *conversationData = [chatController valueForKey:@"conversationData"];
     
-    cellData.innerMessage = [[V2TIMManager sharedInstance] createCustomMessage:data];
-    
-    if(_delegate && [_delegate respondsToSelector:@selector(inputController:didSendMessage:)]){
-        [_delegate inputController:self didSendMessage:cellData];
-    }
+    [[GiftManager shared] giveGift:conversationData.userID type:2 dynamicId: nil gift:giftData block:^(NSDictionary * _Nullable responseObject, NSError * _Nullable error) {
+
+        if (error) {
+            [THelper makeToast:error.localizedDescription];
+            return;
+        }
+        GiveGift *giveGift = [GiveGift mj_objectWithKeyValues:responseObject[@"data"]];
+        if (giveGift.resultCode == 1) {
+            imData.giftRequestId = giveGift.giftRequestId;
+            NSData *data = [TUICallUtils dictionary2JsonData:[imData mj_keyValues]];
+            cellData.innerMessage = [[V2TIMManager sharedInstance] createCustomMessage:data];
+            
+            [TUICallUtils getCallUserModel:[TUICallUtils loginUser] finished:^(CallUserModel * _Nonnull model) {
+                [chatController user:model giveGift:giftData];
+            }];
+            User *user  = LoginManager.shared.user;
+            user.userEnergy = giveGift.userEnergy;
+            [LoginManager.shared updateWithUser:user];
+
+            
+            if(self->_delegate && [self->_delegate respondsToSelector:@selector(inputController:didSendMessage:)]){
+                [self->_delegate inputController:self didSendMessage:cellData];
+            }
+
+        }
+        else if (giveGift.resultCode == 3) { //能量不足，需要充值
+
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"您的能量不足、请充值！" preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:@"立即充值" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+
+                WalletViewController *walletController = [[WalletViewController alloc] init];
+                [self.navigationController pushViewController:walletController animated:YES];
+
+            }]];
+            [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+        else {
+            [THelper makeToast:giveGift.msg];
+        }
+    }];
+
 }
 
 

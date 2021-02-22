@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(assign, nonatomic) NSInteger userEnergy;
 
+@property(copy, nonatomic) NSString *giftRequestId;
+
 /// 1送礼成功 2送礼失败，3能量不足，送礼失败
 @property(assign, nonatomic) NSInteger resultCode;
 

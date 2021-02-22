@@ -16,6 +16,7 @@
 #import "InputController.h"
 #import "TUIMessageController.h"
 #import "TUIConversationCell.h"
+#import "TUICallModel.h"
 
 @class ChatController;
 
@@ -243,5 +244,11 @@
  *  需要注意的是，目前版本仅能保存未发送的文本消息作为草稿。
  */
 - (void)saveDraft;
+
+/**
+ *  礼物特效
+ *
+ */
+- (void)user:(UserModel *)user giveGift:(Gift *)gift;
 
 @end

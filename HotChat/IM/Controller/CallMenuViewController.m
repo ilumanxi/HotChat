@@ -351,7 +351,7 @@
             
             IMData *imData = [IMData defaultData];
             imData.data = [giftData mj_JSONString];
-            
+            imData.giftRequestId = giveGift.giftRequestId;
             NSData *data = [TUICallUtils dictionary2JsonData:[imData mj_keyValues]];
             
             cellData.innerMessage = [[V2TIMManager sharedInstance] createCustomMessage:data];

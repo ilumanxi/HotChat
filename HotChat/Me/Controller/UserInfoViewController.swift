@@ -65,6 +65,8 @@ class UserInfoViewController: AquamanPageViewController, LoadingStateType, Indic
     var user: User! {
         didSet {
             userInfoHeaderView.user = user
+            information.user = user
+            dynamic.user = user
         }
     }
     
@@ -73,12 +75,14 @@ class UserInfoViewController: AquamanPageViewController, LoadingStateType, Indic
         return UIImage(named: "circle-back-white")
     }
     
+    
+    let information = InformationViewController.loadFromStoryboard()
+    
+    let dynamic = DynamicDetailViewController.loadFromStoryboard()
+    
     lazy var viewControllers: [UIViewController] =  {
-        let information = InformationViewController.loadFromStoryboard()
         information.title = "资料"
         information.user = user
-        
-        let dynamic = DynamicDetailViewController.loadFromStoryboard()
         dynamic.title = "动态"
         dynamic.user = user
         
@@ -88,7 +92,6 @@ class UserInfoViewController: AquamanPageViewController, LoadingStateType, Indic
         ]
     }()
     
-
     private lazy var userInfoHeaderView: UserInfoHeaderView = {
         let headerView = UserInfoHeaderView.loadFromNib()
         headerView.onFollowButtonTapped.delegate(on: self) { (self, sender) in
@@ -127,6 +130,7 @@ class UserInfoViewController: AquamanPageViewController, LoadingStateType, Indic
         reloadData()
         
         state = .loadingContent
+        
         refreshData()
     }
     

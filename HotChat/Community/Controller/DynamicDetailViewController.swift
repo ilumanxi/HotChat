@@ -496,7 +496,7 @@ extension DynamicDetailViewController: GiftViewControllerDelegate {
                 cellData.gift = gift
                 let imData = IMData.default()
                 imData.data = gift.mj_JSONString()
-                
+                imData.giftRequestId = giveGift.giftRequestId
                 let data = TUICallUtils.dictionary2JsonData(imData.mj_keyValues() as! [AnyHashable : Any])
                 cellData.innerMessage = V2TIMManager.sharedInstance()!.createCustomMessage(data)
                 GiftManager.shared().sendGiftMessage(cellData, userID: self.user.userId)

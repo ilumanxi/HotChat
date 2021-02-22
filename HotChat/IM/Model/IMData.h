@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, assign) NSInteger imVersion;
 
+@property(nonatomic, copy) NSString *giftRequestId;
+
 @property(nonatomic, copy) NSString *data; //json
 
 
