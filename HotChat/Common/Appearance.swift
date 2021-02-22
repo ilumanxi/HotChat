@@ -25,13 +25,15 @@ class Appearance {
         navigationBarAppearance.backIndicatorImage = backButtonBackgroundImage
         navigationBarAppearance.backIndicatorTransitionMaskImage = backButtonBackgroundImage
         navigationBarAppearance.barTintColor = .white
+        navigationBarAppearance.tintColor = UIColor(hexString: "#333333")
         navigationBarAppearance.titleTextAttributes = [
             .font : UIFont.navigationBarTitle,
             .foregroundColor : UIColor.titleBlack]
         
         let barButtonAppearance = UIBarButtonItem.appearance()
-        
-        barButtonAppearance.tintColor = UIColor(hexString: "#333333")
+
+//        barButtonAppearance.tintColor = UIColor(hexString: "#333333")
+    
         
         
         barButtonAppearance.setTitleTextAttributes(

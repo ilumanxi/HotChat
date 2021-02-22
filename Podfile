@@ -64,12 +64,4 @@ target 'HotChat' do
     pod 'RangersAppLog'
     pod 'UMVerify'
     pod 'SVGAPlayer'
-    
-    #, :subspecs => [
-     # 'Core',
-      #'Log',
-      #'Unique',  # 若需要采集IDFA，则引入Unique子库
-      #'Host/CN'  # 若您的APP的数据存储在中国, 则选择 Host/CN。否则请根据地域选择相应 Host 子库
-    #]
-#    pod 'MLeaksFinder',  :configuration => 'Debug'
 end
