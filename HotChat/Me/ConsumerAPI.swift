@@ -20,10 +20,6 @@ enum ConsumerAPI {
 
 extension ConsumerAPI: TargetType {
     
-    var baseURL: URL {
-        return Constant.APIHostURL
-    }
-    
     var path: String {
         switch self {
         case .detailsList:
@@ -39,14 +35,6 @@ extension ConsumerAPI: TargetType {
         case .profitList:
             return "ConsumerDetails/profitList"
         }
-    }
-    
-    var method: Moya.Method {
-        return .post
-    }
-    
-    var sampleData: Data {
-        return Data()
     }
     
     var task: Task {
@@ -79,10 +67,6 @@ extension ConsumerAPI: TargetType {
         let encoding: ParameterEncoding = (self.method == .post) ? JSONEncoding.default : URLEncoding.default
         
         return .requestParameters(parameters: parameters, encoding: encoding)
-    }
-    
-    var headers: [String : String]? {
-        return nil
     }
     
 }

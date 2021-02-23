@@ -22,10 +22,6 @@ enum UserSettingsAPI {
 
 extension UserSettingsAPI: TargetType {
     
-    var baseURL: URL {
-        return Constant.APIHostURL
-    }
-    
     var path: String {
         switch self {
         case .infoSettings:
@@ -42,15 +38,7 @@ extension UserSettingsAPI: TargetType {
             return "UserSettings/appAudit"
         }
     }
-    
-    var method: Moya.Method {
-        return .post
-    }
-    
-    var sampleData: Data {
-        return Data()
-    }
-    
+        
     var task: Task {
         
         let parameters: [String : Any]
@@ -81,10 +69,6 @@ extension UserSettingsAPI: TargetType {
         let encoding: ParameterEncoding = (self.method == .post) ? JSONEncoding.default : URLEncoding.default
         
         return .requestParameters(parameters: parameters, encoding: encoding)
-    }
-    
-    var headers: [String : String]? {
-        return nil
     }
     
 }

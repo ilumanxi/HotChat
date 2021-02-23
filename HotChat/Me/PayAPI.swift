@@ -15,10 +15,6 @@ enum PayAPI {
 
 extension PayAPI: TargetType {
     
-    var baseURL: URL {
-        return Constant.APIHostURL
-    }
-    
     var path: String {
         switch self {
         case .ceateOrder:
@@ -26,14 +22,6 @@ extension PayAPI: TargetType {
         case .notify:
             return "AppleNotify/notify"
         }
-    }
-    
-    var method: Moya.Method {
-        return .post
-    }
-    
-    var sampleData: Data {
-        return Data()
     }
     
     var task: Task {
@@ -51,10 +39,5 @@ extension PayAPI: TargetType {
         
         return .requestParameters(parameters: parameters, encoding: encoding)
     }
-    
-    var headers: [String : String]? {
-        return nil
-    }
-    
     
 }

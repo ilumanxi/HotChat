@@ -23,10 +23,6 @@ enum IMAPI {
 
 extension IMAPI: TargetType {
 
-    var baseURL: URL {
-        return Constant.APIHostURL
-    }
-    
     var path: String {
         switch self {
         case .call:
@@ -34,14 +30,6 @@ extension IMAPI: TargetType {
         case .checkUserCall:
             return "Im/checkUserCall"
         }
-    }
-    
-    var method: Moya.Method {
-        return .post
-    }
-    
-    var sampleData: Data {
-        return Data()
     }
     
     var task: Task {
@@ -64,9 +52,4 @@ extension IMAPI: TargetType {
         
         return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
     }
-    
-    var headers: [String : String]? {
-        return nil
-    }
-    
 }

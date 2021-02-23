@@ -20,10 +20,6 @@ enum UploadFileAPI {
 }
 
 extension UploadFileAPI: TargetType {
-
-    var baseURL: URL {
-        return Constant.APIHostURL
-    }
     
     var path: String {
         switch self {
@@ -34,14 +30,6 @@ extension UploadFileAPI: TargetType {
         }
     }
     
-    var method: Moya.Method {
-        return .post
-    }
-    
-    var sampleData: Data {
-        return Data()
-    }
-    
     var task: Task {
         switch self {
         case .upload(let url):
@@ -49,10 +37,6 @@ extension UploadFileAPI: TargetType {
         case .uploadFile(let url):
             return .uploadMultipart([MultipartFormData(provider: .file(url), name: "file")])
         }
-    }
-    
-    var headers: [String : String]? {
-        return nil
     }
     
 }

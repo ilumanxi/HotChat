@@ -19,9 +19,6 @@ enum ReportAPI {
 }
 
 extension ReportAPI: TargetType {
-    var baseURL: URL {
-        return Constant.APIHostURL
-    }
     
     var path: String {
         switch self {
@@ -35,15 +32,7 @@ extension ReportAPI: TargetType {
             return "Report/oneKeyReport"
         }
     }
-    
-    var method: Moya.Method {
-        return .post
-    }
-    
-    var sampleData: Data {
-        return Data()
-    }
-    
+        
     var task: Task {
         let parameters: [String : Any]
         
@@ -67,10 +56,6 @@ extension ReportAPI: TargetType {
         let encoding: ParameterEncoding = (method == .post) ? JSONEncoding.default : URLEncoding.default
         
         return .requestParameters(parameters: parameters, encoding: encoding)
-    }
-    
-    var headers: [String : String]? {
-        return nil
     }
 }
 

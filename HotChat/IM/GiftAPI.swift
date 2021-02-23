@@ -16,23 +16,11 @@ enum GiftAPI {
 
 extension GiftAPI: TargetType {
 
-    var baseURL: URL {
-        return Constant.APIHostURL
-    }
-    
     var path: String {
         switch self {
         case .giftNumConfig:
             return "Gift/giftNumConfig"
         }
-    }
-    
-    var method: Moya.Method {
-        return .post
-    }
-    
-    var sampleData: Data {
-        return Data()
     }
     
     var task: Task {
@@ -46,10 +34,6 @@ extension GiftAPI: TargetType {
         }
         
         return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
-    }
-    
-    var headers: [String : String]? {
-        return nil
     }
     
 }

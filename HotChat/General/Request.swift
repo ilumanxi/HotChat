@@ -28,6 +28,25 @@ public extension PrimitiveSequence where Trait == SingleTrait, Element == Moya.R
     } }
 
 
+extension TargetType {
+    
+    var baseURL: URL {
+        return Constant.APIHostURL
+    }
+    
+    var method: Moya.Method {
+        return .post
+    }
+        
+    var sampleData: Data {
+        return Data()
+    }
+        
+    var headers: [String : String]? {
+        return nil
+    }
+}
+
 
 
 

@@ -43,11 +43,6 @@ enum UserAPI {
 
 extension UserAPI: TargetType {
     
-    var baseURL: URL {
-        return Constant.APIHostURL
-    }
-    
-    
     var path: String {
         switch self {
         case .editUser:
@@ -87,14 +82,6 @@ extension UserAPI: TargetType {
         case .visitorList:
             return "user/visitorList"
         }
-    }
-    
-    var method: Moya.Method {
-        return .post
-    }
-    
-    var sampleData: Data {
-        return Data()
     }
     
     var task: Task {
@@ -154,10 +141,6 @@ extension UserAPI: TargetType {
         }
         
         return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
-    }
-    
-    var headers: [String : String]? {
-        return nil
     }
     
 }

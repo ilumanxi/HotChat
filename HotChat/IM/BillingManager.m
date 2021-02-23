@@ -143,7 +143,7 @@
     dispatch_resume(self.secondTimer);
     
     self.minuteTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_global_queue(0, 0));
-    dispatch_source_set_timer(self.minuteTimer, DISPATCH_TIME_NOW, 60 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
+    dispatch_source_set_timer(self.minuteTimer, DISPATCH_TIME_NOW, 6 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
     dispatch_source_set_event_handler(self.minuteTimer, ^{
         dispatch_async(dispatch_get_main_queue(), ^{
             [self callContinued];

@@ -15,9 +15,6 @@ enum DiscoverAPI {
 
 
 extension DiscoverAPI: TargetType {
-    var baseURL: URL {
-        return Constant.APIHostURL
-    }
     
     var path: String {
         switch self {
@@ -26,14 +23,6 @@ extension DiscoverAPI: TargetType {
         case .discoverList:
             return "Discover/discoverList"
         }
-    }
-    
-    var method: Moya.Method {
-        return .post
-    }
-    
-    var sampleData: Data {
-        return Data()
     }
     
     var task: Task {
@@ -53,9 +42,5 @@ extension DiscoverAPI: TargetType {
         let encoding: ParameterEncoding = (method == .post) ? JSONEncoding.default : URLEncoding.default
         
         return .requestParameters(parameters: parameters, encoding: encoding)
-    }
-    
-    var headers: [String : String]? {
-        return nil
     }
 }
