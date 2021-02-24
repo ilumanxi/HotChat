@@ -185,7 +185,7 @@ enum VipType: Int, HandyJSONEnum {
     var friendNick: String = ""
     
     /// 主播
-    var girlStatus: Bool =  false
+    @objc var girlStatus: Bool =  false
     
     /// 黑名单
     var isDefriend: Bool = false

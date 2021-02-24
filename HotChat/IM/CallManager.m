@@ -32,6 +32,10 @@ typedef NS_ENUM(NSInteger,VideoUserRemoveReason){
 @property(nonatomic,assign)CallType type;
 @property(nonatomic,assign)CallSubType subtype;
 
+@property(nonatomic,assign)NSInteger curRoomID;
+
+
+
 
 @end
 
@@ -118,6 +122,8 @@ typedef NS_ENUM(NSInteger,VideoUserRemoveReason){
         };
         [PIPWindow presentViewController:self.callVC animated:YES completion:nil];
     }
+    
+    self.curRoomID = [TUICall shareInstance].curRoomID;
 }
 
 - (CallUserModel *)covertUser:(UserModel *)user isEnter:(BOOL)isEnter {
@@ -292,6 +298,49 @@ typedef NS_ENUM(NSInteger,VideoUserRemoveReason){
         [(AudioCallViewController *)self.callVC disMiss];
         [PIPWindow dismissViewControllerAnimated:YES completion:nil];
     }
+}
+
+
+/**
+ *  reason 离开原因，0表示用户主动退出房间，1表示用户超时退出，2表示被踢出房间。
+ */
+
+-(void)onCallEnd:(int)reason {
+//    if (reason == 2) {
+//        int roomId = [TUICall shareInstance].curRoomID;
+//        [THelper makeToast:[NSString stringWithFormat:@"未知异常中断通话"]];
+//    }
+    
+    
+//    data": {
+//            "status": 1, 正常 2异常
+//            "minutes": 2//分钟
+//        }
+
+    [PIPWindow dismissViewControllerAnimated:NO  completion:nil];
+    
+    [[TUICall shareInstance] quitRoom];
+    
+    if (LoginManager.shared.user.girlStatus) {
+        [IMHelper getCallTime:self.curRoomID success:^(NSDictionary<NSString *,id> * _Nonnull dict) {
+            
+            if ([dict[@"status"] intValue]  == 2) {
+                
+                NSString *message = [NSString stringWithFormat:@"本次有效通话时间为: %@分钟",dict[@"minutes"]];
+                
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"对方异常挂断" message: message preferredStyle: UIAlertControllerStyleAlert];
+                [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                    
+                }]];
+                [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alertController animated:YES completion:nil];
+                                                      
+            }
+            
+        } failed:^(NSError * _Nonnull error) {
+            
+        }];
+    }
+    
 }
 
 -(void)onUserVideoAvailable:(NSString *)uid available:(BOOL)available {

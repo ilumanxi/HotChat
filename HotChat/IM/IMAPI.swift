@@ -8,6 +8,8 @@
 
 import Moya
 import Kingfisher
+import RxSwift
+import RxCocoa
 
 extension UIImageView {
     @objc func setKF(_ url: URL?) {
@@ -19,6 +21,7 @@ extension UIImageView {
 enum IMAPI {
     case call(type: Int, toUserId: String)
     case checkUserCall(type: Int, toUserId: String)
+    case getCallTime(roomId: Int)
 }
 
 extension IMAPI: TargetType {
@@ -29,6 +32,8 @@ extension IMAPI: TargetType {
             return "Im/call"
         case .checkUserCall:
             return "Im/checkUserCall"
+        case .getCallTime:
+            return "Im/getCallTime"
         }
     }
     
@@ -37,7 +42,6 @@ extension IMAPI: TargetType {
         let parameters: [String : Any]
         
         switch self {
-        
         case .call(let type, let toUserId):
             parameters = [
                 "type" : type,
@@ -48,8 +52,32 @@ extension IMAPI: TargetType {
                 "type" : type,
                 "toUserId" : toUserId
             ]
+        case .getCallTime(let roomId):
+            parameters = [
+                "roomId" : roomId
+            ]
         }
         
         return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
+    }
+}
+
+
+@objc class IMHelper: NSObject {
+    
+
+    static let API  = Request<IMAPI>()
+    
+    static let disposeObject = DisposeBag()
+    
+    @objc class func  getCallTime(_ roomId: Int, success: @escaping ([String : Any]) -> Void, failed: @escaping (NSError) -> Void) {
+        
+        API.request(.getCallTime(roomId: roomId), type: Response<[String : Any]>.self).verifyResponse()
+            .subscribe(onSuccess: { response in
+                success(response.data ?? [:])
+            }, onError: { error in
+                failed(error as NSError)
+            })
+            .disposed(by: disposeObject)
     }
 }

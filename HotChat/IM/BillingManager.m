@@ -104,12 +104,15 @@
 
     NSDictionary *parameters = @{
         @"type" : @(self.type),
-        @"toUserId": self.userId
+        @"toUserId": self.userId,
+        @"roomId": @([TUICall shareInstance].curRoomID)
     };
+    
+    NSLog(@"********roomId: %@", parameters);
     
    [self.manager
         POST:@"Im/startCallChat"
-        parameters:parameters
+        parameters:parameters      
         headers:headers
         progress:nil
         success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary  * _Nullable responseObject) {
