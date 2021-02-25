@@ -326,10 +326,17 @@
 }
 
 - (void)giftButtonTapped {
+    
     GiftViewController *vc = [[GiftViewController alloc] init];
-    vc.modalPresentationStyle = UIModalPresentationOverFullScreen;
     vc.delegate = self;
-    [self presentViewController:vc animated:YES completion:nil];
+    vc.hbd_barAlpha = 0;
+    vc.hbd_barHidden = true;
+    BaseNavigationController *nav = [[BaseNavigationController alloc] initWithRootViewController:vc];
+    nav.navigationBar.hidden = YES;
+    nav.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    [self presentViewController:nav animated:YES completion:^{
+        nav.navigationBar.hidden = NO;
+    }];
 }
 
 - (void)giftViewController:(GiftViewController *)giftController didSelectGift:(Gift *)gift {

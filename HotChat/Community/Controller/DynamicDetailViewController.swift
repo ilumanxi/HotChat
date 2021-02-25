@@ -377,14 +377,15 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
                 let vc = GiftViewController()
                 vc.hbd_barHidden = true
                 vc.hbd_barAlpha = 0
-                vc.hbd_barTintColor = .clear
-                vc.hbd_barShadowHidden = true
                 vc.delegate = self
                 
                 let navController = BaseNavigationController(rootViewController: vc)
                 navController.modalPresentationStyle = .overFullScreen
                 navController.modalTransitionStyle = .coverVertical
-                self.present(navController, animated: true, completion: nil)
+                navController.navigationBar.isHidden = true
+                self.present(navController, animated: true) {
+                    navController.navigationBar.isHidden = false
+                }
             }
         }
         
