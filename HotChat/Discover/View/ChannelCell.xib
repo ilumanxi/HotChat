@@ -113,6 +113,7 @@
                     <constraint firstItem="W2e-N5-Jkh" firstAttribute="leading" secondItem="s1z-7F-Sib" secondAttribute="leadingMargin" id="MSH-1M-WdH"/>
                     <constraint firstItem="W2e-N5-Jkh" firstAttribute="centerY" secondItem="s1z-7F-Sib" secondAttribute="centerY" id="OhR-BI-cJd"/>
                     <constraint firstItem="CFk-id-l6J" firstAttribute="leading" secondItem="W2e-N5-Jkh" secondAttribute="trailing" constant="10" id="QwC-zZ-1Fx"/>
+                    <constraint firstItem="Vbi-CE-p6B" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="CFk-id-l6J" secondAttribute="trailing" constant="8" symbolic="YES" id="VGB-OE-HWc"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Vbi-CE-p6B" secondAttribute="trailing" id="e8P-3W-0FH"/>
                 </constraints>
             </tableViewCellContentView>
