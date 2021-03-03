@@ -12,13 +12,7 @@ import Kingfisher
 
 class DynamicDetailViewCell: UITableViewCell {
     
-    let sectionInset = UIEdgeInsets(top: 15, left: 16, bottom: 1, right: 16)
-    
-    let horizontalSpacing: CGFloat = 10
-    
-    let verticalSpacing: CGFloat = 10
-    
-    let itemsPerRow: CGFloat = 3
+
     
     let layout = MagazineLayout()
     
@@ -100,12 +94,8 @@ class DynamicDetailViewCell: UITableViewCell {
         
         commentButton.alpha = isSelf ? 0 : 1
         
-        if dynamic.type == .video {
-            collectionViewHeightConstraint.constant = collectionViewHeight(for: 1)
-        }
-        else {
-            collectionViewHeightConstraint.constant = collectionViewHeight(for: CGFloat(max(dynamic.photoList.count, 1)))
-        }
+        collectionViewHeightConstraint.constant = collectionViewHeight()
+        
         
         setNeedsLayout()
         layoutIfNeeded()
@@ -118,20 +108,74 @@ class DynamicDetailViewCell: UITableViewCell {
         collectionView.setCollectionViewLayout(layout, animated: false)
     }
     
-    private var itemSize: CGSize {
-        let itemSize = (UIScreen.main.bounds.width - (sectionInset.left + sectionInset.right) - (itemsPerRow - 1) * horizontalSpacing) / itemsPerRow
-        return CGSize(width: itemSize, height: itemSize)
-    }
+    
+    let sectionInset = UIEdgeInsets(top: 15, left: 16, bottom: 1, right: 16)
+    
+    let horizontalSpacing: CGFloat = 10
+    
+    let verticalSpacing: CGFloat = 10
+    
+    let itemsPerRow: CGFloat = 3
+    
+//    private var itemSize: CGSize {
+//        let itemSize = (UIScreen.main.bounds.width - (sectionInset.left + sectionInset.right) - (itemsPerRow - 1) * horizontalSpacing) / itemsPerRow
+//        return CGSize(width: itemSize, height: itemSize)
+//    }
 
-    func collectionViewHeight(for itemsCount: CGFloat) -> CGFloat {
+    func collectionViewHeight() -> CGFloat {
         
-        let rows = (itemsCount / itemsPerRow).rounded(.up)
+        let itemsCount = max(dynamic.photoList.count, 1)
+                
+        if itemsCount == 1 { // 缩放
+            
+        }
+        else if itemsCount == 4 { // 两列
+            
+        }
+        else {
+            
+        }
         
-        let height = sectionInset.top + sectionInset.bottom +  itemSize.height * rows + (rows - 1) * verticalSpacing
+        let rows = (CGFloat(itemsCount) / itemsPerRow).rounded(.up)
+        
+        let size = itemSize()
+        
+        
+        let height = sectionInset.top + sectionInset.bottom +  size.height * rows + (rows - 1) * verticalSpacing
         
         return height
     }
+    
+    func itemSize() -> CGSize {
         
+        let count = max(dynamic.photoList.count, 1)
+        
+        if count == 1 {
+            if dynamic.type == .video, let video = dynamic?.video, video.size != .zero {
+                return adjustSize(with: video.size)
+            }
+            else if let photo = dynamic.photoList.first, photo.size != .zero {
+                return adjustSize(with: photo.size)
+            }
+        }
+        
+        let itemSize = (UIScreen.main.bounds.width - (sectionInset.left + sectionInset.right) - (itemsPerRow - 1) * horizontalSpacing) / itemsPerRow
+        return CGSize(width: itemSize, height: itemSize)
+    }
+    
+    func adjustSize(with size: CGSize) -> CGSize {
+        
+        let maxSize = UIScreen.main.bounds.width * 0.4
+        let adjustSize: CGSize
+
+        if(size.height > size.width){
+            adjustSize = CGSize(width: size.width / size.height * maxSize, height: maxSize)
+        } else {
+            adjustSize = CGSize(width: maxSize, height: size.height / size.width * maxSize)
+        }
+        
+        return adjustSize
+    }
 }
 
 extension DynamicDetailViewCell: UICollectionViewDelegate {
@@ -196,8 +240,20 @@ extension DynamicDetailViewCell: UICollectionViewDelegateMagazineLayout {
     sizeModeForItemAt indexPath: IndexPath)
     -> MagazineLayoutItemSizeMode
   {
-    return MagazineLayoutItemSizeMode(widthMode: .thirdWidth, heightMode: .static(height: itemSize.height))
-//    return MagazineLayoutItemSizeMode(widthMode: .thirdWidth, heightMode: .dynamic)
+    
+    let count = max(dynamic.photoList.count, 1)
+    
+    if count == 1 {
+        let size = itemSize()
+        let percentage =  (UIScreen.main.bounds.width - sectionInset.left - sectionInset.right) / size.width 
+        return MagazineLayoutItemSizeMode(widthMode: .fractionalWidth(divisor: UInt(percentage)), heightMode: .static(height: size.height))
+    }
+    else if count == 4 {
+        
+        return MagazineLayoutItemSizeMode(widthMode: .halfWidth, heightMode: .static(height: itemSize().height))
+    }
+    
+    return MagazineLayoutItemSizeMode(widthMode: .thirdWidth, heightMode: .static(height: itemSize().height))
   }
 
   func collectionView(
@@ -251,6 +307,13 @@ extension DynamicDetailViewCell: UICollectionViewDelegateMagazineLayout {
     insetsForSectionAtIndex index: Int)
     -> UIEdgeInsets
   {
+    
+    if dynamic.photoList.count == 4 {
+        var adjustSectionInset =  sectionInset
+        adjustSectionInset.right += itemSize().width + horizontalSpacing
+        return adjustSectionInset
+    }
+    
     return sectionInset
   }
 

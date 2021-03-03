@@ -32,6 +32,7 @@ PODS:
     - SDWebImage (~> 5.0)
   - HandyJSON (5.0.3-beta)
   - HBDNavigationBar (1.8.0)
+  - IBPCollectionViewCompositionalLayout (0.6.9)
   - InputKitSwift (1.2.1)
   - Kingfisher (6.1.1)
   - Koloda (5.0.1):
@@ -50,6 +51,7 @@ PODS:
   - "NSObject+Rx (5.1.0)":
     - RxSwift (~> 5.1)
   - Pageboy (3.6.2)
+  - PanModal (1.2.7)
   - PIPKit (0.2.0)
   - PKHUD (5.3.0)
   - pop (1.0.12)
@@ -173,6 +175,7 @@ DEPENDENCIES:
   - GKPhotoBrowser
   - HandyJSON (~> 5.0.3-beta)
   - HBDNavigationBar
+  - IBPCollectionViewCompositionalLayout
   - InputKitSwift
   - Kingfisher
   - Koloda
@@ -184,6 +187,7 @@ DEPENDENCIES:
   - Moya/Core
   - Moya/RxSwift
   - "NSObject+Rx"
+  - PanModal
   - PIPKit
   - PKHUD
   - RangersAppLog
@@ -228,6 +232,7 @@ SPEC REPOS:
     - GKPhotoBrowser
     - HandyJSON
     - HBDNavigationBar
+    - IBPCollectionViewCompositionalLayout
     - InputKitSwift
     - Kingfisher
     - Koloda
@@ -240,6 +245,7 @@ SPEC REPOS:
     - Moya
     - "NSObject+Rx"
     - Pageboy
+    - PanModal
     - PIPKit
     - PKHUD
     - pop
@@ -314,6 +320,7 @@ SPEC CHECKSUMS:
   GKPhotoBrowser: 1f7c0bdd21fc617f1c7cd18d15f26488abf0f973
   HandyJSON: 88e8ea5f66ab65c3b8768499a1935d0509c460d4
   HBDNavigationBar: 8a24d0348ad4371614569e3d015d46e41824b061
+  IBPCollectionViewCompositionalLayout: bbb29e39ac564666a8c3cdb6633ed944b6feb55b
   InputKitSwift: 5532ed4a41706aeebe6ad6dfafb3bee32e02f1c6
   Kingfisher: 676d63307fbef6ed5d5ed400bff36983480d7500
   Koloda: d07b9199a383abc5898b62aa945a599f5e7c0c4b
@@ -326,6 +333,7 @@ SPEC CHECKSUMS:
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   "NSObject+Rx": fa6bbcc1ab1faa06b01466bc09b1e0692bbc5946
   Pageboy: cf121b9dd48c63f3f281b2a9ec93d02e0f23879b
+  PanModal: 3e16ead1a907fb06f4df3f13492fd00149fa4974
   PIPKit: 00fd62aa4967f9cef1eca1a5587d3192c23881e1
   PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
@@ -366,6 +374,6 @@ SPEC CHECKSUMS:
   YBImageBrowser: 7ecc8bf33ffa5f3b94c397c29b4f3638dd37f527
   YYImage: 20ec986d18a8d0ad421619d166a9e628097e2433
 
-PODFILE CHECKSUM: 0928db67f5a71a5e6c35df96d91d4bdac20bdea6
+PODFILE CHECKSUM: 440d6508f80b00a24d72922ac90b55dd1fc58687
 
 COCOAPODS: 1.10.1

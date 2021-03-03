@@ -48,6 +48,13 @@ extension UploadFileAPI: TargetType {
     
     @objc var picUrl = ""
     
+    var width: CGFloat = 0
+    var height: CGFloat = 0
+    
+    var size: CGSize {
+        return CGSize(width: width, height: height)
+    }
+    
     required override init() {
         super.init()
     }

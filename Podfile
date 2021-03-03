@@ -31,6 +31,7 @@ target 'HotChat' do
     pod 'PKHUD'
     pod 'URLNavigator'
     pod 'Tabman'
+    pod 'IBPCollectionViewCompositionalLayout'
     
     pod 'FSPagerView'
     pod 'ActiveLabel'
@@ -65,4 +66,5 @@ target 'HotChat' do
     pod 'RangersAppLog'
     pod 'UMVerify'
     pod 'SVGAPlayer'
+    pod 'PanModal'
 end
