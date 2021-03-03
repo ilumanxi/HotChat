@@ -7,14 +7,9 @@
 //
 
 import UIKit
-import MagazineLayout
 import Kingfisher
 
 class DynamicDetailViewCell: UITableViewCell {
-    
-
-    
-    let layout = MagazineLayout()
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionViewHeightConstraint: NSLayoutConstraint!
@@ -105,7 +100,6 @@ class DynamicDetailViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        collectionView.setCollectionViewLayout(layout, animated: false)
     }
     
     
@@ -117,32 +111,14 @@ class DynamicDetailViewCell: UITableViewCell {
     
     let itemsPerRow: CGFloat = 3
     
-//    private var itemSize: CGSize {
-//        let itemSize = (UIScreen.main.bounds.width - (sectionInset.left + sectionInset.right) - (itemsPerRow - 1) * horizontalSpacing) / itemsPerRow
-//        return CGSize(width: itemSize, height: itemSize)
-//    }
 
     func collectionViewHeight() -> CGFloat {
         
         let itemsCount = max(dynamic.photoList.count, 1)
                 
-        if itemsCount == 1 { // 缩放
-            
-        }
-        else if itemsCount == 4 { // 两列
-            
-        }
-        else {
-            
-        }
-        
         let rows = (CGFloat(itemsCount) / itemsPerRow).rounded(.up)
-        
         let size = itemSize()
-        
-        
         let height = sectionInset.top + sectionInset.bottom +  size.height * rows + (rows - 1) * verticalSpacing
-        
         return height
     }
     
@@ -230,112 +206,37 @@ extension DynamicDetailViewCell: UICollectionViewDataSource {
 }
 
  
-// MARK: UICollectionViewDelegateMagazineLayout
+// MARK: UICollectionViewDelegateFlowLayout
 
-extension DynamicDetailViewCell: UICollectionViewDelegateMagazineLayout {
+extension DynamicDetailViewCell: UICollectionViewDelegateFlowLayout {
 
-  func collectionView(
-    _ collectionView: UICollectionView,
-    layout collectionViewLayout: UICollectionViewLayout,
-    sizeModeForItemAt indexPath: IndexPath)
-    -> MagazineLayoutItemSizeMode
-  {
     
-    let count = max(dynamic.photoList.count, 1)
-    
-    if count == 1 {
-        let size = itemSize()
-        let percentage =  (UIScreen.main.bounds.width - sectionInset.left - sectionInset.right) / size.width 
-        return MagazineLayoutItemSizeMode(widthMode: .fractionalWidth(divisor: UInt(percentage)), heightMode: .static(height: size.height))
-    }
-    else if count == 4 {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return MagazineLayoutItemSizeMode(widthMode: .halfWidth, heightMode: .static(height: itemSize().height))
+        return itemSize()
+        
     }
-    
-    return MagazineLayoutItemSizeMode(widthMode: .thirdWidth, heightMode: .static(height: itemSize().height))
-  }
 
-  func collectionView(
-    _ collectionView: UICollectionView,
-    layout collectionViewLayout: UICollectionViewLayout,
-    visibilityModeForHeaderInSectionAtIndex index: Int)
-    -> MagazineLayoutHeaderVisibilityMode
-  {
-    return .hidden
-  }
 
-  func collectionView(
-    _ collectionView: UICollectionView,
-    layout collectionViewLayout: UICollectionViewLayout,
-    visibilityModeForFooterInSectionAtIndex index: Int)
-    -> MagazineLayoutFooterVisibilityMode
-  {
-    return .hidden
-  }
-
-  func collectionView(
-    _ collectionView: UICollectionView,
-    layout collectionViewLayout: UICollectionViewLayout,
-    visibilityModeForBackgroundInSectionAtIndex index: Int)
-    -> MagazineLayoutBackgroundVisibilityMode
-  {
-    return .hidden
-  }
-
-  func collectionView(
-    _ collectionView: UICollectionView,
-    layout collectionViewLayout: UICollectionViewLayout,
-    horizontalSpacingForItemsInSectionAtIndex index: Int)
-    -> CGFloat
-  {
-    return horizontalSpacing
-  }
-
-  func collectionView(
-    _ collectionView: UICollectionView,
-    layout collectionViewLayout: UICollectionViewLayout,
-    verticalSpacingForElementsInSectionAtIndex index: Int)
-    -> CGFloat
-  {
-    return verticalSpacing
-  }
-
-  func collectionView(
-    _ collectionView: UICollectionView,
-    layout collectionViewLayout: UICollectionViewLayout,
-    insetsForSectionAtIndex index: Int)
-    -> UIEdgeInsets
-  {
-    
-    if dynamic.photoList.count == 4 {
-        var adjustSectionInset =  sectionInset
-        adjustSectionInset.right += itemSize().width + horizontalSpacing
-        return adjustSectionInset
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return horizontalSpacing
     }
+
+
     
-    return sectionInset
-  }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return verticalSpacing
+    }
 
-  func collectionView(
-    _ collectionView: UICollectionView,
-    layout collectionViewLayout: UICollectionViewLayout,
-    insetsForItemsInSectionAtIndex index: Int)
-    -> UIEdgeInsets
-  {
-    return .zero
-  }
-
-  func collectionView(
-    _ collectionView: UICollectionView,
-    layout collectionViewLayout: UICollectionViewLayout,
-    finalLayoutAttributesForRemovedItemAt indexPath: IndexPath,
-    byModifying finalLayoutAttributes: UICollectionViewLayoutAttributes)
-  {
-    // Fade and drop out
-    finalLayoutAttributes.alpha = 0
-    finalLayoutAttributes.transform = .init(scaleX: 0.2, y: 0.2)
-  }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        if dynamic.photoList.count == 4 {
+            var adjustSectionInset =  sectionInset
+            adjustSectionInset.right += itemSize().width + horizontalSpacing
+            return adjustSectionInset
+        }
+        return sectionInset
+    }
 
 }
 
