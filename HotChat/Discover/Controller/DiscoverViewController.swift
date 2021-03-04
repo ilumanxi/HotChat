@@ -99,6 +99,9 @@ class DiscoverViewController: TabmanViewController, LoadingStateType, IndicatorD
         // Set PageboyViewControllerDataSource dataSource to configure page view controller.
         dataSource = self
         
+        let searchItem = UIBarButtonItem(image: UIImage(named: "common-search"), style: .done, target: self, action: #selector(pushSearch))
+        navigationItem.rightBarButtonItem = searchItem
+        
         // Create a bar
         let bar = TMBarView.ButtonBar()
         
@@ -130,6 +133,7 @@ class DiscoverViewController: TabmanViewController, LoadingStateType, IndicatorD
         requestData()
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupViews()
@@ -138,6 +142,11 @@ class DiscoverViewController: TabmanViewController, LoadingStateType, IndicatorD
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         checkAccost()
+    }
+    
+    @objc private func pushSearch() {
+        let vc = SearchViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func setupViews() {
@@ -283,7 +292,7 @@ class DiscoverViewController: TabmanViewController, LoadingStateType, IndicatorD
         let channel  = channels[index]
         
         guard let controller = cache.object(forKey: channel.labelId.description as NSString)  else {
-            let vc = ChannelViewController.loadFromStoryboard()
+            let vc = ChannelViewController()
             vc.channel = channel
             cache.setObject(vc, forKey: channel.labelId.description as NSString)
             return vc

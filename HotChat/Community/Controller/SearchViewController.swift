@@ -58,7 +58,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
 
     
-    @IBOutlet weak var tableView: UITableView!
+    var tableView: UITableView!
     
     
     var searchBarContainerView = SearchBarContainerView()
@@ -87,8 +87,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(UINib(nibName: "ChannelCell", bundle: nil), forCellReuseIdentifier: "ChannelCell")
-        
+        setupUI()
         navigationItem.titleView = searchBarContainerView
         navigationItem.hidesBackButton = true
         
@@ -123,6 +122,16 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
                 self?.handlerError(error)
             })
             .disposed(by: rx.disposeBag)
+    }
+    
+    private func setupUI() {
+        
+        tableView = UITableView(frame: view.bounds, style: .plain)
+        tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(UINib(nibName: "ChannelCell", bundle: nil), forCellReuseIdentifier: "ChannelCell")
+        view.addSubview(tableView)
     }
     
     func loadData(parameters : SearchParameters) -> Single<Response<Pagination<User>>> {

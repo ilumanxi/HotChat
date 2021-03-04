@@ -13,8 +13,10 @@ import MJRefresh
 import Kingfisher
 import FSPagerView
 import URLNavigator
+import Blueprints
 
-class ChannelViewController: UIViewController, LoadingStateType, IndicatorDisplay, StoryboardCreate {
+
+class ChannelViewController: UIViewController, LoadingStateType, IndicatorDisplay {
     
     var state: LoadingState = .initial {
         didSet {
@@ -26,7 +28,7 @@ class ChannelViewController: UIViewController, LoadingStateType, IndicatorDispla
     
     var data: [User] = [] {
         didSet {
-            tableView.reloadData()
+            collectionView.reloadData()
         }
     }
     
@@ -38,26 +40,7 @@ class ChannelViewController: UIViewController, LoadingStateType, IndicatorDispla
     
     let discoverAPI = Request<DiscoverAPI>()
     
-    
-    @IBOutlet weak var tableView: UITableView!
-        
-    static var storyboardNamed: String { return "Discover" }
-    
-    lazy var bannerView: FSPagerView = {
-        let headerViewHeight =  self.headerViewHeight
-        let bannerView =  FSPagerView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: headerViewHeight))
-        bannerView.bounces = false
-        bannerView.delegate = self
-        bannerView.dataSource = self
-//        bannerView.itemSize = FSPagerViewAutomaticSize // Fill parent
-        bannerView.itemSize = bannerView.frame.insetBy(dx: 24, dy: 20).size
-        bannerView.interitemSpacing = 24
-        bannerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "FSPagerViewCell")
-        bannerView.backgroundColor = .white
-        bannerView.automaticSlidingInterval = 3
-        bannerView.isInfinite = true
-        return bannerView
-    }()
+    var collectionView: UICollectionView!
     
     let bannerAPI = Request<BannerAPI>()
     
@@ -67,34 +50,24 @@ class ChannelViewController: UIViewController, LoadingStateType, IndicatorDispla
     
     var banners: [Banner] = [] {
         didSet {
-         
-            if banners.isEmpty {
-                self.tableView.tableHeaderView = nil
-            }
-           
-            if self.bannerView.superview == nil {
-                self.tableView.tableHeaderView = bannerView
-            }
-            
-            bannerView.reloadData()
+            collectionView.reloadData()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.register(UINib(nibName: "ChannelCell", bundle: nil), forCellReuseIdentifier: "ChannelCell")
+        setupUI()
 
         loadSignal
             .subscribe(onNext: requestData)
             .disposed(by: rx.disposeBag)
         
         
-        tableView.mj_header = MJRefreshNormalHeader { [weak self] in
+        collectionView.mj_header = MJRefreshNormalHeader { [weak self] in
             self?.refreshData()
         }
         
-        tableView.mj_footer = MJRefreshAutoNormalFooter{ [weak self] in
+        collectionView.mj_footer = MJRefreshAutoNormalFooter{ [weak self] in
             self?.loadMoreData()
         }
         
@@ -102,14 +75,42 @@ class ChannelViewController: UIViewController, LoadingStateType, IndicatorDispla
         refreshData()
     }
     
+    
+    
+    func setupUI()  {
+        
+        let verticalBlueprintLayout = VerticalBlueprintLayout(
+          itemsPerRow: itemsPerRow,
+          height: 100,
+          minimumInteritemSpacing: minimumInteritemSpacing,
+          minimumLineSpacing: minimumLineSpacing,
+          sectionInset: sectionInsets,
+          stickyHeaders: false,
+          stickyFooters: false
+        )
+        
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: verticalBlueprintLayout)
+        collectionView.autoresizingMask = [.flexibleWidth, .flexibleWidth]
+        collectionView.backgroundColor = .groupTableViewBackground
+        view.addSubview(collectionView)
+        
+        collectionView.register(UINib(nibName: "UserCardCell", bundle: nil), forCellWithReuseIdentifier: "UserCardCell")
+        collectionView.register(BanberView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "BanberView")
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
+    }
+    
+
+    
     func endRefreshing(noContent: Bool = false) {
-        tableView.reloadData()
-        tableView.mj_header?.endRefreshing()
+        collectionView.reloadData()
+        collectionView.mj_header?.endRefreshing()
         if noContent {
-            tableView.mj_footer?.endRefreshingWithNoMoreData()
+            collectionView.mj_footer?.endRefreshingWithNoMoreData()
         }
         else {
-            tableView.mj_footer?.endRefreshing()
+            collectionView.mj_footer?.endRefreshing()
         }
     }
     
@@ -187,92 +188,109 @@ class ChannelViewController: UIViewController, LoadingStateType, IndicatorDispla
     }
 
 }
-
-
-extension ChannelViewController: UITableViewDataSource, UITableViewDelegate {
+extension ChannelViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    var itemsPerRow: CGFloat {
+        return 2
+    }
+    
+    var minimumInteritemSpacing: CGFloat {
+        return 5
+    }
+    
+    var minimumLineSpacing: CGFloat {
+        return 5
+    }
+    
+    var sectionInsets: UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)
+    }
+    
+    func configureVerticalLayout() {
+        let verticalBlueprintLayout = VerticalBlueprintLayout(
+          itemsPerRow: itemsPerRow,
+          height: 100,
+          minimumInteritemSpacing: minimumInteritemSpacing,
+          minimumLineSpacing: minimumLineSpacing,
+          sectionInset: sectionInsets,
+          stickyHeaders: false,
+          stickyFooters: false
+        )
+
+        UIView.animate(withDuration: 0.5) { [weak self] in
+            self?.collectionView.collectionViewLayout = verticalBlueprintLayout
+            self?.view.setNeedsLayout()
+            self?.view.layoutIfNeeded()
+        }
+    }
+    
+    func layoutCellCalculatedSize(forItemAt indexPath: IndexPath) -> CGSize {
+        
+//        let layoutCellForSize = collectionView.dequeueReusableCell(for: indexPath, cellType: UserCardCell.self)
+//        let data =  data[indexPath.item]
+//        layoutCellForSize.textLabel.text = data.content
+//        layoutCellForSize.setNeedsLayout()
+//        layoutCellForSize.layoutIfNeeded()
+        let cellWidth = widthForCellInCurrentLayout()
+//        let cellHeight: CGFloat = 0
+//        let cellTargetSize = CGSize(width: cellWidth, height: cellHeight)
+//        let cellSize = layoutCellForSize.contentView.systemLayoutSizeFitting(
+//            cellTargetSize,
+//            withHorizontalFittingPriority: UILayoutPriority(900),
+//            verticalFittingPriority: .fittingSizeLevel)
+        return CGSize(width: cellWidth, height: cellWidth + 46)
+    }
+
+    func widthForCellInCurrentLayout() -> CGFloat {
+        var cellWidth = collectionView.frame.size.width - (sectionInsets.left + sectionInsets.right)
+        if itemsPerRow > 1 {
+            cellWidth -= minimumInteritemSpacing * (itemsPerRow - 1)
+        }
+        return floor(cellWidth / itemsPerRow)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        let bannerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, for: indexPath, viewType: BanberView.self)
+        bannerView.banners = banners
+        
+        return bannerView
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.count
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 104
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let user = data[indexPath.row]
+
+        let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: UserCardCell.self)
+        cell.layer.cornerRadius = 8
         
-        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: ChannelCell.self)
-        cell.setUser(user)
+        cell.setUser(data[indexPath.item])
+        
         return cell
-        
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        
+        return CGSize(width: collectionView.frame.width, height: headerViewHeight)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return layoutCellCalculatedSize(forItemAt: indexPath)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         let vc = UserInfoViewController()
-        vc.user  = data[indexPath.row]
+        vc.user  = data[indexPath.item]
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    
-}
-
-extension ChannelCell {
-    
-    func setUser(_ user: User) {
-       avatarImageView.kf.setImage(with: URL(string: user.headPic))
-       nicknameLabel.text = user.nick
-       nicknameLabel.textColor = user.vipType.textColor
-       sexView.setSex(user)
-       locationLabel.text = user.region
-       introduceLabel.text = user.introduce
-       statusLabel.text = user.onlineStatus.text
-       statusLabel.textColor = user.onlineStatus.color
-       vipButton.setVIP(user.vipType)
-       gradeView.setGrade(user)
-       authenticationButton.isHidden = !user.girlStatus
-    }
 }
 
 
-extension FSPagerViewCell {
-    
-    open override var isHighlighted: Bool {
-        didSet {
-            
-        }
-    }
-    
-    open override var isSelected: Bool {
-        didSet {
-            
-        }
-    }
-}
-
-extension ChannelViewController: FSPagerViewDataSource, FSPagerViewDelegate {
-    
-    
-    func numberOfItems(in pagerView: FSPagerView) -> Int {
-        return banners.count
-    }
-    
-    func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
-        let model = banners[index]
-        
-        let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "FSPagerViewCell", at: index)
-        cell.contentView.layer.shadowColor = UIColor.clear.cgColor
-        cell.imageView?.kf.setImage(with: URL(string: model.img))
-        return cell
-    }
-    
-    func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
-        
-        let model = banners[index]
-        guard let url = URL(string: model.url) else { return }
-        
-        Navigator.share.push(url)
-    }
-    
-}

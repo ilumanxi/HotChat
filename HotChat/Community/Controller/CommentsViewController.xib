@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommentsViewController" customModule="HotChat" customModuleProvider="target">
+            <connections>
+                <outlet property="tableView" destination="Ebg-Zy-TGB" id="EZw-hy-JfW"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="评论" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gE-fl-Mea">
+                    <rect key="frame" x="20" y="44" width="374" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="3dq-cd-Xic"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ebg-Zy-TGB">
+                    <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="kKo-js-oBc"/>
+                        <outlet property="delegate" destination="-1" id="5hw-A3-RnQ"/>
+                    </connections>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hUv-SB-est" userLabel="Input View">
+                    <rect key="frame" x="0.0" y="813" width="414" height="83"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWb-lR-kUV">
+                            <rect key="frame" x="20" y="10" width="374" height="39"/>
+                            <color key="backgroundColor" red="0.96862745098039216" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="39" id="SYB-Zr-nEh"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="想对TA说的话...">
+                                <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="19.5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="inputAction:" destination="-1" eventType="touchUpInside" id="ZgF-hG-ur9"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="CVU-4h-n05"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="cWb-lR-kUV" secondAttribute="bottom" constant="10" id="N8O-Ke-ebA"/>
+                        <constraint firstItem="CVU-4h-n05" firstAttribute="bottom" secondItem="cWb-lR-kUV" secondAttribute="bottom" id="Ton-nC-Aft"/>
+                        <constraint firstItem="cWb-lR-kUV" firstAttribute="top" secondItem="CVU-4h-n05" secondAttribute="top" constant="10" id="Y3W-xS-VEN"/>
+                        <constraint firstItem="CVU-4h-n05" firstAttribute="trailing" secondItem="cWb-lR-kUV" secondAttribute="trailing" constant="20" id="Yci-JI-Gvo"/>
+                        <constraint firstItem="cWb-lR-kUV" firstAttribute="leading" secondItem="CVU-4h-n05" secondAttribute="leading" constant="20" id="sJu-io-Mff"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Ebg-Zy-TGB" firstAttribute="top" secondItem="9gE-fl-Mea" secondAttribute="bottom" id="4PK-ld-GPg"/>
+                <constraint firstItem="9gE-fl-Mea" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="6i3-bh-oye"/>
+                <constraint firstItem="hUv-SB-est" firstAttribute="top" secondItem="Ebg-Zy-TGB" secondAttribute="bottom" id="8FN-Pk-XkL"/>
+                <constraint firstItem="Ebg-Zy-TGB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="L8N-Hz-exY"/>
+                <constraint firstAttribute="bottom" secondItem="hUv-SB-est" secondAttribute="bottom" id="MYH-Vp-8Xs"/>
+                <constraint firstAttribute="trailing" secondItem="hUv-SB-est" secondAttribute="trailing" id="Ohh-Of-xqx"/>
+                <constraint firstAttribute="trailing" secondItem="Ebg-Zy-TGB" secondAttribute="trailing" id="YT4-Hi-fl8"/>
+                <constraint firstItem="hUv-SB-est" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="t8Q-EH-jYN"/>
+                <constraint firstItem="9gE-fl-Mea" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="yOX-6j-zTc"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9gE-fl-Mea" secondAttribute="trailing" constant="20" id="ymm-jV-3GD"/>
+            </constraints>
+            <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+            <point key="canvasLocation" x="139" y="129"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

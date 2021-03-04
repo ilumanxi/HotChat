@@ -1,15 +1,15 @@
 //
-//  ChannelCell.swift
+//  UserCardCell.swift
 //  HotChat
 //
-//  Created by 风起兮 on 2020/10/15.
-//  Copyright © 2020 风起兮. All rights reserved.
+//  Created by 风起兮 on 2021/3/3.
+//  Copyright © 2021 风起兮. All rights reserved.
 //
 
 import UIKit
 
-class ChannelCell: UITableViewCell {
-   
+class UserCardCell: UICollectionViewCell {
+
     @IBOutlet weak var avatarImageView: UIImageView!
     
     @IBOutlet weak var nicknameLabel: UILabel!
@@ -18,7 +18,7 @@ class ChannelCell: UITableViewCell {
     
     @IBOutlet weak var locationLabel: UILabel!
     
-    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var statusView: GradientView!
     
     @IBOutlet weak var introduceLabel: UILabel!
     
@@ -27,11 +27,11 @@ class ChannelCell: UITableViewCell {
     @IBOutlet weak var authenticationButton: UIButton!
     
     @IBOutlet weak var gradeView: UIImageView!
-    
+
 }
 
 
-extension ChannelCell {
+extension UserCardCell {
     
     func setUser(_ user: User) {
        avatarImageView.kf.setImage(with: URL(string: user.headPic))
@@ -40,9 +40,11 @@ extension ChannelCell {
        sexView.setSex(user)
        locationLabel.text = user.region
        introduceLabel.text = user.introduce
-       statusLabel.text = user.onlineStatus.text
-       statusLabel.textColor = user.onlineStatus.color
+       statusView.backgroundColor = user.onlineStatus.color
        vipButton.setVIP(user.vipType)
+        if user.girlStatus {
+            vipButton.isHidden = true
+        }
        gradeView.setGrade(user)
        authenticationButton.isHidden = !user.girlStatus
     }
