@@ -13,17 +13,18 @@ import RxCocoa
 import RxSwift
 import NSObject_Rx
 import Reusable
-import Blueprints
 import Kingfisher
 import MJRefresh
 import HandyJSON
+import SPAlertController
+import YBImageBrowser
 
 
 
 class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisplay {
     
     func showOrHideIndicator(loadingState: LoadingState, text: String? = nil, image: UIImage? = nil) {
-        showOrHideIndicator(loadingState: loadingState, in: self.collectionView, text: text, image: image)
+        showOrHideIndicator(loadingState: loadingState, in: self.tableView, text: text, image: image)
     }
     
     
@@ -51,7 +52,10 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     
     var dynamics: [Dynamic] = []
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    var selectedDynamic: Dynamic!
+    
+
+    @IBOutlet weak var tableView: UITableView!
     
     var checkInResult: CheckInResult?
     
@@ -80,19 +84,17 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
             }
         }
         
-        collectionView.backgroundColor = .groupTableViewBackground
-        
-        configureVerticalLayout()
+        tableView.backgroundColor = .groupTableViewBackground        
         
         loadSignal
             .subscribe(onNext: requestData)
             .disposed(by: rx.disposeBag)
         
-        collectionView.mj_header = MJRefreshNormalHeader { [weak self] in
+        tableView.mj_header = MJRefreshNormalHeader { [weak self] in
             self?.refreshData()
         }
         
-        collectionView.mj_footer = MJRefreshAutoNormalFooter{ [weak self] in
+        tableView.mj_footer = MJRefreshAutoNormalFooter{ [weak self] in
             self?.loadMoreData()
         }
         
@@ -175,13 +177,13 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     }
     
     func endRefreshing(noContent: Bool = false) {
-        collectionView.reloadData()
-        collectionView.mj_header?.endRefreshing()
+        tableView.reloadData()
+        tableView.mj_header?.endRefreshing()
         if noContent {
-            collectionView.mj_footer?.endRefreshingWithNoMoreData()
+            tableView.mj_footer?.endRefreshingWithNoMoreData()
         }
         else {
-            collectionView.mj_footer?.endRefreshing()
+            tableView.mj_footer?.endRefreshing()
         }
         
     }
@@ -207,7 +209,7 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     
     func loadData(_ page: Int) -> Single<Response<Pagination<Dynamic>>> {
          
-        return dynamicAPI.request(.recommendList(page))
+        return dynamicAPI.request(.dynamicCommunity(page))
     }
     
     func handlerReponse(_ response: Response<Pagination<Dynamic>>){
@@ -325,115 +327,22 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     }
     
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        guard let cell = sender as? UICollectionViewCell, let indexPath = collectionView.indexPath(for: cell) else {
-            return
-        }
-        
-        if let vc = segue.destination as? DynamicDetailViewController {
-            
-            vc.user = dynamics[indexPath.item].userInfo
-        }
-        
+    
+    func psuhDynamicDetail(_ dynamic: Dynamic) {
+        let vc = DynamicDetailViewController.loadFromStoryboard()
+        vc.user = dynamic.userInfo
     }
+    
 }
 
 
-extension CommunityViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension CommunityViewController: UITableViewDataSource, UITableViewDelegate {
     
-    var itemsPerRow: CGFloat {
-        return 2
-    }
-    
-    var minimumInteritemSpacing: CGFloat {
-        return 10
-    }
-    
-    var minimumLineSpacing: CGFloat {
-        return 10
-    }
-    
-    var sectionInsets: UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 10, bottom: 60, right: 10)
-    }
-    
-    func configureVerticalLayout() {
-        let verticalBlueprintLayout = VerticalBlueprintLayout(
-          itemsPerRow: itemsPerRow,
-          height: 100,
-          minimumInteritemSpacing: minimumInteritemSpacing,
-          minimumLineSpacing: minimumLineSpacing,
-          sectionInset: sectionInsets,
-          stickyHeaders: false,
-          stickyFooters: false
-        )
-
-        UIView.animate(withDuration: 0.5) { [weak self] in
-            self?.collectionView.collectionViewLayout = verticalBlueprintLayout
-            self?.view.setNeedsLayout()
-            self?.view.layoutIfNeeded()
-        }
-    }
-    
-    func layoutCellCalculatedSize(forItemAt indexPath: IndexPath) -> CGSize {
-        
-//        let layoutCellForSize = collectionView.dequeueReusableCell(for: indexPath, cellType: DynamicViewCell.self)
-//        let data =  dynamics[indexPath.item]
-//        layoutCellForSize.textLabel.text = data.content
-//        layoutCellForSize.setNeedsLayout()
-//        layoutCellForSize.layoutIfNeeded()
-        let cellWidth = widthForCellInCurrentLayout()
-//        let cellHeight: CGFloat = 0
-//        let cellTargetSize = CGSize(width: cellWidth, height: cellHeight)
-//        let cellSize = layoutCellForSize.contentView.systemLayoutSizeFitting(
-//            cellTargetSize,
-//            withHorizontalFittingPriority: UILayoutPriority(900),
-//            verticalFittingPriority: .fittingSizeLevel)
-        return CGSize(width: cellWidth, height: cellWidth)
-    }
-
-    func widthForCellInCurrentLayout() -> CGFloat {
-        var cellWidth = collectionView.frame.size.width - (sectionInsets.left + sectionInsets.right)
-        if itemsPerRow > 1 {
-            cellWidth -= minimumInteritemSpacing * (itemsPerRow - 1)
-        }
-        return floor(cellWidth / itemsPerRow)
-    }
-    
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dynamics.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        
-        let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: DynamicViewCell.self)
-        
-        let data =  dynamics[indexPath.item]
-        
-        cell.textLabel.text = data.content
-        cell.imageView.kf.setImage(with: URL(string: data.coverUrl))
-        cell.typeImageView.image = data.type.image
-        cell.likeLabel.text = data.zanNum.description
-        cell.likeButton.isSelected = data.isSelfZan
-        cell.regionButton.setTitle(data.userInfo.region, for: .normal)
-        cell.layer.cornerRadius = 8
-        
-        cell.onLikeClicked.delegate(on: self) { (self, _) in
-            self.like(data)
-        }
-        
-        return cell
-    }
     
 
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        return layoutCellCalculatedSize(forItemAt: indexPath)
-    }
+    
+
     
     func like(_ dynamic: Dynamic)  {
         
@@ -447,7 +356,7 @@ extension CommunityViewController: UICollectionViewDataSource, UICollectionViewD
                 
                 dynamic.zanNum = zanNum
                 dynamic.isSelfZan = isSelfZan
-                self?.collectionView.reloadData()
+                self?.tableView.reloadData()
                 
                 Log.print(response)
             }, onError: { error in
@@ -456,5 +365,186 @@ extension CommunityViewController: UICollectionViewDataSource, UICollectionViewD
             .disposed(by: rx.disposeBag)
         
     }
+    
+
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dynamics.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let dynamic = dynamics[indexPath.item]
+        
+        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: DynamicDetailViewCell.self)
+        cell.dynamic = dynamic
+        
+        cell.onAvatarTapped.delegate(on: self) { (self, sender) in
+            let vc = UserInfoViewController()
+            vc.user  = dynamic.userInfo
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        cell.onLikeTapped.delegate(on: self) { (self, sender) in
+            self.like(dynamic)
+        }
+        
+        cell.onGiveTapped.delegate(on: self) { (self, sender) in
+            if LoginManager.shared.user!.userId != dynamic.userInfo.userId {
+                self.selectedDynamic = dynamic
+                
+                let vc = GiftViewController()
+                vc.hbd_barHidden = true
+                vc.hbd_barAlpha = 0
+                vc.delegate = self
+                
+                let navController = BaseNavigationController(rootViewController: vc)
+                navController.modalPresentationStyle = .overFullScreen
+                navController.modalTransitionStyle = .coverVertical
+                navController.navigationBar.isHidden = true
+                self.present(navController, animated: true) {
+                    navController.navigationBar.isHidden = false
+                }
+            }
+        }
+        
+        cell.onCommentTapped.delegate(on: self) { (self, _) in
+            let vc = CommentsViewController()
+            self.presentPanModal(vc)
+        }
+        
+        cell.onImageTapped.delegate(on: self) { (self, sender) in
+            
+            let (_, index, imageViews) = sender
+            
+            let photos: [YBIBDataProtocol]
+            
+            if dynamic.type == .video {
+                let video = YBIBVideoData()
+                video.videoURL = URL(string: dynamic.video!.url)!
+                video.projectiveView = imageViews[index]
+                photos = [video]
+            }
+            else {
+                photos = (0..<imageViews.count)
+                    .compactMap { index -> YBIBImageData? in
+                        let photo = YBIBImageData()
+                        photo.imageURL = URL(string: dynamic.photoList[index].picUrl)!
+                        photo.projectiveView = imageViews[index]
+                        return photo
+                    }
+            }
+            
+            let  browser = YBImageBrowser()
+            browser.dataSourceArray = photos
+            browser.currentPage = index
+            // 只有一个保存操作的时候，可以直接右上角显示保存按钮
+            browser.defaultToolViewHandler?.topView.operationButton.isHidden = true
+            browser.show()
+            
+        }
+        
+        cell.onMoreButtonTapped.delegate(on: self) { (self, _) in
+            let alertController = SPAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            
+            if LoginManager.shared.user!.userId == dynamic.userInfo.userId {
+                alertController.addAction(SPAlertAction(title: "删除", style: .default, handler: { [weak self] _ in
+                    self?.tipDelete(dynamic)
+                }))
+            }
+            else {
+//                alertController.addAction(SPAlertAction(title: "不看Ta的动态", style: .default, handler: { _ in
+//
+//                }))
+                
+                alertController.addAction(SPAlertAction(title: "举报这条动态", style: .default, handler: { [weak self] _ in
+                    let vc = ReportViewController.loadFromStoryboard()
+                    vc.dynamic = dynamic
+                    self?.present(vc, animated: true, completion: nil)
+                }))
+            }
+            alertController.addAction(SPAlertAction(title: "取消", style: .cancel, handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
+        }
+        
+        return cell
+    }
+
+    
+    func tipDelete(_ dynamic: Dynamic) {
+        
+        let alertController = UIAlertController(title: nil, message: "你确定删除这条动态吗", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "确定", style: .destructive, handler: { [weak self] _ in
+            self?.delete(dynamic)
+        }))
+        alertController.addAction(UIAlertAction(title: "取消", style: .default, handler: nil))
+        
+        present(alertController, animated: true, completion: nil)
+    }
+}
+
+
+extension CommunityViewController: GiftViewControllerDelegate {
+    
+    func giftViewController(_ giftController: GiftViewController, didSelect gift: Gift) {
+        
+        guard let dynamic = selectedDynamic else {
+            return
+        }
+        
+        GiftManager.shared().giveGift(selectedDynamic.userInfo.userId, type: 1, dynamicId: dynamic.dynamicId, gift: gift) { (responseObject, error) in
+            if let error = error {
+                self.show(error)
+                return
+            }
+            let giveGift = GiveGift.mj_object(withKeyValues: responseObject?["data"])!
+            
+            if giveGift.resultCode == 1 {
+                
+                dynamic.giftNum += 1
+                self.tableView.reloadData()
+                
+                let  user  = LoginManager.shared.user!
+                user.userEnergy = giveGift.userEnergy
+                LoginManager.shared.update(user: user)
+                
+                let cellData = GiftCellData(direction: .MsgDirectionOutgoing)
+                cellData.gift = gift
+                let imData = IMData.default()
+                imData.data = gift.mj_JSONString()
+                imData.giftRequestId = giveGift.giftRequestId
+                let data = TUICallUtils.dictionary2JsonData(imData.mj_keyValues() as! [AnyHashable : Any])
+                cellData.innerMessage = V2TIMManager.sharedInstance()!.createCustomMessage(data)
+                GiftManager.shared().sendGiftMessage(cellData, userID: dynamic.userInfo.userId)
+                giftController.dismiss(animated: true, completion: nil)
+                
+                self.show("送礼成功")
+            }
+            else if (giveGift.resultCode == 3) { //能量不足，需要充值
+                giftController.dismiss(animated: true) {
+                    
+                    let alertController = UIAlertController(title: nil, message: "您的能量不足、请充值！", preferredStyle: .alert)
+                    
+                    alertController.addAction(UIAlertAction(title: "立即充值", style: .default, handler: { _ in
+                        let vc = WalletViewController()
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }))
+                    
+                    alertController.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+                    
+                    self.present(alertController, animated: true, completion: nil)
+                  
+                }
+                
+            }
+            else {
+                
+                self.show(giveGift.msg)
+            }
+            
+        }
+    }
+
     
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GradientButton: UIButton {
+class GradientButton: HotChatButton {
 
     override class var layerClass: AnyClass {
         return CAGradientLayer.self

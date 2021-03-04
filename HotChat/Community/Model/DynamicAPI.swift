@@ -16,6 +16,9 @@ enum DynamicAPI{
     case dynamicList([String : Any])
     case follow(String)
     case delDynamic(String)
+    case dynamicCommunity(Int)
+    
+    
 }
 
 
@@ -38,6 +41,8 @@ extension DynamicAPI: TargetType {
             return "Dynamic/follow"
         case .delDynamic:
             return "Dynamic/delDynamic"
+        case .dynamicCommunity:
+            return "Dynamic/community"
         }
     }
     
@@ -56,6 +61,8 @@ extension DynamicAPI: TargetType {
         case .releaseDynamic(let value):
             parameters = value
         case .recommendList(let page):
+            parameters = ["page" : page]
+        case .dynamicCommunity(let page):
             parameters = ["page" : page]
         case .zan(let dynamicId):
             parameters = [ "dynamicId" : dynamicId]
