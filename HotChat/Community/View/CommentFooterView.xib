@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="s9J-ae-seQ" customClass="CommentFooterView" customModule="HotChat" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a66-2Z-XXW" userLabel="Content View">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="T1E-Na-eB9">
+                            <rect key="frame" x="16" y="0.0" width="102" height="22"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="展开更多回复" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VqM-Qm-bB0">
+                                    <rect key="frame" x="0.0" y="2.5" width="86" height="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCm-FM-93m">
+                                    <rect key="frame" x="91" y="0.0" width="11" height="22"/>
+                                    <state key="normal" image="arrow-down"/>
+                                    <state key="selected" image="arrow-up"/>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="T1E-Na-eB9" secondAttribute="trailing" id="JUG-3E-75g"/>
+                        <constraint firstItem="T1E-Na-eB9" firstAttribute="top" secondItem="a66-2Z-XXW" secondAttribute="top" id="b3w-jJ-CtK"/>
+                        <constraint firstItem="T1E-Na-eB9" firstAttribute="leading" secondItem="a66-2Z-XXW" secondAttribute="leadingMargin" id="cCY-9B-4T0"/>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="T1E-Na-eB9" secondAttribute="bottom" constant="15" id="lgP-Gj-SUE"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="0UH-sR-RsZ"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="a66-2Z-XXW" secondAttribute="bottom" id="4pa-mI-4dk"/>
+                <constraint firstItem="a66-2Z-XXW" firstAttribute="top" secondItem="s9J-ae-seQ" secondAttribute="top" id="OJI-hq-IUc"/>
+                <constraint firstAttribute="trailing" secondItem="a66-2Z-XXW" secondAttribute="trailing" id="kip-kp-flT"/>
+                <constraint firstItem="a66-2Z-XXW" firstAttribute="leading" secondItem="s9J-ae-seQ" secondAttribute="leading" id="v3F-pw-gHk"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="disclosureButton" destination="pCm-FM-93m" id="0hw-rE-kza"/>
+                <outlet property="titleLabel" destination="VqM-Qm-bB0" id="kfT-0A-nYF"/>
+            </connections>
+            <point key="canvasLocation" x="18.840579710144929" y="2.6785714285714284"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="arrow-down" width="11" height="7"/>
+        <image name="arrow-up" width="11" height="7"/>
+    </resources>
+</document>

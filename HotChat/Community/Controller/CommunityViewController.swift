@@ -410,6 +410,7 @@ extension CommunityViewController: UITableViewDataSource, UITableViewDelegate {
         
         cell.onCommentTapped.delegate(on: self) { (self, _) in
             let vc = CommentsViewController()
+            vc.dynamic = dynamic
             self.presentPanModal(vc)
         }
         

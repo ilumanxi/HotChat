@@ -17,7 +17,11 @@ enum DynamicAPI{
     case follow(String)
     case delDynamic(String)
     case dynamicCommunity(Int)
-    
+    case comment(content: String, dynamicId: String, parentId: String?, commentId: String?)
+    case commentList(dynamicId: String, parentId: String?, page: Int)
+    case commentZan(dynamicId: String, commentId: String)
+    case delComment(commentId: String)
+    case commentReport(content: String, dynamicId: String, commentId: String)
     
 }
 
@@ -43,6 +47,16 @@ extension DynamicAPI: TargetType {
             return "Dynamic/delDynamic"
         case .dynamicCommunity:
             return "Dynamic/community"
+        case .comment:
+            return "Dynamic/comment"
+        case .commentList:
+            return "Dynamic/commentList"
+        case .commentZan:
+            return "Dynamic/commentZan"
+        case .delComment:
+            return "Dynamic/delComment"
+        case .commentReport:
+            return "Report/commentReport"
         }
     }
     
@@ -72,6 +86,34 @@ extension DynamicAPI: TargetType {
             parameters = [ "followUserId" : followUserId]
         case .delDynamic(let dynamicId):
             parameters = [ "dynamicId" : dynamicId]
+        case .comment(let content, let dynamicId, let parentId, let commentId):
+            parameters = [
+                "content" : content,
+                "dynamicId" : dynamicId,
+                "parentId" : parentId?.description ?? "",
+                "commentId" : commentId?.description ?? ""
+            ]
+        case .commentList(let dynamicId, let parentId, let page):
+            parameters = [
+                "dynamicId": dynamicId,
+                "parentId" : parentId?.description ?? "",
+                "page" : page
+            ]
+        case .commentZan(let dynamicId, let commentId):
+            parameters = [
+                "dynamicId" : dynamicId,
+                "commentId" : commentId
+            ]
+        case .delComment(let commentId):
+            parameters = [
+                "commentId" : commentId
+            ]
+        case .commentReport(let content, let dynamicId, let commentId):
+            parameters = [
+                "content" : content,
+                "dynamicId" : dynamicId,
+                "commentId" : commentId
+            ]
         }
         
         let encoding: ParameterEncoding = (method == .post) ? JSONEncoding.default : URLEncoding.default

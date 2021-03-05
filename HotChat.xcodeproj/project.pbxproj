@@ -11,6 +11,8 @@
 		2605A4762513187900017241 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2605A4752513187900017241 /* UIImageExtensions.swift */; };
 		2607319B2536DD1B00B1093C /* ReportAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2607319A2536DD1B00B1093C /* ReportAPI.swift */; };
 		260A87782521932A00380FB4 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A87772521932A00380FB4 /* SettingViewController.swift */; };
+		260ABAF025F2431E006A01C0 /* CommentReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260ABAEE25F2431E006A01C0 /* CommentReportViewController.swift */; };
+		260ABAF125F2431E006A01C0 /* CommentReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 260ABAEF25F2431E006A01C0 /* CommentReportViewController.xib */; };
 		260B96112521F15C00767076 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260B96102521F15C00767076 /* Authentication.swift */; };
 		260B96162521F2F400767076 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260B96152521F2F400767076 /* AuthenticationViewController.swift */; };
 		26137CCB2590673900DCBAD0 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26137CCA2590673900DCBAD0 /* TabBar.swift */; };
@@ -280,6 +282,8 @@
 		26D1E594253D6000004B9B29 /* VideoCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D1E593253D6000004B9B29 /* VideoCallViewController.m */; };
 		26DBC373253D89DF0083BDFB /* AudioCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DBC372253D89DF0083BDFB /* AudioCallViewController.m */; };
 		26DBEBCA25E6044B00C174FC /* TUICall+ExitRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DBEBC925E6044B00C174FC /* TUICall+ExitRoom.m */; };
+		26DC2CD625F248E9003628B2 /* ReportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC2CD425F248E9003628B2 /* ReportCell.swift */; };
+		26DC2CD725F248E9003628B2 /* ReportCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26DC2CD525F248E9003628B2 /* ReportCell.xib */; };
 		26DF877D255A63BA002162A9 /* BasicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DF877B255A63BA002162A9 /* BasicCell.swift */; };
 		26DF877E255A63BA002162A9 /* BasicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26DF877C255A63BA002162A9 /* BasicCell.xib */; };
 		26DF8780255A645C002162A9 /* SwitchViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26DF877F255A645C002162A9 /* SwitchViewCell.xib */; };
@@ -328,6 +332,9 @@
 		26F25C98250A359300F808EA /* InterestedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F25C97250A359300F808EA /* InterestedViewController.swift */; };
 		26F3D66E25482683007D9136 /* IMData.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F3D66D25482683007D9136 /* IMData.m */; };
 		26F3D67725483433007D9136 /* GiftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F3D67625483433007D9136 /* GiftCell.m */; };
+		26F3EA3025F1D3B9001CF13D /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F3EA2F25F1D3B9001CF13D /* Comment.swift */; };
+		26F3EA3225F209F5001CF13D /* CommentFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F3EA3125F209F5001CF13D /* CommentFooterView.swift */; };
+		26F3EA3425F20A05001CF13D /* CommentFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26F3EA3325F20A05001CF13D /* CommentFooterView.xib */; };
 		26F45502256659750028ACC5 /* EarningCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F45500256659750028ACC5 /* EarningCell.swift */; };
 		26F45503256659750028ACC5 /* EarningCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26F45501256659750028ACC5 /* EarningCell.xib */; };
 		26F4550625665F600028ACC5 /* EarningDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F4550425665F600028ACC5 /* EarningDetailCell.swift */; };
@@ -401,6 +408,8 @@
 		2605A4752513187900017241 /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		2607319A2536DD1B00B1093C /* ReportAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAPI.swift; sourceTree = "<group>"; };
 		260A87772521932A00380FB4 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		260ABAEE25F2431E006A01C0 /* CommentReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentReportViewController.swift; sourceTree = "<group>"; };
+		260ABAEF25F2431E006A01C0 /* CommentReportViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentReportViewController.xib; sourceTree = "<group>"; };
 		260B96102521F15C00767076 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		260B96152521F2F400767076 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		26137CCA2590673900DCBAD0 /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
@@ -735,6 +744,8 @@
 		26DBC372253D89DF0083BDFB /* AudioCallViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioCallViewController.m; sourceTree = "<group>"; };
 		26DBEBC825E6044B00C174FC /* TUICall+ExitRoom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TUICall+ExitRoom.h"; sourceTree = "<group>"; };
 		26DBEBC925E6044B00C174FC /* TUICall+ExitRoom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TUICall+ExitRoom.m"; sourceTree = "<group>"; };
+		26DC2CD425F248E9003628B2 /* ReportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCell.swift; sourceTree = "<group>"; };
+		26DC2CD525F248E9003628B2 /* ReportCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportCell.xib; sourceTree = "<group>"; };
 		26DF877B255A63BA002162A9 /* BasicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicCell.swift; sourceTree = "<group>"; };
 		26DF877C255A63BA002162A9 /* BasicCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasicCell.xib; sourceTree = "<group>"; };
 		26DF877F255A645C002162A9 /* SwitchViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchViewCell.xib; sourceTree = "<group>"; };
@@ -791,6 +802,9 @@
 		26F3D66D25482683007D9136 /* IMData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMData.m; sourceTree = "<group>"; };
 		26F3D67525483433007D9136 /* GiftCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftCell.h; sourceTree = "<group>"; };
 		26F3D67625483433007D9136 /* GiftCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftCell.m; sourceTree = "<group>"; };
+		26F3EA2F25F1D3B9001CF13D /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		26F3EA3125F209F5001CF13D /* CommentFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentFooterView.swift; sourceTree = "<group>"; };
+		26F3EA3325F20A05001CF13D /* CommentFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentFooterView.xib; sourceTree = "<group>"; };
 		26F45500256659750028ACC5 /* EarningCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningCell.swift; sourceTree = "<group>"; };
 		26F45501256659750028ACC5 /* EarningCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EarningCell.xib; sourceTree = "<group>"; };
 		26F4550425665F600028ACC5 /* EarningDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningDetailCell.swift; sourceTree = "<group>"; };
@@ -1489,6 +1503,8 @@
 				26E5FE4C25F089A500C96392 /* CommentsViewController.swift */,
 				26E5FE4B25F089A500C96392 /* CommentsViewController.xib */,
 				26C500DC25F0BED800CF37C0 /* InputViewController.swift */,
+				260ABAEE25F2431E006A01C0 /* CommentReportViewController.swift */,
+				260ABAEF25F2431E006A01C0 /* CommentReportViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1509,6 +1525,10 @@
 				26ED001C25C69BC900480CEC /* MediaItemAddViewCell.xib */,
 				26E5FE5025F089B800C96392 /* CommentViewCell.swift */,
 				26E5FE4F25F089B800C96392 /* CommentViewCell.xib */,
+				26F3EA3125F209F5001CF13D /* CommentFooterView.swift */,
+				26F3EA3325F20A05001CF13D /* CommentFooterView.xib */,
+				26DC2CD425F248E9003628B2 /* ReportCell.swift */,
+				26DC2CD525F248E9003628B2 /* ReportCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1517,6 +1537,7 @@
 			isa = PBXGroup;
 			children = (
 				26F8893E253187BD001A14F2 /* Dynamic.swift */,
+				26F3EA2F25F1D3B9001CF13D /* Comment.swift */,
 				2696341E2531942000493C3D /* DynamicAPI.swift */,
 				2607319A2536DD1B00B1093C /* ReportAPI.swift */,
 				26FC88F4253ED49000E4D82F /* SearchAPI.swift */,
@@ -1851,6 +1872,7 @@
 				2635216E25C7F4F900855487 /* VisitorsVipController.xib in Resources */,
 				26BB187D2522F5810019BBFD /* Main.storyboard in Resources */,
 				26ED001E25C69BC900480CEC /* MediaItemAddViewCell.xib in Resources */,
+				26F3EA3425F20A05001CF13D /* CommentFooterView.xib in Resources */,
 				2635216225C7EA4E00855487 /* VisitorsAvatarView.xib in Resources */,
 				26E5FE5125F089B800C96392 /* CommentViewCell.xib in Resources */,
 				2619D193256260A90071CC85 /* GiftCountCell.xib in Resources */,
@@ -1873,6 +1895,7 @@
 				26F45503256659750028ACC5 /* EarningCell.xib in Resources */,
 				267954FF250761B600A72954 /* Discover.storyboard in Resources */,
 				266BDB6A25EF864600467611 /* UserCardCell.xib in Resources */,
+				260ABAF125F2431E006A01C0 /* CommentReportViewController.xib in Resources */,
 				2639536925419E8300B5E3C0 /* CardViewCell.xib in Resources */,
 				26E48909257E087D006C2ACE /* CheckInViewController.xib in Resources */,
 				2679550A2507748C00A72954 /* UserInfoHeaderView.xib in Resources */,
@@ -1880,6 +1903,7 @@
 				2656F30F254FAC0500552611 /* GiftReminderViewController.xib in Resources */,
 				2635216825C7F18800855487 /* VisitorsController.xib in Resources */,
 				267E36E92547C2E100EB2097 /* GiftView.xib in Resources */,
+				26DC2CD725F248E9003628B2 /* ReportCell.xib in Resources */,
 				26772823255A480900B98973 /* PrivacyViewController.xib in Resources */,
 				264BF97925A8366E00F873DD /* AccostViewController.xib in Resources */,
 				F38CB8C62507B14700049A76 /* InfoPlist.strings in Resources */,
@@ -2133,6 +2157,7 @@
 				2679550C25079A1F00A72954 /* UserInfoChatView.swift in Sources */,
 				26ED000625C5731200480CEC /* MediaItemViewCell.swift in Sources */,
 				2643EBAC2500B04100FBBE49 /* UserInfoInterviewCell.swift in Sources */,
+				260ABAF025F2431E006A01C0 /* CommentReportViewController.swift in Sources */,
 				263A6684257E0EF200F35714 /* CheckInCell.swift in Sources */,
 				265C8A42251332E900E220BD /* SigninProtocols.swift in Sources */,
 				2668CF0925931B3D00C851F6 /* LogoutAPI.swift in Sources */,
@@ -2191,7 +2216,9 @@
 				26E5FE5225F089B800C96392 /* CommentViewCell.swift in Sources */,
 				2656F30E254FAC0500552611 /* GiftReminderViewController.m in Sources */,
 				26CB6C3E25512A0A00A9F4DD /* BillingStatus.m in Sources */,
+				26DC2CD625F248E9003628B2 /* ReportCell.swift in Sources */,
 				26F3D66E25482683007D9136 /* IMData.m in Sources */,
+				26F3EA3025F1D3B9001CF13D /* Comment.swift in Sources */,
 				263A66CA257E351700F35714 /* CheckInAPI.swift in Sources */,
 				263BC22D254987770081F5DF /* BeautyViewController.m in Sources */,
 				2643EB3A2500AD7D00FBBE49 /* AppDelegate.swift in Sources */,
@@ -2215,6 +2242,7 @@
 				2604D4E125B5752400A864C1 /* BannerAPI.swift in Sources */,
 				267B98722505E1AC0008C81B /* WeChat.swift in Sources */,
 				26377FBE25303D2200D5A03D /* ConversationActionViewController.swift in Sources */,
+				26F3EA3225F209F5001CF13D /* CommentFooterView.swift in Sources */,
 				269DED1B254AAC4D000AD5D9 /* GiftViewController.m in Sources */,
 				26F8893A25318681001A14F2 /* DynamicViewController.swift in Sources */,
 				267B98752505E1AC0008C81B /* PlatformAuthorization.swift in Sources */,

@@ -550,6 +550,17 @@ extension VipType: CustomStringConvertible {
         }
     }
     
+    var nameTextColor: UIColor {
+        switch self {
+        case.empty:
+            return UIColor(hexString: "#999999")
+        default:
+            return UIColor(hexString: "#F1AC23")
+        }
+    }
+    
+    
+    
     var backgroundColor: UIColor? {
         switch self {
         case.empty:

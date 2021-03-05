@@ -656,7 +656,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MNE-Xh-ipc">
                                 <rect key="frame" x="30" y="273" width="354" height="350"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ruO-Je-agJ">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ruO-Je-agJ" userLabel="Close Button">
                                         <rect key="frame" x="328" y="10" width="16" height="22"/>
                                         <state key="normal" image="modal-close"/>
                                         <connections>

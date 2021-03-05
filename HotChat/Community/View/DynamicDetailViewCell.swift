@@ -82,12 +82,15 @@ class DynamicDetailViewCell: UITableViewCell {
         vipButton.setVIP(dynamic.userInfo.vipType)        
         likeButton.setTitle(dynamic.zanNum.description, for: .normal)
         likeButton.isSelected = dynamic.isSelfZan
+        if dynamic.commentCount > 0 {
+            commentButton.setTitle(dynamic.commentCount.description, for: .normal)
+        }
+        else {
+            commentButton.setTitle("评论", for: .normal)
+        }
+        
         giveButton.setTitle(dynamic.giftNum.description, for: .normal)
         dateLabel.text = dynamic.timeFormat
-        
-        let isSelf = LoginManager.shared.user!.userId == dynamic.userInfo.userId
-        
-        commentButton.alpha = isSelf ? 0 : 1
         
         collectionViewHeightConstraint.constant = collectionViewHeight()
         

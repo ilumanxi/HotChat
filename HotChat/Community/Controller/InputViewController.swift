@@ -69,6 +69,7 @@ class InputViewController: UIViewController {
         return inputBar
     }
     
+    let onSend = Delegate<String, Void>()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -84,6 +85,8 @@ class InputViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        
+        inputBar.textField.addTarget(self, action: #selector(send(sender:forEvent:)), for: .editingDidEndOnExit)
     }
         
     
@@ -94,11 +97,13 @@ class InputViewController: UIViewController {
         }
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        self.inputBar.textField.becomeFirstResponder()
-//    }
-    
+   @objc func send(sender: UITextField, forEvent event: UIEvent) {
+        
+        dismiss(animated: true) { [weak self] in
+            self?.onSend.call(sender.text ?? "")
+        }
+    }
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         dismiss(animated: true, completion: nil)

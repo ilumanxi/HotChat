@@ -391,6 +391,7 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
         
         cell.onCommentTapped.delegate(on: self) { (self, _) in
             let vc = CommentsViewController()
+            vc.dynamic = dynamic
             self.presentPanModal(vc)
         }
         
