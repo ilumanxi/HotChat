@@ -85,7 +85,7 @@ enum OnlineStatus: Int, HandyJSONEnum {
     case offline = 0
     /// 在线
     case online = 1
-    /// 直播中
+    /// 直播中/通话中
     case living = 2
 }
 

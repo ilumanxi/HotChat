@@ -28,8 +28,13 @@ class IndicatorHolderView: UIView {}
 
 extension IndicatorDisplay where Self: UIViewController {
     
+    
+    var containerView: UIView {
+        return view
+    }
+    
     func show(_ error: Error) {
-        show(error, in: view)
+        show(error, in: containerView)
     }
     
     func show(_ error: Error, in view: UIView) {
@@ -37,7 +42,7 @@ extension IndicatorDisplay where Self: UIViewController {
             return
         }
         
-        show(message(error), in: view)
+        show(message(error), in: containerView)
     }
     
     private func shouldHandler(_ error: Error) -> Bool {
@@ -58,31 +63,31 @@ extension IndicatorDisplay where Self: UIViewController {
     }
     
     func show(_ message: String?) {
-        show(message, in: view)
+        show(message, in: containerView)
     }
     
     func showIndicator(_ message: String? = nil) {
-       showIndicator(message, in: view)
+       showIndicator(message, in: containerView)
     }
     
     func hideIndicator() {
-        hideIndicator(from: view)
+        hideIndicator(from: containerView)
     }
     
     func showMessageOnWindow(_ error: Error) {
-        show(error, in: UIApplication.shared.keyWindow ?? view)
+        show(error, in: UIApplication.shared.keyWindow ?? containerView)
     }
     
     func showMessageOnWindow(_ message: String?) {
-        show(message, in: UIApplication.shared.keyWindow ?? view)
+        show(message, in: UIApplication.shared.keyWindow ?? containerView)
     }
     
     func showIndicatorOnWindow(_ message: String? = nil) {
-        showIndicator(message, in: UIApplication.shared.keyWindow ?? view)
+        showIndicator(message, in: UIApplication.shared.keyWindow ?? containerView)
     }
     
     func hideIndicatorFromWindow() {
-        hideIndicator(from: UIApplication.shared.keyWindow ?? view)
+        hideIndicator(from: UIApplication.shared.keyWindow ?? containerView)
     }
     
     func show(_ message: String?, in view: UIView) {
@@ -100,7 +105,7 @@ extension IndicatorDisplay where Self: UIViewController {
     }
     
     func showOrHideIndicator(loadingState: LoadingState, text: String? = nil, image: UIImage? = nil) {
-        showOrHideIndicator(loadingState: loadingState, in: view, text: text, image: image)
+        showOrHideIndicator(loadingState: loadingState, in: containerView, text: text, image: image)
     }
     
     
@@ -140,7 +145,7 @@ extension IndicatorDisplay where Self: UIViewController {
             return
         }
         let holderView = findHolderView ?? IndicatorHolderView()
-        holderView.backgroundColor = .groupTableViewBackground
+        holderView.backgroundColor = view.backgroundColor
         
         switch loadingState {
         case .initial, .loadingContent, .refreshingContent:

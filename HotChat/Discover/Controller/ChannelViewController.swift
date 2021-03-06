@@ -276,6 +276,9 @@ extension ChannelViewController: UICollectionViewDataSource, UICollectionViewDel
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         
+        if banners.isEmpty {
+            return .zero
+        }
         return CGSize(width: collectionView.frame.width, height: headerViewHeight)
     }
     

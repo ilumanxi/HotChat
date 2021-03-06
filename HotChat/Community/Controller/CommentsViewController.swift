@@ -15,7 +15,12 @@ import SPAlertController
     
 class CommentsViewController: UIViewController, IndicatorDisplay {
     
+    var containerView: UIView {
+        return wrapView
+    }
     
+    
+    @IBOutlet weak var wrapView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
@@ -29,7 +34,7 @@ class CommentsViewController: UIViewController, IndicatorDisplay {
     var state: LoadingState = .initial {
         didSet {
             if isViewLoaded {
-                showOrHideIndicator(loadingState: state)
+                showOrHideIndicator(loadingState: state, in: containerView)
             }
         }
     }
@@ -107,9 +112,11 @@ class CommentsViewController: UIViewController, IndicatorDisplay {
         }
         else if parent != nil && child == nil { //动态评论回复
             parent?.nextList.append( data)
+            parent?.childCommentCount += 1
         }
         else if parent != nil && child != nil { //动态评论回复的评论进行回复
             parent?.nextList.append(data)
+            parent?.childCommentCount += 1
         }
         else {
             fatalError()
@@ -375,10 +382,13 @@ extension CommentsViewController: UITableViewDataSource {
         
         let alertController = SPAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        alertController.addAction(SPAlertAction(title: "删除", style: .destructive, handler: {  [weak self] _ in
-            self?.delete(parent: parent, child: child)
-        }))
+        let comment = child ?? parent
         
+        if  comment.userInfo.userId == LoginManager.shared.user!.userId {
+            alertController.addAction(SPAlertAction(title: "删除", style: .destructive, handler: {  [weak self] _ in
+                self?.delete(parent: parent, child: child)
+            }))
+        }
         alertController.addAction(SPAlertAction(title: "举报", style: .default, handler: { [weak self] _ in
             let vc = CommentReportViewController()
             vc.onSubmit.delegate(on: self!) { (self, content) in
@@ -417,6 +427,7 @@ extension CommentsViewController: UITableViewDataSource {
                 
                 if let childComment = child, let index = parent.nextList.firstIndex(of: childComment) {
                     parent.nextList.remove(at: index)
+                    parent.childCommentCount -= 1
                 }
                 else if let index = self?.data.firstIndex(of: parent) {
                     self?.data.remove(at: index)

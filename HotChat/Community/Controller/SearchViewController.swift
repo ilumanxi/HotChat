@@ -244,9 +244,9 @@ extension OnlineStatus {
     var color: UIColor? {
         switch self {
         case .online:
-           return UIColor(hexString: "#1AD36E")
+           return UIColor(hexString: "#22DC09")
         case .living:
-            return UIColor(hexString: "#FF788C")
+            return UIColor(hexString: "#F8AC27")
         case .offline:
             return nil
         }

@@ -36,6 +36,7 @@ class InputBarView: UIView {
         textField.placeholder = "想对TA说的话..."
         textField.returnKeyType = .send
         textField.enablesReturnKeyAutomatically = true
+        textField.font = .systemFont(ofSize: 12)
         
         super.init(frame: frame)
         layoutMargins = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
