@@ -486,9 +486,6 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="IAH-SS-GPb" kind="show" id="y77-cG-2mq"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="riV-b1-oNq" imageView="Xjv-eW-b7P" rowHeight="80" style="IBUITableViewCellStyleDefault" id="pgE-Rt-WCb">
                                         <rect key="frame" x="0.0" y="220" width="414" height="80"/>
@@ -537,16 +534,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jKM-oP-uqu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1328" y="747"/>
-        </scene>
-        <!--PairsViewController-->
-        <scene sceneID="BOu-W0-oex">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Community" referencedIdentifier="PairsViewController" id="IAH-SS-GPb" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="MqT-8Q-6Ka"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FHz-k6-t9y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2160" y="428"/>
         </scene>
         <!--想认识你的人-->
         <scene sceneID="69N-PI-SAt">

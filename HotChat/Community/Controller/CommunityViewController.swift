@@ -117,7 +117,7 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     }
     
     @objc func pairc() {
-        let vc = PairsViewController.loadFromStoryboard()
+        let vc = PairsViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     

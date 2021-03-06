@@ -51,7 +51,7 @@ enum NavigationMap {
     
     
     navigator.register(HotChatURLString(path: "jump/chatmatch")) { url, values, context in
-        return  PairsViewController.loadFromStoryboard()
+        return  PairsViewController()
     }
 
     navigator.register(HotChatURLString(path: "jump/editIntroduction")) { url, values, context in

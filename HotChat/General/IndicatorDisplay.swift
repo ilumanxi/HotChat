@@ -28,13 +28,8 @@ class IndicatorHolderView: UIView {}
 
 extension IndicatorDisplay where Self: UIViewController {
     
-    
-    var containerView: UIView {
-        return view
-    }
-    
     func show(_ error: Error) {
-        show(error, in: containerView)
+        show(error, in: view)
     }
     
     func show(_ error: Error, in view: UIView) {
@@ -42,7 +37,7 @@ extension IndicatorDisplay where Self: UIViewController {
             return
         }
         
-        show(message(error), in: containerView)
+        show(message(error), in: view)
     }
     
     private func shouldHandler(_ error: Error) -> Bool {
@@ -63,31 +58,31 @@ extension IndicatorDisplay where Self: UIViewController {
     }
     
     func show(_ message: String?) {
-        show(message, in: containerView)
+        show(message, in: view)
     }
     
     func showIndicator(_ message: String? = nil) {
-       showIndicator(message, in: containerView)
+       showIndicator(message, in: view)
     }
     
     func hideIndicator() {
-        hideIndicator(from: containerView)
+        hideIndicator(from: view)
     }
     
     func showMessageOnWindow(_ error: Error) {
-        show(error, in: UIApplication.shared.keyWindow ?? containerView)
+        show(error, in: UIApplication.shared.keyWindow ?? view)
     }
     
     func showMessageOnWindow(_ message: String?) {
-        show(message, in: UIApplication.shared.keyWindow ?? containerView)
+        show(message, in: UIApplication.shared.keyWindow ?? view)
     }
     
     func showIndicatorOnWindow(_ message: String? = nil) {
-        showIndicator(message, in: UIApplication.shared.keyWindow ?? containerView)
+        showIndicator(message, in: UIApplication.shared.keyWindow ?? view)
     }
     
     func hideIndicatorFromWindow() {
-        hideIndicator(from: UIApplication.shared.keyWindow ?? containerView)
+        hideIndicator(from: UIApplication.shared.keyWindow ?? view)
     }
     
     func show(_ message: String?, in view: UIView) {
@@ -105,7 +100,7 @@ extension IndicatorDisplay where Self: UIViewController {
     }
     
     func showOrHideIndicator(loadingState: LoadingState, text: String? = nil, image: UIImage? = nil) {
-        showOrHideIndicator(loadingState: loadingState, in: containerView, text: text, image: image)
+        showOrHideIndicator(loadingState: loadingState, in: view, text: text, image: image)
     }
     
     

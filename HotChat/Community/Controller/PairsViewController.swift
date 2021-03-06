@@ -104,7 +104,7 @@ class VerticalButton: UIControl {
     }
 }
 
-//@IBDesignable
+@IBDesignable
 class CircleView: UIView {
     
     

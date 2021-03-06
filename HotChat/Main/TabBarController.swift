@@ -54,7 +54,7 @@ class TabBarController: UITabBarController, IndicatorDisplay {
         
         guard let navigationController = selectedViewController as? UINavigationController else { return }
         
-        let vc = PairsViewController.loadFromStoryboard()
+        let vc = PairsViewController()
         navigationController.pushViewController(vc, animated: true)
     }
     

@@ -97,6 +97,15 @@ class ConversationActionViewController: UITableViewController, StoryboardCreate 
         
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.row == 1 {
+            
+            let vc = PairsViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     
     @IBAction func settingButtonTapped(_ sender: Any) {
         let url = URL(string: UIApplication.openSettingsURLString)!
