@@ -27,13 +27,17 @@ class CommentsViewController: UIViewController, IndicatorDisplay {
     
     var dynamic: Dynamic!
     
-    var data: [Comment] = []
+    var data: [Comment] = [] {
+        didSet {
+            state = data.isEmpty ? .noContent : .contentLoaded
+        }
+    }
     
     let API = Request<DynamicAPI>()
     
     var state: LoadingState = .initial {
         didSet {
-            if isViewLoaded {
+            if isViewLoaded  && state != oldValue {
                 showOrHideIndicator(loadingState: state, in: containerView)
             }
         }
