@@ -122,7 +122,9 @@ class CommentsViewController: UIViewController, IndicatorDisplay {
     
     @objc func close(_ sender: Any) {
         
-        presentedViewController?.dismiss(animated: true, completion: nil)
+        presentedViewController?.dismiss(animated: true, completion: {
+            self.panModalSetNeedsLayoutUpdate()
+        })
     }
     
     func handle(data: Comment, parent: Comment?, child: Comment?) {
