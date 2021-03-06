@@ -236,7 +236,7 @@ class UserInfoViewController: AquamanPageViewController, LoadingStateType, Indic
                 maker.bottom.equalToSuperview().offset(-34)
             }
             
-            additionalSafeAreaInsets = UIEdgeInsets(top: 0, left: 0, bottom: 48, right: 0)
+            additionalSafeAreaInsets = UIEdgeInsets(top: 0, left: 0, bottom: 34 + 48, right: 0)
         }
         else {
             sendButton = GradientButton(type: .system)
@@ -256,7 +256,7 @@ class UserInfoViewController: AquamanPageViewController, LoadingStateType, Indic
                 maker.size.equalTo(CGSize(width: 92, height: 34))
             }
             
-            additionalSafeAreaInsets = UIEdgeInsets(top: 0, left: 0, bottom: 34, right: 0)
+            additionalSafeAreaInsets = UIEdgeInsets(top: 0, left: 0, bottom: 34 + 34, right: 0)
         }
 
     }

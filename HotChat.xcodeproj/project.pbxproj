@@ -225,6 +225,8 @@
 		26B4E05E2564FCBA004EDCFE /* AuthenticationGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B4E05C2564FCBA004EDCFE /* AuthenticationGuideViewController.swift */; };
 		26B4E05F2564FCBA004EDCFE /* AuthenticationGuideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26B4E05D2564FCBA004EDCFE /* AuthenticationGuideViewController.xib */; };
 		26B86EB82570EAD700CAC5AE /* TUIMessageDataProviderService+Gift.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B86EB72570EAD700CAC5AE /* TUIMessageDataProviderService+Gift.m */; };
+		26BA6A0D25F365E60002C3DE /* VipBuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BA6A0B25F365E60002C3DE /* VipBuyViewController.swift */; };
+		26BA6A0E25F365E60002C3DE /* VipBuyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26BA6A0C25F365E60002C3DE /* VipBuyViewController.xib */; };
 		26BA8CF025C29DAD00E42479 /* PairsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BA8CEF25C29DAC00E42479 /* PairsViewController.swift */; };
 		26BB187D2522F5810019BBFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2643EB412500AD7D00FBBE49 /* Main.storyboard */; };
 		26BDBA1125F32FD500DE3780 /* PairsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26BDBA1025F32FD500DE3780 /* PairsViewController.xib */; };
@@ -659,6 +661,8 @@
 		26B4E05D2564FCBA004EDCFE /* AuthenticationGuideViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthenticationGuideViewController.xib; sourceTree = "<group>"; };
 		26B86EB62570EAD700CAC5AE /* TUIMessageDataProviderService+Gift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TUIMessageDataProviderService+Gift.h"; sourceTree = "<group>"; };
 		26B86EB72570EAD700CAC5AE /* TUIMessageDataProviderService+Gift.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TUIMessageDataProviderService+Gift.m"; sourceTree = "<group>"; };
+		26BA6A0B25F365E60002C3DE /* VipBuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VipBuyViewController.swift; sourceTree = "<group>"; };
+		26BA6A0C25F365E60002C3DE /* VipBuyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VipBuyViewController.xib; sourceTree = "<group>"; };
 		26BA8CEF25C29DAC00E42479 /* PairsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairsViewController.swift; sourceTree = "<group>"; };
 		26BB186F2522F4B50019BBFD /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		26BDBA1025F32FD500DE3780 /* PairsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PairsViewController.xib; sourceTree = "<group>"; };
@@ -1508,6 +1512,8 @@
 				26C500DC25F0BED800CF37C0 /* InputViewController.swift */,
 				260ABAEE25F2431E006A01C0 /* CommentReportViewController.swift */,
 				260ABAEF25F2431E006A01C0 /* CommentReportViewController.xib */,
+				26BA6A0B25F365E60002C3DE /* VipBuyViewController.swift */,
+				26BA6A0C25F365E60002C3DE /* VipBuyViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1858,6 +1864,7 @@
 				263A6C3C25C2DDEB00FD43B6 /* pair.svga in Resources */,
 				267955042507637600A72954 /* Community.storyboard in Resources */,
 				26C81EEE25480B1900C1D563 /* GiftViewCell.xib in Resources */,
+				26BA6A0E25F365E60002C3DE /* VipBuyViewController.xib in Resources */,
 				26D0034F25A6E97C00168796 /* UserInformationViewController.xib in Resources */,
 				26E4C68525930F89005EAAC3 /* AccountDestructionController.xib in Resources */,
 				26597676257886BB00E4B6A2 /* GreetingsAddedView.xib in Resources */,
@@ -2196,6 +2203,7 @@
 				26CB6D4425515D6B00A9F4DD /* BDFaceRemindView.m in Sources */,
 				2637D875255B8E5300020E98 /* BlacklistController.swift in Sources */,
 				2682974B2511B05300949C7F /* IndicatorDisplay.swift in Sources */,
+				26BA6A0D25F365E60002C3DE /* VipBuyViewController.swift in Sources */,
 				26AC1E4C25060D27003EFB44 /* LoginViewController.swift in Sources */,
 				2694581A253FF86000EBCABB /* DestructiveViewCell.swift in Sources */,
 				2643EBA92500B04100FBBE49 /* UserInfoMediaCell.swift in Sources */,

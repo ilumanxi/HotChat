@@ -100,10 +100,29 @@ class CommentsViewController: UIViewController, IndicatorDisplay {
                 self?.hideIndicator()
             }, onError: { [weak self] error in
                 self?.hideIndicator()
-                self?.show(error)
-                
+                if error._code == -1 {
+                    let vc = VipBuyViewController()
+                    vc.onBuy.delegate(on: self!) { (self, _) in
+                        
+                        let vc = WebViewController.H5(path: "h5/vip")
+                        vc.hbd_barAlpha = 0
+                        vc.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "close-white"), style: .done, target: self, action: #selector(self.close(_:)))
+                        let nav = BaseNavigationController(rootViewController: vc)
+                        nav.modalPresentationStyle = .fullScreen
+                        self.present(nav, animated: true, completion: nil)
+                    }
+                    self?.present(vc, animated: true, completion: nil)
+                }
+                else {
+                    self?.show(error)
+                }
             })
             .disposed(by: rx.disposeBag)
+    }
+    
+    @objc func close(_ sender: Any) {
+        
+        presentedViewController?.dismiss(animated: true, completion: nil)
     }
     
     func handle(data: Comment, parent: Comment?, child: Comment?) {

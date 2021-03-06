@@ -235,7 +235,7 @@ extension DynamicDetailViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if dynamic.photoList.count == 4 {
             var adjustSectionInset =  sectionInset
-            adjustSectionInset.right += itemSize().width + horizontalSpacing
+            adjustSectionInset.right += itemSize().width + horizontalSpacing - 0.1
             return adjustSectionInset
         }
         return sectionInset

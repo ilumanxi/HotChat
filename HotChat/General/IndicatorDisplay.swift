@@ -140,7 +140,7 @@ extension IndicatorDisplay where Self: UIViewController {
             return
         }
         let holderView = findHolderView ?? IndicatorHolderView()
-        holderView.backgroundColor = view.backgroundColor
+        holderView.backgroundColor = view.backgroundColor ?? UIColor.groupTableViewBackground
         
         switch loadingState {
         case .initial, .loadingContent, .refreshingContent:

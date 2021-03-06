@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VipBuyViewController" customModule="HotChat" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T3E-7a-l4A">
+                    <rect key="frame" x="51" y="284" width="312" height="328.5"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vip-buy" translatesAutoresizingMaskIntoConstraints="NO" id="6iI-gH-Qfv">
+                            <rect key="frame" x="113.5" y="25" width="85" height="79"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="富豪等级不足5级" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7rk-Vd-kUX">
+                            <rect key="frame" x="94" y="129" width="124" height="20"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="（开通会员/富豪等级达到5级、即可评论动态）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Zh-md-B8F">
+                            <rect key="frame" x="28" y="160" width="256.5" height="14.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tXo-J0-V0E" customClass="GradientButton" customModule="HotChat" customModuleProvider="target">
+                            <rect key="frame" x="20" y="200.5" width="272" height="48"/>
+                            <color key="backgroundColor" red="0.94901960784313721" green="0.63137254901960782" blue="0.062745098039215685" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="tyb-xs-YHY"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="去开通会员"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="colorsString" value="#F9C569,#F2A110"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="24"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="buyButtonTapped:" destination="-1" eventType="touchUpInside" id="AWG-5Z-XDS"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wHH-6T-fQL">
+                            <rect key="frame" x="141" y="273.5" width="30" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="取消">
+                                <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="cancelButtonTapped:" destination="-1" eventType="touchUpInside" id="nUz-46-22c"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="tXo-J0-V0E" firstAttribute="top" secondItem="3Zh-md-B8F" secondAttribute="bottom" constant="26" id="1p4-5m-qIc"/>
+                        <constraint firstAttribute="height" constant="328.5" id="2fk-aG-D2r"/>
+                        <constraint firstItem="3Zh-md-B8F" firstAttribute="top" secondItem="7rk-Vd-kUX" secondAttribute="bottom" constant="11" id="6Si-i4-WfL"/>
+                        <constraint firstItem="7rk-Vd-kUX" firstAttribute="top" secondItem="6iI-gH-Qfv" secondAttribute="bottom" constant="25" id="7ZI-Zc-OnK"/>
+                        <constraint firstAttribute="trailing" secondItem="tXo-J0-V0E" secondAttribute="trailing" constant="20" id="7fm-Ef-ho3"/>
+                        <constraint firstItem="7rk-Vd-kUX" firstAttribute="centerX" secondItem="T3E-7a-l4A" secondAttribute="centerX" id="HOi-xn-eM4"/>
+                        <constraint firstItem="6iI-gH-Qfv" firstAttribute="top" secondItem="T3E-7a-l4A" secondAttribute="top" constant="25" id="PNd-AO-TRT"/>
+                        <constraint firstAttribute="bottom" secondItem="wHH-6T-fQL" secondAttribute="bottom" constant="25" id="RYo-bZ-Gp5"/>
+                        <constraint firstItem="3Zh-md-B8F" firstAttribute="centerX" secondItem="T3E-7a-l4A" secondAttribute="centerX" id="UB1-iE-fY8"/>
+                        <constraint firstItem="wHH-6T-fQL" firstAttribute="top" secondItem="tXo-J0-V0E" secondAttribute="bottom" constant="25" id="lIg-t2-3Gn"/>
+                        <constraint firstItem="tXo-J0-V0E" firstAttribute="leading" secondItem="T3E-7a-l4A" secondAttribute="leading" constant="20" id="naM-gp-cc9"/>
+                        <constraint firstAttribute="width" constant="312" id="s6q-A2-nco"/>
+                        <constraint firstItem="6iI-gH-Qfv" firstAttribute="centerX" secondItem="T3E-7a-l4A" secondAttribute="centerX" id="we4-Wa-z04"/>
+                        <constraint firstItem="wHH-6T-fQL" firstAttribute="centerX" secondItem="T3E-7a-l4A" secondAttribute="centerX" id="yId-8d-1Cu"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="T3E-7a-l4A" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Uxg-rV-nVR"/>
+                <constraint firstItem="T3E-7a-l4A" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="eac-4q-ya2"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="103.79464285714285"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="vip-buy" width="85" height="79"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
