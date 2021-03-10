@@ -16,8 +16,24 @@ import Pageboy
 
 
 extension TridentMenuView {
+    
+    static var TridentMenuViewLayoutSize = "TridentMenuViewLayoutSize"
+    
+    var layoutSize: CGSize {
+        get {
+            guard let size = objc_getAssociatedObject(self, &TridentMenuView.TridentMenuViewLayoutSize) as? CGSize else {
+                return  UIView.layoutFittingExpandedSize
+            }
+            return size
+        }
+        set {
+            objc_setAssociatedObject(self, &TridentMenuView.TridentMenuViewLayoutSize, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+    
+    
     public override var intrinsicContentSize: CGSize {
-        return UIView.layoutFittingExpandedSize
+        return layoutSize
     }
 }
 
@@ -99,8 +115,10 @@ class DiscoverViewController: TabmanViewController, LoadingStateType, IndicatorD
         // Set PageboyViewControllerDataSource dataSource to configure page view controller.
         dataSource = self
         
-        let searchItem = UIBarButtonItem(image: UIImage(named: "common-search"), style: .done, target: self, action: #selector(pushSearch))
-        navigationItem.rightBarButtonItem = searchItem
+        let topItem = UIBarButtonItem(image: UIImage(named: "discover-top"), style: .plain, target: self, action: #selector(pushTop))
+        
+        let searchItem = UIBarButtonItem(image: UIImage(named: "common-search")?.original, style: .plain, target: self, action: #selector(pushSearch))
+        navigationItem.rightBarButtonItems = [topItem, searchItem]
         
         // Create a bar
         let bar = TMBarView.ButtonBar()
@@ -146,6 +164,11 @@ class DiscoverViewController: TabmanViewController, LoadingStateType, IndicatorD
     
     @objc private func pushSearch() {
         let vc = SearchViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc private func pushTop() {
+        let vc = TopController()
         navigationController?.pushViewController(vc, animated: true)
     }
     

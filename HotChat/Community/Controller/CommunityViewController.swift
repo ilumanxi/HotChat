@@ -21,6 +21,7 @@ import YBImageBrowser
 
 
 
+
 class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisplay {
     
     func showOrHideIndicator(loadingState: LoadingState, text: String? = nil, image: UIImage? = nil) {
@@ -66,8 +67,12 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     
     private var isShowCheckIn = true
     
+    let playerManager = PlayerManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        playerManager.listPlayer.volume = 0
         
         GiftManager.shared().getGiftList { _ in
         }
@@ -232,16 +237,30 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
         }
        
         endRefreshing(noContent: !page.hasNext)
+        
+        if page.page == 1 {
+            scrollViewDidEndDecelerating(self.tableView)
+        }
     }
     
     func refreshData(_ data: [Dynamic]) {
         if !data.isEmpty {
             dynamics = data
+            self.playerManager.clear()
+            
+            let videos = data.filter {
+                $0.type == .video
+            }
+            self.playerManager.add(playList: videos)
         }
     }
     
     func appendData(_ data: [Dynamic]) {
         dynamics = dynamics + data
+        let videos = data.filter {
+            $0.type == .video
+        }
+        self.playerManager.add(playList: videos)
     }
     
     func handlerError(_ error: Error) {
@@ -339,11 +358,6 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
 extension CommunityViewController: UITableViewDataSource, UITableViewDelegate {
     
     
-
-    
-    
-
-    
     func like(_ dynamic: Dynamic)  {
         
         dynamicAPI.request(.zan(dynamic.dynamicId), type: Response<[String : Any]>.self)
@@ -363,6 +377,122 @@ extension CommunityViewController: UITableViewDataSource, UITableViewDelegate {
                 Log.print(error)
             })
             .disposed(by: rx.disposeBag)
+        
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if decelerate == false {
+            playVideo()
+        }
+    }
+    
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        playVideo()
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
+      
+        playVideo()
+    }
+    
+    func playVideo() {
+        
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(findVideo), object: nil)
+        perform(#selector(findVideo), with: nil, afterDelay: 1)
+    }
+    
+    @objc func findVideo() {
+        let visibleCells = tableView.visibleCells
+        
+        if visibleCells.isEmpty {
+            self.playerManager.stop()
+            return
+        }
+        
+        let indexPaths =  visibleCells.compactMap { [unowned self] in
+            self.tableView.indexPath(for: $0)
+        }
+        
+        
+        let videoIndexPaths = indexPaths.filter {[unowned self] indexPath in
+           return self.dynamics[indexPath.row].type == .video
+        }
+        
+        let playFrame = self.view.frame.inset(by: tableView.adjustedContentInset)
+        
+        var activateVideoCells: [DynamicDetailViewCell] = []
+        
+        for indexPath in videoIndexPaths {
+            
+            if let videoCell = tableView.cellForRow(at: indexPath) as? DynamicDetailViewCell, let videoView =  videoCell.collectionView.visibleCells.first {
+                
+                let videoViewFrame = videoView.convert(videoView.bounds, to: self.view)
+                if playFrame.contains(videoViewFrame) {
+                    activateVideoCells.append(videoCell)
+                }
+            }
+        }
+        
+        if activateVideoCells.isEmpty {
+            self.playerManager.stop()
+            return
+        }
+        
+        
+        let videoCells = activateVideoCells.sorted {
+            $0.frame .minY < $1.frame.minY
+        }
+       
+        
+        let playCell = videoCells.first!
+  
+        guard let playIndexPath = tableView.indexPath(for: playCell) else {
+            return
+        }
+        
+        let item = self.dynamics[playIndexPath.row]
+        
+        
+        guard let index = self.playerManager.items.firstIndex (where: { $0.uid == item.uid }) else { return  }
+        
+        if self.playerManager.currentIndex == index {
+            return
+        }
+        
+        let containerView = playCell.collectionView.visibleCells.first!
+        
+        self.playerManager.removePlayView()
+        
+        self.playerManager.addPlayView(in: containerView)
+        self.playerManager.play(at: index)
+       
+
+        
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        let data = self.dynamics[indexPath.row]
+        if data.type == .image {
+            return
+        }
+        
+        guard let cell = tableView.cellForRow(at: indexPath) as? DynamicDetailViewCell else {
+            return
+        }
+        
+        
+
+        
+        guard let playCell = cell.collectionView.visibleCells.first else { return  }
+        
+        self.playerManager.addPlayView(in: playCell)
+        
+        self.playerManager.play(at: 0)
+        
         
     }
     

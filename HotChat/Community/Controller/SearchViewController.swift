@@ -235,7 +235,7 @@ extension OnlineStatus {
         case .online:
             return "在线"
         case .living:
-            return "直播中"
+            return "忙碌"
         case .offline:
             return "离线"
         }

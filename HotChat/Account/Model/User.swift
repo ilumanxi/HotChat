@@ -247,6 +247,18 @@ enum VipType: Int, HandyJSONEnum {
         return sex.rawValue
     }
     
+    ///  魅力/财富
+    var energy: String = ""
+    
+    var rankId: String = ""
+    
+    var preEnergy: String = ""
+    
+    var isShow: Bool = false
+    
+    //1在榜上 2不在榜上
+    var rankStatus: Int = 2
+    
     /// 访客记录数量
     var visitorNum: Int = 0
     

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26039E1A25F5F9F700A162E3 /* PlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26039E1925F5F9F700A162E3 /* PlayerManager.swift */; };
 		2604D4E125B5752400A864C1 /* BannerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2604D4E025B5752400A864C1 /* BannerAPI.swift */; };
 		2605A4762513187900017241 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2605A4752513187900017241 /* UIImageExtensions.swift */; };
 		2607319B2536DD1B00B1093C /* ReportAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2607319A2536DD1B00B1093C /* ReportAPI.swift */; };
@@ -15,6 +16,7 @@
 		260ABAF125F2431E006A01C0 /* CommentReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 260ABAEF25F2431E006A01C0 /* CommentReportViewController.xib */; };
 		260B96112521F15C00767076 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260B96102521F15C00767076 /* Authentication.swift */; };
 		260B96162521F2F400767076 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260B96152521F2F400767076 /* AuthenticationViewController.swift */; };
+		260C467825F870BE0033915C /* TopController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260C467725F870BE0033915C /* TopController.swift */; };
 		26137CCB2590673900DCBAD0 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26137CCA2590673900DCBAD0 /* TabBar.swift */; };
 		2615C9F8255E8B0C009B89F4 /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2615C9F7255E8B0C009B89F4 /* PlaceholderTextView.swift */; };
 		2617D3EB25C54478009AAE16 /* ImageMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2617D3EA25C54478009AAE16 /* ImageMessageCell.m */; };
@@ -123,6 +125,10 @@
 		264D15E0258B415300756EAF /* GreetingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 264D15DF258B415300756EAF /* GreetingViewController.xib */; };
 		264DEA142552512C00AD97DE /* GiftManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 264DEA132552512C00AD97DE /* GiftManager.m */; };
 		264E6D8E25B2CE7900C97CD8 /* ChannelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 264E6D8D25B2CE7900C97CD8 /* ChannelCell.xib */; };
+		2651FE1625F759D300A9F2E6 /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2651FE1425F759D300A9F2E6 /* TopViewController.swift */; };
+		2651FE1725F759D300A9F2E6 /* TopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2651FE1525F759D300A9F2E6 /* TopViewController.xib */; };
+		2651FE1925F7665A00A9F2E6 /* TopHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2651FE1825F7665A00A9F2E6 /* TopHeaderView.swift */; };
+		2651FE1B25F7666A00A9F2E6 /* TopHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2651FE1A25F7666A00A9F2E6 /* TopHeaderView.xib */; };
 		2656F30E254FAC0500552611 /* GiftReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2656F30C254FAC0500552611 /* GiftReminderViewController.m */; };
 		2656F30F254FAC0500552611 /* GiftReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2656F30D254FAC0500552611 /* GiftReminderViewController.xib */; };
 		2656F317254FDB5000552611 /* IMAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2656F316254FDB5000552611 /* IMAPI.swift */; };
@@ -149,7 +155,11 @@
 		2668CF0925931B3D00C851F6 /* LogoutAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2668CF0825931B3D00C851F6 /* LogoutAPI.swift */; };
 		266BDB6925EF864600467611 /* UserCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266BDB6725EF864600467611 /* UserCardCell.swift */; };
 		266BDB6A25EF864600467611 /* UserCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 266BDB6825EF864600467611 /* UserCardCell.xib */; };
+		266DA37B25F8C96D00BE4E74 /* TopViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266DA37925F8C96D00BE4E74 /* TopViewCell.swift */; };
+		266DA37C25F8C96D00BE4E74 /* TopViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 266DA37A25F8C96D00BE4E74 /* TopViewCell.xib */; };
 		266E3C57258B737E00781E91 /* bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 266E3C56258B737E00781E91 /* bell.mp3 */; };
+		266F28F625F8AF8000FD559E /* TopAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266F28F525F8AF8000FD559E /* TopAPI.swift */; };
+		266F28F825F8B7C700FD559E /* TopList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266F28F725F8B7C700FD559E /* TopList.swift */; };
 		26710DEF25B28B33000F41BC /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26710DEE25B28B33000F41BC /* GradientButton.swift */; };
 		26710DF425B293BE000F41BC /* WalletProducItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26710DF225B293BE000F41BC /* WalletProducItemCell.swift */; };
 		26710DF525B293BE000F41BC /* WalletProducItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26710DF325B293BE000F41BC /* WalletProducItemCell.xib */; };
@@ -220,6 +230,9 @@
 		26AC1E5425062D62003EFB44 /* LegalLiabilityToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AC1E5325062D62003EFB44 /* LegalLiabilityToolBar.swift */; };
 		26AE7C2F2520309F00B55318 /* LabelViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AE7C2E2520309F00B55318 /* LabelViewCell.swift */; };
 		26AE7C342520346500B55318 /* LabelViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26AE7C332520346500B55318 /* LabelViewCell.xib */; };
+		26B3ADD425F7495200D7DFC4 /* TwicketSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B3ADCF25F7495200D7DFC4 /* TwicketSegmentedControl.swift */; };
+		26B3ADD525F7495200D7DFC4 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B3ADD025F7495200D7DFC4 /* Palette.swift */; };
+		26B3ADD625F7495200D7DFC4 /* UIViewShadowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B3ADD125F7495200D7DFC4 /* UIViewShadowExtension.swift */; };
 		26B4E0592564EB34004EDCFE /* Upgrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B4E0582564EB34004EDCFE /* Upgrade.swift */; };
 		26B4E05B2564ECBB004EDCFE /* UpgradeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B4E05A2564ECBB004EDCFE /* UpgradeAPI.swift */; };
 		26B4E05E2564FCBA004EDCFE /* AuthenticationGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B4E05C2564FCBA004EDCFE /* AuthenticationGuideViewController.swift */; };
@@ -407,6 +420,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		26039E1925F5F9F700A162E3 /* PlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerManager.swift; sourceTree = "<group>"; };
 		2604D4E025B5752400A864C1 /* BannerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAPI.swift; sourceTree = "<group>"; };
 		2605A4752513187900017241 /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		2607319A2536DD1B00B1093C /* ReportAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAPI.swift; sourceTree = "<group>"; };
@@ -415,6 +429,7 @@
 		260ABAEF25F2431E006A01C0 /* CommentReportViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentReportViewController.xib; sourceTree = "<group>"; };
 		260B96102521F15C00767076 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		260B96152521F2F400767076 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
+		260C467725F870BE0033915C /* TopController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopController.swift; sourceTree = "<group>"; };
 		26137CCA2590673900DCBAD0 /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		2615C9F7255E8B0C009B89F4 /* PlaceholderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
 		2617D3E925C54478009AAE16 /* ImageMessageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageMessageCell.h; sourceTree = "<group>"; };
@@ -547,6 +562,10 @@
 		264DEA122552512C00AD97DE /* GiftManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftManager.h; sourceTree = "<group>"; };
 		264DEA132552512C00AD97DE /* GiftManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftManager.m; sourceTree = "<group>"; };
 		264E6D8D25B2CE7900C97CD8 /* ChannelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChannelCell.xib; sourceTree = "<group>"; };
+		2651FE1425F759D300A9F2E6 /* TopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
+		2651FE1525F759D300A9F2E6 /* TopViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopViewController.xib; sourceTree = "<group>"; };
+		2651FE1825F7665A00A9F2E6 /* TopHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopHeaderView.swift; sourceTree = "<group>"; };
+		2651FE1A25F7666A00A9F2E6 /* TopHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopHeaderView.xib; sourceTree = "<group>"; };
 		26546371250B774E00398F04 /* apple-app-site-association */ = {isa = PBXFileReference; lastKnownFileType = text; path = "apple-app-site-association"; sourceTree = "<group>"; };
 		2656F30B254FAC0500552611 /* GiftReminderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftReminderViewController.h; sourceTree = "<group>"; };
 		2656F30C254FAC0500552611 /* GiftReminderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftReminderViewController.m; sourceTree = "<group>"; };
@@ -575,7 +594,11 @@
 		2668CF0825931B3D00C851F6 /* LogoutAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutAPI.swift; sourceTree = "<group>"; };
 		266BDB6725EF864600467611 /* UserCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCardCell.swift; sourceTree = "<group>"; };
 		266BDB6825EF864600467611 /* UserCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCardCell.xib; sourceTree = "<group>"; };
+		266DA37925F8C96D00BE4E74 /* TopViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewCell.swift; sourceTree = "<group>"; };
+		266DA37A25F8C96D00BE4E74 /* TopViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopViewCell.xib; sourceTree = "<group>"; };
 		266E3C56258B737E00781E91 /* bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bell.mp3; sourceTree = "<group>"; };
+		266F28F525F8AF8000FD559E /* TopAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAPI.swift; sourceTree = "<group>"; };
+		266F28F725F8B7C700FD559E /* TopList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopList.swift; sourceTree = "<group>"; };
 		26710DEE25B28B33000F41BC /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 		26710DF225B293BE000F41BC /* WalletProducItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletProducItemCell.swift; sourceTree = "<group>"; };
 		26710DF325B293BE000F41BC /* WalletProducItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletProducItemCell.xib; sourceTree = "<group>"; };
@@ -655,6 +678,10 @@
 		26AC1E5325062D62003EFB44 /* LegalLiabilityToolBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegalLiabilityToolBar.swift; sourceTree = "<group>"; };
 		26AE7C2E2520309F00B55318 /* LabelViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelViewCell.swift; sourceTree = "<group>"; };
 		26AE7C332520346500B55318 /* LabelViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelViewCell.xib; sourceTree = "<group>"; };
+		26B3ADCF25F7495200D7DFC4 /* TwicketSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwicketSegmentedControl.swift; sourceTree = "<group>"; };
+		26B3ADD025F7495200D7DFC4 /* Palette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
+		26B3ADD125F7495200D7DFC4 /* UIViewShadowExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewShadowExtension.swift; sourceTree = "<group>"; };
+		26B3ADD225F7495200D7DFC4 /* TwicketSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwicketSegmentedControl.h; sourceTree = "<group>"; };
 		26B4E0582564EB34004EDCFE /* Upgrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Upgrade.swift; sourceTree = "<group>"; };
 		26B4E05A2564ECBB004EDCFE /* UpgradeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeAPI.swift; sourceTree = "<group>"; };
 		26B4E05C2564FCBA004EDCFE /* AuthenticationGuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationGuideViewController.swift; sourceTree = "<group>"; };
@@ -1126,6 +1153,7 @@
 		2643EB8A2500B04100FBBE49 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				26B3ADCE25F7495200D7DFC4 /* TwicketSegmentedControl */,
 				2643EB8B2500B04100FBBE49 /* Framework */,
 				2643EB9C2500B04100FBBE49 /* CollectionViewGridLayout.swift */,
 				2643EB9D2500B04100FBBE49 /* Application.swift */,
@@ -1280,6 +1308,7 @@
 				26CBE3B12508A3CF0089A23C /* View */,
 				26CBE3B02508A3C40089A23C /* Controller */,
 				267955032507637600A72954 /* Community.storyboard */,
+				26039E1925F5F9F700A162E3 /* PlayerManager.swift */,
 			);
 			path = Community;
 			sourceTree = "<group>";
@@ -1376,6 +1405,17 @@
 				26F5AB2825B805240000AE31 /* NavigationMap.swift */,
 			);
 			path = General;
+			sourceTree = "<group>";
+		};
+		26B3ADCE25F7495200D7DFC4 /* TwicketSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				26B3ADCF25F7495200D7DFC4 /* TwicketSegmentedControl.swift */,
+				26B3ADD025F7495200D7DFC4 /* Palette.swift */,
+				26B3ADD125F7495200D7DFC4 /* UIViewShadowExtension.swift */,
+				26B3ADD225F7495200D7DFC4 /* TwicketSegmentedControl.h */,
+			);
+			path = TwicketSegmentedControl;
 			sourceTree = "<group>";
 		};
 		26CB6D0E25515D6B00A9F4DD /* BaiDu */ = {
@@ -1560,6 +1600,9 @@
 			children = (
 				26CBE3BC2508D7920089A23C /* DiscoverViewController.swift */,
 				26CA6EE6253829A70023E27B /* ChannelViewController.swift */,
+				2651FE1425F759D300A9F2E6 /* TopViewController.swift */,
+				2651FE1525F759D300A9F2E6 /* TopViewController.xib */,
+				260C467725F870BE0033915C /* TopController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1572,6 +1615,10 @@
 				266BDB6725EF864600467611 /* UserCardCell.swift */,
 				266BDB6825EF864600467611 /* UserCardCell.xib */,
 				26E5FE4925EF938F00C96392 /* BanberView.swift */,
+				2651FE1825F7665A00A9F2E6 /* TopHeaderView.swift */,
+				2651FE1A25F7666A00A9F2E6 /* TopHeaderView.xib */,
+				266DA37925F8C96D00BE4E74 /* TopViewCell.swift */,
+				266DA37A25F8C96D00BE4E74 /* TopViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1581,6 +1628,8 @@
 			children = (
 				26CA6EDC2538215D0023E27B /* Channel.swift */,
 				26CA6EE1253825920023E27B /* DiscoverAPI.swift */,
+				266F28F525F8AF8000FD559E /* TopAPI.swift */,
+				266F28F725F8B7C700FD559E /* TopList.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1874,6 +1923,7 @@
 				26F553772553D16E00840735 /* TalkEarningsViewController.xib in Resources */,
 				2617D3F425C55F45009AAE16 /* DynamicViewController.xib in Resources */,
 				26E5FE4D25F089A500C96392 /* CommentsViewController.xib in Resources */,
+				266DA37C25F8C96D00BE4E74 /* TopViewCell.xib in Resources */,
 				2637D86E255A895B00020E98 /* TalkEarningCell.xib in Resources */,
 				2679550E25079A4A00A72954 /* UserInfoChatView.xib in Resources */,
 				266E3C57258B737E00781E91 /* bell.mp3 in Resources */,
@@ -1884,6 +1934,7 @@
 				26BB187D2522F5810019BBFD /* Main.storyboard in Resources */,
 				26ED001E25C69BC900480CEC /* MediaItemAddViewCell.xib in Resources */,
 				26F3EA3425F20A05001CF13D /* CommentFooterView.xib in Resources */,
+				2651FE1B25F7666A00A9F2E6 /* TopHeaderView.xib in Resources */,
 				2635216225C7EA4E00855487 /* VisitorsAvatarView.xib in Resources */,
 				26E5FE5125F089B800C96392 /* CommentViewCell.xib in Resources */,
 				2619D193256260A90071CC85 /* GiftCountCell.xib in Resources */,
@@ -1906,6 +1957,7 @@
 				26F45503256659750028ACC5 /* EarningCell.xib in Resources */,
 				267954FF250761B600A72954 /* Discover.storyboard in Resources */,
 				266BDB6A25EF864600467611 /* UserCardCell.xib in Resources */,
+				2651FE1725F759D300A9F2E6 /* TopViewController.xib in Resources */,
 				260ABAF125F2431E006A01C0 /* CommentReportViewController.xib in Resources */,
 				2639536925419E8300B5E3C0 /* CardViewCell.xib in Resources */,
 				26E48909257E087D006C2ACE /* CheckInViewController.xib in Resources */,
@@ -2038,6 +2090,7 @@
 				26F0D2542546DA8200D1018B /* InputController.m in Sources */,
 				26F8947B252083B800A45648 /* LabelView.swift in Sources */,
 				2636A0D92564CDBF00664FFC /* UpgrateViewController.swift in Sources */,
+				26B3ADD425F7495200D7DFC4 /* TwicketSegmentedControl.swift in Sources */,
 				2637D86D255A895B00020E98 /* TalkEarningCell.swift in Sources */,
 				2693697425555E06002E224B /* PhoneBindingController.swift in Sources */,
 				26D1E594253D6000004B9B29 /* VideoCallViewController.m in Sources */,
@@ -2055,6 +2108,7 @@
 				264BF97E25A83BB200F873DD /* AccostViewCell.swift in Sources */,
 				268E3E602521D074000E4A33 /* RelationshipViewCell.swift in Sources */,
 				2643EBBF2500B04100FBBE49 /* Application.swift in Sources */,
+				260C467825F870BE0033915C /* TopController.swift in Sources */,
 				2605A4762513187900017241 /* UIImageExtensions.swift in Sources */,
 				268458F525354481002B9C6E /* LoadingState.swift in Sources */,
 				26F5537C2553D3CD00840735 /* GiftEarningsViewController.swift in Sources */,
@@ -2068,6 +2122,7 @@
 				26808FE12519D5BE00C9803C /* Constant.swift in Sources */,
 				26C31F3025404FE90000D09D /* ForYouCell.swift in Sources */,
 				26ED001D25C69BC900480CEC /* MediaItemAddViewCell.swift in Sources */,
+				2651FE1625F759D300A9F2E6 /* TopViewController.swift in Sources */,
 				26CB6D4125515D6B00A9F4DD /* BDFaceDetectionViewController.m in Sources */,
 				2643EBA72500B04100FBBE49 /* RealNameAuthenticationViewController.swift in Sources */,
 				26E14E5E251C6E8800645F08 /* HotChatButton.swift in Sources */,
@@ -2080,6 +2135,7 @@
 				2643EBA52500B04100FBBE49 /* ApplicationSettingsViewController.swift in Sources */,
 				268458E225342B7D002B9C6E /* DynamicDetailViewCell.swift in Sources */,
 				26FC88FA253ED66600E4D82F /* SearchViewCell.swift in Sources */,
+				266F28F825F8B7C700FD559E /* TopList.swift in Sources */,
 				26BA8CF025C29DAD00E42479 /* PairsViewController.swift in Sources */,
 				26F889352531854B001A14F2 /* TextInputViewCell.swift in Sources */,
 				2637D872255AA13D00020E98 /* GiftEarning.swift in Sources */,
@@ -2092,6 +2148,7 @@
 				26AB26E225401C0D00C16025 /* RemarkViewController.swift in Sources */,
 				263A6C3825C2DA4800FD43B6 /* PairCallViewController.swift in Sources */,
 				2635216725C7F18800855487 /* VisitorsController.swift in Sources */,
+				266DA37B25F8C96D00BE4E74 /* TopViewCell.swift in Sources */,
 				F3C6B919251F3117006C06CB /* LabelViewController.swift in Sources */,
 				268458E825343FA8002B9C6E /* DynamicDetailViewController.swift in Sources */,
 				2617D3F025C5455D009AAE16 /* ImageMessageCellData.m in Sources */,
@@ -2111,6 +2168,7 @@
 				267954F9250757FE00A72954 /* ConversationViewController.swift in Sources */,
 				26B86EB82570EAD700CAC5AE /* TUIMessageDataProviderService+Gift.m in Sources */,
 				2696341F2531942000493C3D /* DynamicAPI.swift in Sources */,
+				2651FE1925F7665A00A9F2E6 /* TopHeaderView.swift in Sources */,
 				2643EBBD2500B04100FBBE49 /* Helpers.swift in Sources */,
 				26E14E68251C861A00645F08 /* DatePickerViewController.swift in Sources */,
 				26373C77250234D00066FF3B /* FormSection.swift in Sources */,
@@ -2172,6 +2230,7 @@
 				263A6684257E0EF200F35714 /* CheckInCell.swift in Sources */,
 				265C8A42251332E900E220BD /* SigninProtocols.swift in Sources */,
 				2668CF0925931B3D00C851F6 /* LogoutAPI.swift in Sources */,
+				26039E1A25F5F9F700A162E3 /* PlayerManager.swift in Sources */,
 				26CB6D4525515D6B00A9F4DD /* BDFaceCircleView.m in Sources */,
 				26CBE3B62508A9C30089A23C /* CommunityHeaderView.swift in Sources */,
 				26A20AFF2518A47F0061BBB8 /* KeychainStore.swift in Sources */,
@@ -2183,6 +2242,7 @@
 				26A20B0D2518BBC10061BBB8 /* Response.swift in Sources */,
 				26F25C96250A1B3800F808EA /* SeparatorLine.swift in Sources */,
 				2684598E25359A8A002B9C6E /* MessageAPI.swift in Sources */,
+				26B3ADD525F7495200D7DFC4 /* Palette.swift in Sources */,
 				2643EBC82500D4C000FBBE49 /* MeContactViewController.swift in Sources */,
 				2643EBB32500B04100FBBE49 /* UserInfoIntroduceCell.swift in Sources */,
 				26CB6D4625515D6B00A9F4DD /* BDFaceImageShow.m in Sources */,
@@ -2214,6 +2274,7 @@
 				26278B8D256CFD64007044E1 /* JPGiftOperation.m in Sources */,
 				2643EBBE2500B04100FBBE49 /* CollectionViewGridLayout.swift in Sources */,
 				2619D192256260A90071CC85 /* GiftCountCell.m in Sources */,
+				266F28F625F8AF8000FD559E /* TopAPI.swift in Sources */,
 				26C31F2625403A9E0000D09D /* ReportUserViewController.swift in Sources */,
 				2643EBB22500B04100FBBE49 /* UserInfoLikeObjectCell.swift in Sources */,
 				260B96162521F2F400767076 /* AuthenticationViewController.swift in Sources */,
@@ -2263,6 +2324,7 @@
 				26CD99F12578BDDD00235A8D /* ChatGreet.swift in Sources */,
 				26E48908257E087D006C2ACE /* CheckInViewController.swift in Sources */,
 				26F8947625207A9A00A45648 /* UploadFileAPI.swift in Sources */,
+				26B3ADD625F7495200D7DFC4 /* UIViewShadowExtension.swift in Sources */,
 				2643EBB12500B04100FBBE49 /* UserInfoBasicInformationCell.swift in Sources */,
 				2643EBAB2500B04100FBBE49 /* MeHeaderView.swift in Sources */,
 				26AC1E5425062D62003EFB44 /* LegalLiabilityToolBar.swift in Sources */,
