@@ -229,6 +229,19 @@ class TopViewController: UIViewController, IndicatorDisplay {
         segmentedControl.delegate = self
         
         requestData()
+        
+        
+        headerView.onAvatarTapped.delegate(on: self) { (self, index) in
+            guard let top = self.current, index < top.topList.count else {
+                return
+            }
+            
+            let user = top.topList[index]
+            
+            let vc = UserInfoViewController()
+            vc.user = user
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     func requestData()  {
@@ -236,7 +249,7 @@ class TopViewController: UIViewController, IndicatorDisplay {
         let type = topType.rawValue
         let tag = topType.tags[segmentedControl.selectedSegmentIndex].rawValue
         
-        defaultDisplay()
+        dispaly()
         
         API.request(.topList(type: type, tag: tag), type: Response<TopList>.self)
             .verifyResponse()
@@ -274,6 +287,11 @@ class TopViewController: UIViewController, IndicatorDisplay {
             attributedText.append(NSAttributedString(string: " \(user.energy)"))
             headerView.top1CountLabel.attributedText = attributedText
         }
+        else {
+            headerView.top1NameLabel.text = "虚位以待"
+            headerView.top1AvatarImageView.image = UIImage(named: "top-profile")
+            headerView.top1CountLabel.attributedText = nil
+        }
         
         
         if (current?.topList.count ?? 0) >= 2 , let user =  current?.topList[1] {
@@ -289,6 +307,11 @@ class TopViewController: UIViewController, IndicatorDisplay {
             attributedText.append(NSAttributedString(string: " \(user.energy)"))
             headerView.top2CountLabel.attributedText = attributedText
         }
+        else {
+            headerView.top2NameLabel.text = "虚位以待"
+            headerView.top2AvatarImageView.image = UIImage(named: "top-profile")
+            headerView.top2CountLabel.attributedText = nil
+        }
         
         if (current?.topList.count ?? 0) >= 3 , let user = current?.topList[2] {
             headerView.top3NameLabel.text = user.nick
@@ -303,55 +326,54 @@ class TopViewController: UIViewController, IndicatorDisplay {
             attributedText.append(NSAttributedString(string: " \(user.energy)"))
             headerView.top3CountLabel.attributedText = attributedText
         }
+        else {
+            headerView.top3NameLabel.text = "虚位以待"
+            headerView.top3AvatarImageView.image = UIImage(named: "top-profile")
+            headerView.top3CountLabel.attributedText = nil
+        }
         
-        
-        guard let user = current?.userInfo else { return }
-        
-        bottomView.isHidden = !user.isShow
-        
-        topLabel.text = user.rankId
-        avatarImageView.kf.setImage(with: URL(string: user.headPic))
-        nameLabel.text = user.nick
-        
-        let textAttachment = NSTextAttachment()
-        textAttachment.image = topType.image
-        let font = countLabel.font!
-        textAttachment.bounds =  CGRect(x: 0, y: -(font.lineHeight - font.pointSize) / 2, width: 12, height: 12)
-        
-        let attributedText = NSMutableAttributedString(attachment: textAttachment)
-        attributedText.append(NSAttributedString(string: " \(user.preEnergy)"))
-        
-        let string = user.rankStatus == 1 ? "距上一位差 " :"距上榜差 "
-        
-        attributedText.insert(NSAttributedString(string: string, attributes: [NSAttributedString.Key.foregroundColor : UIColor(hexString: "#999999")]), at: 0)
-        
-        countLabel.attributedText = attributedText
-        
+        if let user = current?.userInfo {
+            bottomView.isHidden = !user.isShow
+            
+            topLabel.text = user.rankId
+            avatarImageView.kf.setImage(with: URL(string: user.headPic))
+            nameLabel.text = user.nick
+            
+            let textAttachment = NSTextAttachment()
+            textAttachment.image = topType.image
+            let font = countLabel.font!
+            textAttachment.bounds =  CGRect(x: 0, y: -(font.lineHeight - font.pointSize) / 2, width: 12, height: 12)
+            
+            let attributedText = NSMutableAttributedString(attachment: textAttachment)
+            attributedText.append(NSAttributedString(string: " \(user.preEnergy)"))
+            
+            let string = user.rankStatus == 1 ? "距上一位差 " :"距上榜差 "
+            
+            attributedText.insert(NSAttributedString(string: string, attributes: [NSAttributedString.Key.foregroundColor : UIColor(hexString: "#999999")]), at: 0)
+            
+            countLabel.attributedText = attributedText
+        }
+        else {
+            topLabel.text = nil
+            avatarImageView.image = nil
+            nameLabel.text = nil
+            countLabel.attributedText = nil
+        }
         self.tableView.reloadData()
+    }
+}
+
+extension TopViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let user = current!.list[indexPath.row]
+        
+        let vc = UserInfoViewController()
+        vc.user = user
+        navigationController?.pushViewController(vc, animated: true)
     }
     
-    func defaultDisplay() {
-        
-        headerView.top1NameLabel.text = "虚位以待"
-        headerView.top1AvatarImageView.image = UIImage(named: "top-profile")
-        headerView.top1CountLabel.attributedText = nil
-        
-
-        headerView.top2NameLabel.text = "虚位以待"
-        headerView.top2AvatarImageView.image = UIImage(named: "top-profile")
-        headerView.top2CountLabel.attributedText = nil
-        
-        headerView.top3NameLabel.text = "虚位以待"
-        headerView.top3AvatarImageView.image = UIImage(named: "top-profile")
-        headerView.top3CountLabel.attributedText = nil
-        
-        topLabel.text = nil
-        avatarImageView.image = nil
-        nameLabel.text = nil
-        countLabel.attributedText = nil
-
-        self.tableView.reloadData()
-    }
 }
 
 extension TopViewController: UITableViewDataSource {

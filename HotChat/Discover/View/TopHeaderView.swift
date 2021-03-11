@@ -10,7 +10,6 @@ import UIKit
 
 class TopHeaderView: UIView {
     
-    
     @IBOutlet weak var contentView: GradientView!
     
     @IBOutlet weak var backgroundImageView: UIImageView!
@@ -28,7 +27,18 @@ class TopHeaderView: UIView {
     @IBOutlet weak var top3CountLabel: UILabel!
     
     
+    let onAvatarTapped = Delegate<Int, Void>()
     
-   
-
+    @IBAction func top1AvatarTapped(_ sender: Any) {
+        onAvatarTapped.call(0)
+    }
+    
+    @IBAction func top2AvatarTapped(_ sender: Any) {
+        onAvatarTapped.call(1)
+    }
+    
+    @IBAction func top3AvatarTapped(_ sender: Any) {
+        onAvatarTapped.call(2)
+    }
+    
 }

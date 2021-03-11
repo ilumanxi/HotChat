@@ -31,6 +31,7 @@
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top-profile" translatesAutoresizingMaskIntoConstraints="NO" id="cn3-lZ-kvY" userLabel="Top Profile Image View">
                                             <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                            <gestureRecognizers/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                     <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -47,6 +48,7 @@
                                             <rect key="frame" x="5.5" y="-9" width="25" height="23"/>
                                         </imageView>
                                     </subviews>
+                                    <gestureRecognizers/>
                                     <constraints>
                                         <constraint firstItem="cn3-lZ-kvY" firstAttribute="top" secondItem="jsi-96-kWg" secondAttribute="top" id="6Nc-uh-5Rl"/>
                                         <constraint firstItem="PdF-BK-2iX" firstAttribute="top" secondItem="jsi-96-kWg" secondAttribute="top" constant="-9" id="Fxu-mn-lAR"/>
@@ -57,6 +59,9 @@
                                         <constraint firstItem="PdF-BK-2iX" firstAttribute="leading" secondItem="jsi-96-kWg" secondAttribute="leading" constant="5.5" id="eQc-4D-LHe"/>
                                         <constraint firstAttribute="trailing" secondItem="cn3-lZ-kvY" secondAttribute="trailing" id="ohg-fl-4ny"/>
                                     </constraints>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="hNe-Qb-GII" appends="YES" id="vGk-LL-gR4"/>
+                                    </connections>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="虚位以待" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wga-wM-Vuy">
                                     <rect key="frame" x="0.0" y="88" width="80" height="17"/>
@@ -77,6 +82,7 @@
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top-profile" translatesAutoresizingMaskIntoConstraints="NO" id="fGa-br-rsp" userLabel="Top Profile Image View">
                                             <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                            <gestureRecognizers/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                     <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -93,6 +99,7 @@
                                             <rect key="frame" x="5.5" y="-9" width="25" height="23"/>
                                         </imageView>
                                     </subviews>
+                                    <gestureRecognizers/>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="fGa-br-rsp" secondAttribute="bottom" id="JJ3-95-bY6"/>
                                         <constraint firstItem="fGa-br-rsp" firstAttribute="leading" secondItem="La2-qS-HUl" secondAttribute="leading" id="S0m-lD-1tU"/>
@@ -103,6 +110,9 @@
                                         <constraint firstItem="fGa-br-rsp" firstAttribute="top" secondItem="La2-qS-HUl" secondAttribute="top" id="uWF-sz-cEb"/>
                                         <constraint firstAttribute="height" constant="80" id="yVN-5f-kaH"/>
                                     </constraints>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="J87-wL-gM6" appends="YES" id="tJb-y4-mRH"/>
+                                    </connections>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="虚位以待" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxe-Eb-VjO">
                                     <rect key="frame" x="0.0" y="88" width="80" height="17"/>
@@ -123,6 +133,7 @@
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top-profile" translatesAutoresizingMaskIntoConstraints="NO" id="bKb-c3-Cv3" userLabel="Top Profile Image View">
                                             <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                            <gestureRecognizers/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                     <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -139,6 +150,7 @@
                                             <rect key="frame" x="5.5" y="-9" width="25" height="23"/>
                                         </imageView>
                                     </subviews>
+                                    <gestureRecognizers/>
                                     <constraints>
                                         <constraint firstItem="bKb-c3-Cv3" firstAttribute="leading" secondItem="nUK-So-baV" secondAttribute="leading" id="5qv-W9-Tko"/>
                                         <constraint firstAttribute="bottom" secondItem="bKb-c3-Cv3" secondAttribute="bottom" id="6i4-om-hPJ"/>
@@ -149,6 +161,9 @@
                                         <constraint firstItem="bKb-c3-Cv3" firstAttribute="top" secondItem="nUK-So-baV" secondAttribute="top" id="Uvn-zo-u4x"/>
                                         <constraint firstAttribute="height" constant="80" id="Yf9-Dv-XHj"/>
                                     </constraints>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="ZES-gL-Y2Z" appends="YES" id="NxA-zs-HfT"/>
+                                    </connections>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="虚位以待" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kpy-v8-BGr">
                                     <rect key="frame" x="0.0" y="88" width="80" height="17"/>
@@ -257,6 +272,21 @@
             </connections>
             <point key="canvasLocation" x="679.71014492753625" y="44.866071428571423"/>
         </view>
+        <tapGestureRecognizer id="J87-wL-gM6">
+            <connections>
+                <action selector="top1AvatarTapped:" destination="nHY-6P-3Zh" id="kRB-Nc-lHo"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="hNe-Qb-GII">
+            <connections>
+                <action selector="top2AvatarTapped:" destination="nHY-6P-3Zh" id="nPC-7R-FFF"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="ZES-gL-Y2Z">
+            <connections>
+                <action selector="top3AvatarTapped:" destination="nHY-6P-3Zh" id="2RJ-cJ-pL8"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="top-1-img" width="25" height="23"/>

@@ -399,7 +399,7 @@ extension CommunityViewController: UITableViewDataSource, UITableViewDelegate {
     func playVideo() {
         
         NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(findVideo), object: nil)
-        perform(#selector(findVideo), with: nil, afterDelay: 1)
+        perform(#selector(findVideo), with: nil, afterDelay: 0.1)
     }
     
     @objc func findVideo() {
