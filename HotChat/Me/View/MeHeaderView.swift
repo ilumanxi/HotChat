@@ -27,9 +27,6 @@ extension UIImageView {
 
 class MeHeaderView: UIView {
     
-    
-    @IBOutlet weak var backgroundView: UIView!
-    
     @IBOutlet weak var contentView: UIView!
     
     @IBOutlet weak var avatarImageView: UIImageView!
@@ -49,21 +46,14 @@ class MeHeaderView: UIView {
     
     @IBOutlet weak var fansButton: UIButton!
     
-    @IBOutlet weak var taskView: UIStackView!
+    @IBOutlet weak var userIDLabel: UILabel!
     
-    @IBOutlet weak var walletView: UIStackView!
+    @IBOutlet weak var earningButton: UIButton!
     
-    @IBOutlet weak var earningsView: UIStackView!
+    @IBOutlet weak var energyLabel: UILabel!
     
-    @IBOutlet weak var vipView: UIStackView!
+    @IBOutlet weak var coinLabel: UILabel!
     
-    @IBOutlet weak var inviteView: UIStackView!
-    
-    
-    @IBOutlet var backgroundViewHeightConstraint: NSLayoutConstraint!
-    
-
-
     override func awakeFromNib() {
                 
         if let superview = superview {
@@ -72,8 +62,6 @@ class MeHeaderView: UIView {
         
         layoutMargins = UIEdgeInsets(top: 8, left: 20, bottom: 8, right: 20)
         
-        // 可以根据 srollview offset 改变高度
-        backgroundViewHeightConstraint.constant = UIScreen.main.bounds.height
         
         super.awakeFromNib()
     }

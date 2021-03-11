@@ -148,7 +148,7 @@ class WalletFormEntry: FormEntry {
 }
 
 
-class MeViewController: UITableViewController, Autorotate {
+class MeViewController: UITableViewController, Autorotate, IndicatorDisplay {
     
     enum Section: Int {
         case wallet
@@ -183,11 +183,12 @@ class MeViewController: UITableViewController, Autorotate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        hbd_barHidden = true
+        hbd_barImage = UIImage(color: UIColor(hexString: "#F6F7F9"), size: self.navigationController!.navigationBar.bounds.size)
+        
+        tableView.backgroundColor = UIColor(hexString: "#F6F7F9")
         tableView.sectionHeaderHeight = 10
         tableView.sectionFooterHeight = .leastNonzeroMagnitude
         
-        additionalSafeAreaInsets = UIEdgeInsets(top: -navigationController!.navigationBar.bounds.height, left: 0, bottom: 0, right: 0)
         setDisplay()
         
         NotificationCenter.default.rx.notification(.userDidChange)
@@ -208,35 +209,9 @@ class MeViewController: UITableViewController, Autorotate {
         
         let user = LoginManager.shared.user!
         
-        var walletEntries: [FormEntry] = []
-        
-        if user.girlStatus {
-            var detailText = "加载中"
-            if let energy = earning?.currentEnergyMonth.energy {
-                detailText = "能量\(energy)"
-            }
-            
-            walletEntries.append( RightDetailFormEntry(image: UIImage(named: "me-earnings"), text: "我的收益", detailText: detailText, onTapped: pushEarnings))
-        }
-        else {
-            walletEntries.append(WalletFormEntry(image: UIImage(named: "me-wallet"), text: "我的钱包", energy: user.userEnergy.description, tCoin: user.userTanbi.description, onTapped: pushWallet))
-        }
-        
-
        var userEntrys: [FormEntry] = []
         
-        if user.girlStatus {
-            userEntrys.append(RightDetailFormEntry(image: UIImage(named: "me-wallet"), text: "我的钱包", detailText: "能量\(user.userEnergy)", onTapped: pushWallet))
-        }
-        
-        
-        if user.sex == .female {
-            userEntrys.append(RightDetailFormEntry(image: UIImage(named: "me-anchor"), text: "主播认证", onTapped: pushAuthentication))
-        }
-        
-        if user.sex == .male {
-            userEntrys.append( RightDetailFormEntry(image: UIImage(named: "me-authentication"), text: "用户认证", onTapped: pushAuthentication))
-        }
+       userEntrys.append(RightDetailFormEntry(image: UIImage(named: "me-vip"), text: "购买VIP", onTapped: pushVip))
         
         let visitorList = user.visitorList.compactMap{ $0["headPic"] as? String }
         
@@ -275,28 +250,31 @@ class MeViewController: UITableViewController, Autorotate {
             userEntrys.append(RightDetailFormEntry(image: UIImage(named: "me-visitor"), text: "我的访客", accessoryView: accessoryView, onTapped: pushVisitor))
         }
         
+        if user.sex == .female {
+            userEntrys.append(RightDetailFormEntry(image: UIImage(named: "me-anchor"), text: "主播认证", onTapped: pushAuthentication))
+        }
         
+        if user.sex == .male {
+            userEntrys.append( RightDetailFormEntry(image: UIImage(named: "me-authentication"), text: "用户认证", onTapped: pushAuthentication))
+        }
+        
+
         if !AppAudit.share.gradeStatus {
             userEntrys.append(RightDetailFormEntry(image: UIImage(named: "me-grade"), text: "我的等级", onTapped: pushLevel))
         }
+        
+        userEntrys.append(RightDetailFormEntry(image: UIImage(named: "my-invite"), text: "我的邀请", onTapped: pushInvite))
+        
+        userEntrys.append(RightDetailFormEntry(image: UIImage(named: "me-money"), text: "任务奖励", onTapped: pushTask))
+        
+        userEntrys.append(RightDetailFormEntry(image: UIImage(named: "me-help"), text: "帮助中心", onTapped: pushHelp))
         
        let userSection =  FormSection(
             entries: userEntrys,
             headerText: nil
         )
         
-        var outlineEntries: [FormEntry] =  []
-        
-        outlineEntries.append(RightDetailFormEntry(image: UIImage(named: "me-help"), text: "帮助", onTapped: pushHelp))
-        
-        outlineEntries.append(RightDetailFormEntry(image: UIImage(named: "me-setting"), text: "设置", onTapped: pushSetting))
-
-        let outlineSection =  FormSection(
-             entries: outlineEntries,
-             headerText: nil
-         )
-        
-        self.sections = [userSection, outlineSection]
+        self.sections = [userSection]
         
         tableView.reloadData()
     }
@@ -349,17 +327,48 @@ class MeViewController: UITableViewController, Autorotate {
         
         meHeaderView.avatarImageView.kf.setImage(with: URL(string: user.headPic))
         meHeaderView.nicknameLabel.text = user.nick
+        meHeaderView.userIDLabel.text = user.userId
         meHeaderView.sexView.setSex(user)
         meHeaderView.vipButton.setVIP(user.vipType)
-        meHeaderView.followButton.setTitle("\(user.userFollowNum) 关注", for: .normal)
-        meHeaderView.fansButton.setTitle("\(user.userFansNum) 粉丝", for: .normal)
-        meHeaderView.gradeView.setGrade(user)
-        meHeaderView.walletView.isHidden = user.girlStatus
-        meHeaderView.earningsView.isHidden = !user.girlStatus
-        meHeaderView.taskView.isHidden = user.girlStatus
+        meHeaderView.vipButton.isHidden = false
         
+        meHeaderView.followButton.titleLabel?.numberOfLines = 2
+        meHeaderView.fansButton.titleLabel?.numberOfLines = 2
+        meHeaderView.followButton.setAttributedTitle(number(number: user.userFollowNum, text: "关注"), for: .normal)
+        meHeaderView.fansButton.setAttributedTitle(number(number: user.userFansNum, text: "粉丝"), for: .normal)
+        meHeaderView.gradeView.setGrade(user)
+        
+        meHeaderView.energyLabel.text = user.userEnergy.description
+        meHeaderView.coinLabel.text = user.userTanbi.description
+        meHeaderView.earningButton.isHidden = !user.girlStatus
+                
         meHeaderView.setNeedsLayout()
         meHeaderView.layoutIfNeeded()
+    }
+    
+    func number(number: Int, text: String) -> NSAttributedString {
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 10
+        paragraphStyle.alignment = .center
+        
+        let attributedText = NSMutableAttributedString()
+        
+        attributedText.append(NSAttributedString(string: number.description,
+                                                 attributes: [
+                                                    NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16, weight: .bold),
+                                                    NSAttributedString.Key.foregroundColor : UIColor(hexString: "#333333")
+                                                 ]))
+        
+        attributedText.append(NSAttributedString(string: "\n\(text)",
+                                                 attributes: [
+                                                    NSAttributedString.Key.font : UIFont.systemFont(ofSize: 12, weight: .regular),
+                                                    NSAttributedString.Key.foregroundColor : UIColor(hexString: "#999999")
+                                                 ]))
+        
+        attributedText.addAttributes([NSAttributedString.Key.paragraphStyle : paragraphStyle], range: NSRange(location: 0, length: attributedText.length))
+        
+        return attributedText
     }
     
     func pushLevel() {
@@ -380,6 +389,14 @@ class MeViewController: UITableViewController, Autorotate {
             }
             present(vc, animated: true, completion: nil)
         }
+    }
+    
+    
+    @IBAction func copyUserID(_ sender: UIButton) {
+        
+        UIPasteboard.general.string = LoginManager.shared.user?.userId
+        
+        showMessageOnWindow("复制成功")
     }
     
     @IBAction func pushInvite() {
@@ -419,7 +436,7 @@ class MeViewController: UITableViewController, Autorotate {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    func pushSetting() {
+    @IBAction func pushSetting() {
         
         let vc = SettingViewController.loadFromStoryboard()
         navigationController?.pushViewController(vc, animated: true)
@@ -520,7 +537,7 @@ extension VipType: CustomStringConvertible {
     var image: UIImage? {
         switch self {
         case.empty:
-            return nil
+            return UIImage(named: "vip-disabled")
         case .month:
             return UIImage(named: "vip-month")
         case .quarter:
