@@ -17,10 +17,12 @@ protocol IndicatorDisplay: NSObject {
     func show(_ error: Error, in view: UIView)
     func show(_ message: String?, in view: UIView)
     func showIndicator(_ message: String?, in view: UIView)
-    func showOrHideIndicator(loadingState: LoadingState, in view: UIView, text: String?, image: UIImage?)
+    func showOrHideIndicator(loadingState: LoadingState, in view: UIView, text: String?, image: UIImage?, actionText: String?)
     func hideIndicator(from view: UIView)
     
     func refreshData()
+    
+    func actionTapped()
 }
 
 class IndicatorHolderView: UIView {}
@@ -99,22 +101,52 @@ extension IndicatorDisplay where Self: UIViewController {
         hub.show(animated: true)
     }
     
-    func showOrHideIndicator(loadingState: LoadingState, text: String? = nil, image: UIImage? = nil) {
-        showOrHideIndicator(loadingState: loadingState, in: view, text: text, image: image)
+    func showOrHideIndicator(loadingState: LoadingState, text: String? = nil, image: UIImage? = nil, actionText: String? = nil) {
+        showOrHideIndicator(loadingState: loadingState, in: view, text: text, image: image, actionText: actionText)
     }
     
     
-    func showOrHideIndicator(loadingState: LoadingState, in view: UIView, text: String? = nil, image: UIImage? = nil) {
+    func showOrHideIndicator(loadingState: LoadingState, in view: UIView, text: String? = nil, image: UIImage? = nil, actionText: String? = nil) {
         
-        func showImageText(text: String, image: UIImage) -> UIStackView {
+        func showImageText(text: String, image: UIImage, actionText: String? = nil) -> UIStackView {
+            var arrangedSubviews: [UIView] = []
+            
             let imageView = UIImageView(image: image)
             
             let label = UILabel()
             label.font = UIFont.systemFont(ofSize: 14)
             label.textColor = UIColor(hexString: "#999999")
             label.text = text
+            label.numberOfLines = 0
+            label.textAlignment = .center
             
-            let stackView =  UIStackView(arrangedSubviews: [imageView, label])
+            arrangedSubviews.append(imageView)
+            
+            arrangedSubviews.append(label)
+            
+            
+            if let actionText = actionText {
+                
+                let actionButton = GradientButton(type: .custom)
+                actionButton.contentEdgeInsets = UIEdgeInsets(top: 10, left: 25, bottom: 10, right: 25)
+                actionButton.titleLabel?.font = .systemFont(ofSize: 14, weight: .regular)
+                actionButton.setTitleColor(.white, for: .normal)
+                actionButton.colors = [UIColor(hexString: "#0CB9DE"), UIColor(hexString: "#5159F8")]
+                actionButton.setTitle(actionText, for: .normal)
+                actionButton.sizeToFit()
+                actionButton.layer.cornerRadius = actionButton.bounds.height / 2
+                
+                actionButton.rx.controlEvent(.touchUpInside)
+                    .subscribe { [weak self]  _ in
+                        self?.actionTapped()
+                    }
+                    .disposed(by: rx.disposeBag)
+                arrangedSubviews.append(actionButton)
+            }
+            
+           
+            
+            let stackView = UIStackView(arrangedSubviews: arrangedSubviews)
             stackView.spacing = 16
             stackView.alignment  = .center
             stackView.distribution = .fill
@@ -164,7 +196,7 @@ extension IndicatorDisplay where Self: UIViewController {
                 maker.center.equalToSuperview()
             }
         case .noContent:
-            let stackView = showImageText(text: text ?? "暂时没有数据!", image: image ??  UIImage(named: "no-content")!)
+            let stackView = showImageText(text: text ?? "暂时没有数据!", image: image ??  UIImage(named: "no-content")!, actionText: actionText)
             holderView.addSubview(stackView)
             stackView.snp.makeConstraints { maker in
                 maker.center.equalToSuperview()
@@ -172,7 +204,7 @@ extension IndicatorDisplay where Self: UIViewController {
             
             viewAddRefreshDataTap(holderView)
         case .error:
-            let stackView = showImageText(text: text ?? "数据加载失败、请刷新!", image: image ??  UIImage(named: "load-error")!)
+            let stackView = showImageText(text: text ?? "数据加载失败、请刷新!", image: image ??  UIImage(named: "load-error")!, actionText: actionText)
             holderView.addSubview(stackView)
             stackView.snp.makeConstraints { maker in
                 maker.center.equalToSuperview()
@@ -205,6 +237,10 @@ extension IndicatorDisplay where Self: UIViewController {
     }
     
     func refreshData() {
+        
+    }
+    
+    func actionTapped() {
         
     }
 }

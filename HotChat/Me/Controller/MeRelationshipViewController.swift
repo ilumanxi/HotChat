@@ -16,7 +16,18 @@ class MeRelationshipViewController: UITableViewController, SegementSlideContentS
     var state: LoadingState = .initial {
         didSet {
             if isViewLoaded {
-                showOrHideIndicator(loadingState: state)
+                if state == .noContent {
+                    
+                    if relationship == Relationship.follow {
+                        showOrHideIndicator(loadingState: state, text: "还没有关注别人，\n你都不主动我们怎么会有故事", image: UIImage(named: "me-relationship"), actionText: "前往发现")
+                    }
+                    else {
+                        showOrHideIndicator(loadingState: state, text: "还没有粉丝，\n也许发条动态就好了", image: UIImage(named: "me-relationship"), actionText: "前往发动态")
+                    }
+                }
+                else {
+                    showOrHideIndicator(loadingState: state)
+                }
             }
         }
     }
@@ -112,5 +123,59 @@ class MeRelationshipViewController: UITableViewController, SegementSlideContentS
             .subscribe(onSuccess: nil, onError: nil)
             .disposed(by: rx.disposeBag)
     }
+    
+    let authenticationAPI = Request<AuthenticationAPI>()
+    
+    func checkUserAttestation() {
+        showIndicator()
+        authenticationAPI.request(.checkUserAttestation, type: Response<Authentication>.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { [weak self] response in
+                guard let self = self else { return }
+                self.hideIndicator()
+                if response.data!.realNameStatus.isPresent {
+                    let user = LoginManager.shared.user!
+                    user.realNameStatus = response.data!.realNameStatus
+                    LoginManager.shared.update(user: user)
+                    self.presentDynamic()
+                }
+                else {
+                    let vc = AuthenticationGuideViewController()
+                    vc.onPushing.delegate(on: self) { (self, _) -> UINavigationController? in
+                        return self.navigationController
+                    }
+                    self.present(vc, animated: true, completion: nil)
+                }
+            }, onError: { [weak self] error in
+                self?.hideIndicator()
+                self?.show(error)
+            })
+            .disposed(by: rx.disposeBag)
+    }
+    
+    
+    
+    func presentDynamic() {
+        let vc = DynamicViewController()
+        vc.onSened.delegate(on: self) { (self, _) in
+            
+        }
+        let navVC = UINavigationController(rootViewController: vc)
+        navVC.modalPresentationStyle = .fullScreen
+        present(navVC, animated: true, completion: nil)
+    }
 
+    func actionTapped() {
+        
+        if relationship == Relationship.follow {
+            
+            self.navigationController?.popToRootViewController(animated: false)
+            if let tabBarController =  UIApplication.shared.keyWindow?.rootViewController as? UITabBarController  {
+                tabBarController.selectedIndex = 1
+            }
+        }
+        else {
+            checkUserAttestation()
+        }
+    }
 }
