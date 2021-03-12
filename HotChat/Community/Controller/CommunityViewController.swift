@@ -419,7 +419,7 @@ extension CommunityViewController: UITableViewDataSource, UITableViewDelegate {
            return self.dynamics[indexPath.row].type == .video
         }
         
-        let playFrame = self.view.frame.inset(by: tableView.adjustedContentInset)
+        let playFrame = self.view.frame.inset(by: self.view.safeAreaInsets)
         
         var activateVideoCells: [DynamicDetailViewCell] = []
         
