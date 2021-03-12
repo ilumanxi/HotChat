@@ -10,11 +10,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--我-->
+        <!--我的-->
         <scene sceneID="Xg6-ip-OqE">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8fT-Gt-3Fp" customClass="BaseNavigationController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我" image="tabbar-me-normal" selectedImage="tabbar-me-selected" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="我的" image="tabbar-me-normal" selectedImage="tabbar-me-selected" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DQv-IA-1Is" customClass="HBDNavigationBar">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -2334,7 +2334,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="zrV-hj-oZN">
-                        <barButtonItem key="leftBarButtonItem" title="我" id="wF5-vb-LL0"/>
+                        <barButtonItem key="leftBarButtonItem" title=" 我的" id="wF5-vb-LL0"/>
                         <barButtonItem key="rightBarButtonItem" image="app-setting" id="p4I-F3-NSb">
                             <connections>
                                 <action selector="pushSetting" destination="XUG-zq-2mX" id="OEK-Bf-Mej"/>

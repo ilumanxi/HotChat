@@ -146,6 +146,15 @@ extension TopType {
             return UIImage(named: "top-estate")!
         }
     }
+    
+    var numberColor: UIColor {
+        switch self {
+        case .charm:
+            return UIColor(hexString: "#940ADB")
+        case .estate:
+            return UIColor(hexString: "#4F5DF8")
+        }
+    }
 
 }
 
@@ -284,7 +293,7 @@ class TopViewController: UIViewController, IndicatorDisplay {
             textAttachment.bounds =  CGRect(x: 0, y: -(font.lineHeight - font.pointSize) / 2, width: topType.image.size.width, height: topType.image.size.height)
             
             let attributedText = NSMutableAttributedString(attachment: textAttachment)
-            attributedText.append(NSAttributedString(string: " \(user.energy)"))
+            attributedText.append(NSAttributedString(string: " \(user.energy)", attributes: [NSAttributedString.Key.foregroundColor : topType.numberColor]))
             headerView.top1CountLabel.attributedText = attributedText
         }
         else {
@@ -304,7 +313,7 @@ class TopViewController: UIViewController, IndicatorDisplay {
             textAttachment.bounds =  CGRect(x: 0, y: -(font.lineHeight - font.pointSize) / 2, width: 13, height: 13)
             
             let attributedText = NSMutableAttributedString(attachment: textAttachment)
-            attributedText.append(NSAttributedString(string: " \(user.energy)"))
+            attributedText.append(NSAttributedString(string: " \(user.energy)", attributes: [NSAttributedString.Key.foregroundColor : topType.numberColor]))
             headerView.top2CountLabel.attributedText = attributedText
         }
         else {
@@ -323,7 +332,7 @@ class TopViewController: UIViewController, IndicatorDisplay {
             textAttachment.bounds =  CGRect(x: 0, y: -(font.lineHeight - font.pointSize) / 2, width: 12, height: 12)
             
             let attributedText = NSMutableAttributedString(attachment: textAttachment)
-            attributedText.append(NSAttributedString(string: " \(user.energy)"))
+            attributedText.append(NSAttributedString(string: " \(user.energy)", attributes: [NSAttributedString.Key.foregroundColor : topType.numberColor]))
             headerView.top3CountLabel.attributedText = attributedText
         }
         else {
@@ -338,6 +347,7 @@ class TopViewController: UIViewController, IndicatorDisplay {
             topLabel.text = user.rankId
             avatarImageView.kf.setImage(with: URL(string: user.headPic))
             nameLabel.text = user.nick
+            nameLabel.textColor = user.vipType.textColor
             
             let textAttachment = NSTextAttachment()
             textAttachment.image = topType.image
@@ -345,7 +355,7 @@ class TopViewController: UIViewController, IndicatorDisplay {
             textAttachment.bounds =  CGRect(x: 0, y: -(font.lineHeight - font.pointSize) / 2, width: 12, height: 12)
             
             let attributedText = NSMutableAttributedString(attachment: textAttachment)
-            attributedText.append(NSAttributedString(string: " \(user.preEnergy)"))
+            attributedText.append(NSAttributedString(string: " \(user.preEnergy)", attributes: [NSAttributedString.Key.foregroundColor : topType.numberColor]))
             
             let string = user.rankStatus == 1 ? "距上一位差 " :"距上榜差 "
             
@@ -401,7 +411,7 @@ extension TopViewController: UITableViewDataSource {
         textAttachment.bounds =  CGRect(x: 0, y: -(font.lineHeight - font.pointSize) / 2, width: 12, height: 12)
         
         let attributedText = NSMutableAttributedString(attachment: textAttachment)
-        attributedText.append(NSAttributedString(string: " \(user.energy)"))
+        attributedText.append(NSAttributedString(string: " \(user.energy)", attributes: [NSAttributedString.Key.foregroundColor : topType.numberColor]))
         cell.countLabel.attributedText = attributedText
         
         return cell

@@ -16,11 +16,11 @@ enum CheckCallType {
     var string: String {
         switch self {
         case .text:
-            return "对方设置隐私保护不接受留言"
+            return "留言"
         case .video:
-            return "对方设置隐私保护不接受视频"
+            return "视频"
         case .audio:
-            return "对方设置隐私保护不接受语聊"
+            return "语聊"
         }
     }
 }
@@ -160,16 +160,23 @@ class UserInfoChatView: UIView {
         }
         
         
-        if user.sex == toUser.sex {
-            indicatorDisplay.show(type.string)
+        if user.sex == .male && !toUser.girlStatus {
+            indicatorDisplay.show("对方设置隐私保护不接受\(type.string)")
             return false
         }
         
-        if  ![user.girlStatus, toUser.girlStatus].contains(true) {
-            indicatorDisplay.show(type.string)
+        if user.sex == .female && !user.girlStatus {
+            indicatorDisplay.show("对方设置隐私保护需要直播认证才能\(type.string)")
             return false
         }
         
+        
+        if user.girlStatus && toUser.sex == .female {
+            indicatorDisplay.show("对方设置隐私保护需要异性才能\(type.string)")
+            
+            return false
+        }
+
         return true
         
     }

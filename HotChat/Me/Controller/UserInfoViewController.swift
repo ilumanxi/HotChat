@@ -221,7 +221,7 @@ class UserInfoViewController: AquamanPageViewController, LoadingStateType, Indic
             chatView = UserInfoChatView.loadFromNib()
             chatView.onSayHellowed.delegate(on: self) { (self, _) in
                 self.chatView.state = .notSayHellow
-                self.chatViewState()
+//                self.chatViewState()
             }
             chatView.onPushing.delegate(on: self) { (self, _) -> (User, UINavigationController) in
                 return (self.user, self.navigationController!)
