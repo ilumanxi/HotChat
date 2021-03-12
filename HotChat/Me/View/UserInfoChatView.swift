@@ -8,6 +8,23 @@
 
 import UIKit
 
+enum CheckCallType {
+    case text
+    case video
+    case audio
+    
+    var string: String {
+        switch self {
+        case .text:
+            return "对方设置隐私保护不接受留言"
+        case .video:
+            return "对方设置隐私保护不接受视频"
+        case .audio:
+            return "对方设置隐私保护不接受语聊"
+        }
+    }
+}
+
 class UserInfoChatView: UIView {
     
     enum State {
@@ -70,12 +87,13 @@ class UserInfoChatView: UIView {
         
         let (user, navigationController) = data
         
-        let info = TUIConversationCellData()
-        info.userID = user.userId
-        let vc  = ChatViewController(conversation: info)!
-        vc.title = user.nick
-        navigationController.pushViewController(vc, animated: true)
-        
+        if checkCall(user, type: .text) {
+            let info = TUIConversationCellData()
+            info.userID = user.userId
+            let vc  = ChatViewController(conversation: info)!
+            vc.title = user.nick
+            navigationController.pushViewController(vc, animated: true)
+        }
     }
     
     
@@ -85,7 +103,10 @@ class UserInfoChatView: UIView {
         
         let (user, _) = data
         
-        CallHelper.share.call(userID: user.userId, callType: .video)
+        if checkCall(user, type: .video) {
+            CallHelper.share.call(userID: user.userId, callType: .video)
+        }
+        
     }
     
     @IBAction func audioButtonTapped(_ sender: Any) {
@@ -94,7 +115,11 @@ class UserInfoChatView: UIView {
         
         let (user, _) = data
         
-        CallHelper.share.call(userID: user.userId, callType: .audio)
+        if checkCall(user, type: .audio) {
+            CallHelper.share.call(userID: user.userId, callType: .audio)
+        }
+        
+        
     }
     
     
@@ -115,6 +140,37 @@ class UserInfoChatView: UIView {
             self.onSayHellowed.call()
         }
         navigationController.present(vc, animated: true, completion: nil)
+        
+    }
+    
+    func checkCall(_ toUser: User, type: CheckCallType) -> Bool {
+        
+        guard let data = onPushing.call() else { return  false }
+        
+        let (_, navigationController) = data
+        
+        guard let indicatorDisplay = navigationController.topViewController as? IndicatorDisplay & UIViewController else {
+            return false
+        }
+        
+        
+        guard let user = LoginManager.shared.user else {
+            
+            return false
+        }
+        
+        
+        if user.sex == toUser.sex {
+            indicatorDisplay.show(type.string)
+            return false
+        }
+        
+        if  ![user.girlStatus, toUser.girlStatus].contains(true) {
+            indicatorDisplay.show(type.string)
+            return false
+        }
+        
+        return true
         
     }
     

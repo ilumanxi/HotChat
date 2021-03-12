@@ -1902,11 +1902,19 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="22.5" height="13"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                                     <state key="normal" image="vip-month"/>
+                                                                    <connections>
+                                                                        <action selector="pushVip" destination="XUG-zq-2mX" eventType="touchUpInside" id="2sG-oY-qrX"/>
+                                                                    </connections>
                                                                 </button>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="28" placeholderIntrinsicHeight="12" translatesAutoresizingMaskIntoConstraints="NO" id="ZTE-Z0-saT">
+                                                                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="28" placeholderIntrinsicHeight="12" translatesAutoresizingMaskIntoConstraints="NO" id="ZTE-Z0-saT">
                                                                     <rect key="frame" x="27.5" y="0.5" width="28" height="12"/>
+                                                                    <gestureRecognizers/>
+                                                                    <connections>
+                                                                        <outletCollection property="gestureRecognizers" destination="F6H-GO-yaC" appends="YES" id="PHg-Fx-nBR"/>
+                                                                    </connections>
                                                                 </imageView>
                                                             </subviews>
+                                                            <gestureRecognizers/>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="SZn-Rj-p4H">
                                                             <rect key="frame" x="0.0" y="56" width="84.5" height="12"/>
@@ -2325,7 +2333,8 @@
                             <outlet property="delegate" destination="XUG-zq-2mX" id="f4c-6A-5vl"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="我" id="zrV-hj-oZN">
+                    <navigationItem key="navigationItem" id="zrV-hj-oZN">
+                        <barButtonItem key="leftBarButtonItem" title="我" id="wF5-vb-LL0"/>
                         <barButtonItem key="rightBarButtonItem" image="app-setting" id="p4I-F3-NSb">
                             <connections>
                                 <action selector="pushSetting" destination="XUG-zq-2mX" id="OEK-Bf-Mej"/>
@@ -2337,6 +2346,11 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uSe-9r-HJe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="F6H-GO-yaC">
+                    <connections>
+                        <action selector="pushLevel" destination="XUG-zq-2mX" id="hBr-Wc-D5W"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1604.3478260869567" y="837.72321428571422"/>
         </scene>

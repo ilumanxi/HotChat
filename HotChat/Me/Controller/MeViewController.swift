@@ -185,6 +185,8 @@ class MeViewController: UITableViewController, Autorotate, IndicatorDisplay {
         
         hbd_barImage = UIImage(color: UIColor(hexString: "#F6F7F9"), size: self.navigationController!.navigationBar.bounds.size)
         
+        navigationItem.leftBarButtonItem?.setTitleTextAttributes(UINavigationBar.appearance().titleTextAttributes, for: .normal)
+        
         tableView.backgroundColor = UIColor(hexString: "#F6F7F9")
         tableView.sectionHeaderHeight = 10
         tableView.sectionFooterHeight = .leastNonzeroMagnitude
@@ -371,7 +373,7 @@ class MeViewController: UITableViewController, Autorotate, IndicatorDisplay {
         return attributedText
     }
     
-    func pushLevel() {
+    @IBAction func pushLevel() {
         let vc = WebViewController.H5(path: "index/index/level")
         navigationController?.pushViewController(vc, animated: true)
     }

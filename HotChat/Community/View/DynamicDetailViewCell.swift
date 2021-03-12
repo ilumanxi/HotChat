@@ -238,7 +238,11 @@ extension DynamicDetailViewCell: UICollectionViewDelegateFlowLayout {
             adjustSectionInset.right += itemSize().width + horizontalSpacing - 0.1
             return adjustSectionInset
         }
-        return sectionInset
+        else {
+            var adjustSectionInset =  sectionInset
+            adjustSectionInset.right -= 0.1
+            return adjustSectionInset
+        }
     }
 
 }

@@ -58,10 +58,7 @@ class MeHeaderView: UIView {
                 
         if let superview = superview {
             widthAnchor.constraint(equalTo: superview.widthAnchor).isActive = true
-        }
-        
-        layoutMargins = UIEdgeInsets(top: 8, left: 20, bottom: 8, right: 20)
-        
+        }  
         
         super.awakeFromNib()
     }
