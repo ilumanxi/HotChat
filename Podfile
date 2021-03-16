@@ -46,6 +46,7 @@ target 'HotChat' do
     pod 'AMPopTip'
     pod 'Aquaman', :git=> "https://github.com/bawn/Aquaman.git", :commit=> "f97de87"
     pod 'Trident', :git=> "https://github.com/bawn/Trident.git", :commit=> "2eed75e"
+    pod 'Jelly'
     
     pod 'AliPlayerSDK_iOS'
     pod 'TXIMSDK_TUIKit_iOS'

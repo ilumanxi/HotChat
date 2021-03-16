@@ -85,6 +85,11 @@
                                                 <constraint firstAttribute="width" secondItem="Tbe-Vr-0OL" secondAttribute="height" multiplier="1:1" id="ald-MV-MeR"/>
                                                 <constraint firstAttribute="width" constant="29" id="d4e-Oq-zHX"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="14.5"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sno-y2-o3G">
                                             <rect key="frame" x="100" y="17.5" width="31" height="14.5"/>

@@ -11,6 +11,7 @@ import RxCocoa
 import RxSwift
 import MJRefresh
 import SPAlertController
+import Jelly
 
     
 class CommentsViewController: UIViewController, IndicatorDisplay {
@@ -49,6 +50,8 @@ class CommentsViewController: UIViewController, IndicatorDisplay {
     
     let loadSignal = PublishSubject<Int>()
     
+    var animator: Animator?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -69,12 +72,9 @@ class CommentsViewController: UIViewController, IndicatorDisplay {
         state = .loadingContent
 
         refreshData()
-        
-        
-
     }
     
-
+    
     private func registerItem() {
         
         tableView.register(UINib(nibName: "CommentFooterView", bundle: nil), forHeaderFooterViewReuseIdentifier: "CommentFooterView")
@@ -110,10 +110,24 @@ class CommentsViewController: UIViewController, IndicatorDisplay {
                         
                         let vc = WebViewController.H5(path: "h5/vip")
                         vc.hbd_barAlpha = 0
-                        vc.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "close-white"), style: .done, target: self, action: #selector(self.close(_:)))
-                        let nav = BaseNavigationController(rootViewController: vc)
-                        nav.modalPresentationStyle = .fullScreen
-                        self.present(nav, animated: true, completion: nil)
+                        vc.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "navigation-bar-back"), style: .done, target: self, action: #selector(self.close(_:)))
+                        let viewControllerToPresent = BaseNavigationController(rootViewController: vc)
+                        
+                        let interactionConfiguration = InteractionConfiguration(presentingViewController: self, completionThreshold: 0.5, dragMode: .edge)
+                        let uiConfiguration = PresentationUIConfiguration(backgroundStyle: .dimmed(alpha: 0.5))
+                        let presentation = SlidePresentation(uiConfiguration: uiConfiguration, direction: .right, size: .fullscreen, interactionConfiguration: interactionConfiguration)
+                        let animator = Animator(presentation: presentation)
+                        animator.prepare(presentedViewController: viewControllerToPresent)
+                        self.animator = animator
+                        viewControllerToPresent.rx.methodInvoked(#selector(UIViewController.viewDidDisappear(_:)))
+                            .subscribe(onNext: { [weak self] _ in
+                                self?.panModalSetNeedsLayoutUpdate()
+                            })
+                            .disposed(by: self.rx.disposeBag)
+                        self.present(viewControllerToPresent, animated: true) {
+                            self.panModalSetNeedsLayoutUpdate()
+                        }
+                        
                     }
                     self?.present(vc, animated: true, completion: nil)
                 }
@@ -127,7 +141,7 @@ class CommentsViewController: UIViewController, IndicatorDisplay {
     @objc func close(_ sender: Any) {
         
         presentedViewController?.dismiss(animated: true, completion: {
-            self.panModalSetNeedsLayoutUpdate()
+//            self.panModalSetNeedsLayoutUpdate()
         })
     }
     
