@@ -281,6 +281,19 @@
         [self.atUserList removeAllObjects];
     }
     
+    if ([msg isKindOfClass:[TextMessageCellData class]]) {
+        NSMutableArray *userIDList = [NSMutableArray array];
+        for (UserModel *model in self.atUserList) {
+            [userIDList addObject:model.userId];
+        }
+        if (userIDList.count > 0) {
+            [msg setAtUserList:userIDList];
+        }
+        //消息发送完后 atUserList 要重置
+        [self.atUserList removeAllObjects];
+    }
+    
+    
     [_messageController sendMessage:msg];
     if (self.delegate && [self.delegate respondsToSelector:@selector(chatController:didSendMessage:)]) {
         [self.delegate chatController:self didSendMessage:msg];

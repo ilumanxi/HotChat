@@ -402,8 +402,30 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
 
 - (void)inputBar:(InputBar *)textView didSendText:(NSString *)text
 {
-    TUITextMessageCellData *data = [[TUITextMessageCellData alloc] initWithDirection:MsgDirectionOutgoing];
-    data.content = text;
+    TUIMessageCellData *data = nil;
+    
+    if ([self.parentViewController isKindOfClass:[ChatTopicViewController class]]) {
+        
+        TextMessageCellData *textData = [[TextMessageCellData alloc] initWithDirection:MsgDirectionOutgoing];
+        textData.content = text;
+        
+        IMData *imData = [IMData defaultData];
+        imData.user  = LoginManager.shared.user;
+        imData.type = 102;
+        
+        NSDictionary *content = @{@"text" : text};
+        imData.data = [content mj_JSONString];
+
+        NSData *customData = [TUICallUtils dictionary2JsonData:[imData mj_keyValues]];
+        textData.innerMessage = [[V2TIMManager sharedInstance] createCustomMessage:customData];
+        data = textData;
+    }
+    else {
+        TUITextMessageCellData * textData = [[TUITextMessageCellData alloc] initWithDirection:MsgDirectionOutgoing];
+        textData.content = text;
+        data = textData;
+    }
+    
     if(_delegate && [_delegate respondsToSelector:@selector(inputController:didSendMessage:)]){
         [_delegate inputController:self didSendMessage:data];
     }

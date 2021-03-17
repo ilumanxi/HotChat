@@ -128,10 +128,15 @@ extension ConversationViewController: TUIConversationListControllerDelegate {
         
         let convData = conversation.convData
         
-        let data = TUIConversationCellData()
-        data.userID = convData.userID
+        let vc: ChatViewController
         
-        let vc  = ChatViewController(conversation: data)!
+        if !convData.groupID.isEmpty {
+            vc = ChatTopicViewController(conversation: convData)!
+        }
+        else {
+            vc = ChatViewController(conversation: convData)!
+        }
+        
         vc.title = convData.title
         navigationController?.pushViewController(vc, animated: true)
         

@@ -7,6 +7,7 @@
 //
 
 #import "IMData.h"
+#import "HotChat-Swift.h"
 
 @implementation IMData
 

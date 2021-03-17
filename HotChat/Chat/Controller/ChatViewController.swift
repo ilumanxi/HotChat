@@ -194,13 +194,25 @@ extension ChatViewController: ChatControllerDelegate {
             else if imData.type == 101 { // 图片
                 //ImageMessageCellData
                 let cellData = ImageMessageCellData(direction: msg.isSelf ? .MsgDirectionOutgoing : .MsgDirectionIncoming)
-                cellData.innerMessage = msg;
+                cellData.innerMessage = msg
                 cellData.msgID = msg.msgID
                 cellData.avatarUrl = URL(string: msg.faceURL ?? "")
                 cellData.mj_setKeyValues(imData.data)
                 cellData.identifier = msg.sender
                 return cellData
                 
+            }
+            else if imData.type == 102, let content = imData.data.mj_JSONObject() as? [String : Any]  { // 自定义文本消息
+
+                let cellData = TextMessageCellData(direction: msg.isSelf ? .MsgDirectionOutgoing : .MsgDirectionIncoming)
+                cellData.content = (content["text"] as? String) ?? ""
+                cellData.innerMessage = msg
+                cellData.msgID = msg.msgID
+                cellData.avatarUrl = URL(string: msg.faceURL ?? "")
+                cellData.mj_setKeyValues(imData.data)
+                cellData.identifier = msg.sender
+
+                return cellData
             }
         }
         
@@ -217,12 +229,18 @@ extension ChatViewController: ChatControllerDelegate {
             return cell
         }
         
-        if cellData.isKind(of: ImageMessageCellData.self) {
-            
+       else if cellData.isKind(of: ImageMessageCellData.self) {
             let cell = ImageMessageCell(style: .default, reuseIdentifier: "ImageMessageCell")
             cell.fill(with: cellData as! ImageMessageCellData)
             return cell
         }
+        
+       else if cellData.isKind(of: TextMessageCellData.self) {
+            let cell = TextMessageCell(style: .default, reuseIdentifier: "TextMessageCell")
+            cell.fill(with: cellData as? TextMessageCellData)
+            return cell
+        }
+        
         
         return nil
     }

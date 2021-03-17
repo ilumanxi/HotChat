@@ -8,6 +8,7 @@
 
 #import "TUIMessageDataProviderService+Gift.h"
 #import <objc/runtime.h>
+#import <MJExtension/MJExtension.h>
 
 
 @implementation TUIMessageDataProviderService (Gift)
@@ -57,6 +58,10 @@ void swizzleMethod(Class class, SEL originalSelector, SEL swizzledSelector)
     }
     if (info == nil && param != nil && [param[@"type"] intValue] == 101) {
         return  @"[图片]";
+    }
+    if (info == nil && param != nil && [param[@"type"] intValue] == 102) {
+        NSString *data = param[@"data"];
+        return [data mj_JSONObject][@"text"];
     }
     return [self swizzledGetCustomElemContent:message];
 }

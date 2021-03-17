@@ -19,6 +19,8 @@
 #import "GiftManager.h"
 #import "ImageMessageCellData.h"
 #import "ImageMessageCell.h"
+#import "TextMessageCellData.h"
+#import "TextMessageCell.h"
 
 #import <UMCommon/UMCommon.h>
 #import <UMVerify/UMVerify.h>

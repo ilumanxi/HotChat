@@ -487,8 +487,30 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="riV-b1-oNq" imageView="Xjv-eW-b7P" rowHeight="80" style="IBUITableViewCellStyleDefault" id="pgE-Rt-WCb">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Sr8-4k-Nmf" imageView="GfS-Ca-34F" rowHeight="80" style="IBUITableViewCellStyleDefault" id="Hvh-WE-eSI">
                                         <rect key="frame" x="0.0" y="220" width="414" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hvh-WE-eSI" id="OoH-HC-cVx">
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="话题热聊" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Sr8-4k-Nmf">
+                                                    <rect key="frame" x="85" y="0.0" width="290" height="80"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="chat-topic" id="GfS-Ca-34F">
+                                                    <rect key="frame" x="20" y="15" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="riV-b1-oNq" imageView="Xjv-eW-b7P" rowHeight="80" style="IBUITableViewCellStyleDefault" id="pgE-Rt-WCb">
+                                        <rect key="frame" x="0.0" y="300" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pgE-Rt-WCb" id="gAA-T4-7Jz">
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="80"/>
@@ -605,6 +627,7 @@
         <image name="chat-more" width="3.5" height="16.5"/>
         <image name="chat-pair" width="50" height="50"/>
         <image name="chat-skip" width="74.5" height="74.5"/>
+        <image name="chat-topic" width="50" height="50"/>
         <image name="close-white-small" width="12" height="12"/>
         <image name="me-sex-man" width="7" height="7"/>
         <image name="tabbar-message-normal" width="21" height="21"/>

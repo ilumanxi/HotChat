@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="TopicListViewCell" customModule="HotChat" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="345" height="123"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="345" height="123"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eUZ-Ay-Pcn">
+                        <rect key="frame" x="0.0" y="0.0" width="345" height="123"/>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="RaI-4N-A8z">
+                        <rect key="frame" x="100.5" y="41" width="144" height="41.5"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chat-hot" translatesAutoresizingMaskIntoConstraints="NO" id="fGS-MK-ZpN">
+                                <rect key="frame" x="0.0" y="0.0" width="33" height="41.5"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="音乐俱乐部" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s6C-uS-Znr">
+                                <rect key="frame" x="42" y="8.5" width="102" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="eUZ-Ay-Pcn" secondAttribute="bottom" id="6kz-Na-gpi"/>
+                <constraint firstItem="eUZ-Ay-Pcn" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="CY0-EL-CHi"/>
+                <constraint firstItem="RaI-4N-A8z" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="VIS-Jr-QPp"/>
+                <constraint firstAttribute="trailing" secondItem="eUZ-Ay-Pcn" secondAttribute="trailing" id="W0k-kw-Jse"/>
+                <constraint firstItem="RaI-4N-A8z" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="fDU-9q-MqZ"/>
+                <constraint firstItem="eUZ-Ay-Pcn" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="u3S-4R-e0u"/>
+            </constraints>
+            <size key="customSize" width="397" height="50"/>
+            <point key="canvasLocation" x="389.13043478260875" y="84.040178571428569"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="chat-hot" width="33" height="41.5"/>
+    </resources>
+</document>

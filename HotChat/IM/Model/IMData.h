@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+@class User;
+
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface IMData : NSObject
@@ -19,6 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger imVersion;
 
 @property(nonatomic, copy) NSString *giftRequestId;
+
+@property(nonatomic, strong) User *user;
 
 @property(nonatomic, copy) NSString *data; //json
 
