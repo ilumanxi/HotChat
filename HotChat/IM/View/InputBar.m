@@ -99,7 +99,8 @@
 {
     _lineView.frame = CGRectMake(0, 0, Screen_Width, TLine_Heigh);
     
-    _inputTextView.frame = CGRectMake(TTextView_Margin, TTextView_Margin, Screen_Width - (TTextView_Margin * 2), TTextView_TextView_Height_Min);
+//    _inputTextView.frame = CGRectMake(TTextView_Margin, TTextView_Margin, Screen_Width - (TTextView_Margin * 2), TTextView_TextView_Height_Min);
+    _inputTextView.frame = CGRectMake(15, TTextView_Margin, Screen_Width - (15 * 2), TTextView_TextView_Height_Min);
     
     
     CGSize buttonSize = TTextView_Button_Size;

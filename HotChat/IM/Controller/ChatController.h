@@ -184,6 +184,8 @@
  */
 @property InputController *inputController;
 
+@property(readonly) CGFloat inputBarHeight;
+
 /**
  *  被委托类，负责实现并执行 ChatControllerDelegate 的委托函数
  */

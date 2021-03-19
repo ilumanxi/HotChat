@@ -24,6 +24,7 @@
 #import "GiftReminderViewController.h"
 #import "GiftManager.h"
 #import "HotChat-Swift.h"
+#import "ChatController.h"
 
 
 typedef NS_ENUM(NSUInteger, InputStatus) {
@@ -74,9 +75,20 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
     self.view.backgroundColor = [UIColor d_colorWithColorLight:TInput_Background_Color dark:TInput_Background_Color_Dark];
     _status = Input_Status_Input;
 
-    _inputBar = [[InputBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, InputBar_Height)];
+    _inputBar = [[InputBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.inputBarHeight)];
     _inputBar.delegate = self;
     [self.view addSubview:_inputBar];
+}
+
+- (CGFloat)inputBarHeight {
+    
+    if ([self.parentViewController isKindOfClass:[ChatController class]]) {
+        
+        ChatController *chatVC = (ChatController *) self.parentViewController;
+        return chatVC.inputBarHeight;
+    }
+    
+    return InputBar_Height;
 }
 
 - (void)keyboardWillHide:(NSNotification *)notification

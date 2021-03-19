@@ -356,6 +356,9 @@
 		26EDE7F92591D11F002A2EC3 /* GuidedRechargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EDE7F72591D11F002A2EC3 /* GuidedRechargeViewController.swift */; };
 		26EDE7FA2591D11F002A2EC3 /* GuidedRechargeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26EDE7F82591D11F002A2EC3 /* GuidedRechargeViewController.xib */; };
 		26EE0E4C25245BD800233ED5 /* PayAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EE0E4B25245BD800233ED5 /* PayAPI.swift */; };
+		26EEA3212604757C005226AD /* ChatTopicMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EEA3202604757C005226AD /* ChatTopicMenuViewController.swift */; };
+		26EEA32426048BDA005226AD /* ChatTopicReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EEA32226048BDA005226AD /* ChatTopicReportViewController.swift */; };
+		26EEA32526048BDA005226AD /* ChatTopicReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26EEA32326048BDA005226AD /* ChatTopicReportViewController.xib */; };
 		26F0D2542546DA8200D1018B /* InputController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F0D2532546DA8200D1018B /* InputController.m */; };
 		26F0D25A2546DB9C00D1018B /* InputBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F0D2592546DB9C00D1018B /* InputBar.m */; };
 		26F25C932509C36B00F808EA /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F25C922509C36B00F808EA /* TabBarButton.swift */; };
@@ -856,6 +859,9 @@
 		26EDE7F72591D11F002A2EC3 /* GuidedRechargeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidedRechargeViewController.swift; sourceTree = "<group>"; };
 		26EDE7F82591D11F002A2EC3 /* GuidedRechargeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GuidedRechargeViewController.xib; sourceTree = "<group>"; };
 		26EE0E4B25245BD800233ED5 /* PayAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayAPI.swift; sourceTree = "<group>"; };
+		26EEA3202604757C005226AD /* ChatTopicMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTopicMenuViewController.swift; sourceTree = "<group>"; };
+		26EEA32226048BDA005226AD /* ChatTopicReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTopicReportViewController.swift; sourceTree = "<group>"; };
+		26EEA32326048BDA005226AD /* ChatTopicReportViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatTopicReportViewController.xib; sourceTree = "<group>"; };
 		26F0D2522546DA8200D1018B /* InputController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputController.h; sourceTree = "<group>"; };
 		26F0D2532546DA8200D1018B /* InputController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputController.m; sourceTree = "<group>"; };
 		26F0D2582546DB9C00D1018B /* InputBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputBar.h; sourceTree = "<group>"; };
@@ -1292,6 +1298,9 @@
 				26377FBD25303D2200D5A03D /* ConversationActionViewController.swift */,
 				26377FCD2530526800D5A03D /* ChatViewController.swift */,
 				262FFFAE2601EEA300F541C2 /* ChatTopicViewController.swift */,
+				26EEA32226048BDA005226AD /* ChatTopicReportViewController.swift */,
+				26EEA32326048BDA005226AD /* ChatTopicReportViewController.xib */,
+				26EEA3202604757C005226AD /* ChatTopicMenuViewController.swift */,
 				26C8CC6D26044E58005FDFF8 /* ChatTopicStatusViewController.swift */,
 				26C8CC6E26044E58005FDFF8 /* ChatTopicStatusViewController.xib */,
 				26C8CC6B26044301005FDFF8 /* ChatMemberContainerViewController.swift */,
@@ -1964,6 +1973,7 @@
 				267955042507637600A72954 /* Community.storyboard in Resources */,
 				26C81EEE25480B1900C1D563 /* GiftViewCell.xib in Resources */,
 				26BA6A0E25F365E60002C3DE /* VipBuyViewController.xib in Resources */,
+				26EEA32526048BDA005226AD /* ChatTopicReportViewController.xib in Resources */,
 				26D0034F25A6E97C00168796 /* UserInformationViewController.xib in Resources */,
 				26E4C68525930F89005EAAC3 /* AccountDestructionController.xib in Resources */,
 				26597676257886BB00E4B6A2 /* GreetingsAddedView.xib in Resources */,
@@ -2288,6 +2298,7 @@
 				260ABAF025F2431E006A01C0 /* CommentReportViewController.swift in Sources */,
 				263A6684257E0EF200F35714 /* CheckInCell.swift in Sources */,
 				265C8A42251332E900E220BD /* SigninProtocols.swift in Sources */,
+				26EEA3212604757C005226AD /* ChatTopicMenuViewController.swift in Sources */,
 				2668CF0925931B3D00C851F6 /* LogoutAPI.swift in Sources */,
 				26039E1A25F5F9F700A162E3 /* PlayerManager.swift in Sources */,
 				26CB6D4525515D6B00A9F4DD /* BDFaceCircleView.m in Sources */,
@@ -2367,6 +2378,7 @@
 				26AC1E4E250613B6003EFB44 /* KeychainItem.swift in Sources */,
 				26B4E05E2564FCBA004EDCFE /* AuthenticationGuideViewController.swift in Sources */,
 				26E291B125541C010032AE99 /* PIPWindow.m in Sources */,
+				26EEA32426048BDA005226AD /* ChatTopicReportViewController.swift in Sources */,
 				26945815253FF81E00EBCABB /* UserViewCell.swift in Sources */,
 				2695903C250B16D700763061 /* InterestedCardView.swift in Sources */,
 				262FFFC12603483F00F541C2 /* ChatMemberViewController.swift in Sources */,

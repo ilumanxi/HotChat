@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChatTopicReportViewController" customModule="HotChat" customModuleProvider="target">
+            <connections>
+                <outlet property="containerView" destination="uW9-JV-42R" id="bxZ-hs-EBT"/>
+                <outlet property="tableView" destination="Gz2-Lt-flf" id="KGi-ob-FF7"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uW9-JV-42R">
+                    <rect key="frame" x="54.5" y="269" width="305" height="358"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请选择举报类型" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kF7-qn-NTl">
+                            <rect key="frame" x="95" y="21" width="115" height="20"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JZw-Vn-dQu" userLabel="Close Button">
+                            <rect key="frame" x="277" y="20" width="12" height="22"/>
+                            <state key="normal" image="common-close"/>
+                            <connections>
+                                <action selector="closeButtonTapped:" destination="-1" eventType="touchUpInside" id="pB1-oE-YjO"/>
+                            </connections>
+                        </button>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gz2-Lt-flf">
+                            <rect key="frame" x="0.0" y="64" width="305" height="230"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="yi4-pc-dJX"/>
+                                <outlet property="delegate" destination="-1" id="5Cn-ig-9HH"/>
+                            </connections>
+                        </tableView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4CP-hg-J5y" userLabel="Submit Button" customClass="GradientButton" customModule="HotChat" customModuleProvider="target">
+                            <rect key="frame" x="96.5" y="302" width="112" height="35"/>
+                            <color key="backgroundColor" red="1" green="0.24705882352941178" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="112" id="CxT-cV-d4w"/>
+                                <constraint firstAttribute="height" constant="35" id="T9v-Wx-geG"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <state key="normal" title="提交举报">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="17.5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="string" keyPath="colorsString" value="#FF3F3F,#FF6A2F"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="submitButtonTapped:" destination="-1" eventType="touchUpInside" id="njX-M9-tJS"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="JZw-Vn-dQu" secondAttribute="trailing" constant="16" id="5Nd-U6-8HB"/>
+                        <constraint firstAttribute="height" constant="358" id="5no-O3-K7S"/>
+                        <constraint firstItem="4CP-hg-J5y" firstAttribute="centerX" secondItem="uW9-JV-42R" secondAttribute="centerX" id="Cvx-Hc-w4s"/>
+                        <constraint firstItem="Gz2-Lt-flf" firstAttribute="leading" secondItem="uW9-JV-42R" secondAttribute="leading" id="Id9-Bn-lTe"/>
+                        <constraint firstItem="kF7-qn-NTl" firstAttribute="top" secondItem="uW9-JV-42R" secondAttribute="top" constant="21" id="Nlh-g3-fQy"/>
+                        <constraint firstAttribute="bottom" secondItem="4CP-hg-J5y" secondAttribute="bottom" constant="21" id="OZA-Ye-7fV"/>
+                        <constraint firstAttribute="trailing" secondItem="Gz2-Lt-flf" secondAttribute="trailing" id="PGq-Te-Fx1"/>
+                        <constraint firstItem="kF7-qn-NTl" firstAttribute="centerX" secondItem="uW9-JV-42R" secondAttribute="centerX" id="VzD-1M-p9c"/>
+                        <constraint firstAttribute="width" constant="305" id="WnN-tX-6A7"/>
+                        <constraint firstItem="Gz2-Lt-flf" firstAttribute="top" secondItem="kF7-qn-NTl" secondAttribute="bottom" constant="23" id="h4O-fN-f6T"/>
+                        <constraint firstItem="4CP-hg-J5y" firstAttribute="top" secondItem="Gz2-Lt-flf" secondAttribute="bottom" constant="8" id="nbd-zU-fgs"/>
+                        <constraint firstItem="JZw-Vn-dQu" firstAttribute="top" secondItem="uW9-JV-42R" secondAttribute="top" constant="20" id="vkb-Tp-dhd"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="0.46999999999999997" colorSpace="custom" customColorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="uW9-JV-42R" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Beu-GH-1c0"/>
+                <constraint firstItem="uW9-JV-42R" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="SZh-Yd-fN2"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="101"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="common-close" width="12" height="12"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

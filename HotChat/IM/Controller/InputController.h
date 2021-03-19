@@ -101,6 +101,8 @@
 */
 @interface InputController : UIViewController
 
+@property(readonly) CGFloat inputBarHeight;
+
 /**
 *  输入条
 *  输入条中包含文本输入框、语音按钮、“更多”按钮、表情按钮等一系列交互组件，并提供了这些组件的对应回调委托。
@@ -116,8 +118,6 @@
 @property (nonatomic, strong) TUIFaceView *faceView;
 
 @property (nonatomic, strong) GiftViewController *giftViewController;
-
-
 
 
 @property (nonatomic, strong) VoiceView *voiceView;
