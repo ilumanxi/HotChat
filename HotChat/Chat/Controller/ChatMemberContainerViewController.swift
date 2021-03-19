@@ -80,24 +80,28 @@ class ChatMemberContainerViewController: UIViewController {
         let contentView = viewController.view!
         addChild(viewController)
         view.addSubview(contentView)
-        
+        contentView.translatesAutoresizingMaskIntoConstraints = false
         contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         contentView.topAnchor.constraint(equalTo: segment.bottomAnchor, constant: 4).isActive = true
         contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+
         
         viewController.didMove(toParent: self)
     }
     
     private func showMember(member: ChatMemberViewController) {
- 
         
         let newViewController = member
         let oldViewController = children[0]
         
+        if member == oldViewController {
+            return
+        }
+        
         let newView = newViewController.view
         let containerView = self.view!
-
+        
         newView?.translatesAutoresizingMaskIntoConstraints = false
         addChild(newViewController)
         
@@ -106,7 +110,7 @@ class ChatMemberContainerViewController: UIViewController {
             newView?.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
             newView?.topAnchor.constraint(equalTo: self.segment.bottomAnchor, constant: 4).isActive = true
             newView?.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
-        }, completion: {  _ in
+        }, completion: { _ in
             oldViewController.removeFromParent()
         })
     }
