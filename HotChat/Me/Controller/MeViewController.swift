@@ -12,9 +12,10 @@ import RxSwift
 import RxCocoa
 import DynamicColor
 
-
+@objc
 extension LabelView {
     
+    @objc
     func setSex(_ user: User) {
         switch user.sex {
         case .male:
@@ -29,8 +30,9 @@ extension LabelView {
 
 }
 
+
 extension UIButton {
-    
+    @objc
     func setVIP(_ vipType: VipType) {
        isHidden = vipType.isHidden
        setImage(vipType.image, for: .normal)

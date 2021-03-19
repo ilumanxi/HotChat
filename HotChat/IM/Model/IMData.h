@@ -13,9 +13,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef enum : NSUInteger {
+    IMDataTypeGift = 100,
+    IMDataTypeImage = 101,
+    IMDataTypeText = 102,
+} IMDataType;
+
 @interface IMData : NSObject
 
-@property(nonatomic, assign) NSInteger type;
+@property(nonatomic, assign) IMDataType type;
 
 @property(nonatomic, copy) NSString *appVersion;
 

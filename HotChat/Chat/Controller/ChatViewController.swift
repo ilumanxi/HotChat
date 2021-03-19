@@ -13,6 +13,32 @@ import AVFoundation
 import RxCocoa
 import RxSwift
 import GKPhotoBrowser
+import HandyJSON
+
+extension IMData: HandyJSON {
+    
+    @objc
+    class func fixData(_ json: [String : Any]) -> IMData? {
+        
+        guard let model = IMData.mj_object(withKeyValues: json) else { return nil }
+        
+        guard let userValue = json["user"] as? [String : Any], let user = User.deserialize(from: userValue) else { return model }
+        
+        model.user = user
+        
+        return model
+    }
+    
+    @objc func fixJson() -> NSDictionary {
+        let dict = self.mj_keyValues()!
+        
+        if dict["user"] != nil {
+            dict["user"] =  self.user.toJSON()
+        }
+        return dict
+    }
+    
+}
 
 class ChatViewController: ChatController, IndicatorDisplay {
     
@@ -179,35 +205,44 @@ extension ChatViewController: ChatControllerDelegate {
     
     func chatController(_ controller: ChatController!, onNewMessage msg: V2TIMMessage!) -> TUIMessageCellData! {
         
-        if msg.elemType == .ELEM_TYPE_CUSTOM , let param = TUICallUtils.jsonData2Dictionary(msg.customElem.data) as? [String : Any], let imData = IMData.mj_object(withKeyValues: param) {
+        
+        
+        if msg.elemType == .ELEM_TYPE_CUSTOM , let param = TUICallUtils.jsonData2Dictionary(msg.customElem.data) as? [String : Any], let imData = IMData.fixData(param) {
             
-            if imData.type == 100 { // 礼物
-                
+            if imData.type == IMDataTypeGift { // 礼物
+
                 let cellData = GiftCellData(direction: msg.isSelf ? .MsgDirectionOutgoing : .MsgDirectionIncoming)
                 cellData.innerMessage = msg;
+                cellData.name = msg.nickName
                 cellData.msgID = msg.msgID
                 cellData.avatarUrl = URL(string: msg.faceURL ?? "")
                 cellData.identifier = msg.sender
                 cellData.gift = Gift.mj_object(withKeyValues: imData.data)
+                cellData.showName = true
                 return cellData
             }
-            else if imData.type == 101 { // 图片
+            else if imData.type == IMDataTypeImage { // 图片
                 //ImageMessageCellData
                 let cellData = ImageMessageCellData(direction: msg.isSelf ? .MsgDirectionOutgoing : .MsgDirectionIncoming)
                 cellData.innerMessage = msg
                 cellData.msgID = msg.msgID
+                cellData.name = msg.nickName
                 cellData.avatarUrl = URL(string: msg.faceURL ?? "")
+                cellData.showName = true
                 cellData.mj_setKeyValues(imData.data)
                 cellData.identifier = msg.sender
                 return cellData
                 
             }
-            else if imData.type == 102, let content = imData.data.mj_JSONObject() as? [String : Any]  { // 自定义文本消息
+            else if imData.type == IMDataTypeText, let content = imData.data.mj_JSONObject() as? [String : Any]  { // 自定义文本消息
 
                 let cellData = TextMessageCellData(direction: msg.isSelf ? .MsgDirectionOutgoing : .MsgDirectionIncoming)
+                cellData.user = imData.user;
                 cellData.content = (content["text"] as? String) ?? ""
                 cellData.innerMessage = msg
                 cellData.msgID = msg.msgID
+                cellData.name = msg.nickName
+                cellData.showName = !msg.isSelf
                 cellData.avatarUrl = URL(string: msg.faceURL ?? "")
                 cellData.mj_setKeyValues(imData.data)
                 cellData.identifier = msg.sender
@@ -235,9 +270,9 @@ extension ChatViewController: ChatControllerDelegate {
             return cell
         }
         
-       else if cellData.isKind(of: TextMessageCellData.self) {
+       else if let data = cellData as? TextMessageCellData {
             let cell = TextMessageCell(style: .default, reuseIdentifier: "TextMessageCell")
-            cell.fill(with: cellData as? TextMessageCellData)
+            cell.fill(with: data)
             return cell
         }
         

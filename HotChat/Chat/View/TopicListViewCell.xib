@@ -17,7 +17,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="345" height="123"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eUZ-Ay-Pcn">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eUZ-Ay-Pcn">
                         <rect key="frame" x="0.0" y="0.0" width="345" height="123"/>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="RaI-4N-A8z">
@@ -46,6 +46,11 @@
                 <constraint firstItem="eUZ-Ay-Pcn" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="u3S-4R-e0u"/>
             </constraints>
             <size key="customSize" width="397" height="50"/>
+            <connections>
+                <outlet property="backgroundImageView" destination="eUZ-Ay-Pcn" id="XFU-bx-AB7"/>
+                <outlet property="statusImageView" destination="fGS-MK-ZpN" id="ilN-pT-88b"/>
+                <outlet property="titleLabel" destination="s6C-uS-Znr" id="C1N-Rc-pyz"/>
+            </connections>
             <point key="canvasLocation" x="389.13043478260875" y="84.040178571428569"/>
         </collectionViewCell>
     </objects>

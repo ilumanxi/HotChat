@@ -408,6 +408,7 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
         
         TextMessageCellData *textData = [[TextMessageCellData alloc] initWithDirection:MsgDirectionOutgoing];
         textData.content = text;
+        textData.user = LoginManager.shared.user;
         
         IMData *imData = [IMData defaultData];
         imData.user  = LoginManager.shared.user;
@@ -415,8 +416,10 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
         
         NSDictionary *content = @{@"text" : text};
         imData.data = [content mj_JSONString];
-
-        NSData *customData = [TUICallUtils dictionary2JsonData:[imData mj_keyValues]];
+        
+        NSDictionary *json =  [imData fixJson];
+       
+        NSData *customData = [TUICallUtils dictionary2JsonData: json];
         textData.innerMessage = [[V2TIMManager sharedInstance] createCustomMessage:customData];
         data = textData;
     }

@@ -16,7 +16,7 @@
     IMData *data = [[IMData alloc] init];
     data.appVersion = @"1.0";
     data.imVersion = 12;
-    data.type = 100;
+    data.type = IMDataTypeGift;
     return  data;
 }
 

@@ -8,12 +8,25 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
 
-class TopicListViewController: UICollectionViewController {
+class TopicListViewController: UICollectionViewController, LoadingStateType, IndicatorDisplay {
     
+    var state: LoadingState = .initial {
+        didSet {
+            showOrHideIndicator(loadingState: state)
+        }
+    }
     
     let columnFlowLayout = ColumnFlowLayout()
+    
+    let API = Request<GroupChatAPI>()
+    
+    var data: [GroupTopic] = [] {
+        didSet
+        {
+            collectionView.reloadData()
+        }
+    }
     
     init() {
         super.init(collectionViewLayout: columnFlowLayout)
@@ -32,15 +45,41 @@ class TopicListViewController: UICollectionViewController {
         collectionView.layoutMargins = UIEdgeInsets(top: 8, left: 15, bottom: 8, right: 15)
         collectionView.backgroundColor = UIColor(hexString: "#F6F7F9")
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        
-        
         self.collectionView.register(cellType: TopicListViewCell.self)
 
         // Do any additional setup after loading the view.
+        
+        refreshData()
+        
+        
+    }
+    
+    
+    func pushVip() {
+        
+        let vc = WebViewController.H5(path: "h5/vip")
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func refreshData() {
+        
+        state = .refreshingContent
+        
+        API.request(.groupList, type: Response<[GroupTopic]>.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { [weak self] response in
+                guard let self = self else { return }
+                
+                self.data = response.data ?? []
+                
+                self.state =  self.data.isEmpty ? .noContent : .contentLoaded
+                
+            }, onError: { [weak self] error in
+                self?.state = .error
+                self?.show(error)
+                
+            })
+            .disposed(by: rx.disposeBag)
     }
 
     /*
@@ -63,14 +102,14 @@ class TopicListViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 18
+        return data.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: TopicListViewCell.self)
+        cell.set(data[indexPath.item])
         
-        cell.layer.cornerRadius = 10
-        cell.backgroundColor = UIColor(hexString: "DDDDDD")
+  
     
         // Configure the cell
     
@@ -79,33 +118,78 @@ class TopicListViewController: UICollectionViewController {
 
     // MARK: UICollectionViewDelegate
 
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let model = data[indexPath.item]
+        
+        checkjoinGroup(model)
     }
 
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
+    func checkjoinGroup(_ gorup: GroupTopic) {
+        showIndicator()
+        API.request(.groupStatus(groupId: gorup.groupId), type: Response<[String : Any]>.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { [weak self] response in
+                self?.hideIndicator()
+               
+                guard let self = self, let resultCode = response.data?["resultCode"] as? Int, let msg =  response.data?["msg"] as? String else {
+                    return
+                }
+                
+                
+                guard let status = ChatTopicStatusViewController.Status(rawValue: resultCode) else {
+                    self.show(msg)
+                    return
+                }
+                
+                switch status {
+                case .normal:
+                    self.joinGroup(gorup)
+                case .crowd, .full:
+                    self.pushChatTopicStatus(status)
+                }
+                
+            }, onError: { [weak self] error in
+                
+                self?.hideIndicator()
+                self?.show(error)
+                
+            })
+            .disposed(by: rx.disposeBag)
     }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
     
-    }
-    */
+    func pushChatTopicStatus(_ status: ChatTopicStatusViewController.Status) {
+        let vc  = ChatTopicStatusViewController(status: status)
 
+        vc.buyVip.delegate(on: self) { (self, _) in
+            self.pushVip()
+        }
+
+        present(vc, animated: true, completion: nil)
+    }
+    
+
+    func joinGroup(_ gorup: GroupTopic)  {
+        
+        V2TIMManager.sharedInstance()?.joinGroup(gorup.groupId, msg: nil, succ: {
+            self.pushChatTopic(gorup)
+        }, fail: { (code, desc) in
+            if code == 10013 { //   already group member
+                self.pushChatTopic(gorup)
+            }
+            else {
+                self.show(desc)
+            }
+        })
+        
+    }
+    
+    func pushChatTopic(_ gorup: GroupTopic) {
+        let conversation =  TUIConversationCellData()
+        conversation.groupID = gorup.groupId
+        
+        guard let vc = ChatTopicViewController(conversation: conversation) else { return  }
+        vc.title = gorup.name
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }

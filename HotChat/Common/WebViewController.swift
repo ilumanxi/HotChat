@@ -283,6 +283,7 @@ extension WebViewController {
             .map{ AppleOrder(orderNo: orderNo, product: $0) }
             .flatMap(payOrder)
             .subscribe(onSuccess: { [weak self] response in
+                LoginManager.shared.refresh()
                 self?.callback(code: 1, msg: response.msg, callback: callback)
                 
             }, onError: {[weak self]  error in

@@ -10,10 +10,11 @@ import UIKit
 
 
 //@IBDesignable
-class LabelView: UIView {
+@objc
+open class LabelView: UIView {
     
     
-    override class var layerClass: AnyClass {
+    open override class var layerClass: AnyClass {
         return CAGradientLayer.self
         
     }
@@ -29,7 +30,7 @@ class LabelView: UIView {
     }
     
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
         setupData()
         setupUI()
@@ -166,7 +167,7 @@ class LabelView: UIView {
         
     }
     
-    override func layoutSubviews() {
+    open override func layoutSubviews() {
         
         let imageSize = image?.size ?? .zero
         imageView.frame = CGRect(
@@ -192,11 +193,11 @@ class LabelView: UIView {
     }
     
     
-    override var intrinsicContentSize: CGSize {
+    open override var intrinsicContentSize: CGSize {
         return size
     }
     
-    override func sizeThatFits(_ size: CGSize) -> CGSize {
+    open override func sizeThatFits(_ size: CGSize) -> CGSize {
         return size
     }
 }

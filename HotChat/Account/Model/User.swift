@@ -111,6 +111,7 @@ extension ValidationStatus {
     
 }
 
+@objc
 enum VipType: Int, HandyJSONEnum {
     /// 普通用户
     case empty = 0
@@ -207,6 +208,10 @@ enum VipType: Int, HandyJSONEnum {
     /// VIP
     var vipType: VipType = .empty
     
+    @objc var ocVipType: Int {
+        return vipType.rawValue
+    }
+    
     var vipExpireTime: String = ""
     
     /// 用户状态
@@ -239,7 +244,7 @@ enum VipType: Int, HandyJSONEnum {
     var birthday: TimeInterval = 0
     
     /// 年龄
-     @objc var age: Int = 0
+    @objc var age: Int = 0
     
     var sex: Sex = .empty
     

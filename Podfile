@@ -69,4 +69,5 @@ target 'HotChat' do
     pod 'UMVerify'
     pod 'SVGAPlayer'
     pod 'PanModal'
+    pod 'WMSegmentControl'
 end

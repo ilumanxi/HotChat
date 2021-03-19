@@ -15,6 +15,18 @@
 #import "TUIKit.h"
 #import "THelper.h"
 #import "MMLayout/UIView+MMLayout.h"
+#import "HotChat-Swift.h"
+#import <Masonry/Masonry.h>
+
+@interface TextMessageCell ()
+
+@property (nonatomic, strong) LabelView *sex;
+
+@property (nonatomic, strong) UIButton *vip;
+
+@property (nonatomic, strong) UIStackView *stackView;
+
+@end
 
 @implementation TextMessageCell
 
@@ -22,6 +34,23 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        
+         
+        _sex = [LabelView new];
+        _vip = [UIButton buttonWithType:UIButtonTypeCustom];
+        
+        _stackView = [[UIStackView alloc] initWithArrangedSubviews:@[_sex, _vip]];
+        _stackView.alignment = UIStackViewAlignmentCenter;
+        _stackView.axis = UILayoutConstraintAxisHorizontal;
+        _stackView.spacing = 9;
+        
+        [self.contentView addSubview:_stackView];
+        
+        [_stackView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(self.nameLabel.mas_centerY);
+            make.leading.equalTo(self.nameLabel.mas_trailing).offset(13);
+        }];
+        
         _content = [[UILabel alloc] init];
         _content.numberOfLines = 0;
         [self.bubbleView addSubview:_content];
@@ -38,6 +67,11 @@
     self.textData = data;
     self.content.attributedText = data.attributedString;
     self.content.textColor = data.textColor;
+    [_sex setSex: data.user];
+    [_vip setVIP: data.user.ocVipType];
+    
+    _stackView.hidden = !data.showName;
+    
 //  font set in attributedString
 }
 

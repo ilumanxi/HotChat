@@ -16,5 +16,18 @@ class ChatTopicViewController: ChatViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func setupNavigationItem() {
+
+        let memberItem = UIBarButtonItem(image: UIImage(named: "chat-member"), style: .plain, target: self, action: #selector(pushMember))
+        navigationItem.rightBarButtonItems = [memberItem]
+    }
+    
+    
+    @objc
+    func pushMember()  {
+        
+        let vc = ChatMemberContainerViewController(groupId: self.conversationData.groupID)
+        navigationController?.pushViewController(vc, animated: true)
+    }
 
 }

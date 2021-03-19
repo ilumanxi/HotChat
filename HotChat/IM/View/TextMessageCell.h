@@ -6,8 +6,6 @@
 //  Copyright © 2021 风起兮. All rights reserved.
 //
 
-#import "TUITextMessageCell.h"
-#import "TextMessageCellData.h"
 
 /******************************************************************************
  *
@@ -17,7 +15,9 @@
  *
  ******************************************************************************/
 #import "TUIBubbleMessageCell.h"
-#import "TUITextMessageCellData.h"
+#import "TUITextMessageCell.h"
+#import "TextMessageCellData.h"
+
 
 /**
  * 【模块名称】TUITextMessageCell

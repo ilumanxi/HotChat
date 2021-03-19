@@ -163,6 +163,19 @@ class LoginManager: NSObject {
         }
     }
     
+    let userAPI = Request<UserAPI>()
+    
+    func refresh()  {
+        userAPI.request(.userinfo(userId: nil), type: Response<User>.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { [weak self] response in
+                self?.update(user: response.data!)
+            }, onError: { error in
+                
+            })
+            .disposed(by: rx.disposeBag)
+    }
+    
     @objc func update(user: User) {
         if user.token.isEmpty {
             user.token = [self.user?.token ?? "", user.token].first{ !$0.isEmpty } ?? ""

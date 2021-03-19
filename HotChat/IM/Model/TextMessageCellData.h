@@ -7,11 +7,14 @@
 //
 
 #import "TUIBubbleMessageCellData.h"
+@class User;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TextMessageCellData : TUIBubbleMessageCellData
 
+
+@property(nonatomic, strong) User *user;
 
 /**
  *  消息的文本内容

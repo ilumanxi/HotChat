@@ -156,6 +156,7 @@ PODS:
   - URLNavigator (2.3.0)
   - WechatOpenSDK (1.8.7.1)
   - WKWebViewJavascriptBridge (1.2.1)
+  - WMSegmentControl (2.2)
   - YBImageBrowser/Core (3.0.9):
     - SDWebImage (>= 5.0.0)
     - YYImage
@@ -220,6 +221,7 @@ DEPENDENCIES:
   - URLNavigator
   - WechatOpenSDK
   - WKWebViewJavascriptBridge
+  - WMSegmentControl
   - YBImageBrowser/Video
   - YYImage (from `https://github.com/QiuYeHong90/YYImage.git`)
 
@@ -290,6 +292,7 @@ SPEC REPOS:
     - URLNavigator
     - WechatOpenSDK
     - WKWebViewJavascriptBridge
+    - WMSegmentControl
     - YBImageBrowser
 
 EXTERNAL SOURCES:
@@ -381,9 +384,10 @@ SPEC CHECKSUMS:
   URLNavigator: 2593c0e2d293732ec5c44503cf54dceba1a68085
   WechatOpenSDK: 6a4d1436c15b3b5fe2a0bd383f3046010186da44
   WKWebViewJavascriptBridge: 07ad0cab27cd61ccdb90b5deb223f6df3a03c3d7
+  WMSegmentControl: 4bb3a61e28cd0a0fcfcf932bec1f5795835b9f3f
   YBImageBrowser: 7ecc8bf33ffa5f3b94c397c29b4f3638dd37f527
   YYImage: 20ec986d18a8d0ad421619d166a9e628097e2433
 
-PODFILE CHECKSUM: 7a0d687879f81e37e13b23789e09cb143cf2a4a7
+PODFILE CHECKSUM: 3029723987f0b39de4140296aded9043468eec83
 
 COCOAPODS: 1.10.1
