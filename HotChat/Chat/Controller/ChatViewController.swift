@@ -257,16 +257,15 @@ extension ChatViewController: ChatControllerDelegate {
     
     func chatController(_ controller: ChatController!, onShowMessageData cellData: TUIMessageCellData!) -> TUIMessageCell! {
         
-        if cellData.isKind(of: GiftCellData.self) {
-            
+        if let data = cellData as? GiftCellData {
             let cell = GiftCell(style: .default, reuseIdentifier: "GiftCell")
-            cell.fill(with: cellData)
+            cell.fill(with: data)
             return cell
         }
         
-       else if cellData.isKind(of: ImageMessageCellData.self) {
+       else if let data = cellData as? ImageMessageCellData {
             let cell = ImageMessageCell(style: .default, reuseIdentifier: "ImageMessageCell")
-            cell.fill(with: cellData as! ImageMessageCellData)
+            cell.fill(with: data)
             return cell
         }
         
@@ -275,8 +274,11 @@ extension ChatViewController: ChatControllerDelegate {
             cell.fill(with: data)
             return cell
         }
-        
-        
+       else if let data = cellData as? SystemMessageCellData {
+            let cell = SystemMessageCell(style: .default, reuseIdentifier: "SystemMessageCell")
+            cell.fill(with: data)
+            return cell
+        }
         return nil
     }
     

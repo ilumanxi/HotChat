@@ -21,6 +21,9 @@
 #import "ImageMessageCell.h"
 #import "TextMessageCellData.h"
 #import "TextMessageCell.h"
+#import "TUIMessageController+Message.h"
+#import "SystemMessageCellData.h"
+#import "SystemMessageCell.h"
 
 #import <UMCommon/UMCommon.h>
 #import <UMVerify/UMVerify.h>
