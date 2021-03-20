@@ -45,6 +45,13 @@ class ChatTopicViewController: ChatViewController, UIPopoverPresentationControll
     }
     
     var uiMessage: NSMutableArray?
+    
+    /// 全体禁言
+    var allMuted: Bool = false
+    
+    /// 自己禁言
+    var selfMuted: Bool = false
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +70,35 @@ class ChatTopicViewController: ChatViewController, UIPopoverPresentationControll
                 self?.addSystemMessage()
             })
             .disposed(by: rx.disposeBag)
+        
+
+        V2TIMManager.sharedInstance()?.getGroupsInfo([self.conversationData.groupID], succ: {[weak self] results in
+            
+            if let groupInfoResult = results?.first, groupInfoResult.resultCode == 0 {
+                self?.allMuted = groupInfoResult.info.allMuted
+            }
+            
+        }, fail: { (code, desc) in
+            Log.print("\(code)  \(desc)")
+        })
+        
+        /// groupID  data
+        NotificationCenter.default.rx.notification(.init("V2TIMGroupNotify_onReceiveRESTCustomData"))
+            .subscribe(onNext: { notification in
+                Log.print(notification.userInfo)
+            })
+            .disposed(by: rx.disposeBag)
+    }
+    
+    
+    func handle(_ notification: Notification){
+        
+        guard let groupID = notification.userInfo, let data = notification.userInfo?["data"] as? Data else {
+            return
+        }
+        
+        
+        
         
     }
     
