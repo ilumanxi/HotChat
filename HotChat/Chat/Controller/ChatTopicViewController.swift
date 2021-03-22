@@ -40,6 +40,8 @@ dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC))
 */
 class ChatTopicViewController: ChatViewController, UIPopoverPresentationControllerDelegate {
     
+    
+    
     override var inputBarHeight: CGFloat {
         return 49
     }
@@ -47,11 +49,69 @@ class ChatTopicViewController: ChatViewController, UIPopoverPresentationControll
     var uiMessage: NSMutableArray?
     
     /// 全体禁言
-    var allMuted: Bool = false
+    var allMuted: Bool = false {
+        didSet {
+            addOrRemoveMutedView()
+        }
+    }
     
     /// 自己禁言
-    var selfMuted: Bool = false
+    var selfMuted: Bool = false {
+        didSet {
+            addOrRemoveMutedView()
+        }
+    }
     
+    
+    lazy var mutedButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.isEnabled = false
+        button.setTitleColor(UIColor(hexString: "#999999"), for: .disabled)
+        button.titleLabel?.font = .systemFont(ofSize: 14, weight: .medium)
+        button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 11, bottom: 0, right: 11)
+        button.contentHorizontalAlignment = .left
+        button.backgroundColor = UIColor(hexString: "#F3F3F3")
+        button.layer.cornerRadius = 5
+        return button
+        
+    }()
+    
+    func addOrRemoveMutedView() {
+        
+        let isMuted = allMuted || selfMuted
+        
+        guard let textView  = inputController.inputBar.value(forKeyPath: "inputTextView") as? UITextView  else {
+            return
+        }
+        
+        
+        textView.isEditable = !isMuted
+        textView.isHidden = isMuted
+        inputController.inputBar.isUserInteractionEnabled = !isMuted
+        
+        if !isMuted {
+            
+            if mutedButton.superview != nil {
+                mutedButton.removeFromSuperview()
+            }
+            return
+        }
+        
+        
+        inputController.inputBar.clearInput()
+        
+        if allMuted {
+            mutedButton.setTitle("当前修整，请留意开放时间。", for: .disabled)
+        }
+        else if selfMuted {
+            mutedButton.setTitle("您涉及言论违规已被禁言，请联系客服。", for: .disabled)
+        }
+        
+        mutedButton.frame = textView.frame
+        
+        inputController.inputBar.addSubview(mutedButton)
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,7 +127,7 @@ class ChatTopicViewController: ChatViewController, UIPopoverPresentationControll
             }
             .first()
             .subscribe({ [weak  self] firstLoad in
-                self?.addSystemMessage()
+                self?.addSystemMessage(content: "文明公告：本平台提倡健康文明交友，所有涉黄、诈骗、违法法规等行为，将被系统永久封禁账号及手机设备。")
             })
             .disposed(by: rx.disposeBag)
         
@@ -76,6 +136,9 @@ class ChatTopicViewController: ChatViewController, UIPopoverPresentationControll
             
             if let groupInfoResult = results?.first, groupInfoResult.resultCode == 0 {
                 self?.allMuted = groupInfoResult.info.allMuted
+                if groupInfoResult.info.allMuted {
+                    self?.requestNotice()
+                }
             }
             
         }, fail: { (code, desc) in
@@ -84,31 +147,100 @@ class ChatTopicViewController: ChatViewController, UIPopoverPresentationControll
         
         /// groupID  data
         NotificationCenter.default.rx.notification(.init("V2TIMGroupNotify_onReceiveRESTCustomData"))
-            .subscribe(onNext: { notification in
-                Log.print(notification.userInfo)
+            .subscribe(onNext: { [weak self] notification in
+                self?.handle(notification)
             })
             .disposed(by: rx.disposeBag)
+        
+        requestMutedStatus()
+        
     }
     
     
+    let gorupAPI = Request<GroupChatAPI>()
+    
+    func requestNotice()  {
+        
+        gorupAPI.request(.getNotice(groupId: self.conversationData.groupID), type: Response<[String : Any]>.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { [weak self] response in
+                
+                guard let self = self,
+                      let title = response.data?["title"] as? String,
+                      let content = response.data?["content"] as? String else {
+                    return
+                }
+                
+                let vc = ChatTopicNoticeViewController(noticeTitle: title, noticeContent: content)
+                self.present(vc, animated: true, completion: nil)
+                
+            }, onError: nil)
+            .disposed(by: rx.disposeBag)
+    }
+    
+    func requestMutedStatus()  {
+        gorupAPI.request(.userGroupStatus(groupId: self.conversationData.groupID), type: Response<[String : Any]>.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { [weak self] response in
+                guard let resultCode = response.data?["resultCode"] as? Int else { return }
+                if resultCode == 0 {
+                    self?.selfMuted = false
+                }
+                else if resultCode == 1102 {
+                    self?.selfMuted = true
+                }
+            }, onError: nil)
+            .disposed(by: rx.disposeBag)
+    }
+    
     func handle(_ notification: Notification){
         
-        guard let groupID = notification.userInfo, let data = notification.userInfo?["data"] as? Data else {
+        guard let groupID = notification.userInfo?["groupID"] as? String,
+              let contentData = notification.userInfo?["data"] as? Data,
+              let json = try? JSONSerialization.jsonObject(with: contentData, options: .allowFragments) as? [String : Any] else {
             return
         }
         
         
         
+        if groupID != self.conversationData.groupID {
+            return
+        }
         
+        guard let type = json["type"] as? Int,
+              let dataString = json["data"] as? String,
+              let data = dataString.data(using: .utf8),
+              let content = try? JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed) as? [String : Any]
+        else {
+            
+            return
+        }
+        
+        
+        // 个人全群禁言
+        if type == 103, let isGroupMute = content["isAllGroupMute"] as? Bool {
+            self.selfMuted = isGroupMute
+        }
+        
+        // 群内全体禁言
+        if type == 104, let isGroupMute = content["isGroupMute"] as? Bool {
+            self.allMuted = isGroupMute
+        }
+        
+        // 群内运营公告
+        if type == 105, let noticeText = content["noticeText"] as? String {
+            
+            addSystemMessage(content: noticeText)
+        }
     }
     
-    func addSystemMessage()  {
+    func addSystemMessage(content: String)  {
         
         self.messageController.tableView.beginUpdates()
         
         let systemData = SystemMessageCellData(direction: .MsgDirectionIncoming)
         systemData.status = .Msg_Status_Succ
-        systemData.content = "文明公告：本平台提倡健康文明交友，所有涉黄、诈骗、违法法规等行为，将被系统永久封禁账号及手机设备。"
+        systemData.content = content
         
         guard let uiMessage = self.uiMessage else { return }
         

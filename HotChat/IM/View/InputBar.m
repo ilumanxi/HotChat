@@ -17,6 +17,8 @@
 #import "UIColor+TUIDarkMode.h"
 
 @interface InputBar() <UITextViewDelegate>
+@property BOOL isShowButtons;
+
 @end
 
 @implementation InputBar
@@ -25,6 +27,7 @@
 {
     self = [super initWithFrame:frame];
     if(self){
+        self.isShowButtons = CGRectGetHeight(frame) > 49;
         [self setupViews];
         [self defaultLayout];
     }
@@ -282,7 +285,12 @@
         CGRect textFrame = ws.inputTextView.frame;
         textFrame.size.height += newHeight - oldHeight;
         ws.inputTextView.frame = textFrame;
-        [ws layoutButton:newHeight + 2 * TTextView_Margin + InputBar_ToolHeight];
+        if ( self.isShowButtons) {
+            [ws layoutButton:newHeight + 2 * TTextView_Margin + InputBar_ToolHeight];
+        }
+        else {
+            [ws layoutButton:newHeight + 2 * TTextView_Margin];
+        }
     }];
 }
 

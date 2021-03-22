@@ -78,7 +78,8 @@ class TabBarController: UITabBarController, IndicatorDisplay {
     func observerUnReadCount() {
         
         V2TIMManager.sharedInstance()?.getConversationList(0, count: Int32.max, succ: { [weak self] (list, lastTS, isFinished) in
-            self?.onChangeUnReadCount(list)
+            let conversationList = list?.filter{ $0.type == .C2C }
+            self?.onChangeUnReadCount(conversationList)
         }, fail: { (code, error) in
             
         })

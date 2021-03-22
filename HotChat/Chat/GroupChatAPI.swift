@@ -13,6 +13,8 @@ enum GroupChatAPI {
     case groupList
     case groupStatus(groupId: String)
     case getGroupList(groupId: String, type: Int, page: Int)
+    case userGroupStatus(groupId: String)
+    case getNotice(groupId: String)
 }
 
 
@@ -28,6 +30,10 @@ extension GroupChatAPI: TargetType {
             return "GroupChat/groupStatus"
         case .getGroupList:
             return "GroupChat/getGroupList"
+        case .userGroupStatus:
+            return "GroupChat/userGroupStatus"
+        case .getNotice:
+            return "GroupChat/getNotice"
         }
     }
     
@@ -48,6 +54,10 @@ extension GroupChatAPI: TargetType {
                 "type" : type,
                 "page" : page
             ]
+        case .userGroupStatus(let groupId):
+            parameters = ["groupId" : groupId]
+        case .getNotice(let groupId):
+            parameters = ["groupId" : groupId]
         }
         
         let encoding: ParameterEncoding = (self.method == .post) ? JSONEncoding.default : URLEncoding.default

@@ -132,6 +132,7 @@
 		264BF97925A8366E00F873DD /* AccostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 264BF97725A8366E00F873DD /* AccostViewController.xib */; };
 		264BF97E25A83BB200F873DD /* AccostViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264BF97C25A83BB200F873DD /* AccostViewCell.swift */; };
 		264BF97F25A83BB200F873DD /* AccostViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 264BF97D25A83BB200F873DD /* AccostViewCell.xib */; };
+		264C5C232608A72F007FB123 /* TConversationListViewModel+Single.m in Sources */ = {isa = PBXBuildFile; fileRef = 264C5C222608A72F007FB123 /* TConversationListViewModel+Single.m */; };
 		264D15E0258B415300756EAF /* GreetingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 264D15DF258B415300756EAF /* GreetingViewController.xib */; };
 		264DEA142552512C00AD97DE /* GiftManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 264DEA132552512C00AD97DE /* GiftManager.m */; };
 		264E6D8E25B2CE7900C97CD8 /* ChannelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 264E6D8D25B2CE7900C97CD8 /* ChannelCell.xib */; };
@@ -224,6 +225,8 @@
 		26959042250B1DD900763061 /* InterestedCardOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26959041250B1DD900763061 /* InterestedCardOverlayView.xib */; };
 		269590BF250B5FE900763061 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 269590BE250B5FE900763061 /* StoreKit.framework */; };
 		2696341F2531942000493C3D /* DynamicAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2696341E2531942000493C3D /* DynamicAPI.swift */; };
+		2697FDC4260893EE002CB9A2 /* ChatTopicNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2697FDC2260893EE002CB9A2 /* ChatTopicNoticeViewController.swift */; };
+		2697FDC5260893EE002CB9A2 /* ChatTopicNoticeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2697FDC3260893EE002CB9A2 /* ChatTopicNoticeViewController.xib */; };
 		269DED0B254A9DD5000AD5D9 /* CallMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 269DED0A254A9DD5000AD5D9 /* CallMenuViewController.xib */; };
 		269DED1B254AAC4D000AD5D9 /* GiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 269DED19254AAC4D000AD5D9 /* GiftViewController.m */; };
 		269DED1C254AAC4D000AD5D9 /* GiftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 269DED1A254AAC4D000AD5D9 /* GiftViewController.xib */; };
@@ -590,6 +593,8 @@
 		264BF97725A8366E00F873DD /* AccostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccostViewController.xib; sourceTree = "<group>"; };
 		264BF97C25A83BB200F873DD /* AccostViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccostViewCell.swift; sourceTree = "<group>"; };
 		264BF97D25A83BB200F873DD /* AccostViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccostViewCell.xib; sourceTree = "<group>"; };
+		264C5C212608A72F007FB123 /* TConversationListViewModel+Single.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TConversationListViewModel+Single.h"; sourceTree = "<group>"; };
+		264C5C222608A72F007FB123 /* TConversationListViewModel+Single.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TConversationListViewModel+Single.m"; sourceTree = "<group>"; };
 		264D15DF258B415300756EAF /* GreetingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GreetingViewController.xib; sourceTree = "<group>"; };
 		264DEA122552512C00AD97DE /* GiftManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftManager.h; sourceTree = "<group>"; };
 		264DEA132552512C00AD97DE /* GiftManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftManager.m; sourceTree = "<group>"; };
@@ -690,6 +695,8 @@
 		269590BE250B5FE900763061 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		269590C0250B5FF900763061 /* HotChatRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HotChatRelease.entitlements; sourceTree = "<group>"; };
 		2696341E2531942000493C3D /* DynamicAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicAPI.swift; sourceTree = "<group>"; };
+		2697FDC2260893EE002CB9A2 /* ChatTopicNoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTopicNoticeViewController.swift; sourceTree = "<group>"; };
+		2697FDC3260893EE002CB9A2 /* ChatTopicNoticeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatTopicNoticeViewController.xib; sourceTree = "<group>"; };
 		269DED0A254A9DD5000AD5D9 /* CallMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CallMenuViewController.xib; sourceTree = "<group>"; };
 		269DED18254AAC4D000AD5D9 /* GiftViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftViewController.h; sourceTree = "<group>"; };
 		269DED19254AAC4D000AD5D9 /* GiftViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftViewController.m; sourceTree = "<group>"; };
@@ -1306,6 +1313,8 @@
 				262FFFAE2601EEA300F541C2 /* ChatTopicViewController.swift */,
 				26EEA32226048BDA005226AD /* ChatTopicReportViewController.swift */,
 				26EEA32326048BDA005226AD /* ChatTopicReportViewController.xib */,
+				2697FDC2260893EE002CB9A2 /* ChatTopicNoticeViewController.swift */,
+				2697FDC3260893EE002CB9A2 /* ChatTopicNoticeViewController.xib */,
 				26EEA3202604757C005226AD /* ChatTopicMenuViewController.swift */,
 				26C8CC6D26044E58005FDFF8 /* ChatTopicStatusViewController.swift */,
 				26C8CC6E26044E58005FDFF8 /* ChatTopicStatusViewController.xib */,
@@ -1719,6 +1728,8 @@
 				26193EC625A41370009C37FA /* TUITextMessageCellData+Call.m */,
 				26DBEBC825E6044B00C174FC /* TUICall+ExitRoom.h */,
 				26DBEBC925E6044B00C174FC /* TUICall+ExitRoom.m */,
+				264C5C212608A72F007FB123 /* TConversationListViewModel+Single.h */,
+				264C5C222608A72F007FB123 /* TConversationListViewModel+Single.m */,
 			);
 			path = IM;
 			sourceTree = "<group>";
@@ -1971,6 +1982,7 @@
 				26EDE7FA2591D11F002A2EC3 /* GuidedRechargeViewController.xib in Resources */,
 				26959042250B1DD900763061 /* InterestedCardOverlayView.xib in Resources */,
 				26CB6D4F25515D6B00A9F4DD /* idl-license.face-ios in Resources */,
+				2697FDC5260893EE002CB9A2 /* ChatTopicNoticeViewController.xib in Resources */,
 				26C81EE62547E9E300C1D563 /* VoiceView.xib in Resources */,
 				2637D876255B8E5300020E98 /* BlacklistController.xib in Resources */,
 				26F5537D2553D3CD00840735 /* GiftEarningsViewController.xib in Resources */,
@@ -2245,6 +2257,7 @@
 				26C81ED82547CE0500C1D563 /* GiftView.m in Sources */,
 				267954F9250757FE00A72954 /* ConversationViewController.swift in Sources */,
 				26B86EB82570EAD700CAC5AE /* TUIMessageDataProviderService+Gift.m in Sources */,
+				264C5C232608A72F007FB123 /* TConversationListViewModel+Single.m in Sources */,
 				2696341F2531942000493C3D /* DynamicAPI.swift in Sources */,
 				2651FE1925F7665A00A9F2E6 /* TopHeaderView.swift in Sources */,
 				2643EBBD2500B04100FBBE49 /* Helpers.swift in Sources */,
@@ -2413,6 +2426,7 @@
 				26F8947625207A9A00A45648 /* UploadFileAPI.swift in Sources */,
 				26B3ADD625F7495200D7DFC4 /* UIViewShadowExtension.swift in Sources */,
 				2643EBB12500B04100FBBE49 /* UserInfoBasicInformationCell.swift in Sources */,
+				2697FDC4260893EE002CB9A2 /* ChatTopicNoticeViewController.swift in Sources */,
 				2643EBAB2500B04100FBBE49 /* MeHeaderView.swift in Sources */,
 				26AC1E5425062D62003EFB44 /* LegalLiabilityToolBar.swift in Sources */,
 				260A87782521932A00380FB4 /* SettingViewController.swift in Sources */,

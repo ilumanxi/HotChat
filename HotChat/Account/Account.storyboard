@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="account-message" translatesAutoresizingMaskIntoConstraints="NO" id="koS-eR-3YD">
-                                <rect key="frame" x="119.66666666666669" y="194" width="175" height="101"/>
+                                <rect key="frame" x="119.66666666666669" y="148" width="175" height="101"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="X3a-fq-rsw">
                                 <rect key="frame" x="30" y="682" width="354" height="115"/>
@@ -74,7 +74,7 @@
                             <constraint firstItem="koS-eR-3YD" firstAttribute="centerX" secondItem="3xb-Od-2w9" secondAttribute="centerX" id="0Db-Wx-Srw"/>
                             <constraint firstItem="X3a-fq-rsw" firstAttribute="leading" secondItem="uds-Ff-n4B" secondAttribute="leading" constant="30" id="0qj-sN-alc"/>
                             <constraint firstItem="WrV-bB-6ju" firstAttribute="leading" secondItem="uds-Ff-n4B" secondAttribute="leading" id="GrT-Vr-M7b"/>
-                            <constraint firstItem="koS-eR-3YD" firstAttribute="top" secondItem="uds-Ff-n4B" secondAttribute="top" constant="106" id="dfk-f2-Jwu"/>
+                            <constraint firstItem="koS-eR-3YD" firstAttribute="top" secondItem="uds-Ff-n4B" secondAttribute="top" constant="60" id="dfk-f2-Jwu"/>
                             <constraint firstItem="WrV-bB-6ju" firstAttribute="top" secondItem="X3a-fq-rsw" secondAttribute="bottom" constant="30" id="jiR-8g-fIa"/>
                             <constraint firstItem="WrV-bB-6ju" firstAttribute="bottom" secondItem="uds-Ff-n4B" secondAttribute="bottom" priority="999" id="l6f-UX-oNF"/>
                             <constraint firstItem="uds-Ff-n4B" firstAttribute="trailing" secondItem="X3a-fq-rsw" secondAttribute="trailing" constant="30" id="oK8-LZ-uEq"/>
