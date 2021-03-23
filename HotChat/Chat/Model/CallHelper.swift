@@ -17,6 +17,96 @@ import AVFoundation
     
     let imAPI = Request<IMAPI>()
     
+    func checkCall(_ toUser: User, type: CheckCallType, indicatorDisplay: IndicatorDisplay & UIViewController) -> Bool {
+        
+
+        guard let user = LoginManager.shared.user else {
+            
+            return false
+        }
+        
+        if user.sex == .male {
+            if toUser.sex == .male {
+                indicatorDisplay.show("对方设置隐私保护不接受\(type.string)")
+                return false
+            }
+            else if toUser.sex == .female && !toUser.girlStatus {
+                
+                if type == .text && user.userRank < 10 {
+                    indicatorDisplay.show("对方设置隐私保护需要富豪等级10级才可以留言")
+                    return false
+                }
+                
+                if type == .image && user.vipType == .empty {
+                    indicatorDisplay.show("需要VIP才能发送图片哦")
+                    return false
+                }
+            }
+            else if toUser.girlStatus && type == .image && user.vipType == .empty {
+                indicatorDisplay.show("需要VIP才能发送图片哦")
+                return false
+            }
+        }
+        
+        
+        if user.sex == .female && !user.girlStatus {
+            
+            if toUser.sex == .male && type == .image && user.vipType == .empty {
+                indicatorDisplay.show("需要VIP才能发送图片哦")
+                return false
+            }
+            else if toUser.sex == .male && type == .video {
+                indicatorDisplay.show("对方设置隐私保护需要认证主播才能\(type.string)")
+                return false
+            }
+            else if toUser.sex == .female && !toUser.girlStatus  {
+                
+                if type == .text  {
+                    indicatorDisplay.show("对方设置隐私保护需要认证主播才能\(type.string)")
+                    return false
+                }
+                else if type == .image {
+                    indicatorDisplay.show("对方设置隐私不接受\(type.string)")
+                    return false
+                }
+            }
+           
+            else if toUser.sex == .female && !toUser.girlStatus  {
+                indicatorDisplay.show("对方设置隐私保护需要认证主播才能\(type.string)")
+                return false
+            }
+            else if toUser.girlStatus && type == .image {
+                indicatorDisplay.show("对方设置隐私不接受图片留言")
+                return false
+            }
+            else if toUser.girlStatus {
+                indicatorDisplay.show("对方设置隐私保护需要认证主播才能\(type.string)")
+                return false
+            }
+        }
+        
+        
+        if user.girlStatus {
+            
+            if  toUser.sex != .male && type == .image {
+                indicatorDisplay.show("对方设置隐私不接受图片留言")
+                return false
+            }
+            else if toUser.sex == .female && !toUser.girlStatus {
+                indicatorDisplay.show("对方设置隐私不接受\(type.string)")
+                return false
+            }
+            else if toUser.girlStatus  {
+                indicatorDisplay.show("对方设置隐私保护需要异性才能\(type.string)")
+                return false
+            }
+            
+        }
+        
+        return true
+        
+    }
+    
     func call(userID: String, callType: CallType, callSubType: CallSubType = .none) {
         
         switch callType {

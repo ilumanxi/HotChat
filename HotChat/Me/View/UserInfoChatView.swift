@@ -12,6 +12,7 @@ enum CheckCallType {
     case text
     case video
     case audio
+    case image
     
     var string: String {
         switch self {
@@ -21,9 +22,13 @@ enum CheckCallType {
             return "视频"
         case .audio:
             return "语聊"
+        case .image:
+            return "图片留言"
         }
     }
 }
+
+
 
 class UserInfoChatView: UIView {
     
@@ -87,7 +92,11 @@ class UserInfoChatView: UIView {
         
         let (user, navigationController) = data
         
-        if checkCall(user, type: .text) {
+        guard let indicatorDisplay = navigationController.topViewController as? IndicatorDisplay & UIViewController else {
+            return
+        }
+        
+        if CallHelper.share.checkCall(user, type: .text, indicatorDisplay: indicatorDisplay) {
             let info = TUIConversationCellData()
             info.userID = user.userId
             let vc  = ChatViewController(conversation: info)!
@@ -101,9 +110,13 @@ class UserInfoChatView: UIView {
         
         guard let data = onPushing.call() else { return }
         
-        let (user, _) = data
+        let (user, navigationController) = data
         
-        if checkCall(user, type: .video) {
+        guard let indicatorDisplay = navigationController.topViewController as? IndicatorDisplay & UIViewController else {
+            return
+        }
+        
+        if CallHelper.share.checkCall(user, type: .video, indicatorDisplay: indicatorDisplay) {
             CallHelper.share.call(userID: user.userId, callType: .video)
         }
         
@@ -113,9 +126,13 @@ class UserInfoChatView: UIView {
         
         guard let data = onPushing.call() else { return }
         
-        let (user, _) = data
+        let (user, navigationController) = data
         
-        if checkCall(user, type: .audio) {
+        guard let indicatorDisplay = navigationController.topViewController as? IndicatorDisplay & UIViewController else {
+            return
+        }
+        
+        if CallHelper.share.checkCall(user, type: .audio, indicatorDisplay: indicatorDisplay) {
             CallHelper.share.call(userID: user.userId, callType: .audio)
         }
         
@@ -140,44 +157,6 @@ class UserInfoChatView: UIView {
             self.onSayHellowed.call()
         }
         navigationController.present(vc, animated: true, completion: nil)
-        
-    }
-    
-    func checkCall(_ toUser: User, type: CheckCallType) -> Bool {
-        
-        guard let data = onPushing.call() else { return  false }
-        
-        let (_, navigationController) = data
-        
-        guard let indicatorDisplay = navigationController.topViewController as? IndicatorDisplay & UIViewController else {
-            return false
-        }
-        
-        
-        guard let user = LoginManager.shared.user else {
-            
-            return false
-        }
-        
-        
-        if user.sex == .male && !toUser.girlStatus {
-            indicatorDisplay.show("对方设置隐私保护不接受\(type.string)")
-            return false
-        }
-        
-        if user.sex == .female && !user.girlStatus {
-            indicatorDisplay.show("对方设置隐私保护需要直播认证才能\(type.string)")
-            return false
-        }
-        
-        
-        if user.girlStatus && toUser.sex == .female {
-            indicatorDisplay.show("对方设置隐私保护需要异性才能\(type.string)")
-            
-            return false
-        }
-
-        return true
         
     }
     

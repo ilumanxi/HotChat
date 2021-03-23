@@ -40,7 +40,7 @@ extension IMData: HandyJSON {
     
 }
 
-class ChatViewController: ChatController, IndicatorDisplay {
+class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     let imAPI = Request<IMAPI>()
     
@@ -72,14 +72,16 @@ class ChatViewController: ChatController, IndicatorDisplay {
     }()
     
     lazy var camera: TUIInputMoreCellData = {
-        let data = TUIInputMoreCellData.photo!
+        let data = TUIInputMoreCellData()
         data.image = UIImage(named: "camera")
+        data.title = "相册"
         return data
     }()
     
     lazy var photos: TUIInputMoreCellData = {
-        let data = TUIInputMoreCellData.picture!
+        let data = TUIInputMoreCellData()
         data.image = UIImage(named: "photos")
+        data.title = "拍照"
         return data
     }()
     
@@ -92,7 +94,8 @@ class ChatViewController: ChatController, IndicatorDisplay {
     }()
     
     
-
+    var user: User?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -102,6 +105,8 @@ class ChatViewController: ChatController, IndicatorDisplay {
         
 
         self.moreMenus = [video, audio, camera, photos, sayhHellow]
+        
+        requestUser()
         
         observerUserWallet()
     }
@@ -118,6 +123,18 @@ class ChatViewController: ChatController, IndicatorDisplay {
         }
         
         navigationItem.rightBarButtonItems = items
+    }
+    
+    func requestUser()  {
+        
+        userAPI.request(.userinfo(userId: self.conversationData.userID), type: Response<User>.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { [weak self] response in
+                self?.user = response.data
+            }, onError: { error in
+                
+            })
+            .disposed(by: rx.disposeBag)
     }
         
     func observerUserWallet() {
@@ -289,7 +306,50 @@ extension ChatViewController: ChatControllerDelegate {
         else if cell.data.title == audio.title {
             CallHelper.share.call(userID: conversationData.userID, callType: .audio)
         }
+        else if self.user == nil {
+            requestUser()
+        }
+        else if cell.data.title == camera.title  {
+            
+            if CallHelper.share.checkCall(self.user!, type: .image, indicatorDisplay: self) {
+                let picker = UIImagePickerController()
+                picker.sourceType = .photoLibrary
+                picker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary) ?? []
+                picker.delegate = self
+                present(picker, animated: true, completion: nil)
+            }
+            
+        }
+        else if cell.data.title == photos.title {
+            if CallHelper.share.checkCall(self.user!, type: .image, indicatorDisplay: self) {
+                let picker = UIImagePickerController()
+                picker.sourceType = .camera
+                picker.cameraCaptureMode = .photo
+                picker.delegate = self
+                present(picker, animated: true, completion: nil)
+            }
+        }
     }
+    
+    
+//    - (void)selectPhotoForSend
+//    {
+//        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+//        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+//        picker.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+//        picker.delegate = self;
+//        [self presentViewController:picker animated:YES completion:nil];
+//    }
+//
+//    - (void)takePictureForSend
+//    {
+//        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+//        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+//        picker.cameraCaptureMode =UIImagePickerControllerCameraCaptureModePhoto;
+//        picker.delegate = self;
+//
+//        [self presentViewController:picker animated:YES completion:nil];
+//    }
     
     func chatController(_ controller: ChatController!, onSelectMessageAvatar cell: TUIMessageCell!) {
         userSetting(userId: cell.messageData.identifier)
