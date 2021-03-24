@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="TalkChannelCell" customModule="HotChat" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xBP-Wz-3Ee">
+                        <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
+                        <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newcomer" translatesAutoresizingMaskIntoConstraints="NO" id="Ec0-Z6-lxE">
+                        <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="immortal" translatesAutoresizingMaskIntoConstraints="NO" id="cUF-eT-ROR">
+                        <rect key="frame" x="13" y="10" width="46" height="16"/>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="online" translatesAutoresizingMaskIntoConstraints="NO" id="Ef6-Vk-VT8">
+                        <rect key="frame" x="104.5" y="10" width="57.5" height="16"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="28岁" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abP-XJ-ozb">
+                        <rect key="frame" x="12" y="142" width="30" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小婷婷找老公" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jAH-Hb-Hrs">
+                        <rect key="frame" x="12" y="119" width="92" height="18"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="xBP-Wz-3Ee" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="0er-ug-viZ"/>
+                <constraint firstItem="cUF-eT-ROR" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="2gy-Wo-G2c"/>
+                <constraint firstItem="abP-XJ-ozb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="12" id="3Zz-5X-HWo"/>
+                <constraint firstItem="jAH-Hb-Hrs" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="12" id="8OW-C8-iNt"/>
+                <constraint firstAttribute="trailing" secondItem="Ec0-Z6-lxE" secondAttribute="trailing" id="EKc-F8-Dkz"/>
+                <constraint firstItem="xBP-Wz-3Ee" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Nbj-Kg-8el"/>
+                <constraint firstAttribute="bottom" secondItem="abP-XJ-ozb" secondAttribute="bottom" constant="12" id="OGX-bm-adP"/>
+                <constraint firstAttribute="trailing" secondItem="Ef6-Vk-VT8" secondAttribute="trailing" constant="8" id="PZF-Wj-Kpo"/>
+                <constraint firstItem="Ec0-Z6-lxE" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="U37-ph-7LF"/>
+                <constraint firstAttribute="bottom" secondItem="xBP-Wz-3Ee" secondAttribute="bottom" id="WsQ-2o-MOQ"/>
+                <constraint firstItem="abP-XJ-ozb" firstAttribute="top" secondItem="jAH-Hb-Hrs" secondAttribute="bottom" constant="5" id="ePR-Cr-3cK"/>
+                <constraint firstAttribute="trailing" secondItem="xBP-Wz-3Ee" secondAttribute="trailing" id="raz-Og-FhM"/>
+                <constraint firstAttribute="bottom" secondItem="Ec0-Z6-lxE" secondAttribute="bottom" id="sRj-9P-DOK"/>
+                <constraint firstItem="Ec0-Z6-lxE" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="tBq-sk-GSF"/>
+                <constraint firstItem="cUF-eT-ROR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="13" id="tXh-vP-Df1"/>
+                <constraint firstItem="Ef6-Vk-VT8" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="yt3-0x-Yvz"/>
+            </constraints>
+            <connections>
+                <outlet property="ageLabel" destination="abP-XJ-ozb" id="mjQ-Wl-qis"/>
+                <outlet property="authenticateImageView" destination="cUF-eT-ROR" id="qNN-6r-yXa"/>
+                <outlet property="avatarImageView" destination="xBP-Wz-3Ee" id="XfJ-Yh-flc"/>
+                <outlet property="introduceLabel" destination="jAH-Hb-Hrs" id="XsO-Ec-QL6"/>
+                <outlet property="newcomerImageView" destination="Ec0-Z6-lxE" id="0WV-lU-WJh"/>
+                <outlet property="statusImageView" destination="Ef6-Vk-VT8" id="5Lz-HH-Lgm"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="127.90178571428571"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="immortal" width="45.5" height="16"/>
+        <image name="newcomer" width="169.5" height="170"/>
+        <image name="online" width="57.5" height="16"/>
+    </resources>
+</document>

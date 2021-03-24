@@ -12,6 +12,7 @@ import HandyJSON
 struct Banner: HandyJSON {
     var url: String = ""
     var img: String = ""
+    var type: Int = 1
 }
 
 enum BannerAPI {

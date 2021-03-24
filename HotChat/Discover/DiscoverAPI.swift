@@ -11,6 +11,7 @@ import Moya
 enum DiscoverAPI {
     case labelList
     case discoverList(type: String, labelId: Int, page: Int)
+    case homeList(type: String, labelId: Int, page: Int)
 }
 
 
@@ -22,6 +23,8 @@ extension DiscoverAPI: TargetType {
             return "Discover/labelList"
         case .discoverList:
             return "Discover/discoverList"
+        case .homeList:
+            return "Discover/homeList"
         }
     }
     
@@ -32,6 +35,12 @@ extension DiscoverAPI: TargetType {
         case .labelList:
             parameters = [:]
         case .discoverList(let type, let labelId, let page):
+            parameters = [
+                "type" : type,
+                "labelId" : labelId,
+                "page" : page
+            ]
+        case .homeList(let type, let labelId, let page):
             parameters = [
                 "type" : type,
                 "labelId" : labelId,

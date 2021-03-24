@@ -10,6 +10,10 @@ import UIKit
 
 //@IBDesignable
 class HotChatButton: UIButton {
+    
+    override class var requiresConstraintBasedLayout: Bool {
+        return true
+    }
 
 
     @IBInspectable override var titleEdgeInsets: UIEdgeInsets {

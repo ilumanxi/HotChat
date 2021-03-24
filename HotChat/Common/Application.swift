@@ -39,7 +39,7 @@ extension UIColor {
 
 extension UIFont {
     
-    static let navigationBarTitle: UIFont = UIFont.systemFont(ofSize: 18, weight: .medium)
+    static let navigationBarTitle: UIFont = UIFont.systemFont(ofSize: 20, weight: .bold)
     
     static let textTitle: UIFont = UIFont.systemFont(ofSize: 16, weight: .medium)
     

@@ -406,7 +406,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="w0h-Sd-sGy" kind="relationship" relationship="rootViewController" id="OqB-xo-H7F"/>
+                        <segue destination="9J1-fY-AbC" kind="relationship" relationship="rootViewController" id="gtP-iO-IZy"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W9Y-Lh-JsI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -757,16 +757,58 @@
             </objects>
             <point key="canvasLocation" x="1426" y="-705"/>
         </scene>
+        <!--Talk View Controller-->
+        <scene sceneID="dWe-xa-Ai8">
+            <objects>
+                <viewController id="9J1-fY-AbC" customClass="TalkViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pio-ef-Ctv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="LGC-RT-GBH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="VfW-LD-knp">
+                        <barButtonItem key="leftBarButtonItem" title="语聊" id="wHY-oR-vkD"/>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" style="plain" id="1jI-6a-MAE">
+                                <inset key="imageInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Z2g-gP-nW4" customClass="HotChatButton" customModule="HotChat" customModuleProvider="target">
+                                    <rect key="frame" x="330" y="10" width="64" height="24"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                    <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <state key="normal" title="充值" image="recharge">
+                                        <color key="titleColor" red="0.85882352941176465" green="0.59215686274509804" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="pushWallet" destination="9J1-fY-AbC" eventType="touchUpInside" id="Z4z-B9-Nnb"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="common-search" id="zyf-4D-xz9">
+                                <connections>
+                                    <action selector="pushSearch" destination="9J1-fY-AbC" id="Ddj-kz-QoU"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dlr-LR-NcR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1425" y="-38"/>
+        </scene>
     </scenes>
     <resources>
         <image name="close-white" width="16" height="16"/>
         <image name="comment" width="13" height="13"/>
+        <image name="common-search" width="17" height="17"/>
         <image name="community-dynamic" width="17" height="16"/>
         <image name="give" width="13" height="13"/>
         <image name="like-normal" width="13" height="13"/>
         <image name="like-selected" width="13" height="13"/>
         <image name="modal-close" width="16" height="16"/>
         <image name="more" width="3" height="14"/>
+        <image name="recharge" width="23.5" height="23.5"/>
         <image name="tabbar-community-normal" width="20" height="20"/>
         <image name="tabbar-community-selected" width="20" height="20"/>
         <image name="video-play" width="43" height="50"/>

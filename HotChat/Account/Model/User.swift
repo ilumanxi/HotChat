@@ -89,6 +89,21 @@ enum OnlineStatus: Int, HandyJSONEnum {
     case living = 2
 }
 
+extension OnlineStatus {
+    
+    var image: UIImage? {
+        switch self {
+        case .offline:
+            return UIImage(named: "busy")
+        case .online:
+            return UIImage(named: "online")
+        case .living:
+            return UIImage(named: "busy")
+        }
+    }
+    
+}
+
 enum ValidationStatus: Int, HandyJSONEnum {
     /// 未审核
     case empty = 0
@@ -187,6 +202,8 @@ enum VipType: Int, HandyJSONEnum {
     
     /// 主播
     @objc var girlStatus: Bool =  false
+    
+    var voiceUrl: String = ""
     
     /// 黑名单
     var isDefriend: Bool = false
