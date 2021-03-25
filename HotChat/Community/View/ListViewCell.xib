@@ -88,6 +88,12 @@
                 <constraint firstItem="fYj-zd-XHy" firstAttribute="trailing" secondItem="pB6-2r-ijq" secondAttribute="trailing" constant="16" id="wIv-Pw-tCo"/>
                 <constraint firstItem="Tdp-NH-1oI" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="12" id="zin-DW-vUv"/>
             </constraints>
+            <connections>
+                <outlet property="top1AvatarImageView" destination="fYj-zd-XHy" id="BuS-be-OGC"/>
+                <outlet property="top2AvatarImageView" destination="tDG-jk-iSa" id="I9W-dC-YbF"/>
+                <outlet property="top3AvatarImageView" destination="c9G-97-EjE" id="id0-UZ-rTu"/>
+                <outlet property="typeImageView" destination="Tdp-NH-1oI" id="ecr-0i-DgY"/>
+            </connections>
             <point key="canvasLocation" x="138.40579710144928" y="79.6875"/>
         </collectionViewCell>
     </objects>

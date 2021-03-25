@@ -12,6 +12,8 @@ import Trident
 import MJRefresh
 
 
+
+
 class TalkViewController: AquamanPageViewController, LoadingStateType, IndicatorDisplay {
     
     lazy var menuView: TridentMenuView = {
@@ -58,7 +60,12 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
         }
     }
     
-
+    var talkTop: TalkTop? {
+        didSet {
+            headerView.talkTop = talkTop
+        }
+    }
+    
     private lazy var headerView: TalkHeaderView = {
         let headerView = TalkHeaderView.loadFromNib()
         headerView.onVideo.delegate(on: self) { (self, _) in
@@ -70,6 +77,10 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
         headerView.onHeadline.delegate(on: self) { (self, _) in
             
         }
+        headerView.onTop.delegate(on: self) { (self, top) in
+            let vc = TopController(start: top.type)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
         return headerView
     }()
     
@@ -80,6 +91,8 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
     let matchAPI = Request<FateMatchAPI>()
     
     let discoverAPI = Request<DiscoverAPI>()
+    
+    let topAPI = Request<TopAPI>()
     
     fileprivate var channels: [Channel] = [] {
         didSet {
@@ -130,6 +143,16 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
                 self?.state = .contentLoaded
             }, onError: { [weak self] error in
                 self?.state = .error
+            })
+            .disposed(by: rx.disposeBag)
+        
+        topAPI.request(.vitalityList(type: 0), type: Response<TalkTop>.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { [weak self] response in
+                self?.talkTop = response.data
+                
+            }, onError: { [weak self] error in
+                
             })
             .disposed(by: rx.disposeBag)
     }

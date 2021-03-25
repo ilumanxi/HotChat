@@ -168,6 +168,7 @@
 		2668B0AA2523432A0073E25D /* WalletProductViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2668B0A82523432A0073E25D /* WalletProductViewCell.xib */; };
 		2668B0AF2523479F0073E25D /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2668B0AE2523479F0073E25D /* Product.swift */; };
 		2668CF0925931B3D00C851F6 /* LogoutAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2668CF0825931B3D00C851F6 /* LogoutAPI.swift */; };
+		266A0BCE260C31A70037FCC3 /* TalkTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266A0BCD260C31A70037FCC3 /* TalkTop.swift */; };
 		266BDB6925EF864600467611 /* UserCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266BDB6725EF864600467611 /* UserCardCell.swift */; };
 		266BDB6A25EF864600467611 /* UserCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 266BDB6825EF864600467611 /* UserCardCell.xib */; };
 		266DA37B25F8C96D00BE4E74 /* TopViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266DA37925F8C96D00BE4E74 /* TopViewCell.swift */; };
@@ -646,6 +647,7 @@
 		2668B0A82523432A0073E25D /* WalletProductViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletProductViewCell.xib; sourceTree = "<group>"; };
 		2668B0AE2523479F0073E25D /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		2668CF0825931B3D00C851F6 /* LogoutAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutAPI.swift; sourceTree = "<group>"; };
+		266A0BCD260C31A70037FCC3 /* TalkTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkTop.swift; sourceTree = "<group>"; };
 		266BDB6725EF864600467611 /* UserCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCardCell.swift; sourceTree = "<group>"; };
 		266BDB6825EF864600467611 /* UserCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCardCell.xib; sourceTree = "<group>"; };
 		266DA37925F8C96D00BE4E74 /* TopViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewCell.swift; sourceTree = "<group>"; };
@@ -1699,6 +1701,7 @@
 				26F8893E253187BD001A14F2 /* Dynamic.swift */,
 				26F3EA2F25F1D3B9001CF13D /* Comment.swift */,
 				26C353B7260B1CCD00B80F62 /* TalkChannel.swift */,
+				266A0BCD260C31A70037FCC3 /* TalkTop.swift */,
 				2696341E2531942000493C3D /* DynamicAPI.swift */,
 				2607319A2536DD1B00B1093C /* ReportAPI.swift */,
 				26FC88F4253ED49000E4D82F /* SearchAPI.swift */,
@@ -2364,6 +2367,7 @@
 				2617D3EB25C54478009AAE16 /* ImageMessageCell.m in Sources */,
 				26AE7C2F2520309F00B55318 /* LabelViewCell.swift in Sources */,
 				26CB6D4725515D6B00A9F4DD /* BDFaceRemindAnimationView.m in Sources */,
+				266A0BCE260C31A70037FCC3 /* TalkTop.swift in Sources */,
 				2668B0A2252341F70073E25D /* WalletEnergyViewCell.swift in Sources */,
 				26884A4D2605C305006A13E5 /* SystemMessageCell.m in Sources */,
 				26DBEBCA25E6044B00C174FC /* TUICall+ExitRoom.m in Sources */,

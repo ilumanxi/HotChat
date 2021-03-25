@@ -13,6 +13,9 @@ enum TopAPI {
     
     /// 类型：1魅力2富豪  栏目标签：1日榜  2周榜  3月榜   4总榜
     case topList(type: Int, tag: Int)
+    
+    /// 0 全部1魅力2富豪
+    case vitalityList(type: Int)
 }
 
 
@@ -22,6 +25,8 @@ extension TopAPI: TargetType {
         switch self {
         case .topList:
             return "Statistics/topList"
+        case .vitalityList:
+            return "Statistics/vitalityList"
         }
     }
     
@@ -33,6 +38,10 @@ extension TopAPI: TargetType {
             parameters = [
                 "type" : type,
                 "tag" : tag
+            ]
+        case .vitalityList(let type):
+            parameters = [
+                "type" : type
             ]
         }
         

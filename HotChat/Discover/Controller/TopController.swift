@@ -23,8 +23,6 @@ class TopController: PageboyViewController {
     }()
     
     
-    var selectIndex = -1
-    
     lazy var titleView: UIStackView = {
         var buttons = [UIButton]()
         
@@ -57,7 +55,20 @@ class TopController: PageboyViewController {
         view.spacing = 30
         return view
     }()
+    
+    var selectIndex: Int
+    let start: TopType
 
+    init(start: TopType = .charm) {
+        self.start = start
+        selectIndex = start.rawValue - 1
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -78,7 +89,7 @@ class TopController: PageboyViewController {
         bounces = false
         
         navigationItem.titleView = titleView
-        titleView(select: 0)
+        titleView(select:selectIndex)
         
     }
     
@@ -136,7 +147,7 @@ extension TopController: PageboyViewControllerDataSource {
     }
 
     func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
-        nil // Default page to display in the page view controller (nil equals default/first index).
+        return .at(index: selectIndex)
     }
 
     // MARK: Actions

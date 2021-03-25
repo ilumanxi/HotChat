@@ -32,6 +32,14 @@ class TalkHeaderView: UIView {
     let onVoice = Delegate<Void, Void>()
     let onVideo = Delegate<Void, Void>()
     let onHeadline = Delegate<Void, Void>()
+    let onTop = Delegate<TalkTypeTop, Void>()
+    
+    
+    var talkTop: TalkTop! {
+        didSet {
+            bannerView.reloadData()
+        }
+    }
     
     override func awakeFromNib() {
         
@@ -62,7 +70,7 @@ class TalkHeaderView: UIView {
         
         
         bannerView.backgroundColor = .clear
-        bannerView.automaticSlidingInterval = 3
+        bannerView.automaticSlidingInterval = 7
         bannerView.isInfinite = true
         bannerView.delegate = self
         bannerView.dataSource = self
@@ -109,19 +117,22 @@ extension TalkHeaderView: FSPagerViewDataSource, FSPagerViewDelegate {
     
     
     func numberOfItems(in pagerView: FSPagerView) -> Int {
-        return 2
+        return talkTop?.data.count ?? 0
     }
     
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         
         
-        let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "ListViewCell", at: index)
+        let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "ListViewCell", at: index) as!  ListViewCell
+        
+        cell.set(model: talkTop.data[index])
 
         return cell
     }
     
     func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
         
+        onTop.call(talkTop.data[index])
     }
     
 }
