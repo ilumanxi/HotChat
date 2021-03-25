@@ -10,6 +10,7 @@ import UIKit
 import Aquaman
 import Trident
 import MJRefresh
+import MJExtension
 
 
 
@@ -111,8 +112,35 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
             self?.childViewConttrollerRefreshData()
             
         }
-                
+        
+        NotificationCenter.default.rx.notification(.init(TUIKitNotification_TIMMessageListener))
+            .subscribe(onNext: { [weak self] notification in
+                self?.handle(notification: notification)
+            })
+            .disposed(by: rx.disposeBag)
+
         refreshData()
+    }
+    
+    private func handle(notification: Notification) {
+        
+        guard let msg = notification.object as?  V2TIMMessage else { return }
+        
+        guard msg.elemType == .ELEM_TYPE_CUSTOM,
+              let param = TUICallUtils.jsonData2Dictionary(msg.customElem.data) as? [String : Any],
+              let imData = IMData.fixData(param),
+              let content = imData.data.mj_JSONObject() as? [String : Any]  else {
+            
+            return
+        }
+        
+        if imData.type != IMDataTypeMarqueeGift && imData.type != IMDataTypeMarqueeHeadline {
+            return
+        }
+        
+        let marquee = Marquee.mj_object(withKeyValues: content)!
+        headerView.addMarquee(marquee)
+    
     }
     
     func childViewConttrollerRefreshData() {

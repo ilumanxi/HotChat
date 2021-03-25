@@ -266,6 +266,10 @@ extension ChatViewController: ChatControllerDelegate {
 
                 return cellData
             }
+            else if let content = imData.data.mj_JSONObject() as? [String : Any] {
+                
+                print("\(imData.type): \(content.debugDescription)")
+            }
         }
         
         

@@ -179,6 +179,7 @@
 		26710DEF25B28B33000F41BC /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26710DEE25B28B33000F41BC /* GradientButton.swift */; };
 		26710DF425B293BE000F41BC /* WalletProducItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26710DF225B293BE000F41BC /* WalletProducItemCell.swift */; };
 		26710DF525B293BE000F41BC /* WalletProducItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26710DF325B293BE000F41BC /* WalletProducItemCell.xib */; };
+		2672B018260C631A005C35FD /* Marquee.m in Sources */ = {isa = PBXBuildFile; fileRef = 2672B017260C631A005C35FD /* Marquee.m */; };
 		2673FDBD255CE14400909A37 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2673FDBC255CE14400909A37 /* WebViewController.swift */; };
 		26772822255A480900B98973 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26772820255A480900B98973 /* PrivacyViewController.swift */; };
 		26772823255A480900B98973 /* PrivacyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26772821255A480900B98973 /* PrivacyViewController.xib */; };
@@ -658,6 +659,8 @@
 		26710DEE25B28B33000F41BC /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 		26710DF225B293BE000F41BC /* WalletProducItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletProducItemCell.swift; sourceTree = "<group>"; };
 		26710DF325B293BE000F41BC /* WalletProducItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletProducItemCell.xib; sourceTree = "<group>"; };
+		2672B016260C631A005C35FD /* Marquee.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Marquee.h; sourceTree = "<group>"; };
+		2672B017260C631A005C35FD /* Marquee.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Marquee.m; sourceTree = "<group>"; };
 		2673FDBC255CE14400909A37 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		26772820255A480900B98973 /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
 		26772821255A480900B98973 /* PrivacyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrivacyViewController.xib; sourceTree = "<group>"; };
@@ -1866,6 +1869,8 @@
 				262FFFB32601FF6A00F541C2 /* TextMessageCellData.m */,
 				26884A4E2605C38A006A13E5 /* SystemMessageCellData.h */,
 				26884A4F2605C38A006A13E5 /* SystemMessageCellData.m */,
+				2672B016260C631A005C35FD /* Marquee.h */,
+				2672B017260C631A005C35FD /* Marquee.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2323,6 +2328,7 @@
 				26E16620256B5DA200CF66BD /* CallHelper.swift in Sources */,
 				F305482B2532BC0800844D00 /* DynamicViewCell.swift in Sources */,
 				266BDB6925EF864600467611 /* UserCardCell.swift in Sources */,
+				2672B018260C631A005C35FD /* Marquee.m in Sources */,
 				2694580B253FF7B100EBCABB /* UserSettingViewController.swift in Sources */,
 				26C353B6260B13DE00B80F62 /* TalkChannelViewController.swift in Sources */,
 				26DF8783255A7969002162A9 /* EarningsDetailViewController.swift in Sources */,

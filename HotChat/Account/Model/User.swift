@@ -165,6 +165,9 @@ enum VipType: Int, HandyJSONEnum {
     var isInit: Bool = false
     var isFollow: Bool = false
     
+    /// 新人
+    var isNewDraw: Bool = false
+    
     /// IM
     
     var imUserSig: String = ""

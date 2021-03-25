@@ -29,6 +29,7 @@
     NSMutableArray *convList = @[].mutableCopy;
     for (V2TIMConversation *conversation in conversationList) {
         
+//        if (conversation.type == V2TIM_C2C && ![conversation.userID isEqualToString:@"admin"]) {
         if (conversation.type == V2TIM_C2C) {
             [convList addObject:conversation];
         }
