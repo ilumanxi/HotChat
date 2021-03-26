@@ -17,6 +17,9 @@
 		260B96112521F15C00767076 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260B96102521F15C00767076 /* Authentication.swift */; };
 		260B96162521F2F400767076 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260B96152521F2F400767076 /* AuthenticationViewController.swift */; };
 		260C467825F870BE0033915C /* TopController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260C467725F870BE0033915C /* TopController.swift */; };
+		2611E611260DD3C100563156 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2611E610260DD3C100563156 /* Activity.swift */; };
+		2611E614260DE11900563156 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2611E612260DE11900563156 /* ActivityViewController.swift */; };
+		2611E615260DE11900563156 /* ActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2611E613260DE11900563156 /* ActivityViewController.xib */; };
 		26137CCB2590673900DCBAD0 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26137CCA2590673900DCBAD0 /* TabBar.swift */; };
 		2615C9F8255E8B0C009B89F4 /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2615C9F7255E8B0C009B89F4 /* PlaceholderTextView.swift */; };
 		2617D3EB25C54478009AAE16 /* ImageMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2617D3EA25C54478009AAE16 /* ImageMessageCell.m */; };
@@ -245,6 +248,8 @@
 		26A377C9260D884D002FF17E /* HeadlineAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A377C8260D884D002FF17E /* HeadlineAPI.swift */; };
 		26A377CC260D9554002FF17E /* HeadlineTipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A377CA260D9554002FF17E /* HeadlineTipViewController.swift */; };
 		26A377CD260D9554002FF17E /* HeadlineTipViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26A377CB260D9554002FF17E /* HeadlineTipViewController.xib */; };
+		26A377CF260DB75E002FF17E /* new_user_receive.svga in Resources */ = {isa = PBXBuildFile; fileRef = 26A377CE260DB75E002FF17E /* new_user_receive.svga */; };
+		26A377D1260DB778002FF17E /* new_user_waiting.svga in Resources */ = {isa = PBXBuildFile; fileRef = 26A377D0260DB778002FF17E /* new_user_waiting.svga */; };
 		26A731B22536D6B600CCECE5 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A731B12536D6B600CCECE5 /* ReportViewController.swift */; };
 		26A8D4E9251C8F3E00B736CF /* Constellation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A8D4E8251C8F3E00B736CF /* Constellation.swift */; };
 		26AB26E225401C0D00C16025 /* RemarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AB26E125401C0D00C16025 /* RemarkViewController.swift */; };
@@ -333,6 +338,9 @@
 		26D0034F25A6E97C00168796 /* UserInformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26D0034E25A6E97C00168796 /* UserInformationViewController.xib */; };
 		26D1E58B253D5F17004B9B29 /* CallManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D1E58A253D5F17004B9B29 /* CallManager.m */; };
 		26D1E594253D6000004B9B29 /* VideoCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D1E593253D6000004B9B29 /* VideoCallViewController.m */; };
+		26D9E9FA260DC92F009EEDD2 /* UserActivityAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D9E9F9260DC92F009EEDD2 /* UserActivityAPI.swift */; };
+		26D9E9FC260DCB66009EEDD2 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D9E9FB260DCB66009EEDD2 /* ActivityView.swift */; };
+		26D9E9FE260DCB7E009EEDD2 /* ActivityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26D9E9FD260DCB7E009EEDD2 /* ActivityView.xib */; };
 		26DBC373253D89DF0083BDFB /* AudioCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DBC372253D89DF0083BDFB /* AudioCallViewController.m */; };
 		26DBEBCA25E6044B00C174FC /* TUICall+ExitRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DBEBC925E6044B00C174FC /* TUICall+ExitRoom.m */; };
 		26DC2CD625F248E9003628B2 /* ReportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC2CD425F248E9003628B2 /* ReportCell.swift */; };
@@ -472,6 +480,9 @@
 		260B96102521F15C00767076 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		260B96152521F2F400767076 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		260C467725F870BE0033915C /* TopController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopController.swift; sourceTree = "<group>"; };
+		2611E610260DD3C100563156 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		2611E612260DE11900563156 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		2611E613260DE11900563156 /* ActivityViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityViewController.xib; sourceTree = "<group>"; };
 		26137CCA2590673900DCBAD0 /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		2615C9F7255E8B0C009B89F4 /* PlaceholderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
 		2617D3E925C54478009AAE16 /* ImageMessageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageMessageCell.h; sourceTree = "<group>"; };
@@ -740,6 +751,8 @@
 		26A377C8260D884D002FF17E /* HeadlineAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlineAPI.swift; sourceTree = "<group>"; };
 		26A377CA260D9554002FF17E /* HeadlineTipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlineTipViewController.swift; sourceTree = "<group>"; };
 		26A377CB260D9554002FF17E /* HeadlineTipViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeadlineTipViewController.xib; sourceTree = "<group>"; };
+		26A377CE260DB75E002FF17E /* new_user_receive.svga */ = {isa = PBXFileReference; lastKnownFileType = file; path = new_user_receive.svga; sourceTree = "<group>"; };
+		26A377D0260DB778002FF17E /* new_user_waiting.svga */ = {isa = PBXFileReference; lastKnownFileType = file; path = new_user_waiting.svga; sourceTree = "<group>"; };
 		26A731B12536D6B600CCECE5 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		26A8D4E8251C8F3E00B736CF /* Constellation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constellation.swift; sourceTree = "<group>"; };
 		26AB26E125401C0D00C16025 /* RemarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemarkViewController.swift; sourceTree = "<group>"; };
@@ -858,6 +871,9 @@
 		26D1E58A253D5F17004B9B29 /* CallManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CallManager.m; sourceTree = "<group>"; };
 		26D1E592253D6000004B9B29 /* VideoCallViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoCallViewController.h; sourceTree = "<group>"; };
 		26D1E593253D6000004B9B29 /* VideoCallViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoCallViewController.m; sourceTree = "<group>"; };
+		26D9E9F9260DC92F009EEDD2 /* UserActivityAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActivityAPI.swift; sourceTree = "<group>"; };
+		26D9E9FB260DCB66009EEDD2 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
+		26D9E9FD260DCB7E009EEDD2 /* ActivityView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityView.xib; sourceTree = "<group>"; };
 		26DBC371253D89DF0083BDFB /* AudioCallViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioCallViewController.h; sourceTree = "<group>"; };
 		26DBC372253D89DF0083BDFB /* AudioCallViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioCallViewController.m; sourceTree = "<group>"; };
 		26DBEBC825E6044B00C174FC /* TUICall+ExitRoom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TUICall+ExitRoom.h"; sourceTree = "<group>"; };
@@ -1293,6 +1309,8 @@
 			children = (
 				26B22F102609E6DA006B0C49 /* voice_match.svga */,
 				264C5C362609E5FF007FB123 /* video_match.svga */,
+				26A377CE260DB75E002FF17E /* new_user_receive.svga */,
+				26A377D0260DB778002FF17E /* new_user_waiting.svga */,
 				263A6BEE25C2D74900FD43B6 /* pair.svga */,
 			);
 			path = Resource;
@@ -1677,6 +1695,8 @@
 				26F7BD16260CA74300F911AC /* HeadlineViewController.xib */,
 				26A377CA260D9554002FF17E /* HeadlineTipViewController.swift */,
 				26A377CB260D9554002FF17E /* HeadlineTipViewController.xib */,
+				2611E612260DE11900563156 /* ActivityViewController.swift */,
+				2611E613260DE11900563156 /* ActivityViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1708,6 +1728,8 @@
 				26C353B9260B24B500B80F62 /* TalkChannelCell.swift */,
 				26C353BA260B24B500B80F62 /* TalkChannelCell.xib */,
 				26257ADA260B2EBF00A4E0F3 /* BannerViewCell.swift */,
+				26D9E9FB260DCB66009EEDD2 /* ActivityView.swift */,
+				26D9E9FD260DCB7E009EEDD2 /* ActivityView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1718,12 +1740,14 @@
 				26F8893E253187BD001A14F2 /* Dynamic.swift */,
 				26F3EA2F25F1D3B9001CF13D /* Comment.swift */,
 				26C353B7260B1CCD00B80F62 /* TalkChannel.swift */,
+				2611E610260DD3C100563156 /* Activity.swift */,
 				266A0BCD260C31A70037FCC3 /* TalkTop.swift */,
 				2696341E2531942000493C3D /* DynamicAPI.swift */,
 				2607319A2536DD1B00B1093C /* ReportAPI.swift */,
 				26FC88F4253ED49000E4D82F /* SearchAPI.swift */,
 				263A6BE825C2B3A200FD43B6 /* FateMatchAPI.swift */,
 				26A377C8260D884D002FF17E /* HeadlineAPI.swift */,
+				26D9E9F9260DC92F009EEDD2 /* UserActivityAPI.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2127,6 +2151,7 @@
 				264C5C342609CF83007FB123 /* TalkHeaderView.xib in Resources */,
 				F38CB8C62507B14700049A76 /* InfoPlist.strings in Resources */,
 				268E3E612521D074000E4A33 /* RelationshipViewCell.xib in Resources */,
+				26A377CF260DB75E002FF17E /* new_user_receive.svga in Resources */,
 				263953702541A38B00B5E3C0 /* FiledViewCell.xib in Resources */,
 				26ED000725C5731200480CEC /* MediaItemViewCell.xib in Resources */,
 				26DF8780255A645C002162A9 /* SwitchViewCell.xib in Resources */,
@@ -2136,8 +2161,11 @@
 				263A6685257E0EF200F35714 /* CheckInCell.xib in Resources */,
 				264D15E0258B415300756EAF /* GreetingViewController.xib in Resources */,
 				26F7BD18260CA74300F911AC /* HeadlineViewController.xib in Resources */,
+				26A377D1260DB778002FF17E /* new_user_waiting.svga in Resources */,
 				26B22F112609E89E006B0C49 /* voice_match.svga in Resources */,
 				2695903E250B170B00763061 /* InterestedCardView.xib in Resources */,
+				2611E615260DE11900563156 /* ActivityViewController.xib in Resources */,
+				26D9E9FE260DCB7E009EEDD2 /* ActivityView.xib in Resources */,
 				269DED0B254A9DD5000AD5D9 /* CallMenuViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2301,6 +2329,7 @@
 				26F7BD17260CA74300F911AC /* HeadlineViewController.swift in Sources */,
 				266F28F825F8B7C700FD559E /* TopList.swift in Sources */,
 				26C8CC692603545C005FDFF8 /* ChatMemberCell.swift in Sources */,
+				2611E614260DE11900563156 /* ActivityViewController.swift in Sources */,
 				26BA8CF025C29DAD00E42479 /* PairsViewController.swift in Sources */,
 				26F889352531854B001A14F2 /* TextInputViewCell.swift in Sources */,
 				2637D872255AA13D00020E98 /* GiftEarning.swift in Sources */,
@@ -2443,6 +2472,7 @@
 				269DEE08254BF735000AD5D9 /* QMUIButton.m in Sources */,
 				26CB6D4425515D6B00A9F4DD /* BDFaceRemindView.m in Sources */,
 				2637D875255B8E5300020E98 /* BlacklistController.swift in Sources */,
+				26D9E9FC260DCB66009EEDD2 /* ActivityView.swift in Sources */,
 				2682974B2511B05300949C7F /* IndicatorDisplay.swift in Sources */,
 				26BA6A0D25F365E60002C3DE /* VipBuyViewController.swift in Sources */,
 				26AC1E4C25060D27003EFB44 /* LoginViewController.swift in Sources */,
@@ -2457,6 +2487,7 @@
 				2643EBBE2500B04100FBBE49 /* CollectionViewGridLayout.swift in Sources */,
 				2619D192256260A90071CC85 /* GiftCountCell.m in Sources */,
 				266F28F625F8AF8000FD559E /* TopAPI.swift in Sources */,
+				2611E611260DD3C100563156 /* Activity.swift in Sources */,
 				26C31F2625403A9E0000D09D /* ReportUserViewController.swift in Sources */,
 				2643EBB22500B04100FBBE49 /* UserInfoLikeObjectCell.swift in Sources */,
 				260B96162521F2F400767076 /* AuthenticationViewController.swift in Sources */,
@@ -2513,6 +2544,7 @@
 				2697FDC4260893EE002CB9A2 /* ChatTopicNoticeViewController.swift in Sources */,
 				2643EBAB2500B04100FBBE49 /* MeHeaderView.swift in Sources */,
 				26AC1E5425062D62003EFB44 /* LegalLiabilityToolBar.swift in Sources */,
+				26D9E9FA260DC92F009EEDD2 /* UserActivityAPI.swift in Sources */,
 				260A87782521932A00380FB4 /* SettingViewController.swift in Sources */,
 				262BE7E32601CE4000C1B646 /* TopicListViewController.swift in Sources */,
 				2643EBAF2500B04100FBBE49 /* UserInfoProfilePhotoCell.swift in Sources */,

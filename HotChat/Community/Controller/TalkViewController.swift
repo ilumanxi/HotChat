@@ -13,6 +13,7 @@ import MJRefresh
 import MJExtension
 import RxSwift
 import RxCocoa
+import SVGAPlayer
 
 
 class TalkViewController: AquamanPageViewController, LoadingStateType, IndicatorDisplay {
@@ -87,6 +88,24 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
         return headerView
     }()
     
+    
+    lazy var activityView: ActivityView = {
+        
+        let view = ActivityView.loadFromNib()
+        view.onReceive.delegate(on: self) { (self, activity) in
+            
+            let vc = ActivityViewController(activity: activity)
+            self.present(vc, animated: true, completion: nil)
+        }
+        return view
+    }()
+    
+    
+    var avgaAPlayer: SVGAPlayer!
+    var rewardButton: UIButton!
+    
+
+    
     let userAPI = Request<UserAPI>()
     
     let dynamicAPI = Request<DynamicAPI>()
@@ -97,6 +116,8 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
     
     let topAPI = Request<TopAPI>()
     
+    let activityAPI = Request<UserActivityAPI>()
+    
     fileprivate var channels: [Channel] = [] {
         didSet {
             newReloadData()
@@ -105,6 +126,9 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+
         
         navigationItem.leftBarButtonItem?.setTitleTextAttributes(UINavigationBar.appearance().titleTextAttributes, for: .normal)
         
@@ -129,6 +153,29 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
             .disposed(by: rx.disposeBag)
 
         refreshData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        refreshActivity()
+    }
+    
+    func addActivityView(_ activity: Activity) {
+        activityView.activity = activity
+        view.addSubview(activityView)
+        activityView.snp.makeConstraints { maker in
+            maker.trailing.equalToSuperview().offset(-15)
+            maker.bottom.equalTo(safeBottom).offset(-20)
+            
+        }
+    }
+    
+    func removeActivityView() {
+        
+        if let _ = activityView.superview {
+            activityView.removeFromSuperview()
+        }
     }
     
     private func handle(notification: Notification) {
@@ -183,7 +230,28 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
             })
             .disposed(by: rx.disposeBag)
         
+        
+        refreshActivity()
+        
         refreshTop()
+    }
+    
+    func refreshActivity() {
+        activityAPI.request(.checkActivityInfo, type: Response<Activity>.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { [unowned self] response in
+                if response.data!.isSuccessd {
+                    self.addActivityView(response.data!)
+                }
+                else {
+                    self.removeActivityView()
+                }
+               
+                
+            }, onError: { [unowned self] error in
+                
+            })
+            .disposed(by: rx.disposeBag)
     }
     
     func refreshTop()  {

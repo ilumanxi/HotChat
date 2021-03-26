@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ActivityViewController" customModule="HotChat" customModuleProvider="target">
+            <connections>
+                <outlet property="coinButton" destination="T1F-rX-YKU" id="tTv-8J-gVM"/>
+                <outlet property="countdownLabel" destination="5hM-r1-XFV" id="2qN-fn-8s8"/>
+                <outlet property="doneButton" destination="RAm-kO-nzJ" id="DB1-tQ-3ZA"/>
+                <outlet property="energyButton" destination="5A4-xt-6Ku" id="Lfx-3F-nM6"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="y4S-ig-ogF">
+                    <rect key="frame" x="41" y="245.5" width="332.5" height="405.5"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yxe-ea-Ye2">
+                            <rect key="frame" x="0.0" y="0.0" width="332.5" height="347.5"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activity-bg" translatesAutoresizingMaskIntoConstraints="NO" id="ueI-HC-tfh">
+                                    <rect key="frame" x="0.0" y="0.0" width="332.5" height="347.5"/>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-恭喜您获得-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YJd-Hz-fnj">
+                                    <rect key="frame" x="124" y="85" width="84.5" height="17"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                    <color key="textColor" red="0.81176470588235294" green="0.46274509803921571" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T1F-rX-YKU">
+                                    <rect key="frame" x="107" y="110" width="118" height="32"/>
+                                    <color key="backgroundColor" red="0.99607843137254903" green="0.8901960784313725" blue="0.72941176470588232" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="32" id="G9t-zV-C3J"/>
+                                        <constraint firstAttribute="width" constant="118" id="ubS-a7-3IZ"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
+                                    <state key="normal" title="100T币">
+                                        <color key="titleColor" red="0.81176470588235294" green="0.46274509803921571" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="16"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5A4-xt-6Ku">
+                                    <rect key="frame" x="84" y="150" width="164" height="32"/>
+                                    <color key="backgroundColor" red="0.99607843139999996" green="0.89019607840000003" blue="0.72941176470000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="32" id="Pri-yD-OlA"/>
+                                        <constraint firstAttribute="width" constant="164" id="bV8-D0-Bws"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
+                                    <state key="normal" title="10000能量值">
+                                        <color key="titleColor" red="0.81176470590000005" green="0.46274509800000002" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="16"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </button>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ksQ-t6-UhA">
+                                    <rect key="frame" x="0.0" y="233.5" width="332.5" height="114"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="Wsg-88-XpA">
+                                            <rect key="frame" x="81" y="20" width="170" height="73.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{下次奖励倒计时00:00:59}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hM-r1-XFV">
+                                                    <rect key="frame" x="10" y="0.0" width="150" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                    <color key="textColor" red="1" green="0.84313725490196079" blue="0.52549019607843139" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAm-kO-nzJ">
+                                                    <rect key="frame" x="0.0" y="32.5" width="170" height="41"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <state key="normal" title="立即领取" backgroundImage="activity-btn-bg">
+                                                        <color key="titleColor" red="0.49019607843137253" green="0.27843137254901962" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="doneButtonTapped:" destination="-1" eventType="touchUpInside" id="dio-rc-Eqi"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="114" id="ALH-OB-Tok"/>
+                                        <constraint firstItem="Wsg-88-XpA" firstAttribute="centerX" secondItem="ksQ-t6-UhA" secondAttribute="centerX" id="HMW-1t-ToJ"/>
+                                        <constraint firstItem="Wsg-88-XpA" firstAttribute="centerY" secondItem="ksQ-t6-UhA" secondAttribute="centerY" id="lzH-Vs-svC"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="ueI-HC-tfh" secondAttribute="bottom" id="22M-ui-oRh"/>
+                                <constraint firstItem="ueI-HC-tfh" firstAttribute="leading" secondItem="yxe-ea-Ye2" secondAttribute="leading" id="5Ar-Q6-eZ4"/>
+                                <constraint firstItem="5A4-xt-6Ku" firstAttribute="top" secondItem="T1F-rX-YKU" secondAttribute="bottom" constant="8" id="6mH-br-fk6"/>
+                                <constraint firstItem="YJd-Hz-fnj" firstAttribute="top" secondItem="yxe-ea-Ye2" secondAttribute="top" constant="85" id="Asp-Fd-KKx"/>
+                                <constraint firstAttribute="height" constant="347.5" id="Flu-Wi-EuL"/>
+                                <constraint firstAttribute="trailing" secondItem="ueI-HC-tfh" secondAttribute="trailing" id="G2g-TQ-WYY"/>
+                                <constraint firstAttribute="width" constant="332.5" id="Gcg-w9-UaY"/>
+                                <constraint firstItem="ksQ-t6-UhA" firstAttribute="leading" secondItem="yxe-ea-Ye2" secondAttribute="leading" id="NfX-ig-3GP"/>
+                                <constraint firstAttribute="bottom" secondItem="ksQ-t6-UhA" secondAttribute="bottom" id="Qra-v9-pUV"/>
+                                <constraint firstItem="T1F-rX-YKU" firstAttribute="centerX" secondItem="yxe-ea-Ye2" secondAttribute="centerX" id="SRd-Cf-GbY"/>
+                                <constraint firstItem="5A4-xt-6Ku" firstAttribute="centerX" secondItem="yxe-ea-Ye2" secondAttribute="centerX" id="f5g-oL-HY6"/>
+                                <constraint firstItem="YJd-Hz-fnj" firstAttribute="centerX" secondItem="yxe-ea-Ye2" secondAttribute="centerX" id="hqi-7u-0Qg"/>
+                                <constraint firstItem="ueI-HC-tfh" firstAttribute="top" secondItem="yxe-ea-Ye2" secondAttribute="top" id="liH-FP-6pZ"/>
+                                <constraint firstAttribute="trailing" secondItem="ksQ-t6-UhA" secondAttribute="trailing" id="nR0-em-Wrm"/>
+                                <constraint firstItem="T1F-rX-YKU" firstAttribute="top" secondItem="YJd-Hz-fnj" secondAttribute="bottom" constant="8" id="qyg-14-UFv"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ia-26-kL5">
+                            <rect key="frame" x="152" y="377.5" width="28" height="28"/>
+                            <state key="normal" image="close-black"/>
+                            <connections>
+                                <action selector="closeButtonTapped:" destination="-1" eventType="touchUpInside" id="5kn-jo-tbT"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="y4S-ig-ogF" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="BY4-hi-JXd"/>
+                <constraint firstItem="y4S-ig-ogF" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="m8D-O8-Kcb"/>
+            </constraints>
+            <point key="canvasLocation" x="111.59420289855073" y="111.83035714285714"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="activity-bg" width="332.5" height="347.5"/>
+        <image name="activity-btn-bg" width="170" height="41"/>
+        <image name="close-black" width="28" height="28"/>
+    </resources>
+</document>
