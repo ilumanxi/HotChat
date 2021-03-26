@@ -11,8 +11,8 @@ import Aquaman
 import Trident
 import MJRefresh
 import MJExtension
-
-
+import RxSwift
+import RxCocoa
 
 
 class TalkViewController: AquamanPageViewController, LoadingStateType, IndicatorDisplay {
@@ -76,6 +76,8 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
             self.pair(callType: .audio)
         }
         headerView.onHeadline.delegate(on: self) { (self, _) in
+            let vc = HeadlineViewController()
+            self.present(vc, animated: true, completion: nil)
             
         }
         headerView.onTop.delegate(on: self) { (self, top) in
@@ -112,6 +114,13 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
             self?.childViewConttrollerRefreshData()
             
         }
+        
+        
+        Observable<Int>.interval(DispatchTimeInterval.seconds(60), scheduler: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] _ in
+                self?.refreshTop()
+            })
+            .disposed(by: rx.disposeBag)
         
         NotificationCenter.default.rx.notification(.init(TUIKitNotification_TIMMessageListener))
             .subscribe(onNext: { [weak self] notification in
@@ -174,6 +183,10 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
             })
             .disposed(by: rx.disposeBag)
         
+        refreshTop()
+    }
+    
+    func refreshTop()  {
         topAPI.request(.vitalityList(type: 0), type: Response<TalkTop>.self)
             .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in

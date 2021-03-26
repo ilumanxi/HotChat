@@ -107,7 +107,7 @@ class TalkHeaderView: UIView {
             verticalMarquees.append(marquee)
             addMarqueeVerticalNext()
         }
-        else if marquee.type == 3 { // 头条
+        else if marquee.type == 0 { // 头条
             horizontalMarquees.append(marquee)
             addMarqueeHorizontalNext()
         }
@@ -129,37 +129,34 @@ class TalkHeaderView: UIView {
     }
     
     private func addMarqueeHorizontal(_ marquee: Marquee) {
-        if isHorizontalMarqueeFinished {
-            isHorizontalMarqueeFinished = false
+        isHorizontalMarqueeFinished = false
+        
+        let attributedText = horizontalAttributedText(marquee: marquee, seconds: marquee.stayTime)
+        
+        
+        headlineCotentLabel.attributedText = attributedText
+        
+        addMarqueeHorizontalAnimation()
+        
+        if marquee.stayTime > 1 {
+            let countdown =  Observable<Int>.countdown(marquee.stayTime).share()
             
-            let attributedText = horizontalAttributedText(marquee: marquee, seconds: marquee.stayTime)
+            countdown
+                .map { [unowned self] seconds in
+                    return self.horizontalAttributedText(marquee: marquee, seconds: seconds)
+                }
+                .bind(to: headlineCotentLabel.rx.attributedText)
+                .disposed(by: rx.disposeBag)
             
-            
-            headlineCotentLabel.attributedText = attributedText
-            
-            addMarqueeHorizontalAnimation()
-            
-            if marquee.stayTime > 1 {
-                let countdown =  Observable<Int>.countdown(marquee.stayTime).share()
-                
-                countdown
-                    .map { [unowned self] seconds in
-                        return self.horizontalAttributedText(marquee: marquee, seconds: seconds)
-                    }
-                    .bind(to: headlineCotentLabel.rx.attributedText)
-                    .disposed(by: rx.disposeBag)
-                
-                countdown
-                    .subscribe(onCompleted: { [weak self] in
-                        self?.isHorizontalMarqueeFinished = true
-                        self?.marqueeHorizontalCompleted()
-                    })
-                    .disposed(by: rx.disposeBag)
-            }
-            else {
-                self.perform(#selector(marqueeHorizontalCompleted), with: nil, afterDelay: 1)
-            }
-            
+            countdown
+                .subscribe(onCompleted: { [weak self] in
+                    self?.isHorizontalMarqueeFinished = true
+                    self?.marqueeHorizontalCompleted()
+                })
+                .disposed(by: rx.disposeBag)
+        }
+        else {
+            self.perform(#selector(marqueeHorizontalCompleted), with: nil, afterDelay: 1)
         }
         
     }
@@ -171,8 +168,7 @@ class TalkHeaderView: UIView {
         UIView.animate(withDuration: 0.25) {
             self.headlineContentView.transform = CGAffineTransform.identity
         } completion: { _ in
-            self.headlineContentView.isHidden = true
-            self.headlineContentView.transform = CGAffineTransform(translationX: self.headlineView.bounds.width, y: 0)
+
         }
        
     }
@@ -195,6 +191,10 @@ class TalkHeaderView: UIView {
     @objc func marqueeHorizontalCompleted() {
         headlineContentView.isHidden = true
         headlineContentView.transform = CGAffineTransform(translationX: headlineView.bounds.width, y: 0)
+        
+        if !horizontalMarquees.isEmpty {
+            addMarqueeHorizontalNext()
+        }
     }
     
     @objc func marqueeVerticalCompleted() {

@@ -39,10 +39,9 @@ class TalkChannelCell: UICollectionViewCell {
         ageLabel.text = "\(model.age)岁"
         introduceLabel.text = model.introduce
         
-        
+
         authenticateImageView.isHidden =  model.authenticationStatus != .ok
-        
-        newcomerImageView.isHidden = model.authenticationStatus != .ok
+        newcomerImageView.isHidden = !model.isNewDraw
     }
 
 }

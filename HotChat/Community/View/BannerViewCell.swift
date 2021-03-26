@@ -29,7 +29,7 @@ class BannerViewCell: UICollectionViewCell {
         
         bannerView =  FSPagerView(frame: CGRect(origin: .zero, size: frame.size))
         bannerView.bounces = false
-        bannerView.isScrollEnabled = false
+//        bannerView.isScrollEnabled = false
         bannerView.itemSize = FSPagerViewAutomaticSize // Fill parent
         bannerView.interitemSpacing = 24
         bannerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "FSPagerViewCell")
@@ -87,6 +87,10 @@ extension BannerViewCell: FSPagerViewDataSource, FSPagerViewDelegate {
         guard let url = URL(string: model.url) else { return }
         
         Navigator.share.push(url)
+    }
+    
+    func  pagerView(_ pagerView: FSPagerView, willDisplay cell: FSPagerViewCell, forItemAt index: Int) {
+        pageControl.currentPage = index
     }
     
     func pagerViewWillEndDragging(_ pagerView: FSPagerView, targetIndex: Int) {

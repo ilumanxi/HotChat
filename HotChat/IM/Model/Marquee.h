@@ -27,7 +27,7 @@
 
 @property(copy) NSString *noticeText;
 
-/// 1 普通跑马灯, 2 特殊跑马灯
+/// 0  头条 1 普通跑马灯, 2 特殊跑马灯
 
 @property(assign) NSInteger type;
 
