@@ -121,6 +121,8 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
     
     let activityAPI = Request<UserActivityAPI>()
     
+    let userSettingsAPI = Request<UserSettingsAPI>()
+    
     fileprivate var channels: [Channel] = [] {
         didSet {
             newReloadData()
@@ -154,12 +156,45 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
             .disposed(by: rx.disposeBag)
 
         refreshData()
+        
+        onCallEnd()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         refreshActivity()
+    }
+    
+    func onCallEnd()  {
+        NotificationCenter.default.addObserver(self, selector: #selector(presentAnchorTip), name: .init("onCallEnd"), object: nil)
+        
+    }
+    
+   @objc func presentAnchorTip() {
+    
+        let user = LoginManager.shared.user!
+    
+        let isPresent = !AnchorTipViewController.notRemind() && user.sex == .female && !user.girlStatus
+    
+        if !isPresent {
+            return
+        }
+    
+        let vc = AnchorTipViewController()
+        vc.onAnthor.delegate(on: self) { (self, _) in
+            
+            guard let tabBarController = UIApplication.shared.keyWindow?.rootViewController as? UITabBarController,
+                  let navigationController = tabBarController.selectedViewController as? UINavigationController
+            else {
+                return
+            }
+            
+            let vc = AuthenticationViewController()
+            navigationController.pushViewController(vc, animated: true)
+            
+        }
+        UIApplication.shared.keyWindow?.present(vc)
     }
     
     func addActivityView(_ activity: Activity) {
@@ -236,7 +271,43 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
         
         refreshTop()
         
+        if LoginManager.shared.user?.sex == Sex.male ||  (LoginManager.shared.user?.sex == Sex.female && !LoginManager.shared.user!.girlStatus) {
+            userAPI.request(.checkUserHeadPic, type: Response<[String : Any]>.self)
+                .verifyResponse()
+                .subscribe(onSuccess: { [unowned self] response in
+                    guard let resultCode = response.data?["resultCode"] as? Int, resultCode == 1120 else { return }
+                    
+                    if !AvatarTipViewController.isPresent() {
+                        return
+                    }
+                    self.avatarTask()
+                    
+                   
+                }, onError: nil)
+                .disposed(by: rx.disposeBag)
+        }
        
+    }
+    
+    func avatarTask() {
+        
+        userSettingsAPI.request(.taskConfig(type: 2), type: Response<[String : Any]>.self)
+            .verifyResponse()
+            .subscribe(onSuccess: {  response in
+                guard let energy = response.data?["energy"] as? String else { return }
+                
+                let vc = AvatarTipViewController(text: energy)
+                vc.onAvatar.delegate(on: self) { (self, _) in
+                    
+                    let vc = UserInfoEditingViewController.loadFromStoryboard()
+                    vc.user = LoginManager.shared.user
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+                UIApplication.shared.keyWindow?.present(vc)
+                AvatarTipViewController.cachePresent()
+                
+            }, onError: nil)
+            .disposed(by: rx.disposeBag)
     }
     
     func refreshActivity() {

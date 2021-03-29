@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AvatarRewardViewController" customModule="HotChat" customModuleProvider="target">
+            <connections>
+                <outlet property="infoLabel" destination="Gm8-N0-7Nz" id="sPv-Dg-6Ke"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="bX7-L5-ISa">
+                    <rect key="frame" x="57.5" y="247.5" width="299" height="401"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xsy-7F-XDV">
+                            <rect key="frame" x="0.0" y="0.0" width="299" height="350"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="config-reward" translatesAutoresizingMaskIntoConstraints="NO" id="WHX-T8-8zR">
+                                    <rect key="frame" x="0.0" y="0.0" width="299" height="106"/>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="完成其他任务，可以获得高额奖励" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2N-MH-uoA">
+                                    <rect key="frame" x="57.5" y="313.5" width="184" height="14.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <color key="textColor" red="0.99215686274509807" green="0.6470588235294118" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCJ-Nz-Dav" customClass="GradientButton" customModule="HotChat" customModuleProvider="target">
+                                    <rect key="frame" x="90" y="257.5" width="119" height="35"/>
+                                    <color key="backgroundColor" red="1" green="0.82352941176470584" blue="0.34509803921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="119" id="OiG-Az-isS"/>
+                                        <constraint firstAttribute="height" constant="35" id="hpy-oh-PW8"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                    <state key="normal" title="我知道了">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="17.5"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="colorsString" value="#FFD258,#FD9C42"/>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="closeButtonTapped:" destination="-1" eventType="touchUpInside" id="ZcX-dc-Gql"/>
+                                        <action selector="doneButtonTapped:" destination="-1" eventType="touchUpInside" id="htq-U6-aUY"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVI-rQ-iqh">
+                                    <rect key="frame" x="90" y="145" width="119" height="20.5"/>
+                                    <string key="text">哇！好棒！666
+</string>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="感谢您的理解配合，那么请收下500T币的奖励" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gm8-N0-7Nz">
+                                    <rect key="frame" x="20" y="180.5" width="259" height="43"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="Gm8-N0-7Nz" firstAttribute="top" secondItem="SVI-rQ-iqh" secondAttribute="bottom" constant="15" id="1fZ-F1-DWE"/>
+                                <constraint firstItem="W2N-MH-uoA" firstAttribute="centerX" secondItem="xsy-7F-XDV" secondAttribute="centerX" id="FGP-LY-moJ"/>
+                                <constraint firstItem="SVI-rQ-iqh" firstAttribute="centerX" secondItem="xsy-7F-XDV" secondAttribute="centerX" id="HBY-xJ-WEz"/>
+                                <constraint firstAttribute="trailing" secondItem="WHX-T8-8zR" secondAttribute="trailing" id="Ndo-Eg-DL4"/>
+                                <constraint firstItem="WHX-T8-8zR" firstAttribute="leading" secondItem="xsy-7F-XDV" secondAttribute="leading" id="PWB-s2-syE"/>
+                                <constraint firstItem="WHX-T8-8zR" firstAttribute="top" secondItem="xsy-7F-XDV" secondAttribute="top" id="WpQ-bn-j7F"/>
+                                <constraint firstAttribute="height" constant="350" id="XJ1-C7-a5N"/>
+                                <constraint firstItem="SVI-rQ-iqh" firstAttribute="top" secondItem="WHX-T8-8zR" secondAttribute="bottom" constant="39" id="Xmq-Oc-Dp8"/>
+                                <constraint firstAttribute="width" constant="299" id="gzS-mv-HgJ"/>
+                                <constraint firstAttribute="trailing" secondItem="Gm8-N0-7Nz" secondAttribute="trailing" constant="20" id="kMF-tv-nUz"/>
+                                <constraint firstItem="KCJ-Nz-Dav" firstAttribute="centerX" secondItem="xsy-7F-XDV" secondAttribute="centerX" id="qfz-NH-glR"/>
+                                <constraint firstItem="Gm8-N0-7Nz" firstAttribute="leading" secondItem="xsy-7F-XDV" secondAttribute="leading" constant="20" id="v70-qe-23n"/>
+                                <constraint firstItem="W2N-MH-uoA" firstAttribute="top" secondItem="KCJ-Nz-Dav" secondAttribute="bottom" constant="21" id="vNu-Sh-80b"/>
+                                <constraint firstAttribute="bottom" secondItem="W2N-MH-uoA" secondAttribute="bottom" constant="22" id="zxD-pQ-3wo"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WDF-Cy-9uH">
+                            <rect key="frame" x="135.5" y="373" width="28" height="28"/>
+                            <state key="normal" image="close-black"/>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="bX7-L5-ISa" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="7hP-sX-qLS"/>
+                <constraint firstItem="bX7-L5-ISa" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="IVT-11-MP3"/>
+            </constraints>
+            <point key="canvasLocation" x="112" y="133"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="close-black" width="28" height="28"/>
+        <image name="config-reward" width="299" height="106"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

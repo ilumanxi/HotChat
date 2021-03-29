@@ -317,13 +317,17 @@ enum VipType: Int, HandyJSONEnum {
     /// 电影
     var movieList: [LikeTag] = []
     
+    /// 1500正常不弹窗 1501需要弹窗
     var resultCode: Int?
     var resultMsg: String?
     
     
     var isSuccessd: Bool {
         
-        return resultCode == nil
+        return
+            resultCode == nil ||
+            resultCode == 1500 ||
+            resultCode == 1501
     }
     
     var error: Error? {

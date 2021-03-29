@@ -202,6 +202,10 @@
 		2679550A2507748C00A72954 /* UserInfoHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 267955092507748C00A72954 /* UserInfoHeaderView.xib */; };
 		2679550C25079A1F00A72954 /* UserInfoChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2679550B25079A1E00A72954 /* UserInfoChatView.swift */; };
 		2679550E25079A4A00A72954 /* UserInfoChatView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2679550D25079A4A00A72954 /* UserInfoChatView.xib */; };
+		2679DA5D2611B469003F2443 /* AvatarRewardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2679DA5B2611B469003F2443 /* AvatarRewardViewController.swift */; };
+		2679DA5E2611B469003F2443 /* AvatarRewardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2679DA5C2611B469003F2443 /* AvatarRewardViewController.xib */; };
+		2679DA612611C179003F2443 /* AnchorTipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2679DA5F2611C179003F2443 /* AnchorTipViewController.swift */; };
+		2679DA622611C179003F2443 /* AnchorTipViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2679DA602611C179003F2443 /* AnchorTipViewController.xib */; };
 		267B98722505E1AC0008C81B /* WeChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267B986A2505E1AC0008C81B /* WeChat.swift */; };
 		267B98752505E1AC0008C81B /* PlatformAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267B986D2505E1AC0008C81B /* PlatformAuthorization.swift */; };
 		267B98772505E1AC0008C81B /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267B986F2505E1AC0008C81B /* Platform.swift */; };
@@ -388,6 +392,8 @@
 		26EDE7F92591D11F002A2EC3 /* GuidedRechargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EDE7F72591D11F002A2EC3 /* GuidedRechargeViewController.swift */; };
 		26EDE7FA2591D11F002A2EC3 /* GuidedRechargeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26EDE7F82591D11F002A2EC3 /* GuidedRechargeViewController.xib */; };
 		26EE0E4C25245BD800233ED5 /* PayAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EE0E4B25245BD800233ED5 /* PayAPI.swift */; };
+		26EE63D72611A3CE00D32BCC /* AvatarTipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EE63D52611A3CE00D32BCC /* AvatarTipViewController.swift */; };
+		26EE63D82611A3CE00D32BCC /* AvatarTipViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26EE63D62611A3CE00D32BCC /* AvatarTipViewController.xib */; };
 		26EEA3212604757C005226AD /* ChatTopicMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EEA3202604757C005226AD /* ChatTopicMenuViewController.swift */; };
 		26EEA32426048BDA005226AD /* ChatTopicReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EEA32226048BDA005226AD /* ChatTopicReportViewController.swift */; };
 		26EEA32526048BDA005226AD /* ChatTopicReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26EEA32326048BDA005226AD /* ChatTopicReportViewController.xib */; };
@@ -698,6 +704,10 @@
 		267955092507748C00A72954 /* UserInfoHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoHeaderView.xib; sourceTree = "<group>"; };
 		2679550B25079A1E00A72954 /* UserInfoChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoChatView.swift; sourceTree = "<group>"; };
 		2679550D25079A4A00A72954 /* UserInfoChatView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoChatView.xib; sourceTree = "<group>"; };
+		2679DA5B2611B469003F2443 /* AvatarRewardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarRewardViewController.swift; sourceTree = "<group>"; };
+		2679DA5C2611B469003F2443 /* AvatarRewardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvatarRewardViewController.xib; sourceTree = "<group>"; };
+		2679DA5F2611C179003F2443 /* AnchorTipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorTipViewController.swift; sourceTree = "<group>"; };
+		2679DA602611C179003F2443 /* AnchorTipViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnchorTipViewController.xib; sourceTree = "<group>"; };
 		267B986A2505E1AC0008C81B /* WeChat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeChat.swift; sourceTree = "<group>"; };
 		267B986D2505E1AC0008C81B /* PlatformAuthorization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlatformAuthorization.swift; sourceTree = "<group>"; };
 		267B986F2505E1AC0008C81B /* Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
@@ -929,6 +939,8 @@
 		26EDE7F72591D11F002A2EC3 /* GuidedRechargeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidedRechargeViewController.swift; sourceTree = "<group>"; };
 		26EDE7F82591D11F002A2EC3 /* GuidedRechargeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GuidedRechargeViewController.xib; sourceTree = "<group>"; };
 		26EE0E4B25245BD800233ED5 /* PayAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayAPI.swift; sourceTree = "<group>"; };
+		26EE63D52611A3CE00D32BCC /* AvatarTipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarTipViewController.swift; sourceTree = "<group>"; };
+		26EE63D62611A3CE00D32BCC /* AvatarTipViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvatarTipViewController.xib; sourceTree = "<group>"; };
 		26EEA3202604757C005226AD /* ChatTopicMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTopicMenuViewController.swift; sourceTree = "<group>"; };
 		26EEA32226048BDA005226AD /* ChatTopicReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTopicReportViewController.swift; sourceTree = "<group>"; };
 		26EEA32326048BDA005226AD /* ChatTopicReportViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatTopicReportViewController.xib; sourceTree = "<group>"; };
@@ -1703,6 +1715,12 @@
 				2611E613260DE11900563156 /* ActivityViewController.xib */,
 				26610E0E261171C8008E154A /* NewcomerAwardViewController.swift */,
 				26610E0F261171C8008E154A /* NewcomerAwardViewController.xib */,
+				26EE63D52611A3CE00D32BCC /* AvatarTipViewController.swift */,
+				26EE63D62611A3CE00D32BCC /* AvatarTipViewController.xib */,
+				2679DA5B2611B469003F2443 /* AvatarRewardViewController.swift */,
+				2679DA5C2611B469003F2443 /* AvatarRewardViewController.xib */,
+				2679DA5F2611C179003F2443 /* AnchorTipViewController.swift */,
+				2679DA602611C179003F2443 /* AnchorTipViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2070,6 +2088,7 @@
 				26C3F3312542764F00CDD533 /* AnchorAuthenticationViewController.xib in Resources */,
 				269DED1C254AAC4D000AD5D9 /* GiftViewController.xib in Resources */,
 				26610E11261171C8008E154A /* NewcomerAwardViewController.xib in Resources */,
+				2679DA5E2611B469003F2443 /* AvatarRewardViewController.xib in Resources */,
 				263A6C3925C2DA4800FD43B6 /* PairCallViewController.xib in Resources */,
 				263BC22E254987770081F5DF /* BeautyViewController.xib in Resources */,
 				26395362254198DB00B5E3C0 /* RightDetailViewCell.xib in Resources */,
@@ -2138,6 +2157,7 @@
 				26F4550725665F600028ACC5 /* EarningDetailCell.xib in Resources */,
 				26B4E05F2564FCBA004EDCFE /* AuthenticationGuideViewController.xib in Resources */,
 				26710DF525B293BE000F41BC /* WalletProducItemCell.xib in Resources */,
+				26EE63D82611A3CE00D32BCC /* AvatarTipViewController.xib in Resources */,
 				26EB2DA82558F157006698F9 /* SubsidiaryAccountCell.xib in Resources */,
 				26F45503256659750028ACC5 /* EarningCell.xib in Resources */,
 				26A377CD260D9554002FF17E /* HeadlineTipViewController.xib in Resources */,
@@ -2172,6 +2192,7 @@
 				26B22F112609E89E006B0C49 /* voice_match.svga in Resources */,
 				2695903E250B170B00763061 /* InterestedCardView.xib in Resources */,
 				2611E615260DE11900563156 /* ActivityViewController.xib in Resources */,
+				2679DA622611C179003F2443 /* AnchorTipViewController.xib in Resources */,
 				26D9E9FE260DCB7E009EEDD2 /* ActivityView.xib in Resources */,
 				269DED0B254A9DD5000AD5D9 /* CallMenuViewController.xib in Resources */,
 			);
@@ -2401,6 +2422,7 @@
 				26CB6D4825515D6B00A9F4DD /* BDFaceLogoView.m in Sources */,
 				268297492511AF5800949C7F /* SignupViewModel.swift in Sources */,
 				2637D870255A8DB700020E98 /* TalkEarning.swift in Sources */,
+				2679DA5D2611B469003F2443 /* AvatarRewardViewController.swift in Sources */,
 				267955082507747400A72954 /* UserInfoHeaderView.swift in Sources */,
 				26AC1E5225062568003EFB44 /* PhoneSigninViewController.swift in Sources */,
 				26F710092542C77A00797E87 /* InfoSettings.swift in Sources */,
@@ -2462,6 +2484,7 @@
 				2643EBC82500D4C000FBBE49 /* MeContactViewController.swift in Sources */,
 				2643EBB32500B04100FBBE49 /* UserInfoIntroduceCell.swift in Sources */,
 				26CB6D4625515D6B00A9F4DD /* BDFaceImageShow.m in Sources */,
+				26EE63D72611A3CE00D32BCC /* AvatarTipViewController.swift in Sources */,
 				264C5C302609C61F007FB123 /* TalkViewController.swift in Sources */,
 				26C500DD25F0BED800CF37C0 /* InputViewController.swift in Sources */,
 				26F8947125203BDD00A45648 /* TitleViewController.swift in Sources */,
@@ -2506,6 +2529,7 @@
 				26EDE7F92591D11F002A2EC3 /* GuidedRechargeViewController.swift in Sources */,
 				26787E2F251B228200D511E8 /* AccountPlugin.swift in Sources */,
 				26CB6D3F25515D6B00A9F4DD /* BDFaceLivenessViewController.m in Sources */,
+				2679DA612611C179003F2443 /* AnchorTipViewController.swift in Sources */,
 				26959040250B1D9400763061 /* InterestedCardOverlayView.swift in Sources */,
 				26E5FE5225F089B800C96392 /* CommentViewCell.swift in Sources */,
 				2656F30E254FAC0500552611 /* GiftReminderViewController.m in Sources */,

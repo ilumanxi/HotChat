@@ -298,6 +298,8 @@ typedef NS_ENUM(NSInteger,VideoUserRemoveReason){
         [(AudioCallViewController *)self.callVC disMiss];
         [PIPWindow dismissViewControllerAnimated:YES completion:nil];
     }
+    
+    [NSNotificationCenter.defaultCenter postNotificationName:@"onCallEnd" object:nil];
 }
 
 

@@ -39,6 +39,7 @@ enum UserAPI {
     case userWallet
     case visitorList(Int)
     case checkFollow(userId: String)
+    case checkUserHeadPic
 }
 
 
@@ -84,6 +85,8 @@ extension UserAPI: TargetType {
             return "user/visitorList"
         case .checkFollow:
             return "user/checkFollow"
+        case .checkUserHeadPic:
+            return "user/checkUserHeadPic"
         }
     }
     
@@ -143,6 +146,8 @@ extension UserAPI: TargetType {
             parameters =  ["page" : page]
         case .checkFollow(let userId):
             parameters =  ["userId" : userId]
+        case .checkUserHeadPic:
+            parameters =  [:]
         }
         
         return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)

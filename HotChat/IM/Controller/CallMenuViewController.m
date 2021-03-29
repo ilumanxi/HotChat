@@ -403,6 +403,7 @@
     if (_delegate && [_delegate respondsToSelector:@selector(callMenuViewControllerDidHangup:)]) {
         [_delegate callMenuViewControllerDidHangup:self];
     }
+    [NSNotificationCenter.defaultCenter postNotificationName:@"onCallEnd" object:nil];
 }
 
 - (void)cameraButtonTapped {

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AnchorTipViewController" customModule="HotChat" customModuleProvider="target">
+            <connections>
+                <outlet property="selectedButton" destination="EZK-ef-gbs" id="o0z-6a-0bO"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="oZH-at-32y">
+                    <rect key="frame" x="43.5" y="202" width="327" height="492"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X7T-cE-xXA">
+                            <rect key="frame" x="0.0" y="0.0" width="327" height="448"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="anchor-tip" translatesAutoresizingMaskIntoConstraints="NO" id="uz7-Rb-AnU">
+                                    <rect key="frame" x="0.0" y="0.0" width="327" height="127"/>
+                                </imageView>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="zMg-wa-Y9h">
+                                    <rect key="frame" x="42" y="157" width="236" height="167.5"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.上传清晰的本人头像" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXR-XE-wTf">
+                                            <rect key="frame" x="0.0" y="0.0" width="178.5" height="21.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.通过身份认证" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGS-bf-i86">
+                                            <rect key="frame" x="0.0" y="36.5" width="126" height="21.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.接听来电赚积分" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4xp-MC-pLq">
+                                            <rect key="frame" x="0.0" y="73" width="144.5" height="21.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.文字聊天也能赚钱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BSi-kQ-QUd">
+                                            <rect key="frame" x="0.0" y="109.5" width="163" height="21.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5.收取礼物可以赚取大量积分" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4iY-Ye-4qK">
+                                            <rect key="frame" x="0.0" y="146" width="236" height="21.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Maf-oX-6hA" customClass="GradientButton" customModule="HotChat" customModuleProvider="target">
+                                    <rect key="frame" x="97" y="347" width="133" height="35"/>
+                                    <color key="backgroundColor" red="1" green="0.82352941176470584" blue="0.34509803921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="35" id="hTJ-6C-g8v"/>
+                                        <constraint firstAttribute="width" constant="133" id="odX-4p-SQg"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                    <state key="normal" title="我要当主播">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="17.5"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="colorsString" value="#FFD258,#FD9C42"/>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="doneButton:" destination="-1" eventType="touchUpInside" id="IVx-Og-boQ"/>
+                                    </connections>
+                                </button>
+                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="e5Z-i2-y8k">
+                                    <rect key="frame" x="125.5" y="402" width="76" height="28"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZK-ef-gbs">
+                                            <rect key="frame" x="0.0" y="7.5" width="13" height="13"/>
+                                            <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="13" id="aJn-Pg-tvA"/>
+                                                <constraint firstAttribute="width" constant="13" id="d3b-lo-R1M"/>
+                                            </constraints>
+                                            <state key="selected" image="btn-selected"/>
+                                            <connections>
+                                                <action selector="tipButtonTapped:" destination="-1" eventType="touchUpInside" id="FOK-hG-e5g"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x6z-pV-ffq">
+                                            <rect key="frame" x="22" y="0.0" width="54" height="28"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <state key="normal" title="不在提醒">
+                                                <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="tipButtonTapped:" destination="-1" eventType="touchUpInside" id="YBg-Yd-8FR"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="uz7-Rb-AnU" secondAttribute="trailing" id="Eed-EI-V52"/>
+                                <constraint firstAttribute="width" constant="327" id="GLy-CE-1GZ"/>
+                                <constraint firstItem="Maf-oX-6hA" firstAttribute="centerX" secondItem="X7T-cE-xXA" secondAttribute="centerX" id="J3W-nT-YxA"/>
+                                <constraint firstItem="zMg-wa-Y9h" firstAttribute="leading" secondItem="X7T-cE-xXA" secondAttribute="leading" constant="42" id="L9R-fO-qHf"/>
+                                <constraint firstItem="e5Z-i2-y8k" firstAttribute="centerX" secondItem="X7T-cE-xXA" secondAttribute="centerX" id="SaM-r6-0RQ"/>
+                                <constraint firstAttribute="bottom" secondItem="e5Z-i2-y8k" secondAttribute="bottom" constant="18" id="YxX-ay-bvV"/>
+                                <constraint firstItem="zMg-wa-Y9h" firstAttribute="top" secondItem="uz7-Rb-AnU" secondAttribute="bottom" constant="30" id="fom-5p-ge7"/>
+                                <constraint firstItem="e5Z-i2-y8k" firstAttribute="top" secondItem="Maf-oX-6hA" secondAttribute="bottom" constant="20" id="iF9-bK-9CU"/>
+                                <constraint firstItem="uz7-Rb-AnU" firstAttribute="top" secondItem="X7T-cE-xXA" secondAttribute="top" id="mJJ-Mf-pWf"/>
+                                <constraint firstItem="uz7-Rb-AnU" firstAttribute="leading" secondItem="X7T-cE-xXA" secondAttribute="leading" id="mNg-oY-rrf"/>
+                                <constraint firstAttribute="height" constant="448" id="smz-PL-a3V"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OxS-T6-nQq">
+                            <rect key="frame" x="149.5" y="464" width="28" height="28"/>
+                            <state key="normal" image="close-black"/>
+                            <connections>
+                                <action selector="closeButtonTapped:" destination="-1" eventType="touchUpInside" id="JcE-9r-6uL"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="oZH-at-32y" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="dKZ-wi-dsF"/>
+                <constraint firstItem="oZH-at-32y" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="ehS-uW-oJN"/>
+            </constraints>
+            <point key="canvasLocation" x="-16" y="84"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="anchor-tip" width="327.5" height="127"/>
+        <image name="btn-selected" width="10.5" height="7.5"/>
+        <image name="close-black" width="28" height="28"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

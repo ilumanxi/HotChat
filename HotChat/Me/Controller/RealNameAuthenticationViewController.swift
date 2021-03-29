@@ -98,6 +98,7 @@ class RealNameAuthenticationViewController: UITableViewController, IndicatorDisp
             self.uploadAPI.request(.upload(url), type: Response<[RemoteFile]>.self)
                 .verifyResponse()
                 .subscribe(onSuccess: { [weak self] response in
+                    LoginManager.shared.refresh()
                     self?.hideIndicatorFromWindow()
                     complete(image, response.data!.first!.picUrl)
                 }, onError: { [weak self] error in

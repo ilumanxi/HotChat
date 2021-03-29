@@ -266,6 +266,7 @@ class AnchorAuthenticationViewController: UIViewController, IndicatorDisplay {
         authenticationAPI.request(.liveEditAttestation(anchorAuthentication), type: Response<Authentication>.self)
             .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in
+                LoginManager.shared.refresh()
                 self?.navigationController?.popViewController(animated: true)
                 self?.hideIndicator()
             }, onError: { [weak self] error in

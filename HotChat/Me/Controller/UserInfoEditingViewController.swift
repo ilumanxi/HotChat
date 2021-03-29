@@ -20,6 +20,8 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay, St
     
     let uploadAPI = Request<UploadFileAPI>()
     
+    let userSettingsAPI = Request<UserSettingsAPI>()
+    
     private var profilePhoto: ProfilePhoto {
         let entry = ProfilePhoto()
         entry.imageURL = URL(string: user.headPic)
@@ -43,6 +45,9 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay, St
                     self?.hideIndicatorFromWindow()
                     if response.isSuccessd {
                         self?.user = response.data!
+                        if response.data!.resultCode == 1501 {
+                            self?.avatarReward()
+                        }
                     }
                     else {
                         self?.showMessageOnWindow(response.msg)
@@ -136,6 +141,20 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay, St
         }
         
         return entry
+    }
+    
+    func avatarReward() {
+        
+        userSettingsAPI.request(.taskConfig(type: 2), type: Response<[String : Any]>.self)
+            .verifyResponse()
+            .subscribe(onSuccess: {  response in
+                guard let energy = response.data?["energy"] as? String else { return }
+                
+                let vc = AvatarRewardViewController(text: energy)
+                UIApplication.shared.keyWindow?.present(vc)
+                
+            }, onError: nil)
+            .disposed(by: rx.disposeBag)
     }
     
     
