@@ -95,6 +95,9 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
         view.onReceive.delegate(on: self) { (self, activity) in
             
             let vc = ActivityViewController(activity: activity)
+            vc.onDone.delegate(on: self) { (self, _) in
+                self.refreshActivity()
+            }
             self.present(vc, animated: true, completion: nil)
         }
         return view
@@ -127,8 +130,6 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-
         
         navigationItem.leftBarButtonItem?.setTitleTextAttributes(UINavigationBar.appearance().titleTextAttributes, for: .normal)
         
@@ -234,6 +235,8 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
         refreshActivity()
         
         refreshTop()
+        
+       
     }
     
     func refreshActivity() {
@@ -248,9 +251,24 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
                 }
                
                 
-            }, onError: { [unowned self] error in
+            }, onError: nil)
+            .disposed(by: rx.disposeBag)
+        
+        activityAPI.request(.receiveKeepReward, type: Response<[String : Any]>.self)
+            .verifyResponse()
+            .subscribe(onSuccess: {  response in
+                //resultCode: 1114领取成功 1115全部领取完了 1116 注册第一天，无奖励 1117 今天领取过奖励l
+                guard let resultCode = response.data?["resultCode"] as? Int,
+                      let list =  response.data?["list"] as? [String],
+                      resultCode == 1114 ,
+                      !list.isEmpty else {
+                    return
+                }
                 
-            })
+                let vc = NewcomerAwardViewController(list: list)
+                UIApplication.shared.keyWindow?.present(vc)
+                
+            }, onError: nil)
             .disposed(by: rx.disposeBag)
     }
     
@@ -260,9 +278,7 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
             .subscribe(onSuccess: { [weak self] response in
                 self?.talkTop = response.data
                 
-            }, onError: { [weak self] error in
-                
-            })
+            }, onError: nil)
             .disposed(by: rx.disposeBag)
     }
     

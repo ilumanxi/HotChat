@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewcomerAwardViewController" customModule="HotChat" customModuleProvider="target">
+            <connections>
+                <outlet property="awardButton1" destination="vHn-zI-RSm" id="fPB-HE-NEl"/>
+                <outlet property="awardButton2" destination="m1O-wX-asF" id="era-bz-dw6"/>
+                <outlet property="awardButton3" destination="F6k-CF-5k9" id="jrw-7A-x1Z"/>
+                <outlet property="awardButton4" destination="vjd-9a-roz" id="Dql-Z2-too"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Efe-I0-BIl">
+                    <rect key="frame" x="40.5" y="247.5" width="333.5" height="401"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uVU-b2-xSJ" userLabel="Conent View">
+                            <rect key="frame" x="0.0" y="41" width="333.5" height="360"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newcomer-award-bg" translatesAutoresizingMaskIntoConstraints="NO" id="Igq-FP-2Tf">
+                                    <rect key="frame" x="0.0" y="0.0" width="333.5" height="360"/>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-感恩您的陪伴-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQe-3t-L0t">
+                                    <rect key="frame" x="96.5" y="45" width="140.5" height="24"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                    <color key="textColor" red="0.92156862745098034" green="0.52156862745098043" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请您收下我满心的祝福" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pkw-1Z-6SA">
+                                    <rect key="frame" x="105" y="78" width="123" height="14.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <color key="textColor" red="0.92156862745098034" green="0.52156862745098043" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="贪聊与你长长久久" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LK4-8Z-pYg">
+                                    <rect key="frame" x="121.5" y="322.5" width="90" height="13.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                    <color key="textColor" red="0.92156862745098034" green="0.52156862745098043" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEv-dw-pfT" customClass="GradientButton" customModule="HotChat" customModuleProvider="target">
+                                    <rect key="frame" x="107.5" y="280.5" width="118" height="35"/>
+                                    <color key="backgroundColor" red="1" green="0.82352941176470584" blue="0.34509803921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="118" id="MuF-dK-e3k"/>
+                                        <constraint firstAttribute="height" constant="35" id="qa6-DN-ojB"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                    <state key="normal" title="我知道了">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="17.5"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="colorsString" value="#FFD258,#FD9C42"/>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="doneButtonTapped:" destination="-1" eventType="touchUpInside" id="Iwg-F5-QIs"/>
+                                    </connections>
+                                </button>
+                                <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ezs-3W-Bvm">
+                                    <rect key="frame" x="26.5" y="101.5" width="280" height="167"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="7A1-6s-T9G">
+                                            <rect key="frame" x="0.0" y="0.0" width="280" height="83.5"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vHn-zI-RSm">
+                                                    <rect key="frame" x="0.0" y="0.0" width="135.5" height="83.5"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                                    <state key="normal" title="VIP体验一天" backgroundImage="newcomer-award-btn">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1O-wX-asF">
+                                                    <rect key="frame" x="144.5" y="0.0" width="135.5" height="83.5"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                                    <state key="normal" title="VIP体验一天" backgroundImage="newcomer-award-btn">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="dxP-w8-p8U">
+                                            <rect key="frame" x="0.0" y="83.5" width="280" height="83.5"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F6k-CF-5k9">
+                                                    <rect key="frame" x="0.0" y="0.0" width="135.5" height="83.5"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                                    <state key="normal" title="VIP体验一天" backgroundImage="newcomer-award-btn">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vjd-9a-roz">
+                                                    <rect key="frame" x="144.5" y="0.0" width="135.5" height="83.5"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                                    <state key="normal" title="VIP体验一天" backgroundImage="newcomer-award-btn">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="280" id="f6b-zQ-Sq1"/>
+                                    </constraints>
+                                </stackView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="DQe-3t-L0t" firstAttribute="top" secondItem="uVU-b2-xSJ" secondAttribute="top" constant="45" id="1ax-K7-SeZ"/>
+                                <constraint firstAttribute="trailing" secondItem="Igq-FP-2Tf" secondAttribute="trailing" id="7SM-vL-tuW"/>
+                                <constraint firstItem="Pkw-1Z-6SA" firstAttribute="top" secondItem="DQe-3t-L0t" secondAttribute="bottom" constant="9" id="ArQ-Jc-HAr"/>
+                                <constraint firstAttribute="bottom" secondItem="Igq-FP-2Tf" secondAttribute="bottom" id="Nrz-hl-s2W"/>
+                                <constraint firstItem="LK4-8Z-pYg" firstAttribute="top" secondItem="gEv-dw-pfT" secondAttribute="bottom" constant="7" id="QSD-kZ-W2s"/>
+                                <constraint firstItem="gEv-dw-pfT" firstAttribute="top" secondItem="ezs-3W-Bvm" secondAttribute="bottom" constant="12" id="Yfd-M5-2bT"/>
+                                <constraint firstItem="gEv-dw-pfT" firstAttribute="centerX" secondItem="uVU-b2-xSJ" secondAttribute="centerX" id="bFv-qa-KfO"/>
+                                <constraint firstAttribute="bottom" secondItem="LK4-8Z-pYg" secondAttribute="bottom" constant="24" id="dR1-7V-LLv"/>
+                                <constraint firstItem="Igq-FP-2Tf" firstAttribute="leading" secondItem="uVU-b2-xSJ" secondAttribute="leading" id="eLg-II-g6y"/>
+                                <constraint firstItem="LK4-8Z-pYg" firstAttribute="centerX" secondItem="uVU-b2-xSJ" secondAttribute="centerX" id="f3z-bi-vbr"/>
+                                <constraint firstItem="Igq-FP-2Tf" firstAttribute="top" secondItem="uVU-b2-xSJ" secondAttribute="top" id="fHT-Oo-u8S"/>
+                                <constraint firstItem="ezs-3W-Bvm" firstAttribute="centerX" secondItem="uVU-b2-xSJ" secondAttribute="centerX" id="j5w-XS-qX5"/>
+                                <constraint firstItem="DQe-3t-L0t" firstAttribute="centerX" secondItem="uVU-b2-xSJ" secondAttribute="centerX" id="jLM-Ry-QVN"/>
+                                <constraint firstItem="Pkw-1Z-6SA" firstAttribute="centerX" secondItem="uVU-b2-xSJ" secondAttribute="centerX" id="kEQ-Qa-5PS"/>
+                            </constraints>
+                        </view>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newcomer-award" translatesAutoresizingMaskIntoConstraints="NO" id="x36-w5-6H6">
+                            <rect key="frame" x="3" y="0.0" width="327" height="79"/>
+                        </imageView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="uVU-b2-xSJ" firstAttribute="leading" secondItem="Efe-I0-BIl" secondAttribute="leading" id="36f-qd-LZA"/>
+                        <constraint firstAttribute="bottom" secondItem="uVU-b2-xSJ" secondAttribute="bottom" id="Bp3-9Q-Is0"/>
+                        <constraint firstItem="uVU-b2-xSJ" firstAttribute="top" secondItem="Efe-I0-BIl" secondAttribute="top" constant="41" id="Iv5-XE-FOS"/>
+                        <constraint firstItem="x36-w5-6H6" firstAttribute="top" secondItem="Efe-I0-BIl" secondAttribute="top" id="XZk-mT-uYG"/>
+                        <constraint firstAttribute="trailing" secondItem="uVU-b2-xSJ" secondAttribute="trailing" id="eJJ-Si-rOc"/>
+                        <constraint firstItem="x36-w5-6H6" firstAttribute="centerX" secondItem="Efe-I0-BIl" secondAttribute="centerX" id="wd8-bv-1Yk"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="Efe-I0-BIl" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="VUP-JW-jif"/>
+                <constraint firstItem="Efe-I0-BIl" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="rVg-Qy-I1y"/>
+            </constraints>
+            <point key="canvasLocation" x="112" y="112"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="newcomer-award" width="327" height="79"/>
+        <image name="newcomer-award-bg" width="333.5" height="360"/>
+        <image name="newcomer-award-btn" width="135.5" height="83.5"/>
+    </resources>
+</document>

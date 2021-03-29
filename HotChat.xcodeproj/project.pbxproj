@@ -162,6 +162,8 @@
 		265C8A4A251348E200E220BD /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C8A49251348E200E220BD /* ForgotPasswordViewController.swift */; };
 		265C8A5B25134C3500E220BD /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C8A5A25134C3500E220BD /* ForgotPasswordViewModel.swift */; };
 		265C8A63251352A800E220BD /* ForgotPasswordProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C8A62251352A800E220BD /* ForgotPasswordProtocols.swift */; };
+		26610E10261171C8008E154A /* NewcomerAwardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26610E0E261171C8008E154A /* NewcomerAwardViewController.swift */; };
+		26610E11261171C8008E154A /* NewcomerAwardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26610E0F261171C8008E154A /* NewcomerAwardViewController.xib */; };
 		2666405F2577624500E30A09 /* SayHellowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2666405D2577624500E30A09 /* SayHellowViewController.swift */; };
 		266640602577624500E30A09 /* SayHellowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2666405E2577624500E30A09 /* SayHellowViewController.xib */; };
 		2668B09C25233C410073E25D /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2668B09B25233C410073E25D /* WalletViewController.swift */; };
@@ -655,6 +657,8 @@
 		265C8A49251348E200E220BD /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		265C8A5A25134C3500E220BD /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
 		265C8A62251352A800E220BD /* ForgotPasswordProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordProtocols.swift; sourceTree = "<group>"; };
+		26610E0E261171C8008E154A /* NewcomerAwardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewcomerAwardViewController.swift; sourceTree = "<group>"; };
+		26610E0F261171C8008E154A /* NewcomerAwardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewcomerAwardViewController.xib; sourceTree = "<group>"; };
 		2666405D2577624500E30A09 /* SayHellowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SayHellowViewController.swift; sourceTree = "<group>"; };
 		2666405E2577624500E30A09 /* SayHellowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SayHellowViewController.xib; sourceTree = "<group>"; };
 		2668B09B25233C410073E25D /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
@@ -1697,6 +1701,8 @@
 				26A377CB260D9554002FF17E /* HeadlineTipViewController.xib */,
 				2611E612260DE11900563156 /* ActivityViewController.swift */,
 				2611E613260DE11900563156 /* ActivityViewController.xib */,
+				26610E0E261171C8008E154A /* NewcomerAwardViewController.swift */,
+				26610E0F261171C8008E154A /* NewcomerAwardViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2063,6 +2069,7 @@
 			files = (
 				26C3F3312542764F00CDD533 /* AnchorAuthenticationViewController.xib in Resources */,
 				269DED1C254AAC4D000AD5D9 /* GiftViewController.xib in Resources */,
+				26610E11261171C8008E154A /* NewcomerAwardViewController.xib in Resources */,
 				263A6C3925C2DA4800FD43B6 /* PairCallViewController.xib in Resources */,
 				263BC22E254987770081F5DF /* BeautyViewController.xib in Resources */,
 				26395362254198DB00B5E3C0 /* RightDetailViewCell.xib in Resources */,
@@ -2250,6 +2257,7 @@
 				2643EBAE2500B04100FBBE49 /* UserInfoPhotoAlbumCell.swift in Sources */,
 				262FFFB92602F24100F541C2 /* GroupChatAPI.swift in Sources */,
 				26CB6D4925515D6B00A9F4DD /* BDFaceImageUtils.m in Sources */,
+				26610E10261171C8008E154A /* NewcomerAwardViewController.swift in Sources */,
 				2643EBCC2500FDA300FBBE49 /* UserInfoViewController.swift in Sources */,
 				265C8A4A251348E200E220BD /* ForgotPasswordViewController.swift in Sources */,
 				2656F317254FDB5000552611 /* IMAPI.swift in Sources */,

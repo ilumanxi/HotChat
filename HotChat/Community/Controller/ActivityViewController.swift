@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ActivityViewController: UIViewController {
+class ActivityViewController: UIViewController, IndicatorDisplay {
     
     
     @IBOutlet weak var coinButton: UIButton!
@@ -76,19 +76,30 @@ class ActivityViewController: UIViewController {
         API.request(.receiveReward, type: Response<Activity>.self)
             .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in
+                self?.onDone.call()
                 self?.doneButton.isUserInteractionEnabled = true
-                if response.data?.isSuccessd ?? false {
-                    self?.onDone.call()
+                if  response.data?.resultCode == 1115 ||  response.data?.resultCode == 1114 {
+                    self?.dismiss(animated: true, completion: nil)
+                    self?.showMessageOnWindow("领取成功")
                 }
                 else {
-                    
+                    self?.showMessageOnWindow(response.data!.resultMsg!)
                 }
+               
             }, onError: { [weak self] error in
                 self?.doneButton.isUserInteractionEnabled = false
+                self?.showMessageOnWindow(error)
             })
             .disposed(by: rx.disposeBag)
     }
     
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        if touches.first == self.view {
+            dismiss(animated: true, completion: nil)
+        }
+    }
 
     @IBAction func closeButtonTapped(_ sender: Any) {
         

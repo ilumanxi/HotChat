@@ -12,6 +12,7 @@ import Moya
 enum UserActivityAPI {
     case checkActivityInfo
     case receiveReward
+    case receiveKeepReward
 }
 
 
@@ -25,6 +26,8 @@ extension UserActivityAPI: TargetType {
             return "UserActivity/checkActivityInfo"
         case .receiveReward:
             return "UserActivity/receiveReward"
+        case .receiveKeepReward:
+            return "UserActivity/receiveKeepReward"
         }
     }
     
@@ -33,7 +36,7 @@ extension UserActivityAPI: TargetType {
         let parameters: [String : Any]
         
         switch self {
-        case .checkActivityInfo, .receiveReward:
+        case .checkActivityInfo, .receiveReward, .receiveKeepReward:
             parameters = [ : ]
         }
         
