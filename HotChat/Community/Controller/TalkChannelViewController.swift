@@ -13,6 +13,7 @@ import RxSwift
 import RxCocoa
 import MJRefresh
 import SnapKit
+import DGCollectionViewLeftAlignFlowLayout
 
 
 
@@ -83,7 +84,7 @@ class TalkChannelViewController: UIViewController, AquamanChildViewController, I
     
     func setupUI()  {
         
-        let layout   = UICollectionViewFlowLayout()
+        let layout = DGCollectionViewLeftAlignFlowLayout()
         
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
 //        collectionView.autoresizingMask = [.flexibleWidth, .flexibleWidth]

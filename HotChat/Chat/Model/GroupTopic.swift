@@ -21,7 +21,7 @@ enum GroupTopicStatus: Int, HandyJSONEnum {
 
 extension GroupTopicStatus {
     var isHidden: Bool {
-        return self == .normal
+        return self != .full
     }
 }
 

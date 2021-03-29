@@ -85,6 +85,15 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
             let vc = TopController(start: top.type)
             self.navigationController?.pushViewController(vc, animated: true)
         }
+        
+        headerView.onUser.delegate(on: self) { (self, userID) in
+            let user = User()
+            user.userId = userID
+            let vc = UserInfoViewController()
+            vc.user = user
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
         return headerView
     }()
     
@@ -122,6 +131,11 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
     let activityAPI = Request<UserActivityAPI>()
     
     let userSettingsAPI = Request<UserSettingsAPI>()
+    
+    let checkInAPI = Request<CheckInAPI>()
+    
+    var checkInResult: CheckInResult?
+    private var isShowCheckIn = true
     
     fileprivate var channels: [Channel] = [] {
         didSet {
@@ -164,6 +178,39 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
         super.viewWillAppear(animated)
         
         refreshActivity()
+        
+        if LoginManager.shared.user!.isInit {
+            checkInState()
+        }
+    }
+    
+    func checkInState() {
+        
+        if LoginManager.shared.user!.girlStatus || AppAudit.share.signinStatus  || !isShowCheckIn {
+            self.checkInResult = nil
+            return
+        }
+        
+        checkInAPI.request(.checkUserSignInfo, type: Response<CheckInResult>.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { [weak self] response in
+                self?.checkInResult = response.data
+                self?.presentCheckIn()
+                
+            }, onError: { [weak self] error in
+                self?.checkInResult = nil
+            })
+            .disposed(by: rx.disposeBag)
+    }
+    
+    func presentCheckIn() {
+        let vc = CheckInViewController(day: checkInResult!.day)
+        vc.onCheckInSucceed.delegate(on: self) { (self, _) in
+            self.checkInState()
+        }
+        
+        UIApplication.shared.keyWindow?.present(vc)
+        self.isShowCheckIn = false
     }
     
     func onCallEnd()  {

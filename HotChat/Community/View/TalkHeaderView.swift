@@ -41,7 +41,7 @@ class TalkHeaderView: UIView {
     let onVideo = Delegate<Void, Void>()
     let onHeadline = Delegate<Void, Void>()
     let onTop = Delegate<TalkTypeTop, Void>()
-    
+    let onUser = Delegate<String, Void>()
     
     var talkTop: TalkTop! {
         didSet {
@@ -130,11 +130,25 @@ class TalkHeaderView: UIView {
     
     private func addMarqueeHorizontal(_ marquee: Marquee) {
         isHorizontalMarqueeFinished = false
+        headlineView.isUserInteractionEnabled = true
         
         let attributedText = horizontalAttributedText(marquee: marquee, seconds: marquee.stayTime)
         
+        for gestureRecognizer in headlineCotentLabel.gestureRecognizers ?? [] {
+            headlineCotentLabel.removeGestureRecognizer(gestureRecognizer)
+        }
         
+        headlineCotentLabel.isUserInteractionEnabled = true
         headlineCotentLabel.attributedText = attributedText
+        
+        headlineCotentLabel.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer()
+        tap.rx.event
+            .subscribe(onNext: { [weak self] _ in
+                self?.onUser.call(marquee.fromUserId)
+            })
+            .disposed(by: rx.disposeBag)
+        headlineCotentLabel.addGestureRecognizer(tap)
         
         addMarqueeHorizontalAnimation()
         
@@ -191,6 +205,7 @@ class TalkHeaderView: UIView {
     @objc func marqueeHorizontalCompleted() {
         headlineContentView.isHidden = true
         headlineContentView.transform = CGAffineTransform(translationX: headlineView.bounds.width, y: 0)
+        headlineView.isUserInteractionEnabled = false
         
         if !horizontalMarquees.isEmpty {
             addMarqueeHorizontalNext()
@@ -217,6 +232,15 @@ class TalkHeaderView: UIView {
             
             let label =  addMarqueeVerticalLabel(attributedText: attributedText)
             addMarqueeVerticalAnimation()
+            
+            label.isUserInteractionEnabled = true
+            let tap = UITapGestureRecognizer()
+            tap.rx.event
+                .subscribe(onNext: { [weak self] _ in
+                    self?.onUser.call(marquee.fromUserId)
+                })
+                .disposed(by: label.rx.disposeBag)
+            label.addGestureRecognizer(tap)
             
             if marquee.stayTime > 1 {
                 let countdown =  Observable<Int>.countdown(marquee.stayTime).share()

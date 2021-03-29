@@ -30,7 +30,22 @@ class TopicListViewCell: UICollectionViewCell {
         
         backgroundImageView.kf.setImage(with: URL(string: model.coverPic))
         statusImageView.isHidden = model.status.isHidden
-        titleLabel.text = model.name
+        
+        let string = NSMutableAttributedString()
+        
+        if model.status == .crowd {
+
+            string.append(NSAttributedString(
+                            string: "(拥挤)",
+                            attributes: [
+                                NSAttributedString.Key.foregroundColor : UIColor(hexString: "#BCBCBC"),
+                                NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15, weight: .regular)
+                            ]))
+        }
+        
+        string.append(NSAttributedString(string: model.name))
+        
+        titleLabel.attributedText = string
         
     }
 }
