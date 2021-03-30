@@ -183,4 +183,15 @@ extension ChatMemberViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        defer {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+        
+        let vc = UserInfoViewController()
+        vc.user = data[indexPath.row]
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }

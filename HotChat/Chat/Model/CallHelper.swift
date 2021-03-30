@@ -41,6 +41,11 @@ import AVFoundation
                     indicatorDisplay.show("需要VIP才能发送图片哦")
                     return false
                 }
+                
+                if type == .video &&  user.userRank < 10 {
+                    indicatorDisplay.show("对方设置隐身保护需要富豪等级10级才可以视频")
+                    return false
+                }
             }
             else if toUser.girlStatus && type == .image && user.vipType == .empty {
                 indicatorDisplay.show("需要VIP才能发送图片哦")
@@ -56,17 +61,25 @@ import AVFoundation
                 return false
             }
             else if toUser.sex == .male && type == .video {
-                indicatorDisplay.show("对方设置隐私保护需要认证主播才能\(type.string)")
+                indicatorDisplay.show("对方设置隐私保护需要认证主播才能视频")
                 return false
             }
             else if toUser.sex == .female && !toUser.girlStatus  {
                 
                 if type == .text  {
-                    indicatorDisplay.show("对方设置隐私保护需要认证主播才能\(type.string)")
+                    indicatorDisplay.show("对方设置隐私保护需要认证主播才能留言")
                     return false
                 }
                 else if type == .image {
                     indicatorDisplay.show("对方设置隐私不接受\(type.string)")
+                    return false
+                }
+                else if type == .audio  {
+                    indicatorDisplay.show("对方设置隐私保护需要认证主播才能语聊")
+                    return false
+                }
+                else if type == .video  {
+                    indicatorDisplay.show("对方设置隐私保护需要认证主播才能视频")
                     return false
                 }
             }
