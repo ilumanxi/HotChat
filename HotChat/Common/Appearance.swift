@@ -53,7 +53,7 @@ class Appearance {
         tabBar.selectionIndicatorImage = UIImage(color: .red, size: CGSize(width: 1, height: 1))
         tabBar.barTintColor = .white
         tabBar.isTranslucent = true
-        tabBar.tintColor = .theme
+        tabBar.tintColor = UIColor(hexString: "#ff4e39")
         tabBar.unselectedItemTintColor = UIColor(hexString: "#333333")
     }
 

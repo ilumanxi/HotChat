@@ -413,10 +413,10 @@
             </objects>
             <point key="canvasLocation" x="564" y="-705"/>
         </scene>
-        <!--社区-->
+        <!--发现-->
         <scene sceneID="R13-5x-Um1">
             <objects>
-                <viewController title="社区" id="w0h-Sd-sGy" customClass="CommunityViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CommunityViewController" title="发现" useStoryboardIdentifierAsRestorationIdentifier="YES" id="w0h-Sd-sGy" customClass="CommunityViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EZk-to-R9h">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -715,7 +715,7 @@
                             <constraint firstItem="JFk-f3-e7e" firstAttribute="top" secondItem="EZk-to-R9h" secondAttribute="top" id="hsQ-8H-Pbe"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="社区" id="mGa-jf-wYr">
+                    <navigationItem key="navigationItem" title="发现" id="mGa-jf-wYr">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="YEh-9H-65S">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="HNB-1C-cPj" customClass="GradientButton" customModule="HotChat" customModuleProvider="target">
                                 <rect key="frame" x="331" y="9.5" width="63" height="25"/>
@@ -795,7 +795,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dlr-LR-NcR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1425" y="-38"/>
+            <point key="canvasLocation" x="1061" y="44"/>
         </scene>
     </scenes>
     <resources>

@@ -33,7 +33,9 @@ extension IMData: HandyJSON {
         let dict = self.mj_keyValues()!
         
         if dict["user"] != nil {
-            dict["user"] =  self.user.toJSON()
+            var userDict = self.user.toJSON()
+            userDict?["girlStatus"] = self.user.girlStatus ? 1 : 0
+            dict["user"] =  userDict
         }
         return dict
     }

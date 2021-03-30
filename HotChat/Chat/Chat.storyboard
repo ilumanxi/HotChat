@@ -28,7 +28,7 @@
             </objects>
             <point key="canvasLocation" x="361" y="856"/>
         </scene>
-        <!--消息-->
+        <!--Conversation View Controller-->
         <scene sceneID="LG7-Q7-2uw">
             <objects>
                 <viewController id="4MT-37-6xD" customClass="ConversationViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
@@ -38,7 +38,8 @@
                         <viewLayoutGuide key="safeArea" id="DOT-5B-Xfj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="消息" id="fcL-3R-Z4u">
+                    <navigationItem key="navigationItem" id="fcL-3R-Z4u">
+                        <barButtonItem key="leftBarButtonItem" title="消息" id="uup-WL-XP6"/>
                         <rightBarButtonItems>
                             <barButtonItem title="Item" image="chat-more" id="J7T-U3-y96">
                                 <connections>

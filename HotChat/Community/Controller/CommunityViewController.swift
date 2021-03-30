@@ -65,12 +65,14 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     
     @IBOutlet weak var phoneBindingView: UIView!
     
-    private var isShowCheckIn = true
+    private var isShowCheckIn = false
     
     let playerManager = PlayerManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.leftBarButtonItem?.setTitleTextAttributes(UINavigationBar.appearance().titleTextAttributes, for: .normal)
         
         playerManager.listPlayer.volume = 0
         

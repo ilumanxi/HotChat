@@ -196,7 +196,7 @@ extension IndicatorDisplay where Self: UIViewController {
                 maker.center.equalToSuperview()
             }
         case .noContent:
-            let stackView = showImageText(text: text ?? "暂时没有数据", image: image ??  UIImage(named: "no-content")!, actionText: actionText)
+            let stackView = showImageText(text: text ?? "暂无数据", image: image ??  UIImage(named: "no-content")!, actionText: actionText)
             holderView.addSubview(stackView)
             stackView.snp.makeConstraints { maker in
                 maker.center.equalToSuperview()
@@ -204,7 +204,7 @@ extension IndicatorDisplay where Self: UIViewController {
             
             viewAddRefreshDataTap(holderView)
         case .error:
-            let stackView = showImageText(text: text ?? "哎呀，网络不稳定", image: image ??  UIImage(named: "load-error")!, actionText: actionText)
+            let stackView = showImageText(text: text ?? "网络不给力，请稍后再试!", image: image ??  UIImage(named: "load-error")!, actionText: actionText)
             holderView.addSubview(stackView)
             stackView.snp.makeConstraints { maker in
                 maker.center.equalToSuperview()

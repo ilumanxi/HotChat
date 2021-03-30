@@ -32,8 +32,11 @@ class GradientButton: HotChatButton {
     
     
     private func setupData() {
-        self.startPoint = CGPoint(x: 0, y: 0.5)
-        self.endPoint = CGPoint(x: 1, y: 0.5)
+//        self.startPoint = CGPoint(x: 0, y: 0.5)
+//        self.endPoint = CGPoint(x: 1, y: 0.5)
+        
+        self.startPoint = CGPoint(x: 1, y: 0)
+        self.endPoint = CGPoint(x: 0.5, y: 0.5)
         
     }
     
