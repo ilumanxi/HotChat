@@ -357,6 +357,20 @@ class ChatTopicViewController: ChatViewController, UIPopoverPresentationControll
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none
     }
+    
+    deinit {
+        quitGroup()
+    }
+    
+    func quitGroup()  {
+        
+        V2TIMManager.sharedInstance()?.quitGroup(self.conversationData.groupID, succ: {
+            
+        }, fail: { (_, _) in
+            
+        })
+        
+    }
 }
 
 

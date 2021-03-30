@@ -51,6 +51,18 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     
     let chatGreetAPI = Request<ChatGreetAPI>()
     
+    let bannerAPI = Request<BannerAPI>()
+    
+    var headerViewHeight: CGFloat {
+        return (view.bounds.width / (2 / 0.75)).rounded(.down)
+    }
+    
+    var banners: [Banner] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
     var dynamics: [Dynamic] = []
     
     var selectedDynamic: Dynamic!
@@ -90,6 +102,8 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
                 
             }
         }
+        
+        tableView.register(BanberHeaderView.self, forHeaderFooterViewReuseIdentifier: "BanberHeaderView")
         
         tableView.backgroundColor = .groupTableViewBackground        
         
@@ -197,6 +211,17 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     
     func refreshData() {
         loadSignal.onNext(refreshPageIndex)
+        
+        loadBanner()
+    }
+    
+    func loadBanner()  {
+        bannerAPI.request(.bannerList(type: 1), type: Response<[Banner]>.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { [weak self] response in
+                self?.banners = response.data ?? []
+            }, onError: nil)
+            .disposed(by: rx.disposeBag)
     }
     
     func loadMoreData() {
@@ -498,6 +523,18 @@ extension CommunityViewController: UITableViewDataSource, UITableViewDelegate {
         
     }
     
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return self.banners.isEmpty ? 0.1 : headerViewHeight
+    }
+    
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let banberHeaderView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "BanberHeaderView") as? BanberHeaderView
+        banberHeaderView?.banners = self.banners
+        return banberHeaderView
+    }
 
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
