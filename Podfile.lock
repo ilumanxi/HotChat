@@ -16,9 +16,9 @@ PODS:
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
   - Alamofire (5.4.1)
-  - AliPlayerSDK_iOS (5.3.1):
-    - AliPlayerSDK_iOS/AliPlayerSDK (= 5.3.1)
-  - AliPlayerSDK_iOS/AliPlayerSDK (5.3.1)
+  - AliPlayerSDK_iOS (5.3.2):
+    - AliPlayerSDK_iOS/AliPlayerSDK (= 5.3.2)
+  - AliPlayerSDK_iOS/AliPlayerSDK (5.3.2)
   - AMPopTip (4.5.3)
   - Aquaman (0.1.2)
   - Blueprints (0.13.1)
@@ -28,10 +28,10 @@ PODS:
   - DGCollectionViewLeftAlignFlowLayout (1.0.4)
   - DynamicColor (5.0.1)
   - FSPagerView (0.8.3)
-  - GKPhotoBrowser (2.1.4):
-    - GKPhotoBrowser/SD (= 2.1.4)
-  - GKPhotoBrowser/Core (2.1.4)
-  - GKPhotoBrowser/SD (2.1.4):
+  - GKPhotoBrowser (2.1.8):
+    - GKPhotoBrowser/SD (= 2.1.8)
+  - GKPhotoBrowser/Core (2.1.8)
+  - GKPhotoBrowser/SD (2.1.8):
     - GKPhotoBrowser/Core
     - SDWebImage (~> 5.0)
   - HandyJSON (5.0.3-beta)
@@ -39,7 +39,7 @@ PODS:
   - IBPCollectionViewCompositionalLayout (0.6.9)
   - InputKitSwift (1.2.1)
   - Jelly (2.2.2)
-  - Kingfisher (6.1.1)
+  - Kingfisher (6.2.1)
   - Koloda (5.0.1):
     - pop (~> 1.0)
   - MagazineLayout (1.6.3)
@@ -86,7 +86,7 @@ PODS:
     - RxSwift (~> 5.1)
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
-  - RxSwift (5.1.1)
+  - RxSwift (5.1.2)
   - RxSwiftUtilities (2.2.0):
     - RxCocoa (~> 5.1)
     - RxSwift (~> 5.1)
@@ -132,20 +132,20 @@ PODS:
   - SwifterSwift/SwiftStdlib (5.2.0)
   - SwifterSwift/UIKit (5.2.0)
   - SwiftyStoreKit (0.16.1)
-  - Tabman (2.10.0):
+  - Tabman (2.11.0):
     - Pageboy (~> 3.6.0)
   - TagListView (1.4.1)
   - Toast (4.0.0)
   - Toast-Swift (5.0.1)
   - TPNS-iOS (1.3.0.0)
   - Trident (0.6.0)
-  - TXIMSDK_iOS (5.1.50)
-  - TXIMSDK_TUIKit_iOS (5.1.50):
+  - TXIMSDK_iOS (5.1.56)
+  - TXIMSDK_TUIKit_iOS (5.1.56):
     - MMLayout (= 0.2.0)
     - ReactiveObjC (= 3.1.1)
     - SDWebImage (= 5.9.0)
     - Toast (= 4.0.0)
-    - TXIMSDK_iOS (= 5.1.50)
+    - TXIMSDK_iOS (= 5.1.56)
     - TXLiteAVSDK_TRTC (= 7.8.9519)
   - TXLiteAVSDK_TRTC (7.8.9519)
   - TZImagePickerController (3.5.8)
@@ -323,7 +323,7 @@ SPEC CHECKSUMS:
   ActiveLabel: 5e3f4de79a1952d4604b845a0610d4776e4b82b3
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
-  AliPlayerSDK_iOS: 122ba2f5a32d64ae89e19bdb58859875e248cdce
+  AliPlayerSDK_iOS: 6c74230e3375c41cc173e5f17d36962c2dbd3768
   AMPopTip: 77eef4793d50709bef83825b72da4f501263b91d
   Aquaman: a9f48d6b1c3049f3e511779a77a570bf541a2470
   Blueprints: ddd6ab1e455c98471aaef2fdd0b09b5f9b53af5b
@@ -333,13 +333,13 @@ SPEC CHECKSUMS:
   DGCollectionViewLeftAlignFlowLayout: a0fa58797373ded039cafba8133e79373d048399
   DynamicColor: d049834ef86d8ecf150b0ca1ebe54ee733a0ec22
   FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
-  GKPhotoBrowser: 1f7c0bdd21fc617f1c7cd18d15f26488abf0f973
+  GKPhotoBrowser: 61672c81464a8abb40e81eb802939bca7478a962
   HandyJSON: 88e8ea5f66ab65c3b8768499a1935d0509c460d4
   HBDNavigationBar: 8a24d0348ad4371614569e3d015d46e41824b061
   IBPCollectionViewCompositionalLayout: bbb29e39ac564666a8c3cdb6633ed944b6feb55b
   InputKitSwift: 5532ed4a41706aeebe6ad6dfafb3bee32e02f1c6
   Jelly: 0576a8fd3b3bea78f6c2d952acdc30b0835dda71
-  Kingfisher: 676d63307fbef6ed5d5ed400bff36983480d7500
+  Kingfisher: e71c6fac2aebb1262888cabc2cb13d313362a48f
   Koloda: d07b9199a383abc5898b62aa945a599f5e7c0c4b
   MagazineLayout: 159da0d4d874e04e6b17e580b990cccd00328c5b
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
@@ -361,7 +361,7 @@ SPEC CHECKSUMS:
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxCoreLocation: 4789d980742b21c087062387f6758b456221fb2f
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
-  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+  RxSwift: 1e2e1f9570186967f617e49128ed26ccf1bafc8e
   RxSwiftUtilities: 59e2d82daf74b9962f732b09e6da85a26281cfc0
   SDWebImage: 62ae4a18473520c67b79e9724c31a63599cc9423
   SegementSlide: 83b56ffb66b9c0edc4e4f2a74229309c62915db3
@@ -372,14 +372,14 @@ SPEC CHECKSUMS:
   SwiftDate: 72d28954e8e1c6c1c0f917ccc8005e4f83c7d4b2
   SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
   SwiftyStoreKit: 6b9c08810269f030586dac1fae8e75871a82e84a
-  Tabman: d8d6ab0b483c7db375a71ac227d3ef791b56a049
+  Tabman: 1d927ebbea463623dac78f889b32fd1addb8fbe8
   TagListView: a1c236d17960a0cf64156725a76ce6d73ebce2be
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   TPNS-iOS: 4f61f76d71c8db1365763bb3a40b0c5ce9ce7b89
   Trident: aa83273ba05bf77f434bb35925356c87bd4c2f75
-  TXIMSDK_iOS: 749bfa0cabdef7aab49afc2703e86a0daa04ec8c
-  TXIMSDK_TUIKit_iOS: 04192203679beebb402817af7f11cb7d541c793c
+  TXIMSDK_iOS: 3704afc203450066095b9eb8321cff3f7e7d530a
+  TXIMSDK_TUIKit_iOS: 9f8327de756b352b940ed3e3cd194ee7628e9be5
   TXLiteAVSDK_TRTC: c127880c4dbe844bdc7575a655be8042ce96024a
   TZImagePickerController: 7fd9702897ef8c0b7c951e5463f4bcf398296f9e
   UMCommon: b5aabdb9fad44330ff8738d9bc46ebf93db14bf2

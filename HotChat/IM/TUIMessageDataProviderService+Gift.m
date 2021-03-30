@@ -16,6 +16,8 @@
 + (void)load
 {
     swizzleMethod([self class], NSSelectorFromString(@"getCustomElemContent:"), @selector(swizzledGetCustomElemContent:));
+    
+    swizzleMethod([self class], NSSelectorFromString(@"localizableStringWithFaceContent:"), @selector(swizzledLocalizableStringWithFaceContent:));
 }
 
 - (void)swizzled_viewDidAppear:(BOOL)animated
@@ -41,6 +43,17 @@ void swizzleMethod(Class class, SEL originalSelector, SEL swizzledSelector)
         method_exchangeImplementations(originalMethod, swizzledMethod);
     }
     
+}
+
+- (NSString *)swizzledLocalizableStringWithFaceContent:(NSString *)faceContent {
+    
+    NSString *content = faceContent;
+    
+    if (content == nil) {
+        content = @"";
+    }
+    
+    return [self swizzledLocalizableStringWithFaceContent:content];
 }
 
 - (NSString *)swizzledGetCustomElemContent:(V2TIMMessage *)message {
