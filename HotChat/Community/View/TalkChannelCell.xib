@@ -65,7 +65,7 @@
                 <outlet property="ageLabel" destination="abP-XJ-ozb" id="mjQ-Wl-qis"/>
                 <outlet property="authenticateImageView" destination="cUF-eT-ROR" id="qNN-6r-yXa"/>
                 <outlet property="avatarImageView" destination="xBP-Wz-3Ee" id="XfJ-Yh-flc"/>
-                <outlet property="introduceLabel" destination="jAH-Hb-Hrs" id="XsO-Ec-QL6"/>
+                <outlet property="nameLabel" destination="jAH-Hb-Hrs" id="xYa-UB-0DE"/>
                 <outlet property="newcomerImageView" destination="Ec0-Z6-lxE" id="0WV-lU-WJh"/>
                 <outlet property="statusImageView" destination="Ef6-Vk-VT8" id="5Lz-HH-Lgm"/>
             </connections>

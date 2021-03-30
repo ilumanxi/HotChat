@@ -21,7 +21,7 @@ class TalkChannelCell: UICollectionViewCell {
     
     @IBOutlet weak var ageLabel: UILabel!
     
-    @IBOutlet weak var introduceLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     
     
     override func awakeFromNib() {
@@ -37,7 +37,16 @@ class TalkChannelCell: UICollectionViewCell {
         statusImageView.image = model.onlineStatus.image
         
         ageLabel.text = "\(model.age)岁"
-        introduceLabel.text = model.introduce
+        
+        if model.nick.length > 7 {
+           
+            nameLabel.text = "\(model.nick.prefix(6))..."
+        }
+        else {
+            nameLabel.text = model.nick
+        }
+        
+       
         
 
         authenticateImageView.isHidden =  model.authenticationStatus != .ok
