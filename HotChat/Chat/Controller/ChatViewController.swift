@@ -232,12 +232,12 @@ extension ChatViewController: ChatControllerDelegate {
 
                 let cellData = GiftCellData(direction: msg.isSelf ? .MsgDirectionOutgoing : .MsgDirectionIncoming)
                 cellData.innerMessage = msg;
-                cellData.name = msg.nickName
+                cellData.name = msg.nickName ?? msg.sender
                 cellData.msgID = msg.msgID
                 cellData.avatarUrl = URL(string: msg.faceURL ?? "")
                 cellData.identifier = msg.sender
                 cellData.gift = Gift.mj_object(withKeyValues: imData.data)
-                cellData.showName = true
+                cellData.showName = false
                 return cellData
             }
             else if imData.type == IMDataTypeImage { // 图片
@@ -247,7 +247,7 @@ extension ChatViewController: ChatControllerDelegate {
                 cellData.msgID = msg.msgID
                 cellData.name = msg.nickName
                 cellData.avatarUrl = URL(string: msg.faceURL ?? "")
-                cellData.showName = true
+                cellData.showName = false
                 cellData.mj_setKeyValues(imData.data)
                 cellData.identifier = msg.sender
                 return cellData

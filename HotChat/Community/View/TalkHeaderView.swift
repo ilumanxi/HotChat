@@ -157,26 +157,20 @@ class TalkHeaderView: UIView {
         
         addMarqueeHorizontalAnimation()
         
-        if marquee.stayTime > 1 {
-            let countdown =  Observable<Int>.countdown(marquee.stayTime).share()
-            
-            countdown
-                .map { [unowned self] seconds in
-                    return self.horizontalAttributedText(marquee: marquee, seconds: seconds)
-                }
-                .bind(to: headlineCotentLabel.rx.attributedText)
-                .disposed(by: rx.disposeBag)
-            
-            countdown
-                .subscribe(onCompleted: { [weak self] in
-                    self?.isHorizontalMarqueeFinished = true
-                    self?.marqueeHorizontalCompleted()
-                })
-                .disposed(by: rx.disposeBag)
-        }
-        else {
-            self.perform(#selector(marqueeHorizontalCompleted), with: nil, afterDelay: 1)
-        }
+        let countdown =  Observable<Int>.countdown(marquee.stayTime).share()
+        countdown
+            .map { [unowned self] seconds in
+                return self.horizontalAttributedText(marquee: marquee, seconds: seconds)
+            }
+            .bind(to: headlineCotentLabel.rx.attributedText)
+            .disposed(by: rx.disposeBag)
+        
+        countdown
+            .subscribe(onCompleted: { [weak self] in
+                self?.isHorizontalMarqueeFinished = true
+                self?.marqueeHorizontalCompleted()
+            })
+            .disposed(by: rx.disposeBag)
         
     }
     
@@ -246,26 +240,21 @@ class TalkHeaderView: UIView {
             .disposed(by: label.rx.disposeBag)
         label.addGestureRecognizer(tap)
         
-        if marquee.stayTime > 1 {
-            let countdown =  Observable<Int>.countdown(marquee.stayTime).share()
-            
-            countdown
-                .map { [unowned self] seconds in
-                    return self.verticalAttributedText(marquee: marquee, seconds: seconds)
-                }
-                .bind(to: label.rx.attributedText)
-                .disposed(by: label.rx.disposeBag)
-            
-            countdown
-                .subscribe(onCompleted: { [weak self] in
-                    self?.isVerticalMarqueeFinished = true
-                    self?.marqueeVerticalCompleted()
-                })
-                .disposed(by: label.rx.disposeBag)
-        }
-        else {
-            self.perform(#selector(marqueeVerticalCompleted), with: nil, afterDelay: 1)
-        }
+        let countdown =  Observable<Int>.countdown(marquee.stayTime).share()
+        
+        countdown
+            .map { [unowned self] seconds in
+                return self.verticalAttributedText(marquee: marquee, seconds: seconds)
+            }
+            .bind(to: label.rx.attributedText)
+            .disposed(by: label.rx.disposeBag)
+        
+        countdown
+            .subscribe(onCompleted: { [weak self] in
+                self?.isVerticalMarqueeFinished = true
+                self?.marqueeVerticalCompleted()
+            })
+            .disposed(by: label.rx.disposeBag)
         
     }
     
@@ -280,8 +269,9 @@ class TalkHeaderView: UIView {
         string.append(NSAttributedString(string: "\(marquee.giftCount)个"))
         string.append(NSAttributedString(string: marquee.giftName, attributes: [NSAttributedString.Key.foregroundColor : UIColor(hexString: "#E3300D")]))
         string.append(NSAttributedString(string: "，掌声祝福，鼓掌，鼓掌，鼓掌"))
-        string.append(NSAttributedString(string:"（\(seconds)s）", attributes: [NSAttributedString.Key.foregroundColor : UIColor(hexString: "#E3300D")]))
-        
+        if marquee.stayTime > 1 {
+            string.append(NSAttributedString(string:"（\(seconds)s）", attributes: [NSAttributedString.Key.foregroundColor : UIColor(hexString: "#E3300D")]))
+        }
         return string
     }
     
@@ -289,7 +279,9 @@ class TalkHeaderView: UIView {
         let string = NSMutableAttributedString()
         string.append(NSAttributedString(string: marquee.fromUserName, attributes: [NSAttributedString.Key.foregroundColor : UIColor(hexString: "#F5A700")]))
         string.append(NSAttributedString(string: "：\(marquee.noticeText ?? "")"))
-        string.append(NSAttributedString(string:"（\(seconds)s）", attributes: [NSAttributedString.Key.foregroundColor : UIColor(hexString: "#E3300D")]))
+        if marquee.stayTime > 1 {
+            string.append(NSAttributedString(string:"（\(seconds)s）", attributes: [NSAttributedString.Key.foregroundColor : UIColor(hexString: "#E3300D")]))
+        }
         return string
     }
     
@@ -344,21 +336,6 @@ class TalkHeaderView: UIView {
         onHeadline.call()
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-
-        
-//        let flipNext = Selector("flipNextWithSender:")
-//
-//        bannerView.perform(flipNext, with: nil)
-        
-        
-        
-        UIView.animate(withDuration: 0.25) {
-            self.headlineContentView.transform = CGAffineTransform.identity
-        }
-    }
-
-
 }
 
 
