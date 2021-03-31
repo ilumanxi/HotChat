@@ -105,11 +105,16 @@ class TalkHeaderView: UIView {
         
         if marquee.type == 1 || marquee.type == 2 { // 普通、 特殊
             verticalMarquees.append(marquee)
-            addMarqueeVerticalNext()
+            if isVerticalMarqueeFinished {
+                addMarqueeVerticalNext()
+            }
+            
         }
         else if marquee.type == 0 { // 头条
             horizontalMarquees.append(marquee)
-            addMarqueeHorizontalNext()
+            if isHorizontalMarqueeFinished {
+                addMarqueeHorizontalNext()
+            }
         }
     }
     
@@ -225,44 +230,41 @@ class TalkHeaderView: UIView {
     }
     
     private func addMarqueeVertical(_ marquee: Marquee) {
-        if isVerticalMarqueeFinished {
-            isVerticalMarqueeFinished = false
+        isVerticalMarqueeFinished = false
+        
+        let attributedText = verticalAttributedText(marquee: marquee, seconds: marquee.stayTime)
+        
+        let label =  addMarqueeVerticalLabel(attributedText: attributedText)
+        addMarqueeVerticalAnimation()
+        
+        label.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer()
+        tap.rx.event
+            .subscribe(onNext: { [weak self] _ in
+                self?.onUser.call(marquee.fromUserId)
+            })
+            .disposed(by: label.rx.disposeBag)
+        label.addGestureRecognizer(tap)
+        
+        if marquee.stayTime > 1 {
+            let countdown =  Observable<Int>.countdown(marquee.stayTime).share()
             
-            let attributedText = verticalAttributedText(marquee: marquee, seconds: 10)
+            countdown
+                .map { [unowned self] seconds in
+                    return self.verticalAttributedText(marquee: marquee, seconds: seconds)
+                }
+                .bind(to: label.rx.attributedText)
+                .disposed(by: label.rx.disposeBag)
             
-            let label =  addMarqueeVerticalLabel(attributedText: attributedText)
-            addMarqueeVerticalAnimation()
-            
-            label.isUserInteractionEnabled = true
-            let tap = UITapGestureRecognizer()
-            tap.rx.event
-                .subscribe(onNext: { [weak self] _ in
-                    self?.onUser.call(marquee.fromUserId)
+            countdown
+                .subscribe(onCompleted: { [weak self] in
+                    self?.isVerticalMarqueeFinished = true
+                    self?.marqueeVerticalCompleted()
                 })
                 .disposed(by: label.rx.disposeBag)
-            label.addGestureRecognizer(tap)
-            
-            if marquee.stayTime > 1 {
-                let countdown =  Observable<Int>.countdown(marquee.stayTime).share()
-                
-                countdown
-                    .map { [unowned self] seconds in
-                        return self.verticalAttributedText(marquee: marquee, seconds: seconds)
-                    }
-                    .bind(to: label.rx.attributedText)
-                    .disposed(by: label.rx.disposeBag)
-                
-                countdown
-                    .subscribe(onCompleted: { [weak self] in
-                        self?.isVerticalMarqueeFinished = true
-                        self?.marqueeVerticalCompleted()
-                    })
-                    .disposed(by: label.rx.disposeBag)
-            }
-            else {
-                self.perform(#selector(marqueeVerticalCompleted), with: nil, afterDelay: 1)
-            }
-            
+        }
+        else {
+            self.perform(#selector(marqueeVerticalCompleted), with: nil, afterDelay: 1)
         }
         
     }

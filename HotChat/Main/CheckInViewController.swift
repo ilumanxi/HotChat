@@ -102,9 +102,14 @@ class CheckInViewController: UIViewController, IndicatorDisplay {
     
     
     @IBAction func doneButtonTapped(_ sender: Any) {
-        dismiss(animated: false, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if touches.first?.view == self.view {
+            dismiss(animated: true, completion: nil)
+        }
+    }
     
 }
 

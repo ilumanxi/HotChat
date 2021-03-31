@@ -92,7 +92,7 @@ class SignupViewModel {
                         }
                         wireframe.show(result.msg, in: UIApplication.shared.keyWindow!)
                     }, onError: { error in
-                        wireframe.show(error.localizedDescription, in: UIApplication.shared.keyWindow!)
+                        wireframe.show(error, in: UIApplication.shared.keyWindow!)
                     })
                     .map { result in
                         return result.isSuccessd
