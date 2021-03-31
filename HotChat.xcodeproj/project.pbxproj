@@ -94,6 +94,7 @@
 		263BC21D254956950081F5DF /* CallMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 263BC21C254956950081F5DF /* CallMenuViewController.m */; };
 		263BC22D254987770081F5DF /* BeautyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 263BC22B254987770081F5DF /* BeautyViewController.m */; };
 		263BC22E254987770081F5DF /* BeautyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 263BC22C254987770081F5DF /* BeautyViewController.xib */; };
+		263F5388261459010099D143 /* TUIMessageController+Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 263F5387261459010099D143 /* TUIMessageController+Group.m */; };
 		264219B5258B2AC600D46B9C /* GreetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264219B4258B2AC600D46B9C /* GreetingViewController.swift */; };
 		26425C16251DDF64006D2F4C /* UserBasicInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26425C15251DDF64006D2F4C /* UserBasicInformationViewController.swift */; };
 		2643EB3A2500AD7D00FBBE49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643EB392500AD7D00FBBE49 /* AppDelegate.swift */; };
@@ -583,6 +584,8 @@
 		263BC22A254987770081F5DF /* BeautyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeautyViewController.h; sourceTree = "<group>"; };
 		263BC22B254987770081F5DF /* BeautyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeautyViewController.m; sourceTree = "<group>"; };
 		263BC22C254987770081F5DF /* BeautyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BeautyViewController.xib; sourceTree = "<group>"; };
+		263F5386261459010099D143 /* TUIMessageController+Group.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TUIMessageController+Group.h"; sourceTree = "<group>"; };
+		263F5387261459010099D143 /* TUIMessageController+Group.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TUIMessageController+Group.m"; sourceTree = "<group>"; };
 		264219B4258B2AC600D46B9C /* GreetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingViewController.swift; sourceTree = "<group>"; };
 		26425C15251DDF64006D2F4C /* UserBasicInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBasicInformationViewController.swift; sourceTree = "<group>"; };
 		2643EB362500AD7D00FBBE49 /* HotChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1843,6 +1846,8 @@
 				26DBEBC925E6044B00C174FC /* TUICall+ExitRoom.m */,
 				264C5C212608A72F007FB123 /* TConversationListViewModel+Single.h */,
 				264C5C222608A72F007FB123 /* TConversationListViewModel+Single.m */,
+				263F5386261459010099D143 /* TUIMessageController+Group.h */,
+				263F5387261459010099D143 /* TUIMessageController+Group.m */,
 			);
 			path = IM;
 			sourceTree = "<group>";
@@ -2584,6 +2589,7 @@
 				2637D879255B8EDF00020E98 /* BlacklistCell.swift in Sources */,
 				264C5C322609CF4E007FB123 /* TalkHeaderView.swift in Sources */,
 				2607319B2536DD1B00B1093C /* ReportAPI.swift in Sources */,
+				263F5388261459010099D143 /* TUIMessageController+Group.m in Sources */,
 				2643EBB02500B04100FBBE49 /* RealNameAuthenticationFooterView.swift in Sources */,
 				26CB6D4025515D6B00A9F4DD /* BDFaceAgreementViewController.m in Sources */,
 				26A377C9260D884D002FF17E /* HeadlineAPI.swift in Sources */,

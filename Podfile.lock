@@ -132,7 +132,7 @@ PODS:
   - SwifterSwift/SwiftStdlib (5.2.0)
   - SwifterSwift/UIKit (5.2.0)
   - SwiftyStoreKit (0.16.1)
-  - Tabman (2.11.0):
+  - Tabman (2.11.1):
     - Pageboy (~> 3.6.0)
   - TagListView (1.4.1)
   - Toast (4.0.0)
@@ -372,7 +372,7 @@ SPEC CHECKSUMS:
   SwiftDate: 72d28954e8e1c6c1c0f917ccc8005e4f83c7d4b2
   SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
   SwiftyStoreKit: 6b9c08810269f030586dac1fae8e75871a82e84a
-  Tabman: 1d927ebbea463623dac78f889b32fd1addb8fbe8
+  Tabman: 792ac76fd1ec95af175c93db880a3c47cabedc91
   TagListView: a1c236d17960a0cf64156725a76ce6d73ebce2be
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
