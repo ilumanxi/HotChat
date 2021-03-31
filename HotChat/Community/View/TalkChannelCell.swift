@@ -15,7 +15,11 @@ class TalkChannelCell: UICollectionViewCell {
     
     @IBOutlet weak var newcomerImageView: UIImageView!
     
-    @IBOutlet weak var statusImageView: UIImageView!
+    
+    
+    @IBOutlet weak var statusCornerView: UIView!
+    
+    @IBOutlet weak var statusLabel: UILabel!
     
     @IBOutlet weak var authenticateImageView: UIImageView!
     
@@ -34,7 +38,9 @@ class TalkChannelCell: UICollectionViewCell {
         
         avatarImageView.kf.setImage(with: URL(string: model.headPic))
         
-        statusImageView.image = model.onlineStatus.image
+        statusCornerView.backgroundColor  = model.onlineStatus.imColor
+        statusLabel.text = model.onlineStatus.imText
+        statusLabel.textColor = model.onlineStatus.imColor
         
         ageLabel.text = "\(model.age)岁"
         

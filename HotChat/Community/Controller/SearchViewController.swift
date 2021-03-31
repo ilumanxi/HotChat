@@ -233,18 +233,40 @@ extension OnlineStatus {
     var text: String? {
         switch self {
         case .online:
-            return "·可接听"
+            return "在线"
         case .living:
-            return "·可留言"
+            return "忙碌"
         case .offline:
-            return "·可留言"
+            return "离线"
         }
     }
     
     var color: UIColor? {
         switch self {
         case .online:
-           return UIColor(hexString: "#06D365")
+           return UIColor(hexString: "#22DC09")
+        case .living:
+            return UIColor(hexString: "#F8AC27")
+        case .offline:
+            return nil
+        }
+    }
+    
+    var imText: String? {
+        switch self {
+        case .online:
+            return "可接听"
+        case .living:
+            return "可留言"
+        case .offline:
+            return "可留言"
+        }
+    }
+    
+    var imColor: UIColor? {
+        switch self {
+        case .online:
+            return UIColor(hexString: "#06D365")
         case .living:
             return UIColor(hexString: "#EB6F01")
         case .offline:

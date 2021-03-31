@@ -250,14 +250,14 @@ class TalkHeaderView: UIView {
                         return self.verticalAttributedText(marquee: marquee, seconds: seconds)
                     }
                     .bind(to: label.rx.attributedText)
-                    .disposed(by: rx.disposeBag)
+                    .disposed(by: label.rx.disposeBag)
                 
                 countdown
                     .subscribe(onCompleted: { [weak self] in
                         self?.isVerticalMarqueeFinished = true
                         self?.marqueeVerticalCompleted()
                     })
-                    .disposed(by: rx.disposeBag)
+                    .disposed(by: label.rx.disposeBag)
             }
             else {
                 self.perform(#selector(marqueeVerticalCompleted), with: nil, afterDelay: 1)
