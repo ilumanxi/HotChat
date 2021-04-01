@@ -59,6 +59,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        application.applicationIconBadgeNumber = 0
+        if XGPush.defaultManager().xgApplicationBadgeNumber > 0 {
+            XGPush.defaultManager().xgApplicationBadgeNumber = 0
+        }
+    }
+    
     func store()  {
         // see notes below for the meaning of Atomic / Non-Atomic
         SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
@@ -393,7 +400,10 @@ extension AppDelegate: XGPushDelegate {
     
     func tpns() {
         /// 控制台打印TPNS日志，开发调试建议开启
-        XGPush.defaultManager().isEnableDebug = true;
+        #if DEBUG
+        XGPush.defaultManager().isEnableDebug = true
+        #endif
+      
         
         /// 自定义通知栏消息行为，有自定义消息行为需要使用
         // setNotificationConfigure()

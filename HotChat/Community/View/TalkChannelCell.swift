@@ -28,10 +28,19 @@ class TalkChannelCell: UICollectionViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     
     
+    @IBOutlet weak var gradientView: GradientView!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         layer.cornerRadius = 10
         // Initialization code
+        gradientView.colors = [
+            UIColor(red: 0, green: 0, blue: 0, alpha: 0),
+            UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)]
+        gradientView.locations = [0, 1]
+        gradientView.startPoint = CGPoint(x: 0.5, y: 0)
+        gradientView.endPoint = CGPoint(x: 0.5, y: 1)
     }
     
     func set(model: User) {
@@ -52,9 +61,6 @@ class TalkChannelCell: UICollectionViewCell {
             nameLabel.text = model.nick
         }
         
-       
-        
-
         authenticateImageView.isHidden =  model.authenticationStatus != .ok
         newcomerImageView.isHidden = !model.isNewDraw
     }

@@ -416,10 +416,10 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
                     let vc = PairCallViewController()
                     self.navigationController?.pushViewController(vc, animated: true)
                     
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 30) {
                         if let _ = vc.navigationController {
                             vc.navigationController?.popViewController(animated: true)
-                            self.showMessageOnWindow("你与她擦肩而过...")
+                            self.showMessageOnWindow("亲，当前没有匹配到合适的人选，请稍后再试！")
                         }
                     }
                 }

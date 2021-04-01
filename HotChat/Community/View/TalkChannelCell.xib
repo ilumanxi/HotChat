@@ -20,6 +20,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
                         <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                     </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RD3-tf-tMx" customClass="GradientView" customModule="HotChat" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="111" width="170" height="59"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="DLz-Pr-yi9">
+                                <rect key="frame" x="12" y="8" width="146" height="39"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小婷婷找老公" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jAH-Hb-Hrs">
+                                        <rect key="frame" x="0.0" y="0.0" width="146" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="28岁" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abP-XJ-ozb">
+                                        <rect key="frame" x="0.0" y="23" width="146" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="DLz-Pr-yi9" firstAttribute="leading" secondItem="RD3-tf-tMx" secondAttribute="leading" constant="12" id="JCw-uv-87n"/>
+                            <constraint firstAttribute="bottom" secondItem="DLz-Pr-yi9" secondAttribute="bottom" constant="12" id="Lxm-nL-0cz"/>
+                            <constraint firstItem="DLz-Pr-yi9" firstAttribute="top" secondItem="RD3-tf-tMx" secondAttribute="top" constant="8" id="fEb-Y7-v6C"/>
+                            <constraint firstAttribute="trailing" secondItem="DLz-Pr-yi9" secondAttribute="trailing" constant="12" id="jG4-Du-HZE"/>
+                        </constraints>
+                    </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newcomer" translatesAutoresizingMaskIntoConstraints="NO" id="Ec0-Z6-lxE">
                         <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
                     </imageView>
@@ -68,32 +96,19 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="28岁" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abP-XJ-ozb">
-                        <rect key="frame" x="12" y="142" width="29.5" height="16"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小婷婷找老公" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jAH-Hb-Hrs">
-                        <rect key="frame" x="12" y="119" width="92" height="18"/>
-                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="xBP-Wz-3Ee" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="0er-ug-viZ"/>
                 <constraint firstAttribute="trailing" secondItem="a1z-Qd-Mi7" secondAttribute="trailing" constant="8" id="1KB-ue-KLx"/>
                 <constraint firstItem="cUF-eT-ROR" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="2gy-Wo-G2c"/>
-                <constraint firstItem="abP-XJ-ozb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="12" id="3Zz-5X-HWo"/>
-                <constraint firstItem="jAH-Hb-Hrs" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="12" id="8OW-C8-iNt"/>
+                <constraint firstAttribute="trailing" secondItem="RD3-tf-tMx" secondAttribute="trailing" id="Aj7-wU-Ui3"/>
                 <constraint firstAttribute="trailing" secondItem="Ec0-Z6-lxE" secondAttribute="trailing" id="EKc-F8-Dkz"/>
+                <constraint firstItem="RD3-tf-tMx" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="J77-D9-aBY"/>
                 <constraint firstItem="xBP-Wz-3Ee" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Nbj-Kg-8el"/>
-                <constraint firstAttribute="bottom" secondItem="abP-XJ-ozb" secondAttribute="bottom" constant="12" id="OGX-bm-adP"/>
                 <constraint firstItem="Ec0-Z6-lxE" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="U37-ph-7LF"/>
                 <constraint firstAttribute="bottom" secondItem="xBP-Wz-3Ee" secondAttribute="bottom" id="WsQ-2o-MOQ"/>
-                <constraint firstItem="abP-XJ-ozb" firstAttribute="top" secondItem="jAH-Hb-Hrs" secondAttribute="bottom" constant="5" id="ePR-Cr-3cK"/>
+                <constraint firstAttribute="bottom" secondItem="RD3-tf-tMx" secondAttribute="bottom" id="XUe-LP-SYh"/>
                 <constraint firstItem="a1z-Qd-Mi7" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="11" id="kUd-mX-TrP"/>
                 <constraint firstAttribute="trailing" secondItem="xBP-Wz-3Ee" secondAttribute="trailing" id="raz-Og-FhM"/>
                 <constraint firstAttribute="bottom" secondItem="Ec0-Z6-lxE" secondAttribute="bottom" id="sRj-9P-DOK"/>
@@ -104,6 +119,7 @@
                 <outlet property="ageLabel" destination="abP-XJ-ozb" id="mjQ-Wl-qis"/>
                 <outlet property="authenticateImageView" destination="cUF-eT-ROR" id="qNN-6r-yXa"/>
                 <outlet property="avatarImageView" destination="xBP-Wz-3Ee" id="XfJ-Yh-flc"/>
+                <outlet property="gradientView" destination="RD3-tf-tMx" id="XND-zE-lw1"/>
                 <outlet property="nameLabel" destination="jAH-Hb-Hrs" id="xYa-UB-0DE"/>
                 <outlet property="newcomerImageView" destination="Ec0-Z6-lxE" id="0WV-lU-WJh"/>
                 <outlet property="statusCornerView" destination="FRO-QK-WL1" id="jIs-Jq-thy"/>
