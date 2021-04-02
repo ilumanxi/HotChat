@@ -94,3 +94,40 @@ class GradientButton: HotChatButton {
     
 
 }
+
+
+class SexButton: GradientButton {
+    
+    
+    var layoutSize: CGSize = CGSize(width: 30, height: 12) {
+        didSet {
+            invalidateIntrinsicContentSize()
+            setNeedsLayout()
+        }
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        return layoutSize
+    }
+    
+    override func sizeThatFits(_ size: CGSize) -> CGSize {
+        return layoutSize
+    }
+    
+    override func layoutSubviews() {
+        
+        super.layoutSubviews()
+        layer.cornerRadius = bounds.height / 2
+    }
+    
+}
+
+
+extension SexButton {
+    
+    func set(_ user: User) {
+        setTitle(user.age.description, for: .normal)
+        setImage(user.sex.image, for: .normal)
+        colors = user.sex.colors
+    }
+}

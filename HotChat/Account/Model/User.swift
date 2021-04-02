@@ -44,10 +44,21 @@ struct Topic: HandyJSON {
     var image: UIImage? {
         switch self {
         case .male:
-            return UIImage(named: "me-sex-man")
+            return UIImage(named: "male")
         case .female:
-            return UIImage(named: "me-sex-woman")
+            return UIImage(named: "female")
         case .empty:
+            return nil
+        }
+    }
+    
+    var colors: [UIColor]? {
+        switch self {
+        case .male:
+            return [UIColor(hexString: "#54DBFF"), UIColor(hexString: "#54DBFF")]
+        case .female:
+            return [UIColor(hexString: "#FD8AAC"), UIColor(hexString: "#FF719A")]
+        default:
             return nil
         }
     }

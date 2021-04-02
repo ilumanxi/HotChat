@@ -14,6 +14,8 @@ class DynamicDetailViewCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionViewHeightConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var collectionViewFlowLayout: UICollectionViewFlowLayout!
+    
     @IBOutlet weak var avatarButton: UIButton!
     
     @IBOutlet weak var nicknameLabel: UILabel!
@@ -21,6 +23,9 @@ class DynamicDetailViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     
     @IBOutlet weak var contentLabel: UILabel!
+    
+    
+    @IBOutlet weak var sexButton: SexButton!
     
     @IBOutlet weak var likeButton: HotChatButton!
     
@@ -30,8 +35,7 @@ class DynamicDetailViewCell: UITableViewCell {
     
     @IBOutlet weak var commentButton: HotChatButton!
     
-    
-    @IBOutlet weak var moreButton: MinimumHitButton!
+    @IBOutlet weak var moreButton: UIButton!
     
     
     let onAvatarTapped = Delegate<DynamicDetailViewCell, Void>()
@@ -89,7 +93,9 @@ class DynamicDetailViewCell: UITableViewCell {
             commentButton.setTitle("评论", for: .normal)
         }
         
-        giveButton.setTitle(dynamic.giftNum.description, for: .normal)
+        sexButton.set(dynamic.userInfo)
+        
+//        giveButton.setTitle(dynamic.giftNum.description, for: .normal)
         dateLabel.text = dynamic.timeFormat
         
         collectionViewHeightConstraint.constant = collectionViewHeight()
@@ -106,13 +112,27 @@ class DynamicDetailViewCell: UITableViewCell {
     }
     
     
-    let sectionInset = UIEdgeInsets(top: 15, left: 16, bottom: 1, right: 16)
+    let maxSize: CGFloat = UIScreen.main.bounds.width - 20 * 2 - 46 - 12 - 10 * 2
     
-    let horizontalSpacing: CGFloat = 10
+    let sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 1, right: 0)
     
-    let verticalSpacing: CGFloat = 10
+    let horizontalSpacing: CGFloat = 4
     
-    let itemsPerRow: CGFloat = 3
+    let verticalSpacing: CGFloat = 4
+    
+    var itemsPerRow: CGFloat {
+   
+        let itemsCount = max(dynamic.photoList.count, 1)
+   
+        if itemsCount > 2 {
+            return 3
+        }
+        else if itemsCount == 2 {
+            return 2
+        }
+        
+        return 1
+    }
     
 
     func collectionViewHeight() -> CGFloat {
@@ -126,7 +146,7 @@ class DynamicDetailViewCell: UITableViewCell {
     }
     
     func itemSize() -> CGSize {
-        
+                
         let count = max(dynamic.photoList.count, 1)
         
         if count == 1 {
@@ -138,13 +158,12 @@ class DynamicDetailViewCell: UITableViewCell {
             }
         }
         
-        let itemSize = (UIScreen.main.bounds.width - (sectionInset.left + sectionInset.right) - (itemsPerRow - 1) * horizontalSpacing) / itemsPerRow
+        let itemSize = (maxSize - (sectionInset.left + sectionInset.right) - (itemsPerRow - 1) * horizontalSpacing) / itemsPerRow
         return CGSize(width: itemSize, height: itemSize)
     }
     
     func adjustSize(with size: CGSize) -> CGSize {
         
-        let maxSize = UIScreen.main.bounds.width * 0.4
         let adjustSize: CGSize
 
         if(size.height > size.width){
@@ -192,7 +211,7 @@ extension DynamicDetailViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: MediaViewCell.self)
-        cell.layer.cornerRadius = 8
+        cell.layer.cornerRadius = 5
         
         if dynamic.type == .video {
             cell.imageView.kf.setImage(with: URL(string: dynamic.video!.coverUrl))
@@ -233,16 +252,7 @@ extension DynamicDetailViewCell: UICollectionViewDelegateFlowLayout {
 
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        if dynamic.photoList.count == 4 {
-            var adjustSectionInset =  sectionInset
-            adjustSectionInset.right += itemSize().width + horizontalSpacing - 0.1
-            return adjustSectionInset
-        }
-        else {
-            var adjustSectionInset =  sectionInset
-            adjustSectionInset.right -= 0.1
-            return adjustSectionInset
-        }
+        return sectionInset
     }
 
 }

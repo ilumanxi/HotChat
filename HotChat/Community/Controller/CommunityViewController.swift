@@ -22,7 +22,11 @@ import YBImageBrowser
 
 
 
-class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisplay {
+class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisplay, StoryboardCreate {
+    
+    
+    static var storyboardNamed: String { "Discover" }
+    
     
     func showOrHideIndicator(loadingState: LoadingState, text: String? = nil, image: UIImage? = nil) {
         showOrHideIndicator(loadingState: loadingState, in: self.tableView, text: text, image: image)
@@ -105,7 +109,7 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
         
         tableView.register(BanberHeaderView.self, forHeaderFooterViewReuseIdentifier: "BanberHeaderView")
         
-        tableView.backgroundColor = .groupTableViewBackground        
+        tableView.backgroundColor = UIColor(hexString: "#F6F7F9")
         
         loadSignal
             .subscribe(onNext: requestData)

@@ -115,31 +115,28 @@ class DiscoverViewController: TabmanViewController, LoadingStateType, IndicatorD
         // Set PageboyViewControllerDataSource dataSource to configure page view controller.
         dataSource = self
         
-        let topItem = UIBarButtonItem(image: UIImage(named: "discover-top"), style: .plain, target: self, action: #selector(pushTop))
-        
-        let searchItem = UIBarButtonItem(image: UIImage(named: "common-search")?.original, style: .plain, target: self, action: #selector(pushSearch))
-        navigationItem.rightBarButtonItems = [topItem, searchItem]
-        
         // Create a bar
         let bar = TMBarView.ButtonBar()
         
         // Customize bar properties including layout and other styling.
-        bar.layout.contentInset = UIEdgeInsets(top: 0.0, left: 16.0, bottom: 4.0, right: 16.0)
+        bar.layout.contentInset = UIEdgeInsets(top: 0.0, left: 12, bottom: 4.0, right: 12)
         bar.layout.interButtonSpacing = 24.0
         bar.indicator.weight = .custom(value: 2.5)
         bar.indicator.cornerStyle = .eliptical
         bar.indicator.overscrollBehavior = .none
         bar.layout.showSeparators = false
         bar.fadesContentEdges = true
-        bar.spacing = 16.0
+        bar.spacing = 30.0
         bar.backgroundView.style = .clear
         
         // Set tint colors for the bar buttons and indicator.
         bar.buttons.customize {
-            $0.tintColor = UIColor(hexString: "#1B1B1B").withAlphaComponent(0.4)
-            $0.selectedTintColor = UIColor(hexString: "#1B1B1B")
+            $0.tintColor = UIColor(hexString: "#666666")
+            $0.font = .systemFont(ofSize: 17, weight: .medium)
+            $0.selectedTintColor = UIColor(hexString: "#333333")
+            $0.selectedFont = .systemFont(ofSize: 20, weight: .bold)
         }
-        bar.indicator.tintColor = .theme
+        bar.indicator.tintColor = UIColor(hexString: "#FF3F3F")
         
         // Add bar to the view - as a .systemBar() to add UIKit style system background views.
 //        addBar(bar.systemBar(), dataSource: self, at: .top)
@@ -147,8 +144,7 @@ class DiscoverViewController: TabmanViewController, LoadingStateType, IndicatorD
         addBar(bar.hiding(trigger: .manual), dataSource: self, at: .navigationItem(item: navigationItem))
         
         
-        state = .loadingContent
-        requestData()
+//        requestData()
     }
     
     
@@ -308,22 +304,87 @@ class DiscoverViewController: TabmanViewController, LoadingStateType, IndicatorD
         requestData()
     }
 
-    let cache = NSCache<NSString, UIViewController>()
     
-    func viewController(at index: Int) -> UIViewController {
+    lazy var viewConrollers: [UIViewController] = {
         
-        let channel  = channels[index]
+        let community = CommunityViewController.loadFromStoryboard()
+        community.title = "广场"
         
-        guard let controller = cache.object(forKey: channel.labelId.description as NSString)  else {
-            let vc = ChannelViewController()
-            vc.channel = channel
-            cache.setObject(vc, forKey: channel.labelId.description as NSString)
-            return vc
+        let follow = UIViewController()
+        follow.title = "关注"
+        
+        return [community, follow]
+    }()
+    
+    
+    @IBAction func sendButtonTapped(_ sender: Any) {
+        if LoginManager.shared.user!.realNameStatus.isPresent {
+            self.presentDynamic()
         }
-        
-        return controller
+        else {
+            self.checkUserAttestation()
+        }
     }
     
+    func presentDynamic() {
+        let vc = DynamicViewController()
+        vc.onSened.delegate(on: self) { (self, _) in
+            
+            if let navigationController =  self.children.first as? UINavigationController,
+               let controller = navigationController.viewControllers.first as? IndicatorDisplay {
+                controller.refreshData()
+            }
+        }
+        let navVC = UINavigationController(rootViewController: vc)
+        navVC.modalPresentationStyle = .fullScreen
+        present(navVC, animated: true, completion: nil)
+    }
+    
+    let authenticationAPI = Request<AuthenticationAPI>()
+    
+    func checkUserAttestation() {
+        showIndicator()
+        authenticationAPI.request(.checkUserAttestation, type: Response<Authentication>.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { [weak self] response in
+                guard let self = self else { return }
+                self.hideIndicator()
+                if response.data!.realNameStatus.isPresent {
+                    let user = LoginManager.shared.user!
+                    user.realNameStatus = response.data!.realNameStatus
+                    LoginManager.shared.update(user: user)
+                    self.presentDynamic()
+                }
+                else {
+                    let vc = AuthenticationGuideViewController()
+                    vc.onPushing.delegate(on: self) { (self, _) -> UINavigationController? in
+                        return self.navigationController
+                    }
+                    self.present(vc, animated: true, completion: nil)
+                }
+            }, onError: { [weak self] error in
+                self?.hideIndicator()
+                self?.show(error)
+            })
+            .disposed(by: rx.disposeBag)
+    }
+    
+//    let cache = NSCache<NSString, UIViewController>()
+//
+//    func viewController(at index: Int) -> UIViewController {
+//
+//        let channel  = channels[index]
+//
+//        guard let controller = cache.object(forKey: channel.labelId.description as NSString)  else {
+//            let vc = ChannelViewController()
+//            vc.channel = channel
+//            cache.setObject(vc, forKey: channel.labelId.description as NSString)
+//            return vc
+//        }
+//
+//        return controller
+//    }
+//
 }
 
 
@@ -333,12 +394,13 @@ extension DiscoverViewController: PageboyViewControllerDataSource, TMBarDataSour
     // MARK: PageboyViewControllerDataSource
     
     func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
-        channels.count // How many view controllers to display in the page view controller.
+        viewConrollers.count // How many view controllers to display in the page view controller.
     }
     
     func viewController(for pageboyViewController: PageboyViewController, at index: PageboyViewController.PageIndex) -> UIViewController? {
         
-        viewController(at: index) // View controller to display at a specific index for the page view controller.
+        // View controller to display at a specific index for the page view controller.
+        viewConrollers[index]
     }
     
     func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
@@ -349,7 +411,7 @@ extension DiscoverViewController: PageboyViewControllerDataSource, TMBarDataSour
     
     func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
         
-        return TMBarItem(title: channels[index].tagName) // Item to display for a specific index in the bar.
+        return TMBarItem(title: viewConrollers[index].title!) // Item to display for a specific index in the bar.
     }
 }
 

@@ -34,8 +34,6 @@ class BanberHeaderView: UITableViewHeaderFooterView {
         bannerView.delegate = self
         bannerView.dataSource = self
         contentView.addSubview(bannerView)
-        backgroundView = UIView()
-        backgroundView?.backgroundColor = .white
     }
     
     override func layoutSubviews() {
