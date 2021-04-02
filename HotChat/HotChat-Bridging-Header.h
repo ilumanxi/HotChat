@@ -26,6 +26,7 @@
 #import "SystemMessageCell.h"
 #import "InputBar.h"
 #import "Marquee.h"
+#import "QMUIButton.h"
 
 #import <UMCommon/UMCommon.h>
 #import <UMVerify/UMVerify.h>

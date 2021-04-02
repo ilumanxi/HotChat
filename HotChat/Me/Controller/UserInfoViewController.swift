@@ -95,17 +95,17 @@ class UserInfoViewController: AquamanPageViewController, LoadingStateType, Indic
     private lazy var userInfoHeaderView: UserInfoHeaderView = {
         let headerView = UserInfoHeaderView.loadFromNib()
         headerView.onFollowButtonTapped.delegate(on: self) { (self, sender) in
-            sender.followButton.isUserInteractionEnabled = false
+            
             self.dynamicAPI.request(.follow(self.user.userId), type: ResponseEmpty.self)
                 .verifyResponse()
                 .subscribe(onSuccess: { response in
-                    sender.followButton.isUserInteractionEnabled = true
+                    
                     var user = self.user
                     user?.isFollow = true
                     self.user = user
                     self.show(response.msg)
                 }, onError: { error in
-                    sender.followButton.isUserInteractionEnabled = true
+                    
                     self.show(error)
                 })
                 .disposed(by: self.rx.disposeBag)
@@ -119,19 +119,67 @@ class UserInfoViewController: AquamanPageViewController, LoadingStateType, Indic
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupUI()
 
         mainScrollView.contentInsetAdjustmentBehavior = .never
         updateNavigationBarStyle(mainScrollView)
         navigationItem.title = user.nick
         menuView.titles = viewControllers.compactMap{ $0.title }
         
-        setupChatView()
-        
         reloadData()
         
         state = .loadingContent
         
         refreshData()
+    }
+    
+    func setupUI() {
+        
+        func button(text: String, image: UIImage?) -> UIButton {
+            let button = QMUIButton(type: .custom)
+            button.imagePosition = .top
+            button.spacingBetweenImageAndTitle = 2
+            button.titleLabel?.font = .systemFont(ofSize: 12, weight: .medium)
+            button.setTitleColor(UIColor(hexString: "#333333"), for: .normal)
+            button.setTitle(text, for: .normal)
+            button.setImage(image, for: .normal)
+            return button
+        }
+        
+        let textChat = button(text: "聊天", image: UIImage(named: "me-chat-text"))
+        
+        let voiceChat = button(text: "通话", image: UIImage(named: "me-chat-audio"))
+        
+        let videoChat = button(text: "视频", image: UIImage(named: "me-chat-video"))
+        
+        let love = button(text: "关注", image: UIImage(named: "me-love"))
+        
+        let gift = button(text: "礼物", image: UIImage(named: "me-gift"))
+        
+        gift.isHidden = true
+        
+        let stackView = UIStackView(arrangedSubviews: [textChat, voiceChat, videoChat, love, gift])
+        stackView.axis = .horizontal
+        stackView.alignment = .center
+        stackView.distribution = .equalSpacing
+        
+        view.addSubview(stackView)
+        
+        stackView.snp.makeConstraints { [unowned self] maker in
+            maker.leading.equalToSuperview().offset(28)
+            maker.trailing.equalToSuperview().offset(-28)
+            maker.bottom.equalTo(self.safeBottom)
+        }
+        
+        stackView.arrangedSubviews.forEach { subView in
+            subView.snp.makeConstraints { maker in
+                maker.size.equalTo(CGSize(width: 64, height: 64))
+            }
+            subView.layer.cornerRadius = 32
+            subView.backgroundColor = .white
+        }
+        
     }
     
     @objc func pop() {
@@ -215,51 +263,7 @@ class UserInfoViewController: AquamanPageViewController, LoadingStateType, Indic
     }
     
     
-    private func setupChatView() {
-        
-        if user.userId != LoginManager.shared.user!.userId {
-            chatView = UserInfoChatView.loadFromNib()
-            chatView.onSayHellowed.delegate(on: self) { (self, _) in
-                self.chatView.state = .notSayHellow
-//                self.chatViewState()
-            }
-            chatView.onPushing.delegate(on: self) { (self, _) -> (User, UINavigationController) in
-                return (self.user, self.navigationController!)
-            }
-            chatView.backgroundColor = .clear
-            view.addSubview(chatView)
-            
-            chatView.snp.makeConstraints { maker in
-                maker.height.equalTo(48)
-                maker.leading.trailing.equalToSuperview()
-                maker.bottom.equalTo(self.safeBottom).offset(-20).priority(999)
-                maker.bottom.equalToSuperview().offset(-34)
-            }
-            
-            additionalSafeAreaInsets = UIEdgeInsets(top: 0, left: 0, bottom: 34 + 48, right: 0)
-        }
-        else {
-            sendButton = GradientButton(type: .system)
-            sendButton.colors = [UIColor(hexString: "#0BB7DC"), UIColor(hexString: "#5159F8")]
-            sendButton.layer.cornerRadius = 17
-            sendButton.setImage(UIImage(named: "community-dynamic")?.original, for: .normal)
-            sendButton.setTitle("发送动态", for: .normal)
-            sendButton.titleLabel?.font = .systemFont(ofSize: 12)
-            sendButton.setTitleColor(.white, for: .normal)
-            sendButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 3, bottom: 0, right: 0)
-            sendButton.addTarget(self, action: #selector(sendButtonTapped(_:)), for: .touchUpInside)
-            view.addSubview(sendButton)
-            
-            sendButton.snp.makeConstraints { maker in
-                maker.centerX.equalToSuperview()
-                maker.bottom.equalToSuperview().offset(-34)
-                maker.size.equalTo(CGSize(width: 92, height: 34))
-            }
-            
-            additionalSafeAreaInsets = UIEdgeInsets(top: 0, left: 0, bottom: 34 + 34, right: 0)
-        }
 
-    }
     
     @IBAction func sendButtonTapped(_ sender: Any) {
         
@@ -366,7 +370,10 @@ class UserInfoViewController: AquamanPageViewController, LoadingStateType, Indic
     
     override func pageController(_ pageController: AquamanPageViewController, viewControllerAt index: Int) -> (UIViewController & AquamanChildViewController) {
         
-        return viewControllers[index] as! AquamanChildViewController
+        let viewController = viewControllers[index] as! AquamanChildViewController
+        viewController.additionalSafeAreaInsets = UIEdgeInsets(top: 0, left: 0, bottom: 64, right: 0)
+        
+        return viewController
     }
     
     // 默认显示的 ViewController 的 index

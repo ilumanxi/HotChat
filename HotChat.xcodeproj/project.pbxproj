@@ -163,6 +163,12 @@
 		265C8A4A251348E200E220BD /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C8A49251348E200E220BD /* ForgotPasswordViewController.swift */; };
 		265C8A5B25134C3500E220BD /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C8A5A25134C3500E220BD /* ForgotPasswordViewModel.swift */; };
 		265C8A63251352A800E220BD /* ForgotPasswordProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C8A62251352A800E220BD /* ForgotPasswordProtocols.swift */; };
+		2660F5EC2616FD5900F849B3 /* UserDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2660F5EB2616FD5900F849B3 /* UserDataView.swift */; };
+		2660F5EE2616FD8C00F849B3 /* UserDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2660F5ED2616FD8C00F849B3 /* UserDataView.xib */; };
+		2660F5F1261714AA00F849B3 /* PhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2660F5EF261714A900F849B3 /* PhotoViewCell.swift */; };
+		2660F5F2261714AA00F849B3 /* PhotoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2660F5F0261714A900F849B3 /* PhotoViewCell.xib */; };
+		2660F5F426172BB200F849B3 /* DynamicDetailViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2660F5F326172BB200F849B3 /* DynamicDetailViewCell.xib */; };
+		2660F5F626172E1F00F849B3 /* MediaViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2660F5F526172E1F00F849B3 /* MediaViewCell.xib */; };
 		26610E10261171C8008E154A /* NewcomerAwardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26610E0E261171C8008E154A /* NewcomerAwardViewController.swift */; };
 		26610E11261171C8008E154A /* NewcomerAwardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26610E0F261171C8008E154A /* NewcomerAwardViewController.xib */; };
 		2666405F2577624500E30A09 /* SayHellowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2666405D2577624500E30A09 /* SayHellowViewController.swift */; };
@@ -666,6 +672,12 @@
 		265C8A49251348E200E220BD /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		265C8A5A25134C3500E220BD /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
 		265C8A62251352A800E220BD /* ForgotPasswordProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordProtocols.swift; sourceTree = "<group>"; };
+		2660F5EB2616FD5900F849B3 /* UserDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataView.swift; sourceTree = "<group>"; };
+		2660F5ED2616FD8C00F849B3 /* UserDataView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDataView.xib; sourceTree = "<group>"; };
+		2660F5EF261714A900F849B3 /* PhotoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewCell.swift; sourceTree = "<group>"; };
+		2660F5F0261714A900F849B3 /* PhotoViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoViewCell.xib; sourceTree = "<group>"; };
+		2660F5F326172BB200F849B3 /* DynamicDetailViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DynamicDetailViewCell.xib; sourceTree = "<group>"; };
+		2660F5F526172E1F00F849B3 /* MediaViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MediaViewCell.xib; sourceTree = "<group>"; };
 		26610E0E261171C8008E154A /* NewcomerAwardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewcomerAwardViewController.swift; sourceTree = "<group>"; };
 		26610E0F261171C8008E154A /* NewcomerAwardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewcomerAwardViewController.xib; sourceTree = "<group>"; };
 		2666405D2577624500E30A09 /* SayHellowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SayHellowViewController.swift; sourceTree = "<group>"; };
@@ -1271,6 +1283,10 @@
 				26710DF325B293BE000F41BC /* WalletProducItemCell.xib */,
 				2635215D25C7EA2200855487 /* VisitorsAvatarView.swift */,
 				2635216125C7EA4E00855487 /* VisitorsAvatarView.xib */,
+				2660F5EB2616FD5900F849B3 /* UserDataView.swift */,
+				2660F5ED2616FD8C00F849B3 /* UserDataView.xib */,
+				2660F5EF261714A900F849B3 /* PhotoViewCell.swift */,
+				2660F5F0261714A900F849B3 /* PhotoViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1736,7 +1752,9 @@
 				26F889342531854B001A14F2 /* TextInputViewCell.swift */,
 				F305482A2532BC0800844D00 /* DynamicViewCell.swift */,
 				268458E025342B7D002B9C6E /* DynamicDetailViewCell.swift */,
+				2660F5F326172BB200F849B3 /* DynamicDetailViewCell.xib */,
 				268458EF25345352002B9C6E /* MediaViewCell.swift */,
+				2660F5F526172E1F00F849B3 /* MediaViewCell.xib */,
 				26FC88F9253ED66600E4D82F /* SearchViewCell.swift */,
 				26ED000425C5731200480CEC /* MediaItemViewCell.swift */,
 				26ED000525C5731200480CEC /* MediaItemViewCell.xib */,
@@ -2095,6 +2113,7 @@
 				26610E11261171C8008E154A /* NewcomerAwardViewController.xib in Resources */,
 				2679DA5E2611B469003F2443 /* AvatarRewardViewController.xib in Resources */,
 				263A6C3925C2DA4800FD43B6 /* PairCallViewController.xib in Resources */,
+				2660F5F626172E1F00F849B3 /* MediaViewCell.xib in Resources */,
 				263BC22E254987770081F5DF /* BeautyViewController.xib in Resources */,
 				26395362254198DB00B5E3C0 /* RightDetailViewCell.xib in Resources */,
 				26DF8784255A7969002162A9 /* EarningsDetailViewController.xib in Resources */,
@@ -2113,6 +2132,7 @@
 				26FBCF642558EF32001F3DFA /* ConsumerDetailsViewController.xib in Resources */,
 				26F8946C25203B7300A45648 /* TitleViewCell.xib in Resources */,
 				2693697525555E06002E224B /* PhoneBindingController.xib in Resources */,
+				2660F5F2261714AA00F849B3 /* PhotoViewCell.xib in Resources */,
 				263A6C3C25C2DDEB00FD43B6 /* pair.svga in Resources */,
 				267955042507637600A72954 /* Community.storyboard in Resources */,
 				26C81EEE25480B1900C1D563 /* GiftViewCell.xib in Resources */,
@@ -2140,6 +2160,7 @@
 				26ED001E25C69BC900480CEC /* MediaItemAddViewCell.xib in Resources */,
 				26C8CC7026044E58005FDFF8 /* ChatTopicStatusViewController.xib in Resources */,
 				26F3EA3425F20A05001CF13D /* CommentFooterView.xib in Resources */,
+				2660F5F426172BB200F849B3 /* DynamicDetailViewCell.xib in Resources */,
 				2651FE1B25F7666A00A9F2E6 /* TopHeaderView.xib in Resources */,
 				2635216225C7EA4E00855487 /* VisitorsAvatarView.xib in Resources */,
 				26B22F1B2609F2C0006B0C49 /* ListViewCell.xib in Resources */,
@@ -2198,6 +2219,7 @@
 				2695903E250B170B00763061 /* InterestedCardView.xib in Resources */,
 				2611E615260DE11900563156 /* ActivityViewController.xib in Resources */,
 				2679DA622611C179003F2443 /* AnchorTipViewController.xib in Resources */,
+				2660F5EE2616FD8C00F849B3 /* UserDataView.xib in Resources */,
 				26D9E9FE260DCB7E009EEDD2 /* ActivityView.xib in Resources */,
 				269DED0B254A9DD5000AD5D9 /* CallMenuViewController.xib in Resources */,
 			);
@@ -2351,6 +2373,7 @@
 				26CB6D4125515D6B00A9F4DD /* BDFaceDetectionViewController.m in Sources */,
 				2643EBA72500B04100FBBE49 /* RealNameAuthenticationViewController.swift in Sources */,
 				26E14E5E251C6E8800645F08 /* HotChatButton.swift in Sources */,
+				2660F5F1261714AA00F849B3 /* PhotoViewCell.swift in Sources */,
 				265C8A63251352A800E220BD /* ForgotPasswordProtocols.swift in Sources */,
 				2684599325359B91002B9C6E /* Message.swift in Sources */,
 				26A20B052518A5020061BBB8 /* HotChatError.swift in Sources */,
@@ -2474,6 +2497,7 @@
 				26CB6D4525515D6B00A9F4DD /* BDFaceCircleView.m in Sources */,
 				26CBE3B62508A9C30089A23C /* CommunityHeaderView.swift in Sources */,
 				26A20AFF2518A47F0061BBB8 /* KeychainStore.swift in Sources */,
+				2660F5EC2616FD5900F849B3 /* UserDataView.swift in Sources */,
 				26F25C98250A359300F808EA /* InterestedViewController.swift in Sources */,
 				26884A502605C38A006A13E5 /* SystemMessageCellData.m in Sources */,
 				265C8A3D2513316200E220BD /* SigninViewModel.swift in Sources */,

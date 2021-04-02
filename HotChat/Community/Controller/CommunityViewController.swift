@@ -108,6 +108,7 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
         }
         
         tableView.register(BanberHeaderView.self, forHeaderFooterViewReuseIdentifier: "BanberHeaderView")
+        tableView.register(UINib(nibName: "DynamicDetailViewCell", bundle: nil), forCellReuseIdentifier: "DynamicDetailViewCell")
         
         tableView.backgroundColor = UIColor(hexString: "#F6F7F9")
         

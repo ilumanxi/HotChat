@@ -87,9 +87,18 @@ class InformationViewController: UITableViewController, AquamanChildViewControll
     private var sections: [FormSection] = []
     
     
+    lazy var userDataView: UserDataView = {
+        let view = UserDataView.loadFromNib()
+        view.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 290)
+        return view
+    }()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.tableHeaderView = userDataView
+        
         refreshData()
         tableView.allowsSelection = false
         tableView.register(UserInfoEditingHeaderView.self, forHeaderFooterViewReuseIdentifier: "UserInfoEditingHeaderView")

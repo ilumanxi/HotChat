@@ -59,7 +59,8 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupChatView()
+        tableView.register(UINib(nibName: "DynamicDetailViewCell", bundle: nil), forCellReuseIdentifier: "DynamicDetailViewCell")
+        
     
         tableView.mj_header = MJRefreshNormalHeader { [weak self] in
             self?.refreshData()
@@ -115,45 +116,6 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
         }
     }
     
-    private func setupChatView() {
-        
-        if !(parent?.isKind(of: UINavigationController.self) ?? false) {
-            self.sendButton.isHidden = true
-            return
-        }
-        
-        if user.userId != LoginManager.shared.user!.userId {
-            self.sendButton.isHidden = true
-            chatView = UserInfoChatView.loadFromNib()
-            chatView.onSayHellowed.delegate(on: self) { (self, _) in
-                self.chatView.state = .notSayHellow
-                self.chatViewState()
-            }
-            
-            chatView.onPushing.delegate(on: self) { (self, _) -> (User, UINavigationController) in
-                return (self.user, self.navigationController!)
-            }
-            chatView.backgroundColor = .clear
-            view.addSubview(chatView)
-            
-            chatView.snp.makeConstraints { maker in
-                maker.height.equalTo(48)
-                maker.leading.trailing.equalToSuperview()
-                maker.bottom.equalTo(self.safeBottom).offset(-20).priority(999)
-                maker.bottom.equalToSuperview().offset(-34)
-            }
-            
-            chatView.state = LoginManager.shared.user!.girlStatus ? .sayHellow : .default
-            additionalSafeAreaInsets = UIEdgeInsets(top: 0, left: 0, bottom: 48, right: 0)
-        }
-        else {
-            self.sendButton.isHidden = false
-            
-            additionalSafeAreaInsets = UIEdgeInsets(top: 0, left: 0, bottom: 34, right: 0)
-        }
-        
-
-    }
     
     @IBAction func sendButtonTapped(_ sender: Any) {
         

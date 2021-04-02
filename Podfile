@@ -33,6 +33,7 @@ target 'HotChat' do
     pod 'Tabman'
     pod 'IBPCollectionViewCompositionalLayout'
     pod 'DGCollectionViewLeftAlignFlowLayout'
+    pod 'AlignedCollectionViewFlowLayout'
     
     pod 'FSPagerView'
     pod 'ActiveLabel'

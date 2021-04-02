@@ -33,6 +33,9 @@ class DynamicDetailViewCell: UITableViewCell {
     
     @IBOutlet weak var vipButton: UIButton!
     
+    
+    @IBOutlet weak var authenticateImageView: UIImageView!
+    
     @IBOutlet weak var commentButton: HotChatButton!
     
     @IBOutlet weak var moreButton: UIButton!
@@ -49,6 +52,12 @@ class DynamicDetailViewCell: UITableViewCell {
     let onImageTapped = Delegate<(DynamicDetailViewCell, Int, [UIImageView]), Void>()
     
     let onMoreButtonTapped = Delegate<DynamicDetailViewCell, Void>()
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        collectionView.register(UINib(nibName: "MediaViewCell", bundle: nil), forCellWithReuseIdentifier: "MediaViewCell")
+    }
     
     @IBAction func avatarButtonTapped(_ sender: Any) {
         onAvatarTapped.call(self)
@@ -86,6 +95,7 @@ class DynamicDetailViewCell: UITableViewCell {
         vipButton.setVIP(dynamic.userInfo.vipType)        
         likeButton.setTitle(dynamic.zanNum.description, for: .normal)
         likeButton.isSelected = dynamic.isSelfZan
+        authenticateImageView.isHidden =  dynamic.userInfo.authenticationStatus != .ok
         if dynamic.commentCount > 0 {
             commentButton.setTitle(dynamic.commentCount.description, for: .normal)
         }
@@ -105,12 +115,6 @@ class DynamicDetailViewCell: UITableViewCell {
         layoutIfNeeded()
         collectionView.reloadData()
     }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
     
     let maxSize: CGFloat = UIScreen.main.bounds.width - 20 * 2 - 46 - 12 - 10 * 2
     
