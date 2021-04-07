@@ -16,9 +16,14 @@ class MediaViewCell: UICollectionViewCell {
     
     @IBOutlet weak var playImageView: UIImageView!
     
-    override class func awakeFromNib() {
+    @IBOutlet weak var moreButton: UIButton!
+    
+    
+    override func awakeFromNib() {
 //        selectedBackgroundView = UIView()
         super.awakeFromNib()
+        
+        moreButton.isHidden = true
         
     }
     

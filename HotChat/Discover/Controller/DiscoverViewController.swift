@@ -107,7 +107,14 @@ class DiscoverViewController: TabmanViewController, LoadingStateType, IndicatorD
         return button
     }()
     
-    
+    fileprivate lazy var badgeView: UIView = {
+        let view = UIView()
+        view.isUserInteractionEnabled = false
+        view.backgroundColor = UIColor(hexString: "#FF413E")
+        view.layer.cornerRadius = 5
+        view.isHidden = true
+        return view
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -142,6 +149,24 @@ class DiscoverViewController: TabmanViewController, LoadingStateType, IndicatorD
 //        addBar(bar.systemBar(), dataSource: self, at: .top)
         
         addBar(bar.hiding(trigger: .manual), dataSource: self, at: .navigationItem(item: navigationItem))
+        
+        
+        if let noticeView = notificationItem.value(forKeyPath: "view") as? UIView {
+            
+            noticeView.addSubview(badgeView)
+            badgeView.snp.makeConstraints { maker in
+                maker.top.equalToSuperview().offset(5)
+                maker.trailing.equalToSuperview().offset(-8)
+                maker.size.equalTo(CGSize(width: 10, height: 10))
+            }
+                        
+        }
+        
+        NotificationCenter.default.rx.notification(.init(TUIKitNotification_TIMMessageListener))
+            .subscribe(onNext: { [weak self] notification in
+                self?.handle(notification: notification)
+            })
+            .disposed(by: rx.disposeBag)
         
         
 //        requestData()
@@ -316,6 +341,32 @@ class DiscoverViewController: TabmanViewController, LoadingStateType, IndicatorD
         return [community, follow]
     }()
     
+    
+    private func handle(notification: Notification) {
+        
+        guard let msg = notification.object as?  V2TIMMessage else { return }
+        
+        guard msg.elemType == .ELEM_TYPE_CUSTOM,
+              let param = TUICallUtils.jsonData2Dictionary(msg.customElem.data) as? [String : Any],
+              let imData = IMData.fixData(param) else {
+            return
+        }
+        
+        if imData.type != IMDataTypeDynamic{
+            return
+        }
+        
+        badgeView.isHidden = false
+    }
+    
+
+    @IBOutlet weak var notificationItem: UIBarButtonItem!
+    
+    @IBAction func notificationButtonTapped(_ sender: Any) {
+        badgeView.isHidden = true
+        let vc = NotificationViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
     @IBAction func sendButtonTapped(_ sender: Any) {
         if LoginManager.shared.user!.realNameStatus.isPresent {

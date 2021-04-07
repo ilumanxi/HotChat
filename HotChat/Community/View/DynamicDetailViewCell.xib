@@ -164,7 +164,7 @@
                                                         <rect key="frame" x="156" y="0.0" width="62" height="23"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     </view>
-                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Pb-6U-SXf" userLabel="Accost Button" customClass="HotChatButton" customModule="HotChat" customModuleProvider="target">
+                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Pb-6U-SXf" userLabel="Chat Button" customClass="HotChatButton" customModule="HotChat" customModuleProvider="target">
                                                         <rect key="frame" x="220" y="0.0" width="66" height="23"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="66" id="Jvo-5O-lJh"/>
@@ -186,6 +186,9 @@
                                                                 <real key="value" value="11.5"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="chatButtonTapped:" destination="X9j-7G-c4I" eventType="touchUpInside" id="IfC-2p-VOU"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P01-N8-tno" userLabel="Accost Button" customClass="HotChatButton" customModule="HotChat" customModuleProvider="target">
                                                         <rect key="frame" x="222" y="0.0" width="66" height="23"/>
@@ -209,6 +212,9 @@
                                                                 <real key="value" value="11.5"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="accostButtonTapped:" destination="X9j-7G-c4I" eventType="touchUpInside" id="zeT-Re-VWS"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -259,8 +265,10 @@
             <viewLayoutGuide key="safeArea" id="erF-K4-5P5"/>
             <color key="backgroundColor" red="0.96470588239999999" green="0.96862745100000003" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
+                <outlet property="accostButton" destination="P01-N8-tno" id="IXm-I6-Gr2"/>
                 <outlet property="authenticateImageView" destination="Jrl-1I-qsv" id="xa1-Ye-jMw"/>
                 <outlet property="avatarButton" destination="oA1-xW-M6y" id="1Dd-rt-4fl"/>
+                <outlet property="chatButton" destination="5Pb-6U-SXf" id="Esl-0o-2Hu"/>
                 <outlet property="collectionView" destination="ee8-tV-Xep" id="qBq-uJ-EOa"/>
                 <outlet property="collectionViewFlowLayout" destination="Foo-LG-o82" id="hxD-CL-cbN"/>
                 <outlet property="collectionViewHeightConstraint" destination="LqW-qb-NOY" id="giQ-uP-T5X"/>

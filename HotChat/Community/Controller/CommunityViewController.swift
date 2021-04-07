@@ -583,9 +583,9 @@ extension CommunityViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         cell.onCommentTapped.delegate(on: self) { (self, _) in
-            let vc = CommentsViewController()
-            vc.dynamic = dynamic
-            self.presentPanModal(vc)
+            let vc = CommentsViewController(dynamic: dynamic)
+            let nav = PanModalNavigationController(rootViewController: vc)
+            self.presentPanModal(nav)
         }
         
         cell.onImageTapped.delegate(on: self) { (self, sender) in
@@ -643,9 +643,57 @@ extension CommunityViewController: UITableViewDataSource, UITableViewDelegate {
             self.present(alertController, animated: true, completion: nil)
         }
         
+        cell.onAccostButtonTapped.delegate(on: self) { (self, _) in
+            self.accost(dynamic)
+        }
+        
+        cell.onChatButtonTapped.delegate(on: self) { (self, _) in
+            self.chat(dynamic)
+        }
+        
         return cell
     }
+    
+    func chat(_ dynamic: Dynamic) {
+        let user = dynamic.userInfo!
+        
+        if CallHelper.share.checkCall(user, type: .text, indicatorDisplay: self) {
+            let info = TUIConversationCellData()
+            info.userID = user.userId
+            let vc  = ChatViewController(conversation: info)!
+            vc.title = user.nick
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 
+    func accost(_ dynamic: Dynamic) {
+        
+        showIndicator()
+        dynamicAPI.request(.clickDynamicGreet(dynamicId: dynamic.dynamicId), type: Response<[String: Any]>.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { [weak self] respoonse in
+                self?.hideIndicator()
+                // resultCode： 1132成功 1130搭讪过了 1131失败
+                guard let self = self,
+                      let resultCode = respoonse.data?["resultCode"] as? Int,
+                      let resultMsg = respoonse.data?["resultMsg"] as? String else {
+                    return
+                }
+                
+                if resultCode == 1132 || resultCode == 1130 {
+                    dynamic.isGreet = true
+                }
+                else {
+                    self.show(resultMsg)
+                }
+                self.tableView.reloadData()
+                
+            }, onError: { [weak  self] error in
+                self?.hideIndicator()
+                self?.show(error)
+            })
+            .disposed(by: rx.disposeBag)
+    }
     
     func tipDelete(_ dynamic: Dynamic) {
         

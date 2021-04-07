@@ -62,8 +62,21 @@ extension Dynamic: PlayerItem {
     var uid: String {
         return dynamicId
     }
+}
+
+class DynamicInfo: NSObject, HandyJSON {
     
+    var userInfo: User!
     
+    var timeFormat: String = ""
+    
+    var userRank: Int = 0
+    
+    var content: String = ""
+    
+    required override init() {
+        super.init()
+    }
 }
 
 class Dynamic: NSObject, HandyJSON {
@@ -75,6 +88,7 @@ class Dynamic: NSObject, HandyJSON {
     var video: DynamicVideo?
     var type: DynamicType = .image
     var isSelfZan: Bool = false
+    var isGreet: Bool = false
     var zanNum: Int = 0
     var giftNum: Int = 0
     var coverUrl: String = ""

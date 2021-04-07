@@ -22,6 +22,11 @@ enum DynamicAPI{
     case commentZan(dynamicId: String, commentId: String)
     case delComment(commentId: String)
     case commentReport(content: String, dynamicId: String, commentId: String)
+    case clickDynamicGreet(dynamicId: String)
+    case dynamicZanList(dynamicId: String, page: Int)
+    case dynamicGiftList(dynamicId: String, page: Int)
+    case dynamicNewsList(dynamicId: String, page: Int)
+    case dynamicInfo(dynamicId: String)
     
 }
 
@@ -57,6 +62,16 @@ extension DynamicAPI: TargetType {
             return "Dynamic/delComment"
         case .commentReport:
             return "Report/commentReport"
+        case .clickDynamicGreet:
+            return "Dynamic/clickDynamicGreet"
+        case .dynamicZanList:
+            return "Dynamic/dynamicZanList"
+        case .dynamicGiftList:
+            return "Dynamic/dynamicGiftList"
+        case .dynamicNewsList:
+            return "Dynamic/dynamicNewsList"
+        case .dynamicInfo:
+            return "Dynamic/dynamicInfo"
         }
     }
     
@@ -113,6 +128,27 @@ extension DynamicAPI: TargetType {
                 "content" : content,
                 "dynamicId" : dynamicId,
                 "commentId" : commentId
+            ]
+        case .clickDynamicGreet(let dynamicId):
+            parameters = [ "dynamicId" : dynamicId]
+        case .dynamicZanList(let dynamicId, let page):
+            parameters = [
+                "dynamicId": dynamicId,
+                "page" : page
+            ]
+        case .dynamicGiftList(let dynamicId, let page):
+            parameters = [
+                "dynamicId": dynamicId,
+                "page" : page
+            ]
+        case .dynamicNewsList(let dynamicId, let page):
+            parameters = [
+                "dynamicId": dynamicId,
+                "page" : page
+            ]
+        case .dynamicInfo(dynamicId: let dynamicId):
+            parameters = [
+                "dynamicId" : dynamicId
             ]
         }
         

@@ -110,12 +110,48 @@ class UserInfoViewController: AquamanPageViewController, LoadingStateType, Indic
                 })
                 .disposed(by: self.rx.disposeBag)
         }
+        
+        headerView.onVipAction.delegate(on: self) { (self, _) in
+            self.presentVipPhoto()
+        }
         return headerView
     }()
     
     let userAPI = Request<UserAPI>()
     
     let dynamicAPI = Request<DynamicAPI>()
+    
+    lazy var textChat: UIButton = {
+        let textChat = self.button(text: "聊天", image: UIImage(named: "me-chat-text"))
+        textChat.addTarget(self, action: #selector(textChatSignal), for: .touchUpInside)
+        return textChat
+    }()
+    
+    lazy var voiceChat: UIButton = {
+        let voiceChat = self.button(text: "通话", image: UIImage(named: "me-chat-audio"))
+        voiceChat.addTarget(self, action: #selector(voiceChatSignal), for: .touchUpInside)
+        return voiceChat
+    }()
+    
+    lazy var videoChat: UIButton = {
+        let videoChat = button(text: "视频", image: UIImage(named: "me-chat-video"))
+        videoChat.addTarget(self, action: #selector(videoChatSignal), for: .touchUpInside)
+        return videoChat
+    }()
+    
+    
+    lazy var love: UIButton = {
+        let love = button(text: "关注", image: UIImage(named: "me-love"))
+        love.addTarget(self, action: #selector(follow), for: .touchUpInside)
+        return love
+    }()
+    
+   
+    lazy var gift: UIButton = {
+        let gift = button(text: "礼物", image: UIImage(named: "me-gift"))
+        gift.addTarget(self, action: #selector(giftButtonTapped), for: .touchUpInside)
+        return gift
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -129,35 +165,33 @@ class UserInfoViewController: AquamanPageViewController, LoadingStateType, Indic
         
         reloadData()
         
-        state = .loadingContent
+        NotificationCenter.default.rx.notification(.userDidChange)
+            .subscribe(onNext: { [unowned self] _ in
+                self.userInfoHeaderView.user = self.user
+            })
+            .disposed(by: rx.disposeBag)
         
         refreshData()
     }
     
+    func button(text: String, image: UIImage?) -> UIButton {
+        let button = QMUIButton(type: .custom)
+        button.imagePosition = .top
+        button.spacingBetweenImageAndTitle = 2
+        button.titleLabel?.font = .systemFont(ofSize: 12, weight: .medium)
+        button.setTitleColor(UIColor(hexString: "#333333"), for: .normal)
+        button.setTitle(text, for: .normal)
+        button.setImage(image, for: .normal)
+        return button
+    }
+    
     func setupUI() {
         
-        func button(text: String, image: UIImage?) -> UIButton {
-            let button = QMUIButton(type: .custom)
-            button.imagePosition = .top
-            button.spacingBetweenImageAndTitle = 2
-            button.titleLabel?.font = .systemFont(ofSize: 12, weight: .medium)
-            button.setTitleColor(UIColor(hexString: "#333333"), for: .normal)
-            button.setTitle(text, for: .normal)
-            button.setImage(image, for: .normal)
-            return button
+        if user.userId == LoginManager.shared.user!.userId {
+            return
         }
         
-        let textChat = button(text: "聊天", image: UIImage(named: "me-chat-text"))
-        
-        let voiceChat = button(text: "通话", image: UIImage(named: "me-chat-audio"))
-        
-        let videoChat = button(text: "视频", image: UIImage(named: "me-chat-video"))
-        
-        let love = button(text: "关注", image: UIImage(named: "me-love"))
-        
-        let gift = button(text: "礼物", image: UIImage(named: "me-gift"))
-        
-        gift.isHidden = true
+        followState()
         
         let stackView = UIStackView(arrangedSubviews: [textChat, voiceChat, videoChat, love, gift])
         stackView.axis = .horizontal
@@ -179,7 +213,76 @@ class UserInfoViewController: AquamanPageViewController, LoadingStateType, Indic
             subView.layer.cornerRadius = 32
             subView.backgroundColor = .white
         }
+    }
+    
+    func followState() {
+        love.isHidden = user.isFollow
+        gift.isHidden = !user.isFollow
+    }
+    
+    @objc func textChatSignal() {
         
+        if CallHelper.share.checkCall(user, type: .text, indicatorDisplay: self) {
+            let info = TUIConversationCellData()
+            info.userID = user.userId
+            let vc  = ChatViewController(conversation: info)!
+            vc.title = user.nick
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    @objc func voiceChatSignal() {
+        CallHelper.share.call(userID: user.userId, callType: .audio)
+    }
+    
+    @objc func videoChatSignal() {
+        CallHelper.share.call(userID: user.userId, callType: .video)
+    }
+    
+    func presentVipPhoto() {
+        let vc = VipPhotoViewController()
+        vc.onVIP.delegate(on: self) { (self, _) in
+            self.pushVip()
+        }
+        self.present(vc, animated: true, completion: nil)
+        
+    }
+    
+    @objc func follow(_ sender: UIButton) {
+        
+        self.dynamicAPI.request(.follow(self.user.userId), type: ResponseEmpty.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { [unowned self] response in
+                let user = self.user
+                user?.isFollow = true
+                self.user = user
+                self.followState()
+                self.show(response.msg)
+            }, onError: { error in
+                
+                self.show(error)
+            })
+            .disposed(by: self.rx.disposeBag)
+    }
+    
+    @objc func giftButtonTapped(_ sender: UIButton) {
+        let vc = GiftViewController()
+        vc.hbd_barHidden = true
+        vc.hbd_barAlpha = 0
+        vc.delegate = self
+        
+        let navController = BaseNavigationController(rootViewController: vc)
+        navController.modalPresentationStyle = .overFullScreen
+        navController.modalTransitionStyle = .coverVertical
+        navController.navigationBar.isHidden = true
+        self.present(navController, animated: true) {
+            navController.navigationBar.isHidden = false
+        }
+    }
+    
+    func pushVip() {
+        let vc = WebViewController.H5(path: "h5/vip")
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func pop() {
@@ -371,7 +474,13 @@ class UserInfoViewController: AquamanPageViewController, LoadingStateType, Indic
     override func pageController(_ pageController: AquamanPageViewController, viewControllerAt index: Int) -> (UIViewController & AquamanChildViewController) {
         
         let viewController = viewControllers[index] as! AquamanChildViewController
-        viewController.additionalSafeAreaInsets = UIEdgeInsets(top: 0, left: 0, bottom: 64, right: 0)
+       
+        if user.userId != LoginManager.shared.user!.userId {
+            viewController.additionalSafeAreaInsets = UIEdgeInsets(top: 0, left: 0, bottom: 64, right: 0)
+        }
+        else {
+            viewController.additionalSafeAreaInsets = UIEdgeInsets(top: 0, left: 0, bottom: UIApplication.shared.keyWindow!.safeAreaInsets.bottom, right: 0)
+        }
         
         return viewController
     }
@@ -437,5 +546,64 @@ extension UserInfoViewController: TridentMenuViewDelegate {
         }
         setSelect(index: index, animation: false)
     }
+}
+
+
+
+extension UserInfoViewController: GiftViewControllerDelegate {
+    
+    func giftViewController(_ giftController: GiftViewController, didSelect gift: Gift) {
+        
+        GiftManager.shared().giveGift(user.userId, type: 2, dynamicId: nil, gift: gift) { (responseObject, error) in
+            if let error = error {
+                self.show(error)
+                return
+            }
+            let giveGift = GiveGift.mj_object(withKeyValues: responseObject?["data"])!
+            
+            if giveGift.resultCode == 1 {
+                
+                let  user  = LoginManager.shared.user!
+                user.userEnergy = giveGift.userEnergy
+                LoginManager.shared.update(user: user)
+                
+                let cellData = GiftCellData(direction: .MsgDirectionOutgoing)
+                cellData.gift = gift
+                let imData = IMData.default()
+                imData.data = gift.mj_JSONString()
+                imData.giftRequestId = giveGift.giftRequestId
+                let data = TUICallUtils.dictionary2JsonData(imData.mj_keyValues() as! [AnyHashable : Any])
+                cellData.innerMessage = V2TIMManager.sharedInstance()!.createCustomMessage(data)
+                GiftManager.shared().sendGiftMessage(cellData, userID: user.userId)
+                giftController.dismiss(animated: true, completion: nil)
+                
+                self.show("送礼成功")
+            }
+            else if (giveGift.resultCode == 3) { //能量不足，需要充值
+                giftController.dismiss(animated: true) {
+                    
+                    let alertController = UIAlertController(title: nil, message: "您的能量不足、请充值！", preferredStyle: .alert)
+                    
+                    alertController.addAction(UIAlertAction(title: "立即充值", style: .default, handler: { _ in
+                        let vc = WalletViewController()
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }))
+                    
+                    alertController.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+                    
+                    self.present(alertController, animated: true, completion: nil)
+                  
+                }
+                
+            }
+            else {
+                
+                self.show(giveGift.msg)
+            }
+            
+        }
+    }
+
+    
 }
 

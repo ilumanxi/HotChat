@@ -1,15 +1,17 @@
 //
-//  DynamicDetailViewCell.swift
+//  DynamicView.swift
 //  HotChat
 //
-//  Created by 风起兮 on 2020/10/12.
-//  Copyright © 2020 风起兮. All rights reserved.
+//  Created by 风起兮 on 2021/4/6.
+//  Copyright © 2021 风起兮. All rights reserved.
 //
 
 import UIKit
-import Kingfisher
 
-class DynamicDetailViewCell: UITableViewCell {
+class DynamicView: UIView {
+    
+    
+    @IBOutlet weak var contentView: UIView!
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionViewHeightConstraint: NSLayoutConstraint!
@@ -27,40 +29,11 @@ class DynamicDetailViewCell: UITableViewCell {
     
     @IBOutlet weak var sexButton: SexButton!
     
-    @IBOutlet weak var likeButton: HotChatButton!
+    let onAvatarTapped = Delegate<DynamicView, Void>()
+
+    let onImageTapped = Delegate<(DynamicView, IndexPath), Void>()
     
-    @IBOutlet weak var giveButton: HotChatButton!
-    
-    @IBOutlet weak var vipButton: UIButton!
-    
-    
-    @IBOutlet weak var authenticateImageView: UIImageView!
-    
-    @IBOutlet weak var commentButton: HotChatButton!
-    
-    @IBOutlet weak var moreButton: UIButton!
-    
-    
-    @IBOutlet weak var accostButton: HotChatButton!
-    
-    @IBOutlet weak var chatButton: HotChatButton!
-    
-    
-    let onAvatarTapped = Delegate<DynamicDetailViewCell, Void>()
-    
-    let onLikeTapped = Delegate<DynamicDetailViewCell, Void>()
-    
-    let onGiveTapped = Delegate<DynamicDetailViewCell, Void>()
-    
-    let onCommentTapped = Delegate<DynamicDetailViewCell, Void>()
-    
-    let onImageTapped = Delegate<(DynamicDetailViewCell, Int, [UIImageView]), Void>()
-    
-    let onMoreButtonTapped = Delegate<DynamicDetailViewCell, Void>()
-    
-    let onAccostButtonTapped = Delegate<DynamicDetailViewCell, Void>()
-    
-    let onChatButtonTapped = Delegate<DynamicDetailViewCell, Void>()
+    let onDeleteTapped = Delegate<DynamicView, Void>()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -72,31 +45,10 @@ class DynamicDetailViewCell: UITableViewCell {
         onAvatarTapped.call(self)
     }
     
-    @IBAction func likeButtonTapped(_ sender: Any) {
-        onLikeTapped.call(self)
+    @IBAction func deleteButtonTapped(_ sender: Any) {
+        onDeleteTapped.call(self)
     }
     
-    @IBAction func giveButtonTapped(_ sender: Any) {
-        onGiveTapped.call(self)
-    }
-    
-    @IBAction func commentButtonTapped(_ sender: Any) {
-        onCommentTapped.call(self)
-    }
-    
-    @IBAction func moreButtonTapped(_ sender: Any) {
-        onMoreButtonTapped.call(self)
-    }
-    
-    
-    @IBAction func chatButtonTapped(_ sender: Any) {
-        onChatButtonTapped.call(self)
-    }
-    
-    
-    @IBAction func accostButtonTapped(_ sender: Any) {
-        onAccostButtonTapped.call(self)
-    }
     
     var dynamic: Dynamic! {
         didSet {
@@ -110,34 +62,19 @@ class DynamicDetailViewCell: UITableViewCell {
         nicknameLabel.text = dynamic.userInfo.nick
         nicknameLabel.textColor = dynamic.userInfo.vipType.textColor
         contentLabel.text = dynamic.content
-        vipButton.setVIP(dynamic.userInfo.vipType)        
-        likeButton.setTitle(dynamic.zanNum.description, for: .normal)
-        likeButton.isSelected = dynamic.isSelfZan
-        authenticateImageView.isHidden =  dynamic.userInfo.authenticationStatus != .ok
-        if dynamic.commentCount > 0 {
-            commentButton.setTitle(dynamic.commentCount.description, for: .normal)
-        }
-        else {
-            commentButton.setTitle("评论", for: .normal)
-        }
         
         sexButton.set(dynamic.userInfo)
         
-//        giveButton.setTitle(dynamic.giftNum.description, for: .normal)
         dateLabel.text = dynamic.timeFormat
         
-        accostButton.isHidden = dynamic.isGreet
-        chatButton.isHidden = !dynamic.isGreet
-        
         collectionViewHeightConstraint.constant = collectionViewHeight()
-        
         
         setNeedsLayout()
         layoutIfNeeded()
         collectionView.reloadData()
     }
     
-    let maxSize: CGFloat = UIScreen.main.bounds.width - 20 * 2 - 46 - 12 - 10 * 2
+    let maxSize: CGFloat = UIScreen.main.bounds.width - 20 * 2 - 46 - 12
     
     let sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 1, right: 0)
     
@@ -145,44 +82,19 @@ class DynamicDetailViewCell: UITableViewCell {
     
     let verticalSpacing: CGFloat = 4
     
-    var itemsPerRow: CGFloat {
-   
-        let itemsCount = max(dynamic.photoList.count, 1)
-   
-        if itemsCount > 2 {
-            return 3
-        }
-        else if itemsCount == 2 {
-            return 2
-        }
-        
-        return 1
-    }
+    var itemsPerRow: CGFloat = 3
+    
     
 
     func collectionViewHeight() -> CGFloat {
-        
-        let itemsCount = max(dynamic.photoList.count, 1)
-                
-        let rows = (CGFloat(itemsCount) / itemsPerRow).rounded(.up)
+        let rows: CGFloat = 1
         let size = itemSize()
         let height = sectionInset.top + sectionInset.bottom +  size.height * rows + (rows - 1) * verticalSpacing
         return height
     }
     
     func itemSize() -> CGSize {
-                
-        let count = max(dynamic.photoList.count, 1)
-        
-        if count == 1 {
-            if dynamic.type == .video, let video = dynamic?.video, video.size != .zero {
-                return adjustSize(with: video.size)
-            }
-            else if let photo = dynamic.photoList.first, photo.size != .zero {
-                return adjustSize(with: photo.size)
-            }
-        }
-        
+
         let itemSize = (maxSize - (sectionInset.left + sectionInset.right) - (itemsPerRow - 1) * horizontalSpacing) / itemsPerRow
         return CGSize(width: itemSize, height: itemSize)
     }
@@ -201,25 +113,17 @@ class DynamicDetailViewCell: UITableViewCell {
     }
 }
 
-extension DynamicDetailViewCell: UICollectionViewDelegate {
+extension DynamicView: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let imageViews = collectionView.visibleCells
-            .sorted {
-                collectionView.indexPath(for: $0)!.item < collectionView.indexPath(for: $1)!.item
-            }
-            .compactMap {
-                ($0 as? MediaViewCell)?.imageView
-            }
         
-        
-        onImageTapped.call((self, indexPath.item, imageViews))
+        onImageTapped.call((self, indexPath))
     }
     
 }
 
-extension DynamicDetailViewCell: UICollectionViewDataSource {
+extension DynamicView: UICollectionViewDataSource {
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -230,13 +134,15 @@ extension DynamicDetailViewCell: UICollectionViewDataSource {
             return 1
         }
         
-        return dynamic.photoList.count
+        return dynamic.photoList.count > 3 ? 3 :  dynamic.photoList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: MediaViewCell.self)
         cell.layer.cornerRadius = 5
+        
+        cell.moreButton.isHidden = !(indexPath.item == 2 && dynamic.photoList.count > 3)
         
         if dynamic.type == .video {
             cell.imageView.kf.setImage(with: URL(string: dynamic.video!.coverUrl))
@@ -255,7 +161,7 @@ extension DynamicDetailViewCell: UICollectionViewDataSource {
  
 // MARK: UICollectionViewDelegateFlowLayout
 
-extension DynamicDetailViewCell: UICollectionViewDelegateFlowLayout {
+extension DynamicView: UICollectionViewDelegateFlowLayout {
 
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

@@ -27,18 +27,28 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="video-play" translatesAutoresizingMaskIntoConstraints="NO" id="fxL-XM-xnm">
                         <rect key="frame" x="42.5" y="39" width="43" height="50"/>
                     </imageView>
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oPQ-gB-917">
+                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <state key="normal" image="ybib_more.png"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="1Bi-Kd-TC9" firstAttribute="leading" secondItem="ecP-NI-KhJ" secondAttribute="leading" id="HPJ-4S-2pq"/>
+                    <constraint firstAttribute="trailing" secondItem="oPQ-gB-917" secondAttribute="trailing" id="I1X-Jn-v3l"/>
+                    <constraint firstItem="oPQ-gB-917" firstAttribute="top" secondItem="ecP-NI-KhJ" secondAttribute="top" id="JXd-qv-eCb"/>
                     <constraint firstItem="fxL-XM-xnm" firstAttribute="centerY" secondItem="ecP-NI-KhJ" secondAttribute="centerY" id="Kgb-ZV-cui"/>
+                    <constraint firstAttribute="bottom" secondItem="oPQ-gB-917" secondAttribute="bottom" id="XB7-Lz-x6u"/>
                     <constraint firstAttribute="bottom" secondItem="1Bi-Kd-TC9" secondAttribute="bottom" id="c10-Xs-DOI"/>
                     <constraint firstItem="1Bi-Kd-TC9" firstAttribute="top" secondItem="ecP-NI-KhJ" secondAttribute="top" id="d7U-PG-svN"/>
                     <constraint firstItem="fxL-XM-xnm" firstAttribute="centerX" secondItem="ecP-NI-KhJ" secondAttribute="centerX" id="nmg-5s-jfl"/>
+                    <constraint firstItem="oPQ-gB-917" firstAttribute="leading" secondItem="ecP-NI-KhJ" secondAttribute="leading" id="pOM-J1-1VI"/>
                     <constraint firstAttribute="trailing" secondItem="1Bi-Kd-TC9" secondAttribute="trailing" id="wvK-YJ-3xO"/>
                 </constraints>
             </collectionViewCellContentView>
             <connections>
                 <outlet property="imageView" destination="1Bi-Kd-TC9" id="jvc-lR-H24"/>
+                <outlet property="moreButton" destination="oPQ-gB-917" id="g99-AE-7Ri"/>
                 <outlet property="playImageView" destination="fxL-XM-xnm" id="usj-sL-G70"/>
             </connections>
             <point key="canvasLocation" x="139" y="54"/>
@@ -46,5 +56,6 @@
     </objects>
     <resources>
         <image name="video-play" width="43" height="50"/>
+        <image name="ybib_more.png" width="22" height="22"/>
     </resources>
 </document>

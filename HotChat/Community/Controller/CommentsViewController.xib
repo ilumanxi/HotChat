@@ -12,7 +12,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommentsViewController" customModule="HotChat" customModuleProvider="target">
             <connections>
                 <outlet property="tableView" destination="Ebg-Zy-TGB" id="EZw-hy-JfW"/>
-                <outlet property="titleLabel" destination="9gE-fl-Mea" id="PPZ-FR-LSL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="wrapView" destination="C41-hs-xjK" id="8Rs-qE-jcQ"/>
             </connections>
@@ -22,20 +21,11 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="评论" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gE-fl-Mea">
-                    <rect key="frame" x="20" y="44" width="374" height="44"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="44" id="3dq-cd-Xic"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C41-hs-xjK" userLabel="Wrap View">
-                    <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                     <subviews>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Ebg-Zy-TGB">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="769"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <gestureRecognizers/>
                             <connections>
@@ -91,16 +81,13 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="9gE-fl-Mea" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="6i3-bh-oye"/>
                 <constraint firstAttribute="bottom" secondItem="hUv-SB-est" secondAttribute="bottom" id="MYH-Vp-8Xs"/>
                 <constraint firstAttribute="trailing" secondItem="hUv-SB-est" secondAttribute="trailing" id="Ohh-Of-xqx"/>
-                <constraint firstItem="C41-hs-xjK" firstAttribute="top" secondItem="9gE-fl-Mea" secondAttribute="bottom" id="Qgq-Tc-nCX"/>
+                <constraint firstItem="C41-hs-xjK" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="WJA-oT-tBa"/>
                 <constraint firstAttribute="trailing" secondItem="C41-hs-xjK" secondAttribute="trailing" id="Yqs-6J-nQa"/>
                 <constraint firstItem="hUv-SB-est" firstAttribute="top" secondItem="C41-hs-xjK" secondAttribute="bottom" id="n43-N8-NML"/>
                 <constraint firstItem="hUv-SB-est" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="t8Q-EH-jYN"/>
                 <constraint firstItem="C41-hs-xjK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="wq7-Zj-owb"/>
-                <constraint firstItem="9gE-fl-Mea" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="yOX-6j-zTc"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9gE-fl-Mea" secondAttribute="trailing" constant="20" id="ymm-jV-3GD"/>
             </constraints>
             <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
             <point key="canvasLocation" x="139" y="129"/>

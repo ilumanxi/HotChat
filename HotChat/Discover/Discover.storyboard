@@ -45,9 +45,16 @@
                                     <action selector="sendButtonTapped:" destination="jBy-WS-uSJ" id="VE0-aR-8xj"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Item" image="notification" id="5eB-1o-kkk"/>
+                            <barButtonItem title="Item" image="notification" id="5eB-1o-kkk">
+                                <connections>
+                                    <action selector="notificationButtonTapped:" destination="jBy-WS-uSJ" id="LgK-3d-2gb"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="notificationItem" destination="5eB-1o-kkk" id="CiL-4V-N24"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8eR-cF-aD7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -34,6 +34,7 @@ target 'HotChat' do
     pod 'IBPCollectionViewCompositionalLayout'
     pod 'DGCollectionViewLeftAlignFlowLayout'
     pod 'AlignedCollectionViewFlowLayout'
+    pod 'Lantern'
     
     pod 'FSPagerView'
     pod 'ActiveLabel'

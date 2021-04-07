@@ -72,6 +72,8 @@ class UserInfoHeaderView: UIView {
     
     let onFollowButtonTapped = Delegate<UserInfoHeaderView, Void>()
     
+    let onVipAction = Delegate<UserInfoHeaderView, Void>()
+    
     var user: User! {
         didSet {
             selectIndex = 0
@@ -112,7 +114,7 @@ class UserInfoHeaderView: UIView {
         alignedFlowLayout.minimumInteritemSpacing = 4
         
         collectionView.collectionViewLayout = alignedFlowLayout
-        collectionView.register(UINib(nibName: "PhotoViewCell", bundle: nil), forCellWithReuseIdentifier: "PhotoViewCell")
+        collectionView.register(PhotoViewCell.self, forCellWithReuseIdentifier: "PhotoViewCell")
         
     }
     
@@ -170,6 +172,14 @@ extension UserInfoHeaderView: FSPagerViewDataSource, FSPagerViewDelegate {
             cell.imageView?.kf.setImage(with: URL(string: urlString))
         }
         
+        let  hiddenLock =  index == 0 || LoginManager.shared.user!.vipType != .empty || user.userId ==  LoginManager.shared.user!.userId
+        
+        cell.visualEffectView.isHidden = hiddenLock
+        cell.lockButton.isHidden = hiddenLock
+        cell.onLockButtonTapped.delegate(on: self) { (self, _) in
+            self.onVipAction.call(self)
+        }
+        
     }
     
     func pagerViewWillEndDragging(_ pagerView: FSPagerView, targetIndex: Int) {
@@ -190,20 +200,29 @@ extension UserInfoHeaderView: UICollectionViewDataSource, UICollectionViewDelega
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: PhotoViewCell.self)
         configureCell(cell, for: indexPath.item)
         cell.layer.cornerRadius = 2
+        cell.clipsToBounds = true
         
         if indexPath.item == selectIndex {
-            cell.imageView?.isOpaque = true
-            cell.imageView?.alpha  = 1
-            cell.imageView?.layer.borderWidth = 1
-            cell.imageView?.layer.borderColor = UIColor.white.cgColor
+
+            cell.layer.borderWidth = 1
+            cell.layer.borderColor = UIColor.white.cgColor
         }
         else {
-            cell.imageView?.isOpaque = false
-            cell.imageView?.alpha   = 0.4
-            cell.imageView?.layer.borderWidth = 0
-            cell.imageView?.layer.borderColor = nil
+            cell.layer.borderWidth = 0
+            cell.layer.borderColor = nil
         }
         
+        let image = UIImage(named: "lock-photo")?.scaled(toWidth: 12.5)
+        
+        cell.lockButton.setImage(image, for: .normal)
+        
+        cell.onLockButtonTapped.delegate(on: self) { (self, _) in
+            self.onVipAction.call(self)
+        }
+        
+        let  hiddenLock =  indexPath.item == 0 || LoginManager.shared.user!.vipType != .empty || user.userId ==  LoginManager.shared.user!.userId
+        cell.visualEffectView.isHidden = hiddenLock
+        cell.lockButton.isHidden = hiddenLock
         return cell
         
     }
