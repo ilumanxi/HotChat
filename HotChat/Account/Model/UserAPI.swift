@@ -40,6 +40,8 @@ enum UserAPI {
     case visitorList(Int)
     case checkFollow(userId: String)
     case checkUserHeadPic
+    case region
+    case editUserDispose([String : Any])
 }
 
 
@@ -87,6 +89,10 @@ extension UserAPI: TargetType {
             return "user/checkFollow"
         case .checkUserHeadPic:
             return "user/checkUserHeadPic"
+        case .region:
+            return "User/region"
+        case .editUserDispose:
+            return "User/editUserDispose"
         }
     }
     
@@ -148,6 +154,10 @@ extension UserAPI: TargetType {
             parameters =  ["userId" : userId]
         case .checkUserHeadPic:
             parameters =  [:]
+        case .region:
+            parameters =  [:]
+        case .editUserDispose(let value):
+            parameters = value
         }
         
         return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)

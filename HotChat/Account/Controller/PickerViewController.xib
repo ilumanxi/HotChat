@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PickerViewController" customModule="HotChat" customModuleProvider="target">
+            <connections>
+                <outlet property="pickerView" destination="hvL-jO-AKv" id="8OJ-WR-F09"/>
+                <outlet property="view" destination="V2q-dw-NRv" id="Vla-nk-jIa"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="V2q-dw-NRv">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L5m-oa-FOu" userLabel="Wapper View">
+                    <rect key="frame" x="0.0" y="602" width="414" height="294"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sgA-UL-BMd" userLabel="Content View">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="260"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3m4-te-LWe">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="260"/>
+                                    <subviews>
+                                        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z83-or-ON9">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <items>
+                                                <barButtonItem title="取消" id="vUr-Wx-DQY">
+                                                    <connections>
+                                                        <action selector="cancelItemTapped:" destination="-1" id="0nc-uC-poD"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                                <barButtonItem systemItem="flexibleSpace" id="0De-2F-qlD"/>
+                                                <barButtonItem title="确定" id="mbX-zk-0cO">
+                                                    <connections>
+                                                        <action selector="doneItemTapped:" destination="-1" id="Rg3-0y-MFH"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                            </items>
+                                        </toolbar>
+                                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hvL-jO-AKv">
+                                            <rect key="frame" x="0.0" y="44" width="414" height="216"/>
+                                            <connections>
+                                                <outlet property="dataSource" destination="-1" id="z5t-S1-Iub"/>
+                                                <outlet property="delegate" destination="-1" id="K4b-ux-rmp"/>
+                                            </connections>
+                                        </pickerView>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="3m4-te-LWe" secondAttribute="trailing" id="01M-og-Gro"/>
+                                <constraint firstAttribute="bottom" secondItem="3m4-te-LWe" secondAttribute="bottom" id="gRp-qk-t9k"/>
+                                <constraint firstItem="3m4-te-LWe" firstAttribute="top" secondItem="sgA-UL-BMd" secondAttribute="top" id="hjl-7v-2PM"/>
+                                <constraint firstItem="3m4-te-LWe" firstAttribute="leading" secondItem="sgA-UL-BMd" secondAttribute="leading" id="zt7-RP-HQm"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="Hnq-kr-HFJ"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="sgA-UL-BMd" firstAttribute="leading" secondItem="L5m-oa-FOu" secondAttribute="leading" id="MWJ-w7-BBx"/>
+                        <constraint firstAttribute="trailing" secondItem="sgA-UL-BMd" secondAttribute="trailing" id="S3X-nd-tRS"/>
+                        <constraint firstItem="sgA-UL-BMd" firstAttribute="bottom" secondItem="Hnq-kr-HFJ" secondAttribute="bottom" id="h1H-K4-OLa"/>
+                        <constraint firstItem="sgA-UL-BMd" firstAttribute="top" secondItem="L5m-oa-FOu" secondAttribute="top" id="z3w-7C-Fri"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="2dj-od-XmC"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="L5m-oa-FOu" secondAttribute="bottom" id="FCr-jD-yAB"/>
+                <constraint firstAttribute="trailing" secondItem="L5m-oa-FOu" secondAttribute="trailing" id="WEB-eb-aGe"/>
+                <constraint firstItem="L5m-oa-FOu" firstAttribute="leading" secondItem="V2q-dw-NRv" secondAttribute="leading" id="fSa-es-0qQ"/>
+            </constraints>
+            <point key="canvasLocation" x="54" y="98"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

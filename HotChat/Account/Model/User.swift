@@ -66,9 +66,9 @@ struct Topic: HandyJSON {
     var description: String {
         switch self {
         case .male:
-            return "男生"
+            return "男"
         case .female:
-            return "女生"
+            return "女"
         case .empty:
             return "未知"
         }
@@ -205,6 +205,9 @@ enum VipType: Int, HandyJSONEnum {
     /// 介绍
     var introduce: String = ""
     
+    /// 星座
+    var constellation: String = ""
+    
     /// 行业
     var industryList: [LikeTag] = []
     
@@ -228,6 +231,7 @@ enum VipType: Int, HandyJSONEnum {
     /// 在线状态
     var onlineStatus: OnlineStatus = .offline
     
+    /// 真人认证
     var authenticationStatus: ValidationStatus = .empty
     
     /// 头像认证
@@ -282,6 +286,28 @@ enum VipType: Int, HandyJSONEnum {
     @objc var ocSex: Int {
         return sex.rawValue
     }
+    
+    /// 身高
+    var height: String = ""
+    
+    /// 家乡省份
+    var homeProvince: String = ""
+    
+    /// 家乡城市
+    var homeCity: String = ""
+    
+    /// 学历
+    var education: String = ""
+    
+    /// 年收入
+    var income: String = ""
+    
+    var qq: String = ""
+    
+    var weixin: String = ""
+    
+    /// 联系电话
+    var contactPhone: String = ""
     
     ///  魅力/财富
     var energy: String = ""

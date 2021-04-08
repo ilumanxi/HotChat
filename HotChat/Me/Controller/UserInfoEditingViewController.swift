@@ -257,18 +257,8 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay, St
         extendedLayoutIncludesOpaqueBars = true
         setupUI()
         refreshData()
-        
-        self.showIndicatorOnWindow()
-        userAPI.request(.userinfo(userId: nil), type: Response<User>.self)
-            .verifyResponse()
-            .subscribe(onSuccess: { [weak self] response in
-                self?.user = response.data
-                self?.hideIndicatorFromWindow()
-            }, onError: { [weak self] error in
-                self?.hideIndicatorFromWindow()
-                self?.showMessageOnWindow(error)
-            })
-            .disposed(by: rx.disposeBag)
+        requestUser()
+        Region.requestData()
     }
     
     private func setupUI() {
@@ -337,6 +327,21 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay, St
         }
         
         return nil
+    }
+    
+    
+    func requestUser()  {
+        self.showIndicatorOnWindow()
+        userAPI.request(.userinfo(userId: nil), type: Response<User>.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { [weak self] response in
+                self?.user = response.data
+                self?.hideIndicatorFromWindow()
+            }, onError: { [weak self] error in
+                self?.hideIndicatorFromWindow()
+                self?.showMessageOnWindow(error)
+            })
+            .disposed(by: rx.disposeBag)
     }
         
     func topicDelete(_ topic: Topic) {

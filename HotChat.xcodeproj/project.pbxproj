@@ -31,6 +31,9 @@
 		2619D193256260A90071CC85 /* GiftCountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2619D191256260A90071CC85 /* GiftCountCell.xib */; };
 		26202022261DA1E5006A5AD7 /* VipPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26202020261DA1E5006A5AD7 /* VipPhotoViewController.swift */; };
 		26202023261DA1E5006A5AD7 /* VipPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26202021261DA1E5006A5AD7 /* VipPhotoViewController.xib */; };
+		26202025261EAA3C006A5AD7 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26202024261EAA3C006A5AD7 /* Region.swift */; };
+		26202028261EAEFE006A5AD7 /* RegionPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26202026261EAEFE006A5AD7 /* RegionPickerViewController.swift */; };
+		26202029261EAEFE006A5AD7 /* RegionPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26202027261EAEFE006A5AD7 /* RegionPickerViewController.xib */; };
 		26257ADB260B2EBF00A4E0F3 /* BannerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26257ADA260B2EBF00A4E0F3 /* BannerViewCell.swift */; };
 		2626E4E4261C0F32007B57D2 /* DynamicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2626E4E3261C0F32007B57D2 /* DynamicListViewController.swift */; };
 		2626E4E6261C14CD007B57D2 /* DynamicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2626E4E5261C14CD007B57D2 /* DynamicView.swift */; };
@@ -57,6 +60,7 @@
 		262FFFBE2602F40100F541C2 /* GroupTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262FFFBD2602F40100F541C2 /* GroupTopic.swift */; };
 		262FFFC12603483F00F541C2 /* ChatMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262FFFBF2603483F00F541C2 /* ChatMemberViewController.swift */; };
 		2630EA52261D828B0013EC0B /* VideoZoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2630EA51261D828B0013EC0B /* VideoZoomCell.swift */; };
+		26314796261EE05F0084E00B /* UserConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26314795261EE05F0084E00B /* UserConfig.swift */; };
 		2635215E25C7EA2200855487 /* VisitorsAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2635215D25C7EA2200855487 /* VisitorsAvatarView.swift */; };
 		2635216225C7EA4E00855487 /* VisitorsAvatarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2635216125C7EA4E00855487 /* VisitorsAvatarView.xib */; };
 		2635216725C7F18800855487 /* VisitorsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2635216525C7F18800855487 /* VisitorsController.swift */; };
@@ -100,6 +104,8 @@
 		263BC21D254956950081F5DF /* CallMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 263BC21C254956950081F5DF /* CallMenuViewController.m */; };
 		263BC22D254987770081F5DF /* BeautyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 263BC22B254987770081F5DF /* BeautyViewController.m */; };
 		263BC22E254987770081F5DF /* BeautyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 263BC22C254987770081F5DF /* BeautyViewController.xib */; };
+		263EC07E261ED5B9000A44A0 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263EC07C261ED5B9000A44A0 /* PickerViewController.swift */; };
+		263EC07F261ED5B9000A44A0 /* PickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 263EC07D261ED5B9000A44A0 /* PickerViewController.xib */; };
 		263F5388261459010099D143 /* TUIMessageController+Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 263F5387261459010099D143 /* TUIMessageController+Group.m */; };
 		264219B5258B2AC600D46B9C /* GreetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264219B4258B2AC600D46B9C /* GreetingViewController.swift */; };
 		26425C16251DDF64006D2F4C /* UserBasicInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26425C15251DDF64006D2F4C /* UserBasicInformationViewController.swift */; };
@@ -526,6 +532,9 @@
 		2619D191256260A90071CC85 /* GiftCountCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiftCountCell.xib; sourceTree = "<group>"; };
 		26202020261DA1E5006A5AD7 /* VipPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VipPhotoViewController.swift; sourceTree = "<group>"; };
 		26202021261DA1E5006A5AD7 /* VipPhotoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VipPhotoViewController.xib; sourceTree = "<group>"; };
+		26202024261EAA3C006A5AD7 /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
+		26202026261EAEFE006A5AD7 /* RegionPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionPickerViewController.swift; sourceTree = "<group>"; };
+		26202027261EAEFE006A5AD7 /* RegionPickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegionPickerViewController.xib; sourceTree = "<group>"; };
 		26257ADA260B2EBF00A4E0F3 /* BannerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViewCell.swift; sourceTree = "<group>"; };
 		2626E4E3261C0F32007B57D2 /* DynamicListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicListViewController.swift; sourceTree = "<group>"; };
 		2626E4E5261C14CD007B57D2 /* DynamicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicView.swift; sourceTree = "<group>"; };
@@ -563,6 +572,7 @@
 		262FFFBD2602F40100F541C2 /* GroupTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTopic.swift; sourceTree = "<group>"; };
 		262FFFBF2603483F00F541C2 /* ChatMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMemberViewController.swift; sourceTree = "<group>"; };
 		2630EA51261D828B0013EC0B /* VideoZoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoZoomCell.swift; sourceTree = "<group>"; };
+		26314795261EE05F0084E00B /* UserConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConfig.swift; sourceTree = "<group>"; };
 		2633EC5125315706009F0F27 /* carthage.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = carthage.sh; sourceTree = SOURCE_ROOT; };
 		2635215D25C7EA2200855487 /* VisitorsAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorsAvatarView.swift; sourceTree = "<group>"; };
 		2635216125C7EA4E00855487 /* VisitorsAvatarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VisitorsAvatarView.xib; sourceTree = "<group>"; };
@@ -608,6 +618,8 @@
 		263BC22A254987770081F5DF /* BeautyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeautyViewController.h; sourceTree = "<group>"; };
 		263BC22B254987770081F5DF /* BeautyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeautyViewController.m; sourceTree = "<group>"; };
 		263BC22C254987770081F5DF /* BeautyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BeautyViewController.xib; sourceTree = "<group>"; };
+		263EC07C261ED5B9000A44A0 /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
+		263EC07D261ED5B9000A44A0 /* PickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerViewController.xib; sourceTree = "<group>"; };
 		263F5386261459010099D143 /* TUIMessageController+Group.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TUIMessageController+Group.h"; sourceTree = "<group>"; };
 		263F5387261459010099D143 /* TUIMessageController+Group.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TUIMessageController+Group.m"; sourceTree = "<group>"; };
 		264219B4258B2AC600D46B9C /* GreetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingViewController.swift; sourceTree = "<group>"; };
@@ -1390,6 +1402,10 @@
 				26E14E62251C766900645F08 /* UserInformationViewController.swift */,
 				26D0034E25A6E97C00168796 /* UserInformationViewController.xib */,
 				26E14E67251C861A00645F08 /* DatePickerViewController.swift */,
+				26202026261EAEFE006A5AD7 /* RegionPickerViewController.swift */,
+				26202027261EAEFE006A5AD7 /* RegionPickerViewController.xib */,
+				263EC07C261ED5B9000A44A0 /* PickerViewController.swift */,
+				263EC07D261ED5B9000A44A0 /* PickerViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1414,6 +1430,8 @@
 				265C8A3C2513316200E220BD /* SigninViewModel.swift */,
 				265C8A5A25134C3500E220BD /* ForgotPasswordViewModel.swift */,
 				26787E36251B2F8D00D511E8 /* User.swift */,
+				26202024261EAA3C006A5AD7 /* Region.swift */,
+				26314795261EE05F0084E00B /* UserConfig.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2233,6 +2251,7 @@
 				26E48909257E087D006C2ACE /* CheckInViewController.xib in Resources */,
 				2679550A2507748C00A72954 /* UserInfoHeaderView.xib in Resources */,
 				26E291992553EABB0032AE99 /* GiftEarningsCell.xib in Resources */,
+				263EC07F261ED5B9000A44A0 /* PickerViewController.xib in Resources */,
 				2656F30F254FAC0500552611 /* GiftReminderViewController.xib in Resources */,
 				2635216825C7F18800855487 /* VisitorsController.xib in Resources */,
 				267E36E92547C2E100EB2097 /* GiftView.xib in Resources */,
@@ -2240,6 +2259,7 @@
 				26772823255A480900B98973 /* PrivacyViewController.xib in Resources */,
 				264BF97925A8366E00F873DD /* AccostViewController.xib in Resources */,
 				264C5C342609CF83007FB123 /* TalkHeaderView.xib in Resources */,
+				26202029261EAEFE006A5AD7 /* RegionPickerViewController.xib in Resources */,
 				F38CB8C62507B14700049A76 /* InfoPlist.strings in Resources */,
 				268E3E612521D074000E4A33 /* RelationshipViewCell.xib in Resources */,
 				26A377CF260DB75E002FF17E /* new_user_receive.svga in Resources */,
@@ -2364,6 +2384,7 @@
 				26FC88F5253ED49000E4D82F /* SearchAPI.swift in Sources */,
 				2639536F2541A38B00B5E3C0 /* FiledViewCell.swift in Sources */,
 				26EE0E4C25245BD800233ED5 /* PayAPI.swift in Sources */,
+				26202028261EAEFE006A5AD7 /* RegionPickerViewController.swift in Sources */,
 				267954E82507311E00A72954 /* LegalLiabilityViewController.swift in Sources */,
 				26E48901257DDFD1006C2ACE /* GirdLayout.m in Sources */,
 				2684593925354EDB002B9C6E /* Reload.swift in Sources */,
@@ -2499,6 +2520,7 @@
 				26C8CC6C26044301005FDFF8 /* ChatMemberContainerViewController.swift in Sources */,
 				26CA6EEC25382DC40023E27B /* ChannelCell.swift in Sources */,
 				2619D18725625AAB0071CC85 /* GiftCountViewController.m in Sources */,
+				26314796261EE05F0084E00B /* UserConfig.swift in Sources */,
 				26E14E63251C766900645F08 /* UserInformationViewController.swift in Sources */,
 				267954EC2507327B00A72954 /* SignupViewController.swift in Sources */,
 				26EB2DCA25593FCA006698F9 /* ConsumerAPI.swift in Sources */,
@@ -2565,6 +2587,7 @@
 				26377FCE2530526800D5A03D /* ChatViewController.swift in Sources */,
 				2636A0BF2563D04A00664FFC /* GiftAPI.swift in Sources */,
 				26DBC373253D89DF0083BDFB /* AudioCallViewController.m in Sources */,
+				26202025261EAA3C006A5AD7 /* Region.swift in Sources */,
 				26EB2DCC255945C4006698F9 /* Consumer.swift in Sources */,
 				26E5FE4A25EF938F00C96392 /* BanberView.swift in Sources */,
 				26C353B8260B1CCD00B80F62 /* TalkChannel.swift in Sources */,
@@ -2668,6 +2691,7 @@
 				2659766D2577AD1000E4B6A2 /* SayHellowAddViewController.swift in Sources */,
 				26BD36E8261C550500D5565D /* NotificationViewController.swift in Sources */,
 				2639536825419E8300B5E3C0 /* CardViewCell.swift in Sources */,
+				263EC07E261ED5B9000A44A0 /* PickerViewController.swift in Sources */,
 				26CBE3B42508A3FC0089A23C /* CommunityViewController.swift in Sources */,
 				26A731B22536D6B600CCECE5 /* ReportViewController.swift in Sources */,
 				26795506250773D700A72954 /* UserInfoEditingHeaderView.swift in Sources */,

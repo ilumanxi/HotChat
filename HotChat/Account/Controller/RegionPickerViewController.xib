@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegionPickerViewController" customModule="HotChat" customModuleProvider="target">
+            <connections>
+                <outlet property="pickerView" destination="ghq-gQ-CSZ" id="G5w-pJ-03Q"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NE2-7f-HyI" userLabel="Wapper View">
+                    <rect key="frame" x="0.0" y="602" width="414" height="294"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zDc-jJ-W6q" userLabel="Content View">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="260"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="q2f-Qv-dSE">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="260"/>
+                                    <subviews>
+                                        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8le-mR-mfd">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <items>
+                                                <barButtonItem title="取消" id="9WB-6b-smm">
+                                                    <connections>
+                                                        <action selector="cancelItemTapped:" destination="-1" id="49K-A9-nRh"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                                <barButtonItem systemItem="flexibleSpace" id="as9-z8-i5J"/>
+                                                <barButtonItem title="确定" id="1jd-wb-uXS">
+                                                    <connections>
+                                                        <action selector="doneItemTapped:" destination="-1" id="lV0-qk-Z6U"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                            </items>
+                                        </toolbar>
+                                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ghq-gQ-CSZ">
+                                            <rect key="frame" x="0.0" y="44" width="414" height="216"/>
+                                            <connections>
+                                                <outlet property="dataSource" destination="-1" id="ZFk-XS-W36"/>
+                                                <outlet property="delegate" destination="-1" id="a9r-MA-Ts2"/>
+                                            </connections>
+                                        </pickerView>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="q2f-Qv-dSE" secondAttribute="bottom" id="GRA-q7-UaP"/>
+                                <constraint firstAttribute="trailing" secondItem="q2f-Qv-dSE" secondAttribute="trailing" id="Mif-9r-YHx"/>
+                                <constraint firstItem="q2f-Qv-dSE" firstAttribute="top" secondItem="zDc-jJ-W6q" secondAttribute="top" id="ZDz-1b-w3N"/>
+                                <constraint firstItem="q2f-Qv-dSE" firstAttribute="leading" secondItem="zDc-jJ-W6q" secondAttribute="leading" id="tIb-DB-QeW"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="RQq-z2-TeC"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="zDc-jJ-W6q" firstAttribute="leading" secondItem="NE2-7f-HyI" secondAttribute="leading" id="0bi-2K-IWW"/>
+                        <constraint firstAttribute="trailing" secondItem="zDc-jJ-W6q" secondAttribute="trailing" id="6ID-RK-0W3"/>
+                        <constraint firstItem="zDc-jJ-W6q" firstAttribute="bottom" secondItem="RQq-z2-TeC" secondAttribute="bottom" id="Aal-mC-Jwd"/>
+                        <constraint firstItem="zDc-jJ-W6q" firstAttribute="top" secondItem="NE2-7f-HyI" secondAttribute="top" id="xpV-KF-dhQ"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="NE2-7f-HyI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6lu-qq-KCp"/>
+                <constraint firstAttribute="bottom" secondItem="NE2-7f-HyI" secondAttribute="bottom" id="Dzh-k9-jke"/>
+                <constraint firstAttribute="trailing" secondItem="NE2-7f-HyI" secondAttribute="trailing" id="XK3-bz-O4B"/>
+            </constraints>
+            <point key="canvasLocation" x="54" y="98"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

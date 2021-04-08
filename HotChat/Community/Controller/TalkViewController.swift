@@ -146,6 +146,8 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UserConfig.share.defaultRequest()
+        
         
         navigationItem.leftBarButtonItem?.setTitleTextAttributes(UINavigationBar.appearance().titleTextAttributes, for: .normal)
         

@@ -112,7 +112,6 @@ class InformationViewController: UITableViewController, AquamanChildViewControll
             
             
             var sections: [FormSection] = [
-                FormSection(entries: [information], headerText: "ta的信息")
             ]
             
             if !user.labelList.isEmpty {
@@ -128,6 +127,7 @@ class InformationViewController: UITableViewController, AquamanChildViewControll
             }
             
             self.sections = sections
+            userDataView.set(user!)
         }
        
         tableView.reloadData()
