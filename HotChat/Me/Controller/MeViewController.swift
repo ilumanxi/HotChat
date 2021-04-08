@@ -388,10 +388,8 @@ class MeViewController: UITableViewController, Autorotate, IndicatorDisplay {
         }
         else {
             let vc = VisitorsVipController()
-            vc.onVIPTapped.delegate(on: self) { (self, _) in
-                self.pushVip()
-            }
-            present(vc, animated: true, completion: nil)
+            vc.user = LoginManager.shared.user!
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
     
