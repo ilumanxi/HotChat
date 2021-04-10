@@ -10,8 +10,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddressBookViewController" customModule="HotChat" customModuleProvider="target">
             <connections>
+                <outlet property="phoneButton" destination="CC3-Fx-iTr" id="HV6-r4-FdF"/>
+                <outlet property="phoneLabel" destination="Sw0-X9-dPE" id="njD-5e-hTe"/>
+                <outlet property="qqButton" destination="vJi-Vq-bs9" id="EJG-tP-fa3"/>
+                <outlet property="qqLabel" destination="fdQ-at-TXp" id="I0w-6W-ufW"/>
                 <outlet property="scrollView" destination="p15-cU-X8P" id="Id7-oL-yjI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="wechatButton" destination="5rc-Kc-b4k" id="DJf-qm-ECP"/>
+                <outlet property="wechatLabel" destination="DNl-nN-wX8" id="PYG-UZ-oqI"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -78,6 +84,9 @@
                                                             <real key="value" value="13"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="qqButtonTapped:" destination="-1" eventType="touchUpInside" id="8SL-pR-9ag"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -131,6 +140,9 @@
                                                             <real key="value" value="13"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="wechatButtonTapped:" destination="-1" eventType="touchUpInside" id="XoE-43-0SD"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -184,6 +196,9 @@
                                                             <real key="value" value="13"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="phoneButtonTapped:" destination="-1" eventType="touchUpInside" id="08W-Hz-VhA"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>

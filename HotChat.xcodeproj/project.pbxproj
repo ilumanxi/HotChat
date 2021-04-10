@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		260323872620661700144135 /* im_gift_btn.svga in Resources */ = {isa = PBXBuildFile; fileRef = 260323862620639900144135 /* im_gift_btn.svga */; };
+		2603238926218D4B00144135 /* BuyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2603238826218D4B00144135 /* BuyAPI.swift */; };
+		2603238B2621926A00144135 /* AddressBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2603238A2621926A00144135 /* AddressBook.swift */; };
 		26039E1A25F5F9F700A162E3 /* PlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26039E1925F5F9F700A162E3 /* PlayerManager.swift */; };
 		2604D4E125B5752400A864C1 /* BannerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2604D4E025B5752400A864C1 /* BannerAPI.swift */; };
 		2605A4762513187900017241 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2605A4752513187900017241 /* UIImageExtensions.swift */; };
@@ -166,6 +168,8 @@
 		2651FE1725F759D300A9F2E6 /* TopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2651FE1525F759D300A9F2E6 /* TopViewController.xib */; };
 		2651FE1925F7665A00A9F2E6 /* TopHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2651FE1825F7665A00A9F2E6 /* TopHeaderView.swift */; };
 		2651FE1B25F7666A00A9F2E6 /* TopHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2651FE1A25F7666A00A9F2E6 /* TopHeaderView.xib */; };
+		2653733F2621A0AA005AE2F3 /* TipAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2653733D2621A0AA005AE2F3 /* TipAlertController.swift */; };
+		265373402621A0AA005AE2F3 /* TipAlertController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2653733E2621A0AA005AE2F3 /* TipAlertController.xib */; };
 		2656F30E254FAC0500552611 /* GiftReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2656F30C254FAC0500552611 /* GiftReminderViewController.m */; };
 		2656F30F254FAC0500552611 /* GiftReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2656F30D254FAC0500552611 /* GiftReminderViewController.xib */; };
 		2656F317254FDB5000552611 /* IMAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2656F316254FDB5000552611 /* IMAPI.swift */; };
@@ -510,6 +514,8 @@
 
 /* Begin PBXFileReference section */
 		260323862620639900144135 /* im_gift_btn.svga */ = {isa = PBXFileReference; lastKnownFileType = file; path = im_gift_btn.svga; sourceTree = "<group>"; };
+		2603238826218D4B00144135 /* BuyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyAPI.swift; sourceTree = "<group>"; };
+		2603238A2621926A00144135 /* AddressBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressBook.swift; sourceTree = "<group>"; };
 		26039E1925F5F9F700A162E3 /* PlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerManager.swift; sourceTree = "<group>"; };
 		2604D4E025B5752400A864C1 /* BannerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAPI.swift; sourceTree = "<group>"; };
 		2605A4752513187900017241 /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
@@ -697,6 +703,8 @@
 		2651FE1525F759D300A9F2E6 /* TopViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopViewController.xib; sourceTree = "<group>"; };
 		2651FE1825F7665A00A9F2E6 /* TopHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopHeaderView.swift; sourceTree = "<group>"; };
 		2651FE1A25F7666A00A9F2E6 /* TopHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopHeaderView.xib; sourceTree = "<group>"; };
+		2653733D2621A0AA005AE2F3 /* TipAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipAlertController.swift; sourceTree = "<group>"; };
+		2653733E2621A0AA005AE2F3 /* TipAlertController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TipAlertController.xib; sourceTree = "<group>"; };
 		26546371250B774E00398F04 /* apple-app-site-association */ = {isa = PBXFileReference; lastKnownFileType = text; path = "apple-app-site-association"; sourceTree = "<group>"; };
 		2656F30B254FAC0500552611 /* GiftReminderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftReminderViewController.h; sourceTree = "<group>"; };
 		2656F30C254FAC0500552611 /* GiftReminderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftReminderViewController.m; sourceTree = "<group>"; };
@@ -1131,6 +1139,7 @@
 				2637D86F255A8DB700020E98 /* TalkEarning.swift */,
 				2637D871255AA13D00020E98 /* GiftEarning.swift */,
 				2623FC59262004F800764DFA /* ContactInfo.swift */,
+				2603238A2621926A00144135 /* AddressBook.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1214,6 +1223,7 @@
 				26F8947525207A9A00A45648 /* UploadFileAPI.swift */,
 				26F70FFE2542B3A900797E87 /* AuthenticationAPI.swift */,
 				26EE0E4B25245BD800233ED5 /* PayAPI.swift */,
+				2603238826218D4B00144135 /* BuyAPI.swift */,
 				26F710032542C6C000797E87 /* UserSettingsAPI.swift */,
 				26EB2DC925593FCA006698F9 /* ConsumerAPI.swift */,
 				2668CF0825931B3D00C851F6 /* LogoutAPI.swift */,
@@ -1280,6 +1290,8 @@
 				2635216C25C7F4F900855487 /* VisitorsVipController.xib */,
 				26202020261DA1E5006A5AD7 /* VipPhotoViewController.swift */,
 				26202021261DA1E5006A5AD7 /* VipPhotoViewController.xib */,
+				2653733D2621A0AA005AE2F3 /* TipAlertController.swift */,
+				2653733E2621A0AA005AE2F3 /* TipAlertController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2283,6 +2295,7 @@
 				F38CB8C62507B14700049A76 /* InfoPlist.strings in Resources */,
 				268E3E612521D074000E4A33 /* RelationshipViewCell.xib in Resources */,
 				2623FC58261F19EA00764DFA /* AddressBookAuthenticationViewController.xib in Resources */,
+				265373402621A0AA005AE2F3 /* TipAlertController.xib in Resources */,
 				26A377CF260DB75E002FF17E /* new_user_receive.svga in Resources */,
 				263953702541A38B00B5E3C0 /* FiledViewCell.xib in Resources */,
 				26ED000725C5731200480CEC /* MediaItemViewCell.xib in Resources */,
@@ -2428,6 +2441,7 @@
 				26CB6D3E25515D6B00A9F4DD /* BDFaceSuccessViewController.m in Sources */,
 				26F553762553D16E00840735 /* TalkEarningsViewController.swift in Sources */,
 				262FFFB42601FF6A00F541C2 /* TextMessageCellData.m in Sources */,
+				2603238B2621926A00144135 /* AddressBook.swift in Sources */,
 				2636A0CA2563D25500664FFC /* GiftCountDescription.swift in Sources */,
 				26CBE3BD2508D7920089A23C /* DiscoverViewController.swift in Sources */,
 				26E291982553EABB0032AE99 /* GiftEarningsCell.swift in Sources */,
@@ -2548,8 +2562,10 @@
 				26EB2DCA25593FCA006698F9 /* ConsumerAPI.swift in Sources */,
 				26FBCF632558EF32001F3DFA /* ConsumerDetailsViewController.swift in Sources */,
 				26D1E58B253D5F17004B9B29 /* CallManager.m in Sources */,
+				2653733F2621A0AA005AE2F3 /* TipAlertController.swift in Sources */,
 				26CB6D3D25515D6B00A9F4DD /* BDFaceLivingConfigViewController.m in Sources */,
 				26CB6D4325515D6B00A9F4DD /* BDFaceCycleProgressView.m in Sources */,
+				2603238926218D4B00144135 /* BuyAPI.swift in Sources */,
 				26C65FAE25300C47006B9B7E /* InformationViewController.swift in Sources */,
 				268BB25E251D9B3200001DF3 /* UserAPI.swift in Sources */,
 				26CB6C38255124DB00A9F4DD /* BillingManager.m in Sources */,

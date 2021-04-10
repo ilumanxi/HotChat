@@ -82,18 +82,7 @@ class UserInfoViewController: AquamanPageViewController, LoadingStateType, Indic
     
     let addressBook = AddressBookViewController()
     
-    lazy var viewControllers: [UIViewController] =  {
-        information.title = "资料"
-        information.user = user
-        dynamic.title = "动态"
-        dynamic.user = user
-        addressBook.title = "联系方式"
-        return [
-            information,
-            dynamic,
-            addressBook
-        ]
-    }()
+    fileprivate var viewControllers: [UIViewController] = []
     
     private lazy var userInfoHeaderView: UserInfoHeaderView = {
         let headerView = UserInfoHeaderView.loadFromNib()
@@ -160,14 +149,12 @@ class UserInfoViewController: AquamanPageViewController, LoadingStateType, Indic
         super.viewDidLoad()
         
         setupUI()
-
+        setupViewControllers()
+        
         mainScrollView.contentInsetAdjustmentBehavior = .never
         updateNavigationBarStyle(mainScrollView)
         navigationItem.title = user.nick
-        menuView.titles = viewControllers.compactMap{ $0.title }
-        
-        reloadData()
-        
+
         NotificationCenter.default.rx.notification(.userDidChange)
             .subscribe(onNext: { [unowned self] _ in
                 self.userInfoHeaderView.user = self.user
@@ -175,6 +162,24 @@ class UserInfoViewController: AquamanPageViewController, LoadingStateType, Indic
             .disposed(by: rx.disposeBag)
         
         refreshData()
+    }
+    
+    func setupViewControllers() {
+        var temp: [UIViewController] = [information, dynamic]
+        information.title = "资料"
+        information.user = user
+        dynamic.title = "动态"
+        dynamic.user = user
+        
+        if user.girlStatus {
+            addressBook.title = "联系方式"
+            addressBook.user = user
+            temp.append(addressBook)
+        }
+        self.viewControllers = temp
+        menuView.titles = viewControllers.compactMap{ $0.title }
+        reloadData()
+      
     }
     
     func button(text: String, image: UIImage?) -> UIButton {
@@ -325,6 +330,7 @@ class UserInfoViewController: AquamanPageViewController, LoadingStateType, Indic
             .subscribe(onSuccess: { [weak self] response in
                 self?.user = response.data
                 self?.setupNavigationItem()
+                self?.setupViewControllers()
                 self?.state = .contentLoaded
             }, onError: { [weak self] error in
                 self?.state = .error
