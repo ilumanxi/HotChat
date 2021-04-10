@@ -156,11 +156,11 @@
             </objects>
             <point key="canvasLocation" x="3171" y="-705"/>
         </scene>
-        <!--社区-->
+        <!--语聊-->
         <scene sceneID="BkN-La-rGj">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vU2-pc-gKc" customClass="BaseNavigationController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="社区" image="tabbar-community-normal" selectedImage="tabbar-community-selected" id="NWi-ic-VS1"/>
+                    <tabBarItem key="tabBarItem" title="语聊" image="tabbar-community-normal" selectedImage="tabbar-community-selected" id="NWi-ic-VS1"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="s1T-aS-CAe" customClass="HBDNavigationBar">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -221,7 +221,7 @@
         <image name="common-search" width="17" height="17"/>
         <image name="modal-close" width="16" height="16"/>
         <image name="recharge" width="23.5" height="23.5"/>
-        <image name="tabbar-community-normal" width="20" height="20"/>
+        <image name="tabbar-community-normal" width="32" height="32"/>
         <image name="tabbar-community-selected" width="19" height="19"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
