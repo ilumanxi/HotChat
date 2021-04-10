@@ -306,6 +306,34 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
     } completion:nil];
 }
 
+
+- (void)inputBarDidTouchSayHello:(InputBar *)inputBar {
+    if (_delegate && [_delegate respondsToSelector:@selector(inputControllerDidSayHello:)]){
+        [_delegate inputControllerDidSayHello:self];
+    }
+    
+}
+
+- (void)inputBarDidTouchAudio:(InputBar *)inputBar {
+    if (_delegate && [_delegate respondsToSelector:@selector(inputControllerDidAudio:)]){
+        [_delegate inputControllerDidAudio:self];
+    }
+}
+
+- (void)inputBarDidTouchVideo:(InputBar *)inputBar {
+    if (_delegate && [_delegate respondsToSelector:@selector(inputControllerDidVideo:)]){
+        [_delegate inputControllerDidVideo:self];
+    }
+}
+
+- (void)inputBarDidTouchPhoto:(InputBar *)inputBar {
+    
+    if (_delegate && [_delegate respondsToSelector:@selector(inputControllerDidPhoto:)]){
+        [_delegate inputControllerDidPhoto:self];
+    }
+    
+}
+
 - (void)inputBarDidTouchVoice:(InputBar *)textView
 {
     if(_status == Input_Status_Input_Talk){

@@ -21,6 +21,7 @@ enum ChatGreetAPI {
     case checkAccost
     case accostList
     case userAccost(userIdList: [String])
+    case sayHelloInfo
 }
 
 
@@ -52,6 +53,8 @@ extension ChatGreetAPI: TargetType {
             return "ChatGreet/accostList"
         case .userAccost:
             return "ChatGreet/userAccost"
+        case .sayHelloInfo:
+            return "ChatGreet/sayHelloInfo"
         }
     }
     
@@ -84,6 +87,8 @@ extension ChatGreetAPI: TargetType {
             parameters = [:]
         case .userAccost(let userIdList):
             parameters = ["userIdList" : userIdList]
+        case .sayHelloInfo:
+            parameters = [:]
         }
         
         let encoding: ParameterEncoding = (self.method == .post) ? JSONEncoding.default : URLEncoding.default

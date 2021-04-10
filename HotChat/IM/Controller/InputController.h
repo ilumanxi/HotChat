@@ -84,6 +84,16 @@
 *  有 @xxx 字符删除
 */
 - (void)inputController:(InputController *)inputController didDeleteAt:(NSString *)atText;
+
+
+- (void)inputControllerDidSayHello:(InputController *)inputController;
+
+- (void)inputControllerDidAudio:(InputController *)inputController;
+
+- (void)inputControllerDidVideo:(InputController *)inputController;
+
+- (void)inputControllerDidPhoto:(InputController *)inputController;
+
 @end
 
 

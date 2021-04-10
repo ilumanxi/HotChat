@@ -62,6 +62,10 @@ class LoginViewController: UIViewController, IndicatorDisplay {
     
     @IBAction func phoneDidLogin(_ sender: Any) {
         
+        #if DEBUG
+        let vc = PhoneSigninViewController.loadFromStoryboard()
+        navigationController?.pushViewController(vc, animated: true)
+        #else
         if AppAudit.share.oneKeyLoginStatus {
             let vc = PhoneSigninViewController.loadFromStoryboard()
             navigationController?.pushViewController(vc, animated: true)
@@ -83,6 +87,7 @@ class LoginViewController: UIViewController, IndicatorDisplay {
                 }
             }
         }
+        #endif
     }
     
     private func phoneLogin() {

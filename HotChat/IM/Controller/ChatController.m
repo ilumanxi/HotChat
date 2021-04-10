@@ -36,8 +36,9 @@
 #import "HotChat-Swift.h"
 #import "JPGiftModel.h"
 #import "JPGiftShowManager.h"
+#import <SPAlertController/SPAlertController.h>
 
-@interface ChatController () <TMessageControllerDelegate, InputControllerDelegate, UIImagePickerControllerDelegate, UIDocumentPickerDelegate, UINavigationControllerDelegate, V2TIMAdvancedMsgListener>
+@interface ChatController () <TMessageControllerDelegate, UIImagePickerControllerDelegate, UIDocumentPickerDelegate, UINavigationControllerDelegate, V2TIMAdvancedMsgListener>
 @property (nonatomic, strong) TUIConversationCellData *conversationData;
 @property (nonatomic, strong) UIView *tipsView;
 @property (nonatomic, strong) UILabel *pendencyLabel;
@@ -304,6 +305,23 @@
     if (self.delegate && [self.delegate respondsToSelector:@selector(chatController:didSendMessage:)]) {
         [self.delegate chatController:self didSendMessage:msg];
     }
+}
+
+
+- (void)inputControllerDidSayHello:(InputController *)inputController {
+    
+}
+
+- (void)inputControllerDidAudio:(InputController *)inputController {
+    
+}
+
+- (void)inputControllerDidVideo:(InputController *)inputController {
+    
+}
+
+- (void)inputControllerDidPhoto:(InputController *)inputController {
+    
 }
 
 - (void)inputControllerDidInputAt:(InputController *)inputController

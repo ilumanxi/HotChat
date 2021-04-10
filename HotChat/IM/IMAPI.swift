@@ -70,6 +70,10 @@ extension IMAPI: TargetType {
     
     static let disposeObject = DisposeBag()
     
+    @objc class func image(color: UIColor, size: CGSize) -> UIImage {
+        return  UIImage(color: color, size: size)
+    }
+    
     @objc class func  getCallTime(_ roomId: Int, success: @escaping ([String : Any]) -> Void, failed: @escaping (NSError) -> Void) {
         
         API.request(.getCallTime(roomId: roomId), type: Response<[String : Any]>.self).verifyResponse()

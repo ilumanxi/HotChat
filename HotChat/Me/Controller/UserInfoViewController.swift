@@ -19,18 +19,18 @@ class UserInfoViewController: AquamanPageViewController, LoadingStateType, Indic
     
     lazy var menuView: TridentMenuView = {
         let view = TridentMenuView(parts:
-            .normalTextColor(UIColor(hexString: "#666666")),
-            .selectedTextColor(UIColor(hexString: "#1B1B1B")),
-            .normalTextFont(UIFont.systemFont(ofSize: 14.0, weight: .medium)),
-            .selectedTextFont(UIFont.systemFont(ofSize: 19.0, weight: .bold)),
+            .normalTextColor(UIColor(hexString: "#999999")),
+            .selectedTextColor(UIColor(hexString: "#333333")),
+            .normalTextFont(UIFont.systemFont(ofSize: 16.0, weight: .medium)),
+            .selectedTextFont(UIFont.systemFont(ofSize: 17.0, weight: .bold)),
             .switchStyle(.line),
             .sliderStyle(
                 SliderViewStyle(parts:
-                    .backgroundColor(.theme),
-                    .height(2.5),
+                    .backgroundColor(UIColor(hexString: "#FF3F3F")),
+                    .height(3),
                     .cornerRadius(1.5),
                     .position(.bottom),
-//                    .extraWidth(indexPath.row == 0 ? -10.0 : 4.0),
+//                    .extraWidth(24),
                     .shape(.line)
                 )
             ),
@@ -80,15 +80,18 @@ class UserInfoViewController: AquamanPageViewController, LoadingStateType, Indic
     
     let dynamic = DynamicDetailViewController.loadFromStoryboard()
     
+    let addressBook = AddressBookViewController()
+    
     lazy var viewControllers: [UIViewController] =  {
         information.title = "资料"
         information.user = user
         dynamic.title = "动态"
         dynamic.user = user
-        
+        addressBook.title = "联系方式"
         return [
             information,
-            dynamic
+            dynamic,
+            addressBook
         ]
     }()
     

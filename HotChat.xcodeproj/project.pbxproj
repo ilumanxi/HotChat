@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		260323872620661700144135 /* im_gift_btn.svga in Resources */ = {isa = PBXBuildFile; fileRef = 260323862620639900144135 /* im_gift_btn.svga */; };
 		26039E1A25F5F9F700A162E3 /* PlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26039E1925F5F9F700A162E3 /* PlayerManager.swift */; };
 		2604D4E125B5752400A864C1 /* BannerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2604D4E025B5752400A864C1 /* BannerAPI.swift */; };
 		2605A4762513187900017241 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2605A4752513187900017241 /* UIImageExtensions.swift */; };
@@ -34,6 +35,11 @@
 		26202025261EAA3C006A5AD7 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26202024261EAA3C006A5AD7 /* Region.swift */; };
 		26202028261EAEFE006A5AD7 /* RegionPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26202026261EAEFE006A5AD7 /* RegionPickerViewController.swift */; };
 		26202029261EAEFE006A5AD7 /* RegionPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26202027261EAEFE006A5AD7 /* RegionPickerViewController.xib */; };
+		2623FC57261F19EA00764DFA /* AddressBookAuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2623FC55261F19EA00764DFA /* AddressBookAuthenticationViewController.swift */; };
+		2623FC58261F19EA00764DFA /* AddressBookAuthenticationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2623FC56261F19EA00764DFA /* AddressBookAuthenticationViewController.xib */; };
+		2623FC5A262004F800764DFA /* ContactInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2623FC59262004F800764DFA /* ContactInfo.swift */; };
+		2623FC5D262029DD00764DFA /* AddressBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2623FC5B262029DD00764DFA /* AddressBookViewController.swift */; };
+		2623FC5E262029DD00764DFA /* AddressBookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2623FC5C262029DD00764DFA /* AddressBookViewController.xib */; };
 		26257ADB260B2EBF00A4E0F3 /* BannerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26257ADA260B2EBF00A4E0F3 /* BannerViewCell.swift */; };
 		2626E4E4261C0F32007B57D2 /* DynamicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2626E4E3261C0F32007B57D2 /* DynamicListViewController.swift */; };
 		2626E4E6261C14CD007B57D2 /* DynamicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2626E4E5261C14CD007B57D2 /* DynamicView.swift */; };
@@ -503,6 +509,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		260323862620639900144135 /* im_gift_btn.svga */ = {isa = PBXFileReference; lastKnownFileType = file; path = im_gift_btn.svga; sourceTree = "<group>"; };
 		26039E1925F5F9F700A162E3 /* PlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerManager.swift; sourceTree = "<group>"; };
 		2604D4E025B5752400A864C1 /* BannerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAPI.swift; sourceTree = "<group>"; };
 		2605A4752513187900017241 /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
@@ -535,6 +542,11 @@
 		26202024261EAA3C006A5AD7 /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 		26202026261EAEFE006A5AD7 /* RegionPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionPickerViewController.swift; sourceTree = "<group>"; };
 		26202027261EAEFE006A5AD7 /* RegionPickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegionPickerViewController.xib; sourceTree = "<group>"; };
+		2623FC55261F19EA00764DFA /* AddressBookAuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressBookAuthenticationViewController.swift; sourceTree = "<group>"; };
+		2623FC56261F19EA00764DFA /* AddressBookAuthenticationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressBookAuthenticationViewController.xib; sourceTree = "<group>"; };
+		2623FC59262004F800764DFA /* ContactInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfo.swift; sourceTree = "<group>"; };
+		2623FC5B262029DD00764DFA /* AddressBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressBookViewController.swift; sourceTree = "<group>"; };
+		2623FC5C262029DD00764DFA /* AddressBookViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressBookViewController.xib; sourceTree = "<group>"; };
 		26257ADA260B2EBF00A4E0F3 /* BannerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViewCell.swift; sourceTree = "<group>"; };
 		2626E4E3261C0F32007B57D2 /* DynamicListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicListViewController.swift; sourceTree = "<group>"; };
 		2626E4E5261C14CD007B57D2 /* DynamicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicView.swift; sourceTree = "<group>"; };
@@ -1118,6 +1130,7 @@
 				26DF8786255A80ED002162A9 /* Earning.swift */,
 				2637D86F255A8DB700020E98 /* TalkEarning.swift */,
 				2637D871255AA13D00020E98 /* GiftEarning.swift */,
+				2623FC59262004F800764DFA /* ContactInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1233,6 +1246,10 @@
 				260B96152521F2F400767076 /* AuthenticationViewController.swift */,
 				26E291B42554FB810032AE99 /* AvatarAuthenticationResultController.swift */,
 				26E291B52554FB810032AE99 /* AvatarAuthenticationResultController.xib */,
+				2623FC55261F19EA00764DFA /* AddressBookAuthenticationViewController.swift */,
+				2623FC56261F19EA00764DFA /* AddressBookAuthenticationViewController.xib */,
+				2623FC5B262029DD00764DFA /* AddressBookViewController.swift */,
+				2623FC5C262029DD00764DFA /* AddressBookViewController.xib */,
 				2668B09B25233C410073E25D /* WalletViewController.swift */,
 				26FBCF5D2558EC0E001F3DFA /* ConsumptionListController.swift */,
 				26FBCF612558EF32001F3DFA /* ConsumerDetailsViewController.swift */,
@@ -1384,6 +1401,7 @@
 				264C5C362609E5FF007FB123 /* video_match.svga */,
 				26A377CE260DB75E002FF17E /* new_user_receive.svga */,
 				26A377D0260DB778002FF17E /* new_user_waiting.svga */,
+				260323862620639900144135 /* im_gift_btn.svga */,
 				263A6BEE25C2D74900FD43B6 /* pair.svga */,
 			);
 			path = Resource;
@@ -2175,6 +2193,7 @@
 				262C5F6E255550BE00126359 /* AccountSecurityController.xib in Resources */,
 				264BF97F25A83BB200F873DD /* AccostViewCell.xib in Resources */,
 				26EDE7FA2591D11F002A2EC3 /* GuidedRechargeViewController.xib in Resources */,
+				2623FC5E262029DD00764DFA /* AddressBookViewController.xib in Resources */,
 				26959042250B1DD900763061 /* InterestedCardOverlayView.xib in Resources */,
 				26CB6D4F25515D6B00A9F4DD /* idl-license.face-ios in Resources */,
 				2697FDC5260893EE002CB9A2 /* ChatTopicNoticeViewController.xib in Resources */,
@@ -2210,6 +2229,7 @@
 				2637D87A255B8EDF00020E98 /* BlacklistCell.xib in Resources */,
 				2626E4E8261C14E0007B57D2 /* DynamicView.xib in Resources */,
 				26C8CC6A2603545C005FDFF8 /* ChatMemberCell.xib in Resources */,
+				260323872620661700144135 /* im_gift_btn.svga in Resources */,
 				267954F62507579700A72954 /* Chat.storyboard in Resources */,
 				2635216E25C7F4F900855487 /* VisitorsVipController.xib in Resources */,
 				26BB187D2522F5810019BBFD /* Main.storyboard in Resources */,
@@ -2262,6 +2282,7 @@
 				26202029261EAEFE006A5AD7 /* RegionPickerViewController.xib in Resources */,
 				F38CB8C62507B14700049A76 /* InfoPlist.strings in Resources */,
 				268E3E612521D074000E4A33 /* RelationshipViewCell.xib in Resources */,
+				2623FC58261F19EA00764DFA /* AddressBookAuthenticationViewController.xib in Resources */,
 				26A377CF260DB75E002FF17E /* new_user_receive.svga in Resources */,
 				263953702541A38B00B5E3C0 /* FiledViewCell.xib in Resources */,
 				26ED000725C5731200480CEC /* MediaItemViewCell.xib in Resources */,
@@ -2381,6 +2402,7 @@
 				26FCB26825820149009D845F /* GradientView.swift in Sources */,
 				26A20AEF25189E740061BBB8 /* LoginManager.swift in Sources */,
 				2630EA52261D828B0013EC0B /* VideoZoomCell.swift in Sources */,
+				2623FC5D262029DD00764DFA /* AddressBookViewController.swift in Sources */,
 				26FC88F5253ED49000E4D82F /* SearchAPI.swift in Sources */,
 				2639536F2541A38B00B5E3C0 /* FiledViewCell.swift in Sources */,
 				26EE0E4C25245BD800233ED5 /* PayAPI.swift in Sources */,
@@ -2536,6 +2558,7 @@
 				26DF8787255A80ED002162A9 /* Earning.swift in Sources */,
 				26597672257886A300E4B6A2 /* GreetingsAddedView.swift in Sources */,
 				26CBE3C12508EB040089A23C /* Appearance.swift in Sources */,
+				2623FC5A262004F800764DFA /* ContactInfo.swift in Sources */,
 				264A20CF25109B5000A264BE /* AccountAPI.swift in Sources */,
 				2682974D2511B0EC00949C7F /* SignupProtocols.swift in Sources */,
 				265C1ED62542D84700110564 /* InviteViewController.swift in Sources */,
@@ -2594,6 +2617,7 @@
 				26EB2DA72558F157006698F9 /* SubsidiaryAccountCell.swift in Sources */,
 				26FC88F0253ECFBB00E4D82F /* SearchViewController.swift in Sources */,
 				2643EBB62500B04100FBBE49 /* InterfaceOrientation.swift in Sources */,
+				2623FC57261F19EA00764DFA /* AddressBookAuthenticationViewController.swift in Sources */,
 				26E5FE4E25F089A500C96392 /* CommentsViewController.swift in Sources */,
 				269DEE08254BF735000AD5D9 /* QMUIButton.m in Sources */,
 				26CB6D4425515D6B00A9F4DD /* BDFaceRemindView.m in Sources */,

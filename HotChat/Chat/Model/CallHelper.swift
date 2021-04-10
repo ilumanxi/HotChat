@@ -120,7 +120,7 @@ import AVFoundation
         
     }
     
-    func call(userID: String, callType: CallType, callSubType: CallSubType = .none) {
+    @objc func call(userID: String, callType: CallType, callSubType: CallSubType = .none) {
         
         switch callType {
         case .video:

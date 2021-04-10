@@ -46,6 +46,8 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
     
     let imAPI = Request<IMAPI>()
     
+    let chatGreetAPI = Request<ChatGreetAPI>()
+    
     var conversationData: TUIConversationCellData!
     override init!(conversation conversationData: TUIConversationCellData!) {
         self.conversationData = conversationData
@@ -56,46 +58,7 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    lazy var video: TUIInputMoreCellData = {
-        let data = TUIInputMoreCellData()
-        data.image = UIImage(named: "video")
-        data.title = "视频聊天"
-        
-        return data
-    }()
-    
-    lazy var audio: TUIInputMoreCellData = {
-        let data = TUIInputMoreCellData()
-        data.image = UIImage(named: "audio")
-        data.title = "语音聊天"
-        
-        return data
-    }()
-    
-    lazy var camera: TUIInputMoreCellData = {
-        let data = TUIInputMoreCellData()
-        data.image = UIImage(named: "camera")
-        data.title = "相册"
-        return data
-    }()
-    
-    lazy var photos: TUIInputMoreCellData = {
-        let data = TUIInputMoreCellData()
-        data.image = UIImage(named: "photos")
-        data.title = "拍照"
-        return data
-    }()
-    
-    
-    lazy var sayhHellow: TUIInputMoreCellData = {
-        let data = TUIInputMoreCellData()
-        data.title = "常用语"
-        data.image = UIImage(named: "sayhellow")
-        return data
-    }()
-    
-    
+
     var user: User?
     
     override func viewDidLoad() {
@@ -104,9 +67,6 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
         setupNavigationItem()
         
         self.delegate = self
-        
-
-        self.moreMenus = [video, audio, camera, photos, sayhHellow]
         
         requestUser()
         
@@ -204,6 +164,50 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
     let userAPI = Request<UserAPI>()
     
     let updateUserWallet = PublishSubject<Void>()
+    
+    override func inputControllerDidSayHello(_ inputController: InputController!) {
+        
+        chatGreetAPI.request(.sayHelloInfo, type: Response<[String : Any]>.self)
+            .subscribe(onSuccess: { [weak self] response in
+                if let content = response.data?["content"] as? String, !content.isEmpty {
+                    let textData = TUITextMessageCellData(direction: .MsgDirectionOutgoing)
+                    textData.content = content
+                    self?.messageController.sendMessage(textData)
+                }
+                
+            }, onError: { [weak self] error in
+                self?.show(error)
+            })
+            .disposed(by: rx.disposeBag)
+    }
+    
+    override func inputControllerDidAudio(_ inputController: InputController!) {
+        self.inputController.reset()
+        CallHelper.share.call(userID: self.conversationData.userID, callType: .audio)
+    }
+    override func inputControllerDidVideo(_ inputController: InputController!) {
+        self.inputController.reset()
+        CallHelper.share.call(userID: self.conversationData.userID, callType: .video)
+    }
+    
+    override func inputControllerDidPhoto(_ inputController: InputController!) {
+        
+        let vc = SPAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        vc.addAction(SPAlertAction(title: "拍照", style: .default, handler: { [weak self] _ in
+            self?.takePictureForSend()
+        }))
+        
+        vc.addAction(SPAlertAction(title: "相册选择", style: .default, handler: { [weak self] _ in
+            self?.selectPhotoForSend()
+        }))
+        
+        vc.addAction(SPAlertAction(title: "取消", style: .cancel, handler: { [weak self] _ in
+            
+        }))
+        
+        present(vc, animated: true, completion: nil)
+    }
 
 }
 
@@ -306,56 +310,9 @@ extension ChatViewController: ChatControllerDelegate {
     }
     
     func chatController(_ chatController: ChatController!, onSelect cell: TUIInputMoreCell!) {
-        if cell.data.title == video.title {
-            CallHelper.share.call(userID: conversationData.userID, callType: .video)
-        }
-        else if cell.data.title == audio.title {
-            CallHelper.share.call(userID: conversationData.userID, callType: .audio)
-        }
-        else if self.user == nil {
-            requestUser()
-        }
-        else if cell.data.title == camera.title  {
-            
-            if CallHelper.share.checkCall(self.user!, type: .image, indicatorDisplay: self) {
-                let picker = UIImagePickerController()
-                picker.sourceType = .photoLibrary
-                picker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary) ?? []
-                picker.delegate = self
-                present(picker, animated: true, completion: nil)
-            }
-            
-        }
-        else if cell.data.title == photos.title {
-            if CallHelper.share.checkCall(self.user!, type: .image, indicatorDisplay: self) {
-                let picker = UIImagePickerController()
-                picker.sourceType = .camera
-                picker.cameraCaptureMode = .photo
-                picker.delegate = self
-                present(picker, animated: true, completion: nil)
-            }
-        }
+      
+       
     }
-    
-    
-//    - (void)selectPhotoForSend
-//    {
-//        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-//        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-//        picker.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
-//        picker.delegate = self;
-//        [self presentViewController:picker animated:YES completion:nil];
-//    }
-//
-//    - (void)takePictureForSend
-//    {
-//        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-//        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-//        picker.cameraCaptureMode =UIImagePickerControllerCameraCaptureModePhoto;
-//        picker.delegate = self;
-//
-//        [self presentViewController:picker animated:YES completion:nil];
-//    }
     
     func chatController(_ controller: ChatController!, onSelectMessageAvatar cell: TUIMessageCell!) {
         userSetting(userId: cell.messageData.identifier)

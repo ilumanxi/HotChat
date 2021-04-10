@@ -19,11 +19,21 @@ extension ValidationStatus: CustomStringConvertible {
         case .validating:
             return "审核中"
         case .ok:
-            return "审核通过"
+            return "已审核"
         case .failed:
-            return "审核失败"
+            return "未通过"
         }
     }
+    
+    var textColor: UIColor {
+        switch self {
+        case .ok:
+            return UIColor(hexString: "#17A463")
+        default:
+            return UIColor(hexString: "#999999")
+        }
+    }
+    
     
     var isPush: Bool {
         switch self {
@@ -80,12 +90,19 @@ class AuthenticationViewController: UIViewController, IndicatorDisplay, LoadingS
     }
     
     func setupSections()  {
+
+        
+        var entries =  [
+            RightDetailFormEntry(image: nil, text: "实名认证", detailText: authentication.realNameStatus.description, onTapped: { [weak self] in self?.pushRealName()}),
+            RightDetailFormEntry(image: nil, text: "头像认证", detailText: authentication.headStatus.description, onTapped: {[weak self] in self?.pushFace()})
+        ]
+        
+        if LoginManager.shared.user!.girlStatus {
+            entries.append( RightDetailFormEntry(image: nil, text: "联系方式", detailText: authentication.contactStatus.description, onTapped: {[weak self] in self?.pushAddressBook()}))
+        }
         
         let section = FormSection(
-            entries: [
-                RightDetailFormEntry(image: nil, text: "实名认证", detailText: authentication.realNameStatus.description, onTapped: { [weak self] in self?.pushRealName()}),
-                RightDetailFormEntry(image: nil, text: "头像认证", detailText: authentication.headStatus.description, onTapped: {[weak self] in self?.pushFace()})
-            ],
+            entries: entries,
             headerText: nil
         )
         
@@ -129,8 +146,13 @@ class AuthenticationViewController: UIViewController, IndicatorDisplay, LoadingS
             navigationController?.pushViewController(vc, animated: true)
         }
 
+        
     }
     
+    func pushAddressBook() {
+        let vc = AddressBookAuthenticationViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
     func pushFace() {
         if !authentication.headStatus.isPush {

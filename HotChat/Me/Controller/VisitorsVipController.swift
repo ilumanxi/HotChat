@@ -63,7 +63,7 @@ class VisitorsVipController: UIViewController {
             
             var viewControllers = navigationController?.viewControllers ?? []
             
-            let index = viewControllers.firstIndex(of: self)!
+            guard let index = viewControllers.firstIndex(of: self) else { return  }
             
             let vc = VisitorsController()
             vc.hidesTabBarWhenPushed = true

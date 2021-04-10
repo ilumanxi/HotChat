@@ -17,4 +17,6 @@ struct Authentication: HandyJSON {
     var headStatus: ValidationStatus = .empty
     
     var realNameStatus: ValidationStatus = .empty
+    
+    var contactStatus: ValidationStatus = .empty
 }

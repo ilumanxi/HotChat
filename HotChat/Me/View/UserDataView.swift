@@ -42,14 +42,16 @@ class UserDataView: UIView {
         realNameButton.isSelected = model.realNameStatus == .ok
         authenticationButton.isSelected = model.authenticationStatus == .ok
         ageLabel.text = "\(model.age)岁"
-        heightLabel.text = model.height
+        heightLabel.text = model.height.isEmpty ? "保密" : model.height
         regionLabel.text = model.region
-        homeLabel.text = "\(model.homeProvince)\(model.homeCity)"
-        educationLabel.text = model.education
-        industryLabel.text = model.industryList.first?.label
-        incomeLabel.text = model.income
+        let home = "\(model.homeProvince)\(model.homeCity)"
+        homeLabel.text = home.isEmpty ? "保密" : home
+        educationLabel.text = model.education.isEmpty ? "保密" : model.education
+        let industry =  model.industryList.first?.label ?? ""
+        industryLabel.text = industry.isEmpty  ? "保密" : industry
+        incomeLabel.text = model.income.isEmpty  ? "保密" : model.income
         constellationLabel.text = model.constellation
-        introduceLabel.text = model.introduce
+        introduceLabel.text = model.introduce.isEmpty  ? "保密" : model.introduce
     }
     
 

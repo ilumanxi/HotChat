@@ -8,7 +8,7 @@
  ******************************************************************************/
 
 //#define InputBar_Height (49 + 52)
-#define InputBar_Height (101)
+#define InputBar_Height (95)
 
 #define InputBar_ToolHeight (52)
 
@@ -41,6 +41,14 @@
 
 
 - (void)inputBarDidTouchGift:(InputBar *)inputBar;
+
+- (void)inputBarDidTouchSayHello:(InputBar *)inputBar;
+
+- (void)inputBarDidTouchAudio:(InputBar *)inputBar;
+
+- (void)inputBarDidTouchVideo:(InputBar *)inputBar;
+
+- (void)inputBarDidTouchPhoto:(InputBar *)inputBar;
 
 /**
 *  点击更多按钮，即“+”后的回调委托。

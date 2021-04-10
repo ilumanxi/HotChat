@@ -42,6 +42,8 @@ enum UserAPI {
     case checkUserHeadPic
     case region
     case editUserDispose([String : Any])
+    case userContactInfo
+    case editUserContact([String : Any])
 }
 
 
@@ -93,6 +95,10 @@ extension UserAPI: TargetType {
             return "User/region"
         case .editUserDispose:
             return "User/editUserDispose"
+        case .userContactInfo:
+            return "User/userContactInfo"
+        case .editUserContact:
+            return "User/editUserContact"
         }
     }
     
@@ -157,6 +163,10 @@ extension UserAPI: TargetType {
         case .region:
             parameters =  [:]
         case .editUserDispose(let value):
+            parameters = value
+        case .userContactInfo:
+            parameters =  [:]
+        case .editUserContact(let value):
             parameters = value
         }
         

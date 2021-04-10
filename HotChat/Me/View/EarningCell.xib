@@ -20,12 +20,12 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TxV-WP-an2" userLabel="Background View" customClass="GradientView" customModule="HotChat" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="-819" width="320" height="1000"/>
-                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                        <color key="backgroundColor" red="1" green="0.24705882352941178" blue="0.24705882352941178" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1000" id="bw9-Cg-ih0"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="colorsString" value="#0BB7DC,#5159F8"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="colorsString" value="#FF6A2F,#FF3F3F"/>
                         </userDefinedRuntimeAttributes>
                     </view>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sfP-e0-jdK">
@@ -119,15 +119,12 @@
     </objects>
     <designables>
         <designable name="mwQ-am-cDg">
-            <size key="intrinsicContentSize" width="0.5" height="51"/>
+            <size key="intrinsicContentSize" width="-1" height="0.5"/>
         </designable>
     </designables>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemTealColor">
-            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

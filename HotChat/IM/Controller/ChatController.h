@@ -163,7 +163,7 @@
  *  A: 如果您想要实现 TUIKit 不支持的消息气泡样式，比如在消息气泡中添加投票链接等，可以参考文档：
  *     https://github.com/tencentyun/TIMSDK/wiki/TUIKit-iOS%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B6%88%E6%81%AF
  */
-@interface ChatController : UIViewController
+@interface ChatController : UIViewController<InputControllerDelegate>
 
 //********************************
 @property TUnReadView *unRead;
@@ -252,5 +252,8 @@
  *
  */
 - (void)user:(UserModel *)user giveGift:(Gift *)gift;
+
+- (void)takePictureForSend;
+- (void)selectPhotoForSend;
 
 @end

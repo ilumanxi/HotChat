@@ -15,9 +15,15 @@
 #import "ReactiveObjC/ReactiveObjC.h"
 #import "MMLayout/UIView+MMLayout.h"
 #import "UIColor+TUIDarkMode.h"
+#import <Masonry/Masonry.h>
+#import <SVGAPlayer/SVGAPlayer.h>
+#import <SVGAPlayer/SVGAParser.h>
+#import "HotChat-Swift.h"
 
 @interface InputBar() <UITextViewDelegate>
-@property BOOL isShowButtons;
+@property BOOL isGroup;
+@property SVGAParser *svgaParser;
+@property SVGAPlayer *giftView;
 
 @end
 
@@ -27,24 +33,18 @@
 {
     self = [super initWithFrame:frame];
     if(self){
-        self.isShowButtons = CGRectGetHeight(frame) > 49;
+        self.isGroup = CGRectGetHeight(frame) <= 49;
         [self setupViews];
         [self defaultLayout];
     }
     return self;
 }
-
-- (void)setFrame:(CGRect)frame {
+- (SVGAParser *)svgaParser {
     
-    if (CGRectGetHeight(frame) <= 49) {
-        NSLog(@"%@",NSStringFromCGRect(frame));
+    if (!_svgaParser) {
+        _svgaParser = [[SVGAParser alloc] init];
     }
-    else {
-        NSLog(@"%@",NSStringFromCGRect(frame));
-    }
-    
-    [super setFrame:frame];
-    
+    return _svgaParser;
 }
 
 - (void)setupViews
@@ -54,38 +54,7 @@
     _lineView = [[UIView alloc] init];
     _lineView.backgroundColor = [UIColor d_colorWithColorLight:TLine_Color dark:TLine_Color_Dark];
     [self addSubview:_lineView];
-
-    _micButton = [[UIButton alloc] init];
-    [_micButton addTarget:self action:@selector(clickVoiceBtn:) forControlEvents:UIControlEventTouchUpInside];
-    [_micButton setImage:[UIImage imageNamed:@"IMToolVoice"] forState:UIControlStateNormal];
-    [_micButton setImage:[UIImage imageNamed:@"IMToolVoiceHL"] forState:UIControlStateSelected];
-    [self addSubview:_micButton];
-
-    _faceButton = [[UIButton alloc] init];
-    [_faceButton addTarget:self action:@selector(clickFaceBtn:) forControlEvents:UIControlEventTouchUpInside];
-    [_faceButton setImage:[UIImage imageNamed:@"IMToolEmotion"] forState:UIControlStateNormal];
-    [_faceButton setImage:[UIImage imageNamed:@"IMToolEmotionHL"] forState:UIControlStateSelected];
-    [self addSubview:_faceButton];
-
-    _keyboardButton = [[UIButton alloc] init];
-    [_keyboardButton addTarget:self action:@selector(clickKeyboardBtn:) forControlEvents:UIControlEventTouchUpInside];
-    [_keyboardButton setImage:[UIImage tk_imageNamed:@"ToolViewKeyboard"] forState:UIControlStateNormal];
-    [_keyboardButton setImage:[UIImage tk_imageNamed:@"ToolViewKeyboardHL"] forState:UIControlStateSelected];
-    _keyboardButton.hidden = YES;
-    [self addSubview:_keyboardButton];
     
-    _giftButton = [[UIButton alloc] init];
-    [_giftButton setImage:[UIImage imageNamed:@"ToolViewGift"] forState:UIControlStateNormal];
-    [_giftButton setImage:[UIImage imageNamed:@"ToolViewGiftHL"] forState:UIControlStateSelected];
-    [_giftButton addTarget:self action:@selector(clickGiftBtn:) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:_giftButton];
-    
-
-    _moreButton = [[UIButton alloc] init];
-    [_moreButton addTarget:self action:@selector(clickMoreBtn:) forControlEvents:UIControlEventTouchUpInside];
-    [_moreButton setImage:[UIImage imageNamed:@"IMToolMore"] forState:UIControlStateNormal];
-    [_moreButton setImage:[UIImage imageNamed:@"IMToolMoreHL"] forState:UIControlStateSelected];
-    [self addSubview:_moreButton];
 
     _inputTextView = [[TResponderTextView alloc] init];
     _inputTextView.delegate = self;
@@ -95,32 +64,143 @@
     [_inputTextView.layer setBorderWidth:0.5f];
     [_inputTextView.layer setBorderColor:[UIColor d_colorWithColorLight:TLine_Color dark:TLine_Color_Dark].CGColor];
     [_inputTextView setReturnKeyType:UIReturnKeySend];
-    [self addSubview:_inputTextView];
+//    [self addSubview:_inputTextView];
+        
+    UIStackView *stackView = [[UIStackView alloc] initWithArrangedSubviews:@[]];
+    stackView.spacing = 18;
+    stackView.axis = UILayoutConstraintAxisVertical;
+    
+    [self addSubview:stackView];
+    
+    
+        
+    if (!self.isGroup){
+        
+        _micButton = [[UIButton alloc] init];
+        [_micButton addTarget:self action:@selector(clickVoiceBtn:) forControlEvents:UIControlEventTouchUpInside];
+        [_micButton setImage:[UIImage tk_imageNamed:@"ToolViewInputVoice"] forState:UIControlStateNormal];
+        [_micButton setImage:[UIImage tk_imageNamed:@"ToolViewKeyboard"] forState:UIControlStateSelected];
+
+
+        _faceButton = [[UIButton alloc] init];
+        [_faceButton addTarget:self action:@selector(clickFaceBtn:) forControlEvents:UIControlEventTouchUpInside];
+        [_faceButton setImage:[UIImage tk_imageNamed:@"ToolViewEmotion"] forState:UIControlStateNormal];
+        [_faceButton setImage:[UIImage tk_imageNamed:@"ToolViewKeyboard"] forState:UIControlStateSelected];
+        
+        
+        UIButton *sayhellowButton = [HotChatButton buttonWithType:UIButtonTypeCustom];
+        [sayhellowButton setImage:[UIImage imageNamed:@"sayhellow"] forState:UIControlStateNormal];
+        [sayhellowButton setTitle:@"打招呼" forState:UIControlStateNormal];
+        sayhellowButton.titleLabel.font = [UIFont systemFontOfSize:13 weight:UIFontWeightMedium];
+        [sayhellowButton setTitleColor:[UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1.0] forState:UIControlStateNormal];
+        [sayhellowButton addTarget:self action:@selector(clickSayHelloBtn:) forControlEvents:UIControlEventTouchUpInside];
+        
+        UIButton *audioButton = [HotChatButton buttonWithType:UIButtonTypeCustom];
+        [audioButton setImage:[UIImage imageNamed:@"audio"] forState:UIControlStateNormal];
+        [audioButton setTitle:@"语音" forState:UIControlStateNormal];
+        audioButton.titleLabel.font = [UIFont systemFontOfSize:13 weight:UIFontWeightMedium];
+        [audioButton setTitleColor:[UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1.0] forState:UIControlStateNormal];
+        [audioButton addTarget:self action:@selector(clickAudioBtn:) forControlEvents:UIControlEventTouchUpInside];
+        
+        
+        UIButton *videoButton = [HotChatButton buttonWithType:UIButtonTypeCustom];
+        [videoButton setImage:[UIImage imageNamed:@"video"] forState:UIControlStateNormal];
+        [videoButton setTitle:@"视频" forState:UIControlStateNormal];
+        videoButton.titleLabel.font = [UIFont systemFontOfSize:13 weight:UIFontWeightMedium];
+        [videoButton setTitleColor:[UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1.0] forState:UIControlStateNormal];
+        [videoButton addTarget:self action:@selector(clickVideoBtn:) forControlEvents:UIControlEventTouchUpInside];
+        
+        
+        UIButton *photoButton = [HotChatButton buttonWithType:UIButtonTypeCustom];
+        [photoButton setImage:[UIImage imageNamed:@"camera"] forState:UIControlStateNormal];
+        [photoButton setTitle:@"图片" forState:UIControlStateNormal];
+        photoButton.titleLabel.font = [UIFont systemFontOfSize:13 weight:UIFontWeightMedium];
+        [photoButton setTitleColor:[UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1.0] forState:UIControlStateNormal];
+        [photoButton addTarget:self action:@selector(clickPhotoBtn:) forControlEvents:UIControlEventTouchUpInside];
+        
+        UIView *spaceView = [UIView new];
+        
+        NSArray<UIButton *> *toolButtons = @[sayhellowButton, audioButton, videoButton, photoButton];
+        
+        
+        UIStackView *topStackView = [[UIStackView alloc] initWithArrangedSubviews:toolButtons];
+        
+        [topStackView addArrangedSubview:spaceView];
+        topStackView.spacing = 10;
+        
+        [stackView addArrangedSubview:topStackView];
+        
+        for (UIButton *button in toolButtons) {
+            button.contentEdgeInsets = UIEdgeInsetsMake(0, 6, 0, 6);
+            button.titleEdgeInsets = UIEdgeInsetsMake(0, 6, 0, 0);
+            button.layer.cornerRadius = 14.5;
+            button.layer.borderWidth = 0.5;
+            button.layer.borderColor = RGBA(213, 213, 213, 1).CGColor;
+            [button mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.height.mas_equalTo(@(29));
+            }];
+        }
+    }
+    
+    
+    UIStackView *bottomStackView = [[UIStackView alloc] initWithArrangedSubviews:@[_inputTextView]];
+    bottomStackView.alignment = UIStackViewAlignmentBottom;
+    bottomStackView.spacing = 18;
+    
+    if (!self.isGroup) {
+        
+        [bottomStackView insertArrangedSubview:_micButton atIndex:0];
+        [bottomStackView insertArrangedSubview:_faceButton atIndex:2];
+        
+        _giftButton = [[UIButton alloc] init];
+        [_giftButton setImage:[IMHelper imageWithColor:UIColor.clearColor size:CGSizeMake(35, 35)] forState:UIControlStateNormal];
+        [_giftButton setImage:[UIImage tk_imageNamed:@"ToolViewKeyboard"] forState:UIControlStateSelected];
+        [_giftButton addTarget:self action:@selector(clickGiftBtn:) forControlEvents:UIControlEventTouchUpInside];
+        
+        
+        self.giftView = [[SVGAPlayer alloc] init];
+        self.giftView.userInteractionEnabled = NO;
+        
+        [bottomStackView addArrangedSubview:_giftButton];
+        
+        [_giftButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.equalTo(@(CGSizeMake(35, 35)));
+        }];
+        
+        [_giftButton addSubview:_giftView];
+        
+        [_giftView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(_giftButton);
+        }];
+        
+        [self.svgaParser parseWithNamed:@"im_gift_btn" inBundle:nil completionBlock:^(SVGAVideoEntity * _Nonnull videoItem) {
+            self.giftView.videoItem = videoItem;
+            [self.giftView startAnimation];
+        } failureBlock:^(NSError * _Nonnull error) {
+            
+        }];
+    }
+    
+    [stackView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self).offset(TTextView_Margin);
+        make.leading.equalTo(self).offset(TTextView_Margin);
+        make.trailing.equalTo(self).offset(-TTextView_Margin);
+    }];
+    
+    
+    [stackView addArrangedSubview:bottomStackView];
+    
+    
+    [_inputTextView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_greaterThanOrEqualTo(@(TTextView_TextView_Height_Min));
+    }];
+    
+    
 }
 
 - (void)defaultLayout
 {
     _lineView.frame = CGRectMake(0, 0, Screen_Width, TLine_Heigh);
-    
-//    _inputTextView.frame = CGRectMake(TTextView_Margin, TTextView_Margin, Screen_Width - (TTextView_Margin * 2), TTextView_TextView_Height_Min);
-    _inputTextView.frame = CGRectMake(15, TTextView_Margin, Screen_Width - (15 * 2), TTextView_TextView_Height_Min);
-    
-    
-    CGSize buttonSize = TTextView_Button_Size;
-    
-    
-    CGFloat buttonOriginY = (self.frame.size.height - buttonSize.height) - 16;
-    
-    
-    NSArray<UIButton *> *buttons = @[_faceButton, _micButton, _giftButton, _moreButton];
-    
-    CGFloat spacing = (Screen_Width - (buttonSize.width * buttons.count) - (InputBar_ButtonMargin * 2)) / (buttons.count - 1);
-    
-    [buttons enumerateObjectsUsingBlock:^(UIButton * _Nonnull button, NSUInteger index, BOOL * _Nonnull stop) {
-        
-        CGFloat buttonX = InputBar_ButtonMargin + (spacing + buttonSize.width) * index;
-        button.frame = CGRectMake(buttonX  , buttonOriginY, buttonSize.width, buttonSize.height);
-    }];
     
 }
 
@@ -132,51 +212,65 @@
     frame.size.height = height;
     self.frame = frame;
 
-    CGSize buttonSize = TTextView_Button_Size;
-    
-    
-    CGFloat buttonOriginY = (height - buttonSize.height) - 16;
-    
-    
-    NSArray<UIButton *> *buttons = @[_faceButton, _micButton, _giftButton, _moreButton];
-    
-    CGFloat spacing = (Screen_Width - (buttonSize.width * buttons.count) - (InputBar_ButtonMargin * 2)) / (buttons.count - 1);
-    
-    [buttons enumerateObjectsUsingBlock:^(UIButton * _Nonnull button, NSUInteger index, BOOL * _Nonnull stop) {
-        
-        CGFloat buttonX = InputBar_ButtonMargin + (spacing + buttonSize.width) * index;
-        button.frame = CGRectMake(buttonX  , buttonOriginY, buttonSize.width, buttonSize.height);
-    }];
-
-
     if(_delegate && [_delegate respondsToSelector:@selector(inputBar:didChangeInputHeight:)]){
         [_delegate inputBar:self didChangeInputHeight:offset];
     }
 }
 
+- (void)clickSayHelloBtn:(UIButton *)sender {
+    
+    if(_delegate && [_delegate respondsToSelector:@selector(inputBarDidTouchSayHello:)]) {
+        [_delegate inputBarDidTouchSayHello:self];
+    }
+}
+
+- (void)clickAudioBtn:(UIButton *)sender {
+    
+    if(_delegate && [_delegate respondsToSelector:@selector(inputBarDidTouchAudio:)]) {
+        [_delegate inputBarDidTouchAudio:self];
+    }
+}
+
+- (void)clickVideoBtn:(UIButton *)sender {
+    
+    if(_delegate && [_delegate respondsToSelector:@selector(inputBarDidTouchVideo:)]) {
+        [_delegate inputBarDidTouchVideo:self];
+    }
+}
+
+- (void)clickPhotoBtn:(UIButton *)sender {
+    
+    if(_delegate && [_delegate respondsToSelector:@selector(inputBarDidTouchPhoto:)]) {
+        [_delegate inputBarDidTouchPhoto:self];
+    }
+}
+
 - (void)clickVoiceBtn:(UIButton *)sender
 {
-    [self layoutButton:TTextView_Height + InputBar_ToolHeight];
+    [self handleKeyboard:sender selector:@selector(inputBarDidTouchVoice:)];
+}
+
+- (void)handleKeyboard:(UIButton *)sender selector:(SEL)selector {
     
     sender.selected = !sender.isSelected;
-    
     [self resetToolButtonSelectedNotIn:sender];
     
     if (sender.isSelected) {
-        [_inputTextView resignFirstResponder];
-        if(_delegate && [_delegate respondsToSelector:@selector(inputBarDidTouchMore:)]){
-            [_delegate inputBarDidTouchVoice:self];
+        if(_delegate && [_delegate respondsToSelector:selector]) {
+            
+            [_delegate performSelector:selector withObject:self];
         }
     }
     else {
-        [self clickKeyboardBtn:self.keyboardButton];
+        
+        [self clickKeyboardBtn:nil];
     }
-    _keyboardButton.frame = _micButton.frame;
 }
+
 
 - (void)clickKeyboardBtn:(UIButton *)sender
 {
-    [self layoutButton:_inputTextView.frame.size.height + 2 * TTextView_Margin + InputBar_ToolHeight];
+    [self layoutButton:_inputTextView.frame.size.height + self.otherHeight];
     if(_delegate && [_delegate respondsToSelector:@selector(inputBarDidTouchKeyboard:)]){
         [_delegate inputBarDidTouchKeyboard:self];
     }
@@ -185,20 +279,7 @@
 - (void)clickFaceBtn:(UIButton *)sender
 {
     
-    sender.selected = !sender.isSelected;
-    
-    [self resetToolButtonSelectedNotIn:sender];
-    
-    if (sender.isSelected) {
-        if(_delegate && [_delegate respondsToSelector:@selector(inputBarDidTouchFace:)]){
-            [_delegate inputBarDidTouchFace:self];
-        }
-    }
-    else {
-        [self clickKeyboardBtn:self.keyboardButton];
-    }
-    
-    _keyboardButton.frame = _faceButton.frame;
+    [self handleKeyboard:sender selector:@selector(inputBarDidTouchFace:)];
 }
 
 - (void)resetToolButtonSelected {
@@ -207,7 +288,11 @@
 
 - (void)resetToolButtonSelectedNotIn:(UIButton *) btn {
     
-    NSMutableArray *buttons = @[_faceButton, _micButton, _giftButton, _moreButton].mutableCopy;
+    if (self.isGroup) {
+        return;
+    }
+    
+    NSMutableArray *buttons = @[_faceButton, _micButton, _giftButton].mutableCopy;
     
     if (btn != nil) {
         [buttons removeObject:btn];
@@ -215,25 +300,15 @@
     [buttons enumerateObjectsUsingBlock:^(UIButton * _Nonnull button, NSUInteger idx, BOOL * _Nonnull stop) {
         button.selected = false;
     }];
-}
     
+    if (_giftButton && self.giftView != nil) {
+        self.giftView.hidden = _giftButton.isSelected;
+    }
+}
+            
 - (void)clickGiftBtn:(UIButton *)sender
 {
-    
-    sender.selected = !sender.isSelected;
-    
-    [self resetToolButtonSelectedNotIn:sender];
-    
-    if (sender.isSelected) {
-        
-        if(_delegate && [_delegate respondsToSelector:@selector(inputBarDidTouchGift:)]){
-            [_delegate inputBarDidTouchGift:self];
-        }
-    }
-    else {
-        [self clickKeyboardBtn:self.keyboardButton];
-    }
-    
+    [self handleKeyboard:sender selector:@selector(inputBarDidTouchGift:)];    
 }
 
 - (void)clickMoreBtn:(UIButton *)sender
@@ -279,19 +354,25 @@
     if(oldHeight == newHeight){
         return;
     }
-
+    
+    [textView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@(newHeight));
+    }];
+    
     __weak typeof(self) ws = self;
     [UIView animateWithDuration:0.3 animations:^{
         CGRect textFrame = ws.inputTextView.frame;
         textFrame.size.height += newHeight - oldHeight;
         ws.inputTextView.frame = textFrame;
-        if ( self.isShowButtons) {
-            [ws layoutButton:newHeight + 2 * TTextView_Margin + InputBar_ToolHeight];
-        }
-        else {
-            [ws layoutButton:newHeight + 2 * TTextView_Margin];
-        }
+        [ws layoutButton:newHeight + self.otherHeight];
     }];
+}
+
+- (CGFloat)otherHeight {
+    if ( self.isGroup) {
+        return  2 * TTextView_Margin;
+    }
+    return  18 + 29 + 2 * TTextView_Margin;
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
