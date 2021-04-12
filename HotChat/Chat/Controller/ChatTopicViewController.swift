@@ -10,34 +10,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-/*
-// 展示 UI 界面
-msg.status = Msg_Status_Sending;
-msg.name = [msg.innerMessage getShowName];
-msg.avatarUrl = [NSURL URLWithString:[msg.innerMessage faceURL]];
-if(dateMsg){
-    _msgForDate = imMsg;
-    [_uiMsgs addObject:dateMsg];
-    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:_uiMsgs.count - 1 inSection:0]]
-                          withRowAnimation:UITableViewRowAnimationFade];
-}
-[_uiMsgs addObject:msg];
-[self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:_uiMsgs.count - 1 inSection:0]]
-                      withRowAnimation:UITableViewRowAnimationFade];
-[self.tableView endUpdates];
-[self scrollToBottom:YES];
-
-int delay = 1;
-if([msg isKindOfClass:[TUIImageMessageCellData class]]){
-    delay = 0;
-}
-dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-    @strongify(self)
-    if(msg.status == Msg_Status_Sending){
-        [self changeMsg:msg status:Msg_Status_Sending_2];
-    }
-});
-*/
 class ChatTopicViewController: ChatViewController, UIPopoverPresentationControllerDelegate {
     
     
@@ -86,7 +58,7 @@ class ChatTopicViewController: ChatViewController, UIPopoverPresentationControll
         
         
         textView.isEditable = !isMuted
-        textView.isHidden = isMuted
+//        textView.isHidden = isMuted
         inputController.inputBar.isUserInteractionEnabled = !isMuted
         
         if !isMuted {
@@ -107,9 +79,11 @@ class ChatTopicViewController: ChatViewController, UIPopoverPresentationControll
             mutedButton.setTitle("您涉及言论违规已被禁言，请联系客服。", for: .disabled)
         }
         
-        mutedButton.frame = textView.frame
+        let size = inputController.inputBar.inputTextView.frame.size
         
-        inputController.inputBar.addSubview(mutedButton)
+        mutedButton.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+
+        inputController.inputBar.inputTextView.addSubview(mutedButton)
         
     }
 

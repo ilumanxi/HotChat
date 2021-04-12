@@ -90,6 +90,7 @@
             </constraints>
             <connections>
                 <outlet property="top1AvatarImageView" destination="fYj-zd-XHy" id="BuS-be-OGC"/>
+                <outlet property="top1AvatarMaskView" destination="pB6-2r-ijq" id="37g-oU-vte"/>
                 <outlet property="top2AvatarImageView" destination="tDG-jk-iSa" id="I9W-dC-YbF"/>
                 <outlet property="top3AvatarImageView" destination="c9G-97-EjE" id="id0-UZ-rTu"/>
                 <outlet property="typeImageView" destination="Tdp-NH-1oI" id="ecr-0i-DgY"/>

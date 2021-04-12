@@ -52,24 +52,17 @@ class UserInfoHeaderView: UIView {
     @IBOutlet weak var nicknameLabel: UILabel!
     
     
-    @IBOutlet weak var locationLabel: UILabel!
-    
-    
     @IBOutlet weak var statusLabel: UILabel!
     
     
     
-    @IBOutlet weak var authenticationButton: UIButton!
+    @IBOutlet weak var authenticationImageView: UIImageView!
     
     @IBOutlet weak var vipButton: UIButton!
     
-    
-    @IBOutlet weak var sexView: LabelView!
-    
 
-    @IBOutlet weak var gradeView: UIImageView!
-    
-    
+    @IBOutlet weak var sexButton: SexButton!
+        
     let onFollowButtonTapped = Delegate<UserInfoHeaderView, Void>()
     
     let onVipAction = Delegate<UserInfoHeaderView, Void>()
@@ -121,17 +114,15 @@ class UserInfoHeaderView: UIView {
     
     func reloadData() {
         
-        
         collectionView.reloadData()
         pagerView.reloadData()
         nicknameLabel.text = user.nick
-        sexView.setSex(user)
-        gradeView.setGrade(user)
+        sexButton.set(user)
         vipButton.setVIP(user.vipType)
-        authenticationButton.alpha = user.headStatus.alpha
-        locationLabel.text = user.region
-        statusLabel.text = user.onlineStatus.text
-        statusLabel.textColor = user.onlineStatus.color
+        authenticationImageView.isHidden = user.authenticationStatus != .ok
+        
+        statusLabel.isHidden = user.onlineStatus == .offline
+        
         
     }
     

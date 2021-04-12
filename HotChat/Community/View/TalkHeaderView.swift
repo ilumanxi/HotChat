@@ -214,7 +214,7 @@ class TalkHeaderView: UIView {
     @objc func marqueeVerticalCompleted() {
         
         if verticalMarquees.isEmpty {
-            let _ = addMarqueeVerticalLabel(attributedText: NSAttributedString(string: "Hi~接下来的动态信息，第一时间掌握交友秘诀哦。"))
+            let _ = addMarqueeVerticalLabel(attributedText: NSAttributedString(string: "HI~留意接下来的动态信息，第一时间掌握交友秘诀"))
             addMarqueeVerticalAnimation()
         }
         else {
@@ -305,7 +305,7 @@ class TalkHeaderView: UIView {
         }
     }
     
-    // "Hi~接下来的动态信息，第一时间掌握交友秘诀哦。"
+    // "HI~留意接下来的动态信息，第一时间掌握交友秘诀"
     func addMarqueeVerticalLabel(attributedText: NSAttributedString) -> UILabel {
         
         let frame = CGRect(x: 0, y: marqueeView.bounds.height, width: marqueeView.bounds.width, height: marqueeView.bounds.height);

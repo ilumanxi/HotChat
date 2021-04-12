@@ -170,26 +170,35 @@
     @weakify(self)
     //message
     _messageController = [[TUIMessageController alloc] init];
-    _messageController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - self.inputBarHeight - Bottom_SafeHeight);
+    if (self.inputBarHeight > 0) {
+        _messageController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - self.inputBarHeight - Bottom_SafeHeight);
+    }
+    else {
+        _messageController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - self.inputBarHeight);
+    }
+    
     _messageController.delegate = self;
     [self addChildViewController:_messageController];
     [self.view addSubview:_messageController.view];
     [_messageController setConversation:self.conversationData];
-
-    //input
-    _inputController = [[InputController alloc] init];
-    [self addChildViewController:_inputController];
-    [self.view addSubview:_inputController.view];
-    _inputController.view.frame = CGRectMake(0, self.view.frame.size.height - self.inputBarHeight - Bottom_SafeHeight, self.view.frame.size.width, self.inputBarHeight + Bottom_SafeHeight);
-    _inputController.view.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
-    _inputController.delegate = self;
-    [RACObserve(self, moreMenus) subscribeNext:^(NSArray *x) {
-        @strongify(self)
-        [self.inputController.moreView setData:x];
-    }];
     
-    [_inputController didMoveToParentViewController:self];
-    _inputController.inputBar.inputTextView.text = self.conversationData.draftText;
+    if (self.inputBarHeight > 0) {
+        //input
+        _inputController = [[InputController alloc] init];
+        [self addChildViewController:_inputController];
+        [self.view addSubview:_inputController.view];
+        _inputController.view.frame = CGRectMake(0, self.view.frame.size.height - self.inputBarHeight - Bottom_SafeHeight, self.view.frame.size.width, self.inputBarHeight + Bottom_SafeHeight);
+        _inputController.view.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
+        _inputController.delegate = self;
+        [RACObserve(self, moreMenus) subscribeNext:^(NSArray *x) {
+            @strongify(self)
+            [self.inputController.moreView setData:x];
+        }];
+        
+        [_inputController didMoveToParentViewController:self];
+        _inputController.inputBar.inputTextView.text = self.conversationData.draftText;
+    }
+
     self.tipsView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tipsView.backgroundColor = RGB(246, 234, 190);
     [self.view addSubview:self.tipsView];

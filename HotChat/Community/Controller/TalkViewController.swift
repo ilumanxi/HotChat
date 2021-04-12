@@ -62,7 +62,7 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
         }
     }
     
-    var talkTop: TalkTop? {
+    var talkTop: TalkTop = TalkTop() {
         didSet {
             headerView.talkTop = talkTop
         }
@@ -158,7 +158,7 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
             
         }
         
-        
+        talkTop = TalkTop()
         Observable<Int>.interval(DispatchTimeInterval.seconds(60), scheduler: MainScheduler.instance)
             .subscribe(onNext: { [weak self] _ in
                 self?.refreshTop()
@@ -396,7 +396,7 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
         topAPI.request(.vitalityList(type: 0), type: Response<TalkTop>.self)
             .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in
-                self?.talkTop = response.data
+                self?.talkTop = response.data ?? TalkTop()
                 
             }, onError: nil)
             .disposed(by: rx.disposeBag)

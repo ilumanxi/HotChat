@@ -58,7 +58,19 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
         fatalError("init(coder:) has not been implemented")
     }
     
-
+    
+    var isAdmin: Bool {
+        return conversationData.userID == "10001"
+    }
+    
+    override var inputBarHeight: CGFloat {
+        if isAdmin {
+            return 0
+        }
+       
+        return super.inputBarHeight
+    }
+    
     var user: User?
     
     override func viewDidLoad() {
@@ -75,6 +87,10 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
     
     
     func setupNavigationItem() {
+        
+        if isAdmin {
+            return
+        }
         
         let setting = UIBarButtonItem(image: UIImage(named: "chat-setting"), style: .plain, target: self, action: #selector(pushUserSetting))
         var items = [setting]
@@ -118,7 +134,7 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
     @objc func userSetting(userId: String) {
         let user = User()
         user.userId = userId
-        
+       
         let vc = UserSettingViewController.loadFromStoryboard()
         vc.user = user
         navigationController?.pushViewController(vc, animated: true)
@@ -315,7 +331,13 @@ extension ChatViewController: ChatControllerDelegate {
     }
     
     func chatController(_ controller: ChatController!, onSelectMessageAvatar cell: TUIMessageCell!) {
-        userSetting(userId: cell.messageData.identifier)
+        if !isAdmin {
+            let user = User()
+            user.userId = cell.messageData.identifier
+            let vc = UserInfoViewController()
+            vc.user = user
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     func chatController(_ controller: ChatController!, onSelectMessageContent cell: TUIMessageCell!) {

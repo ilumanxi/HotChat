@@ -28,13 +28,10 @@ class TalkTop: NSObject, HandyJSON {
 extension TalkTop {
     var data: [TalkTypeTop] {
         var list: [TalkTypeTop] = []
-        if !consumeList.isEmpty {
-            list.append(TalkTypeTop(type: .estate, users: consumeList))
-        }
         
-        if !incomeList.isEmpty {
-            list.append(TalkTypeTop(type: .charm, users: incomeList))
-        }
+        list.append(TalkTypeTop(type: .estate, users: consumeList))
+        list.append(TalkTypeTop(type: .charm, users: incomeList))
+        
         return list
     }
 }

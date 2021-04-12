@@ -12,6 +12,9 @@ import Kingfisher
 
 class ListViewCell: FSPagerViewCell {
     
+    
+    @IBOutlet weak var top1AvatarMaskView: UIImageView!
+    
     @IBOutlet weak var top1AvatarImageView: UIImageView!
     @IBOutlet weak var top2AvatarImageView: UIImageView!
     @IBOutlet weak var top3AvatarImageView: UIImageView!
@@ -37,6 +40,8 @@ class ListViewCell: FSPagerViewCell {
         
         
         typeImageView.image = model.type.typeImage
+        
+        top1AvatarMaskView.isHidden = model.users.isEmpty
         
         let imageViews = [top1AvatarImageView, top2AvatarImageView, top3AvatarImageView]
         

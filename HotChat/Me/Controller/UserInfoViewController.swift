@@ -49,7 +49,7 @@ class UserInfoViewController: AquamanPageViewController, LoadingStateType, Indic
     
     var headerViewHeight: CGFloat {
         
-        return 110.0 + view.bounds.width
+        return 82.0 + view.bounds.width
     }
     private var menuViewHeight: CGFloat = 44.0
     

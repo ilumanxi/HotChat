@@ -37,21 +37,25 @@ class UserDataView: UIView {
     @IBOutlet weak var introduceLabel: UILabel!
     
     func set(_ model: User)  {
+        
+        
+        let placeholder = model.userId == LoginManager.shared.user!.userId ? "未设置"  : "保密"
+        
         userIDLabel.text = model.userId
         sexLabel.text = model.sex.description
         realNameButton.isSelected = model.realNameStatus == .ok
         authenticationButton.isSelected = model.authenticationStatus == .ok
         ageLabel.text = "\(model.age)岁"
-        heightLabel.text = model.height.isEmpty ? "保密" : model.height
+        heightLabel.text = model.height.isEmpty ? placeholder: model.height
         regionLabel.text = model.region
         let home = "\(model.homeProvince)\(model.homeCity)"
-        homeLabel.text = home.isEmpty ? "保密" : home
-        educationLabel.text = model.education.isEmpty ? "保密" : model.education
+        homeLabel.text = home.isEmpty ? placeholder : home
+        educationLabel.text = model.education.isEmpty ? placeholder : model.education
         let industry =  model.industryList.first?.label ?? ""
-        industryLabel.text = industry.isEmpty  ? "保密" : industry
-        incomeLabel.text = model.income.isEmpty  ? "保密" : model.income
+        industryLabel.text = industry.isEmpty  ? placeholder : industry
+        incomeLabel.text = model.income.isEmpty  ? placeholder : model.income
         constellationLabel.text = model.constellation
-        introduceLabel.text = model.introduce.isEmpty  ? "保密" : model.introduce
+        introduceLabel.text =  model.introduce.isEmpty ? "未设置" : model.introduce
     }
     
 
