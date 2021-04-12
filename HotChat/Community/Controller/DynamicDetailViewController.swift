@@ -23,10 +23,19 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
     var state: LoadingState = .initial {
         didSet {
             if isViewLoaded {
-                showOrHideIndicator(loadingState: state)
+                if state == .noContent  && user.userId == LoginManager.shared.user!.userId {
+                    showOrHideIndicator(loadingState: state, in: tableView, text: "发布你的第一条动态\n收获新的朋友", image: UIImage(), actionText: "发布")
+                }
+                else if state == .noContent {
+                    showOrHideIndicator(loadingState: state, in: tableView, text: "还没发布消息......", image: UIImage(named: "no-content-dynamic"), actionText: nil)
+                }
+                else {
+                    showOrHideIndicator(loadingState: state, in: tableView)
+                }
             }
         }
     }
+    
 
     let dynamicAPI = Request<DynamicAPI>()
     
@@ -87,6 +96,59 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
     
     
     let API = Request<ChatGreetAPI>()
+    
+    
+    func actionTapped() {
+        if LoginManager.shared.user!.realNameStatus.isPresent {
+            self.presentDynamic()
+        }
+        else {
+            self.checkUserAttestation()
+        }
+    }
+    
+    func presentDynamic() {
+        let vc = DynamicViewController()
+        vc.onSened.delegate(on: self) { (self, _) in
+            
+            if let navigationController =  self.children.first as? UINavigationController,
+               let controller = navigationController.viewControllers.first as? IndicatorDisplay {
+                controller.refreshData()
+            }
+        }
+        let navVC = UINavigationController(rootViewController: vc)
+        navVC.modalPresentationStyle = .fullScreen
+        present(navVC, animated: true, completion: nil)
+    }
+    
+    let authenticationAPI = Request<AuthenticationAPI>()
+    
+    func checkUserAttestation() {
+        showIndicator()
+        authenticationAPI.request(.checkUserAttestation, type: Response<Authentication>.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { [weak self] response in
+                guard let self = self else { return }
+                self.hideIndicator()
+                if response.data!.realNameStatus.isPresent {
+                    let user = LoginManager.shared.user!
+                    user.realNameStatus = response.data!.realNameStatus
+                    LoginManager.shared.update(user: user)
+                    self.presentDynamic()
+                }
+                else {
+                    let vc = AuthenticationGuideViewController()
+                    vc.onPushing.delegate(on: self) { (self, _) -> UINavigationController? in
+                        return self.navigationController
+                    }
+                    self.present(vc, animated: true, completion: nil)
+                }
+            }, onError: { [weak self] error in
+                self?.hideIndicator()
+                self?.show(error)
+            })
+            .disposed(by: rx.disposeBag)
+    }
     
     func chatViewState() {
         if LoginManager.shared.user!.girlStatus {

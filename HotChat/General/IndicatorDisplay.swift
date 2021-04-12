@@ -131,7 +131,7 @@ extension IndicatorDisplay where Self: UIViewController {
                 actionButton.contentEdgeInsets = UIEdgeInsets(top: 10, left: 25, bottom: 10, right: 25)
                 actionButton.titleLabel?.font = .systemFont(ofSize: 14, weight: .regular)
                 actionButton.setTitleColor(.white, for: .normal)
-                actionButton.colors = [UIColor(hexString: "#0CB9DE"), UIColor(hexString: "#5159F8")]
+                actionButton.colors = [UIColor(hexString: "#FF3F3F"), UIColor(hexString: "#FF6A2F")]
                 actionButton.setTitle(actionText, for: .normal)
                 actionButton.sizeToFit()
                 actionButton.layer.cornerRadius = actionButton.bounds.height / 2
