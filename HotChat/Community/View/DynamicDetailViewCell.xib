@@ -41,7 +41,7 @@
                                 <rect key="frame" x="10" y="10" width="296" height="254"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="a0F-H7-rR8">
-                                        <rect key="frame" x="0.0" y="0.0" width="296" height="43"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="296" height="43.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qVA-Q8-sLc">
                                                 <rect key="frame" x="0.0" y="0.0" width="123" height="17"/>
@@ -72,17 +72,17 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="c1z-mV-RUY">
-                                                <rect key="frame" x="0.0" y="27" width="64.5" height="16"/>
+                                                <rect key="frame" x="0.0" y="27" width="68" height="16.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dp-aX-i2O" customClass="SexButton" customModule="HotChat" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="29.5" height="16"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="33" height="16.5"/>
                                                         <color key="backgroundColor" red="0.56862745100000001" green="0.82352941180000006" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
                                                         <inset key="contentEdgeInsets" minX="4" minY="2" maxX="4" maxY="2"/>
                                                         <state key="normal" title="26" image="male"/>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Btj-8V-LVP">
-                                                        <rect key="frame" x="33.5" y="1" width="31" height="14.5"/>
+                                                        <rect key="frame" x="37" y="1" width="31" height="14.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -92,7 +92,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mbe-b0-0DK">
-                                        <rect key="frame" x="0.0" y="49" width="296" height="42"/>
+                                        <rect key="frame" x="0.0" y="49.5" width="296" height="41.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -292,7 +292,7 @@
         <image name="immortal" width="45.5" height="16"/>
         <image name="like-normal" width="15" height="16"/>
         <image name="like-selected" width="16" height="16"/>
-        <image name="male" width="8.5" height="8"/>
+        <image name="male" width="12" height="12.5"/>
         <image name="more" width="3" height="14"/>
         <image name="private-chat" width="16.5" height="14.5"/>
         <image name="vip-month" width="22.5" height="13"/>

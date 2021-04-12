@@ -20,7 +20,7 @@
 
 @interface TextMessageCell ()
 
-@property (nonatomic, strong) LabelView *sex;
+@property (nonatomic, strong) SexButton *sex;
 
 @property (nonatomic, strong) UIButton *vip;
 
@@ -36,7 +36,7 @@
     if (self) {
         
          
-        _sex = [LabelView new];
+        _sex = [SexButton new];
         _vip = [UIButton buttonWithType:UIButtonTypeCustom];
         
         _stackView = [[UIStackView alloc] initWithArrangedSubviews:@[_sex, _vip]];
@@ -67,7 +67,7 @@
     self.textData = data;
     self.content.attributedText = data.attributedString;
     self.content.textColor = data.textColor;
-    [_sex setSex: data.user];
+    [_sex set:data.user];
     [_vip setVIP: data.user.ocVipType];
     
     _stackView.hidden = !data.showName;

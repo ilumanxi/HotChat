@@ -332,7 +332,7 @@ class MeViewController: UITableViewController, Autorotate, IndicatorDisplay {
         meHeaderView.avatarImageView.kf.setImage(with: URL(string: user.headPic))
         meHeaderView.nicknameLabel.text = user.nick
         meHeaderView.userIDLabel.text = user.userId
-        meHeaderView.sexView.setSex(user)
+        meHeaderView.sexButton.set(user)
         meHeaderView.vipButton.setVIP(user.vipType)
         meHeaderView.vipButton.isHidden = false
         

@@ -35,7 +35,7 @@ class MeHeaderView: UIView {
     
     @IBOutlet weak var nicknameLabel: UILabel!
     
-    @IBOutlet weak var sexView: LabelView!
+    @IBOutlet weak var sexButton: SexButton!
     
     @IBOutlet weak var gradeView: UIImageView!
     
