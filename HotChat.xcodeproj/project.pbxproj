@@ -287,6 +287,11 @@
 		26A731B22536D6B600CCECE5 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A731B12536D6B600CCECE5 /* ReportViewController.swift */; };
 		26A8D4E9251C8F3E00B736CF /* Constellation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A8D4E8251C8F3E00B736CF /* Constellation.swift */; };
 		26AB26E225401C0D00C16025 /* RemarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AB26E125401C0D00C16025 /* RemarkViewController.swift */; };
+		26AC0E302623EC4100F53951 /* NoteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AC0E2E2623EC4100F53951 /* NoteViewCell.swift */; };
+		26AC0E312623EC4100F53951 /* NoteViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26AC0E2F2623EC4100F53951 /* NoteViewCell.xib */; };
+		26AC0E332623FB4200F53951 /* CommunityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26AC0E322623FB4200F53951 /* CommunityViewController.xib */; };
+		26AC0E3626240B8400F53951 /* RelationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AC0E3426240B8400F53951 /* RelationViewController.swift */; };
+		26AC0E3726240B8400F53951 /* RelationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26AC0E3526240B8400F53951 /* RelationViewController.xib */; };
 		26AC1E4C25060D27003EFB44 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AC1E4B25060D27003EFB44 /* LoginViewController.swift */; };
 		26AC1E4E250613B6003EFB44 /* KeychainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AC1E4D250613B5003EFB44 /* KeychainItem.swift */; };
 		26AC1E5225062568003EFB44 /* PhoneSigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AC1E5125062568003EFB44 /* PhoneSigninViewController.swift */; };
@@ -834,6 +839,11 @@
 		26A731B12536D6B600CCECE5 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		26A8D4E8251C8F3E00B736CF /* Constellation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constellation.swift; sourceTree = "<group>"; };
 		26AB26E125401C0D00C16025 /* RemarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemarkViewController.swift; sourceTree = "<group>"; };
+		26AC0E2E2623EC4100F53951 /* NoteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewCell.swift; sourceTree = "<group>"; };
+		26AC0E2F2623EC4100F53951 /* NoteViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteViewCell.xib; sourceTree = "<group>"; };
+		26AC0E322623FB4200F53951 /* CommunityViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityViewController.xib; sourceTree = "<group>"; };
+		26AC0E3426240B8400F53951 /* RelationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationViewController.swift; sourceTree = "<group>"; };
+		26AC0E3526240B8400F53951 /* RelationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RelationViewController.xib; sourceTree = "<group>"; };
 		26AC1E4B25060D27003EFB44 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		26AC1E4D250613B5003EFB44 /* KeychainItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItem.swift; sourceTree = "<group>"; };
 		26AC1E4F250619B7003EFB44 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -1786,6 +1796,9 @@
 				263A6C3625C2DA4800FD43B6 /* PairCallViewController.swift */,
 				263A6C3725C2DA4800FD43B6 /* PairCallViewController.xib */,
 				26CBE3B32508A3FC0089A23C /* CommunityViewController.swift */,
+				26AC0E322623FB4200F53951 /* CommunityViewController.xib */,
+				26AC0E3426240B8400F53951 /* RelationViewController.swift */,
+				26AC0E3526240B8400F53951 /* RelationViewController.xib */,
 				26F8893925318681001A14F2 /* DynamicViewController.swift */,
 				2617D3F325C55F45009AAE16 /* DynamicViewController.xib */,
 				268458E725343FA8002B9C6E /* DynamicDetailViewController.swift */,
@@ -1829,6 +1842,8 @@
 				F305482A2532BC0800844D00 /* DynamicViewCell.swift */,
 				268458E025342B7D002B9C6E /* DynamicDetailViewCell.swift */,
 				2660F5F326172BB200F849B3 /* DynamicDetailViewCell.xib */,
+				26AC0E2E2623EC4100F53951 /* NoteViewCell.swift */,
+				26AC0E2F2623EC4100F53951 /* NoteViewCell.xib */,
 				2626E4E5261C14CD007B57D2 /* DynamicView.swift */,
 				2626E4E7261C14E0007B57D2 /* DynamicView.xib */,
 				268458EF25345352002B9C6E /* MediaViewCell.swift */,
@@ -2192,6 +2207,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26AC0E3726240B8400F53951 /* RelationViewController.xib in Resources */,
 				26C3F3312542764F00CDD533 /* AnchorAuthenticationViewController.xib in Resources */,
 				269DED1C254AAC4D000AD5D9 /* GiftViewController.xib in Resources */,
 				26610E11261171C8008E154A /* NewcomerAwardViewController.xib in Resources */,
@@ -2217,7 +2233,9 @@
 				26FBCF642558EF32001F3DFA /* ConsumerDetailsViewController.xib in Resources */,
 				26F8946C25203B7300A45648 /* TitleViewCell.xib in Resources */,
 				2693697525555E06002E224B /* PhoneBindingController.xib in Resources */,
+				26AC0E332623FB4200F53951 /* CommunityViewController.xib in Resources */,
 				263A6C3C25C2DDEB00FD43B6 /* pair.svga in Resources */,
+				26AC0E312623EC4100F53951 /* NoteViewCell.xib in Resources */,
 				267955042507637600A72954 /* Community.storyboard in Resources */,
 				26C81EEE25480B1900C1D563 /* GiftViewCell.xib in Resources */,
 				26BA6A0E25F365E60002C3DE /* VipBuyViewController.xib in Resources */,
@@ -2422,6 +2440,7 @@
 				26202028261EAEFE006A5AD7 /* RegionPickerViewController.swift in Sources */,
 				267954E82507311E00A72954 /* LegalLiabilityViewController.swift in Sources */,
 				26E48901257DDFD1006C2ACE /* GirdLayout.m in Sources */,
+				26AC0E3626240B8400F53951 /* RelationViewController.swift in Sources */,
 				2684593925354EDB002B9C6E /* Reload.swift in Sources */,
 				26C3F3302542764F00CDD533 /* AnchorAuthenticationViewController.swift in Sources */,
 				26278B8A256CFD64007044E1 /* JPGiftShowView.m in Sources */,
@@ -2553,6 +2572,7 @@
 				267955082507747400A72954 /* UserInfoHeaderView.swift in Sources */,
 				26AC1E5225062568003EFB44 /* PhoneSigninViewController.swift in Sources */,
 				26F710092542C77A00797E87 /* InfoSettings.swift in Sources */,
+				26AC0E302623EC4100F53951 /* NoteViewCell.swift in Sources */,
 				26C8CC6C26044301005FDFF8 /* ChatMemberContainerViewController.swift in Sources */,
 				26CA6EEC25382DC40023E27B /* ChannelCell.swift in Sources */,
 				2619D18725625AAB0071CC85 /* GiftCountViewController.m in Sources */,
@@ -2934,7 +2954,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 1.5.0;
+				MARKETING_VERSION = 1.5.2;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -3055,7 +3075,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 1.5.0;
+				MARKETING_VERSION = 1.5.2;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

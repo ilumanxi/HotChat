@@ -1,9 +1,9 @@
 //
-//  CommunityViewController.swift
+//  RelationViewController.swift
 //  HotChat
 //
-//  Created by 风起兮 on 2020/9/9.
-//  Copyright © 2020 风起兮. All rights reserved.
+//  Created by 风起兮 on 2021/4/12.
+//  Copyright © 2021 风起兮. All rights reserved.
 //
 
 import UIKit
@@ -19,15 +19,7 @@ import SPAlertController
 import YBImageBrowser
 
 
-
-
-class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisplay {
-    
-    
-    func showOrHideIndicator(loadingState: LoadingState, text: String? = nil, image: UIImage? = nil) {
-        showOrHideIndicator(loadingState: loadingState, in: self.tableView, text: text, image: image)
-    }
-    
+class RelationViewController: UIViewController, LoadingStateType, IndicatorDisplay {
     
     var state: LoadingState = .initial {
         didSet {
@@ -44,12 +36,6 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     let loadSignal = PublishSubject<Int>()
     
     let dynamicAPI = Request<DynamicAPI>()
-    
-    let upgradeAPI = Request<UpgradeAPI>()
-    
-    let checkInAPI = Request<CheckInAPI>()
-    
-    let chatGreetAPI = Request<ChatGreetAPI>()
     
     let bannerAPI = Request<BannerAPI>()
     
@@ -70,13 +56,6 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
 
     @IBOutlet weak var tableView: UITableView!
     
-    var checkInResult: CheckInResult?
-    
-    
-    @IBOutlet weak var phoneBindingView: UIView!
-    
-    private var isShowCheckIn = false
-    
     let playerManager = PlayerManager()
     
     override func viewDidLoad() {
@@ -86,20 +65,6 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
         
         playerManager.listPlayer.volume = 0
         
-        GiftManager.shared().getGiftList { _ in
-        }
-        
-        GiftHelper.giftNumConfig(success: { _ in
-            
-        }, failed: { _ in
-            
-        })
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            LoginManager.shared.getLocation { _ in
-                
-            }
-        }
         
         tableView.register(BanberHeaderView.self, forHeaderFooterViewReuseIdentifier: "BanberHeaderView")
         tableView.register(UINib(nibName: "DynamicDetailViewCell", bundle: nil), forCellReuseIdentifier: "DynamicDetailViewCell")
@@ -118,77 +83,10 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
             self?.loadMoreData()
         }
         
-
-        hiddenPhoneBindingView()
-        
-        state = .loadingContent
-
         refreshData()
-        
-        observePhoneState()
-        upgradeAPI.request(.updateChannel, type: Response<Upgrade>.self)
-            .verifyResponse()
-            .subscribe(onSuccess: { [weak self] response in
-                let vc = UpgrateViewController(upgrade: response.data!)
-                self?.present(vc, animated: true, completion: nil)
-            })
-            .disposed(by: rx.disposeBag)
+
     }
     
-    @objc func pairc() {
-        let vc = PairsViewController()
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        checkUserInitState()
-        if LoginManager.shared.user!.isInit {
-            checkInState()
-        }
-    }
-    
-    
-    func checkUserInitState() {
-        if !LoginManager.shared.user!.isInit {
-            let vc = UserInformationViewController()
-            navigationController?.pushViewController(vc, animated: false)
-        }
-    }
-    
-    func checkInState() {
-        
-        if LoginManager.shared.user!.girlStatus || AppAudit.share.signinStatus  || !isShowCheckIn {
-            self.checkInResult = nil
-            return
-        }
-        
-        checkInAPI.request(.checkUserSignInfo, type: Response<CheckInResult>.self)
-            .verifyResponse()
-            .subscribe(onSuccess: { [weak self] response in
-                self?.checkInResult = response.data
-                self?.presentCheckIn()
-                
-            }, onError: { [weak self] error in
-                self?.checkInResult = nil
-            })
-            .disposed(by: rx.disposeBag)
-    }
-    
-    func observePhoneState() {
-        NotificationCenter.default.rx.notification(.userDidChange)
-            .subscribe(onNext: { [weak self] _ in
-                self?.hiddenPhoneBindingView()
-            })
-            .disposed(by: rx.disposeBag)
-    }
-    
-    
-    func hiddenPhoneBindingView() {
-        if !LoginManager.shared.user!.phone.isEmpty {
-            phoneBindingView?.removeFromSuperview()
-        }
-    }
     
     func endRefreshing(noContent: Bool = false) {
         tableView.reloadData()
@@ -234,7 +132,7 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     
     func loadData(_ page: Int) -> Single<Response<Pagination<Dynamic>>> {
          
-        return dynamicAPI.request(.dynamicCommunity(page))
+        return dynamicAPI.request(.followDynamicList(page))
     }
     
     func handlerReponse(_ response: Response<Pagination<Dynamic>>){
@@ -291,91 +189,10 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
        
     }
     
-    func presentCheckIn() {
-        let vc = CheckInViewController(day: checkInResult!.day)
-        vc.onCheckInSucceed.delegate(on: self) { (self, _) in
-            self.checkInState()
-        }
-        present(vc, animated: true) {
-            self.isShowCheckIn = false
-        }
-    }
-    
-    @IBAction func bingPhone(_ sender: Any) {
-        
-        let vc = PhoneBindingController()
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    @IBAction func hiddenPhoneBindingTapped(_ sender: Any) {
-        
-        phoneBindingView.removeFromSuperview()
-    }
-    
-    
-    @IBAction func sendButtonTapped(_ sender: Any) {
-        if LoginManager.shared.user!.realNameStatus.isPresent {
-            self.presentDynamic()
-        }
-        else {
-            self.checkUserAttestation()
-        }
-    }
-    
-    func presentDynamic() {
-        let vc = DynamicViewController()
-        vc.onSened.delegate(on: self) { (self, _) in
-            
-            if let navigationController =  self.children.first as? UINavigationController,
-               let controller = navigationController.viewControllers.first as? IndicatorDisplay {
-                controller.refreshData()
-            }
-        }
-        let navVC = UINavigationController(rootViewController: vc)
-        navVC.modalPresentationStyle = .fullScreen
-        present(navVC, animated: true, completion: nil)
-    }
-    
-    let authenticationAPI = Request<AuthenticationAPI>()
-    
-    func checkUserAttestation() {
-        showIndicator()
-        authenticationAPI.request(.checkUserAttestation, type: Response<Authentication>.self)
-            .verifyResponse()
-            .subscribe(onSuccess: { [weak self] response in
-                guard let self = self else { return }
-                self.hideIndicator()
-                if response.data!.realNameStatus.isPresent {
-                    let user = LoginManager.shared.user!
-                    user.realNameStatus = response.data!.realNameStatus
-                    LoginManager.shared.update(user: user)
-                    self.presentDynamic()
-                }
-                else {
-                    let vc = AuthenticationGuideViewController()
-                    vc.onPushing.delegate(on: self) { (self, _) -> UINavigationController? in
-                        return self.navigationController
-                    }
-                    self.present(vc, animated: true, completion: nil)
-                }
-            }, onError: { [weak self] error in
-                self?.hideIndicator()
-                self?.show(error)
-            })
-            .disposed(by: rx.disposeBag)
-    }
-    
-    
-    
-    func psuhDynamicDetail(_ dynamic: Dynamic) {
-        let vc = DynamicDetailViewController.loadFromStoryboard()
-        vc.user = dynamic.userInfo
-    }
-    
 }
 
 
-extension CommunityViewController: UITableViewDataSource, UITableViewDelegate {
+extension RelationViewController: UITableViewDataSource, UITableViewDelegate {
     
     
     func like(_ dynamic: Dynamic)  {
@@ -486,8 +303,6 @@ extension CommunityViewController: UITableViewDataSource, UITableViewDelegate {
         
         self.playerManager.addPlayView(in: containerView)
         self.playerManager.play(at: index)
-       
-
         
     }
     
@@ -503,9 +318,6 @@ extension CommunityViewController: UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.cellForRow(at: indexPath) as? DynamicDetailViewCell else {
             return
         }
-        
-        
-
         
         guard let playCell = cell.collectionView.visibleCells.first else { return  }
         
@@ -696,7 +508,7 @@ extension CommunityViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 
-extension CommunityViewController: GiftViewControllerDelegate {
+extension RelationViewController: GiftViewControllerDelegate {
     
     func giftViewController(_ giftController: GiftViewController, didSelect gift: Gift) {
         

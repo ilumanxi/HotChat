@@ -27,6 +27,7 @@ enum DynamicAPI{
     case dynamicGiftList(dynamicId: String, page: Int)
     case dynamicNewsList(dynamicId: String, page: Int)
     case dynamicInfo(dynamicId: String)
+    case followDynamicList(Int)
     
 }
 
@@ -72,6 +73,8 @@ extension DynamicAPI: TargetType {
             return "Dynamic/dynamicNewsList"
         case .dynamicInfo:
             return "Dynamic/dynamicInfo"
+        case .followDynamicList:
+            return "Dynamic/followDynamicList"
         }
     }
     
@@ -149,6 +152,10 @@ extension DynamicAPI: TargetType {
         case .dynamicInfo(dynamicId: let dynamicId):
             parameters = [
                 "dynamicId" : dynamicId
+            ]
+        case .followDynamicList(let page):
+            parameters = [
+                "page" : page
             ]
         }
         

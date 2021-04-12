@@ -95,6 +95,13 @@ class Dynamic: NSObject, HandyJSON {
     var userInfo: User!
     var commentCount: Int = 0
     var commentList: [[String: Any]]?
+    /// 年
+    var year: String = ""
+    /// 月
+    var date2: String = ""
+    /// 日、小时
+    var date1: String = ""
+   
     
     required override init() {
         super.init()

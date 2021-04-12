@@ -54,7 +54,7 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(UINib(nibName: "DynamicDetailViewCell", bundle: nil), forCellReuseIdentifier: "DynamicDetailViewCell")
+        tableView.register(UINib(nibName: "NoteViewCell", bundle: nil), forCellReuseIdentifier: "NoteViewCell")
         
     
         tableView.mj_header = MJRefreshNormalHeader { [weak self] in
@@ -258,7 +258,7 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
         
         let dynamic = dynamics[indexPath.item]
         
-        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: DynamicDetailViewCell.self)
+        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: NoteViewCell.self)
         cell.dynamic = dynamic
         
         cell.onAvatarTapped.delegate(on: self) { (self, sender) in

@@ -332,10 +332,10 @@ class DiscoverViewController: TabmanViewController, LoadingStateType, IndicatorD
     
     lazy var viewConrollers: [UIViewController] = {
         
-        let community = CommunityViewController.loadFromStoryboard()
+        let community = CommunityViewController()
         community.title = "广场"
         
-        let follow = UIViewController()
+        let follow = RelationViewController()
         follow.title = "关注"
         
         return [community, follow]

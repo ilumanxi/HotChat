@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommunityViewController" customModule="HotChat" customModuleProvider="target">
+            <connections>
+                <outlet property="phoneBindingView" destination="AVY-dv-ymo" id="7SY-4y-duZ"/>
+                <outlet property="tableView" destination="Oo6-cF-PYP" id="25A-1Q-27C"/>
+                <outlet property="view" destination="Xo8-to-thR" id="0fu-fU-92b"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Xo8-to-thR">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Oo6-cF-PYP">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Paq-Vn-ddi"/>
+                        <outlet property="delegate" destination="-1" id="AFT-v0-pbZ"/>
+                    </connections>
+                </tableView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="Prf-Jr-xeo">
+                    <rect key="frame" x="0.0" y="818" width="414" height="44"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AVY-dv-ymo">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <subviews>
+                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gb5-Y8-yCl">
+                                    <rect key="frame" x="88" y="13.5" width="238" height="17"/>
+                                    <gestureRecognizers/>
+                                    <attributedString key="attributedText">
+                                        <fragment content=" 绑定手机提高账号安全，">
+                                            <attributes>
+                                                <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <font key="NSFont" metaFont="system" size="14"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="去绑定 ">
+                                            <attributes>
+                                                <color key="NSColor" red="0.99607843137254903" green="0.54117647058823526" blue="0.71372549019607845" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" metaFont="system" size="14"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="        ">
+                                            <attributes>
+                                                <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <font key="NSFont" metaFont="system" size="14"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <nil key="highlightedColor"/>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="TWp-6U-o3z" appends="YES" id="uEI-30-EKa"/>
+                                    </connections>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fiH-pG-wBT">
+                                    <rect key="frame" x="378" y="11" width="16" height="22"/>
+                                    <state key="normal" image="close-white"/>
+                                    <connections>
+                                        <action selector="hiddenPhoneBindingTapped:" destination="-1" eventType="touchUpInside" id="nZD-nD-5Ft"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="6Wp-rx-ild"/>
+                                <constraint firstAttribute="trailingMargin" secondItem="fiH-pG-wBT" secondAttribute="trailing" constant="12" id="BAE-27-ypp"/>
+                                <constraint firstItem="Gb5-Y8-yCl" firstAttribute="centerX" secondItem="AVY-dv-ymo" secondAttribute="centerX" id="kSU-li-Xkr"/>
+                                <constraint firstItem="fiH-pG-wBT" firstAttribute="centerY" secondItem="AVY-dv-ymo" secondAttribute="centerY" id="u07-0m-mY8"/>
+                                <constraint firstItem="Gb5-Y8-yCl" firstAttribute="centerY" secondItem="AVY-dv-ymo" secondAttribute="centerY" id="zt5-lY-OKP"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="Zrf-9k-hCg"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Oo6-cF-PYP" firstAttribute="leading" secondItem="Xo8-to-thR" secondAttribute="leading" id="COg-gH-W63"/>
+                <constraint firstAttribute="trailing" secondItem="Prf-Jr-xeo" secondAttribute="trailing" id="CWy-dL-qxZ"/>
+                <constraint firstAttribute="bottom" secondItem="Oo6-cF-PYP" secondAttribute="bottom" id="VaU-4V-Nrk"/>
+                <constraint firstItem="Prf-Jr-xeo" firstAttribute="leading" secondItem="Xo8-to-thR" secondAttribute="leading" id="Z74-Pr-mrd"/>
+                <constraint firstItem="Zrf-9k-hCg" firstAttribute="bottom" secondItem="Prf-Jr-xeo" secondAttribute="bottom" id="bVz-qM-fc1"/>
+                <constraint firstAttribute="trailing" secondItem="Oo6-cF-PYP" secondAttribute="trailing" id="icK-cr-KjA"/>
+                <constraint firstItem="Oo6-cF-PYP" firstAttribute="top" secondItem="Xo8-to-thR" secondAttribute="top" id="v6p-sQ-WBV"/>
+            </constraints>
+            <point key="canvasLocation" x="83" y="76"/>
+        </view>
+        <tapGestureRecognizer id="TWp-6U-o3z">
+            <connections>
+                <action selector="bingPhone:" destination="-1" id="62r-7p-nxm"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+    <resources>
+        <image name="close-white" width="16" height="16"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
