@@ -102,6 +102,9 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
     
     
     private func setUserView() {
+        if self.user == nil || isAdmin {
+            return
+        }
         userView.sizeToFit()
         messageController.tableView.tableHeaderView = userView
     }
@@ -124,7 +127,7 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
     }
     
     func requestUser()  {
-        if self.conversationData.userID.isEmpty {
+        if self.conversationData.userID.isEmpty || isAdmin {
             return
         }
         userAPI.request(.userinfo(userId: self.conversationData.userID), type: Response<User>.self)

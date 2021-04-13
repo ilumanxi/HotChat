@@ -231,7 +231,7 @@ enum VipType: Int, HandyJSONEnum {
     /// 在线状态
     var onlineStatus: OnlineStatus = .offline
     
-    /// 真人认证
+    /// 真人、视频认证
     var authenticationStatus: ValidationStatus = .empty
     
     /// 头像认证

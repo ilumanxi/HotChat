@@ -67,6 +67,7 @@ class UserInfoViewController: AquamanPageViewController, LoadingStateType, Indic
             userInfoHeaderView.user = user
             information.user = user
             dynamic.user = user
+            followState()
         }
     }
     
@@ -257,17 +258,18 @@ class UserInfoViewController: AquamanPageViewController, LoadingStateType, Indic
     }
     
     @objc func follow(_ sender: UIButton) {
-        
+        self.showIndicator()
         self.dynamicAPI.request(.follow(self.user.userId), type: ResponseEmpty.self)
             .verifyResponse()
             .subscribe(onSuccess: { [unowned self] response in
+                self.hideIndicator()
                 let user = self.user
                 user?.isFollow = true
                 self.user = user
                 self.followState()
                 self.show(response.msg)
-            }, onError: { error in
-                
+            }, onError: { [unowned self]  error in
+                self.hideIndicator()
                 self.show(error)
             })
             .disposed(by: self.rx.disposeBag)
@@ -591,17 +593,12 @@ extension UserInfoViewController: GiftViewControllerDelegate {
             else if (giveGift.resultCode == 3) { //能量不足，需要充值
                 giftController.dismiss(animated: true) {
                     
-                    let alertController = UIAlertController(title: nil, message: "您的能量不足、请充值！", preferredStyle: .alert)
-                    
-                    alertController.addAction(UIAlertAction(title: "立即充值", style: .default, handler: { _ in
+                    let vc =  TipAlertController(title: "温馨提示", message:  "您的能量不足，请充值", leftButtonTitle: "取消", rightButtonTitle: "立即充值")
+                    vc.onRightDidClick.delegate(on: self) { (self, _) in
                         let vc = WalletViewController()
                         self.navigationController?.pushViewController(vc, animated: true)
-                    }))
-                    
-                    alertController.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
-                    
-                    self.present(alertController, animated: true, completion: nil)
-                  
+                    }
+                    self.present(vc, animated: true, completion: nil)
                 }
                 
             }

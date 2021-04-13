@@ -135,12 +135,10 @@ class DynamicListViewController: UIViewController, LoadingStateType, IndicatorDi
         
         view.onDeleteTapped.delegate(on: self) { (self, _) in
             
-            let vc = UIAlertController(title: "提示", message: "确定删除该消息？", preferredStyle: .alert)
-            vc.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
-            vc.addAction(UIAlertAction(title: "确定", style: .destructive, handler: { _ in
+            let vc =  TipAlertController(title: "提示", message:  "确定删除该消息？", leftButtonTitle: "取消", rightButtonTitle: "确定")
+            vc.onRightDidClick.delegate(on: self) { (self, _) in
                 self.delete(self.dynamic)
-            }))
-            
+            }
             self.present(vc, animated: true, completion: nil)
         }
         

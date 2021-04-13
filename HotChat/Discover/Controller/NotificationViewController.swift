@@ -166,6 +166,7 @@ extension NotificationViewController: UITableViewDelegate {
         let dynamic = model.data!
         showIndicator()
         API.request(.dynamicInfo(dynamicId: dynamic.dynamicId), type: Response<Dynamic>.self)
+            .verifyResponse()
             .subscribe(onSuccess: { [unowned self] response in
                 model.isRead = true
                 let vc = DynamicListViewController(dynamic: response.data!)

@@ -41,7 +41,10 @@ class CommentsViewController: UIViewController, AquamanChildViewController, Indi
     
     var state: LoadingState = .initial {
         didSet {
-            if isViewLoaded  && state != oldValue {
+            if state == .noContent {
+                showOrHideIndicator(loadingState: state, in: containerView, text: "首条评论可坐上沙发哟~", image: UIImage(), actionText: nil)
+            }
+            else {
                 showOrHideIndicator(loadingState: state, in: containerView)
             }
         }

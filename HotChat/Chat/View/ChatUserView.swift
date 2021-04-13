@@ -31,6 +31,8 @@ class ChatUserView: UIView {
     
     @IBOutlet weak var introductionLabel: UILabel!
     
+    @IBOutlet weak var introductionStackView: UIStackView!
+    
     
     @IBOutlet weak var authenticationView: UIImageView!
     
@@ -42,10 +44,14 @@ class ChatUserView: UIView {
         infoView.isHidden = true
     }
     
+    @IBAction func avatarViewTapped(_ sender: Any) {
+    }
     
     @IBAction func followButtonTapped(_ sender: Any) {
         onFollowTapped.call()
     }
+    
+    
     
     
     override func sizeThatFits(_ size: CGSize) -> CGSize {
@@ -66,6 +72,7 @@ extension ChatUserView {
     
     func set(_ user: User) {
         infoView.isHidden = false
+        introductionStackView.isHidden = user.introduce.isEmpty
         avatarView.kf.setImage(with: URL(string: user.headPic))
         nameLabel.text = user.nick
         sexButton.set(user)

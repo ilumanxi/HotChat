@@ -77,7 +77,7 @@ class AddressBookViewController: UIViewController, AquamanChildViewController, L
     func display()  {
         label(qqLabel, button: qqButton, status: info!.qq!)
         label(wechatLabel, button: wechatButton, status: info!.weixin!)
-        label(phoneLabel, button: phoneButton, status: info!.qq!)
+        label(phoneLabel, button: phoneButton, status: info!.contactPhone!)
         
     }
     
