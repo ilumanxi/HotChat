@@ -90,7 +90,7 @@ class Dynamic: NSObject, HandyJSON {
     var isSelfZan: Bool = false
     var isGreet: Bool = false
     var zanNum: Int = 0
-    var giftNum: Int = 0
+    var giftCount: Int = 0
     var coverUrl: String = ""
     var userInfo: User!
     var commentCount: Int = 0

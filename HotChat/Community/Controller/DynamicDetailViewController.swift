@@ -501,7 +501,7 @@ extension DynamicDetailViewController: GiftViewControllerDelegate {
             
             if giveGift.resultCode == 1 {
                 
-                dynamic.giftNum += 1
+                dynamic.giftCount += 1
                 self.tableView.reloadData()
                 
                 let  user  = LoginManager.shared.user!

@@ -143,7 +143,7 @@ class DynamicListViewController: UIViewController, LoadingStateType, IndicatorDi
             
             let vc =  TipAlertController(title: "提示", message:  "确定删除该消息？", leftButtonTitle: "取消", rightButtonTitle: "确定")
             vc.onRightDidClick.delegate(on: self) { (self, _) in
-                self.delete(self.dynamic)
+                self.delete(dynamic:self.dynamic)
             }
             self.present(vc, animated: true, completion: nil)
         }
@@ -215,13 +215,13 @@ class DynamicListViewController: UIViewController, LoadingStateType, IndicatorDi
         let titles = [
             "评论（\(dynamic.commentCount)）",
             "赞（\(dynamic.zanNum)）",
-            "礼物（\(dynamic.giftNum)）",
+            "礼物（\(dynamic.giftCount)）",
         ]
         
         return titles
     }
     
-    func delete(_ dynamic: Dynamic)  {
+    func delete(dynamic: Dynamic)  {
         
         showIndicatorOnWindow()
         dynamicAPI.request(.delDynamic(dynamic.dynamicId), type: ResponseEmpty.self)

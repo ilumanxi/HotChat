@@ -194,6 +194,25 @@ class RelationViewController: UIViewController, LoadingStateType, IndicatorDispl
 
 extension RelationViewController: UITableViewDataSource, UITableViewDelegate {
     
+    func delete(_ dynamic: Dynamic)  {
+        
+        showIndicatorOnWindow()
+        dynamicAPI.request(.delDynamic(dynamic.dynamicId), type: ResponseEmpty.self)
+            .subscribe(onSuccess: {[weak self] response in
+               
+                self?.dynamics.removeAll{
+                    $0.dynamicId == dynamic.dynamicId
+                }
+                self?.tableView.reloadData()
+                
+                self?.hideIndicatorFromWindow()
+            }, onError: { [weak self] error in
+                self?.hideIndicatorFromWindow()
+                self?.showMessageOnWindow(error)
+            })
+            .disposed(by: rx.disposeBag)
+    }
+    
     
     func like(_ dynamic: Dynamic)  {
         
@@ -526,7 +545,7 @@ extension RelationViewController: GiftViewControllerDelegate {
             
             if giveGift.resultCode == 1 {
                 
-                dynamic.giftNum += 1
+                dynamic.giftCount += 1
                 self.tableView.reloadData()
                 
                 let  user  = LoginManager.shared.user!

@@ -79,14 +79,14 @@
         
         _micButton = [[UIButton alloc] init];
         [_micButton addTarget:self action:@selector(clickVoiceBtn:) forControlEvents:UIControlEventTouchUpInside];
-        [_micButton setImage:[UIImage tk_imageNamed:@"ToolViewInputVoice"] forState:UIControlStateNormal];
-        [_micButton setImage:[UIImage tk_imageNamed:@"ToolViewKeyboard"] forState:UIControlStateSelected];
+        [_micButton setImage:[UIImage imageNamed:@"ToolViewInputVoice"] forState:UIControlStateNormal];
+        [_micButton setImage:[UIImage imageNamed:@"ToolViewKeyboard"] forState:UIControlStateSelected];
 
 
         _faceButton = [[UIButton alloc] init];
         [_faceButton addTarget:self action:@selector(clickFaceBtn:) forControlEvents:UIControlEventTouchUpInside];
-        [_faceButton setImage:[UIImage tk_imageNamed:@"ToolViewEmotion"] forState:UIControlStateNormal];
-        [_faceButton setImage:[UIImage tk_imageNamed:@"ToolViewKeyboard"] forState:UIControlStateSelected];
+        [_faceButton setImage:[UIImage imageNamed:@"ToolViewEmotion"] forState:UIControlStateNormal];
+        [_faceButton setImage:[UIImage imageNamed:@"ToolViewKeyboard"] forState:UIControlStateSelected];
         
         
         UIButton *sayhellowButton = [HotChatButton buttonWithType:UIButtonTypeCustom];
@@ -153,9 +153,17 @@
         [bottomStackView insertArrangedSubview:_micButton atIndex:0];
         [bottomStackView insertArrangedSubview:_faceButton atIndex:2];
         
+        [_micButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.equalTo(@(CGSizeMake(35, 35)));
+        }];
+        
+        [_faceButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.equalTo(@(CGSizeMake(35, 35)));
+        }];
+        
         _giftButton = [[UIButton alloc] init];
         [_giftButton setImage:[IMHelper imageWithColor:UIColor.clearColor size:CGSizeMake(35, 35)] forState:UIControlStateNormal];
-        [_giftButton setImage:[UIImage tk_imageNamed:@"ToolViewKeyboard"] forState:UIControlStateSelected];
+        [_giftButton setImage:[UIImage imageNamed:@"ToolViewKeyboard"] forState:UIControlStateSelected];
         [_giftButton addTarget:self action:@selector(clickGiftBtn:) forControlEvents:UIControlEventTouchUpInside];
         
         
