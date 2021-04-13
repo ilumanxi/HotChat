@@ -256,22 +256,30 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
     }
     
     override func inputControllerDidPhoto(_ inputController: InputController!) {
-        
-        let vc = SPAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        
-        vc.addAction(SPAlertAction(title: "拍照", style: .default, handler: { [weak self] _ in
-            self?.takePictureForSend()
-        }))
-        
-        vc.addAction(SPAlertAction(title: "相册选择", style: .default, handler: { [weak self] _ in
-            self?.selectPhotoForSend()
-        }))
-        
-        vc.addAction(SPAlertAction(title: "取消", style: .cancel, handler: { [weak self] _ in
+        if let user = self.user {
+            if CallHelper.share.checkCall(user, type: .image, indicatorDisplay: self) {
+                let vc = SPAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+                
+                vc.addAction(SPAlertAction(title: "拍照", style: .default, handler: { [weak self] _ in
+                    self?.takePictureForSend()
+                }))
+                
+                vc.addAction(SPAlertAction(title: "相册选择", style: .default, handler: { [weak self] _ in
+                    self?.selectPhotoForSend()
+                }))
+                
+                vc.addAction(SPAlertAction(title: "取消", style: .cancel, handler: { [weak self] _ in
+                    
+                }))
+                
+                present(vc, animated: true, completion: nil)
+            }
             
-        }))
-        
-        present(vc, animated: true, completion: nil)
+        }
+        else {
+            requestUser()
+        }
+      
     }
 
 }

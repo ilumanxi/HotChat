@@ -219,11 +219,21 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H8Z-n1-WLh">
+                        <rect key="frame" x="32" y="54" width="0.5" height="230"/>
+                        <color key="backgroundColor" red="0.6470588235294118" green="0.6470588235294118" blue="0.6470588235294118" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="0.5" id="nFr-91-0No"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="H8Z-n1-WLh" firstAttribute="top" secondItem="BtD-TO-ZgU" secondAttribute="bottom" constant="2" id="1gK-rC-DSq"/>
+                    <constraint firstAttribute="bottom" secondItem="H8Z-n1-WLh" secondAttribute="bottom" id="3nK-FW-rI2"/>
                     <constraint firstAttribute="bottom" secondItem="Rww-fA-6YT" secondAttribute="bottom" id="6xW-1C-0fQ"/>
                     <constraint firstItem="BtD-TO-ZgU" firstAttribute="top" secondItem="5Jm-fj-b9d" secondAttribute="top" constant="10" id="75H-wS-Fx1"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Rww-fA-6YT" secondAttribute="trailing" id="7Pd-nb-rUT"/>
+                    <constraint firstItem="H8Z-n1-WLh" firstAttribute="leading" secondItem="BtD-TO-ZgU" secondAttribute="leading" constant="12" id="Ut7-8A-iUU"/>
                     <constraint firstItem="BtD-TO-ZgU" firstAttribute="leading" secondItem="5Jm-fj-b9d" secondAttribute="leadingMargin" id="Xhe-IG-lVe"/>
                     <constraint firstItem="Rww-fA-6YT" firstAttribute="top" secondItem="5Jm-fj-b9d" secondAttribute="top" constant="10" id="Zzc-Y7-yUg"/>
                     <constraint firstItem="Rww-fA-6YT" firstAttribute="leading" secondItem="BtD-TO-ZgU" secondAttribute="trailing" constant="12" id="fT3-Ja-IIb"/>
@@ -244,9 +254,10 @@
                 <outlet property="likeButton" destination="6po-VS-Ael" id="7gO-gN-kU9"/>
                 <outlet property="monthLabel" destination="rVk-T5-GE5" id="BnF-Ki-Gi4"/>
                 <outlet property="moreButton" destination="ZgA-l4-ZNx" id="qtP-KH-wcC"/>
+                <outlet property="timelineView" destination="H8Z-n1-WLh" id="wmu-FM-LFB"/>
                 <outlet property="yearLabel" destination="byp-Xm-G7l" id="HMQ-fa-gSx"/>
             </connections>
-            <point key="canvasLocation" x="139" y="98"/>
+            <point key="canvasLocation" x="137.68115942028987" y="97.767857142857139"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -30,6 +30,12 @@ class DynamicListContainerController: TabmanViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func set(titles: [String], viewControllers: [UIViewController]) {
+        self.titles = titles
+        self.viewControllers = viewControllers
+        reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -109,7 +115,7 @@ class DynamicListViewController: UIViewController, LoadingStateType, IndicatorDi
     }
     
     
-    let dynamic: Dynamic
+    var dynamic: Dynamic!
     
    
     init(dynamic: Dynamic) {
@@ -163,13 +169,16 @@ class DynamicListViewController: UIViewController, LoadingStateType, IndicatorDi
             DynamicInfoViewController(infoType: .zan, dynamic: dynamic),
             DynamicInfoViewController(infoType: .gift, dynamic: dynamic)
         ]
+
         makeUI()
-        dynamicView.dynamic = dynamic
-        
-        self.view.setNeedsLayout()
-        self.view.layoutIfNeeded()
         
         refreshData()
+    }
+    
+    
+    func display()  {
+        dynamicView.dynamic = dynamic
+        containerController.set(titles: menuViewTitles(), viewControllers: viewControllers)
     }
     
     
@@ -270,6 +279,18 @@ class DynamicListViewController: UIViewController, LoadingStateType, IndicatorDi
 
 
     func refreshData() {
+
+        state = .refreshingContent
+        dynamicAPI.request(.dynamicInfo(dynamicId: dynamic.dynamicId), type: Response<Dynamic>.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { [unowned self] response in
+                self.dynamic = response.data!
+                self.display()
+                self.state = .contentLoaded
+            }, onError: { [weak self] error in
+                self?.state  = .error
+            })
+            .disposed(by: rx.disposeBag)
        
     }
 }

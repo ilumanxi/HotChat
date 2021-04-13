@@ -39,6 +39,7 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
 
     let dynamicAPI = Request<DynamicAPI>()
     
+    var commentCount: Int = 0
     var dynamics: [Dynamic] = [] {
         didSet {
             if isViewLoaded {
@@ -235,6 +236,8 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
             return
         }
         
+        commentCount = page.count
+        
         if page.handleType == 0 || page.handleType == 1 {
             refreshData(data)
         }
@@ -322,6 +325,7 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
         
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: NoteViewCell.self)
         cell.dynamic = dynamic
+        cell.timelineView.isHidden = commentCount == (indexPath.row + 1)
         
         cell.onAvatarTapped.delegate(on: self) { (self, sender) in
             let vc = UserInfoViewController()

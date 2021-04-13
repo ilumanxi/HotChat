@@ -30,7 +30,7 @@
                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oPQ-gB-917">
                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                        <state key="normal" image="ybib_more.png"/>
+                        <state key="normal" image="photo-more"/>
                     </button>
                 </subviews>
                 <constraints>
@@ -55,7 +55,7 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="photo-more" width="19.5" height="3.5"/>
         <image name="video-play" width="43" height="50"/>
-        <image name="ybib_more.png" width="22" height="22"/>
     </resources>
 </document>

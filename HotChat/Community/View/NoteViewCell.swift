@@ -38,6 +38,9 @@ class NoteViewCell: UITableViewCell {
     @IBOutlet weak var chatButton: HotChatButton!
     
     
+    @IBOutlet weak var timelineView: UIView!
+    
+    
     let onAvatarTapped = Delegate<NoteViewCell, Void>()
     
     let onLikeTapped = Delegate<NoteViewCell, Void>()

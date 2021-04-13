@@ -43,6 +43,7 @@
     
     if (!_svgaParser) {
         _svgaParser = [[SVGAParser alloc] init];
+        
     }
     return _svgaParser;
 }
@@ -170,7 +171,8 @@
         [_giftButton addSubview:_giftView];
         
         [_giftView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(_giftButton);
+            make.size.equalTo(@(CGSizeMake(48, 48)));
+            make.center.equalTo(_giftButton);
         }];
         
         [self.svgaParser parseWithNamed:@"im_gift_btn" inBundle:nil completionBlock:^(SVGAVideoEntity * _Nonnull videoItem) {

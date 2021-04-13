@@ -149,6 +149,7 @@
                 <outlet property="contentLabel" destination="wwb-7Q-Hwt" id="496-tb-ip2"/>
                 <outlet property="contentView" destination="InJ-3F-xfG" id="hc5-Wu-icO"/>
                 <outlet property="dateLabel" destination="R8n-GB-UKb" id="PVA-wJ-hIS"/>
+                <outlet property="deleteButton" destination="4Ud-JB-r7Z" id="hF2-L9-08q"/>
                 <outlet property="nicknameLabel" destination="uKd-b9-6R7" id="fsf-lm-VLx"/>
                 <outlet property="sexButton" destination="sTo-za-wax" id="wxi-ea-2cp"/>
             </connections>

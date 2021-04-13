@@ -48,17 +48,18 @@ class NotificationViewCell: UITableViewCell {
         avatarButton.kf.setImage(with: URL(string: user.headPic), for: .normal)
         nicknameLabel.text = user.nick
 
+        mediaImageView.kf.setImage(with: URL(string: model.data!.coverUrl))
+        mediaPlayView.isHidden = data.type != .video
         
         if model.eventType == 1 { //评论
             eventLabel.text = model.content
             eventLabel.isHidden = false
-            eventImageView.isHidden = true
+            
         }
         else if model.eventType == 2 { //点赞
             eventImageView.image = UIImage(named: "like-selected")
             mediaView.isHidden = false
-            mediaImageView.kf.setImage(with: URL(string: model.data!.coverUrl))
-            mediaPlayView.isHidden = data.type != .video
+          
             eventLabel.isHidden = true
             eventImageView.isHidden = false
         }

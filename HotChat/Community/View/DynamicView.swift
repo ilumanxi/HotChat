@@ -26,8 +26,10 @@ class DynamicView: UIView {
     
     @IBOutlet weak var contentLabel: UILabel!
     
-    
     @IBOutlet weak var sexButton: SexButton!
+    
+    
+    @IBOutlet weak var deleteButton: UIButton!
     
     let onAvatarTapped = Delegate<DynamicView, Void>()
 
@@ -68,6 +70,7 @@ class DynamicView: UIView {
         dateLabel.text = dynamic.timeFormat
         
         collectionViewHeightConstraint.constant = collectionViewHeight()
+        deleteButton.isHidden = dynamic.userInfo.userId != LoginManager.shared.user!.userId
         
         setNeedsLayout()
         layoutIfNeeded()
