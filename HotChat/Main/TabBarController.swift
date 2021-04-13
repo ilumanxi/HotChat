@@ -11,6 +11,7 @@ import AuthenticationServices
 import RxSwift
 import RxCocoa
 import Moya
+import SVGAPlayer
 
 extension UIWindow {
     
@@ -31,6 +32,8 @@ class TabBarController: UITabBarController, IndicatorDisplay {
         }
         return tabBar
     }()
+    
+    let svgaPlayer = SVGAPlayer()
     
     override func loadView() {
         super.loadView()
@@ -133,6 +136,7 @@ class TabBarController: UITabBarController, IndicatorDisplay {
         }
     }
 
+    let svgas = ["community", "discover", "message" , "me"]
 }
 
 extension TabBarController: UITabBarControllerDelegate {
@@ -146,12 +150,24 @@ extension TabBarController: UITabBarControllerDelegate {
         
         ///  UITabBarButton UITabBarSwappableImageView
         if let button = tabBarItem?.value(forKey: "view") as? UIControl, let imageView =  button.subviews.last(where: { $0 is UIImageView }) {
-            //  bounceAnimation
-            let impliesAnimation = CAKeyframeAnimation(keyPath: "transform.scale")
-            impliesAnimation.values = [1.0 ,1.4, 0.9, 1.15, 0.95, 1.02, 1.0]
-            impliesAnimation.duration = 0.25 * 2
-            impliesAnimation.calculationMode = .cubic
-            imageView.layer.add(impliesAnimation, forKey: nil)
+//            //  bounceAnimation
+//            let impliesAnimation = CAKeyframeAnimation(keyPath: "transform.scale")
+//            impliesAnimation.values = [1.0 ,1.4, 0.9, 1.15, 0.95, 1.02, 1.0]
+//            impliesAnimation.duration = 0.25 * 2
+//            impliesAnimation.calculationMode = .cubic
+//            imageView.layer.add(impliesAnimation, forKey: nil)
+            self.svgaPlayer.backgroundColor = .white
+            self.svgaPlayer.clear()
+            self.svgaPlayer.frame = imageView.bounds
+            imageView.addSubview(self.svgaPlayer)
+            svgaParser.parse(withNamed: svgas[selectIndex], in: nil) { videoItem in
+                self.svgaPlayer.loops = 1
+                self.svgaPlayer.videoItem =  videoItem
+                self.svgaPlayer.clearsAfterStop = false
+                self.svgaPlayer.startAnimation()
+            } failureBlock: { error in
+                print(error)
+            }
         }
         
     }

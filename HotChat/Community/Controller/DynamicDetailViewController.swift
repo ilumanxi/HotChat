@@ -368,6 +368,7 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
                 let video = YBIBVideoData()
                 video.videoURL = URL(string: dynamic.video!.url)!
                 video.projectiveView = imageViews[index]
+                video.autoPlayCount = .max
                 photos = [video]
             }
             else {

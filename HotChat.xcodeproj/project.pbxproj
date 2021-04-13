@@ -480,6 +480,10 @@
 		26FC88F5253ED49000E4D82F /* SearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FC88F4253ED49000E4D82F /* SearchAPI.swift */; };
 		26FC88FA253ED66600E4D82F /* SearchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FC88F9253ED66600E4D82F /* SearchViewCell.swift */; };
 		26FCB26825820149009D845F /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FCB26725820149009D845F /* GradientView.swift */; };
+		26FD330C26257F5200979B36 /* community.svga in Resources */ = {isa = PBXBuildFile; fileRef = 26FD330B26257F5200979B36 /* community.svga */; };
+		26FD330E2625822700979B36 /* discover.svga in Resources */ = {isa = PBXBuildFile; fileRef = 26FD330D2625822700979B36 /* discover.svga */; };
+		26FD33102625829300979B36 /* message.svga in Resources */ = {isa = PBXBuildFile; fileRef = 26FD330F2625829300979B36 /* message.svga */; };
+		26FD3312262582A400979B36 /* me.svga in Resources */ = {isa = PBXBuildFile; fileRef = 26FD3311262582A400979B36 /* me.svga */; };
 		569A62C017EE594D27BBDD0C /* libPods-HotChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1A4E29DD020804E913333F /* libPods-HotChat.a */; };
 		F305482B2532BC0800844D00 /* DynamicViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F305482A2532BC0800844D00 /* DynamicViewCell.swift */; };
 		F370D277251CE65500C2F708 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F370D276251CE65500C2F708 /* ResetPasswordViewController.swift */; };
@@ -1074,6 +1078,10 @@
 		26FC88F4253ED49000E4D82F /* SearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPI.swift; sourceTree = "<group>"; };
 		26FC88F9253ED66600E4D82F /* SearchViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewCell.swift; sourceTree = "<group>"; };
 		26FCB26725820149009D845F /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		26FD330B26257F5200979B36 /* community.svga */ = {isa = PBXFileReference; lastKnownFileType = file; path = community.svga; sourceTree = "<group>"; };
+		26FD330D2625822700979B36 /* discover.svga */ = {isa = PBXFileReference; lastKnownFileType = file; path = discover.svga; sourceTree = "<group>"; };
+		26FD330F2625829300979B36 /* message.svga */ = {isa = PBXFileReference; lastKnownFileType = file; path = message.svga; sourceTree = "<group>"; };
+		26FD3311262582A400979B36 /* me.svga */ = {isa = PBXFileReference; lastKnownFileType = file; path = me.svga; sourceTree = "<group>"; };
 		316CE69C043071315F0EB71A /* Pods-HotChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotChat.debug.xcconfig"; path = "Target Support Files/Pods-HotChat/Pods-HotChat.debug.xcconfig"; sourceTree = "<group>"; };
 		41171A0CC3850914D7B2BEAA /* Pods-HotChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotChat.release.xcconfig"; path = "Target Support Files/Pods-HotChat/Pods-HotChat.release.xcconfig"; sourceTree = "<group>"; };
 		7565AD81F41183F52F23D4B1 /* Pods-HotChat-HotChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotChat-HotChatTests.debug.xcconfig"; path = "Target Support Files/Pods-HotChat-HotChatTests/Pods-HotChat-HotChatTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1423,6 +1431,10 @@
 		264C5C352609E5CF007FB123 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				26FD3311262582A400979B36 /* me.svga */,
+				26FD330F2625829300979B36 /* message.svga */,
+				26FD330B26257F5200979B36 /* community.svga */,
+				26FD330D2625822700979B36 /* discover.svga */,
 				26B22F102609E6DA006B0C49 /* voice_match.svga */,
 				264C5C362609E5FF007FB123 /* video_match.svga */,
 				26A377CE260DB75E002FF17E /* new_user_receive.svga */,
@@ -2234,6 +2246,7 @@
 				26C81EE62547E9E300C1D563 /* VoiceView.xib in Resources */,
 				2637D876255B8E5300020E98 /* BlacklistController.xib in Resources */,
 				26F5537D2553D3CD00840735 /* GiftEarningsViewController.xib in Resources */,
+				26FD330E2625822700979B36 /* discover.svga in Resources */,
 				262BE7E92601D2E700C1B646 /* TopicListViewCell.xib in Resources */,
 				266640602577624500E30A09 /* SayHellowViewController.xib in Resources */,
 				26FBCF642558EF32001F3DFA /* ConsumerDetailsViewController.xib in Resources */,
@@ -2254,6 +2267,7 @@
 				2636A0DA2564CDBF00664FFC /* UpgrateViewController.xib in Resources */,
 				26F553772553D16E00840735 /* TalkEarningsViewController.xib in Resources */,
 				2617D3F425C55F45009AAE16 /* DynamicViewController.xib in Resources */,
+				26FD330C26257F5200979B36 /* community.svga in Resources */,
 				26E5FE4D25F089A500C96392 /* CommentsViewController.xib in Resources */,
 				266DA37C25F8C96D00BE4E74 /* TopViewCell.xib in Resources */,
 				2637D86E255A895B00020E98 /* TalkEarningCell.xib in Resources */,
@@ -2265,6 +2279,7 @@
 				2637D87A255B8EDF00020E98 /* BlacklistCell.xib in Resources */,
 				2626E4E8261C14E0007B57D2 /* DynamicView.xib in Resources */,
 				26C8CC6A2603545C005FDFF8 /* ChatMemberCell.xib in Resources */,
+				26FD33102625829300979B36 /* message.svga in Resources */,
 				260323872620661700144135 /* im_gift_btn.svga in Resources */,
 				267954F62507579700A72954 /* Chat.storyboard in Resources */,
 				2635216E25C7F4F900855487 /* VisitorsVipController.xib in Resources */,
@@ -2332,6 +2347,7 @@
 				26F7BD18260CA74300F911AC /* HeadlineViewController.xib in Resources */,
 				26E8A259261C4A900050608F /* UserInfoViewCell.xib in Resources */,
 				26A377D1260DB778002FF17E /* new_user_waiting.svga in Resources */,
+				26FD3312262582A400979B36 /* me.svga in Resources */,
 				26B22F112609E89E006B0C49 /* voice_match.svga in Resources */,
 				2679C0622624414700D18B47 /* ChatUserView.xib in Resources */,
 				2695903E250B170B00763061 /* InterestedCardView.xib in Resources */,
