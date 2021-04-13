@@ -83,6 +83,13 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
         view.onFollowTapped.delegate(on: self) { (self, _) in
             self.follow(self.user!)
         }
+        view.onAvatarTapped.delegate(on: self) { (self, _) in
+            let user = User()
+            user.userId = self.conversationData.userID
+            let vc = UserInfoViewController()
+            vc.user = user
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
         return view
     }()
     
@@ -105,7 +112,8 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
         if self.user == nil || isAdmin {
             return
         }
-        userView.sizeToFit()
+        
+        userView.fittingSize()
         messageController.tableView.tableHeaderView = userView
     }
     

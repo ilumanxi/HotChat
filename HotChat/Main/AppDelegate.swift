@@ -66,6 +66,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    func applicationWillResignActive(_ application: UIApplication) {
+        application.applicationIconBadgeNumber = 0
+        if XGPush.defaultManager().xgApplicationBadgeNumber > 0 {
+            XGPush.defaultManager().xgApplicationBadgeNumber = 0
+        }
+    }
+    
     func store()  {
         // see notes below for the meaning of Atomic / Non-Atomic
         SwiftyStoreKit.completeTransactions(atomically: true) { purchases in

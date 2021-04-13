@@ -37,6 +37,7 @@ class ChatUserView: UIView {
     @IBOutlet weak var authenticationView: UIImageView!
     
     let onFollowTapped = Delegate<Void, Void>()
+    let onAvatarTapped = Delegate<Void, Void>()
     
     override func awakeFromNib() {
         
@@ -45,24 +46,17 @@ class ChatUserView: UIView {
     }
     
     @IBAction func avatarViewTapped(_ sender: Any) {
+        onAvatarTapped.call()
     }
     
     @IBAction func followButtonTapped(_ sender: Any) {
         onFollowTapped.call()
     }
     
-    
-    
-    
-    override func sizeThatFits(_ size: CGSize) -> CGSize {
-        
-        return systemLayoutSizeFitting(size, withHorizontalFittingPriority: UILayoutPriority(900), verticalFittingPriority: .fittingSizeLevel)
-    }
-    
-    override func sizeToFit() {
-        
-        let size = sizeThatFits(CGSize(width: UIScreen.main.bounds.width, height: UIView.layoutFittingCompressedSize.height))
-        
+
+    func fittingSize()  {
+        let targetSize = CGSize(width: UIScreen.main.bounds.width, height: UIView.layoutFittingCompressedSize.height)
+        let size = systemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: UILayoutPriority(900), verticalFittingPriority: .fittingSizeLevel)
         frame = CGRect(origin: .zero, size: size)
     }
 }
