@@ -242,8 +242,6 @@ class ChatTopicViewController: ChatViewController, UIPopoverPresentationControll
     }
     
     
-    let dynamicAPI = Request<DynamicAPI>()
-    
     var disposeObject = DisposeBag()
     
     override func chatController(_ controller: ChatController!, onSelectMessageAvatar cell: TUIMessageCell!) {

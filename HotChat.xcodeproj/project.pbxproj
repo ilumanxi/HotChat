@@ -230,6 +230,8 @@
 		2679550A2507748C00A72954 /* UserInfoHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 267955092507748C00A72954 /* UserInfoHeaderView.xib */; };
 		2679550C25079A1F00A72954 /* UserInfoChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2679550B25079A1E00A72954 /* UserInfoChatView.swift */; };
 		2679550E25079A4A00A72954 /* UserInfoChatView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2679550D25079A4A00A72954 /* UserInfoChatView.xib */; };
+		2679C0602624412500D18B47 /* ChatUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2679C05F2624412500D18B47 /* ChatUserView.swift */; };
+		2679C0622624414700D18B47 /* ChatUserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2679C0612624414700D18B47 /* ChatUserView.xib */; };
 		2679DA5D2611B469003F2443 /* AvatarRewardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2679DA5B2611B469003F2443 /* AvatarRewardViewController.swift */; };
 		2679DA5E2611B469003F2443 /* AvatarRewardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2679DA5C2611B469003F2443 /* AvatarRewardViewController.xib */; };
 		2679DA612611C179003F2443 /* AnchorTipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2679DA5F2611C179003F2443 /* AnchorTipViewController.swift */; };
@@ -773,6 +775,8 @@
 		267955092507748C00A72954 /* UserInfoHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoHeaderView.xib; sourceTree = "<group>"; };
 		2679550B25079A1E00A72954 /* UserInfoChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoChatView.swift; sourceTree = "<group>"; };
 		2679550D25079A4A00A72954 /* UserInfoChatView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoChatView.xib; sourceTree = "<group>"; };
+		2679C05F2624412500D18B47 /* ChatUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUserView.swift; sourceTree = "<group>"; };
+		2679C0612624414700D18B47 /* ChatUserView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatUserView.xib; sourceTree = "<group>"; };
 		2679DA5B2611B469003F2443 /* AvatarRewardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarRewardViewController.swift; sourceTree = "<group>"; };
 		2679DA5C2611B469003F2443 /* AvatarRewardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvatarRewardViewController.xib; sourceTree = "<group>"; };
 		2679DA5F2611C179003F2443 /* AnchorTipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorTipViewController.swift; sourceTree = "<group>"; };
@@ -1540,6 +1544,8 @@
 				262BE7E72601D2E700C1B646 /* TopicListViewCell.xib */,
 				26C8CC672603545C005FDFF8 /* ChatMemberCell.swift */,
 				26C8CC682603545C005FDFF8 /* ChatMemberCell.xib */,
+				2679C05F2624412500D18B47 /* ChatUserView.swift */,
+				2679C0612624414700D18B47 /* ChatUserView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2327,6 +2333,7 @@
 				26E8A259261C4A900050608F /* UserInfoViewCell.xib in Resources */,
 				26A377D1260DB778002FF17E /* new_user_waiting.svga in Resources */,
 				26B22F112609E89E006B0C49 /* voice_match.svga in Resources */,
+				2679C0622624414700D18B47 /* ChatUserView.xib in Resources */,
 				2695903E250B170B00763061 /* InterestedCardView.xib in Resources */,
 				2611E615260DE11900563156 /* ActivityViewController.xib in Resources */,
 				2679DA622611C179003F2443 /* AnchorTipViewController.xib in Resources */,
@@ -2610,6 +2617,7 @@
 				26B4E0592564EB34004EDCFE /* Upgrade.swift in Sources */,
 				2679550C25079A1F00A72954 /* UserInfoChatView.swift in Sources */,
 				26ED000625C5731200480CEC /* MediaItemViewCell.swift in Sources */,
+				2679C0602624412500D18B47 /* ChatUserView.swift in Sources */,
 				2643EBAC2500B04100FBBE49 /* UserInfoInterviewCell.swift in Sources */,
 				260ABAF025F2431E006A01C0 /* CommentReportViewController.swift in Sources */,
 				263A6684257E0EF200F35714 /* CheckInCell.swift in Sources */,

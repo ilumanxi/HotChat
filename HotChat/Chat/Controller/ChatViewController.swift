@@ -71,7 +71,20 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
         return super.inputBarHeight
     }
     
-    var user: User?
+    var user: User? {
+        didSet {
+            userView.set(user!)
+            setUserView()
+        }
+    }
+    
+    lazy var userView: ChatUserView = {
+        let view = ChatUserView.loadFromNib()
+        view.onFollowTapped.delegate(on: self) { (self, _) in
+            self.follow(self.user!)
+        }
+        return view
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,8 +96,15 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
         requestUser()
         
         observerUserWallet()
+        
+        setUserView()
     }
     
+    
+    private func setUserView() {
+        userView.sizeToFit()
+        messageController.tableView.tableHeaderView = userView
+    }
     
     func setupNavigationItem() {
         
@@ -104,7 +124,9 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
     }
     
     func requestUser()  {
-        
+        if self.conversationData.userID.isEmpty {
+            return
+        }
         userAPI.request(.userinfo(userId: self.conversationData.userID), type: Response<User>.self)
             .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in
@@ -113,6 +135,22 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
                 
             })
             .disposed(by: rx.disposeBag)
+    }
+    
+    let dynamicAPI = Request<DynamicAPI>()
+    
+    func follow(_ user: User) {
+        self.dynamicAPI.request(.follow(user.userId), type: ResponseEmpty.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { response in
+                let user = self.user
+                user?.isFollow = true
+                self.user = user
+                self.show("关注成功")
+            }, onError: { error in
+                self.show(error)
+            })
+            .disposed(by: self.rx.disposeBag)
     }
         
     func observerUserWallet() {
