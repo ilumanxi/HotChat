@@ -33,7 +33,7 @@ class InputBarView: UIView {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.backgroundColor = UIColor(hexString: "#F7F6F6")
         textField.layer.cornerRadius = 19.5
-        textField.placeholder = "想对TA说的话..."
+        textField.placeholder = "想和ta说点什么？"
         textField.returnKeyType = .send
         textField.enablesReturnKeyAutomatically = true
         textField.font = .systemFont(ofSize: 12)

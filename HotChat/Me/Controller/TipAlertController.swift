@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+@objc
 class TipAlertController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -26,8 +26,13 @@ class TipAlertController: UIViewController {
     let rightButtonTitle: String
     
     let onLeftDidClick = Delegate<Void, Void>()
+    
     let onRightDidClick = Delegate<Void, Void>()
     
+    @objc
+    var onRightClick: (() -> Void)?
+    
+    @objc
     init(title: String, message: String, leftButtonTitle: String, rightButtonTitle: String) {
         self.header = title
         self.message = message
@@ -68,6 +73,7 @@ class TipAlertController: UIViewController {
     @IBAction func rightButtonTapped(_ sender: Any) {
         dismiss(animated: true) { [weak self] in
             self?.onRightDidClick.call()
+            self?.onRightClick?()
         }
     }
     

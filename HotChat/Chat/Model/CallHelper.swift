@@ -202,14 +202,14 @@ import AVFoundation
                     CallManager.shareInstance()?.call(nil, userID: userID, callType: callType, callSubType: callSubType)
                 }
                 else if response.data!.callCode == 4 {
-                    let alert = UIAlertController(title: nil, message: "您的能量不足、请充值！", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "立即充值", style: .default, handler: { _ in
+                      
+                    let vc =  TipAlertController(title: "温馨提示", message:  "您的能量不足，请充值", leftButtonTitle: "取消", rightButtonTitle: "立即充值")
+                    vc.onRightDidClick.delegate(on: self) { (self, _) in
                         let vc = WalletViewController()
                         self.getShowNavigationController()?.pushViewController(vc, animated: true)
-                        
-                    }))
-                    alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
-                    UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+                    }
+                    
+                    UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true, completion: nil)
                 }
                 else {
                     UIApplication.shared.keyWindow?.makeToast(response.data?.msg)

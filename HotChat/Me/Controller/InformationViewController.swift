@@ -97,11 +97,16 @@ class InformationViewController: UITableViewController, AquamanChildViewControll
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.tableHeaderView = userDataView
+        setUserDataView()
         
         refreshData()
         tableView.allowsSelection = false
         tableView.register(UserInfoEditingHeaderView.self, forHeaderFooterViewReuseIdentifier: "UserInfoEditingHeaderView")
+    }
+    
+    func setUserDataView() {
+        userDataView.fittingSize()
+        tableView.tableHeaderView = userDataView
     }
     
     func refreshData() {
@@ -127,7 +132,8 @@ class InformationViewController: UITableViewController, AquamanChildViewControll
             }
             
             self.sections = sections
-            userDataView.set(user!)
+            self.userDataView.set(user!)
+           setUserDataView()
         }
        
         tableView.reloadData()

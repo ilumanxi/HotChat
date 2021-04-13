@@ -58,5 +58,11 @@ class UserDataView: UIView {
         introduceLabel.text =  model.introduce.isEmpty ? "未设置" : model.introduce
     }
     
+    
+    func fittingSize()  {
+        let targetSize = CGSize(width: UIScreen.main.bounds.width, height: UIView.layoutFittingCompressedSize.height)
+        let size = systemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: UILayoutPriority(900), verticalFittingPriority: .fittingSizeLevel)
+        frame = CGRect(origin: .zero, size: size)
+    }
 
 }
