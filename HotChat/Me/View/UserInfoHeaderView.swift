@@ -163,7 +163,7 @@ extension UserInfoHeaderView: FSPagerViewDataSource, FSPagerViewDelegate {
             cell.imageView?.kf.setImage(with: URL(string: urlString))
         }
         
-        let  hiddenLock =  index == 0 || LoginManager.shared.user!.vipType != .empty || user.userId ==  LoginManager.shared.user!.userId
+        let  hiddenLock =  index == 0 || LoginManager.shared.user!.vipType != .empty || user.userId ==  LoginManager.shared.user!.userId || LoginManager.shared.user!.girlStatus
         
         cell.visualEffectView.isHidden = hiddenLock
         cell.lockButton.isHidden = hiddenLock
@@ -211,7 +211,7 @@ extension UserInfoHeaderView: UICollectionViewDataSource, UICollectionViewDelega
             self.onVipAction.call(self)
         }
         
-        let  hiddenLock =  indexPath.item == 0 || LoginManager.shared.user!.vipType != .empty || user.userId ==  LoginManager.shared.user!.userId
+        let  hiddenLock =  indexPath.item == 0 || LoginManager.shared.user!.vipType != .empty || user.userId ==  LoginManager.shared.user!.userId || LoginManager.shared.user!.girlStatus
         cell.visualEffectView.isHidden = hiddenLock
         cell.lockButton.isHidden = hiddenLock
         return cell

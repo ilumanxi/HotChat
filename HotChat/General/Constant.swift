@@ -42,38 +42,38 @@ extension Constant {
     }
 }
 
-
-#if DEBUG
-
-/// 测试
-extension Constant {
-
-    @objc static var APIHostURL: URL {
-        return URL(string: "http://\(Constant.Server.APIHost)")!
-    }
-
-    static var H5HostURL: URL {
-        return URL(string: "http://\(Constant.Server.H5Host)")!
-    }
-
-
-    struct IM {
-
-        static let appID: UInt32 = 1400457429
-        static let businessID: Int32 = 24634
-    }
-
-
-    struct Server {
-
-        static let APIHost = "ceshiapi.yuupni.com/gateway.php"
-        static let H5Host = "ceshiadmin.yuupni.com"
-        static let salt: String = "AJ265TT96e930d4d0YUddbcbPjc39CFK"
-    }
-}
-
-
-#else
+//
+//#if DEBUG
+//
+///// 测试
+//extension Constant {
+//
+//    @objc static var APIHostURL: URL {
+//        return URL(string: "http://\(Constant.Server.APIHost)")!
+//    }
+//
+//    static var H5HostURL: URL {
+//        return URL(string: "http://\(Constant.Server.H5Host)")!
+//    }
+//
+//
+//    struct IM {
+//
+//        static let appID: UInt32 = 1400457429
+//        static let businessID: Int32 = 24634
+//    }
+//
+//
+//    struct Server {
+//
+//        static let APIHost = "ceshiapi.yuupni.com/gateway.php"
+//        static let H5Host = "ceshiadmin.yuupni.com"
+//        static let salt: String = "AJ265TT96e930d4d0YUddbcbPjc39CFK"
+//    }
+//}
+//
+//
+//#else
 
 /// 正式
 extension Constant {
@@ -102,7 +102,7 @@ extension Constant {
 
 }
 
-#endif
+//#endif
 
 extension Constant {
     
