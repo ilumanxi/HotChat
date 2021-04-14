@@ -94,8 +94,6 @@ class ChargeViewController: UIViewController, LoadingStateType, IndicatorDisplay
         tableView.rowHeight = 60
         tableView.estimatedRowHeight = 0
         tableView.backgroundColor = UIColor(hexString: "#F6F7F9")
-        tableView.sectionHeaderHeight = 10
-        tableView.sectionFooterHeight = 10
         tableView.register(UINib(nibName: "RightDetailViewCell", bundle: nil), forCellReuseIdentifier: "UITableViewCell")
         tableView.register(UINib(nibName: "SwitchViewCell", bundle: nil), forCellReuseIdentifier: "SwitchViewCell")
         
@@ -191,7 +189,7 @@ class ChargeViewController: UIViewController, LoadingStateType, IndicatorDisplay
             .map { "\($0.charge)能量/分钟" }
         
         let videoPrice =  RightDetailFormEntry(image: nil, text: "视频价格设置", detailText: videoPriceText ?? "2500能量/分钟", onTapped: { [unowned self] in
-            self.picker(items: chargeInfo.config.voiceList, type: 1)
+            self.picker(items: chargeInfo.config.videoList, type: 1)
         })
         let video = FormSection(
             entries: [videoSwitch, videoPrice],
@@ -222,7 +220,7 @@ class ChargeViewController: UIViewController, LoadingStateType, IndicatorDisplay
         
         vc.onPickered.delegate(on: self) { (self, content) in
              let item = items.first { "\($0.charge)能量/分钟" == content  }!
-             self.editCharge(type: 2, item: item)
+             self.editCharge(type: type, item: item)
         }
         present(vc, animated: true, completion: nil)
     }
@@ -237,6 +235,14 @@ extension ChargeViewController: UITableViewDelegate {
         if let entity = self.sections[indexPath.section].formEntries[indexPath.row] as? RightDetailFormEntry {
             entity.onTapped?()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.1
     }
     
 }
