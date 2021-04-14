@@ -271,6 +271,10 @@ class MeViewController: UITableViewController, Autorotate, IndicatorDisplay {
         
         userEntrys.append(RightDetailFormEntry(image: UIImage(named: "me-money"), text: "任务奖励", onTapped: pushTask))
         
+        if user.girlStatus {
+            userEntrys.append(RightDetailFormEntry(image: UIImage(named: "me-charge"), text: "收费中心", onTapped: pushCharge))
+        }
+        
         userEntrys.append(RightDetailFormEntry(image: UIImage(named: "me-help"), text: "帮助中心", onTapped: pushHelp))
         
        let userSection =  FormSection(
@@ -409,6 +413,11 @@ class MeViewController: UITableViewController, Autorotate, IndicatorDisplay {
 
     @IBAction func pushTask()   {
         let vc = WebViewController.H5(path: "h5/sign")
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func pushCharge() {
+        let vc = ChargeViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     

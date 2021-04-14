@@ -35,7 +35,7 @@ class BlacklistController: UIViewController, LoadingStateType, IndicatorDisplay 
         uesrAPI.request(.blackList, type: Response<[User]>.self)
             .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in
-                self?.data = response.data!
+                self?.data = response.data ?? []
                 self?.tableView.reloadData()
                 self?.state = response.data!.isEmpty ? .noContent : .contentLoaded
                 

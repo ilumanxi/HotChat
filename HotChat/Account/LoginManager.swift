@@ -126,7 +126,9 @@ class LoginManager: NSObject {
         SigninDefaultAPI.share.signin(user.token)
             .verifyResponse()
             .subscribe(onSuccess:{ [weak self] response in
-                self?.update(user: response.data!)
+                if let user = response.data {
+                    self?.update(user: user)
+                }
             }, onError: { error in
                 Log.print(error)
             })

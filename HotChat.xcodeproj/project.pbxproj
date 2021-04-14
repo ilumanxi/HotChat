@@ -258,6 +258,11 @@
 		268BB25E251D9B3200001DF3 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268BB25D251D9B3200001DF3 /* UserAPI.swift */; };
 		268E3E602521D074000E4A33 /* RelationshipViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E3E5E2521D074000E4A33 /* RelationshipViewCell.swift */; };
 		268E3E612521D074000E4A33 /* RelationshipViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 268E3E5F2521D074000E4A33 /* RelationshipViewCell.xib */; };
+		26918C232626BAE2007B5F14 /* ChargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26918C212626BAE2007B5F14 /* ChargeViewController.swift */; };
+		26918C242626BAE2007B5F14 /* ChargeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26918C222626BAE2007B5F14 /* ChargeViewController.xib */; };
+		26918C262626CD9E007B5F14 /* ChargeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26918C252626CD9E007B5F14 /* ChargeConfig.swift */; };
+		2691AE2A2626DAF500EE05D7 /* ChargeFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2691AE292626DAF500EE05D7 /* ChargeFooterView.swift */; };
+		2691AE2C2626DB0E00EE05D7 /* ChargeFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2691AE2B2626DB0E00EE05D7 /* ChargeFooterView.xib */; };
 		2693697425555E06002E224B /* PhoneBindingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2693697225555E06002E224B /* PhoneBindingController.swift */; };
 		2693697525555E06002E224B /* PhoneBindingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2693697325555E06002E224B /* PhoneBindingController.xib */; };
 		2694580B253FF7B100EBCABB /* UserSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2694580A253FF7B100EBCABB /* UserSettingViewController.swift */; };
@@ -810,6 +815,11 @@
 		268BB25D251D9B3200001DF3 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		268E3E5E2521D074000E4A33 /* RelationshipViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationshipViewCell.swift; sourceTree = "<group>"; };
 		268E3E5F2521D074000E4A33 /* RelationshipViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RelationshipViewCell.xib; sourceTree = "<group>"; };
+		26918C212626BAE2007B5F14 /* ChargeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargeViewController.swift; sourceTree = "<group>"; };
+		26918C222626BAE2007B5F14 /* ChargeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChargeViewController.xib; sourceTree = "<group>"; };
+		26918C252626CD9E007B5F14 /* ChargeConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargeConfig.swift; sourceTree = "<group>"; };
+		2691AE292626DAF500EE05D7 /* ChargeFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargeFooterView.swift; sourceTree = "<group>"; };
+		2691AE2B2626DB0E00EE05D7 /* ChargeFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChargeFooterView.xib; sourceTree = "<group>"; };
 		2693697225555E06002E224B /* PhoneBindingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneBindingController.swift; sourceTree = "<group>"; };
 		2693697325555E06002E224B /* PhoneBindingController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhoneBindingController.xib; sourceTree = "<group>"; };
 		2694580A253FF7B100EBCABB /* UserSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingViewController.swift; sourceTree = "<group>"; };
@@ -1162,6 +1172,7 @@
 				2637D871255AA13D00020E98 /* GiftEarning.swift */,
 				2623FC59262004F800764DFA /* ContactInfo.swift */,
 				2603238A2621926A00144135 /* AddressBook.swift */,
+				26918C252626CD9E007B5F14 /* ChargeConfig.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1314,6 +1325,8 @@
 				26202021261DA1E5006A5AD7 /* VipPhotoViewController.xib */,
 				2653733D2621A0AA005AE2F3 /* TipAlertController.swift */,
 				2653733E2621A0AA005AE2F3 /* TipAlertController.xib */,
+				26918C212626BAE2007B5F14 /* ChargeViewController.swift */,
+				26918C222626BAE2007B5F14 /* ChargeViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1375,6 +1388,8 @@
 				2660F5EB2616FD5900F849B3 /* UserDataView.swift */,
 				2660F5ED2616FD8C00F849B3 /* UserDataView.xib */,
 				2660F5EF261714A900F849B3 /* PhotoViewCell.swift */,
+				2691AE292626DAF500EE05D7 /* ChargeFooterView.swift */,
+				2691AE2B2626DB0E00EE05D7 /* ChargeFooterView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2261,6 +2276,7 @@
 				26EEA32526048BDA005226AD /* ChatTopicReportViewController.xib in Resources */,
 				26D0034F25A6E97C00168796 /* UserInformationViewController.xib in Resources */,
 				26E4C68525930F89005EAAC3 /* AccountDestructionController.xib in Resources */,
+				2691AE2C2626DB0E00EE05D7 /* ChargeFooterView.xib in Resources */,
 				26597676257886BB00E4B6A2 /* GreetingsAddedView.xib in Resources */,
 				26CBE3B82508A9F20089A23C /* CommunityHeaderView.xib in Resources */,
 				26CB6D5125515D6B00A9F4DD /* com.baidu.idl.face.faceSDK.bundle in Resources */,
@@ -2295,6 +2311,7 @@
 				2619D193256260A90071CC85 /* GiftCountCell.xib in Resources */,
 				2643EB482500AD7E00FBBE49 /* LaunchScreen.storyboard in Resources */,
 				26E291B72554FB810032AE99 /* AvatarAuthenticationResultController.xib in Resources */,
+				26918C242626BAE2007B5F14 /* ChargeViewController.xib in Resources */,
 				2643EB452500AD7E00FBBE49 /* Assets.xcassets in Resources */,
 				26E4C67F2592F440005EAAC3 /* AccountDestructionStatementController.xib in Resources */,
 				2668B0AA2523432A0073E25D /* WalletProductViewCell.xib in Resources */,
@@ -2618,6 +2635,7 @@
 				26597672257886A300E4B6A2 /* GreetingsAddedView.swift in Sources */,
 				26CBE3C12508EB040089A23C /* Appearance.swift in Sources */,
 				2623FC5A262004F800764DFA /* ContactInfo.swift in Sources */,
+				26918C262626CD9E007B5F14 /* ChargeConfig.swift in Sources */,
 				264A20CF25109B5000A264BE /* AccountAPI.swift in Sources */,
 				2682974D2511B0EC00949C7F /* SignupProtocols.swift in Sources */,
 				265C1ED62542D84700110564 /* InviteViewController.swift in Sources */,
@@ -2641,6 +2659,7 @@
 				26EEA3212604757C005226AD /* ChatTopicMenuViewController.swift in Sources */,
 				2668CF0925931B3D00C851F6 /* LogoutAPI.swift in Sources */,
 				26039E1A25F5F9F700A162E3 /* PlayerManager.swift in Sources */,
+				26918C232626BAE2007B5F14 /* ChargeViewController.swift in Sources */,
 				26CB6D4525515D6B00A9F4DD /* BDFaceCircleView.m in Sources */,
 				26CBE3B62508A9C30089A23C /* CommunityHeaderView.swift in Sources */,
 				26A20AFF2518A47F0061BBB8 /* KeychainStore.swift in Sources */,
@@ -2710,6 +2729,7 @@
 				26CB6D3F25515D6B00A9F4DD /* BDFaceLivenessViewController.m in Sources */,
 				2679DA612611C179003F2443 /* AnchorTipViewController.swift in Sources */,
 				26959040250B1D9400763061 /* InterestedCardOverlayView.swift in Sources */,
+				2691AE2A2626DAF500EE05D7 /* ChargeFooterView.swift in Sources */,
 				26E5FE5225F089B800C96392 /* CommentViewCell.swift in Sources */,
 				2656F30E254FAC0500552611 /* GiftReminderViewController.m in Sources */,
 				26CB6C3E25512A0A00A9F4DD /* BillingStatus.m in Sources */,

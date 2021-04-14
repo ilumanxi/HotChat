@@ -18,6 +18,7 @@ enum UserSettingsAPI {
     case appStart
     case appAudit
     case taskConfig(type: Int)
+    case chargeConfig
 }
 
 
@@ -39,6 +40,8 @@ extension UserSettingsAPI: TargetType {
             return "UserSettings/appAudit"
         case .taskConfig:
             return "UserSettings/taskConfig"
+        case .chargeConfig:
+            return "UserSettings/chargeConfig"
         }
     }
         
@@ -71,6 +74,8 @@ extension UserSettingsAPI: TargetType {
             parameters = [
                 "type" : type
             ]
+        case .chargeConfig:
+            parameters = [:]
         }
         
         let encoding: ParameterEncoding = (self.method == .post) ? JSONEncoding.default : URLEncoding.default

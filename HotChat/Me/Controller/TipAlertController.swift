@@ -59,7 +59,9 @@ class TipAlertController: UIViewController {
         titleLabel.text = header
         messageLabel.text = message
         leftButton.setTitle(leftButtonTitle, for: .normal)
-        rightButton.setTitle(rightButtonTitle, for: .normal)
+        leftButton.isHidden = leftButtonTitle.isEmpty
+        rightButton.setTitle(rightButtonTitle,  for: .normal)
+        rightButton.isHidden = rightButtonTitle.isEmpty
     }
 
 

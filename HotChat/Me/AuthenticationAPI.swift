@@ -14,6 +14,9 @@ enum AuthenticationAPI {
     case faceAttestation(imgFace: String)
     case editFacePic(imgFace: String)
     case checkUserAttestation
+    
+    ///  类型 1视频 2语音
+    case editCharge(type: Int, chargeId: String)
 }
 
 extension AuthenticationAPI: TargetType {
@@ -32,6 +35,8 @@ extension AuthenticationAPI: TargetType {
             return "LiveAuthentication/editFacePic"
         case .checkUserAttestation:
             return "LiveAuthentication/checkUserAttestation"
+        case .editCharge:
+            return "LiveAuthentication/editCharge"
         }
     }
     
@@ -66,6 +71,11 @@ extension AuthenticationAPI: TargetType {
             ]
         case .checkUserAttestation:
             parameters = [:]
+        case .editCharge(let type, let chargeId):
+            parameters = [
+                "type" : type,
+                "chargeId": chargeId
+            ]
         }
         
         let encoding: ParameterEncoding = (self.method == .post) ? JSONEncoding.default : URLEncoding.default
