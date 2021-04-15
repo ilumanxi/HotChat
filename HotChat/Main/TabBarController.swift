@@ -76,6 +76,12 @@ class TabBarController: UITabBarController, IndicatorDisplay {
             customTabBar.barTintColor = .white
             customTabBar.backgroundImage = UIImage(color: .white, size: tabBar.bounds.size)
         }
+        
+        if LoginManager.shared.user!.girlStatus {
+            var viewControllers  = self.viewControllers ?? []
+            viewControllers.remove(at: 2)
+            setViewControllers(viewControllers, animated: false)
+        }
     }
     
     func observerUnReadCount() {
@@ -105,13 +111,22 @@ class TabBarController: UITabBarController, IndicatorDisplay {
             .compactMap{ $0.unreadCount }
             .reduce(0, +)
         
-        let viewController =  viewControllers![2]
         
-        if unReadCount == 0 {
-            viewController.tabBarItem.badgeValue = nil
-        }
-        else {
-            viewController.tabBarItem.badgeValue = unReadCount.description
+        let navigationControllers = viewControllers as! [UINavigationController]
+        
+        for navigationController in navigationControllers {
+            
+            if let _ =  navigationController.viewControllers.first as? ConversationViewController {
+                let viewController =  navigationController
+                
+                if unReadCount == 0 {
+                    viewController.tabBarItem.badgeValue = nil
+                }
+                else {
+                    viewController.tabBarItem.badgeValue = unReadCount.description
+                }
+                break
+            }
         }
     }
 
@@ -126,24 +141,43 @@ class TabBarController: UITabBarController, IndicatorDisplay {
             .compactMap{ $0.unreadCount }
             .reduce(0, +)
         
-        let viewController =  viewControllers![2]
+        let navigationControllers = viewControllers as! [UINavigationController]
         
-        if unReadCount == 0 {
-            viewController.tabBarItem.badgeValue = nil
-        }
-        else {
-            viewController.tabBarItem.badgeValue = unReadCount.description
+        for navigationController in navigationControllers {
+            
+            if let _ =  navigationController.viewControllers.first as? ConversationViewController {
+                let viewController =  navigationController
+                
+                if unReadCount == 0 {
+                    viewController.tabBarItem.badgeValue = nil
+                }
+                else {
+                    viewController.tabBarItem.badgeValue = unReadCount.description
+                }
+                break
+            }
         }
     }
 
-    let svgas = ["community", "discover", "message" , "me"]
+    let svgas = ["community", "discover", "", "message" , "me"]
 }
 
 extension TabBarController: UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         
+        
+        var tempSvgas = svgas
+        
+        if LoginManager.shared.user!.girlStatus {
+            tempSvgas.remove(at: 2)
+        }
+        
         let selectIndex = children.firstIndex{ $0 == viewController }!
+        
+        if selectIndex == 2 &&  !LoginManager.shared.user!.girlStatus {
+            return
+        }
         
         let tabBarItem = tabBar.items?[selectIndex]
         
@@ -160,7 +194,7 @@ extension TabBarController: UITabBarControllerDelegate {
             self.svgaPlayer.clear()
             self.svgaPlayer.frame = imageView.bounds
             imageView.addSubview(self.svgaPlayer)
-            svgaParser.parse(withNamed: svgas[selectIndex], in: nil) { videoItem in
+            svgaParser.parse(withNamed: tempSvgas[selectIndex], in: nil) { videoItem in
                 self.svgaPlayer.loops = 1
                 self.svgaPlayer.videoItem =  videoItem
                 self.svgaPlayer.clearsAfterStop = false

@@ -139,6 +139,12 @@
         [self.view addSubview:self.pairController.view];
         [self.pairController didMoveToParentViewController:self];
     }
+    
+    [IMHelper getUser:self.manager.chargeUserID success:^(User * _Nonnull user) {
+        self.chargeReminderLabel.text = [NSString stringWithFormat:@"%ld能量/分钟", (long)user.videoCharge];
+    } failed:^(NSError * _Nonnull error) {
+        
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -592,7 +598,7 @@
         _chargeReminderLabel = [UILabel new];
         _chargeReminderLabel.font = [UIFont systemFontOfSize:12];
         _chargeReminderLabel.textColor = [UIColor colorWithRed:241/255.0 green:238/255.0 blue:11/255.0 alpha:1.0];
-        _chargeReminderLabel.text = @"2500能量/分钟";
+//        _chargeReminderLabel.text = @"2500能量/分钟";
         _chargeReminderLabel.hidden = AppAudit.share.imcallStatus;
         [self.view addSubview:_chargeReminderLabel];
     }

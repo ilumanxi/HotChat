@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(assign, nonatomic, getter=isCharge, readonly) BOOL charge;
 
+@property(copy, nonatomic, readonly) NSString *chargeUserID;
+
 /// 接收方user ID
 @property(copy, nonnull) NSString *userId;
 

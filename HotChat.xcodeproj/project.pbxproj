@@ -17,6 +17,8 @@
 		260A87782521932A00380FB4 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A87772521932A00380FB4 /* SettingViewController.swift */; };
 		260ABAF025F2431E006A01C0 /* CommentReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260ABAEE25F2431E006A01C0 /* CommentReportViewController.swift */; };
 		260ABAF125F2431E006A01C0 /* CommentReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 260ABAEF25F2431E006A01C0 /* CommentReportViewController.xib */; };
+		260AD57826280A1A008FEEAE /* DatingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260AD57626280A1A008FEEAE /* DatingViewCell.swift */; };
+		260AD57926280A1A008FEEAE /* DatingViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 260AD57726280A1A008FEEAE /* DatingViewCell.xib */; };
 		260B96112521F15C00767076 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260B96102521F15C00767076 /* Authentication.swift */; };
 		260B96162521F2F400767076 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260B96152521F2F400767076 /* AuthenticationViewController.swift */; };
 		260C467825F870BE0033915C /* TopController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260C467725F870BE0033915C /* TopController.swift */; };
@@ -263,6 +265,9 @@
 		26918C262626CD9E007B5F14 /* ChargeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26918C252626CD9E007B5F14 /* ChargeConfig.swift */; };
 		2691AE2A2626DAF500EE05D7 /* ChargeFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2691AE292626DAF500EE05D7 /* ChargeFooterView.swift */; };
 		2691AE2C2626DB0E00EE05D7 /* ChargeFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2691AE2B2626DB0E00EE05D7 /* ChargeFooterView.xib */; };
+		2691AE2F2627E9A400EE05D7 /* Dating.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2691AE2E2627E9A400EE05D7 /* Dating.storyboard */; };
+		2691AE332627EA6000EE05D7 /* DatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2691AE312627EA6000EE05D7 /* DatingViewController.swift */; };
+		2691AE362627EB4500EE05D7 /* dating.webp in Resources */ = {isa = PBXBuildFile; fileRef = 2691AE352627EB4500EE05D7 /* dating.webp */; };
 		2693697425555E06002E224B /* PhoneBindingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2693697225555E06002E224B /* PhoneBindingController.swift */; };
 		2693697525555E06002E224B /* PhoneBindingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2693697325555E06002E224B /* PhoneBindingController.xib */; };
 		2694580B253FF7B100EBCABB /* UserSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2694580A253FF7B100EBCABB /* UserSettingViewController.swift */; };
@@ -316,6 +321,9 @@
 		26B4E05B2564ECBB004EDCFE /* UpgradeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B4E05A2564ECBB004EDCFE /* UpgradeAPI.swift */; };
 		26B4E05E2564FCBA004EDCFE /* AuthenticationGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B4E05C2564FCBA004EDCFE /* AuthenticationGuideViewController.swift */; };
 		26B4E05F2564FCBA004EDCFE /* AuthenticationGuideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26B4E05D2564FCBA004EDCFE /* AuthenticationGuideViewController.xib */; };
+		26B7CCCE26281CE8007805F1 /* VideoDatingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B7CCCD26281CE8007805F1 /* VideoDatingAPI.swift */; };
+		26B7CCD126282211007805F1 /* DatingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B7CCCF26282211007805F1 /* DatingDetailViewController.swift */; };
+		26B7CCD226282211007805F1 /* DatingDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26B7CCD026282211007805F1 /* DatingDetailViewController.xib */; };
 		26B86EB82570EAD700CAC5AE /* TUIMessageDataProviderService+Gift.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B86EB72570EAD700CAC5AE /* TUIMessageDataProviderService+Gift.m */; };
 		26BA6A0D25F365E60002C3DE /* VipBuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BA6A0B25F365E60002C3DE /* VipBuyViewController.swift */; };
 		26BA6A0E25F365E60002C3DE /* VipBuyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26BA6A0C25F365E60002C3DE /* VipBuyViewController.xib */; };
@@ -539,6 +547,8 @@
 		260A87772521932A00380FB4 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		260ABAEE25F2431E006A01C0 /* CommentReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentReportViewController.swift; sourceTree = "<group>"; };
 		260ABAEF25F2431E006A01C0 /* CommentReportViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentReportViewController.xib; sourceTree = "<group>"; };
+		260AD57626280A1A008FEEAE /* DatingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatingViewCell.swift; sourceTree = "<group>"; };
+		260AD57726280A1A008FEEAE /* DatingViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatingViewCell.xib; sourceTree = "<group>"; };
 		260B96102521F15C00767076 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		260B96152521F2F400767076 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		260C467725F870BE0033915C /* TopController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopController.swift; sourceTree = "<group>"; };
@@ -820,6 +830,9 @@
 		26918C252626CD9E007B5F14 /* ChargeConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargeConfig.swift; sourceTree = "<group>"; };
 		2691AE292626DAF500EE05D7 /* ChargeFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargeFooterView.swift; sourceTree = "<group>"; };
 		2691AE2B2626DB0E00EE05D7 /* ChargeFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChargeFooterView.xib; sourceTree = "<group>"; };
+		2691AE2E2627E9A400EE05D7 /* Dating.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Dating.storyboard; sourceTree = "<group>"; };
+		2691AE312627EA6000EE05D7 /* DatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatingViewController.swift; sourceTree = "<group>"; };
+		2691AE352627EB4500EE05D7 /* dating.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = dating.webp; sourceTree = "<group>"; };
 		2693697225555E06002E224B /* PhoneBindingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneBindingController.swift; sourceTree = "<group>"; };
 		2693697325555E06002E224B /* PhoneBindingController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhoneBindingController.xib; sourceTree = "<group>"; };
 		2694580A253FF7B100EBCABB /* UserSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingViewController.swift; sourceTree = "<group>"; };
@@ -881,6 +894,9 @@
 		26B4E05A2564ECBB004EDCFE /* UpgradeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeAPI.swift; sourceTree = "<group>"; };
 		26B4E05C2564FCBA004EDCFE /* AuthenticationGuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationGuideViewController.swift; sourceTree = "<group>"; };
 		26B4E05D2564FCBA004EDCFE /* AuthenticationGuideViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthenticationGuideViewController.xib; sourceTree = "<group>"; };
+		26B7CCCD26281CE8007805F1 /* VideoDatingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDatingAPI.swift; sourceTree = "<group>"; };
+		26B7CCCF26282211007805F1 /* DatingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatingDetailViewController.swift; sourceTree = "<group>"; };
+		26B7CCD026282211007805F1 /* DatingDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatingDetailViewController.xib; sourceTree = "<group>"; };
 		26B86EB62570EAD700CAC5AE /* TUIMessageDataProviderService+Gift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TUIMessageDataProviderService+Gift.h"; sourceTree = "<group>"; };
 		26B86EB72570EAD700CAC5AE /* TUIMessageDataProviderService+Gift.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TUIMessageDataProviderService+Gift.m"; sourceTree = "<group>"; };
 		26BA6A0B25F365E60002C3DE /* VipBuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VipBuyViewController.swift; sourceTree = "<group>"; };
@@ -1133,6 +1149,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		260AD574262809CD008FEEAE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				260AD57626280A1A008FEEAE /* DatingViewCell.swift */,
+				260AD57726280A1A008FEEAE /* DatingViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		260AD575262809D5008FEEAE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		26278B72256CFD64007044E1 /* JPGiftManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -1211,6 +1243,7 @@
 				267955002507626D00A72954 /* Community */,
 				267954FA250760A700A72954 /* Discover */,
 				267954F02507562900A72954 /* Chat */,
+				2691AE2D2627E8A100EE05D7 /* Dating */,
 				267B987E250601060008C81B /* Account */,
 				267B98682505D3FA0008C81B /* Main */,
 				2643EB8A2500B04100FBBE49 /* Common */,
@@ -1446,6 +1479,7 @@
 		264C5C352609E5CF007FB123 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				2691AE352627EB4500EE05D7 /* dating.webp */,
 				26FD3311262582A400979B36 /* me.svga */,
 				26FD330F2625829300979B36 /* message.svga */,
 				26FD330B26257F5200979B36 /* community.svga */,
@@ -1653,6 +1687,28 @@
 				26A20AEE25189E740061BBB8 /* LoginManager.swift */,
 			);
 			path = Account;
+			sourceTree = "<group>";
+		};
+		2691AE2D2627E8A100EE05D7 /* Dating */ = {
+			isa = PBXGroup;
+			children = (
+				260AD575262809D5008FEEAE /* Model */,
+				260AD574262809CD008FEEAE /* View */,
+				2691AE302627EA4300EE05D7 /* Controller */,
+				2691AE2E2627E9A400EE05D7 /* Dating.storyboard */,
+				26B7CCCD26281CE8007805F1 /* VideoDatingAPI.swift */,
+			);
+			path = Dating;
+			sourceTree = "<group>";
+		};
+		2691AE302627EA4300EE05D7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2691AE312627EA6000EE05D7 /* DatingViewController.swift */,
+				26B7CCCF26282211007805F1 /* DatingDetailViewController.swift */,
+				26B7CCD026282211007805F1 /* DatingDetailViewController.xib */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		269DEE03254BF735000AD5D9 /* QMUIButton */ = {
@@ -2265,6 +2321,7 @@
 				262BE7E92601D2E700C1B646 /* TopicListViewCell.xib in Resources */,
 				266640602577624500E30A09 /* SayHellowViewController.xib in Resources */,
 				26FBCF642558EF32001F3DFA /* ConsumerDetailsViewController.xib in Resources */,
+				2691AE2F2627E9A400EE05D7 /* Dating.storyboard in Resources */,
 				26F8946C25203B7300A45648 /* TitleViewCell.xib in Resources */,
 				2693697525555E06002E224B /* PhoneBindingController.xib in Resources */,
 				26AC0E332623FB4200F53951 /* CommunityViewController.xib in Resources */,
@@ -2305,6 +2362,7 @@
 				26F3EA3425F20A05001CF13D /* CommentFooterView.xib in Resources */,
 				2660F5F426172BB200F849B3 /* DynamicDetailViewCell.xib in Resources */,
 				2651FE1B25F7666A00A9F2E6 /* TopHeaderView.xib in Resources */,
+				2691AE362627EB4500EE05D7 /* dating.webp in Resources */,
 				2635216225C7EA4E00855487 /* VisitorsAvatarView.xib in Resources */,
 				26B22F1B2609F2C0006B0C49 /* ListViewCell.xib in Resources */,
 				26E5FE5125F089B800C96392 /* CommentViewCell.xib in Resources */,
@@ -2333,12 +2391,14 @@
 				26A377CD260D9554002FF17E /* HeadlineTipViewController.xib in Resources */,
 				267954FF250761B600A72954 /* Discover.storyboard in Resources */,
 				266BDB6A25EF864600467611 /* UserCardCell.xib in Resources */,
+				26B7CCD226282211007805F1 /* DatingDetailViewController.xib in Resources */,
 				2651FE1725F759D300A9F2E6 /* TopViewController.xib in Resources */,
 				260ABAF125F2431E006A01C0 /* CommentReportViewController.xib in Resources */,
 				2639536925419E8300B5E3C0 /* CardViewCell.xib in Resources */,
 				26E48909257E087D006C2ACE /* CheckInViewController.xib in Resources */,
 				2679550A2507748C00A72954 /* UserInfoHeaderView.xib in Resources */,
 				26E291992553EABB0032AE99 /* GiftEarningsCell.xib in Resources */,
+				260AD57926280A1A008FEEAE /* DatingViewCell.xib in Resources */,
 				263EC07F261ED5B9000A44A0 /* PickerViewController.xib in Resources */,
 				2656F30F254FAC0500552611 /* GiftReminderViewController.xib in Resources */,
 				2635216825C7F18800855487 /* VisitorsController.xib in Resources */,
@@ -2517,6 +2577,7 @@
 				268458F525354481002B9C6E /* LoadingState.swift in Sources */,
 				26F5537C2553D3CD00840735 /* GiftEarningsViewController.swift in Sources */,
 				26FBCF5E2558EC0E001F3DFA /* ConsumptionListController.swift in Sources */,
+				260AD57826280A1A008FEEAE /* DatingViewCell.swift in Sources */,
 				2643EBCA2500DBF500FBBE49 /* MeRelationshipViewController.swift in Sources */,
 				2643EBA82500B04100FBBE49 /* PushSettingsDetailViewController.swift in Sources */,
 				26F70FFF2542B3A900797E87 /* AuthenticationAPI.swift in Sources */,
@@ -2536,6 +2597,7 @@
 				26A20B052518A5020061BBB8 /* HotChatError.swift in Sources */,
 				26B4E05B2564ECBB004EDCFE /* UpgradeAPI.swift in Sources */,
 				2643EBA32500B04100FBBE49 /* UserInfoEditingViewController.swift in Sources */,
+				26B7CCCE26281CE8007805F1 /* VideoDatingAPI.swift in Sources */,
 				26E8A258261C4A900050608F /* UserInfoViewCell.swift in Sources */,
 				264BF97825A8366E00F873DD /* AccostViewController.swift in Sources */,
 				2643EBA52500B04100FBBE49 /* ApplicationSettingsViewController.swift in Sources */,
@@ -2644,11 +2706,13 @@
 				26AE7C2F2520309F00B55318 /* LabelViewCell.swift in Sources */,
 				26CB6D4725515D6B00A9F4DD /* BDFaceRemindAnimationView.m in Sources */,
 				266A0BCE260C31A70037FCC3 /* TalkTop.swift in Sources */,
+				2691AE332627EA6000EE05D7 /* DatingViewController.swift in Sources */,
 				2668B0A2252341F70073E25D /* WalletEnergyViewCell.swift in Sources */,
 				26884A4D2605C305006A13E5 /* SystemMessageCell.m in Sources */,
 				26DBEBCA25E6044B00C174FC /* TUICall+ExitRoom.m in Sources */,
 				2635215E25C7EA2200855487 /* VisitorsAvatarView.swift in Sources */,
 				26B4E0592564EB34004EDCFE /* Upgrade.swift in Sources */,
+				26B7CCD126282211007805F1 /* DatingDetailViewController.swift in Sources */,
 				2679550C25079A1F00A72954 /* UserInfoChatView.swift in Sources */,
 				26ED000625C5731200480CEC /* MediaItemViewCell.swift in Sources */,
 				2679C0602624412500D18B47 /* ChatUserView.swift in Sources */,
@@ -2991,6 +3055,12 @@
 					"$(PROJECT_DIR)/HotChat/BaiDu/BDFaceSDK",
 					"$(PROJECT_DIR)/HotChat/UMFramework",
 				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"$(inherited)",
+					"GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1",
+				);
 				INFOPLIST_FILE = HotChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -3111,6 +3181,12 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/HotChat/BaiDu/BDFaceSDK",
 					"$(PROJECT_DIR)/HotChat/UMFramework",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"$(inherited)",
+					"GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1",
 				);
 				INFOPLIST_FILE = HotChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;

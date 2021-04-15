@@ -15,6 +15,8 @@ import PKHUD
 import RangersAppLog
 import URLNavigator
 import UMVerify
+import Kingfisher
+import KingfisherWebP
 
 
 
@@ -29,6 +31,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        KingfisherManager.shared.defaultOptions += [
+          .processor(WebPProcessor.default),
+          .cacheSerializer(WebPSerializer.default)
+        ]
     
         // Initialize navigation map
         NavigationMap.initialize(navigator: Navigator.share)

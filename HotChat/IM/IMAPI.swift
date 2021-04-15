@@ -68,6 +68,8 @@ extension IMAPI: TargetType {
 
     static let API  = Request<IMAPI>()
     
+    static let userAPI  = Request<UserAPI>()
+    
     static let disposeObject = DisposeBag()
     
     @objc class func image(color: UIColor, size: CGSize) -> UIImage {
@@ -79,6 +81,18 @@ extension IMAPI: TargetType {
         API.request(.getCallTime(roomId: roomId), type: Response<[String : Any]>.self).verifyResponse()
             .subscribe(onSuccess: { response in
                 success(response.data ?? [:])
+            }, onError: { error in
+                failed(error as NSError)
+            })
+            .disposed(by: disposeObject)
+    }
+    
+    @objc class func  getUser(_ userID: String, success: @escaping (User) -> Void, failed: @escaping (NSError) -> Void) {
+        
+        userAPI.request(.userinfo(userId: userID), type: Response<User>.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { response in
+                success(response.data!)
             }, onError: { error in
                 failed(error as NSError)
             })

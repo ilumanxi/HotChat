@@ -49,6 +49,16 @@
     return  _manager;
 }
 
+- (NSString *)chargeUserID {
+    
+    if ([self isCharge]) {
+        
+        return self.userId;
+        
+    }
+    return LoginManager.shared.user.userId;
+}
+
 - (BOOL)isCharge {
     return LoginManager.shared.user.ocSex == 1;
 }

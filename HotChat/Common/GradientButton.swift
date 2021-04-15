@@ -128,6 +128,7 @@ extension SexButton {
     @objc
     func set(_ user: User) {
         contentEdgeInsets = UIEdgeInsets(top: 2, left: 4, bottom: 2, right: 4)
+        setTitleColor(.white, for: .normal)
         titleLabel?.font = .systemFont(ofSize: 10, weight: .medium)
         setTitle(user.age.description, for: .normal)
         setImage(user.sex.image, for: .normal)

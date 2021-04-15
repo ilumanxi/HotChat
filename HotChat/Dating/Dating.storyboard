@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DBR-pl-4Jf">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Dating View Controller-->
+        <scene sceneID="qBF-AM-bxq">
+            <objects>
+                <viewController id="vcv-tA-sMx" customClass="DatingViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gxl-X7-Bu3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G9s-C8-ums">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="U6t-zB-Qe0">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="12" minimumInteritemSpacing="5" id="8Mb-ZA-2hz">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="120" minY="0.0" maxX="12" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="vcv-tA-sMx" id="fwa-0n-k7D"/>
+                                    <outlet property="delegate" destination="vcv-tA-sMx" id="qga-1h-mxx"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="EWG-7P-qVu"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="U6t-zB-Qe0" secondAttribute="trailing" id="BSk-0F-Hpa"/>
+                            <constraint firstAttribute="bottom" secondItem="U6t-zB-Qe0" secondAttribute="bottom" id="J16-Si-fBG"/>
+                            <constraint firstItem="G9s-C8-ums" firstAttribute="leading" secondItem="gxl-X7-Bu3" secondAttribute="leading" id="Sbs-3x-Lyk"/>
+                            <constraint firstAttribute="trailing" secondItem="G9s-C8-ums" secondAttribute="trailing" id="cPx-0C-flG"/>
+                            <constraint firstItem="U6t-zB-Qe0" firstAttribute="leading" secondItem="gxl-X7-Bu3" secondAttribute="leading" id="dvq-xE-gSq"/>
+                            <constraint firstAttribute="bottom" secondItem="G9s-C8-ums" secondAttribute="bottom" id="ekb-J4-pEY"/>
+                            <constraint firstItem="G9s-C8-ums" firstAttribute="top" secondItem="gxl-X7-Bu3" secondAttribute="top" id="i3b-vd-7JK"/>
+                            <constraint firstItem="U6t-zB-Qe0" firstAttribute="top" secondItem="gxl-X7-Bu3" secondAttribute="top" id="r58-DE-YPT"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="3m9-4W-Ofy">
+                        <barButtonItem key="leftBarButtonItem" title="视频约会" id="4d5-vK-Ruh"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="backgroundImageView" destination="G9s-C8-ums" id="Est-ri-oUa"/>
+                        <outlet property="collectionView" destination="U6t-zB-Qe0" id="Qar-VR-llA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zg3-KO-EaA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-385.50724637681162" y="281.25"/>
+        </scene>
+        <!--Base Navigation Controller-->
+        <scene sceneID="dbc-bT-Fr9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DBR-pl-4Jf" customClass="BaseNavigationController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="tabbar-add" selectedImage="tabbar-add" id="HCN-H1-P2H">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="rect" keyPath="imageInsets">
+                                <rect key="value" x="-15" y="0.0" width="0.0" height="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gL6-Lx-wav" customClass="HBDNavigationBar">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vcv-tA-sMx" kind="relationship" relationship="rootViewController" id="6aa-fA-RV4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mWR-02-rHr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1297.1014492753625" y="280.58035714285711"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="tabbar-add" width="46.5" height="46.5"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

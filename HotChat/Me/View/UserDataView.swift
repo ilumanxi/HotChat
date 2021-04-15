@@ -36,6 +36,14 @@ class UserDataView: UIView {
     
     @IBOutlet weak var introduceLabel: UILabel!
     
+    @IBOutlet weak var priceView: UIStackView!
+    
+    
+    @IBOutlet weak var voiceLabel: UILabel!
+    
+    @IBOutlet weak var videoLabel: UILabel!
+    
+    
     func set(_ model: User)  {
         
         
@@ -56,6 +64,11 @@ class UserDataView: UIView {
         incomeLabel.text = model.income.isEmpty  ? placeholder : model.income
         constellationLabel.text = model.constellation
         introduceLabel.text =  model.introduce.isEmpty ? "未设置" : model.introduce
+        
+        priceView.isHidden = !model.girlStatus
+        
+        voiceLabel.text = "语音聊天：\(model.voiceCharge)能量/分钟"
+        videoLabel.text = "视频聊天：\(model.videoCharge)能量/分钟"
     }
     
     

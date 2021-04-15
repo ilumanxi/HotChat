@@ -287,6 +287,12 @@ enum VipType: Int, HandyJSONEnum {
         return sex.rawValue
     }
     
+    /// 语音通话价格
+    @objc var voiceCharge: Int = 0
+    
+    /// 视频通话价格
+    @objc var videoCharge: Int = 0
+    
     /// 身高
     var height: String = ""
     
