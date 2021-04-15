@@ -130,24 +130,12 @@ class ChargeViewController: UIViewController, LoadingStateType, IndicatorDisplay
         
         if resultCode ==  1322 { // 成功
             
-            if type == 1 { // 视频
-                chargeInfo.config.videoList.forEach { item in
-                    item.isCheck = false
-                }
-            }
-            else if type == 2 { // 语音
-                chargeInfo.config.voiceList.forEach { item in
-                    item.isCheck = false
-                }
-            }
-            
-            item.isCheck = true
-            
-            setupSections()
+            refreshData()
         }
         else if resultCode == 1320 {
             let vc = TipAlertController(title: "提示", message: resultMsg, leftButtonTitle: "", rightButtonTitle: "知道了")
             present(vc, animated: true, completion: nil)
+            refreshData()
         }
         else {
             self.show(resultMsg)
@@ -211,7 +199,7 @@ class ChargeViewController: UIViewController, LoadingStateType, IndicatorDisplay
     
     func picker(items: [ChargeConfigItem], type: Int)  {
         
-        let contents  = items.map { "\($0.charge)能量/分钟"}
+        let contents  = items.map { price($0)}
             
         let row = items.firstIndex { $0.isCheck } ?? 0
        
@@ -219,10 +207,20 @@ class ChargeViewController: UIViewController, LoadingStateType, IndicatorDisplay
         let vc = PickerViewController(conents: contents, selectRow: row)
         
         vc.onPickered.delegate(on: self) { (self, content) in
-             let item = items.first { "\($0.charge)能量/分钟" == content  }!
+             let item = items.first { self.price($0) == content  }!
              self.editCharge(type: type, item: item)
         }
         present(vc, animated: true, completion: nil)
+    }
+    
+    func price(_ item: ChargeConfigItem) -> String {
+        
+        var string = "\(item.charge)能量/分钟"
+        
+        if LoginManager.shared.user!.girlRank < item.level {
+            string.append("(魅力值达到\(item.level)级可选)")
+        }
+        return string
     }
 
 }

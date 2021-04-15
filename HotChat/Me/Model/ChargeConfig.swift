@@ -25,6 +25,7 @@ class ChargeConfigItem: NSObject, HandyJSON {
     var chargeId: String = ""
     var charge: Int = 0
     var isCheck: Bool = false
+    var level: Int = 0
     
     required override init() {
         
