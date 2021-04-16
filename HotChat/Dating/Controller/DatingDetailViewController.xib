@@ -89,7 +89,7 @@
                     </subviews>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VEK-96-p8W" customClass="GradientButton" customModule="HotChat" customModuleProvider="target">
-                    <rect key="frame" x="316" y="798" width="78" height="30"/>
+                    <rect key="frame" x="316" y="791.5" width="78" height="30"/>
                     <color key="backgroundColor" red="1" green="0.41568627450980389" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="78" id="mdM-gQ-7wi"/>
@@ -117,7 +117,6 @@
                 <constraint firstItem="tct-qf-mQJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="FNl-AE-few"/>
                 <constraint firstAttribute="bottom" secondItem="IWb-QT-37z" secondAttribute="bottom" constant="60" id="HND-82-qUr"/>
                 <constraint firstItem="2aT-Bp-Iti" firstAttribute="leading" secondItem="IWb-QT-37z" secondAttribute="trailing" constant="10" id="Qjb-uq-FKe"/>
-                <constraint firstItem="IWb-QT-37z" firstAttribute="centerY" secondItem="VEK-96-p8W" secondAttribute="centerY" id="VHY-lh-iRe"/>
                 <constraint firstAttribute="trailing" secondItem="tct-qf-mQJ" secondAttribute="trailing" id="Wn7-ZB-Zrk"/>
                 <constraint firstItem="tct-qf-mQJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="aUB-Ra-U2v"/>
                 <constraint firstItem="tct-qf-mQJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="bFT-Ta-Meg"/>
@@ -125,6 +124,7 @@
                 <constraint firstItem="IWb-QT-37z" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="gd4-w7-n2F"/>
                 <constraint firstAttribute="bottom" secondItem="e6M-vP-Kov" secondAttribute="bottom" id="hCR-WH-Zhr"/>
                 <constraint firstAttribute="trailing" secondItem="VEK-96-p8W" secondAttribute="trailing" constant="20" id="hqP-Fm-pp7"/>
+                <constraint firstItem="VEK-96-p8W" firstAttribute="top" secondItem="KOx-H8-gHj" secondAttribute="baseline" id="shA-DV-BMW"/>
                 <constraint firstItem="IWb-QT-37z" firstAttribute="bottom" secondItem="2aT-Bp-Iti" secondAttribute="bottom" constant="-12" id="suX-CI-uu0"/>
                 <constraint firstAttribute="trailing" secondItem="tct-qf-mQJ" secondAttribute="trailing" id="wKH-gZ-JV8"/>
                 <constraint firstItem="e6M-vP-Kov" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xGN-i9-uGN"/>

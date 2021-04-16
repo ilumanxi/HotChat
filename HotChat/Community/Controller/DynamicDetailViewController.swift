@@ -327,6 +327,12 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
         cell.dynamic = dynamic
         cell.timelineView.isHidden = commentCount == (indexPath.row + 1)
         
+        let previouIndex = indexPath.row - 1
+        
+        if previouIndex >= 0 {
+            cell.yearLabel.isHidden = dynamics[previouIndex].year == dynamic.year
+        }
+        
         cell.onAvatarTapped.delegate(on: self) { (self, sender) in
             let vc = UserInfoViewController()
             vc.user  = dynamic.userInfo

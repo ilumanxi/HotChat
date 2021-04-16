@@ -37,7 +37,8 @@ class DatingViewCell: UICollectionViewCell {
         bottomView.locations = [0, 1]
         bottomView.startPoint = CGPoint(x: 0.5, y: 0)
         bottomView.endPoint = CGPoint(x: 0.5, y: 1)
-        layer.cornerRadius = 10
+        contentView.layer.cornerRadius = 10
+        contentView.clipsToBounds = true
         super.awakeFromNib()
     }
 

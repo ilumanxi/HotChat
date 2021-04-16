@@ -107,7 +107,7 @@ class AddressBookViewController: UIViewController, AquamanChildViewController, L
             .disposed(by: rx.disposeBag)
         }
         
-        button.alpha = status.status ? 0 : 1
+        button.alpha = (status.status || !status.value.isEmpty) ? 1 : 0
     }
     
     @IBAction func qqButtonTapped(_ sender: Any) {

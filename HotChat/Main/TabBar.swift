@@ -95,8 +95,8 @@ class TabBar: UITabBar {
         
         shadowView.isHidden = false
         
-        if let view =  self.items?[2].value(forKey: "view") as? UIView, UIApplication.shared.keyWindow!.safeAreaInsets.bottom > 0 {
-            view.frame = view.frame.offsetBy(dx: 0, dy: -6)
+        if let view =  self.items?[2].value(forKey: "view") as? UIView {
+            view.frame = view.frame.offsetBy(dx: 0, dy: -5.5)
         }
         
 //        composeButton.isHidden = false
