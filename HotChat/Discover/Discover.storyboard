@@ -32,18 +32,16 @@
         <scene sceneID="4Zj-sH-Fpq">
             <objects>
                 <viewController title="发现" id="jBy-WS-uSJ" customClass="DiscoverViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Gph-Vz-HDm">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="TsZ-60-S8i"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
                     <navigationItem key="navigationItem" title="发现" id="c8u-zm-A47">
                         <rightBarButtonItems>
-                            <barButtonItem title="Item" image="compose" id="PIL-yR-WpL">
-                                <connections>
-                                    <action selector="sendButtonTapped:" destination="jBy-WS-uSJ" id="VE0-aR-8xj"/>
-                                </connections>
+                            <barButtonItem style="plain" id="pLK-As-wzS">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1HA-h6-TAl" customClass="PublishView" customModule="HotChat" customModuleProvider="target">
+                                    <rect key="frame" x="362" y="5" width="32" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <connections>
+                                        <action selector="sendButtonTapped:" destination="jBy-WS-uSJ" eventType="touchUpInside" id="tUl-OR-rWI"/>
+                                    </connections>
+                                </button>
                             </barButtonItem>
                             <barButtonItem title="Item" image="notification" id="5eB-1o-kkk">
                                 <connections>
@@ -96,7 +94,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="compose" width="32" height="32"/>
         <image name="notification" width="18" height="22"/>
         <image name="tabbar-discover-normal" width="32" height="32"/>
         <image name="tabbar-discover-selected" width="32" height="32"/>

@@ -324,6 +324,7 @@
 		26B7CCCE26281CE8007805F1 /* VideoDatingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B7CCCD26281CE8007805F1 /* VideoDatingAPI.swift */; };
 		26B7CCD126282211007805F1 /* DatingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B7CCCF26282211007805F1 /* DatingDetailViewController.swift */; };
 		26B7CCD226282211007805F1 /* DatingDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26B7CCD026282211007805F1 /* DatingDetailViewController.xib */; };
+		26B7CCDE262994D9007805F1 /* publish.svga in Resources */ = {isa = PBXBuildFile; fileRef = 26B7CCDD262994D9007805F1 /* publish.svga */; };
 		26B86EB82570EAD700CAC5AE /* TUIMessageDataProviderService+Gift.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B86EB72570EAD700CAC5AE /* TUIMessageDataProviderService+Gift.m */; };
 		26BA6A0D25F365E60002C3DE /* VipBuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BA6A0B25F365E60002C3DE /* VipBuyViewController.swift */; };
 		26BA6A0E25F365E60002C3DE /* VipBuyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26BA6A0C25F365E60002C3DE /* VipBuyViewController.xib */; };
@@ -897,6 +898,7 @@
 		26B7CCCD26281CE8007805F1 /* VideoDatingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDatingAPI.swift; sourceTree = "<group>"; };
 		26B7CCCF26282211007805F1 /* DatingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatingDetailViewController.swift; sourceTree = "<group>"; };
 		26B7CCD026282211007805F1 /* DatingDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatingDetailViewController.xib; sourceTree = "<group>"; };
+		26B7CCDD262994D9007805F1 /* publish.svga */ = {isa = PBXFileReference; lastKnownFileType = file; path = publish.svga; sourceTree = "<group>"; };
 		26B86EB62570EAD700CAC5AE /* TUIMessageDataProviderService+Gift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TUIMessageDataProviderService+Gift.h"; sourceTree = "<group>"; };
 		26B86EB72570EAD700CAC5AE /* TUIMessageDataProviderService+Gift.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TUIMessageDataProviderService+Gift.m"; sourceTree = "<group>"; };
 		26BA6A0B25F365E60002C3DE /* VipBuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VipBuyViewController.swift; sourceTree = "<group>"; };
@@ -1479,6 +1481,7 @@
 		264C5C352609E5CF007FB123 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				26B7CCDD262994D9007805F1 /* publish.svga */,
 				2691AE352627EB4500EE05D7 /* dating.webp */,
 				26FD3311262582A400979B36 /* me.svga */,
 				26FD330F2625829300979B36 /* message.svga */,
@@ -2415,6 +2418,7 @@
 				26A377CF260DB75E002FF17E /* new_user_receive.svga in Resources */,
 				263953702541A38B00B5E3C0 /* FiledViewCell.xib in Resources */,
 				26ED000725C5731200480CEC /* MediaItemViewCell.xib in Resources */,
+				26B7CCDE262994D9007805F1 /* publish.svga in Resources */,
 				26DF8780255A645C002162A9 /* SwitchViewCell.xib in Resources */,
 				26AE7C342520346500B55318 /* LabelViewCell.xib in Resources */,
 				26CB6D5025515D6B00A9F4DD /* com.baidu.idl.face.model.faceSDK.bundle in Resources */,
@@ -3046,7 +3050,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HotChat/HotChat.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = TJ99XNWKL5;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3173,7 +3177,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HotChat/HotChatRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = TJ99XNWKL5;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (

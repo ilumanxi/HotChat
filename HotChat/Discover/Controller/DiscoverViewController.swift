@@ -13,6 +13,7 @@ import SnapKit
 import Trident
 import Tabman
 import Pageboy
+import SVGAPlayer
 
 
 extension TridentMenuView {
@@ -48,11 +49,57 @@ extension TimeInterval {
         var Hour = 0
         if Min >= 60 {
             Hour = Int(Min / 60)
-            Min = Min - Hour*60
+            Min = Min - Hour * 60
             return String(format: "%02d:%02d:%02d", Hour, Min, Sec)
         }
         return String(format: "00:%02d:%02d", Min, Sec)
     }
+}
+
+
+class PublishView: UIButton {
+    
+    var player: SVGAPlayer!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupUI()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupUI()
+    }
+    
+    
+    func setupUI()  {
+        
+        player = SVGAPlayer(frame: CGRect(x: 0, y: 0, width: 48, height: 48))
+        player.isUserInteractionEnabled = false
+        addSubview(player)
+        player.snp.makeConstraints { maker in
+            maker.center.equalToSuperview()
+            maker.size.equalTo(CGSize(width: 48, height: 48))
+        }
+        
+        svgaParser.parse(withNamed: "publish", in: nil) { videoItem in
+            self.player.videoItem =  videoItem
+            self.player.startAnimation()
+        } failureBlock: { error in
+            print(error)
+        }
+    }
+    
+    let layoutSize: CGSize = CGSize(width: 32, height: 32)
+    
+    override var intrinsicContentSize: CGSize {
+        return layoutSize
+    }
+    
+    override func sizeThatFits(_ size: CGSize) -> CGSize {
+        return layoutSize
+    }
+    
 }
 
 

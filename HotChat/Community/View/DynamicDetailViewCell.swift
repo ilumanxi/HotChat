@@ -176,10 +176,22 @@ class DynamicDetailViewCell: UITableViewCell {
         
         if count == 1 {
             if dynamic.type == .video, let video = dynamic?.video, video.size != .zero {
-                return adjustSize(with: video.size)
+                
+                if video.width > video.height {
+                    return adjustSize(with: video.size)
+                }
+                else {
+                    return CGSize(width: maxSize, height: maxSize)
+                }
+               
             }
             else if let photo = dynamic.photoList.first, photo.size != .zero {
-                return adjustSize(with: photo.size)
+                if photo.width > photo.height {
+                    return adjustSize(with: photo.size)
+                }
+                else {
+                    return CGSize(width: maxSize, height: maxSize)
+                }
             }
         }
         
