@@ -14,7 +14,9 @@ import MJRefresh
 import MagazineLayout
 
 
-class DatingViewController: UIViewController, LoadingStateType, IndicatorDisplay  {
+class DatingViewController: UIViewController, LoadingStateType, IndicatorDisplay, StoryboardCreate  {
+    static var storyboardNamed: String { return "Dating" }
+    
     
     var state: LoadingState = .initial {
         didSet {
@@ -46,12 +48,25 @@ class DatingViewController: UIViewController, LoadingStateType, IndicatorDisplay
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if self.navigationController!.viewControllers.count > 1 {
+            navigationItem.title = "视频约会"
+            let backItem = UIBarButtonItem(image: UIImage(named: "circle-back-white"), style: .done, target: self, action: #selector(back))
+            navigationItem.leftBarButtonItem = backItem
+            
+        }
+        else {
+            
+            let titleItem = UIBarButtonItem(title: "视频约会", style: .done, target: nil, action: nil)
+            titleItem.setTitleTextAttributes(UINavigationBar.appearance().titleTextAttributes, for: .normal)
+            self.navigationItem.leftBarButtonItem = titleItem
+        }
+        
         collectionView.refreshControl = refreshControl
 
         collectionView.setCollectionViewLayout(layout, animated: false)
         
         hbd_barAlpha = 0
-        navigationItem.leftBarButtonItem?.setTitleTextAttributes(UINavigationBar.appearance().titleTextAttributes, for: .normal)
+        
         
         let url = Bundle.main.url(forResource: "dating", withExtension: "webp")
         
@@ -80,6 +95,10 @@ class DatingViewController: UIViewController, LoadingStateType, IndicatorDisplay
         }
         
         refreshData()
+    }
+    
+    @objc func back() {
+        navigationController?.popViewController(animated: true)
     }
 
     

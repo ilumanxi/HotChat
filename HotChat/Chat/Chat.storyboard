@@ -466,30 +466,8 @@
                                             <outlet property="settingView" destination="cB7-6a-BRN" id="bcC-B3-IVv"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="90O-T6-N5s" imageView="X4e-4s-Nv9" rowHeight="80" style="IBUITableViewCellStyleDefault" id="cQg-Xc-1lG">
-                                        <rect key="frame" x="0.0" y="140" width="414" height="80"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cQg-Xc-1lG" id="g2X-bh-kTn">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="80"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="缘分匹配" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="90O-T6-N5s">
-                                                    <rect key="frame" x="85" y="0.0" width="290" height="80"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="chat-pair" id="X4e-4s-Nv9">
-                                                    <rect key="frame" x="20" y="15" width="50" height="50"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </imageView>
-                                            </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Sr8-4k-Nmf" imageView="GfS-Ca-34F" rowHeight="80" style="IBUITableViewCellStyleDefault" id="Hvh-WE-eSI">
-                                        <rect key="frame" x="0.0" y="220" width="414" height="80"/>
+                                        <rect key="frame" x="0.0" y="140" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hvh-WE-eSI" id="OoH-HC-cVx">
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="80"/>
@@ -511,7 +489,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="riV-b1-oNq" imageView="Xjv-eW-b7P" rowHeight="80" style="IBUITableViewCellStyleDefault" id="pgE-Rt-WCb">
-                                        <rect key="frame" x="0.0" y="300" width="414" height="80"/>
+                                        <rect key="frame" x="0.0" y="220" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pgE-Rt-WCb" id="gAA-T4-7Jz">
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="80"/>
@@ -626,7 +604,6 @@
         <image name="chat-follow" width="74.5" height="74.5"/>
         <image name="chat-interested" width="50" height="50"/>
         <image name="chat-more" width="3.5" height="16.5"/>
-        <image name="chat-pair" width="50" height="50"/>
         <image name="chat-skip" width="74.5" height="74.5"/>
         <image name="chat-topic" width="50" height="50"/>
         <image name="close-white-small" width="12" height="12"/>

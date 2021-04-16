@@ -13,7 +13,6 @@ class ConversationActionViewController: UITableViewController, StoryboardCreate 
     
     enum Row: Int, CaseIterable  {
         case settings
-        case pair
         case topic
         case interested
     }
@@ -29,9 +28,7 @@ class ConversationActionViewController: UITableViewController, StoryboardCreate 
         if !isShowSettings {
             height -= Row.settings.height
         }
-        if LoginManager.shared.user!.girlStatus {
-            height -= Row.pair.height
-        }
+       
         return height
     }
     
@@ -86,9 +83,6 @@ class ConversationActionViewController: UITableViewController, StoryboardCreate 
         
         let row = Row(rawValue: indexPath.row)!
         
-        if row == .pair && LoginManager.shared.user!.girlStatus {
-            return  0
-        }
         
         if row == .settings && !isShowSettings {
             return 0
@@ -101,9 +95,6 @@ class ConversationActionViewController: UITableViewController, StoryboardCreate 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         switch Row(rawValue: indexPath.row) {
-        case .pair:
-            let vc = PairsViewController()
-            navigationController?.pushViewController(vc, animated: true)
         case .topic:
             let vc = TopicListViewController()
             navigationController?.pushViewController(vc, animated: true)
@@ -139,8 +130,6 @@ extension ConversationActionViewController.Row {
         case .settings:
             return 112
         case .interested:
-            return 80
-        case .pair:
             return 80
         case .topic:
             return 80

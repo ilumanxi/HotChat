@@ -117,18 +117,21 @@ class UserInfoViewController: AquamanPageViewController, LoadingStateType, Indic
     lazy var textChat: UIButton = {
         let textChat = self.button(text: "聊天", image: UIImage(named: "me-chat-text"))
         textChat.addTarget(self, action: #selector(textChatSignal), for: .touchUpInside)
+        textChat.setBackgroundImage(UIImage(named: "chat-mask"), for: .normal)
         return textChat
     }()
     
     lazy var voiceChat: UIButton = {
         let voiceChat = self.button(text: "通话", image: UIImage(named: "me-chat-audio"))
         voiceChat.addTarget(self, action: #selector(voiceChatSignal), for: .touchUpInside)
+        voiceChat.setBackgroundImage(UIImage(named: "chat-mask"), for: .normal)
         return voiceChat
     }()
     
     lazy var videoChat: UIButton = {
         let videoChat = button(text: "视频", image: UIImage(named: "me-chat-video"))
         videoChat.addTarget(self, action: #selector(videoChatSignal), for: .touchUpInside)
+        videoChat.setBackgroundImage(UIImage(named: "chat-mask"), for: .normal)
         return videoChat
     }()
     
@@ -136,6 +139,7 @@ class UserInfoViewController: AquamanPageViewController, LoadingStateType, Indic
     lazy var love: UIButton = {
         let love = button(text: "关注", image: UIImage(named: "me-love"))
         love.addTarget(self, action: #selector(follow), for: .touchUpInside)
+        love.setBackgroundImage(UIImage(named: "chat-mask"), for: .normal)
         return love
     }()
     
@@ -143,6 +147,7 @@ class UserInfoViewController: AquamanPageViewController, LoadingStateType, Indic
     lazy var gift: UIButton = {
         let gift = button(text: "礼物", image: UIImage(named: "me-gift"))
         gift.addTarget(self, action: #selector(giftButtonTapped), for: .touchUpInside)
+        gift.setBackgroundImage(UIImage(named: "chat-mask"), for: .normal)
         return gift
     }()
     
@@ -212,15 +217,15 @@ class UserInfoViewController: AquamanPageViewController, LoadingStateType, Indic
         stackView.snp.makeConstraints { [unowned self] maker in
             maker.leading.equalToSuperview().offset(28)
             maker.trailing.equalToSuperview().offset(-28)
-            maker.bottom.equalTo(self.safeBottom)
+            maker.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).priority(900)
+            maker.bottom.lessThanOrEqualToSuperview().offset(-28)
         }
         
         stackView.arrangedSubviews.forEach { subView in
             subView.snp.makeConstraints { maker in
-                maker.size.equalTo(CGSize(width: 64, height: 64))
+                maker.size.equalTo(CGSize(width: 67, height: 67))
             }
-            subView.layer.cornerRadius = 32
-            subView.backgroundColor = .white
+//            subView.layer.cornerRadius = 33.5
         }
     }
     

@@ -70,12 +70,8 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
 
     @IBOutlet weak var tableView: UITableView!
     
-    var checkInResult: CheckInResult?
-    
     
     @IBOutlet weak var phoneBindingView: UIView!
-    
-    private var isShowCheckIn = false
     
     let playerManager = PlayerManager()
     
@@ -143,9 +139,6 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         checkUserInitState()
-        if LoginManager.shared.user!.isInit {
-            checkInState()
-        }
     }
     
     
@@ -156,24 +149,6 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
         }
     }
     
-    func checkInState() {
-        
-        if LoginManager.shared.user!.girlStatus || AppAudit.share.signinStatus  || !isShowCheckIn {
-            self.checkInResult = nil
-            return
-        }
-        
-        checkInAPI.request(.checkUserSignInfo, type: Response<CheckInResult>.self)
-            .verifyResponse()
-            .subscribe(onSuccess: { [weak self] response in
-                self?.checkInResult = response.data
-                self?.presentCheckIn()
-                
-            }, onError: { [weak self] error in
-                self?.checkInResult = nil
-            })
-            .disposed(by: rx.disposeBag)
-    }
     
     func observePhoneState() {
         NotificationCenter.default.rx.notification(.userDidChange)
@@ -289,16 +264,6 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
         }
         endRefreshing()
        
-    }
-    
-    func presentCheckIn() {
-        let vc = CheckInViewController(day: checkInResult!.day)
-        vc.onCheckInSucceed.delegate(on: self) { (self, _) in
-            self.checkInState()
-        }
-        present(vc, animated: true) {
-            self.isShowCheckIn = false
-        }
     }
     
     @IBAction func bingPhone(_ sender: Any) {
