@@ -66,17 +66,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
-        application.applicationIconBadgeNumber = 0
-        if XGPush.defaultManager().xgApplicationBadgeNumber > 0 {
-            XGPush.defaultManager().xgApplicationBadgeNumber = 0
-        }
+        application.applicationIconBadgeNumber = -1
+        XGPush.defaultManager().xgApplicationBadgeNumber = 0
+        XGPush.defaultManager().setBadge(0)
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
-        application.applicationIconBadgeNumber = 0
-        if XGPush.defaultManager().xgApplicationBadgeNumber > 0 {
-            XGPush.defaultManager().xgApplicationBadgeNumber = 0
-        }
+        application.applicationIconBadgeNumber = -1
+        XGPush.defaultManager().xgApplicationBadgeNumber = 0
+        XGPush.defaultManager().setBadge(0)
     }
     
     func store()  {
