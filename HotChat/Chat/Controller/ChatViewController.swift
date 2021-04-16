@@ -198,16 +198,14 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
         let alertController = SPAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
  
         
-        let video = SPAlertAction(title: nil, style: .default) { _ in
+        let video = SPAlertAction(title: "视频聊", style: .default) { _ in
             CallHelper.share.call(userID: self.conversationData.userID, callType: .video)
         }
-        video.attributedTitle = attributedText(text: "视频聊", detailText: "(2500能量/分钟)")
         alertController.addAction(video)
         
-        let audio = SPAlertAction(title: nil, style: .default) { _ in
+        let audio = SPAlertAction(title: "语音聊", style: .default) { _ in
             CallHelper.share.call(userID: self.conversationData.userID, callType: .audio)
         }
-        audio.attributedTitle = attributedText(text: "语音聊", detailText: "(1000能量/分钟)")
         alertController.addAction(audio)
         
         alertController.addAction(SPAlertAction(title: "取消", style: .cancel, handler: nil))

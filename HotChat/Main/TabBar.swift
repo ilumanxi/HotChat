@@ -94,6 +94,11 @@ class TabBar: UITabBar {
         }
         
         shadowView.isHidden = false
+        
+        if let view =  self.items?[2].value(forKey: "view") as? UIView, UIApplication.shared.keyWindow!.safeAreaInsets.bottom > 0 {
+            view.frame = view.frame.offsetBy(dx: 0, dy: -6)
+        }
+        
 //        composeButton.isHidden = false
 //
 //        var views =  self.items?
@@ -130,7 +135,6 @@ class TabBar: UITabBar {
 //        composeButton.contentEdgeInsets = UIEdgeInsets(top:  top, left: 0, bottom: 0, right: 0)
 //
         let v: CGFloat = 12
-        
         shadowView.frame =  CGRect(x: 0, y: 0, width: self.bounds.width, height: v).offsetBy(dx: 0, dy: -v)
         
     }

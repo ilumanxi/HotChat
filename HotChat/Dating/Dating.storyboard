@@ -65,13 +65,7 @@
         <scene sceneID="dbc-bT-Fr9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DBR-pl-4Jf" customClass="BaseNavigationController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="tabbar-add" selectedImage="tabbar-add" id="HCN-H1-P2H">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="rect" keyPath="imageInsets">
-                                <rect key="value" x="-15" y="0.0" width="0.0" height="0.0"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="" image="tabbar-add" selectedImage="tabbar-add" id="HCN-H1-P2H"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gL6-Lx-wav" customClass="HBDNavigationBar">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
