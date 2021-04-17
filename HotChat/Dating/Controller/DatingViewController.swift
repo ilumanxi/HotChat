@@ -40,11 +40,6 @@ class DatingViewController: UIViewController, LoadingStateType, IndicatorDisplay
         
     var dynamics: [Dynamic] = []
     
-    lazy var refreshControl: UIRefreshControl = {
-        let refreshControl = UIRefreshControl()
-        return refreshControl
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -61,12 +56,8 @@ class DatingViewController: UIViewController, LoadingStateType, IndicatorDisplay
             self.navigationItem.leftBarButtonItem = titleItem
         }
         
-        collectionView.refreshControl = refreshControl
-
         collectionView.setCollectionViewLayout(layout, animated: false)
-        
         hbd_barAlpha = 0
-        
         
         let url = Bundle.main.url(forResource: "dating", withExtension: "webp")
         
@@ -80,15 +71,9 @@ class DatingViewController: UIViewController, LoadingStateType, IndicatorDisplay
             .subscribe(onNext: requestData)
             .disposed(by: rx.disposeBag)
         
-        refreshControl.rx.controlEvent(.valueChanged)
-            .subscribe(onNext: { [weak self] _ in
-                self?.refreshData()
-            })
-            .disposed(by: rx.disposeBag)
-        
-//        collectionView.mj_header = MJRefreshNormalHeader { [weak self] in
-//            self?.refreshData()
-//        }
+        collectionView.mj_header = MJRefreshNormalHeader { [weak self] in
+            self?.refreshData()
+        }
         
         collectionView.mj_footer = MJRefreshAutoNormalFooter{ [weak self] in
             self?.loadMoreData()
@@ -104,11 +89,7 @@ class DatingViewController: UIViewController, LoadingStateType, IndicatorDisplay
     
     func endRefreshing(noContent: Bool = false) {
         collectionView.reloadData()
-//        collectionView.mj_header?.endRefreshing()
-        
-        if refreshControl.isRefreshing {
-            refreshControl.endRefreshing()
-        }
+        collectionView.mj_header?.endRefreshing()
         
         if noContent {
             collectionView.mj_footer?.endRefreshingWithNoMoreData()

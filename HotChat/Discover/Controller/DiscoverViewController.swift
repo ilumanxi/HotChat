@@ -166,6 +166,10 @@ class DiscoverViewController: TabmanViewController, LoadingStateType, IndicatorD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .white
+        
+        bounces = false
+        
         // Set PageboyViewControllerDataSource dataSource to configure page view controller.
         dataSource = self
         

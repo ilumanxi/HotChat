@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="U6t-zB-Qe0">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="12" minimumInteritemSpacing="5" id="8Mb-ZA-2hz">
                                     <size key="itemSize" width="128" height="128"/>
@@ -46,7 +46,7 @@
                             <constraint firstItem="U6t-zB-Qe0" firstAttribute="leading" secondItem="gxl-X7-Bu3" secondAttribute="leading" id="dvq-xE-gSq"/>
                             <constraint firstAttribute="bottom" secondItem="G9s-C8-ums" secondAttribute="bottom" id="ekb-J4-pEY"/>
                             <constraint firstItem="G9s-C8-ums" firstAttribute="top" secondItem="gxl-X7-Bu3" secondAttribute="top" id="i3b-vd-7JK"/>
-                            <constraint firstItem="U6t-zB-Qe0" firstAttribute="top" secondItem="gxl-X7-Bu3" secondAttribute="top" id="r58-DE-YPT"/>
+                            <constraint firstItem="EWG-7P-qVu" firstAttribute="top" secondItem="U6t-zB-Qe0" secondAttribute="top" id="x0K-wE-gmy"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3m9-4W-Ofy">
