@@ -52,6 +52,7 @@ extension DatingViewCell {
         
         avatarImageView.kf.setImage(with: URL(string: user.headPic))
         priceLabel.text = "\(user.videoCharge)能量/分钟"
+        priceLabel.alpha = AppAudit.share.energyStatus ? 0 : 1
         nameLabel.text = user.nick
         sexButton.set(user)
         introduceLabel.text = user.introduce

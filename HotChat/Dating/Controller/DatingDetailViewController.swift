@@ -44,6 +44,7 @@ class DatingDetailViewController: UIViewController {
         nameLabel.text = user.nick
         infoLabel.text = "\(user.age)岁 \(user.region)"
         priceButton.setTitle("\(user.videoCharge)能量/分钟", for: .normal)
+        priceButton.isHidden =  AppAudit.share.energyStatus
     }
 
     @objc func back() {

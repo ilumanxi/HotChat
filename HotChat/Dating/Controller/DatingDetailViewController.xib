@@ -96,7 +96,7 @@
                         <constraint firstAttribute="height" constant="30" id="xer-z7-JPS"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                    <state key="normal" title="开始约会"/>
+                    <state key="normal" title="开始视频"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                             <real key="value" value="15"/>

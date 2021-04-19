@@ -44,14 +44,14 @@ class DatingViewController: UIViewController, LoadingStateType, IndicatorDisplay
         super.viewDidLoad()
         
         if self.navigationController!.viewControllers.count > 1 {
-            navigationItem.title = "视频约会"
+            navigationItem.title = "在线视频"
             let backItem = UIBarButtonItem(image: UIImage(named: "circle-back-white"), style: .done, target: self, action: #selector(back))
             navigationItem.leftBarButtonItem = backItem
             
         }
         else {
             
-            let titleItem = UIBarButtonItem(title: "视频约会", style: .done, target: nil, action: nil)
+            let titleItem = UIBarButtonItem(title: "在线视频", style: .done, target: nil, action: nil)
             titleItem.setTitleTextAttributes(UINavigationBar.appearance().titleTextAttributes, for: .normal)
             self.navigationItem.leftBarButtonItem = titleItem
         }
@@ -59,12 +59,13 @@ class DatingViewController: UIViewController, LoadingStateType, IndicatorDisplay
         collectionView.setCollectionViewLayout(layout, animated: false)
         hbd_barAlpha = 0
         
-        let url = Bundle.main.url(forResource: "dating", withExtension: "webp")
-        
-        backgroundImageView.kf.setImage(with: url)
+//        let url = Bundle.main.url(forResource: "dating", withExtension: "webp")
+//
+//        backgroundImageView.kf.setImage(with: url)
         
         collectionView.register(UINib(nibName: "DatingViewCell", bundle: nil), forCellWithReuseIdentifier: "DatingViewCell")
         
+        view.backgroundColor = .white
         collectionView.backgroundColor = UIColor.clear
         
         loadSignal

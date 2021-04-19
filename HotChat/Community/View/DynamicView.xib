@@ -31,16 +31,16 @@
                             </userDefinedRuntimeAttributes>
                         </button>
                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="2oR-9R-z3f">
-                            <rect key="frame" x="76" y="10" width="73.5" height="27"/>
+                            <rect key="frame" x="76" y="10" width="75" height="27"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKd-b9-6R7">
-                                    <rect key="frame" x="0.0" y="5.5" width="35.5" height="16"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <rect key="frame" x="0.0" y="5.5" width="40.5" height="16"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sTo-za-wax" customClass="SexButton" customModule="HotChat" customModuleProvider="target">
-                                    <rect key="frame" x="40.5" y="5.5" width="33" height="16"/>
+                                    <rect key="frame" x="45.5" y="5.5" width="29.5" height="16"/>
                                     <color key="backgroundColor" red="0.56862745100000001" green="0.82352941180000006" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
                                     <inset key="contentEdgeInsets" minX="4" minY="2" maxX="4" maxY="2"/>
@@ -57,7 +57,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="14.5" id="93W-8B-o5J"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -157,7 +157,7 @@
         </view>
     </objects>
     <resources>
-        <image name="male" width="12" height="12.5"/>
+        <image name="male" width="8.5" height="8"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
