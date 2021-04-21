@@ -25,6 +25,12 @@ class HeadlineViewController: UIViewController, IndicatorDisplay {
     
     let API = Request<HeadlineAPI>()
     
+    
+    static var energy: Int = 5
+    
+    @IBOutlet weak var energyLabel: UILabel!
+    
+    
     var animator: Animator?
     
     
@@ -45,6 +51,17 @@ class HeadlineViewController: UIViewController, IndicatorDisplay {
 
         // Do any additional setup after loading the view.
         setupUI()
+        
+        
+        API.request(.headlinesConfig, type: Response<[String : Any]>.self)
+            .subscribe(onSuccess: { [unowned self] response in
+                guard let energy  = response.data?["energy"] as? Int else {
+                    return
+                }
+                HeadlineViewController.energy = energy
+                energyLabel.text = "\(energy)能量值/条"
+            }, onError: nil)
+            .disposed(by: rx.disposeBag)
      
         
         NotificationCenter.default.rx
@@ -69,7 +86,7 @@ class HeadlineViewController: UIViewController, IndicatorDisplay {
         contentView.centerYAnchor.constraint(equalTo: containerLayoutGuide.centerYAnchor).isActive = true
         
         
-        
+        energyLabel.text = "\(Self.energy)能量值/条"
         
         let string = NSMutableAttributedString()
         string.append(NSAttributedString(string: "你的头条将会在首页停留"))

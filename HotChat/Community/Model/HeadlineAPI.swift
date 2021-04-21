@@ -12,6 +12,7 @@ enum HeadlineAPI {
     
     /// resultCode：1120成功1121内容违规1122 能量不足 1123 失败
     case topHeadlines(content: String)
+    case headlinesConfig
 }
 
 
@@ -23,6 +24,8 @@ extension HeadlineAPI: TargetType {
         switch self {
         case .topHeadlines:
             return "Headlines/topHeadlines"
+        case .headlinesConfig:
+            return "Headlines/headlinesConfig"
         }
     }
     
@@ -35,6 +38,8 @@ extension HeadlineAPI: TargetType {
             parameters = [
                 "content" : content
             ]
+        case .headlinesConfig:
+            parameters = [:]
         }
         
         let encoding: ParameterEncoding = (method == .post) ? JSONEncoding.default : URLEncoding.default

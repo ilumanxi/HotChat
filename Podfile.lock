@@ -151,7 +151,7 @@ PODS:
   - TagListView (1.4.1)
   - Toast (4.0.0)
   - Toast-Swift (5.0.1)
-  - TPNS-iOS (1.3.1.0)
+  - TPNS-iOS (1.3.1.1)
   - Trident (0.6.0)
   - TXIMSDK_iOS (5.1.60)
   - TXIMSDK_TUIKit_iOS (5.1.60):
@@ -401,7 +401,7 @@ SPEC CHECKSUMS:
   TagListView: a1c236d17960a0cf64156725a76ce6d73ebce2be
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
-  TPNS-iOS: 4fd8a2a95a4cfbc5233889ad11964f4ae4117e2b
+  TPNS-iOS: 4d8069f16fd4593cd907e1dfc5a9e0506a76589a
   Trident: aa83273ba05bf77f434bb35925356c87bd4c2f75
   TXIMSDK_iOS: 015557374d46a549ec63f298e76d1aaf38611284
   TXIMSDK_TUIKit_iOS: 3b4fd0f969efc67dfe645cb3b030cb790d9de2c3

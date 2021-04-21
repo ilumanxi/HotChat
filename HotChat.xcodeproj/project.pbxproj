@@ -410,6 +410,14 @@
 		26DF8783255A7969002162A9 /* EarningsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DF8781255A7969002162A9 /* EarningsDetailViewController.swift */; };
 		26DF8784255A7969002162A9 /* EarningsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26DF8782255A7969002162A9 /* EarningsDetailViewController.xib */; };
 		26DF8787255A80ED002162A9 /* Earning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DF8786255A80ED002162A9 /* Earning.swift */; };
+		26DFBF84262EA18300639C94 /* PassthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DFBF83262EA18300639C94 /* PassthroughViewController.swift */; };
+		26DFBF86262EADE400639C94 /* GiftTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DFBF85262EADE400639C94 /* GiftTipView.swift */; };
+		26DFBF88262EADF900639C94 /* GiftTipView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26DFBF87262EADF900639C94 /* GiftTipView.xib */; };
+		26DFBF8A262EB6ED00639C94 /* OnlineTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DFBF89262EB6ED00639C94 /* OnlineTipView.swift */; };
+		26DFBF8C262EB6F800639C94 /* OnlineTipView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26DFBF8B262EB6F800639C94 /* OnlineTipView.xib */; };
+		26DFBF8E262EC9AE00639C94 /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DFBF8D262EC9AE00639C94 /* RecommendViewController.swift */; };
+		26DFBF91262ED3FF00639C94 /* OnlineStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DFBF8F262ED3FF00639C94 /* OnlineStatusViewController.swift */; };
+		26DFBF92262ED3FF00639C94 /* OnlineStatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26DFBF90262ED3FF00639C94 /* OnlineStatusViewController.xib */; };
 		26E14E5E251C6E8800645F08 /* HotChatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E14E5D251C6E8800645F08 /* HotChatButton.swift */; };
 		26E14E63251C766900645F08 /* UserInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E14E62251C766900645F08 /* UserInformationViewController.swift */; };
 		26E14E68251C861A00645F08 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E14E67251C861A00645F08 /* DatePickerViewController.swift */; };
@@ -1014,6 +1022,14 @@
 		26DF8781255A7969002162A9 /* EarningsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningsDetailViewController.swift; sourceTree = "<group>"; };
 		26DF8782255A7969002162A9 /* EarningsDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EarningsDetailViewController.xib; sourceTree = "<group>"; };
 		26DF8786255A80ED002162A9 /* Earning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Earning.swift; sourceTree = "<group>"; };
+		26DFBF83262EA18300639C94 /* PassthroughViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassthroughViewController.swift; sourceTree = "<group>"; };
+		26DFBF85262EADE400639C94 /* GiftTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftTipView.swift; sourceTree = "<group>"; };
+		26DFBF87262EADF900639C94 /* GiftTipView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiftTipView.xib; sourceTree = "<group>"; };
+		26DFBF89262EB6ED00639C94 /* OnlineTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineTipView.swift; sourceTree = "<group>"; };
+		26DFBF8B262EB6F800639C94 /* OnlineTipView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnlineTipView.xib; sourceTree = "<group>"; };
+		26DFBF8D262EC9AE00639C94 /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
+		26DFBF8F262ED3FF00639C94 /* OnlineStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineStatusViewController.swift; sourceTree = "<group>"; };
+		26DFBF90262ED3FF00639C94 /* OnlineStatusViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnlineStatusViewController.xib; sourceTree = "<group>"; };
 		26E14E5D251C6E8800645F08 /* HotChatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotChatButton.swift; sourceTree = "<group>"; };
 		26E14E62251C766900645F08 /* UserInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformationViewController.swift; sourceTree = "<group>"; };
 		26E14E67251C861A00645F08 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
@@ -1586,6 +1602,9 @@
 				26EDE7F82591D11F002A2EC3 /* GuidedRechargeViewController.xib */,
 				262BE7E22601CE4000C1B646 /* TopicListViewController.swift */,
 				262BE7E42601CE8B00C1B646 /* ColumnFlowLayout.swift */,
+				26DFBF8D262EC9AE00639C94 /* RecommendViewController.swift */,
+				26DFBF8F262ED3FF00639C94 /* OnlineStatusViewController.swift */,
+				26DFBF90262ED3FF00639C94 /* OnlineStatusViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1640,27 +1659,14 @@
 		267B98682505D3FA0008C81B /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				26DFBF82262EA14600639C94 /* Model */,
+				26DFBF81262EA12500639C94 /* View */,
+				26DFBF80262EA10200639C94 /* Controller */,
 				26137CCA2590673900DCBAD0 /* TabBar.swift */,
 				2643EB392500AD7D00FBBE49 /* AppDelegate.swift */,
-				2643EBC22500B05300FBBE49 /* TabBarController.swift */,
-				2636A0D72564CDBF00664FFC /* UpgrateViewController.swift */,
-				2636A0D82564CDBF00664FFC /* UpgrateViewController.xib */,
-				26B4E05C2564FCBA004EDCFE /* AuthenticationGuideViewController.swift */,
-				26B4E05D2564FCBA004EDCFE /* AuthenticationGuideViewController.xib */,
-				26E48906257E087D006C2ACE /* CheckInViewController.swift */,
-				26E48907257E087D006C2ACE /* CheckInViewController.xib */,
-				263A6682257E0EF200F35714 /* CheckInCell.swift */,
-				264BF97C25A83BB200F873DD /* AccostViewCell.swift */,
-				264BF97D25A83BB200F873DD /* AccostViewCell.xib */,
-				263A6683257E0EF200F35714 /* CheckInCell.xib */,
-				264BF97625A8366E00F873DD /* AccostViewController.swift */,
-				264BF97725A8366E00F873DD /* AccostViewController.xib */,
-				263A66C5257E347D00F35714 /* CheckIn.swift */,
 				263A66C9257E351700F35714 /* CheckInAPI.swift */,
-				26EDD94C25A44A1D00913363 /* AppAudit.swift */,
 				2643EB412500AD7D00FBBE49 /* Main.storyboard */,
 				2643EB462500AD7E00FBBE49 /* LaunchScreen.storyboard */,
-				26B4E0582564EB34004EDCFE /* Upgrade.swift */,
 				26B4E05A2564ECBB004EDCFE /* UpgradeAPI.swift */,
 				2604D4E025B5752400A864C1 /* BannerAPI.swift */,
 			);
@@ -2027,6 +2033,48 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		26DFBF80262EA10200639C94 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				26DFBF83262EA18300639C94 /* PassthroughViewController.swift */,
+				264BF97625A8366E00F873DD /* AccostViewController.swift */,
+				264BF97725A8366E00F873DD /* AccostViewController.xib */,
+				2643EBC22500B05300FBBE49 /* TabBarController.swift */,
+				2636A0D72564CDBF00664FFC /* UpgrateViewController.swift */,
+				2636A0D82564CDBF00664FFC /* UpgrateViewController.xib */,
+				26B4E05C2564FCBA004EDCFE /* AuthenticationGuideViewController.swift */,
+				26B4E05D2564FCBA004EDCFE /* AuthenticationGuideViewController.xib */,
+				26E48906257E087D006C2ACE /* CheckInViewController.swift */,
+				26E48907257E087D006C2ACE /* CheckInViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		26DFBF81262EA12500639C94 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				263A6682257E0EF200F35714 /* CheckInCell.swift */,
+				264BF97C25A83BB200F873DD /* AccostViewCell.swift */,
+				264BF97D25A83BB200F873DD /* AccostViewCell.xib */,
+				263A6683257E0EF200F35714 /* CheckInCell.xib */,
+				26DFBF85262EADE400639C94 /* GiftTipView.swift */,
+				26DFBF87262EADF900639C94 /* GiftTipView.xib */,
+				26DFBF89262EB6ED00639C94 /* OnlineTipView.swift */,
+				26DFBF8B262EB6F800639C94 /* OnlineTipView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		26DFBF82262EA14600639C94 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				263A66C5257E347D00F35714 /* CheckIn.swift */,
+				26B4E0582564EB34004EDCFE /* Upgrade.swift */,
+				26EDD94C25A44A1D00913363 /* AppAudit.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		26EF524625398DC700E73774 /* IM */ = {
 			isa = PBXGroup;
 			children = (
@@ -2315,6 +2363,7 @@
 				26EDE7FA2591D11F002A2EC3 /* GuidedRechargeViewController.xib in Resources */,
 				2623FC5E262029DD00764DFA /* AddressBookViewController.xib in Resources */,
 				26959042250B1DD900763061 /* InterestedCardOverlayView.xib in Resources */,
+				26DFBF88262EADF900639C94 /* GiftTipView.xib in Resources */,
 				26CB6D4F25515D6B00A9F4DD /* idl-license.face-ios in Resources */,
 				2697FDC5260893EE002CB9A2 /* ChatTopicNoticeViewController.xib in Resources */,
 				26C81EE62547E9E300C1D563 /* VoiceView.xib in Resources */,
@@ -2353,6 +2402,7 @@
 				26F553712553AFB500840735 /* EarningsViewController.xib in Resources */,
 				26202023261DA1E5006A5AD7 /* VipPhotoViewController.xib in Resources */,
 				2637D87A255B8EDF00020E98 /* BlacklistCell.xib in Resources */,
+				26DFBF92262ED3FF00639C94 /* OnlineStatusViewController.xib in Resources */,
 				2626E4E8261C14E0007B57D2 /* DynamicView.xib in Resources */,
 				26C8CC6A2603545C005FDFF8 /* ChatMemberCell.xib in Resources */,
 				26FD33102625829300979B36 /* message.svga in Resources */,
@@ -2365,6 +2415,7 @@
 				26F3EA3425F20A05001CF13D /* CommentFooterView.xib in Resources */,
 				2660F5F426172BB200F849B3 /* DynamicDetailViewCell.xib in Resources */,
 				2651FE1B25F7666A00A9F2E6 /* TopHeaderView.xib in Resources */,
+				26DFBF8C262EB6F800639C94 /* OnlineTipView.xib in Resources */,
 				2691AE362627EB4500EE05D7 /* dating.webp in Resources */,
 				2635216225C7EA4E00855487 /* VisitorsAvatarView.xib in Resources */,
 				26B22F1B2609F2C0006B0C49 /* ListViewCell.xib in Resources */,
@@ -2575,6 +2626,7 @@
 				264BF97E25A83BB200F873DD /* AccostViewCell.swift in Sources */,
 				26BD36EA261C570500D5565D /* Notice.swift in Sources */,
 				268E3E602521D074000E4A33 /* RelationshipViewCell.swift in Sources */,
+				26DFBF84262EA18300639C94 /* PassthroughViewController.swift in Sources */,
 				2643EBBF2500B04100FBBE49 /* Application.swift in Sources */,
 				260C467825F870BE0033915C /* TopController.swift in Sources */,
 				2605A4762513187900017241 /* UIImageExtensions.swift in Sources */,
@@ -2636,6 +2688,7 @@
 				26772822255A480900B98973 /* PrivacyViewController.swift in Sources */,
 				26C81EE12547E9C400C1D563 /* VoiceView.m in Sources */,
 				262FFFBE2602F40100F541C2 /* GroupTopic.swift in Sources */,
+				26DFBF8E262EC9AE00639C94 /* RecommendViewController.swift in Sources */,
 				26257ADB260B2EBF00A4E0F3 /* BannerViewCell.swift in Sources */,
 				26EDE7EE2591C6B8002A2EC3 /* TUIMessageController+Message.m in Sources */,
 				264219B5258B2AC600D46B9C /* GreetingViewController.swift in Sources */,
@@ -2706,6 +2759,7 @@
 				2682974D2511B0EC00949C7F /* SignupProtocols.swift in Sources */,
 				265C1ED62542D84700110564 /* InviteViewController.swift in Sources */,
 				26C65FB325301737006B9B7E /* InformationCell.swift in Sources */,
+				26DFBF8A262EB6ED00639C94 /* OnlineTipView.swift in Sources */,
 				2617D3EB25C54478009AAE16 /* ImageMessageCell.m in Sources */,
 				26AE7C2F2520309F00B55318 /* LabelViewCell.swift in Sources */,
 				26CB6D4725515D6B00A9F4DD /* BDFaceRemindAnimationView.m in Sources */,
@@ -2820,7 +2874,9 @@
 				26EEA32426048BDA005226AD /* ChatTopicReportViewController.swift in Sources */,
 				26945815253FF81E00EBCABB /* UserViewCell.swift in Sources */,
 				2695903C250B16D700763061 /* InterestedCardView.swift in Sources */,
+				26DFBF91262ED3FF00639C94 /* OnlineStatusViewController.swift in Sources */,
 				262FFFC12603483F00F541C2 /* ChatMemberViewController.swift in Sources */,
+				26DFBF86262EADE400639C94 /* GiftTipView.swift in Sources */,
 				267B98772505E1AC0008C81B /* Platform.swift in Sources */,
 				26F3D67725483433007D9136 /* GiftCell.m in Sources */,
 				26E8A255261C465D0050608F /* DynamicInfoViewController.swift in Sources */,

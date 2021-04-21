@@ -314,6 +314,7 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
             })
             .disposed(by: rx.disposeBag)
         
+        headlineConfig()
         
         refreshActivity()
         
@@ -335,6 +336,20 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
                 .disposed(by: rx.disposeBag)
         }
        
+    }
+    
+    let headlineAPI = Request<HeadlineAPI>()
+    func headlineConfig()  {
+        
+        let headlineAPI = Request<HeadlineAPI>()
+        headlineAPI.request(.headlinesConfig, type: Response<[String : Any]>.self)
+            .subscribe(onSuccess: { response in
+                guard let energy  = response.data?["energy"] as? Int else {
+                    return
+                }
+                HeadlineViewController.energy = energy
+            }, onError: nil)
+            .disposed(by: rx.disposeBag)
     }
     
     func avatarTask() {

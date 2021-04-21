@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="OnlineTipView" customModule="HotChat" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="165" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wdE-G6-gUs" customClass="GradientView" customModule="HotChat" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="165" height="44"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C7q-7D-77j">
+                            <rect key="frame" x="3" y="2.5" width="39" height="39"/>
+                            <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            <gestureRecognizers/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="39" id="W4T-KF-myE"/>
+                                <constraint firstAttribute="width" secondItem="C7q-7D-77j" secondAttribute="height" multiplier="1:1" id="ccM-Y5-b1u"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="19.5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="jUq-eA-Bbp" appends="YES" id="EaX-Jc-hxl"/>
+                            </connections>
+                        </imageView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="XfO-f5-qzC">
+                            <rect key="frame" x="48" y="4" width="104" height="36.5"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小甜甜不是田田舔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2Y-UY-a2R">
+                                    <rect key="frame" x="0.0" y="0.0" width="104" height="16"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[对方已上线]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CQm-Ho-6i0">
+                                    <rect key="frame" x="0.0" y="22" width="70.5" height="14.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="0.41568627450980389" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="XfO-f5-qzC" secondAttribute="trailing" constant="13" id="7IF-6D-QPQ"/>
+                        <constraint firstItem="C7q-7D-77j" firstAttribute="leading" secondItem="wdE-G6-gUs" secondAttribute="leading" constant="3" id="JZo-Pk-k1J"/>
+                        <constraint firstItem="XfO-f5-qzC" firstAttribute="leading" secondItem="C7q-7D-77j" secondAttribute="trailing" constant="6" id="Lpn-9O-81m"/>
+                        <constraint firstItem="C7q-7D-77j" firstAttribute="centerY" secondItem="wdE-G6-gUs" secondAttribute="centerY" id="RZc-3y-WBu"/>
+                        <constraint firstItem="XfO-f5-qzC" firstAttribute="centerY" secondItem="wdE-G6-gUs" secondAttribute="centerY" id="qfM-VY-4Qf"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="colorsString" value="#FF6A2F,#FF3F3F"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="uq7-en-rEb" appends="YES" id="9oD-6W-KZh"/>
+                    </connections>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="wdE-G6-gUs" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="5IL-y3-HGh"/>
+                <constraint firstAttribute="bottom" secondItem="wdE-G6-gUs" secondAttribute="bottom" id="Zv0-1r-Ft1"/>
+                <constraint firstItem="wdE-G6-gUs" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="cj3-yh-4p6"/>
+                <constraint firstAttribute="trailing" secondItem="wdE-G6-gUs" secondAttribute="trailing" id="rbH-GH-jGR"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="avatarImageView" destination="C7q-7D-77j" id="rNG-IW-kmL"/>
+                <outlet property="nameLabel" destination="u2Y-UY-a2R" id="t9a-ak-ayH"/>
+                <outlet property="statusLabel" destination="CQm-Ho-6i0" id="Z0C-or-rxt"/>
+            </connections>
+            <point key="canvasLocation" x="138.40579710144928" y="92.410714285714278"/>
+        </view>
+        <tapGestureRecognizer id="jUq-eA-Bbp">
+            <connections>
+                <action selector="avatarTapped:" destination="iN0-l3-epB" id="Ddj-05-mQt"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="uq7-en-rEb">
+            <connections>
+                <action selector="contentTapped:" destination="iN0-l3-epB" id="4Xx-1c-zYE"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

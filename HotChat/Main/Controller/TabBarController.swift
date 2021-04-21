@@ -12,6 +12,8 @@ import RxSwift
 import RxCocoa
 import Moya
 import SVGAPlayer
+import NSObject_Rx
+
 
 extension UIWindow {
     
@@ -45,12 +47,91 @@ class TabBarController: UITabBarController, IndicatorDisplay {
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
-        
+        addOrRemovePassthroughViewController()
         observerUnReadCount()
         
         if LoginManager.shared.isAuthorized && !LoginManager.shared.user!.isInit {//更新用户信息
             LoginManager.shared.autoLogin()
         }
+    }
+    
+    let contentController = PassthroughViewController()
+    
+    func addOrRemovePassthroughViewController() {
+        
+        let navigationControllers = viewControllers as! [UINavigationController]
+        
+        let controllersWillHidden = navigationControllers
+            .compactMap { navigationController in
+                navigationController.rx.willShow.map { _ in navigationController }
+            }
+            
+        let tabBarWillHidden =  Observable.merge(controllersWillHidden)
+            .map { (navigationController) -> Bool in
+                return navigationController.viewControllers.count > 1
+            }
+        
+        
+        let controllersDidHidden = navigationControllers
+            .compactMap { navigationController in
+                navigationController.rx.didShow.map { _ in navigationController }
+            }
+            
+        let tabBarDidHidden =  Observable.merge(controllersDidHidden)
+            .map { (navigationController) -> Bool in
+                return navigationController.viewControllers.count > 1
+            }
+        
+       let showMaxIndex = 1
+        
+       let controllerHidden = self.rx.didSelect
+            .startWith(viewControllers!.first!)
+            .map { [unowned self] (viewController) -> Bool in
+                (self.viewControllers?.firstIndex(of: viewController) ?? 0) > showMaxIndex
+            }
+            
+        
+        Observable<Bool>.combineLatest(tabBarWillHidden, tabBarDidHidden, controllerHidden) {
+                $0 || $1 || $2
+            }
+            .distinctUntilChanged()
+            .subscribe(onNext: { [unowned self]  (isHidden) in
+                self.handelPassthroughViewController(!isHidden)
+            })
+            .disposed(by: self.rx.disposeBag)
+    }
+    
+ 
+    func handelPassthroughViewController(_ isAdd: Bool)  {
+        if isAdd {
+            addPassthroughViewController()
+        }
+        else {
+            removePassthroughViewController()
+        }
+    }
+    
+    func addPassthroughViewController(){
+        
+        if contentController.parent != nil {
+            return
+        }
+        
+        let safeAreaInsets = UIApplication.shared.keyWindow!.safeAreaInsets
+        
+        contentController.additionalSafeAreaInsets = UIEdgeInsets(top: safeAreaInsets.top, left: 0, bottom: safeAreaInsets.bottom + 49, right: 0)
+        
+        addChild(contentController)
+        view.addSubview(contentController.view)
+        contentController.view.frame = view.bounds
+        contentController.didMove(toParent: self)
+    }
+   
+    
+    func removePassthroughViewController() {
+        contentController.removeFromParent()
+        contentController.view.removeFromSuperview()
+        contentController.didMove(toParent: nil)
     }
     
     func pushPair()  {

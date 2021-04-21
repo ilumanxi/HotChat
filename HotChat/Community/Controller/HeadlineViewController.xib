@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeadlineViewController" customModule="HotChat" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="C09-fm-ysk" id="LoQ-DY-nES"/>
+                <outlet property="energyLabel" destination="QgI-eH-3Rm" id="hdb-Oh-SN7"/>
                 <outlet property="textView" destination="Mfe-d4-Ak1" id="299-I9-Kim"/>
                 <outlet property="tipabel" destination="tMD-5K-h51" id="Rkm-aZ-iBa"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -42,8 +43,8 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HfR-Im-gKF">
                                     <rect key="frame" x="21" y="118.5" width="285" height="168"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="350能量值/条" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QgI-eH-3Rm">
-                                            <rect key="frame" x="186.5" y="141" width="81.5" height="16"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5能量值/条" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QgI-eH-3Rm">
+                                            <rect key="frame" x="203" y="141" width="65" height="16"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" red="1" green="0.25882352941176467" blue="0.24313725490196078" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>

@@ -194,11 +194,11 @@ extension AccountPlugin: PluginType {
         if let json = try? JSONSerialization.jsonObject(with: response.data, options: .allowFragments) as? [String : Any], let aCode = json["code"] as? CustomStringConvertible, let code = Int(aCode.description) {
             
             if let anCode = HotChatError.Code(rawValue: code) {
-                NotificationCenter.default.post(code: anCode, object: nil)
+                NotificationCenter.default.post(code: anCode, object: nil, userInfo: json)
             }
             else if  let data = json["data"] as? [String : Any], let code = data["resultCode"] as? Int, let anCode = HotChatError.Code(rawValue: code) {
                 
-                NotificationCenter.default.post(code: anCode, object: nil)
+                NotificationCenter.default.post(code: anCode, object: nil, userInfo: data)
             }
         }
         

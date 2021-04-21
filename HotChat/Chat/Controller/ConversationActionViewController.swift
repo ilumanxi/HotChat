@@ -13,6 +13,7 @@ class ConversationActionViewController: UITableViewController, StoryboardCreate 
     
     enum Row: Int, CaseIterable  {
         case settings
+        case recommend
         case topic
         case interested
     }
@@ -98,6 +99,9 @@ class ConversationActionViewController: UITableViewController, StoryboardCreate 
         case .topic:
             let vc = TopicListViewController()
             navigationController?.pushViewController(vc, animated: true)
+        case .recommend:
+            let vc = RecommendViewController()
+            navigationController?.pushViewController(vc, animated: true)
         default:
             break
         }
@@ -132,6 +136,8 @@ extension ConversationActionViewController.Row {
         case .interested:
             return 80
         case .topic:
+            return 80
+        case .recommend:
             return 80
         }
     }
