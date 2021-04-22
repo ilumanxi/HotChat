@@ -47,7 +47,7 @@ class TabBarController: UITabBarController, IndicatorDisplay {
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
-        addOrRemovePassthroughViewController()
+        addOrRemoveNoticeController()
         observerUnReadCount()
         
         if LoginManager.shared.isAuthorized && !LoginManager.shared.user!.isInit {//更新用户信息
@@ -55,9 +55,9 @@ class TabBarController: UITabBarController, IndicatorDisplay {
         }
     }
     
-    let contentController = PassthroughViewController()
+    let noticeController = NoticeViewController()
     
-    func addOrRemovePassthroughViewController() {
+    func addOrRemoveNoticeController() {
         
         let navigationControllers = viewControllers as! [UINavigationController]
         
@@ -113,25 +113,25 @@ class TabBarController: UITabBarController, IndicatorDisplay {
     
     func addPassthroughViewController(){
         
-        if contentController.parent != nil {
+        if noticeController.parent != nil || noticeController.view.superview != nil {
             return
         }
         
         let safeAreaInsets = UIApplication.shared.keyWindow!.safeAreaInsets
         
-        contentController.additionalSafeAreaInsets = UIEdgeInsets(top: safeAreaInsets.top, left: 0, bottom: safeAreaInsets.bottom + 49, right: 0)
-        
-        addChild(contentController)
-        view.addSubview(contentController.view)
-        contentController.view.frame = view.bounds
-        contentController.didMove(toParent: self)
+        let additionalSafeAreaInsets = UIEdgeInsets(top: safeAreaInsets.top, left: 0, bottom: safeAreaInsets.bottom + 49 + 20, right: 0)
+        noticeController.additionalSafeAreaInsets = additionalSafeAreaInsets
+        addChild(noticeController)
+        noticeController.view.frame = view.bounds.inset(by: additionalSafeAreaInsets)
+        view.addSubview(noticeController.view)
+        noticeController.didMove(toParent: self)
     }
    
     
     func removePassthroughViewController() {
-        contentController.removeFromParent()
-        contentController.view.removeFromSuperview()
-        contentController.didMove(toParent: nil)
+        noticeController.removeFromParent()
+        noticeController.view.removeFromSuperview()
+        noticeController.didMove(toParent: nil)
     }
     
     func pushPair()  {

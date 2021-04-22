@@ -410,7 +410,7 @@
 		26DF8783255A7969002162A9 /* EarningsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DF8781255A7969002162A9 /* EarningsDetailViewController.swift */; };
 		26DF8784255A7969002162A9 /* EarningsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26DF8782255A7969002162A9 /* EarningsDetailViewController.xib */; };
 		26DF8787255A80ED002162A9 /* Earning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DF8786255A80ED002162A9 /* Earning.swift */; };
-		26DFBF84262EA18300639C94 /* PassthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DFBF83262EA18300639C94 /* PassthroughViewController.swift */; };
+		26DFBF84262EA18300639C94 /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DFBF83262EA18300639C94 /* NoticeViewController.swift */; };
 		26DFBF86262EADE400639C94 /* GiftTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DFBF85262EADE400639C94 /* GiftTipView.swift */; };
 		26DFBF88262EADF900639C94 /* GiftTipView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26DFBF87262EADF900639C94 /* GiftTipView.xib */; };
 		26DFBF8A262EB6ED00639C94 /* OnlineTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DFBF89262EB6ED00639C94 /* OnlineTipView.swift */; };
@@ -1022,7 +1022,7 @@
 		26DF8781255A7969002162A9 /* EarningsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningsDetailViewController.swift; sourceTree = "<group>"; };
 		26DF8782255A7969002162A9 /* EarningsDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EarningsDetailViewController.xib; sourceTree = "<group>"; };
 		26DF8786255A80ED002162A9 /* Earning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Earning.swift; sourceTree = "<group>"; };
-		26DFBF83262EA18300639C94 /* PassthroughViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassthroughViewController.swift; sourceTree = "<group>"; };
+		26DFBF83262EA18300639C94 /* NoticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
 		26DFBF85262EADE400639C94 /* GiftTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftTipView.swift; sourceTree = "<group>"; };
 		26DFBF87262EADF900639C94 /* GiftTipView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiftTipView.xib; sourceTree = "<group>"; };
 		26DFBF89262EB6ED00639C94 /* OnlineTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineTipView.swift; sourceTree = "<group>"; };
@@ -2036,7 +2036,7 @@
 		26DFBF80262EA10200639C94 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				26DFBF83262EA18300639C94 /* PassthroughViewController.swift */,
+				26DFBF83262EA18300639C94 /* NoticeViewController.swift */,
 				264BF97625A8366E00F873DD /* AccostViewController.swift */,
 				264BF97725A8366E00F873DD /* AccostViewController.xib */,
 				2643EBC22500B05300FBBE49 /* TabBarController.swift */,
@@ -2626,7 +2626,7 @@
 				264BF97E25A83BB200F873DD /* AccostViewCell.swift in Sources */,
 				26BD36EA261C570500D5565D /* Notice.swift in Sources */,
 				268E3E602521D074000E4A33 /* RelationshipViewCell.swift in Sources */,
-				26DFBF84262EA18300639C94 /* PassthroughViewController.swift in Sources */,
+				26DFBF84262EA18300639C94 /* NoticeViewController.swift in Sources */,
 				2643EBBF2500B04100FBBE49 /* Application.swift in Sources */,
 				260C467825F870BE0033915C /* TopController.swift in Sources */,
 				2605A4762513187900017241 /* UIImageExtensions.swift in Sources */,

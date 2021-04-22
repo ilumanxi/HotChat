@@ -58,7 +58,7 @@ struct OnlineNotification {
 }
 
 
-class PassthroughViewController: UIViewController {
+class NoticeViewController: UIViewController {
     
     
     var passthroughView = PassthroughView()
@@ -83,9 +83,9 @@ class PassthroughViewController: UIViewController {
     fileprivate var isOnlineFinished = true
     
     
-//    override func loadView() {
-//        view = passthroughView
-//    }
+    override func loadView() {
+        view = passthroughView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -133,7 +133,7 @@ class PassthroughViewController: UIViewController {
         view.addSubview(giftTipContainerView)
         
         giftTipContainerView.snp.makeConstraints { [unowned self] maker in
-            maker.top.equalTo(self.safeTop)
+            maker.top.equalToSuperview()
             maker.leading.equalTo(self.view.snp.leading).offset(20)
             maker.trailing.equalTo(self.view.snp.trailing).offset(-20)
             maker.height.equalTo(190)
@@ -143,7 +143,7 @@ class PassthroughViewController: UIViewController {
         onlineStatusTipContainerView.layer.cornerRadius = 22
         view.addSubview(onlineStatusTipContainerView)
         onlineStatusTipContainerView.snp.makeConstraints { [unowned self] maker in
-            maker.bottom.equalTo(self.safeBottom)
+            maker.bottom.equalToSuperview()
             maker.leading.equalTo(self.view.snp.leading).offset(20)
             maker.size.equalTo(CGSize(width: 165, height: 44))
         }

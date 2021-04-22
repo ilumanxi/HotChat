@@ -116,7 +116,7 @@ class ChatTopicViewController: ChatViewController, UIPopoverPresentationControll
             }
             
         }, fail: { (code, desc) in
-            Log.print("\(code)  \(desc)")
+            Log.print("\(code)  \(String(describing: desc))")
         })
         
         /// groupID  data
@@ -128,8 +128,36 @@ class ChatTopicViewController: ChatViewController, UIPopoverPresentationControll
         
         requestMutedStatus()
         
+        addNoticeController()
     }
     
+//
+    
+    let noticeController = NoticeViewController()
+    
+    func addNoticeController(){
+        
+        let safeAreaInsets = UIApplication.shared.keyWindow!.safeAreaInsets
+        
+        let additionalSafeAreaInsets = UIEdgeInsets(top: safeAreaInsets.top + 44 + 10, left: 0, bottom: safeAreaInsets.bottom + inputBarHeight + 10, right: 0)
+        addChild(noticeController)
+        noticeController.view.frame = view.bounds.inset(by: additionalSafeAreaInsets)
+        view.addSubview(noticeController.view)
+        noticeController.didMove(toParent: self)
+    }
+    
+    override func inputController(_ inputController: InputController!, didChangeHeight height: CGFloat) {
+        
+        super.inputController(inputController, didChangeHeight: height)
+        
+        let safeAreaInsets = UIApplication.shared.keyWindow!.safeAreaInsets
+        let additionalSafeAreaInsets = UIEdgeInsets(top: safeAreaInsets.top + 44 + 10, left: 0, bottom:  height + 10, right: 0)
+        
+        UIView.animate(withDuration: 0.25) {
+            self.noticeController.view.frame = self.view.bounds.inset(by: additionalSafeAreaInsets)
+            self.noticeController.view.layoutIfNeeded()
+        }
+    }
     
     let gorupAPI = Request<GroupChatAPI>()
     
