@@ -8,49 +8,77 @@
 
 import UIKit
 import SPAlertController
+import Pageboy
+import Tabman
 
 // TUIKitNotification_onChangeUnReadCount
 
-
-
-
-class ConversationViewController: UIViewController {
+class ConversationViewController: TabmanViewController {
     
-    lazy var conversationListController: TUIConversationListController = {
-        let conversationListController = TUIConversationListController()
-        conversationListController.delegate = self
-        return conversationListController
-    }()
+    var titles: [String] = []
+    var viewConrollers: [UIViewController] = []
     
     lazy var chatActionViewController: ConversationActionViewController = {
         let chatActionViewController = ConversationActionViewController.loadFromStoryboard()
         chatActionViewController.onContentHeightUpaded.delegate(on: self) { (self, sender) in
             sender.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: chatActionViewController.contentHeight)
-            self.conversationListController.tableView.tableHeaderView = sender.view
+            self.messageController.tableView.tableHeaderView = sender.view
         }
         return chatActionViewController
     }()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        navigationItem.leftBarButtonItem?.setTitleTextAttributes(UINavigationBar.appearance().titleTextAttributes, for: .normal)
-        
-        // 创建会话列表
-        addChild(conversationListController)
-        
-        view.addSubview(conversationListController.view)
-        
-        conversationListController.didMove(toParent: self)
-        
-        conversationListController.addChild(chatActionViewController)
+    
+    lazy var messageController: TUIConversationListController = {
+        var controller = TUIConversationListController()
+        controller.view.backgroundColor = .white
+        controller.delegate = self
+        controller.addChild(chatActionViewController)
         chatActionViewController.view.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: chatActionViewController.contentHeight)
         chatActionViewController.tableView.isScrollEnabled = false
-        conversationListController.tableView.tableHeaderView = chatActionViewController.view
-        chatActionViewController.didMove(toParent: conversationListController)
+        controller.tableView.tableHeaderView = chatActionViewController.view
+        chatActionViewController.didMove(toParent: controller)
+        return controller
+    }()
+    
+    lazy var intimateController: TUIConversationListController = {
+        var controller = TUIConversationListController()
+        controller.delegate = self
+        return controller
+    }()
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+                
+        viewConrollers = [messageController, intimateController]
+        titles = ["消息", "亲密"]
+
+        bounces = false
         
+        // Set PageboyViewControllerDataSource dataSource to configure page view controller.
+        dataSource = self
         
-       
+        // Create a bar
+        let bar =  Tabman.TMBarView<Tabman.TMHorizontalBarLayout, Tabman.TMLabelBarButton, Tabman.TMBarIndicator.None>()
+                
+        // Customize bar properties including layout and other styling.
+        bar.layout.contentInset = UIEdgeInsets(top: 0.0, left: 12, bottom: 4.0, right: 12)
+        bar.fadesContentEdges = true
+        bar.spacing = 20
+        bar.backgroundView.style = .clear
+        
+        // Set tint colors for the bar buttons and indicator.
+        bar.buttons.customize {
+            $0.tintColor = UIColor(hexString: "#666666")
+            $0.font = .systemFont(ofSize: 17, weight: .regular)
+            $0.selectedTintColor = UIColor(hexString: "#333333")
+            $0.selectedFont = .systemFont(ofSize: 19, weight: .bold)
+        }
+        bar.indicator.tintColor = UIColor(hexString: "#FF3F3F")
+        
+        // Add bar to the view - as a .systemBar() to add UIKit style system background views.
+        
+        addBar(bar.hiding(trigger: .manual), dataSource: self, at: .navigationItem(item: navigationItem))
     }
     
     @IBAction func contactItemTapped(_ sender: Any) {
@@ -99,8 +127,11 @@ class ConversationViewController: UIViewController {
         let message = "确定清空聊天记录列表吗？清空后，你与好友的聊天记录将不可恢复"
         let vc = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         vc.addAction(UIAlertAction(title: "确定", style: .default, handler: { _ in
-            self.conversationListController.viewModel.dataList.forEach {
-                self.conversationListController.viewModel.remove($0)
+            self.messageController.viewModel.dataList.forEach {
+                self.messageController.viewModel.remove($0)
+            }
+            self.intimateController.viewModel.dataList.forEach {
+                self.intimateController.viewModel.remove($0)
             }
             self.parent?.tabBarItem.badgeValue = nil
         }))
@@ -148,3 +179,31 @@ extension ConversationViewController: TUIConversationListControllerDelegate {
         
     }
 }
+
+
+extension ConversationViewController: PageboyViewControllerDataSource, TMBarDataSource {
+    
+    // MARK: PageboyViewControllerDataSource
+    
+    func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
+        viewConrollers.count // How many view controllers to display in the page view controller.
+    }
+    
+    func viewController(for pageboyViewController: PageboyViewController, at index: PageboyViewController.PageIndex) -> UIViewController? {
+        
+        // View controller to display at a specific index for the page view controller.
+        viewConrollers[index]
+    }
+    
+    func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
+        nil // Default page to display in the page view controller (nil equals default/first index).
+    }
+    
+    // MARK: TMBarDataSource
+    
+    func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
+        
+        return TMBarItem(title: titles[index]) // Item to display for a specific index in the bar.
+    }
+}
+

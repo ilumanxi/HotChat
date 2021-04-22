@@ -39,7 +39,6 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="fcL-3R-Z4u">
-                        <barButtonItem key="leftBarButtonItem" title="消息" id="uup-WL-XP6"/>
                         <rightBarButtonItems>
                             <barButtonItem title="Item" image="chat-more" id="J7T-U3-y96">
                                 <connections>

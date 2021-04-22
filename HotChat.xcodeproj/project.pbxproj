@@ -310,6 +310,8 @@
 		26AC1E5425062D62003EFB44 /* LegalLiabilityToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AC1E5325062D62003EFB44 /* LegalLiabilityToolBar.swift */; };
 		26AE7C2F2520309F00B55318 /* LabelViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AE7C2E2520309F00B55318 /* LabelViewCell.swift */; };
 		26AE7C342520346500B55318 /* LabelViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26AE7C332520346500B55318 /* LabelViewCell.xib */; };
+		26B06FAE2631486300FE336F /* OnlineStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B06FAC2631486300FE336F /* OnlineStatusCell.swift */; };
+		26B06FAF2631486300FE336F /* OnlineStatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26B06FAD2631486300FE336F /* OnlineStatusCell.xib */; };
 		26B22F112609E89E006B0C49 /* voice_match.svga in Resources */ = {isa = PBXBuildFile; fileRef = 26B22F102609E6DA006B0C49 /* voice_match.svga */; };
 		26B22F122609E8A1006B0C49 /* video_match.svga in Resources */ = {isa = PBXBuildFile; fileRef = 264C5C362609E5FF007FB123 /* video_match.svga */; };
 		26B22F1A2609F2C0006B0C49 /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B22F182609F2C0006B0C49 /* ListViewCell.swift */; };
@@ -892,6 +894,8 @@
 		26AC1E5325062D62003EFB44 /* LegalLiabilityToolBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegalLiabilityToolBar.swift; sourceTree = "<group>"; };
 		26AE7C2E2520309F00B55318 /* LabelViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelViewCell.swift; sourceTree = "<group>"; };
 		26AE7C332520346500B55318 /* LabelViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelViewCell.xib; sourceTree = "<group>"; };
+		26B06FAC2631486300FE336F /* OnlineStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineStatusCell.swift; sourceTree = "<group>"; };
+		26B06FAD2631486300FE336F /* OnlineStatusCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnlineStatusCell.xib; sourceTree = "<group>"; };
 		26B22F102609E6DA006B0C49 /* voice_match.svga */ = {isa = PBXFileReference; lastKnownFileType = file; path = voice_match.svga; sourceTree = "<group>"; };
 		26B22F182609F2C0006B0C49 /* ListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewCell.swift; sourceTree = "<group>"; };
 		26B22F192609F2C0006B0C49 /* ListViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListViewCell.xib; sourceTree = "<group>"; };
@@ -1629,6 +1633,8 @@
 				26C8CC682603545C005FDFF8 /* ChatMemberCell.xib */,
 				2679C05F2624412500D18B47 /* ChatUserView.swift */,
 				2679C0612624414700D18B47 /* ChatUserView.xib */,
+				26B06FAC2631486300FE336F /* OnlineStatusCell.swift */,
+				26B06FAD2631486300FE336F /* OnlineStatusCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2389,6 +2395,7 @@
 				26597676257886BB00E4B6A2 /* GreetingsAddedView.xib in Resources */,
 				26CBE3B82508A9F20089A23C /* CommunityHeaderView.xib in Resources */,
 				26CB6D5125515D6B00A9F4DD /* com.baidu.idl.face.faceSDK.bundle in Resources */,
+				26B06FAF2631486300FE336F /* OnlineStatusCell.xib in Resources */,
 				2636A0DA2564CDBF00664FFC /* UpgrateViewController.xib in Resources */,
 				26F553772553D16E00840735 /* TalkEarningsViewController.xib in Resources */,
 				2617D3F425C55F45009AAE16 /* DynamicViewController.xib in Resources */,
@@ -2601,6 +2608,7 @@
 				26278B8A256CFD64007044E1 /* JPGiftShowView.m in Sources */,
 				26CB6D4B25515D6B00A9F4DD /* BDFaceLivingConfigModel.m in Sources */,
 				26CA6EE2253825920023E27B /* DiscoverAPI.swift in Sources */,
+				26B06FAE2631486300FE336F /* OnlineStatusCell.swift in Sources */,
 				262BE7E82601D2E700C1B646 /* TopicListViewCell.swift in Sources */,
 				265C8A5B25134C3500E220BD /* ForgotPasswordViewModel.swift in Sources */,
 				26F0D2542546DA8200D1018B /* InputController.m in Sources */,

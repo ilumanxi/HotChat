@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OnlineStatusViewController" customModule="HotChat" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="xIe-NT-q0D" id="z0s-vD-tUL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -46,12 +47,24 @@
                             </constraints>
                             <edgeInsets key="layoutMargins" top="8" left="20" bottom="8" right="20"/>
                         </view>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="91" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xIe-NT-q0D">
+                            <rect key="frame" x="0.0" y="44" width="414" height="808"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="Dmg-DY-Ris"/>
+                                <outlet property="delegate" destination="-1" id="blV-RZ-z6r"/>
+                            </connections>
+                        </tableView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
+                        <constraint firstAttribute="bottom" secondItem="xIe-NT-q0D" secondAttribute="bottom" id="3vF-NU-dhK"/>
+                        <constraint firstItem="xIe-NT-q0D" firstAttribute="top" secondItem="UHq-RW-kce" secondAttribute="bottom" id="4mE-7R-r7X"/>
                         <constraint firstAttribute="trailing" secondItem="UHq-RW-kce" secondAttribute="trailing" id="6ep-K2-OSD"/>
                         <constraint firstItem="UHq-RW-kce" firstAttribute="top" secondItem="QM0-YT-vFG" secondAttribute="top" id="U7n-yR-Tli"/>
+                        <constraint firstItem="xIe-NT-q0D" firstAttribute="leading" secondItem="QM0-YT-vFG" secondAttribute="leading" id="UIu-6l-ocF"/>
                         <constraint firstItem="UHq-RW-kce" firstAttribute="leading" secondItem="QM0-YT-vFG" secondAttribute="leading" id="dzi-5E-w3q"/>
+                        <constraint firstAttribute="trailing" secondItem="xIe-NT-q0D" secondAttribute="trailing" id="z1a-uH-AtO"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z9P-tM-yNV">

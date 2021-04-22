@@ -10,13 +10,34 @@ import UIKit
 import PanModal
 
 class OnlineStatusViewController: UIViewController {
-
+    
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        tableView.register(UINib(nibName: "OnlineStatusCell", bundle: nil), forCellReuseIdentifier: "OnlineStatusCell")
     }
 
+}
+
+extension OnlineStatusViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 18
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: OnlineStatusCell.self)
+        
+        return cell
+    }
+    
+    
+    
 }
 
 
