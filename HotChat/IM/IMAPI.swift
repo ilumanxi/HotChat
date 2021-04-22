@@ -22,6 +22,7 @@ enum IMAPI {
     case call(type: Int, toUserId: String)
     case checkUserCall(type: Int, toUserId: String)
     case getCallTime(roomId: Int)
+    case imChatStatus(toUserId: String)
 }
 
 extension IMAPI: TargetType {
@@ -34,6 +35,8 @@ extension IMAPI: TargetType {
             return "Im/checkUserCall"
         case .getCallTime:
             return "Im/getCallTime"
+        case .imChatStatus:
+            return "Im/imChatStatus"
         }
     }
     
@@ -55,6 +58,10 @@ extension IMAPI: TargetType {
         case .getCallTime(let roomId):
             parameters = [
                 "roomId" : roomId
+            ]
+        case .imChatStatus(let toUserId):
+            parameters = [
+                "toUserId" : toUserId
             ]
         }
         

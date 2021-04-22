@@ -29,6 +29,10 @@ class ConversationActionViewController: UITableViewController, StoryboardCreate 
         if !isShowSettings {
             height -= Row.settings.height
         }
+        
+        if !LoginManager.shared.user!.girlStatus {
+            height -= Row.recommend.height
+        }
        
         return height
     }
@@ -89,6 +93,10 @@ class ConversationActionViewController: UITableViewController, StoryboardCreate 
             return 0
         }
         
+        if row == .recommend && !LoginManager.shared.user!.girlStatus {
+            return 0
+        }
+        
         return row.height
         
     }
@@ -100,7 +108,7 @@ class ConversationActionViewController: UITableViewController, StoryboardCreate 
             let vc = TopicListViewController()
             navigationController?.pushViewController(vc, animated: true)
         case .recommend:
-            let vc = RecommendViewController()
+            let vc = RecommendContainerController()
             navigationController?.pushViewController(vc, animated: true)
         default:
             break

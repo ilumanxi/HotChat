@@ -96,6 +96,9 @@
 		2637D876255B8E5300020E98 /* BlacklistController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2637D874255B8E5300020E98 /* BlacklistController.xib */; };
 		2637D879255B8EDF00020E98 /* BlacklistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637D877255B8EDF00020E98 /* BlacklistCell.swift */; };
 		2637D87A255B8EDF00020E98 /* BlacklistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2637D878255B8EDF00020E98 /* BlacklistCell.xib */; };
+		2637F81F26316C0E0002E43B /* PushNoticeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637F81E26316C0E0002E43B /* PushNoticeAPI.swift */; };
+		2637F82226316FB30002E43B /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637F82026316FB30002E43B /* RecommendViewController.swift */; };
+		2637F82326316FB30002E43B /* RecommendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2637F82126316FB30002E43B /* RecommendViewController.xib */; };
 		2639535D254187F100B5E3C0 /* WalletViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2639535C254187F100B5E3C0 /* WalletViewCell.swift */; };
 		26395362254198DB00B5E3C0 /* RightDetailViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26395361254198DB00B5E3C0 /* RightDetailViewCell.xib */; };
 		2639536825419E8300B5E3C0 /* CardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2639536625419E8300B5E3C0 /* CardViewCell.swift */; };
@@ -245,6 +248,7 @@
 		267E36E92547C2E100EB2097 /* GiftView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 267E36E82547C2E100EB2097 /* GiftView.xib */; };
 		26808FDC2519D4B800C9803C /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26808FDB2519D4B800C9803C /* Request.swift */; };
 		26808FE12519D5BE00C9803C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26808FE02519D5BE00C9803C /* Constant.swift */; };
+		2681D14B263179930059CAFA /* PushItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2681D14A263179920059CAFA /* PushItem.swift */; };
 		268297492511AF5800949C7F /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268297482511AF5800949C7F /* SignupViewModel.swift */; };
 		2682974B2511B05300949C7F /* IndicatorDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2682974A2511B05300949C7F /* IndicatorDisplay.swift */; };
 		2682974D2511B0EC00949C7F /* SignupProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2682974C2511B0EC00949C7F /* SignupProtocols.swift */; };
@@ -417,7 +421,7 @@
 		26DFBF88262EADF900639C94 /* GiftTipView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26DFBF87262EADF900639C94 /* GiftTipView.xib */; };
 		26DFBF8A262EB6ED00639C94 /* OnlineTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DFBF89262EB6ED00639C94 /* OnlineTipView.swift */; };
 		26DFBF8C262EB6F800639C94 /* OnlineTipView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26DFBF8B262EB6F800639C94 /* OnlineTipView.xib */; };
-		26DFBF8E262EC9AE00639C94 /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DFBF8D262EC9AE00639C94 /* RecommendViewController.swift */; };
+		26DFBF8E262EC9AE00639C94 /* RecommendContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DFBF8D262EC9AE00639C94 /* RecommendContainerController.swift */; };
 		26DFBF91262ED3FF00639C94 /* OnlineStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DFBF8F262ED3FF00639C94 /* OnlineStatusViewController.swift */; };
 		26DFBF92262ED3FF00639C94 /* OnlineStatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26DFBF90262ED3FF00639C94 /* OnlineStatusViewController.xib */; };
 		26E14E5E251C6E8800645F08 /* HotChatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E14E5D251C6E8800645F08 /* HotChatButton.swift */; };
@@ -652,6 +656,9 @@
 		2637D874255B8E5300020E98 /* BlacklistController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BlacklistController.xib; sourceTree = "<group>"; };
 		2637D877255B8EDF00020E98 /* BlacklistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlacklistCell.swift; sourceTree = "<group>"; };
 		2637D878255B8EDF00020E98 /* BlacklistCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BlacklistCell.xib; sourceTree = "<group>"; };
+		2637F81E26316C0E0002E43B /* PushNoticeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNoticeAPI.swift; sourceTree = "<group>"; };
+		2637F82026316FB30002E43B /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
+		2637F82126316FB30002E43B /* RecommendViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendViewController.xib; sourceTree = "<group>"; };
 		2639535C254187F100B5E3C0 /* WalletViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewCell.swift; sourceTree = "<group>"; };
 		26395361254198DB00B5E3C0 /* RightDetailViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RightDetailViewCell.xib; sourceTree = "<group>"; };
 		2639536625419E8300B5E3C0 /* CardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewCell.swift; sourceTree = "<group>"; };
@@ -819,6 +826,7 @@
 		267E36E82547C2E100EB2097 /* GiftView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiftView.xib; sourceTree = "<group>"; };
 		26808FDB2519D4B800C9803C /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		26808FE02519D5BE00C9803C /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		2681D14A263179920059CAFA /* PushItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushItem.swift; sourceTree = "<group>"; };
 		268297482511AF5800949C7F /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		2682974A2511B05300949C7F /* IndicatorDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorDisplay.swift; sourceTree = "<group>"; };
 		2682974C2511B0EC00949C7F /* SignupProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupProtocols.swift; sourceTree = "<group>"; };
@@ -1031,7 +1039,7 @@
 		26DFBF87262EADF900639C94 /* GiftTipView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiftTipView.xib; sourceTree = "<group>"; };
 		26DFBF89262EB6ED00639C94 /* OnlineTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineTipView.swift; sourceTree = "<group>"; };
 		26DFBF8B262EB6F800639C94 /* OnlineTipView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnlineTipView.xib; sourceTree = "<group>"; };
-		26DFBF8D262EC9AE00639C94 /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
+		26DFBF8D262EC9AE00639C94 /* RecommendContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendContainerController.swift; sourceTree = "<group>"; };
 		26DFBF8F262ED3FF00639C94 /* OnlineStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineStatusViewController.swift; sourceTree = "<group>"; };
 		26DFBF90262ED3FF00639C94 /* OnlineStatusViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnlineStatusViewController.xib; sourceTree = "<group>"; };
 		26E14E5D251C6E8800645F08 /* HotChatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotChatButton.swift; sourceTree = "<group>"; };
@@ -1573,6 +1581,7 @@
 				267954F3250756A400A72954 /* Controller */,
 				26CD99EC2578BB5C00235A8D /* ChatGreetAPI.swift */,
 				262FFFB82602F24100F541C2 /* GroupChatAPI.swift */,
+				2637F81E26316C0E0002E43B /* PushNoticeAPI.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -1606,7 +1615,9 @@
 				26EDE7F82591D11F002A2EC3 /* GuidedRechargeViewController.xib */,
 				262BE7E22601CE4000C1B646 /* TopicListViewController.swift */,
 				262BE7E42601CE8B00C1B646 /* ColumnFlowLayout.swift */,
-				26DFBF8D262EC9AE00639C94 /* RecommendViewController.swift */,
+				26DFBF8D262EC9AE00639C94 /* RecommendContainerController.swift */,
+				2637F82026316FB30002E43B /* RecommendViewController.swift */,
+				2637F82126316FB30002E43B /* RecommendViewController.xib */,
 				26DFBF8F262ED3FF00639C94 /* OnlineStatusViewController.swift */,
 				26DFBF90262ED3FF00639C94 /* OnlineStatusViewController.xib */,
 			);
@@ -2235,6 +2246,7 @@
 				26E1661F256B5DA200CF66BD /* CallHelper.swift */,
 				26CD99F02578BDDD00235A8D /* ChatGreet.swift */,
 				262FFFBD2602F40100F541C2 /* GroupTopic.swift */,
+				2681D14A263179920059CAFA /* PushItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2356,6 +2368,7 @@
 				26AC0E3726240B8400F53951 /* RelationViewController.xib in Resources */,
 				26C3F3312542764F00CDD533 /* AnchorAuthenticationViewController.xib in Resources */,
 				269DED1C254AAC4D000AD5D9 /* GiftViewController.xib in Resources */,
+				2637F82326316FB30002E43B /* RecommendViewController.xib in Resources */,
 				26610E11261171C8008E154A /* NewcomerAwardViewController.xib in Resources */,
 				2679DA5E2611B469003F2443 /* AvatarRewardViewController.xib in Resources */,
 				263A6C3925C2DA4800FD43B6 /* PairCallViewController.xib in Resources */,
@@ -2601,6 +2614,7 @@
 				26EE0E4C25245BD800233ED5 /* PayAPI.swift in Sources */,
 				26202028261EAEFE006A5AD7 /* RegionPickerViewController.swift in Sources */,
 				267954E82507311E00A72954 /* LegalLiabilityViewController.swift in Sources */,
+				2681D14B263179930059CAFA /* PushItem.swift in Sources */,
 				26E48901257DDFD1006C2ACE /* GirdLayout.m in Sources */,
 				26AC0E3626240B8400F53951 /* RelationViewController.swift in Sources */,
 				2684593925354EDB002B9C6E /* Reload.swift in Sources */,
@@ -2696,7 +2710,7 @@
 				26772822255A480900B98973 /* PrivacyViewController.swift in Sources */,
 				26C81EE12547E9C400C1D563 /* VoiceView.m in Sources */,
 				262FFFBE2602F40100F541C2 /* GroupTopic.swift in Sources */,
-				26DFBF8E262EC9AE00639C94 /* RecommendViewController.swift in Sources */,
+				26DFBF8E262EC9AE00639C94 /* RecommendContainerController.swift in Sources */,
 				26257ADB260B2EBF00A4E0F3 /* BannerViewCell.swift in Sources */,
 				26EDE7EE2591C6B8002A2EC3 /* TUIMessageController+Message.m in Sources */,
 				264219B5258B2AC600D46B9C /* GreetingViewController.swift in Sources */,
@@ -2763,6 +2777,7 @@
 				26CBE3C12508EB040089A23C /* Appearance.swift in Sources */,
 				2623FC5A262004F800764DFA /* ContactInfo.swift in Sources */,
 				26918C262626CD9E007B5F14 /* ChargeConfig.swift in Sources */,
+				2637F81F26316C0E0002E43B /* PushNoticeAPI.swift in Sources */,
 				264A20CF25109B5000A264BE /* AccountAPI.swift in Sources */,
 				2682974D2511B0EC00949C7F /* SignupProtocols.swift in Sources */,
 				265C1ED62542D84700110564 /* InviteViewController.swift in Sources */,
@@ -2782,6 +2797,7 @@
 				2679550C25079A1F00A72954 /* UserInfoChatView.swift in Sources */,
 				26ED000625C5731200480CEC /* MediaItemViewCell.swift in Sources */,
 				2679C0602624412500D18B47 /* ChatUserView.swift in Sources */,
+				2637F82226316FB30002E43B /* RecommendViewController.swift in Sources */,
 				2643EBAC2500B04100FBBE49 /* UserInfoInterviewCell.swift in Sources */,
 				260ABAF025F2431E006A01C0 /* CommentReportViewController.swift in Sources */,
 				263A6684257E0EF200F35714 /* CheckInCell.swift in Sources */,

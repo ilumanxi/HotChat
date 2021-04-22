@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="OnlineStatusCell" customModule="HotChat" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="KGk-i7-Jjw" customClass="OnlineStatusCell" customModule="HotChat" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="91"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -87,7 +87,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="SIc-8B-DsO">
                                 <rect key="frame" x="0.0" y="23" width="94" height="12"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kFd-89-kb3" customClass="SexButton" customModule="HotChat" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kFd-89-kb3" customClass="SexButton" customModule="HotChat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="28" height="12"/>
                                         <color key="backgroundColor" red="0.18039215689999999" green="0.81176470590000005" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <constraints>
@@ -95,14 +95,14 @@
                                             <constraint firstAttribute="width" constant="28" id="n3q-Rd-b7A"/>
                                         </constraints>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CTf-FT-rjm" customClass="SexButton" customModule="HotChat" customModuleProvider="target">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g3X-fc-ONJ">
                                         <rect key="frame" x="33" y="0.0" width="28" height="12"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="12" id="CfM-dB-XLu"/>
-                                            <constraint firstAttribute="width" constant="28" id="nF8-1P-j2E"/>
+                                            <constraint firstAttribute="height" constant="12" id="KUh-Em-ZRz"/>
+                                            <constraint firstAttribute="width" constant="28" id="yxR-xI-7Jc"/>
                                         </constraints>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLx-HE-EEh" customClass="SexButton" customModule="HotChat" customModuleProvider="target">
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLx-HE-EEh" customClass="SexButton" customModule="HotChat" customModuleProvider="target">
                                         <rect key="frame" x="66" y="0.0" width="28" height="12"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="28" id="Iyw-Jy-8V6"/>
@@ -141,6 +141,9 @@
                                 <real key="value" value="11.5"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="chatButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="cis-97-hZG"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
@@ -156,6 +159,17 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="avatarImageView" destination="AGG-6W-XNm" id="Vxm-lX-mRU"/>
+                <outlet property="gradeView" destination="g3X-fc-ONJ" id="LC4-wq-rXm"/>
+                <outlet property="nameLabel" destination="d5z-0B-WCN" id="NDK-0A-Sor"/>
+                <outlet property="newcomerButton" destination="bAN-ox-9z9" id="PWB-T2-SRl"/>
+                <outlet property="onlineButton" destination="26j-F1-dq7" id="mi2-r0-dhk"/>
+                <outlet property="sexButton" destination="kFd-89-kb3" id="cHm-sK-jax"/>
+                <outlet property="statusLabel" destination="IoO-Vy-Bav" id="1Fx-u3-0eU"/>
+                <outlet property="timeLabel" destination="KWp-wQ-x6C" id="Gf1-tf-07U"/>
+                <outlet property="vipButton" destination="gLx-HE-EEh" id="gfp-AK-3OW"/>
+            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="87.388392857142847"/>
         </tableViewCell>
     </objects>

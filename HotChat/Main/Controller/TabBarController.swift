@@ -47,7 +47,7 @@ class TabBarController: UITabBarController, IndicatorDisplay {
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
-        addOrRemoveNoticeController()
+//        addOrRemoveNoticeController()
         observerUnReadCount()
         
         if LoginManager.shared.isAuthorized && !LoginManager.shared.user!.isInit {//更新用户信息

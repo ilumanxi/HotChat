@@ -105,6 +105,8 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
         observerUserWallet()
         
         setUserView()
+        
+        imChatStatus()
     }
     
     
@@ -132,6 +134,17 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
         }
         
         navigationItem.rightBarButtonItems = items
+    }
+    
+    
+    func imChatStatus()  {
+        if isAdmin {
+            return
+        }
+        
+        imAPI.request(.imChatStatus(toUserId: self.conversationData.userID), type: Response<[String : Any]>.self)
+            .subscribe(onSuccess: nil, onError: nil)
+            .disposed(by: rx.disposeBag)
     }
     
     func requestUser()  {
