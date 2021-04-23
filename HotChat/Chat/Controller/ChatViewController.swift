@@ -93,8 +93,21 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
         return view
     }()
     
+    lazy var intimacyController: IntimacyViewController = {
+        let vc = IntimacyViewController()
+        
+        return vc
+    }()
+    
+    lazy var titleView: IntimacyTitleView = {
+        let view = IntimacyTitleView.loadFromNib()
+        view.addTarget(self, action: #selector(titleViewDidTapped), for: .touchUpInside)
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.titleView = titleView
         
         setupNavigationItem()
         
@@ -109,6 +122,9 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
         imChatStatus()
     }
     
+    @objc func titleViewDidTapped() {
+        
+    }
     
     private func setUserView() {
         if self.user == nil || isAdmin {
@@ -116,7 +132,10 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
         }
         
         userView.fittingSize()
-        messageController.tableView.tableHeaderView = userView
+        if  messageController.tableView.contentSize.height + userView.frame.height <  messageController.tableView.frame.height {
+            /// 影响到消息滚动底部
+            messageController.tableView.tableHeaderView = userView
+        }
     }
     
     func setupNavigationItem() {

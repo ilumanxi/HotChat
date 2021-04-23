@@ -170,15 +170,14 @@
     @weakify(self)
     //message
     _messageController = [[TUIMessageController alloc] init];
+    _messageController.delegate = self;
+    [self addChildViewController:_messageController];
     if (self.inputBarHeight > 0) {
         _messageController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - self.inputBarHeight - Bottom_SafeHeight);
     }
     else {
         _messageController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - self.inputBarHeight);
     }
-    
-    _messageController.delegate = self;
-    [self addChildViewController:_messageController];
     [self.view addSubview:_messageController.view];
     [_messageController setConversation:self.conversationData];
     

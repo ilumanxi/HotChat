@@ -289,6 +289,9 @@
 		269C9BE92632759800BD1A85 /* UIViewController+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269C9BE62632759800BD1A85 /* UIViewController+NavigationBar.swift */; };
 		269C9BEA2632759800BD1A85 /* FakeNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269C9BE72632759800BD1A85 /* FakeNavigationBar.swift */; };
 		269C9BEB2632759800BD1A85 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269C9BE82632759800BD1A85 /* NavigationController.swift */; };
+		269C9C0E2632CC7500BD1A85 /* IntimacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269C9C0D2632CC7500BD1A85 /* IntimacyViewController.swift */; };
+		269C9C102632D1FB00BD1A85 /* IntimacyTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269C9C0F2632D1FB00BD1A85 /* IntimacyTitleView.swift */; };
+		269C9C122632D20700BD1A85 /* IntimacyTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 269C9C112632D20700BD1A85 /* IntimacyTitleView.xib */; };
 		269DED0B254A9DD5000AD5D9 /* CallMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 269DED0A254A9DD5000AD5D9 /* CallMenuViewController.xib */; };
 		269DED1B254AAC4D000AD5D9 /* GiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 269DED19254AAC4D000AD5D9 /* GiftViewController.m */; };
 		269DED1C254AAC4D000AD5D9 /* GiftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 269DED1A254AAC4D000AD5D9 /* GiftViewController.xib */; };
@@ -874,6 +877,9 @@
 		269C9BE62632759800BD1A85 /* UIViewController+NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+NavigationBar.swift"; sourceTree = "<group>"; };
 		269C9BE72632759800BD1A85 /* FakeNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeNavigationBar.swift; sourceTree = "<group>"; };
 		269C9BE82632759800BD1A85 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		269C9C0D2632CC7500BD1A85 /* IntimacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntimacyViewController.swift; sourceTree = "<group>"; };
+		269C9C0F2632D1FB00BD1A85 /* IntimacyTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntimacyTitleView.swift; sourceTree = "<group>"; };
+		269C9C112632D20700BD1A85 /* IntimacyTitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntimacyTitleView.xib; sourceTree = "<group>"; };
 		269DED0A254A9DD5000AD5D9 /* CallMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CallMenuViewController.xib; sourceTree = "<group>"; };
 		269DED18254AAC4D000AD5D9 /* GiftViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftViewController.h; sourceTree = "<group>"; };
 		269DED19254AAC4D000AD5D9 /* GiftViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftViewController.m; sourceTree = "<group>"; };
@@ -1629,6 +1635,7 @@
 				2637F82126316FB30002E43B /* RecommendViewController.xib */,
 				26DFBF8F262ED3FF00639C94 /* OnlineStatusViewController.swift */,
 				26DFBF90262ED3FF00639C94 /* OnlineStatusViewController.xib */,
+				269C9C0D2632CC7500BD1A85 /* IntimacyViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1655,6 +1662,8 @@
 				2679C0612624414700D18B47 /* ChatUserView.xib */,
 				26B06FAC2631486300FE336F /* OnlineStatusCell.swift */,
 				26B06FAD2631486300FE336F /* OnlineStatusCell.xib */,
+				269C9C0F2632D1FB00BD1A85 /* IntimacyTitleView.swift */,
+				269C9C112632D20700BD1A85 /* IntimacyTitleView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2439,6 +2448,7 @@
 				267954F62507579700A72954 /* Chat.storyboard in Resources */,
 				2635216E25C7F4F900855487 /* VisitorsVipController.xib in Resources */,
 				26BB187D2522F5810019BBFD /* Main.storyboard in Resources */,
+				269C9C122632D20700BD1A85 /* IntimacyTitleView.xib in Resources */,
 				26ED001E25C69BC900480CEC /* MediaItemAddViewCell.xib in Resources */,
 				26C8CC7026044E58005FDFF8 /* ChatTopicStatusViewController.xib in Resources */,
 				26F3EA3425F20A05001CF13D /* CommentFooterView.xib in Resources */,
@@ -2635,6 +2645,7 @@
 				262BE7E82601D2E700C1B646 /* TopicListViewCell.swift in Sources */,
 				265C8A5B25134C3500E220BD /* ForgotPasswordViewModel.swift in Sources */,
 				26F0D2542546DA8200D1018B /* InputController.m in Sources */,
+				269C9C102632D1FB00BD1A85 /* IntimacyTitleView.swift in Sources */,
 				26F8947B252083B800A45648 /* LabelView.swift in Sources */,
 				2636A0D92564CDBF00664FFC /* UpgrateViewController.swift in Sources */,
 				26B3ADD425F7495200D7DFC4 /* TwicketSegmentedControl.swift in Sources */,
@@ -2775,6 +2786,7 @@
 				26D1E58B253D5F17004B9B29 /* CallManager.m in Sources */,
 				2653733F2621A0AA005AE2F3 /* TipAlertController.swift in Sources */,
 				26CB6D3D25515D6B00A9F4DD /* BDFaceLivingConfigViewController.m in Sources */,
+				269C9C0E2632CC7500BD1A85 /* IntimacyViewController.swift in Sources */,
 				26CB6D4325515D6B00A9F4DD /* BDFaceCycleProgressView.m in Sources */,
 				2603238926218D4B00144135 /* BuyAPI.swift in Sources */,
 				26C65FAE25300C47006B9B7E /* InformationViewController.swift in Sources */,

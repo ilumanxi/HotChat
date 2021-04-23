@@ -323,7 +323,7 @@ typedef NS_ENUM(NSInteger,VideoUserRemoveReason){
     
     [[TUICall shareInstance] quitRoom];
     
-    if (LoginManager.shared.user.girlStatus) {
+    if (LoginManager.shared.user.girlStatus && reason == 2) {
         [IMHelper getCallTime:self.curRoomID success:^(NSDictionary<NSString *,id> * _Nonnull dict) {
             
             if ([dict[@"status"] intValue]  == 2) {
