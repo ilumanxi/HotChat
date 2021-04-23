@@ -28,8 +28,7 @@ class DatingDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        hbd_barAlpha = 0
+        navigationBarAlpha = 0
         
         let backItem = UIBarButtonItem(image: UIImage(named: "circle-back-white"), style: .done, target: self, action: #selector(back))
         navigationItem.leftBarButtonItem = backItem

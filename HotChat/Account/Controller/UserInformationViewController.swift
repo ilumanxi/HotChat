@@ -40,7 +40,6 @@ class UserInformationViewController: UIViewController, IndicatorDisplay {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
-        hbd_backInteractive = false
         setupViews()
     }
        
@@ -110,7 +109,6 @@ class UserInformationViewController: UIViewController, IndicatorDisplay {
         vc.title = nil
         vc.navigationItem.title = nil
         vc.navigationItem.hidesBackButton = true
-        vc.hbd_backInteractive = false
         vc.sex = sex
         vc.onUpdated.delegate(on: self) { (self, _) in
             let vc = ForYouViewController.loadFromStoryboard()

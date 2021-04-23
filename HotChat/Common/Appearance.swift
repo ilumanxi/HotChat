@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import HBDNavigationBar
 
 class Appearance {
     

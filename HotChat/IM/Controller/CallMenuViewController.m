@@ -329,8 +329,7 @@
     
     GiftViewController *vc = [[GiftViewController alloc] init];
     vc.delegate = self;
-    vc.hbd_barAlpha = 0;
-    vc.hbd_barHidden = true;
+    vc.navigationBarAlpha = 0;
     BaseNavigationController *nav = [[BaseNavigationController alloc] initWithRootViewController:vc];
     nav.navigationBar.hidden = YES;
     nav.modalPresentationStyle = UIModalPresentationOverFullScreen;

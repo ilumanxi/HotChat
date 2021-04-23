@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import HandyJSON
 
 class PassthroughView: UIView {
     
@@ -37,7 +38,7 @@ class PassthroughView: UIView {
 
 //{type:"10003",data:"{userId:234,sex:1，nick:2,headPic:"",content:"123",region:"广州"}"}
 
-struct GiftNotification {
+struct GiftNotification: HandyJSON {
     
     var userId: String = ""
     var sex: Sex = .empty
@@ -49,7 +50,7 @@ struct GiftNotification {
 
 
 
-struct OnlineNotification {
+struct OnlineNotification: HandyJSON {
     
     var userId: String = ""
     var nick: String = ""
@@ -91,9 +92,40 @@ class NoticeViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         
+        NotificationCenter.default.rx.notification(.init(TUIKitNotification_TIMMessageListener))
+            .subscribe(onNext: { [weak self] notification in
+                self?.handle(notification: notification)
+            })
+            .disposed(by: rx.disposeBag)
+        
         addSubviewEvent(giftTipContainerView)
         addSubviewEvent(onlineStatusTipContainerView)
         
+    }
+    
+    private func handle(notification: Notification) {
+        
+        guard let msg = notification.object as?  V2TIMMessage else { return }
+        
+        guard msg.elemType == .ELEM_TYPE_CUSTOM,
+              let param = TUICallUtils.jsonData2Dictionary(msg.customElem.data) as? [String : Any],
+              let imData = IMData.fixData(param),
+              let json = imData.data.mj_JSONObject() as? [String : Any]  else {
+            
+            return
+        }
+        
+        if imData.type != IMDataTypePresent && imData.type != IMDataTypeOnline {
+            return
+        }
+        
+        if imData.type == IMDataTypePresent, let gift = GiftNotification.deserialize(from: json)  {
+            add(gift: gift)
+        }
+   
+        if imData.type == IMDataTypeOnline, let online = OnlineNotification.deserialize(from: json)  {
+            add(online: online)
+        }
     }
     
     func add(online notification: OnlineNotification) {
@@ -105,13 +137,6 @@ class NoticeViewController: UIViewController {
         giftNotifications.append(notification)
         addNextGiftView()
     }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        add(gift: GiftNotification())
-        add(online: OnlineNotification())
-
-    }
-
     
     func addSubviewEvent(_ view: UIView)  {
         let add =  view.rx.methodInvoked(#selector(UIView.didAddSubview)).map { _ in view.subviews }

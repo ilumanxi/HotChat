@@ -46,7 +46,7 @@ target 'HotChat' do
     pod 'MagazineLayout'
     pod 'Blueprints'
     pod 'WKWebViewJavascriptBridge'
-    pod 'PIPKit'
+#    pod 'PIPKit'
     pod 'AMPopTip'
     pod 'Aquaman', :git=> "https://github.com/bawn/Aquaman.git", :commit=> "f97de87"
     pod 'Trident', :git=> "https://github.com/bawn/Trident.git", :commit=> "2eed75e"
@@ -64,7 +64,6 @@ target 'HotChat' do
     pod 'SwifterSwift'
     pod 'Bugly'
     pod 'TZImagePickerController'
-    pod 'HBDNavigationBar'
     pod 'MJRefresh'
     pod 'MJExtension'
     pod 'SPAlertController'

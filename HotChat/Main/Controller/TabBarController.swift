@@ -47,19 +47,24 @@ class TabBarController: UITabBarController, IndicatorDisplay {
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
-//        addOrRemoveNoticeController()
+        
         observerUnReadCount()
         
         if LoginManager.shared.isAuthorized && !LoginManager.shared.user!.isInit {//更新用户信息
             LoginManager.shared.autoLogin()
         }
+        addOrRemoveNoticeController()
     }
     
     let noticeController = NoticeViewController()
     
     func addOrRemoveNoticeController() {
         
-        let navigationControllers = viewControllers as! [UINavigationController]
+        if !LoginManager.shared.user!.girlStatus {
+            return
+        }
+        
+        let navigationControllers = viewControllers as! [BaseNavigationController]
         
         let controllersWillHidden = navigationControllers
             .compactMap { navigationController in
@@ -67,7 +72,7 @@ class TabBarController: UITabBarController, IndicatorDisplay {
             }
             
         let tabBarWillHidden =  Observable.merge(controllersWillHidden)
-            .map { (navigationController) -> Bool in
+            .map { navigationController -> Bool in
                 return navigationController.viewControllers.count > 1
             }
         

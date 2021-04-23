@@ -9,7 +9,6 @@
 import UIKit
 import Aquaman
 import Trident
-import HBDNavigationBar
 import RxCocoa
 import RxSwift
 import NSObject_Rx
@@ -280,8 +279,7 @@ class UserInfoViewController: AquamanPageViewController, LoadingStateType, Indic
     
     @objc func giftButtonTapped(_ sender: UIButton) {
         let vc = GiftViewController()
-        vc.hbd_barHidden = true
-        vc.hbd_barAlpha = 0
+        vc.navigationBarAlpha = 0
         vc.delegate = self
         
         let navController = BaseNavigationController(rootViewController: vc)
@@ -465,12 +463,8 @@ class UserInfoViewController: AquamanPageViewController, LoadingStateType, Indic
         }
         
         let color = UIColor.textBlack.withAlphaComponent(alpha)
-
-        hbd_barAlpha = Float(alpha)
-//        hbd_barTintColor = UIColor.white.withAlphaComponent(alpha)
-        hbd_titleTextAttributes = [
-            NSAttributedString.Key.foregroundColor : color]
-        hbd_setNeedsUpdateNavigationBar()
+        navigationBarAlpha = alpha
+        navigationBarTitleColor = color
     }
     
     override func headerViewFor(_ pageController: AquamanPageViewController) -> UIView {

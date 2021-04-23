@@ -19,7 +19,7 @@ class ResetPasswordViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hbd_backInteractive = false
+
         navigationItem.hidesBackButton = true
         navigationItem.leftBarButtonItems = nil
 

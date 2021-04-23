@@ -73,9 +73,8 @@ class TopController: PageboyViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        hbd_barAlpha = 0
-        hbd_tintColor = .white
+        navigationBarAlpha = 0
+        navigationBarTintColor = .white
         
         let item = UIBarButtonItem(image: UIImage(named: "top-help"), style: .plain, target: self, action: #selector(pushHelp))
         

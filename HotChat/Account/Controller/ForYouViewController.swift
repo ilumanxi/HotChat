@@ -54,7 +54,6 @@ class ForYouViewController: UIViewController, StoryboardCreate, LoadingStateType
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        hbd_backInteractive = false
         navigationItem.hidesBackButton = true
         title = "为你推荐"
 

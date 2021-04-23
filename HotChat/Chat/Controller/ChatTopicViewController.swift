@@ -136,6 +136,9 @@ class ChatTopicViewController: ChatViewController, UIPopoverPresentationControll
     let noticeController = NoticeViewController()
     
     func addNoticeController(){
+        if !LoginManager.shared.user!.girlStatus {
+            return
+        }
         
         let safeAreaInsets = UIApplication.shared.keyWindow!.safeAreaInsets
         
@@ -149,14 +152,16 @@ class ChatTopicViewController: ChatViewController, UIPopoverPresentationControll
     override func inputController(_ inputController: InputController!, didChangeHeight height: CGFloat) {
         
         super.inputController(inputController, didChangeHeight: height)
-        
-        let safeAreaInsets = UIApplication.shared.keyWindow!.safeAreaInsets
-        let additionalSafeAreaInsets = UIEdgeInsets(top: safeAreaInsets.top + 44 + 10, left: 0, bottom:  height + 10, right: 0)
-        
-        UIView.animate(withDuration: 0.25) {
-            self.noticeController.view.frame = self.view.bounds.inset(by: additionalSafeAreaInsets)
-            self.noticeController.view.layoutIfNeeded()
+        if LoginManager.shared.user!.girlStatus {
+            let safeAreaInsets = UIApplication.shared.keyWindow!.safeAreaInsets
+            let additionalSafeAreaInsets = UIEdgeInsets(top: safeAreaInsets.top + 44 + 10, left: 0, bottom:  height + 10, right: 0)
+            
+            UIView.animate(withDuration: 0.25) {
+                self.noticeController.view.frame = self.view.bounds.inset(by: additionalSafeAreaInsets)
+                self.noticeController.view.layoutIfNeeded()
+            }
         }
+        
     }
     
     let gorupAPI = Request<GroupChatAPI>()

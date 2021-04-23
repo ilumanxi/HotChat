@@ -231,8 +231,8 @@ class PairsViewController: UIViewController, StoryboardCreate, IndicatorDisplay 
         
         navigationItem.leftBarButtonItems =  [UIBarButtonItem(image: UIImage(named: "back-red"), style: .plain, target: self, action: #selector(back))]
         
-        hbd_barAlpha = 0
-        hbd_titleTextAttributes = [NSAttributedString.Key.foregroundColor : textColor]
+        navigationBarAlpha = 0
+        navigationBarTitleColor = textColor
         
         commonLayout()
         

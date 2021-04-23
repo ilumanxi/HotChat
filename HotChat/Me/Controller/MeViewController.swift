@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import HBDNavigationBar
 import RxSwift
 import RxCocoa
 import DynamicColor
@@ -185,7 +184,7 @@ class MeViewController: UITableViewController, Autorotate, IndicatorDisplay {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        hbd_barImage = UIImage(color: UIColor(hexString: "#F6F7F9"), size: self.navigationController!.navigationBar.bounds.size)
+        navigationBarBackgroundImage =  UIImage(color: UIColor(hexString: "#F6F7F9"), size: self.navigationController!.navigationBar.bounds.size)
         
         navigationItem.leftBarButtonItem?.setTitleTextAttributes(UINavigationBar.appearance().titleTextAttributes, for: .normal)
         

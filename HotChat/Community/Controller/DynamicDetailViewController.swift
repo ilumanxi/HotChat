@@ -348,8 +348,7 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
                 self.selectedDynamic = dynamic
                 
                 let vc = GiftViewController()
-                vc.hbd_barHidden = true
-                vc.hbd_barAlpha = 0
+                vc.navigationBarAlpha = 0
                 vc.delegate = self
                 
                 let navController = BaseNavigationController(rootViewController: vc)

@@ -57,7 +57,7 @@ class DatingViewController: UIViewController, LoadingStateType, IndicatorDisplay
         }
         
         collectionView.setCollectionViewLayout(layout, animated: false)
-        hbd_barAlpha = 0
+        navigationBarAlpha = 0
         
 //        let url = Bundle.main.url(forResource: "dating", withExtension: "webp")
 //

@@ -157,11 +157,9 @@ class EarningsViewController: UIViewController, LoadingStateType, IndicatorDispl
         let recordItem = UIBarButtonItem(title: "明细", style: .plain, target: self, action: #selector(pushExpensesRecord))
         recordItem.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
         navigationItem.rightBarButtonItem = recordItem
-        
-        hbd_barAlpha = 0
-        hbd_tintColor = .white
-        hbd_titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
-        hbd_setNeedsUpdateNavigationBar()
+        navigationBarAlpha = 0
+        navigationBarTintColor = .white
+        navigationBarTitleColor = .white
         
         tableView.sectionHeaderHeight = 10
         tableView.sectionFooterHeight = .leastNonzeroMagnitude

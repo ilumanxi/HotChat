@@ -286,6 +286,9 @@
 		2696341F2531942000493C3D /* DynamicAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2696341E2531942000493C3D /* DynamicAPI.swift */; };
 		2697FDC4260893EE002CB9A2 /* ChatTopicNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2697FDC2260893EE002CB9A2 /* ChatTopicNoticeViewController.swift */; };
 		2697FDC5260893EE002CB9A2 /* ChatTopicNoticeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2697FDC3260893EE002CB9A2 /* ChatTopicNoticeViewController.xib */; };
+		269C9BE92632759800BD1A85 /* UIViewController+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269C9BE62632759800BD1A85 /* UIViewController+NavigationBar.swift */; };
+		269C9BEA2632759800BD1A85 /* FakeNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269C9BE72632759800BD1A85 /* FakeNavigationBar.swift */; };
+		269C9BEB2632759800BD1A85 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269C9BE82632759800BD1A85 /* NavigationController.swift */; };
 		269DED0B254A9DD5000AD5D9 /* CallMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 269DED0A254A9DD5000AD5D9 /* CallMenuViewController.xib */; };
 		269DED1B254AAC4D000AD5D9 /* GiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 269DED19254AAC4D000AD5D9 /* GiftViewController.m */; };
 		269DED1C254AAC4D000AD5D9 /* GiftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 269DED1A254AAC4D000AD5D9 /* GiftViewController.xib */; };
@@ -868,6 +871,9 @@
 		2696341E2531942000493C3D /* DynamicAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicAPI.swift; sourceTree = "<group>"; };
 		2697FDC2260893EE002CB9A2 /* ChatTopicNoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTopicNoticeViewController.swift; sourceTree = "<group>"; };
 		2697FDC3260893EE002CB9A2 /* ChatTopicNoticeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatTopicNoticeViewController.xib; sourceTree = "<group>"; };
+		269C9BE62632759800BD1A85 /* UIViewController+NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+NavigationBar.swift"; sourceTree = "<group>"; };
+		269C9BE72632759800BD1A85 /* FakeNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeNavigationBar.swift; sourceTree = "<group>"; };
+		269C9BE82632759800BD1A85 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		269DED0A254A9DD5000AD5D9 /* CallMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CallMenuViewController.xib; sourceTree = "<group>"; };
 		269DED18254AAC4D000AD5D9 /* GiftViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftViewController.h; sourceTree = "<group>"; };
 		269DED19254AAC4D000AD5D9 /* GiftViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftViewController.m; sourceTree = "<group>"; };
@@ -1501,6 +1507,9 @@
 		2643EB952500B04100FBBE49 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				269C9BE72632759800BD1A85 /* FakeNavigationBar.swift */,
+				269C9BE82632759800BD1A85 /* NavigationController.swift */,
+				269C9BE62632759800BD1A85 /* UIViewController+NavigationBar.swift */,
 				2643EB992500B04100FBBE49 /* BaseNavigationController.swift */,
 			);
 			path = Navigation;
@@ -2712,6 +2721,7 @@
 				262FFFBE2602F40100F541C2 /* GroupTopic.swift in Sources */,
 				26DFBF8E262EC9AE00639C94 /* RecommendContainerController.swift in Sources */,
 				26257ADB260B2EBF00A4E0F3 /* BannerViewCell.swift in Sources */,
+				269C9BEA2632759800BD1A85 /* FakeNavigationBar.swift in Sources */,
 				26EDE7EE2591C6B8002A2EC3 /* TUIMessageController+Message.m in Sources */,
 				264219B5258B2AC600D46B9C /* GreetingViewController.swift in Sources */,
 				2666405F2577624500E30A09 /* SayHellowViewController.swift in Sources */,
@@ -2815,6 +2825,7 @@
 				265C8A3D2513316200E220BD /* SigninViewModel.swift in Sources */,
 				2643EBA62500B04100FBBE49 /* PushSettingsViewController.swift in Sources */,
 				26597667257792E200E4B6A2 /* SayHellowSettingViewController.swift in Sources */,
+				269C9BEB2632759800BD1A85 /* NavigationController.swift in Sources */,
 				2673FDBD255CE14400909A37 /* WebViewController.swift in Sources */,
 				26A20B0D2518BBC10061BBB8 /* Response.swift in Sources */,
 				262FFFB72601FFC400F541C2 /* TextMessageCell.m in Sources */,
@@ -2869,6 +2880,7 @@
 				26373C75250234AC0066FF3B /* Delegate.swift in Sources */,
 				26C31F2B25404D280000D09D /* ForYouViewController.swift in Sources */,
 				26710DEF25B28B33000F41BC /* GradientButton.swift in Sources */,
+				269C9BE92632759800BD1A85 /* UIViewController+NavigationBar.swift in Sources */,
 				26CA6EE7253829A70023E27B /* ChannelViewController.swift in Sources */,
 				26EDE7F92591D11F002A2EC3 /* GuidedRechargeViewController.swift in Sources */,
 				26787E2F251B228200D511E8 /* AccountPlugin.swift in Sources */,
@@ -3165,7 +3177,6 @@
 					"-l\"DynamicColor\"",
 					"-l\"FSPagerView\"",
 					"-l\"GKPhotoBrowser\"",
-					"-l\"HBDNavigationBar\"",
 					"-l\"HandyJSON\"",
 					"-l\"Kingfisher\"",
 					"-l\"Koloda\"",
@@ -3292,7 +3303,6 @@
 					"-l\"DynamicColor\"",
 					"-l\"FSPagerView\"",
 					"-l\"GKPhotoBrowser\"",
-					"-l\"HBDNavigationBar\"",
 					"-l\"HandyJSON\"",
 					"-l\"Kingfisher\"",
 					"-l\"Koloda\"",

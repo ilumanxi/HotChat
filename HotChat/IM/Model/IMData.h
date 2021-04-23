@@ -19,7 +19,10 @@ typedef enum : NSUInteger {
     IMDataTypeText = 102,
     IMDataTypeMarqueeGift = 10000,
     IMDataTypeMarqueeHeadline = 10001,
-    IMDataTypeDynamic = 10002
+    IMDataTypeDynamic = 10002,
+    IMDataTypePresent = 10003,
+    IMDataTypeOnline = 10004
+    
 } IMDataType;
 
 @interface IMData : NSObject

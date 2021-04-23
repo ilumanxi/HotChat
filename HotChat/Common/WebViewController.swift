@@ -121,19 +121,6 @@ class WebViewController: UIViewController {
         super.viewWillAppear(animated)
     }
     
-    override var hbd_backInteractive: Bool {
-        get {
-            if webView.canGoBack {
-                webView.goBack()
-                return false
-            }
-            return true
-        }
-        set {
-            // ignore
-        }
-    }
-    
     
     func setupBridge() {
         bridge = WKWebViewJavascriptBridge(webView: webView)
@@ -228,11 +215,11 @@ extension WebViewController {
     func navigationBarAppearance(_ parameters: Parameters?, callback: Callback?)  {
         
         if let backBarButtonItemTintColor = parameters?["backBarButtonItemTintColor"] as? String {
-            hbd_tintColor = UIColor(hexString: backBarButtonItemTintColor)
+            navigationBarTintColor = UIColor(hexString: backBarButtonItemTintColor)
         }
         
-        if let navigationBarAlpha = parameters?["navigationBarAlpha"] as? Float  {
-            hbd_barAlpha = navigationBarAlpha
+        if let navigationBarAlpha = parameters?["navigationBarAlpha"] as? CGFloat  {
+            self.navigationBarAlpha = navigationBarAlpha
         }
        
         if let statusBarStyle = parameters?["statusBarStyle"] as? String  {
@@ -243,7 +230,6 @@ extension WebViewController {
                 self.statusBarStyle = .default
             }
         }
-        hbd_setNeedsUpdateNavigationBar()
         setNeedsStatusBarAppearanceUpdate()
     }
     

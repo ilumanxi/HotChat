@@ -133,7 +133,7 @@ class CommentsViewController: UIViewController, AquamanChildViewController, Indi
                     vc.onBuy.delegate(on: self!) { (self, _) in
                         
                         let vc = WebViewController.H5(path: "h5/vip")
-                        vc.hbd_barAlpha = 0
+                        vc.navigationBarAlpha = 0
                         vc.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "navigation-bar-back"), style: .done, target: self, action: #selector(self.close(_:)))
                         let viewControllerToPresent = BaseNavigationController(rootViewController: vc)
                         

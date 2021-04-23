@@ -67,7 +67,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DBR-pl-4Jf" customClass="BaseNavigationController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="tabbar-add" selectedImage="tabbar-add" id="HCN-H1-P2H"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gL6-Lx-wav" customClass="HBDNavigationBar">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gL6-Lx-wav">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
