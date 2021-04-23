@@ -43,7 +43,12 @@ class RecommendViewController: UIViewController, LoadingStateType, IndicatorDisp
     
     var state: LoadingState = .initial {
         didSet {
-            showOrHideIndicator(loadingState: state)
+            if state == .noContent {
+                showOrHideIndicator(loadingState: state, text: "当前暂无消息，请留意新的消息提示。", image: UIImage(named: "no-content-noti"), actionText: nil)
+            }
+            else {
+                showOrHideIndicator(loadingState: state)
+            }
         }
     }
     

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class GiftTipView: UIView {
 
@@ -32,5 +33,15 @@ class GiftTipView: UIView {
     @IBAction func chatButtonTapped(_ sender: Any) {
         onChatTapped.call()
     }
+    
+    func set(_ gift: GiftNotification) {
+        avatarImageView.kf.setImage(with: URL(string: gift.headPic))
+        nameLabel.text = gift.nick
+        locationButton.setTitle(gift.region, for: .normal)
+        sexButton.setImage(gift.sex.image, for: .normal)
+        moneyLabel.text = gift.content
+    }
+    
+    
     
 }

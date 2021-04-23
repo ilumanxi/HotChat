@@ -28,16 +28,17 @@ class BlacklistController: UIViewController, LoadingStateType, IndicatorDisplay 
         super.viewDidLoad()
         setupViews()
         refreshData()
+        
     }
     
     func refreshData() {
         state = .refreshingContent
         uesrAPI.request(.blackList, type: Response<[User]>.self)
             .verifyResponse()
-            .subscribe(onSuccess: { [weak self] response in
-                self?.data = response.data ?? []
-                self?.tableView.reloadData()
-                self?.state = response.data!.isEmpty ? .noContent : .contentLoaded
+            .subscribe(onSuccess: { [unowned self] response in
+                self.data = response.data ?? []
+                self.tableView.reloadData()
+                self.state = self.data.isEmpty ? .noContent : .contentLoaded
                 
             }, onError: {[weak self] error in
                 self?.state = .error

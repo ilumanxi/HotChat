@@ -11,7 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OnlineStatusViewController" customModule="HotChat" customModuleProvider="target">
             <connections>
+                <outlet property="containerView" destination="QM0-YT-vFG" id="S5h-tL-1Mn"/>
                 <outlet property="tableView" destination="xIe-NT-q0D" id="z0s-vD-tUL"/>
+                <outlet property="titleLabel" destination="hdp-6w-a7C" id="pPO-vR-viI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -29,6 +31,9 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="97z-Rt-GRb">
                                     <rect key="frame" x="20" y="11" width="22" height="22"/>
                                     <state key="normal" image="refresh-data"/>
+                                    <connections>
+                                        <action selector="refreshButtonTapped:" destination="-1" eventType="touchUpInside" id="dyE-SM-F80"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="共有54655条消息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdp-6w-a7C">
                                     <rect key="frame" x="69" y="14" width="107" height="16"/>
@@ -73,6 +78,9 @@
                         <constraint firstAttribute="height" constant="44" id="jff-rD-js8"/>
                     </constraints>
                     <state key="normal" image="common-close"/>
+                    <connections>
+                        <action selector="closeButtonTapped:" destination="-1" eventType="touchUpInside" id="Qur-qM-Udj"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

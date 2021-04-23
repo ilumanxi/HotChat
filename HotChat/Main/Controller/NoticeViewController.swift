@@ -103,6 +103,10 @@ class NoticeViewController: UIViewController {
         
     }
     
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        add(online: OnlineNotification())
+//    }
+    
     private func handle(notification: Notification) {
         
         guard let msg = notification.object as?  V2TIMMessage else { return }
@@ -202,12 +206,20 @@ class NoticeViewController: UIViewController {
         
         
         let onlineView = OnlineTipView.loadFromNib()
+        onlineView.set(online: online)
         onlineView.frame = onlineFrame
         onlineView.onContentTapped.delegate(on: self) { (self, _) in
             let vc = OnlineStatusViewController()
             self.presentPanModal(vc)
         }
         
+        onlineView.onAvatarTapped.delegate(on: self) { (self, _) in
+            let user = User()
+            user.userId = online.userId
+            let vc = UserInfoViewController()
+            vc.user = user
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
         
         onlineStatusTipContainerView.addSubview(onlineView)
         
@@ -299,6 +311,7 @@ class NoticeViewController: UIViewController {
         let frame = self.giftTipContainerView.bounds
         
         let giftView = GiftTipView.loadFromNib()
+        giftView.set(gift)
         giftView.frame = frame.offsetBy(dx: 0, dy: -frame.height)
         
         giftView.onChatTapped.delegate(on: self) {(self, _) in

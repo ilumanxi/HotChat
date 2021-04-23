@@ -32,4 +32,10 @@ class OnlineTipView: UIView {
         onContentTapped.call()
     }
 
+    
+    func set(online: OnlineNotification){
+        avatarImageView.kf.setImage(with: URL(string: online.headPic))
+        nameLabel.text = online.nick
+        statusLabel.text = online.content
+    }
 }
