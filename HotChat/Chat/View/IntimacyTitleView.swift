@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class IntimacyTitleView: UIButton {
     
@@ -26,6 +27,12 @@ class IntimacyTitleView: UIButton {
     
     override var intrinsicContentSize: CGSize {
         return CGSize(width: 110, height: 44)
+    }
+    
+    func set(_ otherUser: User) {
+        let user = LoginManager.shared.user!
+        leftImageView.kf.setImage(with: URL(string: user.headPic))
+        rightImageView.kf.setImage(with: URL(string: otherUser.headPic))
     }
 
 }

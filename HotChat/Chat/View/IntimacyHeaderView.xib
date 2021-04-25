@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="IntimacyHeaderView" customModule="HotChat" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="133"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bgx-Xu-gUM">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="133"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="tM3-bJ-Kp3">
+                            <rect key="frame" x="8" y="17" width="398" height="96.5"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oa3-z4-Owv">
+                                    <rect key="frame" x="143" y="0.0" width="112" height="28"/>
+                                    <color key="backgroundColor" red="0.98431372549019602" green="0.39215686274509803" blue="0.52549019607843139" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="28" id="6zT-GV-fUp"/>
+                                        <constraint firstAttribute="width" constant="112" id="mMo-ug-7tE"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                    <state key="normal" title="亲密旅程"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="14"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="双方互动发送消息可以提升温度，越聊越火热送出精心准备的礼物可以快速升温哦，每天都上来互动提升温度，不然温度会下降的。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jcp-qj-ATa">
+                                    <rect key="frame" x="6" y="46" width="386" height="50.5"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                    <color key="textColor" red="0.98431372549019602" green="0.39215686274509803" blue="0.52549019607843139" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="tM3-bJ-Kp3" secondAttribute="trailing" constant="8" id="1aU-uN-hbV"/>
+                        <constraint firstItem="tM3-bJ-Kp3" firstAttribute="top" secondItem="bgx-Xu-gUM" secondAttribute="top" constant="17" id="d5H-uG-9OF"/>
+                        <constraint firstItem="tM3-bJ-Kp3" firstAttribute="leading" secondItem="bgx-Xu-gUM" secondAttribute="leading" constant="8" id="q53-K2-bG0"/>
+                        <constraint firstAttribute="bottom" secondItem="tM3-bJ-Kp3" secondAttribute="bottom" constant="19.5" id="zTH-qm-loT"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="bgx-Xu-gUM" secondAttribute="trailing" id="WHe-YT-fRD"/>
+                <constraint firstAttribute="bottom" secondItem="bgx-Xu-gUM" secondAttribute="bottom" id="ocp-xQ-akO"/>
+                <constraint firstItem="bgx-Xu-gUM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="vnq-O7-l6z"/>
+                <constraint firstItem="bgx-Xu-gUM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="zGS-zZ-0dL"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-175.36231884057972" y="85.379464285714278"/>
+        </view>
+    </objects>
+</document>

@@ -11,10 +11,15 @@ import Kingfisher
 import HandyJSON
 
 enum TopType: Int, CaseIterable {
+    
+    /// 亲密
+    case intimate = 3
+    
     /// 魅力
     case charm = 1
     /// 富豪
     case estate = 2
+
 }
 
 
@@ -53,80 +58,94 @@ extension TopType {
             return "魅力榜"
         case .estate:
             return "富豪榜"
+        case .intimate:
+            return "亲密榜"
         }
     }
     
     
-    var textColor: UIColor {
+    var textColor: UIColor? {
         switch self {
         case .charm:
             return UIColor(hexString: "#C5EDFF")
         case .estate:
             return UIColor(hexString: "#D5B3FE")
-            
+        case .intimate:
+            return nil
         }
     }
     
 
-    var selectedTextColor: UIColor {
+    var selectedTextColor: UIColor? {
         switch self {
         case .charm:
             return UIColor.white
         case .estate:
             return UIColor.white
+        case .intimate:
+            return nil
         }
     }
     
-    var colors: [UIColor] {
+    var colors: [UIColor]? {
         
         switch self {
         case .charm:
             return [UIColor(hexString: "#B575F8"), UIColor(hexString: "#940ADB")]
         case .estate:
             return [UIColor(hexString: "#48C6FE"), UIColor(hexString: "#486BF9")]
+        case .intimate:
+            return nil
         }
     }
     
-    var borderColor: UIColor {
+    var borderColor: UIColor? {
         switch self {
         case .charm:
             return UIColor(hexString: "#DABCFF")
         case .estate:
             return UIColor(hexString: "#7AD3FD")
-            
+        case .intimate:
+            return nil
         }
     }
     
-    var defaultTextColor: UIColor {
+    var defaultTextColor: UIColor? {
         switch self {
         case .charm:
             return UIColor(hexString: "#D5B3FE")
         case .estate:
             return UIColor(hexString: "#C5EDFF")
+        case .intimate:
+            return nil
         }
     }
     
-    var sliderBackgroundColor: UIColor {
+    var sliderBackgroundColor: UIColor? {
         switch self {
         case .charm:
             return UIColor(hexString: "#D5B3FE")
         case .estate:
             return UIColor(hexString: "#7AD3FD")
+        case .intimate:
+            return nil
         }
     }
     
-    var tags: [TopTag] {
+    var tags: [TopTag]? {
         switch self {
         case .charm:
             return [.day, .week, .month]
         case .estate:
             return [.day, .week, .general]
+        case .intimate:
+            return nil
         }
     }
     
-    var titles: [String] {
+    var titles: [String]? {
         
-        return tags.compactMap { $0.title }
+        return tags?.compactMap { $0.title }
     }
     
     var backgroundImage: UIImage? {
@@ -135,24 +154,30 @@ extension TopType {
             return UIImage(named: "top-charm-bg")
         case .estate:
             return UIImage(named: "top-estate-bg")
+        case .intimate:
+            return nil
         }
     }
     
-    var image: UIImage {
+    var image: UIImage? {
         switch self {
         case .charm:
             return UIImage(named: "top-charm")!
         case .estate:
             return UIImage(named: "top-estate")!
+        case .intimate:
+            return nil
         }
     }
     
-    var numberColor: UIColor {
+    var numberColor: UIColor? {
         switch self {
         case .charm:
             return UIColor(hexString: "#940ADB")
         case .estate:
             return UIColor(hexString: "#4F5DF8")
+        case .intimate:
+            return nil
         }
     }
 
@@ -208,7 +233,7 @@ class TopViewController: UIViewController, IndicatorDisplay {
     
     var current: TopList? {
         
-        let tag = topType.tags[segmentedControl.selectedSegmentIndex]
+        let tag = topType.tags![segmentedControl.selectedSegmentIndex]
         return data[tag]
     }
     
@@ -222,19 +247,19 @@ class TopViewController: UIViewController, IndicatorDisplay {
         
         navigationView.colors = topType.colors
         topView.colors = topType.colors
-        headerView.contentView.colors = topType.colors
+        headerView.backgroundView.colors = topType.colors
         headerView.backgroundImageView.image = topType.backgroundImage
 
         tableView.tableHeaderView = headerView
         segmentedControl.backgroundView.layer.borderWidth = 0.5
-        segmentedControl.backgroundView.layer.borderColor = topType.borderColor.cgColor
+        segmentedControl.backgroundView.layer.borderColor = topType.borderColor?.cgColor
         segmentedControl.segmentsBackgroundColor = .clear
         segmentedControl.containerView.backgroundColor = .clear
-        segmentedControl.sliderBackgroundColor = topType.sliderBackgroundColor
+        segmentedControl.sliderBackgroundColor = topType.sliderBackgroundColor!
         segmentedControl.backgroundColor = .clear
-        segmentedControl.defaultTextColor = topType.defaultTextColor
-        segmentedControl.highlightTextColor = topType.selectedTextColor
-        segmentedControl.setSegmentItems(topType.titles)
+        segmentedControl.defaultTextColor = topType.defaultTextColor!
+        segmentedControl.highlightTextColor = topType.selectedTextColor!
+        segmentedControl.setSegmentItems(topType.titles!)
         segmentedControl.delegate = self
         
         requestData()
@@ -256,7 +281,7 @@ class TopViewController: UIViewController, IndicatorDisplay {
     func requestData()  {
         
         let type = topType.rawValue
-        let tag = topType.tags[segmentedControl.selectedSegmentIndex].rawValue
+        let tag = topType.tags![segmentedControl.selectedSegmentIndex].rawValue
         
         dispaly()
         
@@ -290,10 +315,10 @@ class TopViewController: UIViewController, IndicatorDisplay {
             let textAttachment = NSTextAttachment()
             textAttachment.image = topType.image
             let font = headerView.top1CountLabel.font!
-            textAttachment.bounds =  CGRect(x: 0, y: -(font.lineHeight - font.pointSize) / 2, width: topType.image.size.width, height: topType.image.size.height)
+            textAttachment.bounds =  CGRect(x: 0, y: -(font.lineHeight - font.pointSize) / 2, width: topType.image!.size.width, height: topType.image!.size.height)
             
             let attributedText = NSMutableAttributedString(attachment: textAttachment)
-            attributedText.append(NSAttributedString(string: " \(user.energy)", attributes: [NSAttributedString.Key.foregroundColor : topType.numberColor]))
+            attributedText.append(NSAttributedString(string: " \(user.energy)", attributes: [NSAttributedString.Key.foregroundColor : topType.numberColor!]))
             headerView.top1CountLabel.attributedText = attributedText
         }
         else {

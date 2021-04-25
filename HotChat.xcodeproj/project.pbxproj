@@ -217,6 +217,8 @@
 		26710DEF25B28B33000F41BC /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26710DEE25B28B33000F41BC /* GradientButton.swift */; };
 		26710DF425B293BE000F41BC /* WalletProducItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26710DF225B293BE000F41BC /* WalletProducItemCell.swift */; };
 		26710DF525B293BE000F41BC /* WalletProducItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26710DF325B293BE000F41BC /* WalletProducItemCell.xib */; };
+		267155AF263572F600725EE5 /* IntimateTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267155AD263572F600725EE5 /* IntimateTopCell.swift */; };
+		267155B0263572F600725EE5 /* IntimateTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 267155AE263572F600725EE5 /* IntimateTopCell.xib */; };
 		2672B018260C631A005C35FD /* Marquee.m in Sources */ = {isa = PBXBuildFile; fileRef = 2672B017260C631A005C35FD /* Marquee.m */; };
 		2673FDBD255CE14400909A37 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2673FDBC255CE14400909A37 /* WebViewController.swift */; };
 		26772822255A480900B98973 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26772820255A480900B98973 /* PrivacyViewController.swift */; };
@@ -292,6 +294,16 @@
 		269C9C0E2632CC7500BD1A85 /* IntimacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269C9C0D2632CC7500BD1A85 /* IntimacyViewController.swift */; };
 		269C9C102632D1FB00BD1A85 /* IntimacyTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269C9C0F2632D1FB00BD1A85 /* IntimacyTitleView.swift */; };
 		269C9C122632D20700BD1A85 /* IntimacyTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 269C9C112632D20700BD1A85 /* IntimacyTitleView.xib */; };
+		269D0AA826351B7400ED5301 /* IntimacyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 269D0AA726351B7400ED5301 /* IntimacyViewController.xib */; };
+		269D0AAB26351CB900ED5301 /* IntimacyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269D0AA926351CB900ED5301 /* IntimacyCell.swift */; };
+		269D0AAC26351CB900ED5301 /* IntimacyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 269D0AAA26351CB900ED5301 /* IntimacyCell.xib */; };
+		269D0AAE2635387C00ED5301 /* IntimacyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269D0AAD2635387C00ED5301 /* IntimacyHeaderView.swift */; };
+		269D0AB02635389800ED5301 /* IntimacyHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 269D0AAF2635389800ED5301 /* IntimacyHeaderView.xib */; };
+		269D0AB2263546F000ED5301 /* FitTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269D0AB1263546F000ED5301 /* FitTitleView.swift */; };
+		269D0AB52635544900ED5301 /* IntimateTopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269D0AB32635544900ED5301 /* IntimateTopViewController.swift */; };
+		269D0AB62635544900ED5301 /* IntimateTopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 269D0AB42635544900ED5301 /* IntimateTopViewController.xib */; };
+		269D0AB82635555900ED5301 /* IntimateTopHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269D0AB72635555900ED5301 /* IntimateTopHeaderView.swift */; };
+		269D0ABA2635556300ED5301 /* IntimateTopHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 269D0AB92635556300ED5301 /* IntimateTopHeaderView.xib */; };
 		269DED0B254A9DD5000AD5D9 /* CallMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 269DED0A254A9DD5000AD5D9 /* CallMenuViewController.xib */; };
 		269DED1B254AAC4D000AD5D9 /* GiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 269DED19254AAC4D000AD5D9 /* GiftViewController.m */; };
 		269DED1C254AAC4D000AD5D9 /* GiftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 269DED1A254AAC4D000AD5D9 /* GiftViewController.xib */; };
@@ -799,6 +811,8 @@
 		26710DEE25B28B33000F41BC /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 		26710DF225B293BE000F41BC /* WalletProducItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletProducItemCell.swift; sourceTree = "<group>"; };
 		26710DF325B293BE000F41BC /* WalletProducItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletProducItemCell.xib; sourceTree = "<group>"; };
+		267155AD263572F600725EE5 /* IntimateTopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntimateTopCell.swift; sourceTree = "<group>"; };
+		267155AE263572F600725EE5 /* IntimateTopCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntimateTopCell.xib; sourceTree = "<group>"; };
 		2672B016260C631A005C35FD /* Marquee.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Marquee.h; sourceTree = "<group>"; };
 		2672B017260C631A005C35FD /* Marquee.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Marquee.m; sourceTree = "<group>"; };
 		2673FDBC255CE14400909A37 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -880,6 +894,16 @@
 		269C9C0D2632CC7500BD1A85 /* IntimacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntimacyViewController.swift; sourceTree = "<group>"; };
 		269C9C0F2632D1FB00BD1A85 /* IntimacyTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntimacyTitleView.swift; sourceTree = "<group>"; };
 		269C9C112632D20700BD1A85 /* IntimacyTitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntimacyTitleView.xib; sourceTree = "<group>"; };
+		269D0AA726351B7400ED5301 /* IntimacyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntimacyViewController.xib; sourceTree = "<group>"; };
+		269D0AA926351CB900ED5301 /* IntimacyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntimacyCell.swift; sourceTree = "<group>"; };
+		269D0AAA26351CB900ED5301 /* IntimacyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntimacyCell.xib; sourceTree = "<group>"; };
+		269D0AAD2635387C00ED5301 /* IntimacyHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntimacyHeaderView.swift; sourceTree = "<group>"; };
+		269D0AAF2635389800ED5301 /* IntimacyHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntimacyHeaderView.xib; sourceTree = "<group>"; };
+		269D0AB1263546F000ED5301 /* FitTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitTitleView.swift; sourceTree = "<group>"; };
+		269D0AB32635544900ED5301 /* IntimateTopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntimateTopViewController.swift; sourceTree = "<group>"; };
+		269D0AB42635544900ED5301 /* IntimateTopViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntimateTopViewController.xib; sourceTree = "<group>"; };
+		269D0AB72635555900ED5301 /* IntimateTopHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntimateTopHeaderView.swift; sourceTree = "<group>"; };
+		269D0AB92635556300ED5301 /* IntimateTopHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntimateTopHeaderView.xib; sourceTree = "<group>"; };
 		269DED0A254A9DD5000AD5D9 /* CallMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CallMenuViewController.xib; sourceTree = "<group>"; };
 		269DED18254AAC4D000AD5D9 /* GiftViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftViewController.h; sourceTree = "<group>"; };
 		269DED19254AAC4D000AD5D9 /* GiftViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftViewController.m; sourceTree = "<group>"; };
@@ -1636,6 +1660,7 @@
 				26DFBF8F262ED3FF00639C94 /* OnlineStatusViewController.swift */,
 				26DFBF90262ED3FF00639C94 /* OnlineStatusViewController.xib */,
 				269C9C0D2632CC7500BD1A85 /* IntimacyViewController.swift */,
+				269D0AA726351B7400ED5301 /* IntimacyViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1664,6 +1689,11 @@
 				26B06FAD2631486300FE336F /* OnlineStatusCell.xib */,
 				269C9C0F2632D1FB00BD1A85 /* IntimacyTitleView.swift */,
 				269C9C112632D20700BD1A85 /* IntimacyTitleView.xib */,
+				269D0AA926351CB900ED5301 /* IntimacyCell.swift */,
+				269D0AAA26351CB900ED5301 /* IntimacyCell.xib */,
+				269D0AAD2635387C00ED5301 /* IntimacyHeaderView.swift */,
+				269D0AAF2635389800ED5301 /* IntimacyHeaderView.xib */,
+				269D0AB1263546F000ED5301 /* FitTitleView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2033,6 +2063,8 @@
 				2651FE1425F759D300A9F2E6 /* TopViewController.swift */,
 				2651FE1525F759D300A9F2E6 /* TopViewController.xib */,
 				260C467725F870BE0033915C /* TopController.swift */,
+				269D0AB32635544900ED5301 /* IntimateTopViewController.swift */,
+				269D0AB42635544900ED5301 /* IntimateTopViewController.xib */,
 				26BD36E7261C550500D5565D /* NotificationViewController.swift */,
 			);
 			path = Controller;
@@ -2052,6 +2084,10 @@
 				266DA37A25F8C96D00BE4E74 /* TopViewCell.xib */,
 				26BD36EB261C592600D5565D /* NotificationViewCell.swift */,
 				26BD36EC261C592600D5565D /* NotificationViewCell.xib */,
+				269D0AB72635555900ED5301 /* IntimateTopHeaderView.swift */,
+				269D0AB92635556300ED5301 /* IntimateTopHeaderView.xib */,
+				267155AD263572F600725EE5 /* IntimateTopCell.swift */,
+				267155AE263572F600725EE5 /* IntimateTopCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2403,6 +2439,7 @@
 				26DFBF88262EADF900639C94 /* GiftTipView.xib in Resources */,
 				26CB6D4F25515D6B00A9F4DD /* idl-license.face-ios in Resources */,
 				2697FDC5260893EE002CB9A2 /* ChatTopicNoticeViewController.xib in Resources */,
+				269D0AA826351B7400ED5301 /* IntimacyViewController.xib in Resources */,
 				26C81EE62547E9E300C1D563 /* VoiceView.xib in Resources */,
 				2637D876255B8E5300020E98 /* BlacklistController.xib in Resources */,
 				26F5537D2553D3CD00840735 /* GiftEarningsViewController.xib in Resources */,
@@ -2412,6 +2449,7 @@
 				26FBCF642558EF32001F3DFA /* ConsumerDetailsViewController.xib in Resources */,
 				2691AE2F2627E9A400EE05D7 /* Dating.storyboard in Resources */,
 				26F8946C25203B7300A45648 /* TitleViewCell.xib in Resources */,
+				267155B0263572F600725EE5 /* IntimateTopCell.xib in Resources */,
 				2693697525555E06002E224B /* PhoneBindingController.xib in Resources */,
 				26AC0E332623FB4200F53951 /* CommunityViewController.xib in Resources */,
 				263A6C3C25C2DDEB00FD43B6 /* pair.svga in Resources */,
@@ -2419,6 +2457,7 @@
 				267955042507637600A72954 /* Community.storyboard in Resources */,
 				26C81EEE25480B1900C1D563 /* GiftViewCell.xib in Resources */,
 				26BA6A0E25F365E60002C3DE /* VipBuyViewController.xib in Resources */,
+				269D0AAC26351CB900ED5301 /* IntimacyCell.xib in Resources */,
 				26EEA32526048BDA005226AD /* ChatTopicReportViewController.xib in Resources */,
 				26D0034F25A6E97C00168796 /* UserInformationViewController.xib in Resources */,
 				26E4C68525930F89005EAAC3 /* AccountDestructionController.xib in Resources */,
@@ -2444,6 +2483,7 @@
 				2626E4E8261C14E0007B57D2 /* DynamicView.xib in Resources */,
 				26C8CC6A2603545C005FDFF8 /* ChatMemberCell.xib in Resources */,
 				26FD33102625829300979B36 /* message.svga in Resources */,
+				269D0AB62635544900ED5301 /* IntimateTopViewController.xib in Resources */,
 				260323872620661700144135 /* im_gift_btn.svga in Resources */,
 				267954F62507579700A72954 /* Chat.storyboard in Resources */,
 				2635216E25C7F4F900855487 /* VisitorsVipController.xib in Resources */,
@@ -2497,9 +2537,11 @@
 				2635216825C7F18800855487 /* VisitorsController.xib in Resources */,
 				267E36E92547C2E100EB2097 /* GiftView.xib in Resources */,
 				26DC2CD725F248E9003628B2 /* ReportCell.xib in Resources */,
+				269D0AB02635389800ED5301 /* IntimacyHeaderView.xib in Resources */,
 				26772823255A480900B98973 /* PrivacyViewController.xib in Resources */,
 				264BF97925A8366E00F873DD /* AccostViewController.xib in Resources */,
 				264C5C342609CF83007FB123 /* TalkHeaderView.xib in Resources */,
+				269D0ABA2635556300ED5301 /* IntimateTopHeaderView.xib in Resources */,
 				26202029261EAEFE006A5AD7 /* RegionPickerViewController.xib in Resources */,
 				F38CB8C62507B14700049A76 /* InfoPlist.strings in Resources */,
 				268E3E612521D074000E4A33 /* RelationshipViewCell.xib in Resources */,
@@ -2608,6 +2650,7 @@
 			files = (
 				26F8893F253187BD001A14F2 /* Dynamic.swift in Sources */,
 				2643EBAE2500B04100FBBE49 /* UserInfoPhotoAlbumCell.swift in Sources */,
+				269D0AAB26351CB900ED5301 /* IntimacyCell.swift in Sources */,
 				262FFFB92602F24100F541C2 /* GroupChatAPI.swift in Sources */,
 				26CB6D4925515D6B00A9F4DD /* BDFaceImageUtils.m in Sources */,
 				26610E10261171C8008E154A /* NewcomerAwardViewController.swift in Sources */,
@@ -2686,6 +2729,7 @@
 				26C31F3025404FE90000D09D /* ForYouCell.swift in Sources */,
 				26ED001D25C69BC900480CEC /* MediaItemAddViewCell.swift in Sources */,
 				2651FE1625F759D300A9F2E6 /* TopViewController.swift in Sources */,
+				269D0AB52635544900ED5301 /* IntimateTopViewController.swift in Sources */,
 				26CB6D4125515D6B00A9F4DD /* BDFaceDetectionViewController.m in Sources */,
 				2643EBA72500B04100FBBE49 /* RealNameAuthenticationViewController.swift in Sources */,
 				26E14E5E251C6E8800645F08 /* HotChatButton.swift in Sources */,
@@ -2738,6 +2782,7 @@
 				2666405F2577624500E30A09 /* SayHellowViewController.swift in Sources */,
 				263BC1E225494EA20081F5DF /* UIView+Additions.m in Sources */,
 				26CA6EDD2538215D0023E27B /* Channel.swift in Sources */,
+				267155AF263572F600725EE5 /* IntimateTopCell.swift in Sources */,
 				F370D277251CE65500C2F708 /* ResetPasswordViewController.swift in Sources */,
 				26C81ED82547CE0500C1D563 /* GiftView.m in Sources */,
 				267954F9250757FE00A72954 /* ConversationViewController.swift in Sources */,
@@ -2745,6 +2790,7 @@
 				264C5C232608A72F007FB123 /* TConversationListViewModel+Single.m in Sources */,
 				2696341F2531942000493C3D /* DynamicAPI.swift in Sources */,
 				2651FE1925F7665A00A9F2E6 /* TopHeaderView.swift in Sources */,
+				269D0AB82635555900ED5301 /* IntimateTopHeaderView.swift in Sources */,
 				2643EBBD2500B04100FBBE49 /* Helpers.swift in Sources */,
 				26E14E68251C861A00645F08 /* DatePickerViewController.swift in Sources */,
 				26373C77250234D00066FF3B /* FormSection.swift in Sources */,
@@ -2853,6 +2899,7 @@
 				264C5C302609C61F007FB123 /* TalkViewController.swift in Sources */,
 				26C500DD25F0BED800CF37C0 /* InputViewController.swift in Sources */,
 				26F8947125203BDD00A45648 /* TitleViewController.swift in Sources */,
+				269D0AB2263546F000ED5301 /* FitTitleView.swift in Sources */,
 				26A8D4E9251C8F3E00B736CF /* Constellation.swift in Sources */,
 				26278B85256CFD64007044E1 /* JPGiftModel.m in Sources */,
 				26377FCE2530526800D5A03D /* ChatViewController.swift in Sources */,
@@ -2898,6 +2945,7 @@
 				26787E2F251B228200D511E8 /* AccountPlugin.swift in Sources */,
 				26CB6D3F25515D6B00A9F4DD /* BDFaceLivenessViewController.m in Sources */,
 				2679DA612611C179003F2443 /* AnchorTipViewController.swift in Sources */,
+				269D0AAE2635387C00ED5301 /* IntimacyHeaderView.swift in Sources */,
 				26959040250B1D9400763061 /* InterestedCardOverlayView.swift in Sources */,
 				2691AE2A2626DAF500EE05D7 /* ChargeFooterView.swift in Sources */,
 				26E5FE5225F089B800C96392 /* CommentViewCell.swift in Sources */,

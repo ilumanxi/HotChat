@@ -14,7 +14,7 @@ class RecommendContainerController: TabmanViewController {
     
     var titles: [String] = []
     var viewConrollers: [UIViewController] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,21 +30,15 @@ class RecommendContainerController: TabmanViewController {
         
         // Create a bar
         let bar = TMBarView.ButtonBar()
-        // 58 = 44 + 14
-        let space: CGFloat = view.frame.width - 58.0 - 30.0 - 86 * 2
-        let insert: CGFloat = space / 2
-        
-                
         // Customize bar properties including layout and other styling.
-        bar.layout.contentInset = UIEdgeInsets(top: 0.0, left: insert - 22, bottom: 4.0, right: insert)
-        bar.layout.interButtonSpacing = 29.0
+//        bar.layout.contentInset = UIEdgeInsets(top: 0.0, left: insert - 22, bottom: 4.0, right: insert)
+        bar.layout.interButtonSpacing = 30
         bar.layout.contentMode = .fit
         bar.indicator.weight = .custom(value: 2.5)
         bar.indicator.cornerStyle = .eliptical
         bar.indicator.overscrollBehavior = .none
         bar.layout.showSeparators = false
-        bar.fadesContentEdges = true
-        bar.spacing = 30.0
+        bar.fadesContentEdges = false
         bar.backgroundView.style = .clear
         
         // Set tint colors for the bar buttons and indicator.
@@ -55,11 +49,15 @@ class RecommendContainerController: TabmanViewController {
             $0.selectedFont = .systemFont(ofSize: 19, weight: .bold)
         }
         bar.indicator.tintColor = UIColor(hexString: "#FF3F3F")
+        let titleView = FitTitleView()
+        titleView.setLayouSize(titles: titles, font: .systemFont(ofSize: 19, weight: .bold), spacing: 30)
+        navigationItem.titleView = titleView
         
-        // Add bar to the view - as a .systemBar() to add UIKit style system background views.
-//        addBar(bar.systemBar(), dataSource: self, at: .top)
-        
-        addBar(bar.hiding(trigger: .manual), dataSource: self, at: .navigationItem(item: navigationItem))
+        addBar(bar.hiding(trigger: .manual), dataSource: self, at: .custom(view: titleView, layout: { view in
+            view.snp.makeConstraints { maker in
+                maker.edges.equalToSuperview()
+            }
+        }))
     }
     
 

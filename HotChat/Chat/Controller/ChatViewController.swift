@@ -75,6 +75,7 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
         didSet {
             userView.set(user!)
             setUserView()
+            titleView.set(user!)
         }
     }
     
@@ -93,9 +94,13 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
         return view
     }()
     
+    let hiddenIntimacySignal = PublishSubject<Void>()
+    
     lazy var intimacyController: IntimacyViewController = {
         let vc = IntimacyViewController()
-        
+        vc.onStorage.delegate(on: self) { (self, _) in
+            self.removeIntimacy(animated: true)
+        }
         return vc
     }()
     
@@ -120,9 +125,60 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
         setUserView()
         
         imChatStatus()
+        
+       let hiddenSignal =  inputController.view.rx.observe(CGRect.self, #keyPath(UIView.frame), options: .new, retainSelf: false)
+        .map{ _ in ()}
+        
+        Observable.merge(hiddenIntimacySignal,  hiddenSignal)
+            .debounce(.microseconds(500), scheduler: MainScheduler.instance)
+            .subscribe(onNext: {  [unowned self] _ in
+                if self.intimacyController.parent != nil || self.intimacyController.view.superview != nil {
+                    removeIntimacy(animated: true)
+                }
+            })
+            .disposed(by: rx.disposeBag)
     }
     
     @objc func titleViewDidTapped() {
+        
+        if intimacyController.parent != nil || intimacyController.view.superview != nil {
+           return
+        }
+        else {
+            self.inputController.reset()
+            addIntimacy(animated: true)
+        }
+        
+    }
+    
+    func addIntimacy(animated: Bool) {
+        addChild(intimacyController)
+       
+        let safeAreaInsets = view.safeAreaInsets
+        let finalFrame =  view.bounds.inset(by: UIEdgeInsets(top: safeAreaInsets.top, left: safeAreaInsets.left, bottom: safeAreaInsets.bottom + inputBarHeight, right: safeAreaInsets.right))
+        let initializeFrame = finalFrame.offsetBy(dx: 0, dy: -finalFrame.height)
+        
+        intimacyController.view.frame = initializeFrame
+        view.addSubview(intimacyController.view)
+        UIView.animate(withDuration: 0.25) {
+            self.intimacyController.view.frame = finalFrame
+        }
+        intimacyController.didMove(toParent: self)
+    }
+    
+    func removeIntimacy(animated: Bool){
+        intimacyController.removeFromParent()
+       
+        let safeAreaInsets = view.safeAreaInsets
+        let finalFrame =  view.bounds.inset(by: UIEdgeInsets(top: safeAreaInsets.top, left: safeAreaInsets.left, bottom: safeAreaInsets.bottom + inputBarHeight, right: safeAreaInsets.right))
+        let initializeFrame = finalFrame.offsetBy(dx: 0, dy: -finalFrame.height)
+        UIView.animate(withDuration: 0.25) {
+            self.intimacyController.view.frame = initializeFrame
+        } completion: { _ in
+            self.intimacyController.view.removeFromSuperview()
+            self.intimacyController.didMove(toParent: nil)
+        }
+
         
     }
     
@@ -259,8 +315,10 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
     let userAPI = Request<UserAPI>()
     
     let updateUserWallet = PublishSubject<Void>()
-    
+        
     override func inputControllerDidSayHello(_ inputController: InputController!) {
+        
+        hiddenIntimacySignal.onNext(())
         
         chatGreetAPI.request(.sayHelloInfo, type: Response<[String : Any]>.self)
             .subscribe(onSuccess: { [weak self] response in
@@ -277,15 +335,18 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
     }
     
     override func inputControllerDidAudio(_ inputController: InputController!) {
+        hiddenIntimacySignal.onNext(())
         self.inputController.reset()
         CallHelper.share.call(userID: self.conversationData.userID, callType: .audio)
     }
     override func inputControllerDidVideo(_ inputController: InputController!) {
+        hiddenIntimacySignal.onNext(())
         self.inputController.reset()
         CallHelper.share.call(userID: self.conversationData.userID, callType: .video)
     }
     
     override func inputControllerDidPhoto(_ inputController: InputController!) {
+        hiddenIntimacySignal.onNext(())
         if let user = self.user {
             if CallHelper.share.checkCall(user, type: .image, indicatorDisplay: self) {
                 let vc = SPAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -298,9 +359,7 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
                     self?.selectPhotoForSend()
                 }))
                 
-                vc.addAction(SPAlertAction(title: "取消", style: .cancel, handler: { [weak self] _ in
-                    
-                }))
+                vc.addAction(SPAlertAction(title: "取消", style: .cancel, handler: nil))
                 
                 present(vc, animated: true, completion: nil)
             }

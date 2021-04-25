@@ -10,7 +10,10 @@ import UIKit
 
 class TopHeaderView: UIView {
     
-    @IBOutlet weak var contentView: GradientView!
+    @IBOutlet weak var contentView: UIView!
+    
+    @IBOutlet weak var backgroundView: GradientView!
+    
     
     @IBOutlet weak var backgroundImageView: UIImageView!
     

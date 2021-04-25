@@ -44,6 +44,8 @@ extension TopType {
             return UIImage(named: "charm")
         case .estate:
             return UIImage(named: "estate")
+        case .intimate:
+            return nil
         }
     }
     
