@@ -319,6 +319,14 @@
 		26A377CF260DB75E002FF17E /* new_user_receive.svga in Resources */ = {isa = PBXBuildFile; fileRef = 26A377CE260DB75E002FF17E /* new_user_receive.svga */; };
 		26A377D1260DB778002FF17E /* new_user_waiting.svga in Resources */ = {isa = PBXBuildFile; fileRef = 26A377D0260DB778002FF17E /* new_user_waiting.svga */; };
 		26A731B22536D6B600CCECE5 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A731B12536D6B600CCECE5 /* ReportViewController.swift */; };
+		26A75383263671AC0070CA77 /* ConversationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A75382263671AC0070CA77 /* ConversationCell.m */; };
+		26A7538626368E990070CA77 /* ConversationListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A7538526368E990070CA77 /* ConversationListController.m */; };
+		26A753892636929A0070CA77 /* TUIConversationCellData+Intimacy.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A753882636929A0070CA77 /* TUIConversationCellData+Intimacy.m */; };
+		26A7538B26369BDA0070CA77 /* IntimacyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A7538A26369BDA0070CA77 /* IntimacyAPI.swift */; };
+		26A753902636BB4A0070CA77 /* InterflowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A7538F2636BB4A0070CA77 /* InterflowViewController.swift */; };
+		26A753932636BD720070CA77 /* InterflowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A753912636BD720070CA77 /* InterflowCell.swift */; };
+		26A753942636BD720070CA77 /* InterflowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26A753922636BD720070CA77 /* InterflowCell.xib */; };
+		26A753962636C4380070CA77 /* Interflow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A753952636C4380070CA77 /* Interflow.swift */; };
 		26A8D4E9251C8F3E00B736CF /* Constellation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A8D4E8251C8F3E00B736CF /* Constellation.swift */; };
 		26AB26E225401C0D00C16025 /* RemarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AB26E125401C0D00C16025 /* RemarkViewController.swift */; };
 		26AC0E302623EC4100F53951 /* NoteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AC0E2E2623EC4100F53951 /* NoteViewCell.swift */; };
@@ -923,6 +931,17 @@
 		26A377CE260DB75E002FF17E /* new_user_receive.svga */ = {isa = PBXFileReference; lastKnownFileType = file; path = new_user_receive.svga; sourceTree = "<group>"; };
 		26A377D0260DB778002FF17E /* new_user_waiting.svga */ = {isa = PBXFileReference; lastKnownFileType = file; path = new_user_waiting.svga; sourceTree = "<group>"; };
 		26A731B12536D6B600CCECE5 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
+		26A75381263671AC0070CA77 /* ConversationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConversationCell.h; sourceTree = "<group>"; };
+		26A75382263671AC0070CA77 /* ConversationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConversationCell.m; sourceTree = "<group>"; };
+		26A7538426368E990070CA77 /* ConversationListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConversationListController.h; sourceTree = "<group>"; };
+		26A7538526368E990070CA77 /* ConversationListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConversationListController.m; sourceTree = "<group>"; };
+		26A753872636929A0070CA77 /* TUIConversationCellData+Intimacy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TUIConversationCellData+Intimacy.h"; sourceTree = "<group>"; };
+		26A753882636929A0070CA77 /* TUIConversationCellData+Intimacy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TUIConversationCellData+Intimacy.m"; sourceTree = "<group>"; };
+		26A7538A26369BDA0070CA77 /* IntimacyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntimacyAPI.swift; sourceTree = "<group>"; };
+		26A7538F2636BB4A0070CA77 /* InterflowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterflowViewController.swift; sourceTree = "<group>"; };
+		26A753912636BD720070CA77 /* InterflowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterflowCell.swift; sourceTree = "<group>"; };
+		26A753922636BD720070CA77 /* InterflowCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InterflowCell.xib; sourceTree = "<group>"; };
+		26A753952636C4380070CA77 /* Interflow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interflow.swift; sourceTree = "<group>"; };
 		26A8D4E8251C8F3E00B736CF /* Constellation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constellation.swift; sourceTree = "<group>"; };
 		26AB26E125401C0D00C16025 /* RemarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemarkViewController.swift; sourceTree = "<group>"; };
 		26AC0E2E2623EC4100F53951 /* NoteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewCell.swift; sourceTree = "<group>"; };
@@ -1271,6 +1290,7 @@
 				2623FC59262004F800764DFA /* ContactInfo.swift */,
 				2603238A2621926A00144135 /* AddressBook.swift */,
 				26918C252626CD9E007B5F14 /* ChargeConfig.swift */,
+				26A753952636C4380070CA77 /* Interflow.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1426,6 +1446,7 @@
 				2653733E2621A0AA005AE2F3 /* TipAlertController.xib */,
 				26918C212626BAE2007B5F14 /* ChargeViewController.swift */,
 				26918C222626BAE2007B5F14 /* ChargeViewController.xib */,
+				26A7538F2636BB4A0070CA77 /* InterflowViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1489,6 +1510,8 @@
 				2660F5EF261714A900F849B3 /* PhotoViewCell.swift */,
 				2691AE292626DAF500EE05D7 /* ChargeFooterView.swift */,
 				2691AE2B2626DB0E00EE05D7 /* ChargeFooterView.xib */,
+				26A753912636BD720070CA77 /* InterflowCell.swift */,
+				26A753922636BD720070CA77 /* InterflowCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1621,6 +1644,7 @@
 				26CD99EC2578BB5C00235A8D /* ChatGreetAPI.swift */,
 				262FFFB82602F24100F541C2 /* GroupChatAPI.swift */,
 				2637F81E26316C0E0002E43B /* PushNoticeAPI.swift */,
+				26A7538A26369BDA0070CA77 /* IntimacyAPI.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -2205,6 +2229,8 @@
 				262FFFB62601FFC400F541C2 /* TextMessageCell.m */,
 				26884A4B2605C305006A13E5 /* SystemMessageCell.h */,
 				26884A4C2605C305006A13E5 /* SystemMessageCell.m */,
+				26A75381263671AC0070CA77 /* ConversationCell.h */,
+				26A75382263671AC0070CA77 /* ConversationCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2238,6 +2264,8 @@
 				2656F30B254FAC0500552611 /* GiftReminderViewController.h */,
 				2656F30C254FAC0500552611 /* GiftReminderViewController.m */,
 				2656F30D254FAC0500552611 /* GiftReminderViewController.xib */,
+				26A7538426368E990070CA77 /* ConversationListController.h */,
+				26A7538526368E990070CA77 /* ConversationListController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2267,6 +2295,8 @@
 				26884A4F2605C38A006A13E5 /* SystemMessageCellData.m */,
 				2672B016260C631A005C35FD /* Marquee.h */,
 				2672B017260C631A005C35FD /* Marquee.m */,
+				26A753872636929A0070CA77 /* TUIConversationCellData+Intimacy.h */,
+				26A753882636929A0070CA77 /* TUIConversationCellData+Intimacy.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2467,6 +2497,7 @@
 				26CB6D5125515D6B00A9F4DD /* com.baidu.idl.face.faceSDK.bundle in Resources */,
 				26B06FAF2631486300FE336F /* OnlineStatusCell.xib in Resources */,
 				2636A0DA2564CDBF00664FFC /* UpgrateViewController.xib in Resources */,
+				26A753942636BD720070CA77 /* InterflowCell.xib in Resources */,
 				26F553772553D16E00840735 /* TalkEarningsViewController.xib in Resources */,
 				2617D3F425C55F45009AAE16 /* DynamicViewController.xib in Resources */,
 				26FD330C26257F5200979B36 /* community.svga in Resources */,
@@ -2657,6 +2688,7 @@
 				2643EBCC2500FDA300FBBE49 /* UserInfoViewController.swift in Sources */,
 				265C8A4A251348E200E220BD /* ForgotPasswordViewController.swift in Sources */,
 				2656F317254FDB5000552611 /* IMAPI.swift in Sources */,
+				26A75383263671AC0070CA77 /* ConversationCell.m in Sources */,
 				26C353BB260B24B500B80F62 /* TalkChannelCell.swift in Sources */,
 				26CB6D4A25515D6B00A9F4DD /* BDFaceVideoCaptureDevice.m in Sources */,
 				26278B8C256CFD64007044E1 /* JPGiftCellModel.m in Sources */,
@@ -2688,6 +2720,7 @@
 				262BE7E82601D2E700C1B646 /* TopicListViewCell.swift in Sources */,
 				265C8A5B25134C3500E220BD /* ForgotPasswordViewModel.swift in Sources */,
 				26F0D2542546DA8200D1018B /* InputController.m in Sources */,
+				26A753902636BB4A0070CA77 /* InterflowViewController.swift in Sources */,
 				269C9C102632D1FB00BD1A85 /* IntimacyTitleView.swift in Sources */,
 				26F8947B252083B800A45648 /* LabelView.swift in Sources */,
 				2636A0D92564CDBF00664FFC /* UpgrateViewController.swift in Sources */,
@@ -2707,6 +2740,7 @@
 				2635216D25C7F4F900855487 /* VisitorsVipController.swift in Sources */,
 				F38CB8C82507BA8A00049A76 /* ChatNotificationSettingCell.swift in Sources */,
 				26137CCB2590673900DCBAD0 /* TabBar.swift in Sources */,
+				26A7538B26369BDA0070CA77 /* IntimacyAPI.swift in Sources */,
 				262C5F6D255550BE00126359 /* AccountSecurityController.swift in Sources */,
 				264BF97E25A83BB200F873DD /* AccostViewCell.swift in Sources */,
 				26BD36EA261C570500D5565D /* Notice.swift in Sources */,
@@ -2715,6 +2749,7 @@
 				2643EBBF2500B04100FBBE49 /* Application.swift in Sources */,
 				260C467825F870BE0033915C /* TopController.swift in Sources */,
 				2605A4762513187900017241 /* UIImageExtensions.swift in Sources */,
+				26A753932636BD720070CA77 /* InterflowCell.swift in Sources */,
 				268458F525354481002B9C6E /* LoadingState.swift in Sources */,
 				26F5537C2553D3CD00840735 /* GiftEarningsViewController.swift in Sources */,
 				26FBCF5E2558EC0E001F3DFA /* ConsumptionListController.swift in Sources */,
@@ -2775,6 +2810,7 @@
 				26C81EE12547E9C400C1D563 /* VoiceView.m in Sources */,
 				262FFFBE2602F40100F541C2 /* GroupTopic.swift in Sources */,
 				26DFBF8E262EC9AE00639C94 /* RecommendContainerController.swift in Sources */,
+				26A7538626368E990070CA77 /* ConversationListController.m in Sources */,
 				26257ADB260B2EBF00A4E0F3 /* BannerViewCell.swift in Sources */,
 				269C9BEA2632759800BD1A85 /* FakeNavigationBar.swift in Sources */,
 				26EDE7EE2591C6B8002A2EC3 /* TUIMessageController+Message.m in Sources */,
@@ -2800,6 +2836,7 @@
 				F305482B2532BC0800844D00 /* DynamicViewCell.swift in Sources */,
 				266BDB6925EF864600467611 /* UserCardCell.swift in Sources */,
 				2672B018260C631A005C35FD /* Marquee.m in Sources */,
+				26A753892636929A0070CA77 /* TUIConversationCellData+Intimacy.m in Sources */,
 				2694580B253FF7B100EBCABB /* UserSettingViewController.swift in Sources */,
 				26C353B6260B13DE00B80F62 /* TalkChannelViewController.swift in Sources */,
 				26DF8783255A7969002162A9 /* EarningsDetailViewController.swift in Sources */,
@@ -3020,6 +3057,7 @@
 				26A731B22536D6B600CCECE5 /* ReportViewController.swift in Sources */,
 				26795506250773D700A72954 /* UserInfoEditingHeaderView.swift in Sources */,
 				26F45502256659750028ACC5 /* EarningCell.swift in Sources */,
+				26A753962636C4380070CA77 /* Interflow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3257,7 +3295,6 @@
 					"-l\"RxSwiftUtilities\"",
 					"-l\"SDWebImage\"",
 					"-l\"SPAlertController\"",
-					"-l\"SegementSlide\"",
 					"-l\"SnapKit\"",
 					"-l\"SwiftDate\"",
 					"-l\"SwiftyStoreKit\"",
@@ -3383,7 +3420,6 @@
 					"-l\"RxSwiftUtilities\"",
 					"-l\"SDWebImage\"",
 					"-l\"SPAlertController\"",
-					"-l\"SegementSlide\"",
 					"-l\"SnapKit\"",
 					"-l\"SwiftDate\"",
 					"-l\"SwiftyStoreKit\"",

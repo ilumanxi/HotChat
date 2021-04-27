@@ -257,6 +257,9 @@ enum VipType: Int, HandyJSONEnum {
     /// 用户等级Icon
     var userRankIcon: String = ""
     
+    /// 亲密度
+    var userIntimacy: Float = 0
+    
     /// 主播等级
     var girlRank: Int = 0
     

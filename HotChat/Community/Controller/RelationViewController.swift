@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SegementSlide
 import RxCocoa
 import RxSwift
 import NSObject_Rx

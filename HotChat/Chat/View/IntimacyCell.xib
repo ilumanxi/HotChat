@@ -40,7 +40,7 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hho-LX-6G3">
-                        <rect key="frame" x="64" y="16" width="204" height="40.5"/>
+                        <rect key="frame" x="64" y="16" width="198" height="40.5"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="BIa-Vj-v7p">
                                 <rect key="frame" x="0.0" y="0.0" width="124.5" height="18"/>
@@ -79,12 +79,13 @@
                         </subviews>
                     </stackView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uru-zx-66D">
-                        <rect key="frame" x="260" y="24" width="50" height="20"/>
+                        <rect key="frame" x="254" y="24" width="56" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="SBh-69-fKh"/>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="wGg-dL-yj8"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                        <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                         <state key="normal" title="4℃">
                             <color key="titleColor" red="1" green="0.0" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
@@ -119,9 +120,9 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="currenStatusButton" destination="Xjl-w7-Ifp" id="FMm-Bh-01G"/>
+                <outlet property="explainLabel" destination="jA8-Be-997" id="7MQ-w2-t7D"/>
                 <outlet property="intimacyButton" destination="Uru-zx-66D" id="UnY-mj-MO6"/>
                 <outlet property="intimacyImageView" destination="VDb-wZ-ksu" id="E9Z-KD-Q0a"/>
-                <outlet property="intimacyTextLabel" destination="Xjl-w7-Ifp" id="PID-c1-jbU"/>
                 <outlet property="lockImageView" destination="11m-Yd-Ywe" id="bkx-St-BXx"/>
                 <outlet property="nameLabel" destination="PoH-8L-F4s" id="rdW-BL-gvc"/>
             </connections>

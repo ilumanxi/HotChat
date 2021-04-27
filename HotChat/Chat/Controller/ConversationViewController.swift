@@ -28,8 +28,8 @@ class ConversationViewController: TabmanViewController {
     }()
 
     
-    lazy var messageController: TUIConversationListController = {
-        var controller = TUIConversationListController()
+    lazy var messageController: ConversationListController = {
+        var controller = ConversationListController()
         controller.view.backgroundColor = .white
         controller.delegate = self
         controller.addChild(chatActionViewController)
@@ -40,8 +40,8 @@ class ConversationViewController: TabmanViewController {
         return controller
     }()
     
-    lazy var intimateController: TUIConversationListController = {
-        var controller = TUIConversationListController()
+    lazy var intimateController: ConversationListController = {
+        var controller = ConversationListController(intimacy: true)
         controller.delegate = self
         return controller
     }()
@@ -82,7 +82,7 @@ class ConversationViewController: TabmanViewController {
     }
     
     @IBAction func contactItemTapped(_ sender: Any) {
-        let meContact = MeContactViewController(show: .follow)
+        let meContact = MeContactViewController()
         navigationController?.pushViewController(meContact, animated: true)
     }
     
@@ -159,9 +159,9 @@ class ConversationViewController: TabmanViewController {
     }
 }
 
-extension ConversationViewController: TUIConversationListControllerDelegate {
+extension ConversationViewController: ConversationListControllerDelegate {
     
-    func conversationListController(_ conversationController: TUIConversationListController, didSelectConversation conversation: TUIConversationCell) {
+    func conversationListController(_ conversationController: ConversationListController, didSelectConversation conversation: ConversationCell) {
         
         let convData = conversation.convData
         

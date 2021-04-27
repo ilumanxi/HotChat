@@ -33,6 +33,11 @@ class IntimacyTitleView: UIButton {
         let user = LoginManager.shared.user!
         leftImageView.kf.setImage(with: URL(string: user.headPic))
         rightImageView.kf.setImage(with: URL(string: otherUser.headPic))
+        
+        let formatter = NumberFormatter()
+        let string = formatter.string(from: NSNumber(value: otherUser.userIntimacy))!
+        textButton.text = "亲密度\(string)℃"
+    
     }
 
 }

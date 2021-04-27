@@ -7,10 +7,9 @@
 //
 
 import UIKit
-import SegementSlide
 import Kingfisher
 
-class MeRelationshipViewController: UITableViewController, SegementSlideContentScrollViewDelegate, IndicatorDisplay, LoadingStateType {
+class MeRelationshipViewController: UITableViewController, IndicatorDisplay, LoadingStateType {
     
     
     var state: LoadingState = .initial {
@@ -32,13 +31,17 @@ class MeRelationshipViewController: UITableViewController, SegementSlideContentS
         }
     }
     
-        
-    @objc
-    var scrollView: UIScrollView {
-        return tableView
+    init(relationship: Relationship) {
+        self.relationship = relationship
+        super.init(style: .plain)
     }
     
-    var relationship: Relationship!
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    let relationship: Relationship
     
     let API = Request<UserAPI>()
     

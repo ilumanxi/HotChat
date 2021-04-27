@@ -44,6 +44,7 @@ enum UserAPI {
     case editUserDispose([String : Any])
     case userContactInfo
     case editUserContact([String : Any])
+    case userChatList(page: Int)
 }
 
 
@@ -99,6 +100,8 @@ extension UserAPI: TargetType {
             return "User/userContactInfo"
         case .editUserContact:
             return "User/editUserContact"
+        case .userChatList:
+            return "User/userChatList"
         }
     }
     
@@ -168,6 +171,8 @@ extension UserAPI: TargetType {
             parameters =  [:]
         case .editUserContact(let value):
             parameters = value
+        case .userChatList(let page):
+            parameters =  ["page" : page]
         }
         
         return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)

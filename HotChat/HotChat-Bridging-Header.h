@@ -16,6 +16,7 @@
 #import "BDFaceDetectionViewController.h"
 #import "VideoCallViewController.h"
 #import "AudioCallViewController.h"
+#import "ConversationListController.h"
 #import "GiftManager.h"
 #import "ImageMessageCellData.h"
 #import "ImageMessageCell.h"

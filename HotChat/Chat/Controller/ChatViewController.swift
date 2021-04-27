@@ -75,7 +75,10 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
         didSet {
             userView.set(user!)
             setUserView()
-            titleView.set(user!)
+            if !isAdmin && user!.userIntimacy > 4 {
+                titleView.set(user!)
+                navigationItem.titleView = titleView
+            }
         }
     }
     
@@ -97,7 +100,7 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
     let hiddenIntimacySignal = PublishSubject<Void>()
     
     lazy var intimacyController: IntimacyViewController = {
-        let vc = IntimacyViewController()
+        let vc = IntimacyViewController(userID: self.conversationData.userID)
         vc.onStorage.delegate(on: self) { (self, _) in
             self.removeIntimacy(animated: true)
         }
@@ -112,8 +115,7 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.titleView = titleView
-        
+                
         setupNavigationItem()
         
         self.delegate = self
@@ -126,17 +128,24 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
         
         imChatStatus()
         
-       let hiddenSignal =  inputController.view.rx.observe(CGRect.self, #keyPath(UIView.frame), options: .new, retainSelf: false)
-        .map{ _ in ()}
-        
-        Observable.merge(hiddenIntimacySignal,  hiddenSignal)
-            .debounce(.microseconds(500), scheduler: MainScheduler.instance)
-            .subscribe(onNext: {  [unowned self] _ in
-                if self.intimacyController.parent != nil || self.intimacyController.view.superview != nil {
-                    removeIntimacy(animated: true)
-                }
-            })
-            .disposed(by: rx.disposeBag)
+        hiddenIntimacy()
+    }
+    
+    func hiddenIntimacy()  {
+        if isAdmin {
+            return
+        }
+        let hiddenSignal =  inputController.view.rx.observe(CGRect.self, #keyPath(UIView.frame), options: .new, retainSelf: false)
+         .map{ _ in ()}
+         
+         Observable.merge(hiddenIntimacySignal,  hiddenSignal)
+             .debounce(.microseconds(500), scheduler: MainScheduler.instance)
+             .subscribe(onNext: {  [unowned self] _ in
+                 if self.intimacyController.parent != nil || self.intimacyController.view.superview != nil {
+                     removeIntimacy(animated: true)
+                 }
+             })
+             .disposed(by: rx.disposeBag)
     }
     
     @objc func titleViewDidTapped() {

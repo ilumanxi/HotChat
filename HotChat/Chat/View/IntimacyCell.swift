@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class IntimacyCell: UITableViewCell {
 
@@ -21,8 +22,24 @@ class IntimacyCell: UITableViewCell {
     
     @IBOutlet weak var intimacyTextLabel: UIButton!
     
+    @IBOutlet weak var explainLabel: UILabel!
     
     @IBOutlet weak var intimacyButton: UIButton!
+    
+    
+    func set(_ model: IntimacyInfo) {
+        
+        intimacyImageView.kf.setImage(with: URL(string: model.icon))
+        lockImageView.isHidden = model.status != .normal
+        nameLabel.text = model.name
+        explainLabel.text = model.explain
+        
+        currenStatusButton.isHidden = model.status != .currentDeblocking
+        
+        let formatter = NumberFormatter()
+        let string = formatter.string(from: NSNumber(value: model.intimacy))!
+        intimacyButton.setTitle("\(string)℃", for: .normal)
+    }
     
     
 }
