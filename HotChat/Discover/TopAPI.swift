@@ -16,6 +16,7 @@ enum TopAPI {
     
     /// 0 全部1魅力2富豪
     case vitalityList(type: Int)
+    case intimacyTopList
 }
 
 
@@ -27,6 +28,8 @@ extension TopAPI: TargetType {
             return "Statistics/topList"
         case .vitalityList:
             return "Statistics/vitalityList"
+        case .intimacyTopList:
+            return "Statistics/intimacyTopList"
         }
     }
     
@@ -43,6 +46,8 @@ extension TopAPI: TargetType {
             parameters = [
                 "type" : type
             ]
+        case .intimacyTopList:
+            parameters = [:]
         }
         
         let encoding: ParameterEncoding = (method == .post) ? JSONEncoding.default : URLEncoding.default

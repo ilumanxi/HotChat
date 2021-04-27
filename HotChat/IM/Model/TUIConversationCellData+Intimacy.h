@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TUIConversationCellData (Intimacy)
 
-@property (nonatomic, assign) float intimacy;
+@property (nonatomic, assign) float userIntimacy;
 
 @end
 

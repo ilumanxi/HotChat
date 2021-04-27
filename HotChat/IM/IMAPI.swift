@@ -106,3 +106,54 @@ extension IMAPI: TargetType {
             .disposed(by: disposeObject)
     }
 }
+
+
+
+
+
+extension Notification.Name {
+    
+    /// 跑马灯礼物
+    static let marqueeGiftDidSend = NSNotification.Name("com.friday.Chat.marqueeGiftDidSend")
+    
+    /// 跑马灯头条
+    static let marqueeHeadlineDidSend = NSNotification.Name("com.friday.Chat.marqueeHeadlineDidSend")
+    
+    /// 相关通知
+    static let dynamicDidForYou = NSNotification.Name("com.friday.Chat.dynamicDidForYou")
+    
+    /// 礼物赠送
+    static let giftDidPresent = NSNotification.Name("com.friday.Chat.giftDidPresent")
+    
+    /// 上线通知
+    static let onlineDidStatus = NSNotification.Name("com.friday.Chat.onlineDidStatus")
+    
+    /// 亲密度变化
+    static let intimacyDidChange = NSNotification.Name("com.friday.Chat.intimacyDidChange")
+    
+}
+
+
+/// 指令通知
+extension IMDataType {
+    
+    var notificationName: Notification.Name? {
+        switch self {
+        case IMDataTypeMarqueeGift:
+            return .marqueeGiftDidSend
+        case IMDataTypeMarqueeHeadline:
+            return .marqueeHeadlineDidSend
+        case IMDataTypeDynamic:
+            return .dynamicDidForYou
+        case IMDataTypePresent:
+            return .giftDidPresent
+        case IMDataTypeOnline:
+            return .onlineDidStatus
+        case IMDataTypeIntimacy:
+            return .intimacyDidChange
+        default:
+            return nil
+        }
+    }
+    
+}

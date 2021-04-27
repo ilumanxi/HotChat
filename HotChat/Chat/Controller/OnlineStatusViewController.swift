@@ -25,7 +25,7 @@ class OnlineStatusViewController: UIViewController, LoadingStateType, IndicatorD
     
     var data: [PushItem] = []
     
-
+    let onTapped = Delegate<User, Void>()
     
     var state: LoadingState = .initial {
         didSet {
@@ -169,6 +169,13 @@ extension OnlineStatusViewController {
 
 extension OnlineStatusViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let model = data[indexPath.row]
+        dismiss(animated: true) { [weak self] in
+            self?.onTapped.call(model.userInfo!)
+        }
+    }
+    
     
 }
 
@@ -186,12 +193,9 @@ extension OnlineStatusViewController: UITableViewDataSource {
         cell.set(model)
         
         cell.onChat.delegate(on: self) { (self, _) in
-            let user  = model.userInfo!
-            let info = TUIConversationCellData()
-            info.userID = user.userId
-            let vc  = ChatViewController(conversation: info)!
-            vc.title = user.nick
-            self.navigationController?.pushViewController(vc, animated: true)
+            self.dismiss(animated: true) { [weak self] in
+                self?.onTapped.call(model.userInfo!)
+            }
         }
         
         return cell

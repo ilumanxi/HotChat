@@ -356,21 +356,28 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
         
         userSettingsAPI.request(.taskConfig(type: 2), type: Response<[String : Any]>.self)
             .verifyResponse()
-            .subscribe(onSuccess: {  response in
+            .subscribe(onSuccess: { [unowned self] response in
                 guard let energy = response.data?["energy"] as? String else { return }
                 
                 let vc = AvatarTipViewController(text: energy)
                 vc.onAvatar.delegate(on: self) { (self, _) in
-                    
-                    let vc = UserInfoEditingViewController.loadFromStoryboard()
-                    vc.user = LoginManager.shared.user
-                    self.navigationController?.pushViewController(vc, animated: true)
+                    self.pushUser(LoginManager.shared.user!)
                 }
                 UIApplication.shared.keyWindow?.present(vc)
                 AvatarTipViewController.cachePresent()
                 
             }, onError: nil)
             .disposed(by: rx.disposeBag)
+    }
+    
+    func pushUser(_ user: User) {
+        guard let tabBarController = UIApplication.shared.keyWindow?.rootViewController as? UITabBarController,
+              let navigationController = tabBarController.selectedViewController as? UINavigationController
+        else { return  }
+        
+        let vc = UserInfoEditingViewController.loadFromStoryboard()
+        vc.user = LoginManager.shared.user
+        navigationController.pushViewController(vc, animated: true)
     }
     
     func refreshActivity() {

@@ -8,17 +8,17 @@
 
 #import <objc/runtime.h>
 
-const void *TUIConversationCellDataIntimacyKey = "TUIConversationCellData.intimacy";
+const void *TUIConversationCellDataIntimacyKey = "TUIConversationCellData.userIntimacy";
 
 #import "TUIConversationCellData+Intimacy.h"
 
 @implementation TUIConversationCellData (Intimacy)
 
--(void)setIntimacy:(float)intimacy {
-    objc_setAssociatedObject(self, TUIConversationCellDataIntimacyKey, @(intimacy), OBJC_ASSOCIATION_COPY_NONATOMIC);
+- (void)setUserIntimacy:(float)userIntimacy {
+    objc_setAssociatedObject(self, TUIConversationCellDataIntimacyKey, @(userIntimacy), OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
-- (float)intimacy {
+- (float)userIntimacy {
     return [objc_getAssociatedObject(self, TUIConversationCellDataIntimacyKey) floatValue];
 }
 

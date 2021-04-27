@@ -59,6 +59,23 @@ static NSString *kConversationCell_ReuseId = @"TConversationCell";
 
     self.navigationController.interactivePopGestureRecognizer.enabled = YES;
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
+    
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(intimacyChanged) name:@"com.friday.Chat.intimacyDidChange" object:nil];
+}
+
+- (void)intimacyChanged {
+    if (self.isIntimacy) {
+        [self requestIntimacyList: self.viewModel.dataList success:^(NSArray<TUIConversationCellData *> * conversations) {
+            self.dataList =  [self filteConversation: conversations];
+            [self.tableView reloadData];
+        }];
+    }
+    else {
+        [self requestIntimacyList:self.dataList success:^(NSArray<TUIConversationCellData *> * conversations) {
+            self.dataList = conversations;
+            [self.tableView reloadData];
+        }];
+    }
 }
 
 - (void)dealloc {
@@ -124,15 +141,15 @@ static NSString *kConversationCell_ReuseId = @"TConversationCell";
 - (void)setConversations:(NSArray<TUIConversationCellData *> *) conversations intimacyList:(NSDictionary<NSString *,id> * _Nonnull )intimacyList {
     for (TUIConversationCellData *conversation in conversations) {
         NSDictionary<NSString *,id> *intimacy = intimacyList[conversation.userID];
-        if (intimacy[@"intimacy"] != nil) {
-            conversation.intimacy =  [intimacy[@"intimacy"] floatValue];
+        if (intimacy[@"userIntimacy"] != nil) {
+            conversation.userIntimacy =  [intimacy[@"userIntimacy"] floatValue];
         }
     }
 }
 
 - (NSArray<TUIConversationCellData *> *)filteConversation:(NSArray<TUIConversationCellData *> *) conversations {
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.intimacy >= 4"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.userIntimacy >= 4"];
     
     return  [conversations filteredArrayUsingPredicate: predicate];
 }

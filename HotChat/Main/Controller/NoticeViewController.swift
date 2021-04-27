@@ -92,46 +92,32 @@ class NoticeViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         
-        NotificationCenter.default.rx.notification(.init(TUIKitNotification_TIMMessageListener))
-            .subscribe(onNext: { [weak self] notification in
-                self?.handle(notification: notification)
-            })
-            .disposed(by: rx.disposeBag)
-        
+        giftDidPresent()
+        onlineDidStatus()
         addSubviewEvent(giftTipContainerView)
         addSubviewEvent(onlineStatusTipContainerView)
-        
     }
     
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        add(online: OnlineNotification())
-//    }
-    
-    private func handle(notification: Notification) {
-        
-        guard let msg = notification.object as?  V2TIMMessage else { return }
-        
-        guard msg.elemType == .ELEM_TYPE_CUSTOM,
-              let param = TUICallUtils.jsonData2Dictionary(msg.customElem.data) as? [String : Any],
-              let imData = IMData.fixData(param),
-              let json = imData.data.mj_JSONObject() as? [String : Any]  else {
-            
-            return
-        }
-        
-        if imData.type != IMDataTypePresent && imData.type != IMDataTypeOnline {
-            return
-        }
-        
-        if imData.type == IMDataTypePresent, let gift = GiftNotification.deserialize(from: json)  {
-            add(gift: gift)
-        }
-   
-        if imData.type == IMDataTypeOnline, let online = OnlineNotification.deserialize(from: json)  {
-            add(online: online)
-        }
+    func giftDidPresent() {
+        NotificationCenter.default.rx.notification(.giftDidPresent)
+            .subscribe(onNext: { [weak self] notification in
+                if let json = notification.userInfo as? [String : Any], let gift = GiftNotification.deserialize(from: json) {
+                    self?.add(gift: gift)
+                }
+            })
+            .disposed(by: rx.disposeBag)
     }
     
+    func onlineDidStatus()  {
+        NotificationCenter.default.rx.notification(.onlineDidStatus)
+            .subscribe(onNext: { [weak self] notification in
+                if let json = notification.userInfo as? [String : Any], let online = OnlineNotification.deserialize(from: json) {
+                    self?.add(online: online)
+                }
+            })
+            .disposed(by: rx.disposeBag)
+    }
+        
     func add(online notification: OnlineNotification) {
         onlineNotifications.append(notification)
         addNextOnlineView()
@@ -210,6 +196,14 @@ class NoticeViewController: UIViewController {
         onlineView.frame = onlineFrame
         onlineView.onContentTapped.delegate(on: self) { (self, _) in
             let vc = OnlineStatusViewController()
+            vc.onTapped.delegate(on: self) { (self, user) in
+                
+                let info = TUIConversationCellData()
+                info.userID = user.userId
+                let vc  = ChatViewController(conversation: info)!
+                vc.title = user.nick
+                self.showNavigationController()?.pushViewController(vc, animated: true)
+            }
             self.presentPanModal(vc)
         }
         
@@ -218,7 +212,7 @@ class NoticeViewController: UIViewController {
             user.userId = online.userId
             let vc = UserInfoViewController()
             vc.user = user
-            self.navigationController?.pushViewController(vc, animated: true)
+            self.showNavigationController()?.pushViewController(vc, animated: true)
         }
         
         onlineStatusTipContainerView.addSubview(onlineView)
@@ -233,7 +227,13 @@ class NoticeViewController: UIViewController {
         
     }
     
-
+    func showNavigationController() -> UINavigationController? {
+        guard let tabBarController = UIApplication.shared.keyWindow?.rootViewController as? UITabBarController,
+              let navigationController = tabBarController.selectedViewController as? UINavigationController
+        else { return nil }
+        
+        return navigationController
+    }
     
     func addOnlineAnimation() {
         
@@ -319,12 +319,7 @@ class NoticeViewController: UIViewController {
             info.userID = gift.userId
             let vc  = ChatViewController(conversation: info)!
             vc.title = gift.nick
-            guard let tabBarController = UIApplication.shared.keyWindow?.rootViewController as? UITabBarController,
-                  let navigationController = tabBarController.selectedViewController as? UINavigationController
-            else {
-                return
-            }
-            navigationController.pushViewController(vc, animated: true)
+            self.showNavigationController()?.pushViewController(vc, animated: true)
         }
         giftView.onCloseTapped.delegate(on: self) { (self, _) in
             self.giftTipContainerView.subviews.forEach { $0.removeFromSuperview() }

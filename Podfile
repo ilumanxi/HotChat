@@ -22,7 +22,7 @@ target 'HotChat' do
     pod 'HandyJSON', "~> 5.0.3-beta"
     pod 'Reusable'
     pod 'Kingfisher'
-    pod "KingfisherWebP"
+#    pod "KingfisherWebP"
     pod 'TagListView'
     pod 'SnapKit'
     pod 'Toast-Swift'

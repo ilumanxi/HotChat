@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="75" id="KGk-i7-Jjw" customClass="IntimateTopCell" customModule="HotChat" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="75" id="KGk-i7-Jjw" customClass="IntimateTopCell" customModule="HotChat" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -26,44 +26,50 @@
                     <stackView opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="ZX4-9g-Av0">
                         <rect key="frame" x="42" y="15.5" width="83" height="44"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jye-o9-bx2">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZEn-eg-Km2">
                                 <rect key="frame" x="39" y="0.0" width="44" height="44"/>
-                                <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Jye-o9-bx2" secondAttribute="height" multiplier="1:1" id="QGI-Xb-YAE"/>
-                                    <constraint firstAttribute="width" constant="44" id="Qac-Ic-Vi4"/>
+                                    <constraint firstAttribute="width" constant="44" id="Gco-qW-6qd"/>
+                                    <constraint firstAttribute="width" secondItem="ZEn-eg-Km2" secondAttribute="height" multiplier="1:1" id="zGB-LA-ysN"/>
                                 </constraints>
+                                <state key="normal" image="top-avatar"/>
                                 <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                         <real key="value" value="0.5"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                         <color key="value" red="1" green="0.96470588239999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="22"/>
-                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vNU-2r-0ob">
+                                <connections>
+                                    <action selector="rightAvatarTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="oRu-ZT-ZNY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axI-nX-OKU">
                                 <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
-                                <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="vNU-2r-0ob" secondAttribute="height" multiplier="1:1" id="WwD-ni-uNm"/>
-                                    <constraint firstAttribute="width" constant="44" id="e54-2V-QWs"/>
+                                    <constraint firstAttribute="width" secondItem="axI-nX-OKU" secondAttribute="height" multiplier="1:1" id="0oW-Fi-Rrq"/>
+                                    <constraint firstAttribute="width" constant="44" id="fZ3-33-kQc"/>
                                 </constraints>
+                                <state key="normal" image="top-avatar"/>
                                 <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                         <real key="value" value="0.5"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                         <color key="value" red="1" green="0.96470588239999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="22"/>
-                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                            </imageView>
+                                <connections>
+                                    <action selector="leftAvatarTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Uba-Za-IgR"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </stackView>
                     <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="50" verticalCompressionResistancePriority="50" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="p6l-Zu-lQW">
@@ -114,7 +120,18 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="bottomNameLabel" destination="iMe-uh-qDX" id="hhN-hI-CgS"/>
+                <outlet property="intimateButton" destination="8sv-Dr-PrO" id="BZz-M7-P71"/>
+                <outlet property="leftAvatarView" destination="axI-nX-OKU" id="BoM-TQ-UiS"/>
+                <outlet property="rankLabel" destination="jhk-UY-6bJ" id="ZzV-pZ-qgS"/>
+                <outlet property="rightAvatarView" destination="ZEn-eg-Km2" id="SbE-Fn-F7F"/>
+                <outlet property="topNameLabel" destination="Qpo-rI-C8k" id="mee-I1-BCy"/>
+            </connections>
             <point key="canvasLocation" x="139" y="86"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="top-avatar" width="50.5" height="50.5"/>
+    </resources>
 </document>

@@ -129,6 +129,17 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
         imChatStatus()
         
         hiddenIntimacy()
+    
+        intimacyDidChange()
+    }
+    
+    func intimacyDidChange()  {
+        
+        NotificationCenter.default.rx.notification(.intimacyDidChange)
+            .subscribe(onNext: { [weak self] _ in
+                self?.requestUser()
+            })
+            .disposed(by: rx.disposeBag)
     }
     
     func hiddenIntimacy()  {
@@ -155,7 +166,9 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
         }
         else {
             self.inputController.reset()
-            addIntimacy(animated: true)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                self.addIntimacy(animated: true)
+            }
         }
         
     }

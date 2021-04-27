@@ -16,10 +16,7 @@ import RangersAppLog
 import URLNavigator
 import UMVerify
 import Kingfisher
-import KingfisherWebP
-
-
-
+//import KingfisherWebP
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -31,10 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        KingfisherManager.shared.defaultOptions += [
-          .processor(WebPProcessor.default),
-          .cacheSerializer(WebPSerializer.default)
-        ]
+//        KingfisherManager.shared.defaultOptions += [
+//          .processor(WebPProcessor.default),
+//          .cacheSerializer(WebPSerializer.default)
+//        ]
     
         // Initialize navigation map
         NavigationMap.initialize(navigator: Navigator.share)
@@ -43,6 +40,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupUMVerify()
         
         Bugly.start(withAppId: nil)
+        
+        instruction()
         
         setupIM()
         
@@ -75,6 +74,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.applicationIconBadgeNumber = -1
         XGPush.defaultManager().xgApplicationBadgeNumber = 0
         XGPush.defaultManager().setBadge(0)
+    }
+    
+    ///  指令集合
+    func instruction() {
+        NotificationCenter.default.rx.notification(.init(TUIKitNotification_TIMMessageListener))
+            .subscribe(onNext: { [weak self] notification in
+                self?.handleInstruction(notification: notification)
+            })
+            .disposed(by: rx.disposeBag)
+    }
+    
+    private func handleInstruction(notification: Notification) {
+        
+        guard let msg = notification.object as?  V2TIMMessage else { return }
+        
+        guard msg.elemType == .ELEM_TYPE_CUSTOM,
+              let param = TUICallUtils.jsonData2Dictionary(msg.customElem.data) as? [String : Any],
+              let imData = IMData.fixData(param),
+              let json = imData.data.mj_JSONObject() as? [String : Any]  else {
+            
+            return
+        }
+        
+        if let name = imData.type.notificationName {
+            NotificationCenter.default.post(name: name, object: self, userInfo: json)
+        }
     }
     
     func store()  {

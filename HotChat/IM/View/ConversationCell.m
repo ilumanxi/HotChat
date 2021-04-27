@@ -31,14 +31,14 @@
         [self addSubview:_headImageView];
 
         _timeLabel = [[UILabel alloc] init];
-        _timeLabel.font = [UIFont systemFontOfSize:12];
-        _timeLabel.textColor = [UIColor d_systemGrayColor];
+        _timeLabel.font = [UIFont systemFontOfSize: 11 weight: UIFontWeightMedium];
+        _timeLabel.textColor = [UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1.0];
         _timeLabel.layer.masksToBounds = YES;
         [self addSubview:_timeLabel];
 
         _titleLabel = [[UILabel alloc] init];
-        _titleLabel.font = [UIFont systemFontOfSize:16];
-        _titleLabel.textColor = [UIColor d_colorWithColorLight:TText_Color dark:TText_Color_Dark];
+        _titleLabel.font = [UIFont systemFontOfSize: 14 weight: UIFontWeightMedium];
+        _titleLabel.textColor = [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1.0];
         _titleLabel.layer.masksToBounds = YES;
         [self addSubview:_titleLabel];
 
@@ -47,13 +47,13 @@
 
         _subTitleLabel = [[UILabel alloc] init];
         _subTitleLabel.layer.masksToBounds = YES;
-        _subTitleLabel.font = [UIFont systemFontOfSize:14];
-        _subTitleLabel.textColor = [UIColor d_systemGrayColor];
+        _subTitleLabel.font = [UIFont systemFontOfSize: 11 weight: UIFontWeightMedium];
+        _subTitleLabel.textColor = [UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1.0];
         [self addSubview:_subTitleLabel];
         
         _intimacyLabel = [[UILabel alloc] init];
         _intimacyLabel.layer.masksToBounds = YES;
-        _intimacyLabel.font = [UIFont systemFontOfSize:14];
+        _intimacyLabel.font = [UIFont systemFontOfSize: 11 weight: UIFontWeightMedium];
         _intimacyLabel.textColor = [UIColor colorWithRed:255/255.0 green:0/255.0 blue:72/255.0 alpha:1.0];
         [self addSubview:_intimacyLabel];
         
@@ -76,13 +76,13 @@
     self.subTitleLabel.attributedText = convData.subTitle;
     [self.unReadView setNum:convData.unreadCount];
     
-    if (convData.intimacy == 0) {
+    if (convData.userIntimacy == 0) {
         _intimacyLabel.text = nil;
     }
     else {
         NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
         
-        NSString *string = [formatter stringFromNumber:[NSNumber numberWithFloat:convData.intimacy]];
+        NSString *string = [formatter stringFromNumber:[NSNumber numberWithFloat:convData.userIntimacy]];
         _intimacyLabel.text = [NSString stringWithFormat:@"亲密度%@℃",string];
     }
    
@@ -146,7 +146,7 @@
     self.mm_h = height;
     CGFloat imgHeight = height-2*(TConversationCell_Margin);
 
-    self.headImageView.mm_width(imgHeight).mm_height(imgHeight).mm_left(TConversationCell_Margin + 3).mm_top(TConversationCell_Margin);
+    self.headImageView.mm_width(imgHeight).mm_height(imgHeight).mm_left(20).mm_top(TConversationCell_Margin);
     if ([TUIKit sharedInstance].config.avatarType == TAvatarTypeRounded) {
         self.headImageView.layer.masksToBounds = YES;
         self.headImageView.layer.cornerRadius = imgHeight / 2;

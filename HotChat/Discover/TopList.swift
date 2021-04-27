@@ -23,3 +23,21 @@ class TopList: NSObject, HandyJSON {
     var userInfo: User?
     
 }
+
+
+struct IntimacyList: HandyJSON {
+    
+    var topList: [IntimacyTop] = []
+    var list: [IntimacyTop] = []
+}
+
+
+struct IntimacyTop: HandyJSON {
+    
+    var girlInfo: User!
+    var userInfo: User!
+    var intimacy: Float = 0
+    var rankId: Int = 0
+    /// 亲密度
+    var userIntimacy: Float = 0
+}

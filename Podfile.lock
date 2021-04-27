@@ -39,21 +39,9 @@ PODS:
   - InputKitSwift (1.2.1)
   - Jelly (2.2.2)
   - Kingfisher (6.3.0)
-  - KingfisherWebP (1.3.0):
-    - Kingfisher (~> 6.2)
-    - libwebp (>= 1.1.0)
   - Koloda (5.0.1):
     - pop (~> 1.0)
   - Lantern (1.1.2)
-  - libwebp (1.2.0):
-    - libwebp/demux (= 1.2.0)
-    - libwebp/mux (= 1.2.0)
-    - libwebp/webp (= 1.2.0)
-  - libwebp/demux (1.2.0):
-    - libwebp/webp
-  - libwebp/mux (1.2.0):
-    - libwebp/demux
-  - libwebp/webp (1.2.0)
   - MagazineLayout (1.6.4)
   - Masonry (1.1.0)
   - MBProgressHUD (1.2.0)
@@ -191,7 +179,6 @@ DEPENDENCIES:
   - InputKitSwift
   - Jelly
   - Kingfisher
-  - KingfisherWebP
   - Koloda
   - Lantern
   - MagazineLayout
@@ -250,10 +237,8 @@ SPEC REPOS:
     - InputKitSwift
     - Jelly
     - Kingfisher
-    - KingfisherWebP
     - Koloda
     - Lantern
-    - libwebp
     - MagazineLayout
     - Masonry
     - MBProgressHUD
@@ -341,10 +326,8 @@ SPEC CHECKSUMS:
   InputKitSwift: 5532ed4a41706aeebe6ad6dfafb3bee32e02f1c6
   Jelly: 0576a8fd3b3bea78f6c2d952acdc30b0835dda71
   Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
-  KingfisherWebP: dec17a5eb1af2658791bde1f93ae9a853678f826
   Koloda: d07b9199a383abc5898b62aa945a599f5e7c0c4b
   Lantern: ed012be9a7c989ff5b94c080129a4734b45304b6
-  libwebp: e90b9c01d99205d03b6bb8f2c8c415e5a4ef66f0
   MagazineLayout: 10598ab8b3554c224b75da32b613c76becd9786c
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
@@ -393,6 +376,6 @@ SPEC CHECKSUMS:
   YBImageBrowser: 7ecc8bf33ffa5f3b94c397c29b4f3638dd37f527
   YYImage: 20ec986d18a8d0ad421619d166a9e628097e2433
 
-PODFILE CHECKSUM: e58e3125334f5f2232261be8a74a6016f46a7037
+PODFILE CHECKSUM: bcd963c055ee55eebf7655c7e6afc43202c637aa
 
 COCOAPODS: 1.10.1
