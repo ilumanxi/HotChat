@@ -26,7 +26,7 @@ class LabelViewController: UITableViewController, IndicatorDisplay {
         super.viewDidLoad()
 
         tableView.rowHeight = 50
-        tableView.register(cellType: LabelViewCell.self)
+        tableView.register(UINib(nibName: "LabelViewCell", bundle: nil), forCellReuseIdentifier: "LabelViewCell")
         
         refreshUI()
     }

@@ -16,7 +16,7 @@ target 'HotChat' do
     pod 'RxCocoa'
     pod 'NSObject+Rx'
     pod 'RxSwiftUtilities'
-    pod 'RxCoreLocation'
+#    pod 'RxCoreLocation'
     pod 'CryptoSwift'
     pod 'DynamicColor'
     pod 'HandyJSON', "~> 5.0.3-beta"
@@ -31,7 +31,7 @@ target 'HotChat' do
     pod 'PKHUD'
     pod 'URLNavigator'
     pod 'Tabman'
-    pod 'IBPCollectionViewCompositionalLayout'
+#    pod 'IBPCollectionViewCompositionalLayout'
     pod 'DGCollectionViewLeftAlignFlowLayout'
     pod 'AlignedCollectionViewFlowLayout'
     pod 'Lantern'

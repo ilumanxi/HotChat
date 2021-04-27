@@ -36,7 +36,6 @@ PODS:
     - GKPhotoBrowser/Core
     - SDWebImage (~> 5.0)
   - HandyJSON (5.0.3-beta)
-  - IBPCollectionViewCompositionalLayout (0.6.9)
   - InputKitSwift (1.2.1)
   - Jelly (2.2.2)
   - Kingfisher (6.3.0)
@@ -91,11 +90,6 @@ PODS:
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
-  - RxCoreLocation (1.5.0):
-    - RxCoreLocation/Core (= 1.5.0)
-  - RxCoreLocation/Core (1.5.0):
-    - RxCocoa (~> 5.1)
-    - RxSwift (~> 5.1)
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
   - RxSwift (5.1.2)
@@ -194,7 +188,6 @@ DEPENDENCIES:
   - FSPagerView
   - GKPhotoBrowser
   - HandyJSON (~> 5.0.3-beta)
-  - IBPCollectionViewCompositionalLayout
   - InputKitSwift
   - Jelly
   - Kingfisher
@@ -214,7 +207,6 @@ DEPENDENCIES:
   - RangersAppLog
   - Reusable
   - RxCocoa
-  - RxCoreLocation
   - RxSwift
   - RxSwiftUtilities
   - SnapKit
@@ -255,7 +247,6 @@ SPEC REPOS:
     - FSPagerView
     - GKPhotoBrowser
     - HandyJSON
-    - IBPCollectionViewCompositionalLayout
     - InputKitSwift
     - Jelly
     - Kingfisher
@@ -280,7 +271,6 @@ SPEC REPOS:
     - ReactiveObjC
     - Reusable
     - RxCocoa
-    - RxCoreLocation
     - RxRelay
     - RxSwift
     - RxSwiftUtilities
@@ -348,7 +338,6 @@ SPEC CHECKSUMS:
   FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
   GKPhotoBrowser: 78ea3d219fc1e05ed8b5f452863174f370f548c7
   HandyJSON: 88e8ea5f66ab65c3b8768499a1935d0509c460d4
-  IBPCollectionViewCompositionalLayout: bbb29e39ac564666a8c3cdb6633ed944b6feb55b
   InputKitSwift: 5532ed4a41706aeebe6ad6dfafb3bee32e02f1c6
   Jelly: 0576a8fd3b3bea78f6c2d952acdc30b0835dda71
   Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
@@ -373,7 +362,6 @@ SPEC CHECKSUMS:
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
   Reusable: 53a9acf5c536f229b31b5865782414b508252ddb
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
-  RxCoreLocation: 4789d980742b21c087062387f6758b456221fb2f
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 1e2e1f9570186967f617e49128ed26ccf1bafc8e
   RxSwiftUtilities: 59e2d82daf74b9962f732b09e6da85a26281cfc0
@@ -405,6 +393,6 @@ SPEC CHECKSUMS:
   YBImageBrowser: 7ecc8bf33ffa5f3b94c397c29b4f3638dd37f527
   YYImage: 20ec986d18a8d0ad421619d166a9e628097e2433
 
-PODFILE CHECKSUM: b212a64513198fd88a82ff0a5c609602c509b0a4
+PODFILE CHECKSUM: e58e3125334f5f2232261be8a74a6016f46a7037
 
 COCOAPODS: 1.10.1

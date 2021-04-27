@@ -45,8 +45,7 @@ class TopicListViewController: UICollectionViewController, LoadingStateType, Ind
         collectionView.layoutMargins = UIEdgeInsets(top: 8, left: 15, bottom: 8, right: 15)
         collectionView.backgroundColor = UIColor(hexString: "#F6F7F9")
         
-        self.collectionView.register(cellType: TopicListViewCell.self)
-
+        self.collectionView.register(UINib(nibName: "TopicListViewCell", bundle: nil), forCellWithReuseIdentifier: "TopicListViewCell")
         // Do any additional setup after loading the view.
         
         refreshData()

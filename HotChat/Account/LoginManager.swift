@@ -10,7 +10,6 @@ import Foundation
 import RxSwift
 import RxCocoa
 import Cache
-import RxCoreLocation
 
 typealias TokenType = LoginManager.Parameters.TokenIdentifier
 

@@ -23,8 +23,7 @@ class TitleViewController: UITableViewController, IndicatorDisplay {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(cellType: TitleViewCell.self)
-        
+        tableView.register(UINib(nibName: "TitleViewCell", bundle: nil), forCellReuseIdentifier: "TitleViewCell")
         refreshUI()
 
     }

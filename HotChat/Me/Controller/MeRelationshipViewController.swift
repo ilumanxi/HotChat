@@ -58,7 +58,7 @@ class MeRelationshipViewController: UITableViewController, IndicatorDisplay, Loa
         super.viewDidLoad()
 
         tableView.rowHeight = 70
-        tableView.register(cellType: RelationshipViewCell.self)
+        tableView.register(UINib(nibName: "RelationshipViewCell", bundle: nil), forCellReuseIdentifier: "RelationshipViewCell")
         refreshData()
     }
     

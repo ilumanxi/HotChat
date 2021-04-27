@@ -148,7 +148,7 @@
 		2643EBB32500B04100FBBE49 /* UserInfoIntroduceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643EB892500B04100FBBE49 /* UserInfoIntroduceCell.swift */; };
 		2643EBB62500B04100FBBE49 /* InterfaceOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643EB922500B04100FBBE49 /* InterfaceOrientation.swift */; };
 		2643EBBB2500B04100FBBE49 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643EB992500B04100FBBE49 /* BaseNavigationController.swift */; };
-		2643EBBD2500B04100FBBE49 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643EB9B2500B04100FBBE49 /* Helpers.swift */; };
+		2643EBBD2500B04100FBBE49 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643EB9B2500B04100FBBE49 /* Helper.swift */; };
 		2643EBBE2500B04100FBBE49 /* CollectionViewGridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643EB9C2500B04100FBBE49 /* CollectionViewGridLayout.swift */; };
 		2643EBBF2500B04100FBBE49 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643EB9D2500B04100FBBE49 /* Application.swift */; };
 		2643EBC02500B04100FBBE49 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643EB9E2500B04100FBBE49 /* App.swift */; };
@@ -207,6 +207,15 @@
 		2668B0AF2523479F0073E25D /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2668B0AE2523479F0073E25D /* Product.swift */; };
 		2668CF0925931B3D00C851F6 /* LogoutAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2668CF0825931B3D00C851F6 /* LogoutAPI.swift */; };
 		266A0BCE260C31A70037FCC3 /* TalkTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266A0BCD260C31A70037FCC3 /* TalkTop.swift */; };
+		266B19642637D13D0012891B /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 266B195A2637D13D0012891B /* LICENSE */; };
+		266B19652637D13D0012891B /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 266B195B2637D13D0012891B /* Readme.md */; };
+		266B19662637D13D0012891B /* RxSelectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266B195D2637D13D0012891B /* RxSelectors.swift */; };
+		266B19672637D13D0012891B /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266B195E2637D13D0012891B /* Helpers.swift */; };
+		266B19682637D13D0012891B /* RxEventTypealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266B195F2637D13D0012891B /* RxEventTypealias.swift */; };
+		266B19692637D13D0012891B /* CLLocationManagerDelegateEvents+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266B19602637D13D0012891B /* CLLocationManagerDelegateEvents+Rx.swift */; };
+		266B196A2637D13D0012891B /* RxCLLocationManagerDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266B19612637D13D0012891B /* RxCLLocationManagerDelegateProxy.swift */; };
+		266B196B2637D13D0012891B /* RxKeyPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266B19622637D13D0012891B /* RxKeyPaths.swift */; };
+		266B196C2637D13D0012891B /* CLLocationManagerEvents+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266B19632637D13D0012891B /* CLLocationManagerEvents+Rx.swift */; };
 		266BDB6925EF864600467611 /* UserCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266BDB6725EF864600467611 /* UserCardCell.swift */; };
 		266BDB6A25EF864600467611 /* UserCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 266BDB6825EF864600467611 /* UserCardCell.xib */; };
 		266DA37B25F8C96D00BE4E74 /* TopViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266DA37925F8C96D00BE4E74 /* TopViewCell.swift */; };
@@ -745,7 +754,7 @@
 		2643EB892500B04100FBBE49 /* UserInfoIntroduceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoIntroduceCell.swift; sourceTree = "<group>"; };
 		2643EB922500B04100FBBE49 /* InterfaceOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceOrientation.swift; sourceTree = "<group>"; };
 		2643EB992500B04100FBBE49 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
-		2643EB9B2500B04100FBBE49 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; tabWidth = 5; };
+		2643EB9B2500B04100FBBE49 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; tabWidth = 5; };
 		2643EB9C2500B04100FBBE49 /* CollectionViewGridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewGridLayout.swift; sourceTree = "<group>"; };
 		2643EB9D2500B04100FBBE49 /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		2643EB9E2500B04100FBBE49 /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
@@ -809,6 +818,15 @@
 		2668B0AE2523479F0073E25D /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		2668CF0825931B3D00C851F6 /* LogoutAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutAPI.swift; sourceTree = "<group>"; };
 		266A0BCD260C31A70037FCC3 /* TalkTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkTop.swift; sourceTree = "<group>"; };
+		266B195A2637D13D0012891B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		266B195B2637D13D0012891B /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
+		266B195D2637D13D0012891B /* RxSelectors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxSelectors.swift; sourceTree = "<group>"; };
+		266B195E2637D13D0012891B /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		266B195F2637D13D0012891B /* RxEventTypealias.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxEventTypealias.swift; sourceTree = "<group>"; };
+		266B19602637D13D0012891B /* CLLocationManagerDelegateEvents+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationManagerDelegateEvents+Rx.swift"; sourceTree = "<group>"; };
+		266B19612637D13D0012891B /* RxCLLocationManagerDelegateProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxCLLocationManagerDelegateProxy.swift; sourceTree = "<group>"; };
+		266B19622637D13D0012891B /* RxKeyPaths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxKeyPaths.swift; sourceTree = "<group>"; };
+		266B19632637D13D0012891B /* CLLocationManagerEvents+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationManagerEvents+Rx.swift"; sourceTree = "<group>"; };
 		266BDB6725EF864600467611 /* UserCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCardCell.swift; sourceTree = "<group>"; };
 		266BDB6825EF864600467611 /* UserCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCardCell.xib; sourceTree = "<group>"; };
 		266DA37925F8C96D00BE4E74 /* TopViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewCell.swift; sourceTree = "<group>"; };
@@ -1519,7 +1537,6 @@
 		2643EB8A2500B04100FBBE49 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				26B3ADCE25F7495200D7DFC4 /* TwicketSegmentedControl */,
 				2643EB8B2500B04100FBBE49 /* Framework */,
 				2643EB9C2500B04100FBBE49 /* CollectionViewGridLayout.swift */,
 				2643EB9D2500B04100FBBE49 /* Application.swift */,
@@ -1542,6 +1559,8 @@
 		2643EB8B2500B04100FBBE49 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				26B3ADCE25F7495200D7DFC4 /* TwicketSegmentedControl */,
+				266B19592637D13D0012891B /* RxCoreLocation */,
 				267B98692505E1AC0008C81B /* PlatformAuthorization */,
 				2643EB8C2500B04100FBBE49 /* InterfaceOrientation */,
 				2643EB952500B04100FBBE49 /* Navigation */,
@@ -1585,6 +1604,30 @@
 				263A6BEE25C2D74900FD43B6 /* pair.svga */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		266B19592637D13D0012891B /* RxCoreLocation */ = {
+			isa = PBXGroup;
+			children = (
+				266B195A2637D13D0012891B /* LICENSE */,
+				266B195B2637D13D0012891B /* Readme.md */,
+				266B195C2637D13D0012891B /* Sources */,
+			);
+			path = RxCoreLocation;
+			sourceTree = "<group>";
+		};
+		266B195C2637D13D0012891B /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				266B195D2637D13D0012891B /* RxSelectors.swift */,
+				266B195E2637D13D0012891B /* Helpers.swift */,
+				266B195F2637D13D0012891B /* RxEventTypealias.swift */,
+				266B19602637D13D0012891B /* CLLocationManagerDelegateEvents+Rx.swift */,
+				266B19612637D13D0012891B /* RxCLLocationManagerDelegateProxy.swift */,
+				266B19622637D13D0012891B /* RxKeyPaths.swift */,
+				266B19632637D13D0012891B /* CLLocationManagerEvents+Rx.swift */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		267954ED2507477500A72954 /* Controller */ = {
@@ -1823,7 +1866,7 @@
 		26A20AFD2518A4560061BBB8 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				2643EB9B2500B04100FBBE49 /* Helpers.swift */,
+				2643EB9B2500B04100FBBE49 /* Helper.swift */,
 				26A20AFE2518A47F0061BBB8 /* KeychainStore.swift */,
 				26A8D4E8251C8F3E00B736CF /* Constellation.swift */,
 			);
@@ -2466,6 +2509,7 @@
 				26EDE7FA2591D11F002A2EC3 /* GuidedRechargeViewController.xib in Resources */,
 				2623FC5E262029DD00764DFA /* AddressBookViewController.xib in Resources */,
 				26959042250B1DD900763061 /* InterestedCardOverlayView.xib in Resources */,
+				266B19652637D13D0012891B /* Readme.md in Resources */,
 				26DFBF88262EADF900639C94 /* GiftTipView.xib in Resources */,
 				26CB6D4F25515D6B00A9F4DD /* idl-license.face-ios in Resources */,
 				2697FDC5260893EE002CB9A2 /* ChatTopicNoticeViewController.xib in Resources */,
@@ -2555,6 +2599,7 @@
 				26A377CD260D9554002FF17E /* HeadlineTipViewController.xib in Resources */,
 				267954FF250761B600A72954 /* Discover.storyboard in Resources */,
 				266BDB6A25EF864600467611 /* UserCardCell.xib in Resources */,
+				266B19642637D13D0012891B /* LICENSE in Resources */,
 				26B7CCD226282211007805F1 /* DatingDetailViewController.xib in Resources */,
 				2651FE1725F759D300A9F2E6 /* TopViewController.xib in Resources */,
 				260ABAF125F2431E006A01C0 /* CommentReportViewController.xib in Resources */,
@@ -2727,6 +2772,7 @@
 				26B3ADD425F7495200D7DFC4 /* TwicketSegmentedControl.swift in Sources */,
 				2637D86D255A895B00020E98 /* TalkEarningCell.swift in Sources */,
 				2693697425555E06002E224B /* PhoneBindingController.swift in Sources */,
+				266B196C2637D13D0012891B /* CLLocationManagerEvents+Rx.swift in Sources */,
 				26D1E594253D6000004B9B29 /* VideoCallViewController.m in Sources */,
 				26808FDC2519D4B800C9803C /* Request.swift in Sources */,
 				26F25C932509C36B00F808EA /* TabBarButton.swift in Sources */,
@@ -2797,6 +2843,7 @@
 				26AB26E225401C0D00C16025 /* RemarkViewController.swift in Sources */,
 				263A6C3825C2DA4800FD43B6 /* PairCallViewController.swift in Sources */,
 				2635216725C7F18800855487 /* VisitorsController.swift in Sources */,
+				266B19662637D13D0012891B /* RxSelectors.swift in Sources */,
 				266DA37B25F8C96D00BE4E74 /* TopViewCell.swift in Sources */,
 				F3C6B919251F3117006C06CB /* LabelViewController.swift in Sources */,
 				268458E825343FA8002B9C6E /* DynamicDetailViewController.swift in Sources */,
@@ -2805,6 +2852,7 @@
 				2615C9F8255E8B0C009B89F4 /* PlaceholderTextView.swift in Sources */,
 				26CD99ED2578BB5C00235A8D /* ChatGreetAPI.swift in Sources */,
 				26DF877D255A63BA002162A9 /* BasicCell.swift in Sources */,
+				266B19672637D13D0012891B /* Helpers.swift in Sources */,
 				26A377CC260D9554002FF17E /* HeadlineTipViewController.swift in Sources */,
 				26772822255A480900B98973 /* PrivacyViewController.swift in Sources */,
 				26C81EE12547E9C400C1D563 /* VoiceView.m in Sources */,
@@ -2827,7 +2875,7 @@
 				2696341F2531942000493C3D /* DynamicAPI.swift in Sources */,
 				2651FE1925F7665A00A9F2E6 /* TopHeaderView.swift in Sources */,
 				269D0AB82635555900ED5301 /* IntimateTopHeaderView.swift in Sources */,
-				2643EBBD2500B04100FBBE49 /* Helpers.swift in Sources */,
+				2643EBBD2500B04100FBBE49 /* Helper.swift in Sources */,
 				26E14E68251C861A00645F08 /* DatePickerViewController.swift in Sources */,
 				26373C77250234D00066FF3B /* FormSection.swift in Sources */,
 				26373C732502340D0066FF3B /* FormEntry.swift in Sources */,
@@ -2862,6 +2910,7 @@
 				26CA6EEC25382DC40023E27B /* ChannelCell.swift in Sources */,
 				2619D18725625AAB0071CC85 /* GiftCountViewController.m in Sources */,
 				26314796261EE05F0084E00B /* UserConfig.swift in Sources */,
+				266B19682637D13D0012891B /* RxEventTypealias.swift in Sources */,
 				26E14E63251C766900645F08 /* UserInformationViewController.swift in Sources */,
 				267954EC2507327B00A72954 /* SignupViewController.swift in Sources */,
 				26EB2DCA25593FCA006698F9 /* ConsumerAPI.swift in Sources */,
@@ -3007,6 +3056,8 @@
 				26EEA32426048BDA005226AD /* ChatTopicReportViewController.swift in Sources */,
 				26945815253FF81E00EBCABB /* UserViewCell.swift in Sources */,
 				2695903C250B16D700763061 /* InterestedCardView.swift in Sources */,
+				266B196A2637D13D0012891B /* RxCLLocationManagerDelegateProxy.swift in Sources */,
+				266B19692637D13D0012891B /* CLLocationManagerDelegateEvents+Rx.swift in Sources */,
 				26DFBF91262ED3FF00639C94 /* OnlineStatusViewController.swift in Sources */,
 				262FFFC12603483F00F541C2 /* ChatMemberViewController.swift in Sources */,
 				26DFBF86262EADE400639C94 /* GiftTipView.swift in Sources */,
@@ -3046,6 +3097,7 @@
 				26202022261DA1E5006A5AD7 /* VipPhotoViewController.swift in Sources */,
 				263F5388261459010099D143 /* TUIMessageController+Group.m in Sources */,
 				2643EBB02500B04100FBBE49 /* RealNameAuthenticationFooterView.swift in Sources */,
+				266B196B2637D13D0012891B /* RxKeyPaths.swift in Sources */,
 				26CB6D4025515D6B00A9F4DD /* BDFaceAgreementViewController.m in Sources */,
 				26A377C9260D884D002FF17E /* HeadlineAPI.swift in Sources */,
 				26F710042542C6C000797E87 /* UserSettingsAPI.swift in Sources */,
@@ -3289,7 +3341,6 @@
 					"-l\"ReactiveObjC\"",
 					"-l\"Reusable\"",
 					"-l\"RxCocoa\"",
-					"-l\"RxCoreLocation\"",
 					"-l\"RxRelay\"",
 					"-l\"RxSwift\"",
 					"-l\"RxSwiftUtilities\"",
@@ -3414,7 +3465,6 @@
 					"-l\"ReactiveObjC\"",
 					"-l\"Reusable\"",
 					"-l\"RxCocoa\"",
-					"-l\"RxCoreLocation\"",
 					"-l\"RxRelay\"",
 					"-l\"RxSwift\"",
 					"-l\"RxSwiftUtilities\"",
