@@ -14,7 +14,6 @@
 #import "HotChat-Swift.h"
 #import "GiftReminderViewController.h"
 #import "GiftCountViewController.h"
-@import Blueprints;
 
 @interface GiftViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, GiftReminderViewControllerDelegate, UIPopoverPresentationControllerDelegate, GiftCountViewControllerDelegate>
 
@@ -49,11 +48,7 @@
 
 
 + (CGFloat)contentHeight { 
-    if (@available(iOS 11.0, *)) {
-        return [UIScreen mainScreen].bounds.size.width / 2 + 41 + 28 +  UIApplication.sharedApplication.keyWindow.safeAreaInsets.bottom;
-    } else {
-        return [UIScreen mainScreen].bounds.size.width / 2 + 41 + 28;
-    }
+    return 409  +  UIApplication.sharedApplication.keyWindow.safeAreaInsets.bottom;
 }
 
 - (void)viewDidLoad {
@@ -95,12 +90,15 @@
     
     [_energyButton setTitle:[NSString stringWithFormat:@"%ld",(long)[LoginManager shared].user.userEnergy]  forState:UIControlStateNormal];
     [_tCoinButton setTitle:[NSString stringWithFormat:@"%ld",(long)[LoginManager shared].user.userTanbi]  forState:UIControlStateNormal];
-    CGFloat size = UIScreen.mainScreen.bounds.size.width / _perRowCount;
     
-    _collectionViewFlowLayout.sectionInset = UIEdgeInsetsZero;
-    _collectionViewFlowLayout.minimumLineSpacing = 0;
-    _collectionViewFlowLayout.minimumInteritemSpacing = 0;
-    _collectionViewFlowLayout.itemSize = CGSizeMake(size, size);
+
+    _collectionViewFlowLayout.sectionInset = UIEdgeInsetsMake(0, 15, 0, 15);
+    _collectionViewFlowLayout.minimumLineSpacing = 10;
+    _collectionViewFlowLayout.minimumInteritemSpacing = 5;
+
+//    CGFloat itemWidth= (CGRectGetWidth(self.view.bounds) -  30 - 5 * (_perRowCount - 1)) / _perRowCount;
+//
+//    _collectionViewFlowLayout.itemSize = CGSizeMake(itemWidth, 112);
     [_collectionView registerNib:[UINib nibWithNibName:@"GiftViewCell" bundle:nil] forCellWithReuseIdentifier:@"GiftViewCell"];
     [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"UICollectionViewCell"];
     
@@ -119,9 +117,14 @@
     return ceil(count / _perPageCount);
 }
 
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    
+    return  UIEdgeInsetsMake(0, 15, 0, 15);
+}
+
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CGFloat size = CGRectGetWidth(collectionView.frame) / _perRowCount;
-    return  CGSizeMake(size, size);
+    CGFloat itemWidth= (CGRectGetWidth(collectionView.frame) -  30 - 5 * (_perRowCount - 1)) / _perRowCount;
+    return  CGSizeMake(itemWidth, 112);
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -135,12 +138,16 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-        GiftViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GiftViewCell" forIndexPath:indexPath];
     
-        Gift *gift = self.gifts[indexPath.row];
-        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:gift.img]];
-        cell.nameLabel.text = gift.name;
-        cell.energyLabel.text = [NSString stringWithFormat:@"%ld能量",gift.energy];
+    GiftViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GiftViewCell" forIndexPath:indexPath];
+    cell.layer.cornerRadius = 10;
+    cell.layer.borderWidth = 1.5;
+    cell.layer.borderColor = [UIColor colorWithRed:255/255.0 green:100/255.0 blue:108/255.0 alpha:1].CGColor;
+    cell.clipsToBounds = YES;
+    Gift *gift = self.gifts[indexPath.row];
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:gift.img]];
+    cell.nameLabel.text = gift.name;
+    cell.energyLabel.text = [NSString stringWithFormat:@"%ld能量",gift.energy];
     return  cell;
 }
 

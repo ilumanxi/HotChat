@@ -51,6 +51,8 @@ target 'HotChat' do
     pod 'Trident', :git=> "https://github.com/bawn/Trident.git", :commit=> "2eed75e"
     pod 'Jelly'
     
+#    pod 'KMNavigationBarTransition', :path => './HotChat/Common/Framework/KMNavigationBarTransition'
+    
     pod 'AliPlayerSDK_iOS'
     pod 'TXIMSDK_TUIKit_iOS'
     pod 'TPNS-iOS'
