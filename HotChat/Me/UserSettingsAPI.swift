@@ -19,6 +19,7 @@ enum UserSettingsAPI {
     case appAudit
     case taskConfig(type: Int)
     case chargeConfig
+    case downResources
 }
 
 
@@ -42,6 +43,8 @@ extension UserSettingsAPI: TargetType {
             return "UserSettings/taskConfig"
         case .chargeConfig:
             return "UserSettings/chargeConfig"
+        case .downResources:
+            return "UserSettings/downResources"
         }
     }
         
@@ -75,6 +78,8 @@ extension UserSettingsAPI: TargetType {
                 "type" : type
             ]
         case .chargeConfig:
+            parameters = [:]
+        case .downResources:
             parameters = [:]
         }
         

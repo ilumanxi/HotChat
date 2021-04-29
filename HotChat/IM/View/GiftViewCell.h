@@ -18,6 +18,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak, nonatomic) IBOutlet UILabel *energyLabel;
 
+@property (weak, nonatomic) IBOutlet UIButton *tagButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *availableCountButton;
+
 
 @end
 

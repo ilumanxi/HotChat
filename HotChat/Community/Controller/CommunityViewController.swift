@@ -81,15 +81,6 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
         
         playerManager.listPlayer.volume = 0
         
-        GiftManager.shared().getGiftList { _ in
-        }
-        
-        GiftHelper.giftNumConfig(success: { _ in
-            
-        }, failed: { _ in
-            
-        })
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             LoginManager.shared.getLocation { _ in
                 

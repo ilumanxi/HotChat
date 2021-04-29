@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import CommonCrypto
 
 class BackButton: UIButton {
     
@@ -245,6 +246,44 @@ extension Data {
 }
 
 
+
+func md5File(_ url: URL) -> String? {
+        
+    let bufferSize = 1024 * 1024
+    
+    do {
+        //打开文件
+        let file = try FileHandle(forReadingFrom: url)
+        defer {
+            file.closeFile()
+        }
+        
+        //初始化内容
+        var context = CC_MD5_CTX()
+        CC_MD5_Init(&context)
+        
+        //读取文件信息
+        while case let data = file.readData(ofLength: bufferSize), data.count > 0 {
+            
+            CC_MD5_Update(&context,  data.withUnsafeBytes { bytes -> UnsafeRawPointer in bytes.baseAddress! }, CC_LONG(data.count))
+        }
+        
+        //计算Md5摘要
+        var digest = Data(count: Int(CC_MD5_DIGEST_LENGTH))
+        
+       
+        
+        CC_MD5_Final(digest.withUnsafeMutableBytes { bytes -> UnsafeMutablePointer<UInt8>? in bytes }, &context)
+        
+        return digest.map { String(format: "%02hhx", $0) }.joined()
+        
+    } catch {
+        print("Cannot open file:", error.localizedDescription)
+        return nil
+    }
+}
+
+
 extension String {
     
     var length: Int {
@@ -354,7 +393,7 @@ enum Log {
 }
 
 
-protocol StoryboardCreate: class {
+protocol StoryboardCreate: AnyObject {
     static var bundle: Bundle? { get }
     static var storyboardNamed: String { get }
     static var controllerIdentifier: String? { get }

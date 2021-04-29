@@ -14,6 +14,7 @@
 #import "HotChat-Swift.h"
 #import "GiftReminderViewController.h"
 #import "GiftCountViewController.h"
+#import <Toast/Toast.h>
 
 @interface GiftViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, GiftReminderViewControllerDelegate, UIPopoverPresentationControllerDelegate, GiftCountViewControllerDelegate>
 
@@ -39,6 +40,7 @@
 
 @property(nonatomic, assign) NSInteger columnCountOfPerRow;
 
+@property(nonatomic, retain) Gift *selectedGift;
 
 
 
@@ -141,29 +143,54 @@
     
     GiftViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GiftViewCell" forIndexPath:indexPath];
     cell.layer.cornerRadius = 10;
-    cell.layer.borderWidth = 1.5;
-    cell.layer.borderColor = [UIColor colorWithRed:255/255.0 green:100/255.0 blue:108/255.0 alpha:1].CGColor;
     cell.clipsToBounds = YES;
+    
     Gift *gift = self.gifts[indexPath.row];
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:gift.img]];
     cell.nameLabel.text = gift.name;
     cell.energyLabel.text = [NSString stringWithFormat:@"%ld能量",gift.energy];
+    [cell.tagButton sd_setImageWithURL:[NSURL URLWithString:gift.tag] forState:UIControlStateNormal];
+   
+    if (gift.isSelected) {
+        cell.layer.borderWidth = 1.5;
+        cell.layer.borderColor = [UIColor colorWithRed:255/255.0 green:100/255.0 blue:108/255.0 alpha:1].CGColor;
+    }
+    else {
+        cell.layer.borderWidth = 0;
+        cell.layer.borderColor = nil;
+    }
+    
     return  cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    collectionView.userInteractionEnabled = NO;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        collectionView.userInteractionEnabled = YES;
-    });
     
+   self.selectedGift = self.gifts[indexPath.row];
     
-    Gift *giftData = self.gifts[indexPath.row];
-    giftData.count = self.count;
-
-    [self afterDelayCall:giftData];
+    for (Gift *gift in self.gifts) {
+        
+        gift.selected = (gift == self.selectedGift);
+    }
+    
+    [collectionView reloadData];
     
 }
+
+- (IBAction)giveAwayButtonTapped:(UIButton *)sender {
+    
+        sender.userInteractionEnabled = NO;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            sender.userInteractionEnabled = YES;
+        });
+    
+    if (self.selectedGift) {
+        [self afterDelayCall:self.selectedGift];
+    }
+    else {
+        [self.view makeToast:@"请选择赠送的礼物" duration:3 position:CSToastPositionBottom];
+    }
+}
+
 
 - (void)afterDelayCall:(Gift *)giftData {
     if ([GiftReminderViewController isReminder]) {
@@ -231,7 +258,7 @@
 - (void)giftCountViewController:(GiftCountViewController *)giftCountController count:(NSInteger)count {
     
     self.count = count;
-    [self.countButton setTitle:[NSString stringWithFormat:@"%ld", count] forState:UIControlStateNormal];
+    [self.countButton setTitle:[NSString stringWithFormat:@"x%ld", count] forState:UIControlStateNormal];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

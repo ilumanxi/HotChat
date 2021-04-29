@@ -40,7 +40,18 @@ class TabBarController: UITabBarController, IndicatorDisplay {
     override func loadView() {
         super.loadView()
         setupUI()
-
+        
+        
+        GiftManager.shared().getGiftList { _ in
+        }
+        
+        GiftHelper.giftNumConfig(success: { _ in
+            
+        }, failed: { _ in
+            
+        })
+        
+        GiftHelper.giftDownResources()
     }
     
     
