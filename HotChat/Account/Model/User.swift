@@ -257,6 +257,10 @@ enum VipType: Int, HandyJSONEnum {
     /// 用户等级Icon
     var userRankIcon: String = ""
     
+    /// 今天剩余免费礼物数
+    @objc
+    var freeGifts: Int = 0
+    
     /// 亲密度
     var userIntimacy: Float = 0
     

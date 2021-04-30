@@ -197,6 +197,8 @@
    
     [text appendAttributedString:  [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@" %ld",gift.energy]]];
 
+    [cell.availableCountButton setTitle:[NSString stringWithFormat:@"%ld", LoginManager.shared.user.freeGifts] forState:UIControlStateNormal];
+    cell.availableCountButton.hidden = gift.type != 0;
     
     cell.energyLabel.attributedText = text;
     
