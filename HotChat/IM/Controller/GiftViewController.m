@@ -42,6 +42,13 @@
 
 @property(nonatomic, retain) Gift *selectedGift;
 
+@property (weak, nonatomic) IBOutlet UILabel *intimacyLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *charmLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *richLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *coinLabel;
 
 
 @end
@@ -53,12 +60,28 @@
     return 409  +  UIApplication.sharedApplication.keyWindow.safeAreaInsets.bottom;
 }
 
+- (void)setSelectedGift:(Gift *)selectedGift {
+    
+    _selectedGift = selectedGift;
+    
+    self.intimacyLabel.text = [NSString stringWithFormat:@"亲密度\n+%ld℃", selectedGift.intimacy];
+    self.intimacyLabel.hidden = selectedGift.intimacy <=0;
+    self.charmLabel.text = [NSString stringWithFormat:@"魅力值\n+%ld℃", selectedGift.charm];
+    self.charmLabel.hidden = selectedGift.charm <=0;
+    self.richLabel.text = [NSString stringWithFormat:@"富豪值\n+%ld℃", selectedGift.rich];
+    self.richLabel.hidden = selectedGift.rich <=0;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupViews];
     self.columnCountOfPerRow = 4;
     self.gifts = [GiftManager shared].cahcheGiftList;
+    self.intimacyLabel.text = nil;
+    self.charmLabel.text = nil;
+    self.richLabel.text = nil;
     
+    self.coinLabel.text = [NSString stringWithFormat:@"T币：%ld",(long)[LoginManager shared].user.userTanbi];
     
     [[GiftManager shared] getGiftList:^(NSArray<Gift *> * _Nonnull giftList) {
         self.gifts = giftList;
@@ -148,7 +171,36 @@
     Gift *gift = self.gifts[indexPath.row];
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:gift.img]];
     cell.nameLabel.text = gift.name;
-    cell.energyLabel.text = [NSString stringWithFormat:@"%ld能量",gift.energy];
+    
+    NSMutableAttributedString *text =  [[NSMutableAttributedString alloc] init];
+    
+    if (gift.type == 1 || gift.type == 2) {
+        NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
+        
+        if (gift.type == 1) {
+            textAttachment.image = [UIImage imageNamed:@"gift-energy"];
+        }
+        else if (gift.type == 2) {
+            textAttachment.image = [UIImage imageNamed:@"gift-coin"];
+        }
+        
+        
+        //给附件添加图片
+       
+        //调整一下图片的位置,如果你的图片偏上或者偏下，调整一下bounds的y值即可
+        textAttachment.bounds = CGRectMake(0, -(cell.energyLabel.font.lineHeight-cell.energyLabel.font.pointSize) / 2,  textAttachment.image.size.width, textAttachment.image.size.height);
+        //把附件转换成可变字符串，用于替换掉源字符串中的表情文字
+        NSAttributedString *imageStr = [NSAttributedString attributedStringWithAttachment:textAttachment];
+        
+        [text appendAttributedString:imageStr];
+    }
+   
+    [text appendAttributedString:  [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@" %ld",gift.energy]]];
+
+    
+    cell.energyLabel.attributedText = text;
+    
+    
     [cell.tagButton sd_setImageWithURL:[NSURL URLWithString:gift.tag] forState:UIControlStateNormal];
    
     if (gift.isSelected) {
@@ -187,7 +239,9 @@
         [self afterDelayCall:self.selectedGift];
     }
     else {
-        [self.view makeToast:@"请选择赠送的礼物" duration:3 position:CSToastPositionBottom];
+        CSToastStyle *style = [CSToastManager sharedStyle];
+        
+        [self.view makeToast:@"请选择赠送的礼物" duration:3 position:CSToastPositionBottom style: style];
     }
 }
 

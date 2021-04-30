@@ -25,10 +25,13 @@ NS_ASSUME_NONNULL_BEGIN
 /// 标签图片地址
 @property(nonatomic, copy) NSString *tag;
 
+/// 亲密
 @property(nonatomic, assign) NSInteger intimacy;
 
+/// 富豪
 @property(nonatomic, assign) NSInteger rich;
 
+/// 魅力
 @property(nonatomic, assign) NSInteger charm;
 
 /// 0底部,1居中,2顶部'
