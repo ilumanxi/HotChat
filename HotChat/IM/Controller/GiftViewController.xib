@@ -15,8 +15,10 @@
                 <outlet property="coinLabel" destination="gKu-52-mVD" id="3oT-1u-ggt"/>
                 <outlet property="collectionView" destination="GKD-oE-maB" id="Pdu-yE-b6e"/>
                 <outlet property="collectionViewFlowLayout" destination="0ft-RK-K2b" id="q1A-9J-q48"/>
+                <outlet property="containerView" destination="tbn-dg-KMT" id="drk-uH-Tog"/>
                 <outlet property="countButton" destination="FRV-6F-tYu" id="uCi-OX-Gn7"/>
                 <outlet property="energyButton" destination="vyH-yI-GQH" id="s5S-aq-WEe"/>
+                <outlet property="gradientView" destination="aeg-oh-5ys" id="kWO-ii-3EQ"/>
                 <outlet property="intimacyLabel" destination="44G-EA-fJV" id="GDe-x3-I5j"/>
                 <outlet property="pageControl" destination="AVR-BV-Rkx" id="PZY-LQ-Uhe"/>
                 <outlet property="richLabel" destination="FT3-VU-fZA" id="3oD-YO-nek"/>
@@ -31,8 +33,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tbn-dg-KMT" userLabel="Container View">
                     <rect key="frame" x="0.0" y="453" width="414" height="443"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vJC-Ld-sCs" userLabel="Content View">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="409"/>
+                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vJC-Ld-sCs" userLabel="Content View">
+                            <rect key="frame" x="0.0" y="-1" width="414" height="409"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ev0-gN-xVp">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="409"/>
@@ -322,7 +324,7 @@
         </designable>
     </designables>
     <resources>
-        <image name="arrow-right-red" width="8" height="14.5"/>
+        <image name="arrow-right-red" width="6.5" height="12.5"/>
         <image name="arrow-up-gray" width="7.5" height="5"/>
         <image name="wallet-energy" width="11" height="11"/>
         <systemColor name="systemBackgroundColor">

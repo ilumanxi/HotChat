@@ -50,6 +50,8 @@
 
 @property (nonatomic, strong) JPGiftShowManager * giftShowManager;
 
+@property (nonatomic, strong) GiftEffectsController * giftEffectsController;
+
 @end
 
 @implementation ChatController
@@ -89,6 +91,13 @@
     }
     
     return _giftShowManager;
+}
+
+- (GiftEffectsController *)giftEffectsController {
+    if (!_giftEffectsController) {
+        _giftEffectsController = [[GiftEffectsController alloc] initWithOwner: self];
+    }
+    return _giftEffectsController;
 }
 
 
@@ -133,6 +142,8 @@
         //结束
         }
     ];
+    
+    [self.giftEffectsController addQueue: gift];
 }
 
 

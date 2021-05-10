@@ -113,6 +113,8 @@
 		263A6C3825C2DA4800FD43B6 /* PairCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263A6C3625C2DA4800FD43B6 /* PairCallViewController.swift */; };
 		263A6C3925C2DA4800FD43B6 /* PairCallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 263A6C3725C2DA4800FD43B6 /* PairCallViewController.xib */; };
 		263A6C3C25C2DDEB00FD43B6 /* pair.svga in Resources */ = {isa = PBXBuildFile; fileRef = 263A6BEE25C2D74900FD43B6 /* pair.svga */; };
+		263B8C022648FFEF003A4296 /* GiftEffectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263B8C002648FFEF003A4296 /* GiftEffectsViewController.swift */; };
+		263B8C032648FFEF003A4296 /* GiftEffectsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 263B8C012648FFEF003A4296 /* GiftEffectsViewController.xib */; };
 		263BC1E225494EA20081F5DF /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 263BC1E125494EA20081F5DF /* UIView+Additions.m */; };
 		263BC21D254956950081F5DF /* CallMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 263BC21C254956950081F5DF /* CallMenuViewController.m */; };
 		263BC22D254987770081F5DF /* BeautyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 263BC22B254987770081F5DF /* BeautyViewController.m */; };
@@ -708,6 +710,8 @@
 		263A6BEE25C2D74900FD43B6 /* pair.svga */ = {isa = PBXFileReference; lastKnownFileType = file; path = pair.svga; sourceTree = "<group>"; };
 		263A6C3625C2DA4800FD43B6 /* PairCallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairCallViewController.swift; sourceTree = "<group>"; };
 		263A6C3725C2DA4800FD43B6 /* PairCallViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PairCallViewController.xib; sourceTree = "<group>"; };
+		263B8C002648FFEF003A4296 /* GiftEffectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftEffectsViewController.swift; sourceTree = "<group>"; };
+		263B8C012648FFEF003A4296 /* GiftEffectsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiftEffectsViewController.xib; sourceTree = "<group>"; };
 		263BC1E025494EA20081F5DF /* UIView+Additions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Additions.h"; sourceTree = "<group>"; };
 		263BC1E125494EA20081F5DF /* UIView+Additions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Additions.m"; sourceTree = "<group>"; };
 		263BC21B254956950081F5DF /* CallMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CallMenuViewController.h; sourceTree = "<group>"; };
@@ -2309,6 +2313,8 @@
 				2656F30D254FAC0500552611 /* GiftReminderViewController.xib */,
 				26A7538426368E990070CA77 /* ConversationListController.h */,
 				26A7538526368E990070CA77 /* ConversationListController.m */,
+				263B8C002648FFEF003A4296 /* GiftEffectsViewController.swift */,
+				263B8C012648FFEF003A4296 /* GiftEffectsViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2577,6 +2583,7 @@
 				2619D193256260A90071CC85 /* GiftCountCell.xib in Resources */,
 				2643EB482500AD7E00FBBE49 /* LaunchScreen.storyboard in Resources */,
 				26E291B72554FB810032AE99 /* AvatarAuthenticationResultController.xib in Resources */,
+				263B8C032648FFEF003A4296 /* GiftEffectsViewController.xib in Resources */,
 				26918C242626BAE2007B5F14 /* ChargeViewController.xib in Resources */,
 				2643EB452500AD7E00FBBE49 /* Assets.xcassets in Resources */,
 				26E4C67F2592F440005EAAC3 /* AccountDestructionStatementController.xib in Resources */,
@@ -2776,6 +2783,7 @@
 				26D1E594253D6000004B9B29 /* VideoCallViewController.m in Sources */,
 				26808FDC2519D4B800C9803C /* Request.swift in Sources */,
 				26F25C932509C36B00F808EA /* TabBarButton.swift in Sources */,
+				263B8C022648FFEF003A4296 /* GiftEffectsViewController.swift in Sources */,
 				26CB6D3E25515D6B00A9F4DD /* BDFaceSuccessViewController.m in Sources */,
 				26F553762553D16E00840735 /* TalkEarningsViewController.swift in Sources */,
 				262FFFB42601FF6A00F541C2 /* TextMessageCellData.m in Sources */,

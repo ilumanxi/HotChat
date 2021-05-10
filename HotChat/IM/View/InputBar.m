@@ -318,7 +318,12 @@
             
 - (void)clickGiftBtn:(UIButton *)sender
 {
-    [self handleKeyboard:sender selector:@selector(inputBarDidTouchGift:)];    
+    if(_delegate && [_delegate respondsToSelector:@selector(inputBarDidTouchGift:)]) {
+        
+        [_delegate inputBarDidTouchGift: self];
+    }
+    
+//    [self handleKeyboard:sender selector:@selector(inputBarDidTouchGift:)];
 }
 
 - (void)clickMoreBtn:(UIButton *)sender

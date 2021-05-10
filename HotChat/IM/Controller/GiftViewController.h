@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GiftViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIView *containerView;
+
 @property(nonatomic, assign, class, readonly) CGFloat contentHeight;
 
 @property(strong , nonatomic) NSArray<Gift *> *gifts;

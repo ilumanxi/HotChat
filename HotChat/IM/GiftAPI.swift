@@ -88,7 +88,7 @@ extension GiftAPI: TargetType {
     
     static func gitResourceURL(_ giftID: String) -> URL? {
         var destination = cachesDirectoryURL(component)
-        destination.appendPathComponent("\(giftID).svga")
+        destination.appendPathComponent("\(giftID)")
         if FileManager.default.fileExists(atPath: destination.path) {
             return destination
         }

@@ -43,6 +43,16 @@ extension UIWindow {
 }
 
 extension UIViewController {
+    func presentTopMost(_ viewController: UIViewController, animated: Bool = true) {
+        var runLoopFindPresentedViewController: UIViewController? = self
+        while ((runLoopFindPresentedViewController?.presentedViewController) != nil) {
+            runLoopFindPresentedViewController = runLoopFindPresentedViewController?.presentedViewController
+        }
+        runLoopFindPresentedViewController?.present(viewController, animated: animated, completion: nil)
+   }
+}
+
+extension UIViewController {
     
     var safeTopAnchor: NSLayoutYAxisAnchor {
         if #available(iOS 11.0, *) {

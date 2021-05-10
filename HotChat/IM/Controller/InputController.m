@@ -107,10 +107,10 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
     else if(_status == Input_Status_Input_More){
         [self hideMoreAnimation];
     }
-    
-    else if(_status == Input_Status_Input_Gift){
-        [self hideGiftAnimation];
-    }
+//
+//    else if(_status == Input_Status_Input_Gift){
+//        [self hideGiftAnimation];
+//    }
     else{
         //[self hideFaceAnimation:NO];
         //[self hideMoreAnimation:NO];
@@ -148,22 +148,22 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
     }];
 }
 
-- (void)hideGiftAnimation
-{
-    self.giftViewController.view.hidden = NO;
-    self.giftViewController.view.alpha = 1.0;
-
-    __weak typeof(self) ws = self;
-    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        ws.giftViewController.view.alpha = 0.0;
-    } completion:^(BOOL finished) {
-        ws.giftViewController.view.hidden = YES;
-        ws.giftViewController.view.alpha = 1.0;
-        [ws.giftViewController.view removeFromSuperview];
-        [ws.giftViewController didMoveToParentViewController:nil];
-        [ws.giftViewController removeFromParentViewController];
-    }];
-}
+//- (void)hideGiftAnimation
+//{
+//    self.giftViewController.view.hidden = NO;
+//    self.giftViewController.view.alpha = 1.0;
+//
+//    __weak typeof(self) ws = self;
+//    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+//        ws.giftViewController.view.alpha = 0.0;
+//    } completion:^(BOOL finished) {
+//        ws.giftViewController.view.hidden = YES;
+//        ws.giftViewController.view.alpha = 1.0;
+//        [ws.giftViewController.view removeFromSuperview];
+//        [ws.giftViewController didMoveToParentViewController:nil];
+//        [ws.giftViewController removeFromParentViewController];
+//    }];
+//}
 
 - (void)hideGreetingAnimation
 {
@@ -227,20 +227,17 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
 
 - (void)showGiftAnimation {
     
-    [self addChildViewController:self.giftViewController];
-    self.giftViewController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    self.giftViewController.view.frame = CGRectMake(0, Screen_Height, Screen_Width, GiftViewController.contentHeight);
-    [self.view addSubview:self.giftViewController.view];
+    self.giftViewController.navigationBarAlpha = 0;
+    self.giftViewController.delegate = self;
     
-    [self.giftViewController didMoveToParentViewController:self];
-
-    self.giftViewController.view.hidden = NO;
-    __weak typeof(self) ws = self;
-    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        CGRect newFrame = ws.giftViewController.view.frame;
-        newFrame.origin.y = ws.inputBar.frame.origin.y + ws.inputBar.frame.size.height;
-        ws.giftViewController.view.frame = newFrame;
-    } completion:nil];
+    BaseNavigationController *navController = [[BaseNavigationController alloc] initWithRootViewController:self.giftViewController];
+    
+    navController.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    navController.navigationBar.hidden = YES;
+    
+    [self presentViewController:navController animated:YES completion:^{
+        navController.navigationBar.hidden = NO;
+    }];
 }
 
 
@@ -342,7 +339,7 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
     [_inputBar.inputTextView resignFirstResponder];
     [self hideFaceAnimation];
     [self hideMoreAnimation];
-    [self hideGiftAnimation];
+//    [self hideGiftAnimation];
     
     [self showVoiceAnimation];
     _status = Input_Status_Input_Talk;
@@ -358,7 +355,7 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
     }
    
     [self hideFaceAnimation];
-    [self hideGiftAnimation];
+//    [self hideGiftAnimation];
     [self hideVoiceAnimation];
     
     
@@ -376,7 +373,7 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
         return;
     }
     [self hideMoreAnimation];
-    [self hideGiftAnimation];
+//    [self hideGiftAnimation];
     [self hideVoiceAnimation];
     [_inputBar.inputTextView resignFirstResponder];
     [self showFaceAnimation];
@@ -389,22 +386,21 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
 
 - (void)inputBarDidTouchGift:(InputBar *)inputBar {
     
-    if(_status == Input_Status_Input_More){
-        [self hideMoreAnimation];
-    }
-    if (_status == Input_Status_Input_Face) {
-        [self hideFaceAnimation];
-    }
-    
-    [_inputBar.inputTextView resignFirstResponder];
+//    if(_status == Input_Status_Input_More){
+//        [self hideMoreAnimation];
+//    }
+//    if (_status == Input_Status_Input_Face) {
+//        [self hideFaceAnimation];
+//    }
+//
+//    [_inputBar.inputTextView resignFirstResponder];
     [self showGiftAnimation];
-    _status = Input_Status_Input_Gift;
+//    _status = Input_Status_Input_Gift;
     
 
-    
-    if (_delegate && [_delegate respondsToSelector:@selector(inputController:didChangeHeight:)]){
-        [_delegate inputController:self didChangeHeight:_inputBar.frame.size.height + GiftViewController.contentHeight];
-    }
+//    if (_delegate && [_delegate respondsToSelector:@selector(inputController:didChangeHeight:)]){
+//        [_delegate inputController:self didChangeHeight:_inputBar.frame.size.height + GiftViewController.contentHeight];
+//    }
     
 }
 
@@ -416,9 +412,9 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
     if (_status == Input_Status_Input_Face) {
         [self hideFaceAnimation];
     }
-    if (_status == Input_Status_Input_Gift) {
-        [self hideGiftAnimation];
-    }
+//    if (_status == Input_Status_Input_Gift) {
+//        [self hideGiftAnimation];
+//    }
     _status = Input_Status_Input_Keyboard;
     [_inputBar.inputTextView becomeFirstResponder];
 }
@@ -531,9 +527,9 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
     else if(_status == Input_Status_Input_Face){
         [self hideFaceAnimation];
     }
-    else if(_status == Input_Status_Input_Gift){
-        [self hideGiftAnimation];
-    }
+//    else if(_status == Input_Status_Input_Gift){
+//        [self hideGiftAnimation];
+//    }
     [self hideVoiceAnimation];
     [self hideGreetingAnimation];
     _status = Input_Status_Input;

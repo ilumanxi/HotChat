@@ -236,7 +236,7 @@ extension AccountPlugin: PluginType {
             return
         }
         
-        if let user = result.data, result.isSuccessd, user.isSuccessd {
+        if let user = result.data, result.isSuccessd, user.isSuccessd, !(response.request?.url?.path ?? "").contains("login/tokenLogin") {
             
             LoginManager.shared.login(user: user,sendNotification: user.isInit)
         }

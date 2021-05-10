@@ -75,7 +75,7 @@
  
 @property (strong, nonatomic) ReportHelper *reportHelper;
 
-
+@property (nonatomic, strong) GiftEffectsController * giftEffectsController;
 
 @end
 
@@ -428,6 +428,13 @@
     return _reportHelper;
 }
 
+- (GiftEffectsController *)giftEffectsController {
+    if (!_giftEffectsController) {
+        _giftEffectsController = [[GiftEffectsController alloc] initWithOwner: self];
+    }
+    return _giftEffectsController;
+}
+
 - (void)onRecvNewMessage:(V2TIMMessage *)msg {
     
     if (msg.elemType != V2TIM_ELEM_TYPE_CUSTOM) {
@@ -469,6 +476,8 @@
         //结束
         }
     ];
+    
+    [self.giftEffectsController addQueue: gift];
 }
 
 @end

@@ -50,6 +50,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *coinLabel;
 
+@property (weak, nonatomic) IBOutlet GradientView *gradientView;
+
 
 @end
 
@@ -60,9 +62,20 @@
     return 409  +  UIApplication.sharedApplication.keyWindow.safeAreaInsets.bottom;
 }
 
-- (void)setSelectedGift:(Gift *)selectedGift {
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     
+    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+        self.modalPresentationStyle = UIModalPresentationOverFullScreen;
+        self.count = 1;
+    }
+    
+    return self;
+}
+
+- (void)setSelectedGift:(Gift *)selectedGift {
+    selectedGift.count = self.count;
     _selectedGift = selectedGift;
+    
     
     self.intimacyLabel.text = [NSString stringWithFormat:@"亲密度\n+%ld℃", selectedGift.intimacy];
     self.intimacyLabel.hidden = selectedGift.intimacy <=0;
@@ -74,6 +87,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.containerView.clipsToBounds = YES;
+    self.containerView.layer.cornerRadius = 10;
+    self.containerView.layer.maskedCorners = kCALayerMinXMinYCorner | kCALayerMaxXMinYCorner;
+    
     [self setupViews];
     self.columnCountOfPerRow = 4;
     self.gifts = [GiftManager shared].cahcheGiftList;
