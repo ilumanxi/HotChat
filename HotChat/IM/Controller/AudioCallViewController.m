@@ -471,7 +471,7 @@
                     
                 });
             }
-            else if (callCode == 4) {
+            else if (callCode == 4 || callCode == 10000) {
                 [self hangupClick];
             }
             else {

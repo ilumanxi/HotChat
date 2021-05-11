@@ -95,6 +95,7 @@
         }
         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             self.errorCall(error.code, error.localizedDescription);
+            self.errorCall(10000, error.localizedDescription);
         }
      ];
     
