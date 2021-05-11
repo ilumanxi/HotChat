@@ -106,6 +106,7 @@ typedef NS_ENUM(NSInteger,VideoUserRemoveReason){
 }
 
 - (void)showCallVC:(NSMutableArray<CallUserModel *> *)invitedList sponsor:(CallUserModel *)sponsor {
+    [UIApplication.sharedApplication.keyWindow endEditing:YES];
     if (self.type == CallType_Video) {
         self.callVC = [[VideoCallViewController alloc] initWithSponsor:sponsor userList:invitedList callSubType:self.subtype];
         VideoCallViewController *videoVC = (VideoCallViewController *)self.callVC;

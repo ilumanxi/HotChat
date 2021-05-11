@@ -51,12 +51,11 @@ class UserInfoHeaderView: UIView {
     
     @IBOutlet weak var nicknameLabel: UILabel!
     
-    
     @IBOutlet weak var statusLabel: UILabel!
     
-    
-    
     @IBOutlet weak var authenticationImageView: UIImageView!
+    
+    @IBOutlet weak var gradeView: UIImageView!
     
     @IBOutlet weak var vipButton: UIButton!
     
@@ -120,7 +119,7 @@ class UserInfoHeaderView: UIView {
         sexButton.set(user)
         vipButton.setVIP(user.vipType)
         authenticationImageView.isHidden = user.authenticationStatus != .ok
-        
+        gradeView.setGrade(user)
         statusLabel.isHidden = user.onlineStatus == .offline
         
         

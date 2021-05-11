@@ -11,14 +11,5 @@ import UIKit
 class UserInfoProfilePhotoCell: UITableViewCell {
     
     @IBOutlet weak var profileImageView: UIImageView!
-    
-    @IBOutlet weak var scoreLabel: UILabel!
-    
-    @IBOutlet weak var descriptionLabel: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 
 }

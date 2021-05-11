@@ -39,6 +39,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UILabel *titleLabel;
 
 /**
+ *  标识
+ */
+
+@property (nonatomic, strong) UIButton *tagButton;
+
+/**
  *  会话消息概览（下标题）
  *  概览负责显示对应会话最新一条消息的内容/类型。
  *  当最新的消息为文本消息/系统消息时，概览的内容为消息的文本内容。

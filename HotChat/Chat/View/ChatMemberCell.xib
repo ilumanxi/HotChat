@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -37,32 +36,33 @@
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" placeholderIntrinsicWidth="28" placeholderIntrinsicHeight="12" translatesAutoresizingMaskIntoConstraints="NO" id="M2k-Zv-ZP5" customClass="LabelView" customModule="HotChat" customModuleProvider="target">
-                        <rect key="frame" x="117" y="31.5" width="28" height="12"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KvJ-Ue-dsY" customClass="SexButton" customModule="HotChat" customModuleProvider="target">
+                        <rect key="frame" x="117" y="29.5" width="33" height="16"/>
+                        <color key="backgroundColor" red="0.56862745100000001" green="0.82352941180000006" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
+                        <inset key="contentEdgeInsets" minX="4" minY="2" maxX="4" maxY="2"/>
+                        <state key="normal" title="26" image="male"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Ako-GB-sgE" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="7A6-eO-l4W"/>
+                    <constraint firstItem="KvJ-Ue-dsY" firstAttribute="leading" secondItem="Ako-GB-sgE" secondAttribute="trailing" constant="8" id="I70-rh-Veh"/>
                     <constraint firstItem="Mnc-0V-NI6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="MLA-IZ-ZEZ"/>
-                    <constraint firstItem="M2k-Zv-ZP5" firstAttribute="leading" secondItem="Ako-GB-sgE" secondAttribute="trailing" constant="8" id="PSZ-p8-IdL"/>
                     <constraint firstItem="Mnc-0V-NI6" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Pix-S3-Ad6"/>
-                    <constraint firstItem="M2k-Zv-ZP5" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="XVr-wq-X6o"/>
                     <constraint firstItem="Ako-GB-sgE" firstAttribute="leading" secondItem="Mnc-0V-NI6" secondAttribute="trailing" constant="9" id="e31-Va-uAo"/>
+                    <constraint firstItem="KvJ-Ue-dsY" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="nUr-xc-zkG"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="avatarImageView" destination="Mnc-0V-NI6" id="h8m-07-P0h"/>
                 <outlet property="nameLabel" destination="Ako-GB-sgE" id="mrb-F6-tOK"/>
-                <outlet property="sexView" destination="M2k-Zv-ZP5" id="Z2K-V1-Uhr"/>
+                <outlet property="sexView" destination="KvJ-Ue-dsY" id="uLu-9M-cqI"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="108.81696428571428"/>
         </tableViewCell>
     </objects>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="male" width="12" height="12.5"/>
     </resources>
 </document>

@@ -23,7 +23,12 @@ class RelationViewController: UIViewController, LoadingStateType, IndicatorDispl
     var state: LoadingState = .initial {
         didSet {
             if isViewLoaded {
-                showOrHideIndicator(loadingState: state)
+                if state == .noContent {
+                    showOrHideIndicator(loadingState: state, text: "还没发布消息......", image: UIImage(named: "no-content-dynamic"), actionText: nil)
+                }
+                else {
+                    showOrHideIndicator(loadingState: state)
+                }
             }
         }
     }

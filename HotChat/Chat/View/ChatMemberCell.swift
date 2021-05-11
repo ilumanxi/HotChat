@@ -16,21 +16,13 @@ class ChatMemberCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     
+    @IBOutlet weak var sexView: SexButton!
     
-    @IBOutlet weak var sexView: LabelView!
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-
     func set(_ model: User)  {
         avatarImageView.kf.setImage(with: URL(string: model.headPic))
         nameLabel.text = model.nick
         nameLabel.textColor = model.vipType.textColor
-        sexView.setSex(model)
+        sexView.set(model)
     }
     
 }

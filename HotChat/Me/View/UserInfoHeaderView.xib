@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -74,7 +74,7 @@
                             <rect key="frame" x="0.0" y="375" width="375" height="110"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fKO-PH-plC">
-                                    <rect key="frame" x="20" y="21" width="124.5" height="52"/>
+                                    <rect key="frame" x="20" y="21" width="156.5" height="52"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bge-cH-Qub">
                                             <rect key="frame" x="0.0" y="0.0" width="97" height="25.5"/>
@@ -98,7 +98,7 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="1uI-US-5k6">
-                                            <rect key="frame" x="0.0" y="35.5" width="124.5" height="16.5"/>
+                                            <rect key="frame" x="0.0" y="35.5" width="156.5" height="16.5"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pmv-0R-f2t" customClass="SexButton" customModule="HotChat" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="33" height="16.5"/>
@@ -125,6 +125,13 @@
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="immortal" translatesAutoresizingMaskIntoConstraints="NO" id="3SV-LS-Zlj">
                                                     <rect key="frame" x="79" y="0.5" width="45.5" height="16"/>
+                                                </imageView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9fq-zz-g4t">
+                                                    <rect key="frame" x="128.5" y="2.5" width="28" height="12"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="28" id="Ba5-Sp-M3p"/>
+                                                        <constraint firstAttribute="height" constant="12" id="bra-Sc-aBB"/>
+                                                    </constraints>
                                                 </imageView>
                                             </subviews>
                                         </stackView>
@@ -161,6 +168,7 @@
                 <outlet property="authenticationImageView" destination="3SV-LS-Zlj" id="ubT-Gd-t2l"/>
                 <outlet property="collectionView" destination="4j0-iS-Yv6" id="IPN-O0-pNt"/>
                 <outlet property="contentView" destination="4AD-g7-yEI" id="TeL-ud-kWh"/>
+                <outlet property="gradeView" destination="9fq-zz-g4t" id="VK2-Fc-3NL"/>
                 <outlet property="indicatorLabel" destination="0Dt-SZ-om9" id="wGt-Aq-UAg"/>
                 <outlet property="nicknameLabel" destination="dX4-WC-QMz" id="hSL-uq-iHA"/>
                 <outlet property="pagerContainerView" destination="Vsh-w8-5B7" id="3Fu-9D-Ilp"/>

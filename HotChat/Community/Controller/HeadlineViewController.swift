@@ -92,7 +92,7 @@ class HeadlineViewController: UIViewController, IndicatorDisplay {
         string.append(NSAttributedString(string: "你的头条将会在首页停留"))
         string.append(NSAttributedString(string: "30S", attributes: [NSAttributedString.Key.foregroundColor : UIColor(hexString: "#FF6A4D")]))
         string.append(NSAttributedString(string: "，\n预计"))
-        string.append(NSAttributedString(string: "\(Int.random(in: 53890..<56090))人", attributes: [NSAttributedString.Key.foregroundColor : UIColor(hexString: "#FF6A4D")]))
+        string.append(NSAttributedString(string: "\(Int.random(in:30000...100000))人", attributes: [NSAttributedString.Key.foregroundColor : UIColor(hexString: "#FF6A4D")]))
         string.append(NSAttributedString(string: "将会看到你的对话"))
         
         tipabel.attributedText = string

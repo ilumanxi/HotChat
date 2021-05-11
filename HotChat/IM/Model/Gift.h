@@ -41,8 +41,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, assign) NSInteger count;
 
-@property(nonatomic, assign) BOOL isAnim;
-@property(nonatomic, assign) BOOL isVip;
+@property(nonatomic, assign) NSInteger isAnim;
+@property(nonatomic, assign) NSInteger isVip;
 
 @property(nonatomic, assign, getter=isSelected) BOOL selected;
 

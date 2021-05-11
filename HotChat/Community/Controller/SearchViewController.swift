@@ -73,7 +73,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     var data: [User] = [] {
         didSet {
-            showOrHideIndicator(loadingState: data.isEmpty ? .noContent : .contentLoaded)
+           
             tableView.reloadData()
             tableView.mj_footer?.isHidden = data.isEmpty
         }
@@ -96,24 +96,27 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         }
         tableView.mj_footer?.isHidden = true
 
-        
-        searchBar.rx.text.orEmpty
-            .subscribe(onNext: { [weak self] _ in
+        let searchButtonClicked = searchBar.rx.searchButtonClicked.asObservable().share(replay: 1)
+        searchBar.rx.text
+            .distinctUntilChanged()
+            .do(onNext: { [weak self] _ in
                 self?.page = 1
+                self?.data = []
                 self?.tableView.mj_footer?.resetNoMoreData()
+                self?.showOrHideIndicator(loadingState: .contentLoaded)
+            })
+            .subscribe(onNext: {  _ in
+               
             })
             .disposed(by: rx.disposeBag)
         
         
         
-        Observable.of(searchBar.rx.searchButtonClicked.asObservable(), loadSignal.asObserver())
+        Observable.of(searchButtonClicked, loadSignal.asObserver())
             .merge()
-            .do(onNext: { [weak self] in
-                self?.data = []
-                self?.searchBar.resignFirstResponder()
-            })
-//            .map(parameters)
-//            .flatMapLatest(loadData)
+            .filter{ [unowned self] in
+                !(self.searchBar.text?.isEmpty ?? true)
+            }
             .map{[unowned self] in self.parameters() }
             .flatMapLatest{[unowned self] parameters in self.loadData(parameters: parameters)}
             .subscribe(onNext: { [weak self] response in
@@ -130,6 +133,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.keyboardDismissMode = .onDrag
         tableView.register(UINib(nibName: "ChannelCell", bundle: nil), forCellReuseIdentifier: "ChannelCell")
         view.addSubview(tableView)
     }
@@ -148,7 +152,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             return
         }
         
-        if page.handleType == 0 || page.handleType == 1 || page.page == 1 {
+        if  page.page == 1 {
             refreshData(data)
         }
         else {
@@ -160,7 +164,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         }
         
         endRefreshing(noContent: !page.hasNext)
-        
+        showOrHideIndicator(loadingState: self.data.isEmpty ? .noContent : .contentLoaded)
     }
     
     func refreshData(_ data: [User]) {

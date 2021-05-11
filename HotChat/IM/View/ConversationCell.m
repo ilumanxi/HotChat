@@ -18,6 +18,8 @@
 #import "UIColor+TUIDarkMode.h"
 #import "THeader.h"
 #import "TUIConversationCellData+Intimacy.h"
+#import "HotChat-Swift.h"
+
 
 @implementation ConversationCell
 
@@ -41,7 +43,16 @@
         _titleLabel.textColor = [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1.0];
         _titleLabel.layer.masksToBounds = YES;
         [self addSubview:_titleLabel];
-
+        
+        GradientButton *tagButton = [GradientButton buttonWithType:UIButtonTypeCustom];
+        [tagButton setImage:[UIImage imageNamed:@"im-admin"] forState:UIControlStateNormal];
+        [tagButton setTitle:@"官方" forState:UIControlStateNormal];
+        tagButton.titleLabel.font = [UIFont systemFontOfSize: 12 weight: UIFontWeightMedium];
+        tagButton.titleEdgeInsets = UIEdgeInsetsMake(0, 2, 0, 0);
+        tagButton.colorsString = @"#FF6A2F,#FF3F3F";
+        [self addSubview:tagButton];
+        self.tagButton = tagButton;
+        
         _unReadView = [[TUnReadView alloc] init];
         [self addSubview:_unReadView];
 
@@ -71,7 +82,7 @@
 {
     [super fillWithData:convData];
     self.convData = convData;
-
+    self.tagButton.hidden = ![convData.userID isEqualToString:@"10001"];
     self.timeLabel.text = [convData.time tk_messageString];
     self.subTitleLabel.attributedText = convData.subTitle;
     [self.unReadView setNum:convData.unreadCount];
@@ -155,12 +166,14 @@
         self.headImageView.layer.cornerRadius = [TUIKit sharedInstance].config.avatarCornerRadius;
     }
 
-    self.timeLabel.mm_sizeToFit().mm_top(TConversationCell_Margin_Text).mm_right(TConversationCell_Margin + 4);
-    self.titleLabel.mm_sizeToFitThan(120, 30).mm_top(TConversationCell_Margin_Text - 5).mm_left(self.headImageView.mm_maxX+TConversationCell_Margin);
+    self.timeLabel.mm_sizeToFit().mm_top(self.headImageView.mm_minY + 6).mm_right(TConversationCell_Margin + 4);
+    self.titleLabel.mm_sizeToFit().mm_top(self.headImageView.mm_minY + 6).mm_left(self.headImageView.mm_maxX+TConversationCell_Margin);
+    self.tagButton.mm_sizeToFitThan(46, 16).mm_top(self.headImageView.mm_minY + 6).mm_left(self.titleLabel.mm_maxX+6);
+    self.tagButton.layer.cornerRadius = 8;
     self.unReadView.mm_top(self.headImageView.mm_minY).mm_right(self.headImageView.mm_r);
     
-    self.intimacyLabel.mm_sizeToFit().mm_bottom(TConversationCell_Margin_Text).mm_right(TConversationCell_Margin + 4);
-    self.subTitleLabel.mm_sizeToFit().mm_left(self.titleLabel.mm_x).mm_bottom(TConversationCell_Margin_Text).mm_flexToRight(self.intimacyLabel.mm_r + self.intimacyLabel.mm_w + 4);
+    self.intimacyLabel.mm_sizeToFit().mm_bottom(self.headImageView.mm_minY + 6).mm_right(TConversationCell_Margin + 4);
+    self.subTitleLabel.mm_sizeToFit().mm_left(self.titleLabel.mm_x).mm_bottom(self.headImageView.mm_minY + 6).mm_flexToRight(self.intimacyLabel.mm_r + self.intimacyLabel.mm_w + 4);
     
 }
 

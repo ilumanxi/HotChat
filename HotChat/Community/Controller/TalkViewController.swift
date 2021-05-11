@@ -186,7 +186,7 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
     
     func checkInState() {
         
-        if LoginManager.shared.user!.girlStatus || AppAudit.share.signinStatus ||  !LoginManager.shared.user!.isInit {
+        if LoginManager.shared.user!.girlStatus || AppAudit.share.signinStatus {
             self.checkInResult = nil
             return
         }
@@ -317,6 +317,8 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
         headlineConfig()
         
         refreshActivity()
+        
+        checkInState()
         
         refreshTop()
         

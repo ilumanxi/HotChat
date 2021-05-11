@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+@objc
 class GradientButton: HotChatButton {
 
     override class var layerClass: AnyClass {

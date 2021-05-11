@@ -26,7 +26,13 @@ class WalletProducItemCell: UICollectionViewCell {
             titleLabel.text = item.appleProduct.localizedTitle
             priceLabel.text = item.appleProduct.localizedPrice
             textLabel.isHidden = !item.product.isFirstRecharge
-            textLabel.text = "赠送\(item.product.giveEnergy)能量+\(item.product.vipDay)天会员"
+            
+            if !item.product.giveEnergy.isEmpty  || !item.product.vipDay.isEmpty {
+                textLabel.text = "赠送\(item.product.giveEnergy)能量+\(item.product.vipDay)天会员"
+            }
+            else {
+                textLabel.text = nil
+            }
         }
     }
     
@@ -42,7 +48,7 @@ class WalletProducItemCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             if isSelected {
-                layer.borderColor = UIColor(hexString: "#5159F8").cgColor
+                layer.borderColor = UIColor(hexString: "#FF433E").cgColor
             }
             else {
                 layer.borderColor = UIColor(hexString: "#F4F4F4").cgColor

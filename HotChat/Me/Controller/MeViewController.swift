@@ -249,7 +249,8 @@ class MeViewController: UITableViewController, Autorotate, IndicatorDisplay {
 //            let size = accessoryView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
             
             accessoryView.frame = CGRect(origin: .zero, size: CGSize(width: 150, height: 34))
-            
+            accessoryView.setNeedsLayout()
+            accessoryView.layoutIfNeeded()
             userEntrys.append(RightDetailFormEntry(image: UIImage(named: "me-visitor"), text: "我的访客", accessoryView: accessoryView, onTapped: pushVisitor))
         }
         

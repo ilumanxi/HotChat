@@ -179,8 +179,6 @@ class ProfilePhoto: FormEntry {
     
     private func render(_ cell: UserInfoProfilePhotoCell) {
         cell.profileImageView.kf.setImage(with: imageURL)
-        cell.scoreLabel.text = score
-        cell.descriptionLabel.text = description
     }
     
     @objc func tapProfileImageView() {
