@@ -244,7 +244,7 @@
         gift.selected = (gift == self.selectedGift);
     }
     
-    [collectionView reloadData];
+//    [collectionView reloadData];
     
 }
 

@@ -65,7 +65,7 @@ class UserDataView: UIView {
         constellationLabel.text = model.constellation
         introduceLabel.text =  model.introduce.isEmpty ? "未设置" : model.introduce
         
-        priceView.isHidden = !model.girlStatus ||  AppAudit.share.energyStatus
+        priceView.isHidden = model.sex == .male ||  AppAudit.share.energyStatus
         
         voiceLabel.text = "语音聊天：\(model.voiceCharge)能量/分钟"
         videoLabel.text = "视频聊天：\(model.videoCharge)能量/分钟"
