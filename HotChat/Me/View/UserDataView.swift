@@ -51,7 +51,12 @@ class UserDataView: UIView {
         
         userIDLabel.text = model.userId
         sexLabel.text = model.sex.description
+        realNameButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        realNameButton.titleLabel?.minimumScaleFactor = 0.5
         realNameButton.isSelected = model.realNameStatus == .ok
+        
+        authenticationButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        authenticationButton.titleLabel?.minimumScaleFactor = 0.5
         authenticationButton.isSelected = model.authenticationStatus == .ok
         ageLabel.text = "\(model.age)岁"
         heightLabel.text = model.height.isEmpty ? placeholder: model.height

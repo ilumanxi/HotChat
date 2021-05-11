@@ -2225,10 +2225,10 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bhs-Hc-PwL">
-                                                            <rect key="frame" x="0.0" y="30.333333333333343" width="102" height="20.333333333333329"/>
+                                                            <rect key="frame" x="0.0" y="30.333333333333343" width="107" height="20.333333333333329"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pfO-f5-nzB" customClass="HotChatButton" customModule="HotChat" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="0.33333333333334281" width="40" height="20"/>
+                                                                    <rect key="frame" x="0.0" y="0.33333333333334281" width="45" height="20"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                                     <state key="normal" title="T币" image="coin-img">
@@ -2236,7 +2236,7 @@
                                                                     </state>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="加载中" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCx-Mw-7in">
-                                                                    <rect key="frame" x="50" y="0.0" width="52" height="20.333333333333332"/>
+                                                                    <rect key="frame" x="55" y="0.0" width="52" height="20.333333333333332"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -2244,6 +2244,9 @@
                                                             </subviews>
                                                         </stackView>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="pfO-f5-nzB" firstAttribute="width" secondItem="NCq-hj-sPW" secondAttribute="width" id="cSy-xi-X7U"/>
+                                                    </constraints>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="HMB-1a-LjH">
                                                     <rect key="frame" x="196" y="23" width="180" height="34"/>

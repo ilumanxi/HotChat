@@ -53,7 +53,7 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     let bannerAPI = Request<BannerAPI>()
     
     var headerViewHeight: CGFloat {
-        return (view.bounds.width / (2 / 0.75)).rounded(.down)
+        return (view.bounds.width / (2 / 0.6)).rounded(.down)
     }
     
     var banners: [Banner] = [] {
