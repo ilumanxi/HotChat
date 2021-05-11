@@ -24,7 +24,13 @@ class InterflowViewController: UIViewController, IndicatorDisplay, LoadingStateT
     
     var state: LoadingState = .initial {
         didSet {
-          showOrHideIndicator(loadingState: state)
+            if state == .noContent {
+                let text = "亲密度>0℃的亲密关系会在这里展示哦~\n快去和心仪的Ta聊聊吧"
+                showOrHideIndicator(loadingState: state, text: text, image: UIImage(named: "no-content-intimacy"), actionText: nil, backgroundColor: .white)
+            }
+            else {
+                showOrHideIndicator(loadingState: state)
+            }
         }
     }
     

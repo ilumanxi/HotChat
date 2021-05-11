@@ -89,7 +89,7 @@ class MeRelationshipViewController: UITableViewController, IndicatorDisplay, Loa
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: RelationshipViewCell.self)
         cell.avatarImageView.kf.setImage(with: URL(string: user.headPic))
         cell.nicknameLabel.text = user.nick
-        cell.sexView.setSex(user)
+        cell.sexView.set(user)
         cell.introduceLabel.text = user.introduce
         cell.followButton.isHidden = user.isFollow
         cell.gradeView.setGrade(user)

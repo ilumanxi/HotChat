@@ -60,6 +60,7 @@ extension BanberHeaderView: FSPagerViewDataSource, FSPagerViewDelegate {
         
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "FSPagerViewCell", at: index)
         cell.contentView.layer.shadowColor = UIColor.clear.cgColor
+        cell.imageView?.contentMode = .scaleToFill
         cell.imageView?.kf.setImage(with: URL(string: model.img))
         return cell
     }

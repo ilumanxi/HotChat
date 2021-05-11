@@ -73,12 +73,21 @@
     cell.countLabel.text = [NSString stringWithFormat:@"%ld%@",model.num, model.name];
     
     if (model.num == self.count) {
-        cell.contentView.backgroundColor = [UIColor colorWithRed:241/255.0 green:238/255.0 blue:11/255.0 alpha:1.0];
+        cell.countLabel.textColor = [UIColor whiteColor];
+        cell.contentView.layer.borderColor = [UIColor colorWithRed:255.0/255.0 green:66.0/255.0 blue:62/255.0 alpha:1.0].CGColor;
+        cell.contentView.layer.borderWidth = 0.5;
+        cell.contentView.layer.cornerRadius = 2;
+        cell.contentView.backgroundColor = [UIColor colorWithRed:255/255.0 green:90/255.0 blue:53/255.0 alpha:1.0];
     }
     else {
+        cell.countLabel.textColor = [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1.0];
+        cell.contentView.layer.borderColor = nil;
+        cell.contentView.layer.borderWidth = 0;
+        cell.contentView.layer.cornerRadius = 0;
         cell.contentView.backgroundColor = [UIColor whiteColor];
     }
     
+   
     return cell;
 }
 

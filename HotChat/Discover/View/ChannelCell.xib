@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -30,7 +30,7 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="CFk-id-l6J">
-                        <rect key="frame" x="98" y="22.5" width="92" height="59.5"/>
+                        <rect key="frame" x="98" y="16.5" width="94" height="71.5"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="LdT-v8-ie7">
                                 <rect key="frame" x="0.0" y="0.0" width="62" height="17"/>
@@ -54,18 +54,19 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Sw9-Ce-u0P">
-                                <rect key="frame" x="0.0" y="25" width="92" height="12"/>
+                                <rect key="frame" x="0.0" y="25" width="94" height="24"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" placeholderIntrinsicWidth="28" placeholderIntrinsicHeight="12" translatesAutoresizingMaskIntoConstraints="NO" id="8Sc-Py-gKZ" customClass="LabelView" customModule="HotChat" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="28" height="12"/>
-                                        <color key="backgroundColor" red="1" green="0.47058823529999999" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    </view>
-                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HGP-UO-9le" customClass="GradientButton" customModule="HotChat" customModuleProvider="target">
-                                        <rect key="frame" x="32" y="0.0" width="28" height="12"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MBT-Gy-j3V" customClass="SexButton" customModule="HotChat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
+                                        <state key="normal" title="21"/>
+                                    </button>
+                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eVk-b9-6tS" customClass="GradientButton" customModule="HotChat" customModuleProvider="target">
+                                        <rect key="frame" x="34" y="6" width="28" height="12"/>
                                         <color key="backgroundColor" red="0.83921568629999999" green="0.41568627450000001" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="28" id="gJx-z3-W7c"/>
-                                            <constraint firstAttribute="height" constant="12" id="zHm-nT-e30"/>
+                                            <constraint firstAttribute="width" constant="28" id="Zi0-ge-6Om"/>
+                                            <constraint firstAttribute="height" constant="12" id="jTB-4h-xPW"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                         <state key="normal" title="认证"/>
@@ -77,12 +78,12 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="28" placeholderIntrinsicHeight="12" translatesAutoresizingMaskIntoConstraints="NO" id="Ldj-m0-HLR">
-                                        <rect key="frame" x="64" y="0.0" width="28" height="12"/>
+                                        <rect key="frame" x="66" y="6" width="28" height="12"/>
                                     </imageView>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0Q-pr-K0d">
-                                <rect key="frame" x="0.0" y="45" width="31" height="14.5"/>
+                                <rect key="frame" x="0.0" y="57" width="31" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -118,13 +119,13 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="authenticationButton" destination="HGP-UO-9le" id="8rX-zY-LIm"/>
+                <outlet property="authenticationButton" destination="eVk-b9-6tS" id="bcv-mH-F45"/>
                 <outlet property="avatarImageView" destination="W2e-N5-Jkh" id="Bwz-8s-YUh"/>
                 <outlet property="gradeView" destination="Ldj-m0-HLR" id="d2x-B5-K93"/>
                 <outlet property="introduceLabel" destination="c0Q-pr-K0d" id="CiC-qs-br6"/>
                 <outlet property="locationLabel" destination="dyS-gK-vvd" id="Pff-1C-UEP"/>
                 <outlet property="nicknameLabel" destination="fXL-Af-2Pa" id="YPp-xi-Qn0"/>
-                <outlet property="sexView" destination="8Sc-Py-gKZ" id="z6H-7J-87F"/>
+                <outlet property="sexView" destination="MBT-Gy-j3V" id="fKf-0e-TJt"/>
                 <outlet property="statusLabel" destination="XFf-hC-bmL" id="t0o-2M-eDR"/>
                 <outlet property="vipButton" destination="zlj-3w-7tR" id="dZz-lO-6M7"/>
             </connections>

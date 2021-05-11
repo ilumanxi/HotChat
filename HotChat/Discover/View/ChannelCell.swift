@@ -22,7 +22,7 @@ class ChannelCell: UITableViewCell {
     
     @IBOutlet weak var introduceLabel: UILabel!
     
-    @IBOutlet weak var sexView: LabelView!
+    @IBOutlet weak var sexView: SexButton!
     
     @IBOutlet weak var authenticationButton: UIButton!
     
@@ -37,7 +37,7 @@ extension ChannelCell {
        avatarImageView.kf.setImage(with: URL(string: user.headPic))
        nicknameLabel.text = user.nick
        nicknameLabel.textColor = user.vipType.textColor
-       sexView.setSex(user)
+       sexView.set(user)
        locationLabel.text = user.region
        introduceLabel.text = user.introduce
        statusLabel.text = user.onlineStatus.text

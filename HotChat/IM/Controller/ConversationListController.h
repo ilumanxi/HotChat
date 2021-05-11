@@ -75,6 +75,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, strong) TConversationListViewModel *viewModel;
 
+@property (nonatomic, copy) void(^dataChaned)(ConversationListController *owoner, NSArray *data);
+
 - (instancetype)initWithIntimacy:(BOOL)isIntimacy;
 
 @end

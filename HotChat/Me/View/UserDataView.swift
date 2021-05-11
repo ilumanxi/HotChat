@@ -63,7 +63,7 @@ class UserDataView: UIView {
         industryLabel.text = industry.isEmpty  ? placeholder : industry
         incomeLabel.text = model.income.isEmpty  ? placeholder : model.income
         constellationLabel.text = model.constellation
-        introduceLabel.text =  model.introduce.isEmpty ? "未设置" : model.introduce
+        introduceLabel.text = model.introduce
         
         priceView.isHidden = model.sex == .male ||  AppAudit.share.energyStatus
         

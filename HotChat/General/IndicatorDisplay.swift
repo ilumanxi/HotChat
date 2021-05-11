@@ -17,7 +17,7 @@ protocol IndicatorDisplay: NSObject {
     func show(_ error: Error, in view: UIView)
     func show(_ message: String?, in view: UIView)
     func showIndicator(_ message: String?, in view: UIView)
-    func showOrHideIndicator(loadingState: LoadingState, in view: UIView, text: String?, image: UIImage?, actionText: String?)
+    func showOrHideIndicator(loadingState: LoadingState, in view: UIView, text: String?, image: UIImage?, actionText: String?, backgroundColor: UIColor?)
     func hideIndicator(from view: UIView)
     
     func refreshData()
@@ -101,12 +101,12 @@ extension IndicatorDisplay where Self: UIViewController {
         hub.show(animated: true)
     }
     
-    func showOrHideIndicator(loadingState: LoadingState, text: String? = nil, image: UIImage? = nil, actionText: String? = nil) {
-        showOrHideIndicator(loadingState: loadingState, in: view, text: text, image: image, actionText: actionText)
+    func showOrHideIndicator(loadingState: LoadingState, text: String? = nil, image: UIImage? = nil, actionText: String? = nil, backgroundColor: UIColor? = nil) {
+        showOrHideIndicator(loadingState: loadingState, in: view, text: text, image: image, actionText: actionText, backgroundColor: backgroundColor)
     }
     
     
-    func showOrHideIndicator(loadingState: LoadingState, in view: UIView, text: String? = nil, image: UIImage? = nil, actionText: String? = nil) {
+    func showOrHideIndicator(loadingState: LoadingState, in view: UIView, text: String? = nil, image: UIImage? = nil, actionText: String? = nil, backgroundColor: UIColor? = nil) {
         
         func showImageText(text: String, image: UIImage, actionText: String? = nil) -> UIStackView {
             var arrangedSubviews: [UIView] = []
@@ -172,7 +172,7 @@ extension IndicatorDisplay where Self: UIViewController {
             return
         }
         let holderView = findHolderView ?? IndicatorHolderView()
-        holderView.backgroundColor = view.backgroundColor ?? UIColor.groupTableViewBackground
+        holderView.backgroundColor = backgroundColor ?? (view.backgroundColor ?? UIColor.white)
         
         switch loadingState {
         case .initial, .loadingContent, .refreshingContent:

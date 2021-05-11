@@ -54,6 +54,10 @@ static NSString *kConversationCell_ReuseId = @"TConversationCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _dataList = @[];
+    
+    !self.dataChaned ? : self.dataChaned(self, self.dataList.copy);
 
     [self setupViews];
 
@@ -102,6 +106,7 @@ static NSString *kConversationCell_ReuseId = @"TConversationCell";
             [self requestIntimacyList: self.viewModel.dataList success:^(NSArray<TUIConversationCellData *> * conversations) {
                 self.dataList =  [self filteConversation: conversations];
                 [self.tableView reloadData];
+                !self.dataChaned ? : self.dataChaned(self, self.dataList.copy);
             }];
         }
         else {
@@ -109,6 +114,7 @@ static NSString *kConversationCell_ReuseId = @"TConversationCell";
             [self requestIntimacyList:self.dataList success:^(NSArray<TUIConversationCellData *> * conversations) {
                 self.dataList = conversations;
                 [self.tableView reloadData];
+                !self.dataChaned ? : self.dataChaned(self, self.dataList.copy);
             }];
         }
         [self.tableView reloadData];

@@ -13,6 +13,11 @@ import Tabman
 
 // TUIKitNotification_onChangeUnReadCount
 
+extension ConversationListController: IndicatorDisplay {
+    
+    
+}
+
 class ConversationViewController: TabmanViewController {
     
     var titles: [String] = []
@@ -43,6 +48,15 @@ class ConversationViewController: TabmanViewController {
     lazy var intimateController: ConversationListController = {
         var controller = ConversationListController(intimacy: true)
         controller.delegate = self
+        controller.dataChaned =  { owoner, data in
+            if data.isEmpty {
+                let text = "亲密度>4℃的亲密关系会在这里展示哦~\n快去和心仪的Ta聊聊吧"
+                owoner.showOrHideIndicator(loadingState: .noContent, text: text, image: UIImage(named: "no-content-intimacy"), actionText: nil, backgroundColor: .white)
+            }
+            else {
+                owoner.showOrHideIndicator(loadingState: .contentLoaded)
+            }
+        }
         return controller
     }()
     
@@ -54,6 +68,7 @@ class ConversationViewController: TabmanViewController {
         titles = ["消息", "亲密"]
 
         bounces = false
+//        isScrollEnabled = false
         
         // Set PageboyViewControllerDataSource dataSource to configure page view controller.
         dataSource = self

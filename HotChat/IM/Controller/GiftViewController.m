@@ -72,6 +72,15 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    
+    self.navigationController.navigationBar.userInteractionEnabled = NO;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    self.navigationController.navigationBar.userInteractionEnabled = YES;
+}
+
 - (void)setSelectedGift:(Gift *)selectedGift {
     selectedGift.count = self.count;
     _selectedGift = selectedGift;
