@@ -582,7 +582,7 @@ extension UserInfoViewController: GiftViewControllerDelegate {
                 imData.giftRequestId = giveGift.giftRequestId
                 let data = TUICallUtils.dictionary2JsonData(imData.mj_keyValues() as! [AnyHashable : Any])
                 cellData.innerMessage = V2TIMManager.sharedInstance()!.createCustomMessage(data)
-                GiftManager.shared().sendGiftMessage(cellData, userID: user.userId)
+                GiftManager.shared().sendGiftMessage(cellData, userID: self.user.userId)
                 giftController.dismiss(animated: true, completion: nil)
                 
                 self.show("送礼成功")
