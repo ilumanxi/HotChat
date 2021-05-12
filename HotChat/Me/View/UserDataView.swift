@@ -61,7 +61,7 @@ class UserDataView: UIView {
         ageLabel.text = "\(model.age)岁"
         heightLabel.text = model.height.isEmpty ? placeholder: model.height
         regionLabel.text = model.region
-        let home = "\(model.homeProvince)\(model.homeCity)"
+        let home = "\(model.homeCity)"
         homeLabel.text = home.isEmpty ? placeholder : home
         educationLabel.text = model.education.isEmpty ? placeholder : model.education
         let industry =  model.industryList.first?.label ?? ""

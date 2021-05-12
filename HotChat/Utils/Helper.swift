@@ -463,3 +463,15 @@ extension UIImage {
         return image!
     }
 }
+
+extension NSNumber {
+    
+    @objc
+    var intimacyString: String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.groupingSeparator = ""
+        formatter.zeroSymbol = ""
+        return formatter.string(from: self) ?? ""
+    }
+}

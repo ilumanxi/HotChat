@@ -57,9 +57,8 @@ static NSString *kConversationCell_ReuseId = @"TConversationCell";
     
     _dataList = @[];
     
-    !self.dataChaned ? : self.dataChaned(self, self.dataList.copy);
-
     [self setupViews];
+    !self.dataChaned ? : self.dataChaned(self, self.dataList.copy);
 
     self.navigationController.interactivePopGestureRecognizer.enabled = YES;
     self.navigationController.interactivePopGestureRecognizer.delegate = self;

@@ -28,7 +28,15 @@ class WalletProducItemCell: UICollectionViewCell {
             textLabel.isHidden = !item.product.isFirstRecharge
             
             if !item.product.giveEnergy.isEmpty  || !item.product.vipDay.isEmpty {
-                textLabel.text = "赠送\(item.product.giveEnergy)能量+\(item.product.vipDay)天会员"
+                var string = [String]()
+                if !item.product.giveEnergy.isEmpty {
+                    string.append("\(item.product.giveEnergy)能量")
+                }
+                
+                if !item.product.vipDay.isEmpty {
+                    string.append("\(item.product.vipDay)天会员")
+                }
+                textLabel.text = "赠送\(string.joined(separator: "+"))"
             }
             else {
                 textLabel.text = nil

@@ -22,10 +22,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) TUIMessageCellData *menuUIMsg;
 @property (nonatomic, strong) TUIMessageCellData *reSendUIMsg;
 
+@property (nonatomic, assign) BOOL isLoadingMsg;
+@property (nonatomic, assign) BOOL noMoreMsg;
+@property (nonatomic, assign) BOOL firstLoad;
+@property (nonatomic, assign) BOOL isInVC;
+@property (nonatomic, assign) BOOL isActive;
+
+- (void)readedReport;
 
 - (V2TIMMessage *)transIMMsgFromUIMsg:(TUIMessageCellData *)data;
 - (void)changeMsg:(TUIMessageCellData *)msg status:(TMsgStatus)status;
 - (TUISystemMessageCellData *)transSystemMsgFromDate:(NSDate *)date;
+- (void)getMessages:(NSArray *)msgs msgCount:(int)msgCount;
 
 @end
 

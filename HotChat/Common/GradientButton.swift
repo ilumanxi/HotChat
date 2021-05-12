@@ -129,6 +129,8 @@ extension SexButton {
     
     @objc
     func set(_ user: User) {
+        titleLabel?.adjustsFontSizeToFitWidth = true
+        titleLabel?.minimumScaleFactor = 0.5
         titleEdgeInsets = UIEdgeInsets(top: 0, left: 2, bottom: 0, right:0)
         setTitleColor(.white, for: .normal)
         titleLabel?.font = .systemFont(ofSize: 10, weight: .medium)

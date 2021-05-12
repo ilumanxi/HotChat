@@ -134,4 +134,102 @@
 }
 
 
+//- (void)viewWillDisappear:(BOOL)animated
+//{
+//    self.isInVC = NO;
+//    if (self.firstLoad) {
+//        return;
+//    }
+//    [self readedReport];
+//    [super viewWillDisappear:animated];
+//}
+
+- (void)readedReport
+{
+    if (self.isInVC && self.isActive && !self.firstLoad) {
+        NSString *userID = self.conversationData.userID;
+        if (userID.length > 0) {
+            [[V2TIMManager sharedInstance] markC2CMessageAsRead:userID succ:^{
+                
+            } fail:^(int code, NSString *msg) {
+                
+            }];
+        }
+        NSString *groupID = self.conversationData.groupID;
+        if (groupID.length > 0) {
+            [[V2TIMManager sharedInstance] markGroupMessageAsRead:groupID succ:^{
+                
+            } fail:^(int code, NSString *msg) {
+                
+            }];
+        }
+    }
+}
+
+- (void)readedReport2 {
+    if (self.isInVC && self.isActive ) {
+        NSString *userID = self.conversationData.userID;
+        if (userID.length > 0) {
+            [[V2TIMManager sharedInstance] markC2CMessageAsRead:userID succ:^{
+                
+            } fail:^(int code, NSString *msg) {
+                
+            }];
+        }
+        NSString *groupID = self.conversationData.groupID;
+        if (groupID.length > 0) {
+            [[V2TIMManager sharedInstance] markGroupMessageAsRead:groupID succ:^{
+                
+            } fail:^(int code, NSString *msg) {
+                
+            }];
+        }
+    }
+}
+
+- (void)loadMessage
+{
+    if(self.isLoadingMsg || self.noMoreMsg){
+        return;
+    }
+    self.isLoadingMsg = YES;
+    int msgCount = 20;
+
+    @weakify(self)
+    if (self.conversationData.userID.length > 0) {
+        [[V2TIMManager sharedInstance] getC2CHistoryMessageList:self.conversationData.userID count:msgCount lastMsg:self.msgForGet succ:^(NSArray<V2TIMMessage *> *msgs) {
+            @strongify(self)
+            
+            if (self.firstLoad) {
+                ChatController *vc =  (ChatController *) self.parentViewController;
+                
+                for (V2TIMMessage *msg in [msgs.reverseObjectEnumerator allObjects]) {
+        
+                    if (!msg.isRead && [vc isKindOfClass:[ChatController class]]) {
+                        [vc performSelector:@selector(onRecvNewMessage:) withObject:msg];
+                    }
+                }
+            }
+           
+            [self getMessages:msgs msgCount:msgCount];
+            [self readedReport2];
+        } fail:^(int code, NSString *msg) {
+            @strongify(self)
+            self.isLoadingMsg = NO;
+            [THelper makeToastError:code msg:msg];
+        }];
+    }
+    if (self.conversationData.groupID.length > 0) {
+        [[V2TIMManager sharedInstance] getGroupHistoryMessageList:self.conversationData.groupID count:msgCount lastMsg:self.msgForGet succ:^(NSArray<V2TIMMessage *> *msgs) {
+            @strongify(self)
+            [self getMessages:msgs msgCount:msgCount];
+        } fail:^(int code, NSString *msg) {
+            @strongify(self)
+            self.isLoadingMsg = NO;
+            [THelper makeToastError:code msg:msg];
+        }];
+    }
+}
+
+
 @end

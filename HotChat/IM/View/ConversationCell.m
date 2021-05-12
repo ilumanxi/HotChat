@@ -87,14 +87,11 @@
     self.subTitleLabel.attributedText = convData.subTitle;
     [self.unReadView setNum:convData.unreadCount];
     
-    if (convData.userIntimacy == 0) {
+    if (convData.userIntimacy < 4) {
         _intimacyLabel.text = nil;
     }
     else {
-        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-        
-        NSString *string = [formatter stringFromNumber:[NSNumber numberWithFloat:convData.userIntimacy]];
-        _intimacyLabel.text = [NSString stringWithFormat:@"亲密度%@℃",string];
+        _intimacyLabel.text = [NSString stringWithFormat:@"亲密度%@℃",[NSNumber numberWithFloat:convData.userIntimacy].intimacyString];
     }
    
     if (convData.isOnTop) {

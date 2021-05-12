@@ -26,13 +26,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy) NSString *tag;
 
 /// 亲密
-@property(nonatomic, assign) NSInteger intimacy;
+@property(nonatomic, assign) Float64 intimacy;
 
 /// 富豪
-@property(nonatomic, assign) NSInteger rich;
+@property(nonatomic, assign) Float64 rich;
 
 /// 魅力
-@property(nonatomic, assign) NSInteger charm;
+@property(nonatomic, assign) Float64 charm;
 
 /// 0底部,1居中,2顶部'
 @property(nonatomic, assign) NSInteger position;

@@ -85,13 +85,12 @@
    
     _selectedGift = selectedGift;
     
-    
-    self.intimacyLabel.text = [NSString stringWithFormat:@"亲密度\n+%ld℃", selectedGift.intimacy];
-    self.intimacyLabel.hidden = selectedGift.intimacy <=0;
-    self.charmLabel.text = [NSString stringWithFormat:@"魅力值\n+%ld℃", selectedGift.charm];
-    self.charmLabel.hidden = selectedGift.charm <=0;
-    self.richLabel.text = [NSString stringWithFormat:@"富豪值\n+%ld℃", selectedGift.rich];
-    self.richLabel.hidden = selectedGift.rich <=0;
+    self.intimacyLabel.text = [NSString stringWithFormat:@"亲密度\n+%@℃", [NSNumber numberWithDouble:selectedGift.intimacy].intimacyString];
+    self.intimacyLabel.hidden = selectedGift.intimacy <= 0;
+    self.charmLabel.text = [NSString stringWithFormat:@"魅力值\n+%@℃", [NSNumber numberWithDouble:selectedGift.charm].intimacyString];
+    self.charmLabel.hidden = selectedGift.charm <= 0;
+    self.richLabel.text = [NSString stringWithFormat:@"富豪值\n+%@℃", [NSNumber numberWithDouble:selectedGift.rich].intimacyString];
+    self.richLabel.hidden = selectedGift.rich <= 0;
 }
 
 - (void)viewDidLoad {
@@ -112,8 +111,13 @@
     
     [[GiftManager shared] getGiftList:^(NSArray<Gift *> * _Nonnull giftList) {
         self.gifts = giftList;
+        self.selectedGift = giftList.firstObject;
+        self.selectedGift.selected = YES;
         self.pageControl.numberOfPages = self.numberOfPages;
         [self.collectionView reloadData];
+        if (giftList.count > 0) {
+            [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] animated:0 scrollPosition:UICollectionViewScrollPositionNone];
+        }
     }];
 
     
@@ -288,7 +292,7 @@
         giftData.count = self.count;
     }
     
-    if ([GiftReminderViewController isReminder]) {
+    if ([GiftReminderViewController isReminder] && giftData.type != 0) {
         GiftReminderViewController *vc = [[GiftReminderViewController alloc] init];
         vc.modalPresentationStyle = UIModalPresentationOverFullScreen;
         vc.gift = giftData;

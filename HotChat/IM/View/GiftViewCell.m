@@ -28,7 +28,7 @@
         impliesAnimation.calculationMode = kCAAnimationCubic;
         impliesAnimation.repeatCount = MAXFLOAT;
         impliesAnimation.autoreverses = YES;
-        
+        impliesAnimation.removedOnCompletion = NO;
         [self.imageView.layer addAnimation: impliesAnimation forKey:@"impliesAnimation"];
         
         self.layer.borderWidth = 1.5;

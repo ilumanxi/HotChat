@@ -75,7 +75,7 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
         didSet {
             userView.set(user!)
             setUserView()
-            if !isAdmin && user!.userIntimacy > 4 {
+            if !isAdmin && user!.userIntimacy >= 4 {
                 titleView.set(user!)
                 navigationItem.titleView = titleView
             }
