@@ -82,7 +82,7 @@
 }
 
 - (void)setSelectedGift:(Gift *)selectedGift {
-    selectedGift.count = self.count;
+   
     _selectedGift = selectedGift;
     
     
@@ -220,9 +220,12 @@
         NSAttributedString *imageStr = [NSAttributedString attributedStringWithAttachment:textAttachment];
         
         [text appendAttributedString:imageStr];
+        [text appendAttributedString:  [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@" %ld",gift.energy]]];
+    }
+    else {
+        [text appendAttributedString:  [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"免费"]]];
     }
    
-    [text appendAttributedString:  [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@" %ld",gift.energy]]];
 
     [cell.availableCountButton setTitle:[NSString stringWithFormat:@"%ld", LoginManager.shared.user.freeGifts] forState:UIControlStateNormal];
     cell.availableCountButton.hidden = gift.type != 0;
@@ -276,6 +279,15 @@
 
 
 - (void)afterDelayCall:(Gift *)giftData {
+    
+   
+    if (giftData.type == 0) {
+        giftData.count = 1;
+    }
+    else {
+        giftData.count = self.count;
+    }
+    
     if ([GiftReminderViewController isReminder]) {
         GiftReminderViewController *vc = [[GiftReminderViewController alloc] init];
         vc.modalPresentationStyle = UIModalPresentationOverFullScreen;
@@ -341,7 +353,7 @@
 - (void)giftCountViewController:(GiftCountViewController *)giftCountController count:(NSInteger)count {
     
     self.count = count;
-    [self.countButton setTitle:[NSString stringWithFormat:@"x%ld", count] forState:UIControlStateNormal];
+    [self.countButton setTitle:[NSString stringWithFormat:@"x%ld", count] forState: UIControlStateNormal];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
