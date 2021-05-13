@@ -237,14 +237,14 @@
     
     [cell.tagButton sd_setImageWithURL:[NSURL URLWithString:gift.tag] forState:UIControlStateNormal];
    
-    if (gift.isSelected) {
-        cell.layer.borderWidth = 1.5;
-        cell.layer.borderColor = [UIColor colorWithRed:255/255.0 green:100/255.0 blue:108/255.0 alpha:1].CGColor;
-    }
-    else {
-        cell.layer.borderWidth = 0;
-        cell.layer.borderColor = nil;
-    }
+//    if (gift.isSelected) {
+//        cell.layer.borderWidth = 1.5;
+//        cell.layer.borderColor = [UIColor colorWithRed:255/255.0 green:100/255.0 blue:108/255.0 alpha:1].CGColor;
+//    }
+//    else {
+//        cell.layer.borderWidth = 0;
+//        cell.layer.borderColor = nil;
+//    }
     
     return  cell;
 }
@@ -258,7 +258,8 @@
         gift.selected = (gift == self.selectedGift);
     }
     
-//    [collectionView reloadData];
+    [collectionView reloadData];
+    [collectionView selectItemAtIndexPath:indexPath animated:NO scrollPosition: UICollectionViewScrollPositionNone];
     
 }
 

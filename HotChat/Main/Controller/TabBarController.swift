@@ -273,8 +273,10 @@ extension TabBarController: UITabBarControllerDelegate {
         let selectIndex = children.firstIndex{ $0 == viewController }!
         
         if selectIndex == 2 &&  !LoginManager.shared.user!.girlStatus {
+            svgaPlayer.isHidden = true
             return
         }
+        svgaPlayer.isHidden = false
         
         let tabBarItem = tabBar.items?[selectIndex]
         

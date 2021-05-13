@@ -39,7 +39,7 @@
         [self addSubview:_timeLabel];
 
         _titleLabel = [[UILabel alloc] init];
-        _titleLabel.font = [UIFont systemFontOfSize: 14 weight: UIFontWeightMedium];
+        _titleLabel.font = [UIFont systemFontOfSize: 15 weight: UIFontWeightMedium];
         _titleLabel.textColor = [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1.0];
         _titleLabel.layer.masksToBounds = YES;
         [self addSubview:_titleLabel];

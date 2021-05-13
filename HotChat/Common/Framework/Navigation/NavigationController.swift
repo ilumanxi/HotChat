@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NavigationController: UINavigationController {
+class NavigationController: UINavigationController, UIGestureRecognizerDelegate {
     
     
     private lazy var fakeBar: FakeNavigationBar = {
@@ -40,8 +40,8 @@ class NavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
-//        interactivePopGestureRecognizer?.delegate = self
-//        interactivePopGestureRecognizer?.addTarget(self, action: #selector(handleInteractivePopGesture(_:)))
+        interactivePopGestureRecognizer?.delegate = self
+        interactivePopGestureRecognizer?.addTarget(self, action: #selector(handleInteractivePopGesture))
         setupNavigationBar()
     }
     
