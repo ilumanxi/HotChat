@@ -262,7 +262,7 @@ enum VipType: Int, HandyJSONEnum {
     var freeGifts: Int = 0
     
     /// 亲密度
-    var userIntimacy: Float = 0
+    var userIntimacy: Double = 0
     
     /// 主播等级
     var girlRank: Int = 0

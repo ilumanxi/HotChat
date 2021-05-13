@@ -191,6 +191,8 @@ class MeViewController: UITableViewController, Autorotate, IndicatorDisplay {
         tableView.backgroundColor = UIColor(hexString: "#F6F7F9")
         tableView.sectionHeaderHeight = 10
         tableView.sectionFooterHeight = .leastNonzeroMagnitude
+        tableView.rowHeight = 46
+        tableView.estimatedRowHeight = 0;
         
         setDisplay()
         
@@ -466,6 +468,11 @@ class MeViewController: UITableViewController, Autorotate, IndicatorDisplay {
         let cell = sections[indexPath.section].formEntries[indexPath.row].cell(tableView, indexPath: indexPath)
         
         return cell
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 46
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

@@ -25,15 +25,13 @@ class OnlineStatusViewController: UIViewController, LoadingStateType, IndicatorD
     
     var data: [PushItem] = []
     
-    let onTapped = Delegate<User, Void>()
-    
     var state: LoadingState = .initial {
         didSet {
             if state == .noContent {
-                showOrHideIndicator(loadingState: state, in: containerView, text: "当前暂无消息，请留意新的消息提示。", image: UIImage(named: "no-content-noti"), actionText: nil)
+                showOrHideIndicator(loadingState: state, in: tableView, text: "当前暂无消息，请留意新的消息提示。", image: UIImage(named: "no-content-noti"), actionText: nil)
             }
             else {
-                showOrHideIndicator(loadingState: state, in: containerView)
+                showOrHideIndicator(loadingState: state, in: tableView)
             }
         }
     }
@@ -52,7 +50,12 @@ class OnlineStatusViewController: UIViewController, LoadingStateType, IndicatorD
         trigger()
         
         refreshData()
-        
+    }
+    
+     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if touches.first?.view == self.view {
+            dismiss(animated: true, completion: nil)
+        }
     }
     
     @IBAction func refreshButtonTapped(_ sender: Any) {
@@ -170,10 +173,12 @@ extension OnlineStatusViewController {
 extension OnlineStatusViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let model = data[indexPath.row]
-        dismiss(animated: true) { [weak self] in
-            self?.onTapped.call(model.userInfo!)
-        }
+        let model = data[indexPath.row].userInfo!
+        let info = TUIConversationCellData()
+        info.userID = model.userId
+        let vc  = ChatViewController(conversation: info)!
+        vc.title = model.nick
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     
@@ -193,9 +198,11 @@ extension OnlineStatusViewController: UITableViewDataSource {
         cell.set(model)
         
         cell.onChat.delegate(on: self) { (self, _) in
-            self.dismiss(animated: true) { [weak self] in
-                self?.onTapped.call(model.userInfo!)
-            }
+            let info = TUIConversationCellData()
+            info.userID = model.userInfo!.userId
+            let vc  = ChatViewController(conversation: info)!
+            vc.title = model.userInfo!.nick
+            self.navigationController?.pushViewController(vc, animated: true)
         }
         
         return cell

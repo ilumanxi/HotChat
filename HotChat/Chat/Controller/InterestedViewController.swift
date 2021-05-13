@@ -9,7 +9,9 @@
 import UIKit
 import Koloda
 
-class InterestedViewController: UIViewController, IndicatorDisplay {
+class InterestedViewController: UIViewController, IndicatorDisplay, StoryboardCreate {
+    static var storyboardNamed: String { return "Chat" }
+    
     
     
     @IBOutlet weak var indexLabel: UILabel!
@@ -157,7 +159,7 @@ extension InterestedViewController: KolodaViewDataSource {
         cardView.infoLabel.text = text
         
         cardView.contentLabel.text = message.content
-        cardView.sexView.setSex(message)
+        cardView.sexView.set(message)
         cardView.gradeView.setGrade(message)
         cardView.authenticationButton.isHidden = !message.girlStatus
         return cardView

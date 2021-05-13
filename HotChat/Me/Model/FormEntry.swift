@@ -471,7 +471,7 @@ class BasicInformation: FormEntry {
     private func render(_ cell: UserInfoBasicInformationCell) {
         cell.nameLabel.text = user.nick
         cell.certificationView.isHidden = user.realNameStatus != .ok
-        cell.sexView.setSex(user)
+        cell.sexView.set(user)
         cell.followLabel.text = user.userFollowNum.description
     }
     

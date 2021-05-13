@@ -53,6 +53,7 @@ class UserDataView: UIView {
         sexLabel.text = model.sex.description
         realNameButton.titleLabel?.adjustsFontSizeToFitWidth = true
         realNameButton.titleLabel?.minimumScaleFactor = 0.5
+        realNameButton.contentHorizontalAlignment = .left
         realNameButton.isSelected = model.realNameStatus == .ok
         
         authenticationButton.titleLabel?.adjustsFontSizeToFitWidth = true

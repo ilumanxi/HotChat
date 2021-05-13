@@ -52,7 +52,9 @@ class IntimateTopHeaderView: UIView {
             let string = formatter.string(from: NSNumber(value: model.userIntimacy))!
             let text = "亲密度\(string)℃"
             top1IntimacyButton.setTitle(text, for: .normal)
-            top1IntimacyButton.alpha = 1
+            top1IntimacyButton.alpha =  AppAudit.share.rankingListStatus ? 0 : 1
+            
+           
             
             top1LeftAvatarView.rx.controlEvent(.touchUpInside)
                 .subscribe(onNext: { [weak self] _ in
@@ -89,7 +91,7 @@ class IntimateTopHeaderView: UIView {
             let string = formatter.string(from: NSNumber(value: model.userIntimacy))!
             let text = "亲密度\(string)℃"
             top2IntimacyButton.setTitle(text, for: .normal)
-            top2IntimacyButton.alpha = 1
+            top2IntimacyButton.alpha = AppAudit.share.rankingListStatus ? 0 : 1
             
             top2LeftAvatarView.rx.controlEvent(.touchUpInside)
                 .subscribe(onNext: { [weak self] _ in
@@ -126,7 +128,7 @@ class IntimateTopHeaderView: UIView {
             let string = formatter.string(from: NSNumber(value: model.userIntimacy))!
             let text = "亲密度\(string)℃"
             top3IntimacyButton.setTitle(text, for: .normal)
-            top3IntimacyButton.alpha = 1
+            top3IntimacyButton.alpha = AppAudit.share.rankingListStatus ? 0 : 1
             
             top3LeftAvatarView.rx.controlEvent(.touchUpInside)
                 .subscribe(onNext: { [weak self] _ in
@@ -157,6 +159,10 @@ class IntimateTopHeaderView: UIView {
     }
     
     func pushUser(_ user: User) {
+        
+        if AppAudit.share.rankingListStatus {
+            return
+        }
         
         guard let navigationController = onNavigation.call() else { return }
         let vc = UserInfoViewController()

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QM0-YT-vFG" userLabel="Container  View">
-                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                    <rect key="frame" x="0.0" y="217.5" width="414" height="678.5"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UHq-RW-kce" userLabel="Bar View">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -41,19 +41,31 @@
                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z9P-tM-yNV">
+                                    <rect key="frame" x="382" y="0.0" width="12" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="jff-rD-js8"/>
+                                    </constraints>
+                                    <state key="normal" image="common-close"/>
+                                    <connections>
+                                        <action selector="closeButtonTapped:" destination="-1" eventType="touchUpInside" id="Qur-qM-Udj"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="97z-Rt-GRb" firstAttribute="centerY" secondItem="UHq-RW-kce" secondAttribute="centerY" id="BmB-1P-2t1"/>
                                 <constraint firstItem="hdp-6w-a7C" firstAttribute="centerY" secondItem="UHq-RW-kce" secondAttribute="centerY" id="GzA-jC-8QO"/>
+                                <constraint firstAttribute="trailing" secondItem="z9P-tM-yNV" secondAttribute="trailing" constant="20" id="OS2-Qy-Y6W"/>
                                 <constraint firstItem="hdp-6w-a7C" firstAttribute="leading" secondItem="97z-Rt-GRb" secondAttribute="trailing" constant="27" id="d7T-ga-kQZ"/>
                                 <constraint firstItem="97z-Rt-GRb" firstAttribute="leading" secondItem="UHq-RW-kce" secondAttribute="leadingMargin" id="ekP-6s-IgG"/>
+                                <constraint firstItem="z9P-tM-yNV" firstAttribute="centerY" secondItem="UHq-RW-kce" secondAttribute="centerY" id="g4A-LA-QDy"/>
                                 <constraint firstAttribute="height" constant="44" id="vXy-VB-pQP"/>
                             </constraints>
                             <edgeInsets key="layoutMargins" top="8" left="20" bottom="8" right="20"/>
                         </view>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="91" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xIe-NT-q0D">
-                            <rect key="frame" x="0.0" y="44" width="414" height="808"/>
+                            <rect key="frame" x="0.0" y="44" width="414" height="634.5"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <connections>
                                 <outlet property="dataSource" destination="-1" id="Dmg-DY-Ris"/>
@@ -66,34 +78,22 @@
                         <constraint firstAttribute="bottom" secondItem="xIe-NT-q0D" secondAttribute="bottom" id="3vF-NU-dhK"/>
                         <constraint firstItem="xIe-NT-q0D" firstAttribute="top" secondItem="UHq-RW-kce" secondAttribute="bottom" id="4mE-7R-r7X"/>
                         <constraint firstAttribute="trailing" secondItem="UHq-RW-kce" secondAttribute="trailing" id="6ep-K2-OSD"/>
-                        <constraint firstItem="UHq-RW-kce" firstAttribute="top" secondItem="QM0-YT-vFG" secondAttribute="top" id="U7n-yR-Tli"/>
+                        <constraint firstItem="UHq-RW-kce" firstAttribute="top" secondItem="QM0-YT-vFG" secondAttribute="top" id="Fb2-OC-Ysw"/>
                         <constraint firstItem="xIe-NT-q0D" firstAttribute="leading" secondItem="QM0-YT-vFG" secondAttribute="leading" id="UIu-6l-ocF"/>
+                        <constraint firstAttribute="width" secondItem="QM0-YT-vFG" secondAttribute="height" multiplier="407:667" id="WUS-p0-P9f"/>
                         <constraint firstItem="UHq-RW-kce" firstAttribute="leading" secondItem="QM0-YT-vFG" secondAttribute="leading" id="dzi-5E-w3q"/>
                         <constraint firstAttribute="trailing" secondItem="xIe-NT-q0D" secondAttribute="trailing" id="z1a-uH-AtO"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z9P-tM-yNV">
-                    <rect key="frame" x="382" y="44" width="12" height="44"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="44" id="jff-rD-js8"/>
-                    </constraints>
-                    <state key="normal" image="common-close"/>
-                    <connections>
-                        <action selector="closeButtonTapped:" destination="-1" eventType="touchUpInside" id="Qur-qM-Udj"/>
-                    </connections>
-                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="QM0-YT-vFG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="2yi-Ws-DTi"/>
-                <constraint firstItem="z9P-tM-yNV" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="62P-9Q-gZ9"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="z9P-tM-yNV" secondAttribute="trailing" constant="20" id="S8r-uS-nv7"/>
-                <constraint firstItem="QM0-YT-vFG" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Ynl-rm-4Fm"/>
                 <constraint firstAttribute="bottom" secondItem="QM0-YT-vFG" secondAttribute="bottom" id="jKh-9P-9sA"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="QM0-YT-vFG" secondAttribute="trailing" id="pdG-Zl-aI5"/>
             </constraints>
-            <point key="canvasLocation" x="139" y="92"/>
+            <point key="canvasLocation" x="137.68115942028987" y="91.741071428571431"/>
         </view>
     </objects>
     <resources>

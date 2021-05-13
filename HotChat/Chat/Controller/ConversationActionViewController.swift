@@ -33,6 +33,10 @@ class ConversationActionViewController: UITableViewController, StoryboardCreate 
         if !LoginManager.shared.user!.girlStatus {
             height -= Row.recommend.height
         }
+        
+        if AppAudit.share.groupChatStatus {
+            height -= Row.topic.height
+        }
        
         return height
     }
@@ -94,6 +98,10 @@ class ConversationActionViewController: UITableViewController, StoryboardCreate 
         }
         
         if row == .recommend && !LoginManager.shared.user!.girlStatus {
+            return 0
+        }
+        
+        if row == .topic && AppAudit.share.groupChatStatus {
             return 0
         }
         

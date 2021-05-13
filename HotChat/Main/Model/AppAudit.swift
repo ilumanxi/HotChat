@@ -50,6 +50,12 @@ import HandyJSON
     /// 一键登录
     @objc var oneKeyLoginStatus = false
     
+    /// 排行榜状态
+    @objc var rankingListStatus = true
+    
+    /// 群聊天状态
+    @objc var groupChatStatus = true
+    
     @objc static var  share = AppAudit() {
         didSet {
             NotificationCenter.default.post(name: .appApprovedDidChange, object: nil)

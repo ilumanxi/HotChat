@@ -34,9 +34,7 @@ class InterflowCell: UITableViewCell {
         nameLabel.text = user.nick
         sexButton.set(user)
         gradeImageView.setGrade(user)
-        let formattter = NumberFormatter()
-        let string = formattter.string(from: NSNumber(value: user.userIntimacy))!
-        intimacyLabel.text = "亲密度\(string)℃"
+        intimacyLabel.text = "亲密度\(NSNumber(value: user.userIntimacy).intimacyString)℃"
         timeButton.setTitle(model.timeFormat, for: .normal)
         statusButton.isHidden = user.onlineStatus == .offline
     }

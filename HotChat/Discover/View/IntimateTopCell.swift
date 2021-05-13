@@ -41,6 +41,7 @@ class IntimateTopCell: UITableViewCell {
         let string = formatter.string(from: NSNumber(value: model.userIntimacy))!
         let text = "亲密度\(string)℃"
         intimateButton.setTitle(text, for: .normal)
+        intimateButton.isHidden = AppAudit.share.rankingListStatus
     }
     
     @IBAction func leftAvatarTapped(_ sender: Any) {
@@ -52,6 +53,10 @@ class IntimateTopCell: UITableViewCell {
     }
     
     func pushUser(_ user: User) {
+        
+        if AppAudit.share.rankingListStatus {
+            return
+        }
         
         guard let navigationController = onNavigation.call() else { return }
         let vc = UserInfoViewController()

@@ -196,15 +196,10 @@ class NoticeViewController: UIViewController {
         onlineView.frame = onlineFrame
         onlineView.onContentTapped.delegate(on: self) { (self, _) in
             let vc = OnlineStatusViewController()
-            vc.onTapped.delegate(on: self) { (self, user) in
-                
-                let info = TUIConversationCellData()
-                info.userID = user.userId
-                let vc  = ChatViewController(conversation: info)!
-                vc.title = user.nick
-                self.showNavigationController()?.pushViewController(vc, animated: true)
-            }
-            self.presentPanModal(vc)
+            vc.navigationBarAlpha = 0
+            let nav = BaseNavigationController(rootViewController: vc)
+            nav.modalPresentationStyle = .overFullScreen
+            self.present(nav, animated: true, completion: nil)
         }
         
         onlineView.onAvatarTapped.delegate(on: self) { (self, _) in

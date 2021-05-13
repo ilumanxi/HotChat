@@ -31,9 +31,6 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *energyButton;
 
-@property (weak, nonatomic) IBOutlet UIButton *tCoinButton;
-
-
 @property (weak, nonatomic) IBOutlet UIButton *countButton;
 
 @property(nonatomic, assign) NSInteger count;
@@ -87,9 +84,9 @@
     
     self.intimacyLabel.text = [NSString stringWithFormat:@"亲密度\n+%@℃", [NSNumber numberWithDouble:selectedGift.intimacy].intimacyString];
     self.intimacyLabel.hidden = selectedGift.intimacy <= 0;
-    self.charmLabel.text = [NSString stringWithFormat:@"魅力值\n+%@℃", [NSNumber numberWithDouble:selectedGift.charm].intimacyString];
+    self.charmLabel.text = [NSString stringWithFormat:@"魅力值\n+%@", [NSNumber numberWithDouble:selectedGift.charm].intimacyString];
     self.charmLabel.hidden = selectedGift.charm <= 0;
-    self.richLabel.text = [NSString stringWithFormat:@"富豪值\n+%@℃", [NSNumber numberWithDouble:selectedGift.rich].intimacyString];
+    self.richLabel.text = [NSString stringWithFormat:@"富豪值\n+%@", [NSNumber numberWithDouble:selectedGift.rich].intimacyString];
     self.richLabel.hidden = selectedGift.rich <= 0;
 }
 
@@ -145,7 +142,7 @@
     _pageControl.numberOfPages = self.numberOfPages;
     
     [_energyButton setTitle:[NSString stringWithFormat:@"%ld",(long)[LoginManager shared].user.userEnergy]  forState:UIControlStateNormal];
-    [_tCoinButton setTitle:[NSString stringWithFormat:@"%ld",(long)[LoginManager shared].user.userTanbi]  forState:UIControlStateNormal];
+    self.coinLabel.text = [NSString stringWithFormat:@"T币：%ld",(long)[LoginManager shared].user.userTanbi];
     
 
     _collectionViewFlowLayout.sectionInset = UIEdgeInsetsMake(0, 15, 0, 15);
@@ -162,7 +159,8 @@
 
 - (void)updateUserInfo {
     [_energyButton setTitle:[NSString stringWithFormat:@"%ld",(long)[LoginManager shared].user.userEnergy]  forState:UIControlStateNormal];
-    [_tCoinButton setTitle:[NSString stringWithFormat:@"%ld",(long)[LoginManager shared].user.userTanbi]  forState:UIControlStateNormal];
+    self.coinLabel.text = [NSString stringWithFormat:@"T币：%ld",(long)[LoginManager shared].user.userTanbi];
+    [self.collectionView reloadData];
 }
 
 

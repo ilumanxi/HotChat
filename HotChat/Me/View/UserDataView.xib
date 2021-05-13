@@ -79,14 +79,13 @@
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P0g-ta-vyI" customClass="HotChatButton" customModule="HotChat" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="38" width="75.666666666666671" height="23"/>
+                                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P0g-ta-vyI">
+                                                    <rect key="frame" x="0.0" y="38" width="77.666666666666671" height="23"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="23" id="h4n-3c-OkN"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <inset key="titleEdgeInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                    <state key="normal" title="未认证" image="card-unauthentication">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <state key="normal" title=" 未认证" image="card-unauthentication">
                                                         <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <state key="selected" title="已认证" image="card-authentication"/>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,10 +28,10 @@
                                     <rect key="frame" x="0.0" y="294" width="339" height="45"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0eO-Ti-juP">
-                                            <rect key="frame" x="12" y="4" width="139" height="37"/>
+                                            <rect key="frame" x="12" y="4" width="144" height="37"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="9qB-Kq-qhI">
-                                                    <rect key="frame" x="0.0" y="0.0" width="139" height="17"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="144" height="17"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="风起兮" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hrd-y3-d7E">
                                                             <rect key="frame" x="0.0" y="0.0" width="43" height="17"/>
@@ -39,12 +39,15 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <view contentMode="scaleToFill" placeholderIntrinsicWidth="28" placeholderIntrinsicHeight="12" translatesAutoresizingMaskIntoConstraints="NO" id="rMg-ID-ZMU" customClass="LabelView" customModule="HotChat" customModuleProvider="target">
-                                                            <rect key="frame" x="47" y="2.5" width="28" height="12"/>
-                                                            <color key="backgroundColor" red="1" green="0.47058823529999999" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </view>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d8K-Ce-27k" customClass="SexButton" customModule="HotChat" customModuleProvider="target">
+                                                            <rect key="frame" x="47" y="0.5" width="33" height="16.5"/>
+                                                            <color key="backgroundColor" red="0.56862745100000001" green="0.82352941180000006" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
+                                                            <inset key="contentEdgeInsets" minX="4" minY="2" maxX="4" maxY="2"/>
+                                                            <state key="normal" title="26" image="male"/>
+                                                        </button>
                                                         <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mgb-CP-EML" customClass="GradientButton" customModule="HotChat" customModuleProvider="target">
-                                                            <rect key="frame" x="79" y="2.5" width="28" height="12"/>
+                                                            <rect key="frame" x="84" y="2.5" width="28" height="12"/>
                                                             <color key="backgroundColor" red="0.83921568629999999" green="0.41568627450000001" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="12" id="QAi-8u-g6V"/>
@@ -60,7 +63,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </button>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="28" placeholderIntrinsicHeight="12" translatesAutoresizingMaskIntoConstraints="NO" id="vCy-zR-8Mb">
-                                                            <rect key="frame" x="111" y="2.5" width="28" height="12"/>
+                                                            <rect key="frame" x="116" y="2.5" width="28" height="12"/>
                                                         </imageView>
                                                     </subviews>
                                                 </stackView>
@@ -156,13 +159,14 @@
                 <outlet property="gradeView" destination="vCy-zR-8Mb" id="rFU-SP-MB4"/>
                 <outlet property="infoLabel" destination="KIi-Zh-bZG" id="Ykj-9T-Gzo"/>
                 <outlet property="nicknameLabel" destination="Hrd-y3-d7E" id="v6d-WT-YOY"/>
-                <outlet property="sexView" destination="rMg-ID-ZMU" id="Khb-gJ-w7Q"/>
+                <outlet property="sexView" destination="d8K-Ce-27k" id="uqW-Pa-QGC"/>
             </connections>
             <point key="canvasLocation" x="797" y="64"/>
         </view>
     </objects>
     <resources>
         <image name="arrow-right-white" width="6" height="11"/>
+        <image name="male" width="12" height="12.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

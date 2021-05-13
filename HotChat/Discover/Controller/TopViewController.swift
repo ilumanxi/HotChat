@@ -270,6 +270,10 @@ class TopViewController: UIViewController, IndicatorDisplay {
                 return
             }
             
+            if AppAudit.share.rankingListStatus {
+                return
+            }
+            
             let user = top.topList[index]
             
             let vc = UserInfoViewController()
@@ -320,6 +324,7 @@ class TopViewController: UIViewController, IndicatorDisplay {
             let attributedText = NSMutableAttributedString(attachment: textAttachment)
             attributedText.append(NSAttributedString(string: " \(user.energy)", attributes: [NSAttributedString.Key.foregroundColor : topType.numberColor!]))
             headerView.top1CountLabel.attributedText = attributedText
+            headerView.top1CountLabel.alpha = AppAudit.share.rankingListStatus ? 0 : 1;
         }
         else {
             headerView.top1NameLabel.text = "虚位以待"
@@ -338,8 +343,9 @@ class TopViewController: UIViewController, IndicatorDisplay {
             textAttachment.bounds =  CGRect(x: 0, y: -(font.lineHeight - font.pointSize) / 2, width: 13, height: 13)
             
             let attributedText = NSMutableAttributedString(attachment: textAttachment)
-            attributedText.append(NSAttributedString(string: " \(user.energy)", attributes: [NSAttributedString.Key.foregroundColor : topType.numberColor]))
+            attributedText.append(NSAttributedString(string: " \(user.energy)", attributes: [NSAttributedString.Key.foregroundColor : topType.numberColor!]))
             headerView.top2CountLabel.attributedText = attributedText
+            headerView.top2CountLabel.alpha = AppAudit.share.rankingListStatus ? 0 : 1;
         }
         else {
             headerView.top2NameLabel.text = "虚位以待"
@@ -357,8 +363,10 @@ class TopViewController: UIViewController, IndicatorDisplay {
             textAttachment.bounds =  CGRect(x: 0, y: -(font.lineHeight - font.pointSize) / 2, width: 12, height: 12)
             
             let attributedText = NSMutableAttributedString(attachment: textAttachment)
-            attributedText.append(NSAttributedString(string: " \(user.energy)", attributes: [NSAttributedString.Key.foregroundColor : topType.numberColor]))
+            attributedText.append(NSAttributedString(string: " \(user.energy)", attributes: [NSAttributedString.Key.foregroundColor : topType.numberColor!]))
             headerView.top3CountLabel.attributedText = attributedText
+            headerView.top3CountLabel.alpha = AppAudit.share.rankingListStatus ? 0 : 1;
+            
         }
         else {
             headerView.top3NameLabel.text = "虚位以待"
@@ -380,7 +388,7 @@ class TopViewController: UIViewController, IndicatorDisplay {
             textAttachment.bounds =  CGRect(x: 0, y: -(font.lineHeight - font.pointSize) / 2, width: 12, height: 12)
             
             let attributedText = NSMutableAttributedString(attachment: textAttachment)
-            attributedText.append(NSAttributedString(string: " \(user.preEnergy)", attributes: [NSAttributedString.Key.foregroundColor : topType.numberColor]))
+            attributedText.append(NSAttributedString(string: " \(user.preEnergy)", attributes: [NSAttributedString.Key.foregroundColor : topType.numberColor!]))
             
             let string = user.rankStatus == 1 ? "距上一位差 " :"距上榜差 "
             
@@ -401,6 +409,10 @@ class TopViewController: UIViewController, IndicatorDisplay {
 extension TopViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if AppAudit.share.rankingListStatus {
+            return
+        }
         
         let user = current!.list[indexPath.row]
         
@@ -436,8 +448,9 @@ extension TopViewController: UITableViewDataSource {
         textAttachment.bounds =  CGRect(x: 0, y: -(font.lineHeight - font.pointSize) / 2, width: 12, height: 12)
         
         let attributedText = NSMutableAttributedString(attachment: textAttachment)
-        attributedText.append(NSAttributedString(string: " \(user.energy)", attributes: [NSAttributedString.Key.foregroundColor : topType.numberColor]))
+        attributedText.append(NSAttributedString(string: " \(user.energy)", attributes: [NSAttributedString.Key.foregroundColor : topType.numberColor!]))
         cell.countLabel.attributedText = attributedText
+        cell.countLabel.isHidden = AppAudit.share.rankingListStatus
         
         return cell
     }

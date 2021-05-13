@@ -22,7 +22,8 @@ class CommentViewCell: UITableViewCell {
     
     @IBOutlet weak var dateLabel: UILabel!
     
-    @IBOutlet weak var sexView: LabelView!
+    
+    @IBOutlet weak var sexView: SexButton!
     
     @IBOutlet weak var authenticationButton: UIButton!
     
@@ -43,7 +44,7 @@ extension CommentViewCell {
          avatarImageView.kf.setImage(with: URL(string: comment.userInfo.headPic))
          nicknameLabel.text = comment.userInfo.nick
          nicknameLabel.textColor = comment.userInfo.vipType.textColor
-         sexView.setSex(comment.userInfo)
+         sexView.set(comment.userInfo)
          likeButton.setTitle(comment.zanNum.description, for: .normal)
          likeButton.isSelected = comment.isSelfZan
         

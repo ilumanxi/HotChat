@@ -159,6 +159,12 @@ extension InterflowViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let model = data[indexPath.row]
+        
+        let vc = UserInfoViewController()
+        vc.user = model.userInfo
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

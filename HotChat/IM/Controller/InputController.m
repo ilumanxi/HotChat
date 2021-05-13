@@ -621,6 +621,8 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
             }];
             User *user  = LoginManager.shared.user;
             user.userEnergy = giveGift.userEnergy;
+            user.freeGifts = giveGift.freeGifts;
+            user.userTanbi = giveGift.userTanbi;
             [LoginManager.shared updateWithUser:user];
 
             
@@ -636,8 +638,11 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
                 WalletViewController *walletController = [[WalletViewController alloc] init];
                 [self.navigationController pushViewController:walletController animated:YES];
             };
-
-            [self presentViewController:alert animated:YES completion:nil];
+            [self dismissTopMostWithAnimated:NO];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self presentTopMost:alert animated:YES];
+            });
+           
         }
         else {
             [THelper makeToast:giveGift.msg];

@@ -15,7 +15,8 @@ class InterestedCardView: UIView {
     
     @IBOutlet weak var nicknameLabel: UILabel!
     
-    @IBOutlet weak var sexView: LabelView!
+    @IBOutlet weak var sexView: SexButton!
+    
     
     @IBOutlet weak var authenticationButton: UIButton!
     

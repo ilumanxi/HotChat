@@ -560,7 +560,7 @@
         <!--想认识你的人-->
         <scene sceneID="69N-PI-SAt">
             <objects>
-                <viewController title="想认识你的人" modalPresentationStyle="fullScreen" id="kp4-zB-vdz" customClass="InterestedViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InterestedViewController" title="想认识你的人" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kp4-zB-vdz" customClass="InterestedViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jjh-m0-1pA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -621,7 +621,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chat-contact" width="24.5" height="17"/>
+        <image name="chat-contact" width="19.5" height="17"/>
         <image name="chat-follow" width="74.5" height="74.5"/>
         <image name="chat-interested" width="50" height="50"/>
         <image name="chat-more" width="3.5" height="16.5"/>

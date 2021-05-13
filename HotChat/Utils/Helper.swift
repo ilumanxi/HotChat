@@ -43,6 +43,7 @@ extension UIWindow {
 }
 
 extension UIViewController {
+    @objc
     func presentTopMost(_ viewController: UIViewController, animated: Bool = true) {
         var runLoopFindPresentedViewController: UIViewController? = self
         while ((runLoopFindPresentedViewController?.presentedViewController) != nil) {
@@ -50,6 +51,11 @@ extension UIViewController {
         }
         runLoopFindPresentedViewController?.present(viewController, animated: animated, completion: nil)
    }
+    
+    @objc
+    func dismissTopMost(animated: Bool = true) {
+        presentedViewController?.dismiss(animated: animated, completion: nil)
+    }
 }
 
 extension UIViewController {

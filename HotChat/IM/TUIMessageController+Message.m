@@ -94,9 +94,15 @@
         @strongify(self)
         dispatch_async(dispatch_get_main_queue(), ^{
             if (code == 120001) {   // 能量不足
-                
-                GuidedRechargeViewController *vc = [[GuidedRechargeViewController alloc] init];
-                [self presentViewController:vc animated:YES completion:nil];
+                  TipAlertController *alert =  [[TipAlertController alloc] initWithTitle:@"温馨提示" message:@"您的能量不足、请充值" leftButtonTitle:@"取消" rightButtonTitle:@"立即充值"];
+                  alert.onRightClick = ^{
+                      WalletViewController *walletController = [[WalletViewController alloc] init];
+                      [self.navigationController pushViewController:walletController animated:YES];
+                  };
+                  [self dismissTopMostWithAnimated:NO];
+                  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                      [self presentTopMost:alert animated:YES];
+                  });
             }
             else {
                 [THelper makeToastError:code msg:desc];
