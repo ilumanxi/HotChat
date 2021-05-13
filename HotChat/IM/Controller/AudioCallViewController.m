@@ -313,81 +313,92 @@
 
 
 - (void)autoSetUIByState {
-    switch (self.curState) {
-        case AudioCallState_Dailing:
-        {
-//            self.hangup.mm_width(50).mm_height(50).mm__centerX(self.view.mm_centerX).mm_bottom(32);
-            [self.hangup mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.bottom.equalTo(self.view.safeAreaLayoutGuideBottom).offset(-49);
-                make.centerX.equalTo(self.view.mas_centerX);
-            }];
-            if (self.manager.isCharge) {
-                [self.chargeReminderLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-                    make.centerX.equalTo(self.hangup);
-                    make.bottom.equalTo(self.hangup.mas_top).offset(-10);
+    
+    @try {
+        switch (self.curState) {
+            case AudioCallState_Dailing:
+            {
+    //            self.hangup.mm_width(50).mm_height(50).mm__centerX(self.view.mm_centerX).mm_bottom(32);
+                [self.hangup mas_remakeConstraints:^(MASConstraintMaker *make) {
+                    make.bottom.equalTo(self.view.safeAreaLayoutGuideBottom).offset(-49);
+                    make.centerX.equalTo(self.view.mas_centerX);
                 }];
-            }
+                if (self.manager.isCharge) {
+                    [self.chargeReminderLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                        make.centerX.equalTo(self.hangup);
+                        make.bottom.equalTo(self.hangup.mas_top).offset(-10);
+                    }];
+                }
 
-            self.userCollectionView.hidden = NO;
-        }
-            break;
-        case AudioCallState_OnInvitee:
-        {
-            
-            [self.hangup mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.trailing.equalTo(self.view.mas_centerX).offset(-60);
-                make.bottom.equalTo(self.view.safeAreaLayoutGuideBottom).offset(-49);
-            }];
-            
-            [self.accept mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.leading.equalTo(self.view.mas_centerX).offset(60);
-                make.bottom.equalTo(self.view.safeAreaLayoutGuideBottom).offset(-49);
-            }];
-            
-            if (self.manager.isCharge) {
-                [self.chargeReminderLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-                    make.centerX.equalTo(self.accept);
-                    make.bottom.equalTo(self.accept.mas_top).offset(-10);
-                }];
+                self.userCollectionView.hidden = NO;
             }
-            
-            self.sponsorPanel.hidden = NO;
-            self.userCollectionView.hidden = YES;
-//            [self.calledView fillWithData:self.curSponsor];
+                break;
+            case AudioCallState_OnInvitee:
+            {
+                
+                [self.hangup mas_remakeConstraints:^(MASConstraintMaker *make) {
+                    make.trailing.equalTo(self.view.mas_centerX).offset(-60);
+                    make.bottom.equalTo(self.view.safeAreaLayoutGuideBottom).offset(-49);
+                }];
+                
+                [self.accept mas_remakeConstraints:^(MASConstraintMaker *make) {
+                    make.leading.equalTo(self.view.mas_centerX).offset(60);
+                    make.bottom.equalTo(self.view.safeAreaLayoutGuideBottom).offset(-49);
+                }];
+                
+                if (self.manager.isCharge) {
+                    [self.chargeReminderLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                        make.centerX.equalTo(self.accept);
+                        make.bottom.equalTo(self.accept.mas_top).offset(-10);
+                    }];
+                }
+                
+                self.sponsorPanel.hidden = NO;
+                self.userCollectionView.hidden = YES;
+    //            [self.calledView fillWithData:self.curSponsor];
+            }
+                break;
+            case AudioCallState_Calling:
+            {
+                
+                [self.callMenu.view mas_remakeConstraints:^(MASConstraintMaker *make) {
+                    make.edges.equalTo(self.view);
+                }];
+                
+                self.hangup.hidden = YES;
+                [self startCallTiming];
+            }
+                break;
+            default:
+                break;
         }
-            break;
-        case AudioCallState_Calling:
-        {
-            
-            [self.callMenu.view mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.edges.equalTo(self.view);
-            }];
-            
-            self.hangup.hidden = YES;
-            [self startCallTiming];
+        
+    //    [UIView animateWithDuration:0.3 animations:^{
+    //        [self.view layoutIfNeeded];
+    //        if (self.curState == AudioCallState_Calling) {
+    //            self.mute.alpha = 1.0;
+    //            self.handsfree.alpha = 1.0;
+    //        }
+    //    }];
+        
+        [self.view layoutIfNeeded];
+        if (self.curState == AudioCallState_Calling) {
+            self.mute.alpha = 1.0;
+            self.handsfree.alpha = 1.0;
         }
-            break;
-        default:
-            break;
+        
+        if (self.callSubType == CallSubType_Pair &&  self.pairController != nil) {
+            [self.view bringSubviewToFront:self.pairController.view];
+        }
+        
+    } @catch (NSException *exception) {
+        NSLog(@"%@", exception);
+        
+    } @finally {
+        
     }
     
-//    [UIView animateWithDuration:0.3 animations:^{
-//        [self.view layoutIfNeeded];
-//        if (self.curState == AudioCallState_Calling) {
-//            self.mute.alpha = 1.0;
-//            self.handsfree.alpha = 1.0;
-//        }
-//    }];
-    
-    [self.view layoutIfNeeded];
-    if (self.curState == AudioCallState_Calling) {
-        self.mute.alpha = 1.0;
-        self.handsfree.alpha = 1.0;
-    }
-    
-    if (self.callSubType == CallSubType_Pair &&  self.pairController != nil) {
-        [self.view bringSubviewToFront:self.pairController.view];
-    }
+
 }
 
 - (void)startCallTiming {
@@ -457,22 +468,34 @@
             @strongify(self)
             if (callCode == 2 || callCode== -1) {
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                                
-                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message: @"你的余额不满三分钟!" preferredStyle:UIAlertControllerStyleAlert];
-                    [alert addAction:[UIAlertAction actionWithTitle:@"立即充值" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                        UITabBarController *tabController =  (UITabBarController *) UIApplication.sharedApplication.keyWindow.rootViewController;
-                        UINavigationController *navController = (UINavigationController *) tabController.selectedViewController;
-                        WalletViewController *walletController = [[WalletViewController alloc] init];
-                        [navController pushViewController:walletController animated:YES];
-                    }]];
-                    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-                    
+                    NSString *message = @"你的余额不满三分钟!";
+                    TipAlertController *alert =  [[TipAlertController alloc] initWithTitle:@"温馨提示" message:message leftButtonTitle:@"取消" rightButtonTitle:@"立即充值"];
+                    alert.onRightClick = ^{
+                          UITabBarController *tabController =  (UITabBarController *) UIApplication.sharedApplication.keyWindow.rootViewController;
+                          UINavigationController *navController = (UINavigationController *) tabController.selectedViewController;
+                          WalletViewController *walletController = [[WalletViewController alloc] init];
+                          [navController pushViewController:walletController animated:YES];
+                    };
                     [PIPWindow.share.rootViewController presentViewController:alert animated:YES completion:nil];
                     
                 });
+                
             }
-            else if (callCode == 4 || callCode == 10000) {
+            else if (callCode == 4) {
                 [self hangupClick];
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    NSString *message = @"您的能量不足，请充值" ;
+                    TipAlertController *alert =  [[TipAlertController alloc] initWithTitle:@"温馨提示" message:message leftButtonTitle:@"取消" rightButtonTitle:@"立即充值"];
+                    alert.onRightClick = ^{
+                          UITabBarController *tabController =  (UITabBarController *) UIApplication.sharedApplication.keyWindow.rootViewController;
+                          UINavigationController *navController = (UINavigationController *) tabController.selectedViewController;
+                          WalletViewController *walletController = [[WalletViewController alloc] init];
+                          [navController pushViewController:walletController animated:YES];
+                    };
+                    
+                    [UIApplication.sharedApplication.keyWindow.rootViewController presentViewController:alert animated:YES completion:nil];
+                    
+                });
             }
             else {
                 [THelper makeToast:msg];
