@@ -633,7 +633,7 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
         }
         else if (giveGift.resultCode == 3) { //能量不足，需要充值
             
-            TipAlertController *alert =  [[TipAlertController alloc] initWithTitle:@"温馨提示" message:@"您的能量不足、请充值" leftButtonTitle:@"取消" rightButtonTitle:@"立即充值"];
+            TipAlertController *alert =  [[TipAlertController alloc] initWithTitle:@"温馨提示" message:@"您的能量不足，请充值" leftButtonTitle:@"取消" rightButtonTitle:@"立即充值"];
             alert.onRightClick = ^{
                 WalletViewController *walletController = [[WalletViewController alloc] init];
                 [self.navigationController pushViewController:walletController animated:YES];
