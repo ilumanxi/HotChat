@@ -182,6 +182,11 @@
 
 - (void)callContinued {
     
+    if (!self.startBilling) {
+        [self endCallingTime];
+        return;
+    }
+    
     NSDictionary *headers = @{
         @"token" : LoginManager.shared.user.token
     };
@@ -222,6 +227,8 @@
 - (void)endCallChat {
     
     [self endCallingTime];
+    
+    self.startBilling = NO;
     
     NSDictionary *headers = @{
         @"token" : LoginManager.shared.user.token

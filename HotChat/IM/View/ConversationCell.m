@@ -33,7 +33,7 @@
         [self addSubview:_headImageView];
 
         _timeLabel = [[UILabel alloc] init];
-        _timeLabel.font = [UIFont systemFontOfSize: 11 weight: UIFontWeightMedium];
+        _timeLabel.font = [UIFont systemFontOfSize: 12 weight: UIFontWeightMedium];
         _timeLabel.textColor = [UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1.0];
         _timeLabel.layer.masksToBounds = YES;
         [self addSubview:_timeLabel];
@@ -59,16 +59,16 @@
 
         _subTitleLabel = [[UILabel alloc] init];
         _subTitleLabel.layer.masksToBounds = YES;
-        _subTitleLabel.font = [UIFont systemFontOfSize: 11 weight: UIFontWeightMedium];
+        _subTitleLabel.font = [UIFont systemFontOfSize: 12 weight: UIFontWeightRegular];
         _subTitleLabel.textColor = [UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1.0];
         [self addSubview:_subTitleLabel];
         
         _intimacyLabel = [[UILabel alloc] init];
         _intimacyLabel.layer.masksToBounds = YES;
         if (@available(iOS 13.0, *)) {
-            _intimacyLabel.font = [UIFont monospacedSystemFontOfSize:11 weight:UIFontWeightMedium];
+            _intimacyLabel.font = [UIFont monospacedSystemFontOfSize:12 weight:UIFontWeightRegular];
         } else {
-            _intimacyLabel.font = [UIFont monospacedDigitSystemFontOfSize:11 weight:UIFontWeightMedium];
+            _intimacyLabel.font = [UIFont monospacedDigitSystemFontOfSize:12 weight:UIFontWeightRegular];
         }
         _intimacyLabel.textColor = [UIColor colorWithRed:255/255.0 green:0/255.0 blue:72/255.0 alpha:1.0];
         [self addSubview:_intimacyLabel];

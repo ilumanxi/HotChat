@@ -22,6 +22,7 @@ PODS:
   - AliPlayerSDK_iOS/AliPlayerSDK (5.3.2)
   - AMPopTip (4.5.3)
   - Aquaman (0.1.2)
+  - BadgeHub (1.0.0)
   - Blueprints (0.13.1)
   - Bugly (2.5.90)
   - Cache (6.0.0)
@@ -167,6 +168,7 @@ DEPENDENCIES:
   - AliPlayerSDK_iOS
   - AMPopTip
   - Aquaman (from `https://github.com/bawn/Aquaman.git`, commit `f97de87`)
+  - BadgeHub
   - Blueprints
   - Bugly
   - Cache
@@ -225,6 +227,7 @@ SPEC REPOS:
     - AlignedCollectionViewFlowLayout
     - AliPlayerSDK_iOS
     - AMPopTip
+    - BadgeHub
     - Blueprints
     - Bugly
     - Cache
@@ -314,6 +317,7 @@ SPEC CHECKSUMS:
   AliPlayerSDK_iOS: 6c74230e3375c41cc173e5f17d36962c2dbd3768
   AMPopTip: 77eef4793d50709bef83825b72da4f501263b91d
   Aquaman: a9f48d6b1c3049f3e511779a77a570bf541a2470
+  BadgeHub: b227771329f78c37a2dae7502607ec6d00a50bd4
   Blueprints: ddd6ab1e455c98471aaef2fdd0b09b5f9b53af5b
   Bugly: 88bc32c0acc6fef7b74d610f0319ee7560d6b9fe
   Cache: 4ca7e00363fca5455f26534e5607634c820ffc2d
@@ -376,6 +380,6 @@ SPEC CHECKSUMS:
   YBImageBrowser: 7ecc8bf33ffa5f3b94c397c29b4f3638dd37f527
   YYImage: 20ec986d18a8d0ad421619d166a9e628097e2433
 
-PODFILE CHECKSUM: 265ea2d04d34f6aa40a235871bb85430602c8a5d
+PODFILE CHECKSUM: 459f5c5331ab190e79e2d218158a647bf100bdec
 
 COCOAPODS: 1.10.1

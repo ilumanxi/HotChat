@@ -208,12 +208,13 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
         if self.user == nil || isAdmin {
             return
         }
+       
         
         userView.fittingSize()
-//        if  messageController.tableView.contentSize.height + userView.frame.height <  messageController.tableView.frame.height {
-//            /// 影响到消息滚动底部
-//            messageController.tableView.tableHeaderView = userView
-//        }
+        if  messageController.tableView.contentSize.height + userView.frame.height + 44 +  UIApplication.shared.statusBarFrame.height <  messageController.tableView.frame.height {
+            /// 影响到消息滚动底部
+            messageController.tableView.tableHeaderView = userView
+        }
     }
     
     func setupNavigationItem() {
