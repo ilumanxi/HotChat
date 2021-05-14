@@ -50,6 +50,7 @@
         tagButton.titleLabel.font = [UIFont systemFontOfSize: 12 weight: UIFontWeightMedium];
         tagButton.titleEdgeInsets = UIEdgeInsetsMake(0, 2, 0, 0);
         tagButton.colorsString = @"#FF6A2F,#FF3F3F";
+        tagButton.layer.cornerRadius = 8;
         [self addSubview:tagButton];
         self.tagButton = tagButton;
         
@@ -165,8 +166,13 @@
 
     self.timeLabel.mm_sizeToFit().mm_top(self.headImageView.mm_minY + 6).mm_right(TConversationCell_Margin + 4);
     self.titleLabel.mm_sizeToFit().mm_top(self.headImageView.mm_minY + 6).mm_left(self.headImageView.mm_maxX+TConversationCell_Margin);
-    self.tagButton.mm_sizeToFitThan(46, 16).mm_top(self.headImageView.mm_minY + 6).mm_left(self.titleLabel.mm_maxX+6);
-    self.tagButton.layer.cornerRadius = 8;
+    
+    // 下面会删除布局递归
+//    self.tagButton.mm_sizeToFitThan(46, 16).mm_top(self.headImageView.mm_minY + 6).mm_left(self.titleLabel.mm_maxX+6);
+    self.tagButton.mm_width(46).mm_height(16).mm_top(self.headImageView.mm_minY + 6).mm_left(self.titleLabel.mm_maxX+6);
+    
+    
+    
     self.unReadView.mm_top(self.headImageView.mm_minY).mm_right(self.headImageView.mm_r);
     
     self.intimacyLabel.mm_sizeToFit().mm_bottom(self.headImageView.mm_minY + 6).mm_right(TConversationCell_Margin + 4);

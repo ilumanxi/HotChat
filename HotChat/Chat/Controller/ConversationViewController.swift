@@ -9,7 +9,7 @@
 import UIKit
 import SPAlertController
 import Pageboy
-import Trident
+import Tabman
 
 // TUIKitNotification_onChangeUnReadCount
 
@@ -17,8 +17,8 @@ extension ConversationListController: IndicatorDisplay {
     
     
 }
-class ConversationViewController: UIViewController {
-//class ConversationViewController: TabmanViewController {
+
+class ConversationViewController: TabmanViewController {
     
     var titles: [String] = []
     var viewConrollers: [UIViewController] = []
@@ -60,131 +60,40 @@ class ConversationViewController: UIViewController {
         return controller
     }()
     
-    lazy var menuView: TridentMenuView = {
-        let view = TridentMenuView(parts:
-            .normalTextColor(UIColor(hexString: "#999999")),
-            .selectedTextColor(UIColor(hexString: "#333333")),
-            .normalTextFont(UIFont.systemFont(ofSize: 16.0, weight: .medium)),
-            .selectedTextFont(UIFont.systemFont(ofSize: 17.0, weight: .bold)),
-            .switchStyle(.line),
-            .sliderStyle(
-                SliderViewStyle(parts:
-                    .backgroundColor(UIColor(hexString: "#FF3F3F")),
-                    .height(3),
-                    .cornerRadius(1.5),
-                    .position(.bottom),
-//                    .extraWidth(24),
-                    .shape(.line)
-                )
-            ),
-            .bottomLineStyle(
-                BottomLineViewStyle(parts:
-                    .hidden(true)
-                )
-            )
-        )
-        view.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-        view.backgroundColor = UIColor(hexString: "#F6F7F9")
-        view.delegate = self
-        return view
-    }()
-    
-    
-    var scrollView: UIScrollView!
-    
-    var stackView: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
                 
         viewConrollers = [messageController, intimateController]
         titles = ["消息", "亲密"]
-        
-        menuView.titles = titles
-        
-        navigationItem.titleView = menuView
-        
-        setupUI()
 
-//        bounces = false
-//
-//        /// 死循环
-////        isScrollEnabled = false
-//
-//        // Set PageboyViewControllerDataSource dataSource to configure page view controller.
-//        dataSource = self
-//
-//        // Create a bar
-//        let bar =  Tabman.TMBarView<Tabman.TMHorizontalBarLayout, Tabman.TMLabelBarButton, Tabman.TMBarIndicator.None>()
-//
-//        // Customize bar properties including layout and other styling.
-//        bar.layout.contentInset = UIEdgeInsets(top: 0.0, left: 12, bottom: 4.0, right: 12)
-//        bar.fadesContentEdges = true
-//        bar.spacing = 20
-//        bar.backgroundView.style = .clear
-//
-//        // Set tint colors for the bar buttons and indicator.
-//        bar.buttons.customize {
-//            $0.tintColor = UIColor(hexString: "#666666")
-//            $0.font = .systemFont(ofSize: 17, weight: .regular)
-//            $0.selectedTintColor = UIColor(hexString: "#333333")
-//            $0.selectedFont = .systemFont(ofSize: 19, weight: .bold)
-//        }
-//        bar.indicator.tintColor = UIColor(hexString: "#FF3F3F")
-//
-//        // Add bar to the view - as a .systemBar() to add UIKit style system background views.
-//
-//        addBar(bar.hiding(trigger: .manual), dataSource: self, at: .navigationItem(item: navigationItem))
-    }
-    
-    func setupUI()  {
-//        scrollView = UIScrollView()
-//        scrollView.isPagingEnabled = true
-////        scrollView.isScrollEnabled = false
-//        scrollView.showsVerticalScrollIndicator = false
-//        scrollView.showsHorizontalScrollIndicator = false
-//        scrollView.bounces = false
-//        view.addSubview(scrollView)
+        bounces = false
+        isScrollEnabled = false
         
-//        scrollView.snp.makeConstraints { [unowned self] maker in
-//            maker.left.equalTo(self.view.safeAreaLayoutGuide.snp.left)
-//            maker.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
-//            maker.right.equalTo(self.view.safeAreaLayoutGuide.snp.right)
-//            maker.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
-//            maker.edges.equalToSuperview()
-//        }
-//
-//        viewConrollers.forEach { [unowned self] vc in
-//            self.addChild(vc)
-//        }
-//
-//
-//        let views = viewConrollers.compactMap{ $0.view }
-//
-//        stackView = UIStackView(arrangedSubviews: views)
-//        stackView.axis = .horizontal
-//        stackView.distribution = .fillEqually
-//        scrollView.addSubview(stackView)
-//        stackView.snp.makeConstraints { maker in
-//            maker.edges.equalToSuperview()
-//        }
+        // Set PageboyViewControllerDataSource dataSource to configure page view controller.
+        dataSource = self
         
+        // Create a bar
+        let bar =  Tabman.TMBarView<Tabman.TMHorizontalBarLayout, Tabman.TMLabelBarButton, Tabman.TMBarIndicator.None>()
+                
+        // Customize bar properties including layout and other styling.
+        bar.layout.contentInset = UIEdgeInsets(top: 0.0, left: 12, bottom: 4.0, right: 12)
+        bar.fadesContentEdges = true
+        bar.spacing = 20
+        bar.backgroundView.style = .clear
         
-        addChild(self.messageController, to: self.view)
+        // Set tint colors for the bar buttons and indicator.
+        bar.buttons.customize {
+            $0.tintColor = UIColor(hexString: "#666666")
+            $0.font = .systemFont(ofSize: 17, weight: .regular)
+            $0.selectedTintColor = UIColor(hexString: "#333333")
+            $0.selectedFont = .systemFont(ofSize: 19, weight: .bold)
+        }
+        bar.indicator.tintColor = UIColor(hexString: "#FF3F3F")
         
+        // Add bar to the view - as a .systemBar() to add UIKit style system background views.
         
-//        views.forEach {[unowned self]  vcView in
-//
-//            self.view.addSubview(vcView)
-//
-//            vcView.snp.makeConstraints { [unowned self] maker in
-//                maker.size.equalToSuperview()
-//            }
-//        }
-//
-//        viewConrollers.forEach { [unowned self] vc in
-//            vc.didMove(toParent: self)
-//        }
+        addBar(bar.hiding(trigger: .manual), dataSource: self, at: .navigationItem(item: navigationItem))
     }
     
     @IBAction func contactItemTapped(_ sender: Any) {
@@ -287,38 +196,29 @@ extension ConversationViewController: ConversationListControllerDelegate {
 }
 
 
-//extension ConversationViewController: PageboyViewControllerDataSource, TMBarDataSource {
-//
-//    // MARK: PageboyViewControllerDataSource
-//
-//    func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
-//        viewConrollers.count // How many view controllers to display in the page view controller.
-//    }
-//
-//    func viewController(for pageboyViewController: PageboyViewController, at index: PageboyViewController.PageIndex) -> UIViewController? {
-//
-//        // View controller to display at a specific index for the page view controller.
-//        viewConrollers[index]
-//    }
-//
-//    func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
-//        nil // Default page to display in the page view controller (nil equals default/first index).
-//    }
-//
-//    // MARK: TMBarDataSource
-//
-//    func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
-//
-//        return TMBarItem(title: titles[index]) // Item to display for a specific index in the bar.
-//    }
-//}
-//
-
-extension ConversationViewController: TridentMenuViewDelegate {
-    func menuView(_ menuView: TridentMenuView, didSelectedItemAt index: Int) {
-        guard index < viewConrollers.count else {
-            return
-        }
-//        setSelect(index: index, animation: false)
+extension ConversationViewController: PageboyViewControllerDataSource, TMBarDataSource {
+    
+    // MARK: PageboyViewControllerDataSource
+    
+    func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
+        viewConrollers.count // How many view controllers to display in the page view controller.
+    }
+    
+    func viewController(for pageboyViewController: PageboyViewController, at index: PageboyViewController.PageIndex) -> UIViewController? {
+        
+        // View controller to display at a specific index for the page view controller.
+        viewConrollers[index]
+    }
+    
+    func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
+        nil // Default page to display in the page view controller (nil equals default/first index).
+    }
+    
+    // MARK: TMBarDataSource
+    
+    func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
+        
+        return TMBarItem(title: titles[index]) // Item to display for a specific index in the bar.
     }
 }
+
