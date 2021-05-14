@@ -124,6 +124,7 @@
 - (void)setGifts:(NSArray<Gift *> *)gifts {
     _gifts = gifts;
     _pageControl.numberOfPages = self.numberOfPages;
+   
     [self.collectionView reloadData];
 }
 
@@ -160,7 +161,11 @@
 - (void)updateUserInfo {
     [_energyButton setTitle:[NSString stringWithFormat:@"%ld",(long)[LoginManager shared].user.userEnergy]  forState:UIControlStateNormal];
     self.coinLabel.text = [NSString stringWithFormat:@"T币：%ld",(long)[LoginManager shared].user.userTanbi];
+    NSIndexPath *indexPath = self.collectionView.indexPathsForSelectedItems.firstObject;
     [self.collectionView reloadData];
+    if (indexPath) {
+        [self.collectionView selectItemAtIndexPath:indexPath animated:NO scrollPosition: UICollectionViewScrollPositionNone];
+    }
 }
 
 

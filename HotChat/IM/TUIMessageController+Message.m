@@ -140,33 +140,23 @@
 }
 
 
-//- (void)viewWillDisappear:(BOOL)animated
-//{
-//    self.isInVC = NO;
-//    if (self.firstLoad) {
-//        return;
-//    }
-//    [self readedReport];
-//    [super viewWillDisappear:animated];
-//}
-
 - (void)readedReport
 {
     if (self.isInVC && self.isActive && !self.firstLoad) {
         NSString *userID = self.conversationData.userID;
         if (userID.length > 0) {
             [[V2TIMManager sharedInstance] markC2CMessageAsRead:userID succ:^{
-                
+
             } fail:^(int code, NSString *msg) {
-                
+
             }];
         }
         NSString *groupID = self.conversationData.groupID;
         if (groupID.length > 0) {
             [[V2TIMManager sharedInstance] markGroupMessageAsRead:groupID succ:^{
-                
+
             } fail:^(int code, NSString *msg) {
-                
+
             }];
         }
     }
