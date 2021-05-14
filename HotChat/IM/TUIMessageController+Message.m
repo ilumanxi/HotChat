@@ -169,7 +169,7 @@
             [[V2TIMManager sharedInstance] markC2CMessageAsRead:userID succ:^{
                 
             } fail:^(int code, NSString *msg) {
-                
+                NSLog(@"%@",msg);
             }];
         }
         NSString *groupID = self.conversationData.groupID;
@@ -177,7 +177,7 @@
             [[V2TIMManager sharedInstance] markGroupMessageAsRead:groupID succ:^{
                 
             } fail:^(int code, NSString *msg) {
-                
+                NSLog(@"%@",msg);
             }];
         }
     }
@@ -201,7 +201,7 @@
                 
                 for (V2TIMMessage *msg in [msgs.reverseObjectEnumerator allObjects]) {
         
-                    if (!msg.isRead && [vc isKindOfClass:[ChatController class]]) {
+                    if (!msg.isRead && !msg.isSelf && [vc isKindOfClass:[ChatController class]]) {
                         [vc performSelector:@selector(onRecvNewMessage:) withObject:msg];
                     }
                 }
