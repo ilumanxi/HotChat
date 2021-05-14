@@ -116,7 +116,6 @@ static NSString *kConversationCell_ReuseId = @"TConversationCell";
                 !self.dataChaned ? : self.dataChaned(self, self.dataList.copy);
             }];
         }
-        [self.tableView reloadData];
     }];
 }
 

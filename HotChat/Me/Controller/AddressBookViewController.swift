@@ -90,14 +90,17 @@ class AddressBookViewController: UIViewController, AquamanChildViewController, L
         if status.value.isEmpty {
             label.text = "未填写"
             label.isUserInteractionEnabled = false
+            button.alpha = 0
         }
         else if !status.status { //没有购买
             label.text = "信息真实"
             label.isUserInteractionEnabled = false
+            button.alpha = 1
         }
         else {
             label.text = status.value
             label.isUserInteractionEnabled = true
+            button.alpha = 0
             let tap = UITapGestureRecognizer()
             label.addGestureRecognizer(tap)
             tap.rx.event.subscribe(onNext: { [weak self] _ in
@@ -106,8 +109,6 @@ class AddressBookViewController: UIViewController, AquamanChildViewController, L
             })
             .disposed(by: rx.disposeBag)
         }
-        
-        button.alpha = (status.status || !status.value.isEmpty) ? 1 : 0
     }
     
     @IBAction func qqButtonTapped(_ sender: Any) {

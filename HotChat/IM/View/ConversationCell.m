@@ -65,7 +65,11 @@
         
         _intimacyLabel = [[UILabel alloc] init];
         _intimacyLabel.layer.masksToBounds = YES;
-        _intimacyLabel.font = [UIFont systemFontOfSize: 11 weight: UIFontWeightMedium];
+        if (@available(iOS 13.0, *)) {
+            _intimacyLabel.font = [UIFont monospacedSystemFontOfSize:11 weight:UIFontWeightMedium];
+        } else {
+            _intimacyLabel.font = [UIFont monospacedDigitSystemFontOfSize:11 weight:UIFontWeightMedium];
+        }
         _intimacyLabel.textColor = [UIColor colorWithRed:255/255.0 green:0/255.0 blue:72/255.0 alpha:1.0];
         [self addSubview:_intimacyLabel];
         
