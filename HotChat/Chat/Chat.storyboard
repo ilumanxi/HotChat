@@ -90,10 +90,10 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="NHL-MH-7RP">
-                                                    <rect key="frame" x="79" y="16.5" width="105.5" height="37.5"/>
+                                                    <rect key="frame" x="79" y="16.5" width="106.5" height="37.5"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="gU7-tH-qrd">
-                                                            <rect key="frame" x="0.0" y="0.0" width="105.5" height="17"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="106.5" height="17"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fq0-hA-C1R">
                                                                     <rect key="frame" x="0.0" y="0.0" width="35.5" height="17"/>
@@ -101,16 +101,15 @@
                                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="32" placeholderIntrinsicHeight="16" translatesAutoresizingMaskIntoConstraints="NO" id="ARc-8U-DdT" customClass="LabelView" customModule="HotChat" customModuleProvider="target">
-                                                                    <rect key="frame" x="40.5" y="0.5" width="32" height="16"/>
-                                                                    <color key="backgroundColor" red="0.43137254901960786" green="0.87058823529411766" blue="0.63137254901960782" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="image" keyPath="image" value="me-sex-man"/>
-                                                                        <userDefinedRuntimeAttribute type="string" keyPath="text" value="18"/>
-                                                                    </userDefinedRuntimeAttributes>
-                                                                </view>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vph-dd-nzI" customClass="SexButton" customModule="HotChat" customModuleProvider="target">
+                                                                    <rect key="frame" x="40.5" y="0.0" width="33" height="16.5"/>
+                                                                    <color key="backgroundColor" red="0.56862745100000001" green="0.82352941180000006" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
+                                                                    <inset key="contentEdgeInsets" minX="4" minY="2" maxX="4" maxY="2"/>
+                                                                    <state key="normal" title="26" image="male"/>
+                                                                </button>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="28" placeholderIntrinsicHeight="12" translatesAutoresizingMaskIntoConstraints="NO" id="jur-sg-xo3">
-                                                                    <rect key="frame" x="77.5" y="2.5" width="28" height="12"/>
+                                                                    <rect key="frame" x="78.5" y="2.5" width="28" height="12"/>
                                                                 </imageView>
                                                             </subviews>
                                                         </stackView>
@@ -149,7 +148,7 @@
                                             <outlet property="locationLabel" destination="6Ii-Zi-JIM" id="fGM-6n-KEE"/>
                                             <outlet property="nicknameLabel" destination="Fq0-hA-C1R" id="8nb-yF-alA"/>
                                             <outlet property="statusLabel" destination="4di-Q3-Ucf" id="ulj-VN-0CK"/>
-                                            <outlet property="userView" destination="ARc-8U-DdT" id="Vse-25-Hna"/>
+                                            <outlet property="userView" destination="Vph-dd-nzI" id="smj-8O-2ox"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="UITableViewCell" textLabel="LxN-Wy-DNQ" style="IBUITableViewCellStyleDefault" id="IP9-f3-NEI">
@@ -184,7 +183,7 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zwe-Cv-ijc">
                                                     <rect key="frame" x="345" y="6.5" width="51" height="31"/>
-                                                    <color key="onTintColor" red="0.31764705882352939" green="0.34901960784313724" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="onTintColor" red="1" green="0.24705882352941178" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -629,7 +628,7 @@
         <image name="chat-skip" width="74.5" height="74.5"/>
         <image name="chat-topic" width="50" height="50"/>
         <image name="close-white-small" width="12" height="12"/>
-        <image name="me-sex-man" width="7" height="7"/>
+        <image name="male" width="12" height="12.5"/>
         <image name="tabbar-message-normal" width="32" height="32"/>
         <image name="tabbar-message-selected" width="32" height="32"/>
         <systemColor name="groupTableViewBackgroundColor">

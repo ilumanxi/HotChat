@@ -180,7 +180,7 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        mainScrollView.scrollRectToVisible(CGRect(origin: .zero, size: mainScrollView.frame.size), animated: false)
         refreshActivity()
     }
     

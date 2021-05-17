@@ -15,7 +15,8 @@ class UserViewCell: UITableViewCell {
     
     @IBOutlet weak var nicknameLabel: UILabel!
     
-    @IBOutlet weak var userView: LabelView!
+    @IBOutlet weak var userView: SexButton!
+    
         
     @IBOutlet weak var gradeView: UIImageView!
     

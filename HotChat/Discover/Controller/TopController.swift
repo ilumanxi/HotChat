@@ -61,6 +61,13 @@ class TopController: TabmanViewController {
         // Set PageboyViewControllerDataSource dataSource to configure page view controller.
         dataSource = self
         bounces = false
+//        isScrollEnabled = false
+        if let pageViewController = self.children.first as? UIPageViewController {
+            let scrollView =  pageViewController.view.subviews.first { $0 is UIScrollView } as? UIScrollView
+            if let popGesture = navigationController?.interactivePopGestureRecognizer {
+                scrollView?.panGestureRecognizer.require(toFail: popGesture)
+            }
+        }
         // Create a bar
         let bar = Tabman.TMBarView<Tabman.TMHorizontalBarLayout, Tabman.TMLabelBarButton, Tabman.TMBarIndicator.None>()
         // Customize bar properties including layout and other styling.

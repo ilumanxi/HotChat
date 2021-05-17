@@ -171,6 +171,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let config = TUIKitConfig.default()!
         config.avatarType = .TAvatarTypeRounded
         
+        let color = UIColor(hexString: "#FF94B0")
+        
+        TUIBubbleMessageCellData.outgoingBubble = TUIBubbleMessageCellData.outgoingBubble.tint(color, blendMode: .destinationIn).resizableImage(withCapInsets: NSCoder.uiEdgeInsets(for: "{30,20,22,20}"), resizingMode: .stretch)
+        TUIBubbleMessageCellData.outgoingHighlightedBubble = TUIBubbleMessageCellData.outgoingHighlightedBubble.tint(color, blendMode: .destinationIn).resizableImage(withCapInsets: NSCoder.uiEdgeInsets(for: "{30,20,22,20}"), resizingMode: .stretch)
+        
         CallManager.shareInstance()?.initCall()
     }
     
