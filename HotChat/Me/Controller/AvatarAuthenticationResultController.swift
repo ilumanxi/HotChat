@@ -81,12 +81,10 @@ class AvatarAuthenticationResultController: UIViewController, IndicatorDisplay {
     
     @IBAction func auditButtonTapped(_ sender: Any) {
         
-        let alertController = UIAlertController(title: nil, message: "提交人工审核前，请确保头像和人脸识别图像为同一人，否则将会驳回！", preferredStyle: .alert)
-        
-        alertController.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
-        alertController.addAction(UIAlertAction(title: "提交人工审核", style: .default, handler: { [weak self] _ in
-            self?.editFacePic()
-        }))
+       let alertController =  MessageAlertController(message: "提交人工审核前，请确保头像和人脸识别图像为同一人，否则将会驳回！", leftButtonTitle: "取消", rightButtonTitle: "提交人工审核")
+        alertController.onRightDidClick.delegate(on: self) { (self, _)  in
+            self.editFacePic()
+        }
         
         present(alertController, animated: true, completion: nil)
     }

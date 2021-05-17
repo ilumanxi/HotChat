@@ -180,8 +180,19 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        mainScrollView.scrollRectToVisible(CGRect(origin: .zero, size: mainScrollView.frame.size), animated: false)
-        refreshActivity()
+        scrollToTop()
+        scrollToTop()
+    }
+    
+    func scrollToTop()  {
+        mainScrollView.setContentOffset(.zero, animated: false)
+//        _ = scrollViewShouldScrollToTop(self.mainScrollView)
+        
+        channels.forEach {channel in
+            if viewController(for: channel).isViewLoaded {
+                viewController(for: channel).aquamanChildScrollView().setContentOffset(.zero, animated: false)
+            }
+        }
     }
     
     func checkInState() {

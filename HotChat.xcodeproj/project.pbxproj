@@ -278,6 +278,8 @@
 		268BB25E251D9B3200001DF3 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268BB25D251D9B3200001DF3 /* UserAPI.swift */; };
 		268E3E602521D074000E4A33 /* RelationshipViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E3E5E2521D074000E4A33 /* RelationshipViewCell.swift */; };
 		268E3E612521D074000E4A33 /* RelationshipViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 268E3E5F2521D074000E4A33 /* RelationshipViewCell.xib */; };
+		268EF22D26526F6800EF71B3 /* MessageAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268EF22B26526F6800EF71B3 /* MessageAlertController.swift */; };
+		268EF22E26526F6800EF71B3 /* MessageAlertController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 268EF22C26526F6800EF71B3 /* MessageAlertController.xib */; };
 		26918C232626BAE2007B5F14 /* ChargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26918C212626BAE2007B5F14 /* ChargeViewController.swift */; };
 		26918C242626BAE2007B5F14 /* ChargeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26918C222626BAE2007B5F14 /* ChargeViewController.xib */; };
 		26918C262626CD9E007B5F14 /* ChargeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26918C252626CD9E007B5F14 /* ChargeConfig.swift */; };
@@ -896,6 +898,8 @@
 		268BB25D251D9B3200001DF3 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		268E3E5E2521D074000E4A33 /* RelationshipViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationshipViewCell.swift; sourceTree = "<group>"; };
 		268E3E5F2521D074000E4A33 /* RelationshipViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RelationshipViewCell.xib; sourceTree = "<group>"; };
+		268EF22B26526F6800EF71B3 /* MessageAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MessageAlertController.swift; path = ../../../../../../MessageAlertController.swift; sourceTree = "<group>"; };
+		268EF22C26526F6800EF71B3 /* MessageAlertController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MessageAlertController.xib; path = ../../../../../../MessageAlertController.xib; sourceTree = "<group>"; };
 		26918C212626BAE2007B5F14 /* ChargeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargeViewController.swift; sourceTree = "<group>"; };
 		26918C222626BAE2007B5F14 /* ChargeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChargeViewController.xib; sourceTree = "<group>"; };
 		26918C252626CD9E007B5F14 /* ChargeConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargeConfig.swift; sourceTree = "<group>"; };
@@ -1468,6 +1472,8 @@
 				26202021261DA1E5006A5AD7 /* VipPhotoViewController.xib */,
 				2653733D2621A0AA005AE2F3 /* TipAlertController.swift */,
 				2653733E2621A0AA005AE2F3 /* TipAlertController.xib */,
+				268EF22B26526F6800EF71B3 /* MessageAlertController.swift */,
+				268EF22C26526F6800EF71B3 /* MessageAlertController.xib */,
 				26918C212626BAE2007B5F14 /* ChargeViewController.swift */,
 				26918C222626BAE2007B5F14 /* ChargeViewController.xib */,
 				26A7538F2636BB4A0070CA77 /* InterflowViewController.swift */,
@@ -2609,6 +2615,7 @@
 				26F45503256659750028ACC5 /* EarningCell.xib in Resources */,
 				26A377CD260D9554002FF17E /* HeadlineTipViewController.xib in Resources */,
 				267954FF250761B600A72954 /* Discover.storyboard in Resources */,
+				268EF22E26526F6800EF71B3 /* MessageAlertController.xib in Resources */,
 				266BDB6A25EF864600467611 /* UserCardCell.xib in Resources */,
 				266B19642637D13D0012891B /* LICENSE in Resources */,
 				26B7CCD226282211007805F1 /* DatingDetailViewController.xib in Resources */,
@@ -2927,6 +2934,7 @@
 				267954EC2507327B00A72954 /* SignupViewController.swift in Sources */,
 				26EB2DCA25593FCA006698F9 /* ConsumerAPI.swift in Sources */,
 				26FBCF632558EF32001F3DFA /* ConsumerDetailsViewController.swift in Sources */,
+				268EF22D26526F6800EF71B3 /* MessageAlertController.swift in Sources */,
 				26D1E58B253D5F17004B9B29 /* CallManager.m in Sources */,
 				2653733F2621A0AA005AE2F3 /* TipAlertController.swift in Sources */,
 				26CB6D3D25515D6B00A9F4DD /* BDFaceLivingConfigViewController.m in Sources */,
