@@ -63,6 +63,7 @@ class BasicFormEntry: NSObject, FormEntry {
         
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: UITableViewCell.self)
         cell.textLabel?.text = text
+        cell.detailTextLabel?.text = nil
         
         if !(cell.contentView.gestureRecognizers?.contains{ $0 is UITapGestureRecognizer } ?? false) {
             let tap = UITapGestureRecognizer(target: self, action: #selector(tapped))

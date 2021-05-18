@@ -158,7 +158,10 @@ class AuthenticationViewController: UIViewController, IndicatorDisplay, LoadingS
         if !authentication.headStatus.isPush {
             return
         }
-       let vc = BDFaceDetectionViewController()
+        
+
+       let vc = HeadViewController()
+        
        navigationController?.pushViewController(vc, animated: true)
     }
 

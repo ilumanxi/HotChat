@@ -443,6 +443,8 @@
 		26D0034F25A6E97C00168796 /* UserInformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26D0034E25A6E97C00168796 /* UserInformationViewController.xib */; };
 		26D1E58B253D5F17004B9B29 /* CallManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D1E58A253D5F17004B9B29 /* CallManager.m */; };
 		26D1E594253D6000004B9B29 /* VideoCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D1E593253D6000004B9B29 /* VideoCallViewController.m */; };
+		26D7D2E52653AE05001B1311 /* HeadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D7D2E32653AE05001B1311 /* HeadViewController.swift */; };
+		26D7D2E62653AE05001B1311 /* HeadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26D7D2E42653AE05001B1311 /* HeadViewController.xib */; };
 		26D9E9FA260DC92F009EEDD2 /* UserActivityAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D9E9F9260DC92F009EEDD2 /* UserActivityAPI.swift */; };
 		26D9E9FC260DCB66009EEDD2 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D9E9FB260DCB66009EEDD2 /* ActivityView.swift */; };
 		26D9E9FE260DCB7E009EEDD2 /* ActivityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26D9E9FD260DCB7E009EEDD2 /* ActivityView.xib */; };
@@ -1102,6 +1104,8 @@
 		26D1E58A253D5F17004B9B29 /* CallManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CallManager.m; sourceTree = "<group>"; };
 		26D1E592253D6000004B9B29 /* VideoCallViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoCallViewController.h; sourceTree = "<group>"; };
 		26D1E593253D6000004B9B29 /* VideoCallViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoCallViewController.m; sourceTree = "<group>"; };
+		26D7D2E32653AE05001B1311 /* HeadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadViewController.swift; sourceTree = "<group>"; };
+		26D7D2E42653AE05001B1311 /* HeadViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeadViewController.xib; sourceTree = "<group>"; };
 		26D9E9F9260DC92F009EEDD2 /* UserActivityAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActivityAPI.swift; sourceTree = "<group>"; };
 		26D9E9FB260DCB66009EEDD2 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		26D9E9FD260DCB7E009EEDD2 /* ActivityView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityView.xib; sourceTree = "<group>"; };
@@ -1436,6 +1440,8 @@
 				260B96152521F2F400767076 /* AuthenticationViewController.swift */,
 				26E291B42554FB810032AE99 /* AvatarAuthenticationResultController.swift */,
 				26E291B52554FB810032AE99 /* AvatarAuthenticationResultController.xib */,
+				26D7D2E32653AE05001B1311 /* HeadViewController.swift */,
+				26D7D2E42653AE05001B1311 /* HeadViewController.xib */,
 				2623FC55261F19EA00764DFA /* AddressBookAuthenticationViewController.swift */,
 				2623FC56261F19EA00764DFA /* AddressBookAuthenticationViewController.xib */,
 				2623FC5B262029DD00764DFA /* AddressBookViewController.swift */,
@@ -2550,6 +2556,7 @@
 				269D0AAC26351CB900ED5301 /* IntimacyCell.xib in Resources */,
 				26EEA32526048BDA005226AD /* ChatTopicReportViewController.xib in Resources */,
 				26D0034F25A6E97C00168796 /* UserInformationViewController.xib in Resources */,
+				26D7D2E62653AE05001B1311 /* HeadViewController.xib in Resources */,
 				26E4C68525930F89005EAAC3 /* AccountDestructionController.xib in Resources */,
 				2691AE2C2626DB0E00EE05D7 /* ChargeFooterView.xib in Resources */,
 				26597676257886BB00E4B6A2 /* GreetingsAddedView.xib in Resources */,
@@ -3114,6 +3121,7 @@
 				2637D879255B8EDF00020E98 /* BlacklistCell.swift in Sources */,
 				264C5C322609CF4E007FB123 /* TalkHeaderView.swift in Sources */,
 				2607319B2536DD1B00B1093C /* ReportAPI.swift in Sources */,
+				26D7D2E52653AE05001B1311 /* HeadViewController.swift in Sources */,
 				26202022261DA1E5006A5AD7 /* VipPhotoViewController.swift in Sources */,
 				263F5388261459010099D143 /* TUIMessageController+Group.m in Sources */,
 				2643EBB02500B04100FBBE49 /* RealNameAuthenticationFooterView.swift in Sources */,

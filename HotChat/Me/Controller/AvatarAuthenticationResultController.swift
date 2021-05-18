@@ -81,7 +81,7 @@ class AvatarAuthenticationResultController: UIViewController, IndicatorDisplay {
     
     @IBAction func auditButtonTapped(_ sender: Any) {
         
-       let alertController =  MessageAlertController(message: "提交人工审核前，请确保头像和人脸识别图像为同一人，否则将会驳回！", leftButtonTitle: "取消", rightButtonTitle: "提交人工审核")
+       let alertController =  MessageAlertController(message: "提交人工审核前，请确保头像和人脸识别图像为同一人，否则将会驳回！", leftButtonTitle: "取消", rightButtonTitle: "提交审核")
         alertController.onRightDidClick.delegate(on: self) { (self, _)  in
             self.editFacePic()
         }

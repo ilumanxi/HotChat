@@ -113,7 +113,9 @@ extension GiftAPI: TargetType {
             .subscribe(onSuccess: { respone in
                 let file = cachesDirectoryURL("\(component).zip")
                 
-                if let data = respone.data, let downUrl = data["downUrl"] as? String, let md5 = data["md5"] as? String, md5File(file) != md5  {
+                if let data = respone.data, let downUrl = data["downUrl"] as? String,
+                   let md5 = data["md5"] as? String,
+                   md5File(file) != md5  {
                     downloadGiftResources(url: downUrl)
                 }
             }, onError: { error in

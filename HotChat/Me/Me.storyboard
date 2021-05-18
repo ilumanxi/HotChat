@@ -199,7 +199,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="UITableViewCell" textLabel="Lse-Nc-aru" style="IBUITableViewCellStyleDefault" id="Xcv-4Y-gsz">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="UITableViewCell" textLabel="Lse-Nc-aru" detailTextLabel="P1y-Zg-HR2" style="IBUITableViewCellStyleValue1" id="Xcv-4Y-gsz">
                                 <rect key="frame" x="0.0" y="49" width="428" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Xcv-4Y-gsz" id="0hP-co-l4b">
@@ -207,10 +207,17 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="账户安全" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lse-Nc-aru">
-                                            <rect key="frame" x="20" y="0.0" width="370.33333333333331" height="43.666667938232422"/>
+                                            <rect key="frame" x="20.000000000000004" y="14" width="57.333333333333336" height="17"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="P1y-Zg-HR2">
+                                            <rect key="frame" x="353" y="14" width="37.333333333333336" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -1219,7 +1226,7 @@
                                             <rect key="frame" x="20" y="8" width="370.33333333333331" height="43"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Bsz-2T-KYX">
-                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="19.666666666666668"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="116.66666666666667" height="19.666666666666668"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="风起兮" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMc-gy-tyP">
                                                             <rect key="frame" x="0.0" y="0.33333333333333393" width="49" height="19.333333333333329"/>
@@ -1228,10 +1235,10 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Z2A-al-BgY">
-                                                            <rect key="frame" x="55" y="1.6666666666666661" width="65" height="16.666666666666671"/>
+                                                            <rect key="frame" x="55" y="2" width="61.666666666666657" height="16"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nAd-8e-8ty" userLabel="Certification View" customClass="GradientView" customModule="HotChat" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="2.3333333333333339" width="28" height="12"/>
+                                                                    <rect key="frame" x="0.0" y="2" width="28" height="12"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="认证" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="mYP-5o-g0z">
                                                                             <rect key="frame" x="4.6666666666666714" y="0.33333333333333393" width="18.666666666666668" height="11"/>
@@ -1255,14 +1262,14 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </view>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HDD-lJ-Y7p" customClass="SexButton" customModule="HotChat" customModuleProvider="target">
-                                                                    <rect key="frame" x="32" y="0.0" width="33" height="16.666666666666668"/>
+                                                                    <rect key="frame" x="32" y="0.0" width="29.666666666666671" height="16"/>
                                                                     <color key="backgroundColor" red="0.56862745100000001" green="0.82352941180000006" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
                                                                     <inset key="contentEdgeInsets" minX="4" minY="2" maxX="4" maxY="2"/>
                                                                     <state key="normal" title="26" image="male"/>
                                                                 </button>
                                                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZK7-bl-Xml" userLabel="Attention View">
-                                                                    <rect key="frame" x="65" y="2.3333333333333339" width="28" height="12"/>
+                                                                    <rect key="frame" x="61.666666666666657" y="2" width="28" height="12"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="me-attention" translatesAutoresizingMaskIntoConstraints="NO" id="YAk-U7-clw">
                                                                             <rect key="frame" x="5" y="2.3333333333333339" width="7" height="7"/>
@@ -1648,80 +1655,6 @@
             </objects>
             <point key="canvasLocation" x="3440.579710144928" y="870.53571428571422"/>
         </scene>
-        <!--头像认证-->
-        <scene sceneID="dRR-XA-359">
-            <objects>
-                <viewController title="头像认证" id="Bmy-l1-2eP" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="fQW-a9-BfS">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="me-authentication-head" translatesAutoresizingMaskIntoConstraints="NO" id="xwI-ct-HLn">
-                                <rect key="frame" x="172.66666666666666" y="154" width="82.666666666666657" height="85"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hng-3v-q83">
-                                <rect key="frame" x="20" y="254.99999999999997" width="388" height="33.666666666666657"/>
-                                <string key="text">系统将通过人脸识别来确定你的头像是否为本人
-请保证你当前头像为本人）</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.60392156862745094" green="0.60392156862745094" blue="0.60392156862745094" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="b7e-ho-XCa">
-                                <rect key="frame" x="137" y="778" width="154" height="84"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CZB-8M-kNz" customClass="GradientButton" customModule="HotChat" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="154" height="44"/>
-                                        <color key="backgroundColor" red="1" green="0.24705882352941178" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="RdK-1i-BZe"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <inset key="contentEdgeInsets" minX="48" minY="0.0" maxX="48" maxY="0.0"/>
-                                        <state key="normal" title="开始认证">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="8"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="colorsString" value="#FF6A2F,#FF3F3F"/>
-                                            <userDefinedRuntimeAttribute type="point" keyPath="startPoint">
-                                                <point key="value" x="0.0" y="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="point" keyPath="endPoint">
-                                                <point key="value" x="1" y="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lcY-6W-3eN">
-                                        <rect key="frame" x="52" y="57" width="50" height="27"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <state key="normal" title="更换头像">
-                                            <color key="titleColor" red="0.60392156862745094" green="0.60392156862745094" blue="0.60392156862745094" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="8eE-tr-jwJ"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="xwI-ct-HLn" firstAttribute="centerX" secondItem="fQW-a9-BfS" secondAttribute="centerX" id="1bX-x6-HtD"/>
-                            <constraint firstItem="hng-3v-q83" firstAttribute="top" secondItem="xwI-ct-HLn" secondAttribute="bottom" constant="16" id="HcE-mW-5VR"/>
-                            <constraint firstItem="8eE-tr-jwJ" firstAttribute="trailing" secondItem="hng-3v-q83" secondAttribute="trailing" constant="20" id="Pyw-l1-83z"/>
-                            <constraint firstItem="hng-3v-q83" firstAttribute="leading" secondItem="8eE-tr-jwJ" secondAttribute="leading" constant="20" id="TWR-cI-0nD"/>
-                            <constraint firstItem="b7e-ho-XCa" firstAttribute="centerX" secondItem="fQW-a9-BfS" secondAttribute="centerX" id="cZY-g2-FxD"/>
-                            <constraint firstItem="8eE-tr-jwJ" firstAttribute="bottom" secondItem="b7e-ho-XCa" secondAttribute="bottom" constant="30" id="vNS-f8-7Oi"/>
-                            <constraint firstItem="xwI-ct-HLn" firstAttribute="top" secondItem="8eE-tr-jwJ" secondAttribute="top" constant="110" id="wNR-OF-1JO"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="头像认证" id="3gX-K5-xd7"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9rZ-Sn-Fth" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3442" y="1622"/>
-        </scene>
         <!--特点-->
         <scene sceneID="39c-NM-NHt">
             <objects>
@@ -2050,10 +1983,10 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="pDo-cb-hmb">
-                                                    <rect key="frame" x="104" y="14" width="96.333333333333314" height="68"/>
+                                                    <rect key="frame" x="104" y="14" width="93" height="68"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aBD-b5-PZk">
-                                                            <rect key="frame" x="0.0" y="0.0" width="96.333333333333329" height="23"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="93" height="23"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="风起兮" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mE4-dj-Hny">
                                                                     <rect key="frame" x="0.0" y="0.0" width="58.333333333333336" height="23"/>
@@ -2065,7 +1998,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0hB-2s-sym" customClass="SexButton" customModule="HotChat" customModuleProvider="target">
-                                                                    <rect key="frame" x="63.333333333333343" y="3.3333333333333321" width="33" height="16.666666666666668"/>
+                                                                    <rect key="frame" x="63.333333333333336" y="3.6666666666666679" width="29.666666666666664" height="16"/>
                                                                     <color key="backgroundColor" red="0.56862745100000001" green="0.82352941180000006" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
                                                                     <inset key="contentEdgeInsets" minX="4" minY="2" maxX="4" maxY="2"/>
@@ -2538,10 +2471,9 @@
         <image name="arrow-right-gray" width="8" height="13"/>
         <image name="coin-img" width="20" height="20"/>
         <image name="energy-img" width="20" height="20"/>
-        <image name="male" width="12" height="12.666666984558105"/>
+        <image name="male" width="8.6666669845581055" height="8"/>
         <image name="me-anchor" width="16.666666030883789" height="16.666666030883789"/>
         <image name="me-attention" width="7" height="7"/>
-        <image name="me-authentication-head" width="82.666664123535156" height="85"/>
         <image name="me-invite" width="60" height="67.666664123535156"/>
         <image name="me-like-object" width="25" height="25"/>
         <image name="me-new" width="13" height="13"/>

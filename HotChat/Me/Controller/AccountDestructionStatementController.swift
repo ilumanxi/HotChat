@@ -33,7 +33,7 @@ class AccountDestructionStatementController: UIViewController {
                 onCompleted: {
                     self.destructionButton.isEnabled = true
                     self.destructionButton.setTitle("申请注销", for: .normal)
-                    self.destructionButton.backgroundColor = UIColor(hexString: "#5159F8")
+                    self.destructionButton.backgroundColor = UIColor(hexString: "#FF3F3F")
             })
             .disposed(by: rx.disposeBag)
     }

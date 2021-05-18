@@ -69,6 +69,14 @@ class SettingViewController: UITableViewController, StoryboardCreate, IndicatorD
         return entry
     }()
     
+    lazy var appVersion: FormEntry = {
+        let entry = RightDetailFormEntry(image: nil, text:"版本号", detailText: "v\(Bundle.main.appVersion)", accessoryView: UIView(), onTapped: nil)
+        return entry
+    }()
+    
+    
+    
+    
     lazy var logout: FormEntry = {
         let entry = DestructiveFormEntry(text: "退出登录")
         entry.onTapped.delegate(on: self) { (self, _) in
@@ -76,6 +84,7 @@ class SettingViewController: UITableViewController, StoryboardCreate, IndicatorD
         }
         return entry
     }()
+    
     
     
     private var sections: [FormSection] = []
@@ -95,10 +104,8 @@ class SettingViewController: UITableViewController, StoryboardCreate, IndicatorD
                     accountSecurity,
                     antiHarassment,
                     privacy,
-//                    nobleSetting,
-//                    general,
-//                    protection,
-                    invite
+                    invite,
+                    appVersion
                 ],
                 headerText: nil
             ),
