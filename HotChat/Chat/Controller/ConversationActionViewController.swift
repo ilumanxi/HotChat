@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications
+import PPBadgeViewSwift
 
 class ConversationActionViewController: UITableViewController, StoryboardCreate {
     
@@ -80,13 +81,45 @@ class ConversationActionViewController: UITableViewController, StoryboardCreate 
     }
 
     
+    @IBOutlet weak var interestedImageView: UIImageView!
     
+    
+    let API = Request<MessageAPI>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        interestedImageView.pp.badgeView.font = .systemFont(ofSize: 12)
+        interestedImageView.pp.setBadge(height: 18.5)
+        interestedImageView.pp.moveBadge(x: -9, y: 9)
+        interestedImageView.pp.hiddenBadge()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+        API.request(.countPeople, type: Response<[String : Any]>.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { [weak self] response in
+               
+                if let count = response.data?["count"] as? Int {
+                    if count > 99 {
+                        self?.interestedImageView.pp.addBadge(text: "99+")
+                    }
+                    else {
+                        self?.interestedImageView.pp.addBadge(text: count.description)
+                    }
+                    if count > 0 {
+                        self?.interestedImageView.pp.showBadge()
+                    }
+                    else {
+                        self?.interestedImageView.pp.hiddenBadge()
+                    }
+                }
+                
+            }, onError: nil)
+            .disposed(by: rx.disposeBag)
+    }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         

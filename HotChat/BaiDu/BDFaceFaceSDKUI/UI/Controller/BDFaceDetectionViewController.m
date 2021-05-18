@@ -153,7 +153,7 @@ int remindCode = -1;
                         MBProgressHUD *hub = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
                         hub.label.text = @"校验中..";
                         [hub showAnimated:YES];
-                        [UploadHelper uploadImage:bestImage.originalImage success:^(RemoteFile * _Nonnull file) {
+                        [UploadHelper uploadImage:bestImage.cropImageWithBlack success:^(RemoteFile * _Nonnull file) {
 
                             [AuthenticationHelper faceAttestationWithImgURL:file.picUrl success:^(NSDictionary * _Nonnull dict) {
                                 [self closeAction];

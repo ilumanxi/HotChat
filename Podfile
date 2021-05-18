@@ -50,9 +50,8 @@ target 'HotChat' do
     pod 'Aquaman', :git=> "https://github.com/bawn/Aquaman.git", :commit=> "f97de87"
     pod 'Trident', :git=> "https://github.com/bawn/Trident.git", :commit=> "2eed75e"
     pod 'Jelly'
-    pod 'BadgeHub'
 #    pod 'KMNavigationBarTransition', :path => './HotChat/Common/Framework/KMNavigationBarTransition'
-    
+    pod 'PPBadgeViewSwift'
     pod 'AliPlayerSDK_iOS'
     pod 'TXIMSDK_TUIKit_iOS'
     pod 'TPNS-iOS'

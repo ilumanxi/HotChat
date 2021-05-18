@@ -8,6 +8,8 @@
 
 import UIKit
 import Koloda
+import RxSwift
+import RxCocoa
 
 class InterestedViewController: UIViewController, IndicatorDisplay, StoryboardCreate {
     static var storyboardNamed: String { return "Chat" }
@@ -18,14 +20,12 @@ class InterestedViewController: UIViewController, IndicatorDisplay, StoryboardCr
     
     @IBOutlet weak var kolodaView: KolodaView!
     
-    var data: [Message] = [] {
-        didSet {
-            kolodaView.reloadData()
-        }
-    }
+    var data: [Message] = []
     
     let messageAPI = Request<MessageAPI>()
     let dynamicAPI  = Request<DynamicAPI>()
+    
+    var last: Pagination<Message>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,23 +34,32 @@ class InterestedViewController: UIViewController, IndicatorDisplay, StoryboardCr
         kolodaView.delegate = self
         
         showOrHideIndicator(loadingState: .initial)
-        
-        messageAPI.request(.knowPeople, type: Response<[String : Any]>.self)
-            .verifyResponse()
-            .map {
-                return [Message].deserialize(from: $0.data?["list"] as? [Any])?.compactMap{ $0 } ?? []
-            }
-            .subscribe(onSuccess: { [weak self] result in
-                self?.data = result
+       
+        refreshData()
+    }
+    
+    func refreshData() {
+        requestData()
+            .subscribe(onSuccess: { [weak self] response in
+                guard let self = self else { return }
+                self.last = response.data
+                self.data.append(contentsOf:  response.data?.list ?? [])
+                self.kolodaView.reloadData()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    self?.showOrHideIndicator(loadingState: result.isEmpty ? .noContent : .contentLoaded)
+                    self.showOrHideIndicator(loadingState: self.data.isEmpty ? .noContent : .contentLoaded)
                 }
             }, onError: { [weak self] error in
-                self?.show(error)
-                self?.showOrHideIndicator(loadingState: .error)
+                guard let self = self else { return }
+                if self.data.isEmpty {
+                    self.show(error)
+                    self.showOrHideIndicator(loadingState: .error)
+                }
             })
             .disposed(by: rx.disposeBag)
-        
+    }
+    
+    func requestData() ->Single<Response<Pagination<Message>>>  {
+        return  messageAPI.request(.knowPeople).verifyResponse()
     }
     
     @IBAction func skipButtonTapped(_ sender: Any) {
@@ -93,12 +102,33 @@ class InterestedViewController: UIViewController, IndicatorDisplay, StoryboardCr
 extension InterestedViewController: KolodaViewDelegate {
     
     func kolodaDidRunOutOfCards(_ koloda: KolodaView) {
-        showOrHideIndicator(loadingState: .noContent, text: "想认识你的人都被你看完了", image: UIImage(named: "chat-no-content"))
+        if self.last?.hasNext ?? false {
+            requestNext()
+        }
+        else if koloda.currentCardIndex == (self.last?.count ?? 0) {
+            showOrHideIndicator(loadingState: .noContent, text: "想认识你的人都被你看完了", image: UIImage(named: "chat-no-content"))
+        }
     }
     
+    func requestNext() {
+        let position = kolodaView.currentCardIndex
+        requestData()
+            .subscribe(onSuccess: { [weak self] response in
+                guard let self = self else { return }
+                self.last = response.data
+                let list = response.data?.list ?? []
+                
+                self.data.append(contentsOf:  list)
+                self.kolodaView.insertCardAtIndexRange(position..<position + list.count, animated: true)
+            }, onError: { [weak self] error in
+                guard let self = self else { return }
+                self.show(error)
+            })
+            .disposed(by: rx.disposeBag)
+    }
 
     func koloda(_ koloda: KolodaView, didShowCardAt index: Int) {
-        indexLabel.text = "\(index + 1)/\(koloda.countOfCards)"
+        indexLabel.text = "\(index + 1)/\(last?.count ?? 0)"
     }
     
     func koloda(_ koloda: KolodaView, didSelectCardAt index: Int) {
