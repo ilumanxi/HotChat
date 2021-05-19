@@ -119,7 +119,7 @@ class UserInfoHeaderView: UIView {
         sexButton.set(user)
         vipButton.setVIP(user.vipType)
         authenticationImageView.isHidden = user.authenticationStatus != .ok
-        gradeView.setGrade(user)
+        gradeView.setGrade(user, useDefaultSize: false)
         statusLabel.isHidden = user.onlineStatus == .offline
         
         

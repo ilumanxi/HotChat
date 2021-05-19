@@ -101,7 +101,7 @@ class GradientButton: HotChatButton {
 class SexButton: GradientButton {
     
     @IBInspectable
-    var layoutSize: CGSize = CGSize(width: 30, height: 12) {
+    var layoutSize: CGSize = CGSize(width: 28, height: 12) {
         didSet {
             invalidateIntrinsicContentSize()
             setNeedsLayout()

@@ -2017,9 +2017,13 @@
                                                                         <action selector="pushVip" destination="XUG-zq-2mX" eventType="touchUpInside" id="2sG-oY-qrX"/>
                                                                     </connections>
                                                                 </button>
-                                                                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="28" placeholderIntrinsicHeight="12" translatesAutoresizingMaskIntoConstraints="NO" id="ZTE-Z0-saT">
+                                                                <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="28" placeholderIntrinsicHeight="12" translatesAutoresizingMaskIntoConstraints="NO" id="ZTE-Z0-saT">
                                                                     <rect key="frame" x="27.666666666666657" y="0.6666666666666643" width="28" height="12"/>
                                                                     <gestureRecognizers/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="ZTE-Z0-saT" secondAttribute="height" multiplier="7:3" id="8Ck-Io-Uap"/>
+                                                                        <constraint firstAttribute="width" constant="28" id="rCF-Eb-jnR"/>
+                                                                    </constraints>
                                                                     <connections>
                                                                         <outletCollection property="gestureRecognizers" destination="F6H-GO-yaC" appends="YES" id="PHg-Fx-nBR"/>
                                                                     </connections>

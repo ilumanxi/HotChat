@@ -150,8 +150,9 @@
     // 超时的label
     _timeOutLabel = [[UILabel alloc] init];
     _timeOutLabel.frame = CGRectMake((ScreenWidth-160) / 2, 309.3, 160, 22);
-    _timeOutLabel.text = @"检测超时，请按照提示重试";
+    _timeOutLabel.text = @"人脸采集超时";
     _timeOutLabel.font = [UIFont fontWithName:@"PingFangSC-Medium" size:18];
+    _timeOutLabel.textAlignment = NSTextAlignmentCenter;
     _timeOutLabel.textColor = [UIColor colorWithRed:0 / 255.0 green:0 / 255.0 blue:0 / 255.0 alpha:1 / 1.0];
     
     // 区分线
@@ -360,8 +361,8 @@
 - (void)outTimeViewUnload{
     
 //    // 关闭超时的view，恢复视频流工作
-//    self.videoCapture.runningStatus = YES;
-//    [self.videoCapture startSession];
+    self.videoCapture.runningStatus = YES;
+    [self.videoCapture startSession];
     [_timeOutMainView removeFromSuperview];
     [_timeOutView removeFromSuperview];
     [_timeOutImageView removeFromSuperview];
@@ -418,8 +419,8 @@
     // 相应的功能在采集/检测时候写
     
     // 关闭超时的view，恢复视频流工作
-    self.videoCapture.runningStatus = YES;
-    [self.videoCapture startSession];
+//    self.videoCapture.runningStatus = YES;
+//    [self.videoCapture startSession];
 }
 
 - (IBAction)backToPreView:(UIButton *)sender{

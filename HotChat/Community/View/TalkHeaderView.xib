@@ -18,11 +18,11 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aiD-g2-GDx">
                     <rect key="frame" x="15" y="15.5" width="384" height="146.5"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Gkh-q2-U6z">
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Gkh-q2-U6z">
                             <rect key="frame" x="9" y="12.5" width="366" height="50.5"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J6E-IG-WNj" customClass="GradientView" customModule="HotChat" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="170.5" height="50.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="179" height="50.5"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YkD-JU-drg" customClass="SVGAPlayer">
                                             <rect key="frame" x="0.0" y="4" width="76" height="43"/>
@@ -32,7 +32,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="在线视频" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nWs-pH-wKd">
-                                            <rect key="frame" x="76" y="15.5" width="94.5" height="19.5"/>
+                                            <rect key="frame" x="76" y="15.5" width="103" height="19.5"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -58,7 +58,7 @@
                                     </connections>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D9p-gH-5gq" customClass="GradientView" customModule="HotChat" customModuleProvider="target">
-                                    <rect key="frame" x="195.5" y="0.0" width="170.5" height="50.5"/>
+                                    <rect key="frame" x="187" y="0.0" width="179" height="50.5"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xfZ-bn-Tob" customClass="SVGAPlayer">
                                             <rect key="frame" x="0.0" y="4" width="76" height="43"/>
@@ -67,8 +67,8 @@
                                                 <constraint firstAttribute="height" constant="43" id="Eki-kp-gTB"/>
                                             </constraints>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="兴趣匹配" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Pn-0q-jcT">
-                                            <rect key="frame" x="76" y="15.5" width="94.5" height="19.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="缘分匹配" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Pn-0q-jcT">
+                                            <rect key="frame" x="76" y="15.5" width="103" height="19.5"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>

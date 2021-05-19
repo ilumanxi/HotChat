@@ -71,7 +71,7 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
     private lazy var headerView: TalkHeaderView = {
         let headerView = TalkHeaderView.loadFromNib()
         headerView.onVideo.delegate(on: self) { (self, _) in
-            let vc = InterestedViewController.loadFromStoryboard()
+            let vc = WebViewController.H5(path: "h5/mate")
             self.navigationController?.pushViewController(vc, animated: true)
         }
         headerView.onVoice.delegate(on: self) { (self, _) in

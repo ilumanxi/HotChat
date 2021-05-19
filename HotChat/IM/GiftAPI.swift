@@ -137,10 +137,11 @@ extension GiftAPI: TargetType {
         AF.download(url, to: destination)
             .responseURL { downloadResponse in
                 do {
-                    let path = downloadResponse.value!.path
                     
-                    let destination = cachesDirectoryURL(component)
-                    try SSZipArchive.unzipFile(atPath: path, toDestination: destination.path, overwrite: true, password: nil)
+                    if let path = downloadResponse.value?.path {
+                        let destination = cachesDirectoryURL(component)
+                        try SSZipArchive.unzipFile(atPath: path, toDestination: destination.path, overwrite: true, password: nil)
+                    }
                 } catch let e {
                     print(e)
                 }

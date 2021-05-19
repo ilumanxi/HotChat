@@ -11,17 +11,18 @@ import Kingfisher
 
 extension UIImageView {
     
-    func setGrade(_ user: User) {
+    func setGrade(_ user: User, useDefaultSize: Bool = true) { // 7 : 3
         if user.girlStatus {
             kf.setImage(with: URL(string: user.girlRankIcon))
         }
         else {
             kf.setImage(with: URL(string: user.userRankIcon))
         }
-        
-        translatesAutoresizingMaskIntoConstraints = false
-        widthAnchor.constraint(equalToConstant: 28).isActive = true
-        heightAnchor.constraint(equalToConstant: 12).isActive = true
+        if useDefaultSize {
+            translatesAutoresizingMaskIntoConstraints = false
+            widthAnchor.constraint(equalToConstant: 28).isActive = true
+            heightAnchor.constraint(equalToConstant: 12).isActive = true
+        }
     }
 }
 
