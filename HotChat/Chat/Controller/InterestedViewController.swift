@@ -148,6 +148,7 @@ extension InterestedViewController: KolodaViewDelegate {
             readUser(message: message)
         case .right:
             follow(message: message)
+            readUser(message: message)
         default: break
         }
 
