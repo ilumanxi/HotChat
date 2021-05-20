@@ -314,6 +314,7 @@ class TopViewController: UIViewController, IndicatorDisplay {
         
         if (current?.topList.count ?? 0) >= 1 , let user =  current?.topList.first {
             headerView.top1NameLabel.text = user.nick
+            headerView.top1NameLabel.textColor = user.vipType.nameToptColor
             headerView.top1AvatarImageView.kf.setImage(with: URL(string: user.headPic))
             
             let textAttachment = NSTextAttachment()
@@ -328,6 +329,7 @@ class TopViewController: UIViewController, IndicatorDisplay {
         }
         else {
             headerView.top1NameLabel.text = "虚位以待"
+            headerView.top1NameLabel.textColor = .white
             headerView.top1AvatarImageView.image = UIImage(named: "top-profile")
             headerView.top1CountLabel.attributedText = nil
         }
@@ -335,6 +337,7 @@ class TopViewController: UIViewController, IndicatorDisplay {
         
         if (current?.topList.count ?? 0) >= 2 , let user =  current?.topList[1] {
             headerView.top2NameLabel.text = user.nick
+            headerView.top2NameLabel.textColor = user.vipType.nameToptColor
             headerView.top2AvatarImageView.kf.setImage(with: URL(string: user.headPic))
             
             let textAttachment = NSTextAttachment()
@@ -349,12 +352,14 @@ class TopViewController: UIViewController, IndicatorDisplay {
         }
         else {
             headerView.top2NameLabel.text = "虚位以待"
+            headerView.top2NameLabel.textColor = .white
             headerView.top2AvatarImageView.image = UIImage(named: "top-profile")
             headerView.top2CountLabel.attributedText = nil
         }
         
         if (current?.topList.count ?? 0) >= 3 , let user = current?.topList[2] {
             headerView.top3NameLabel.text = user.nick
+            headerView.top3NameLabel.textColor = user.vipType.nameToptColor
             headerView.top3AvatarImageView.kf.setImage(with: URL(string: user.headPic))
             
             let textAttachment = NSTextAttachment()
@@ -370,6 +375,7 @@ class TopViewController: UIViewController, IndicatorDisplay {
         }
         else {
             headerView.top3NameLabel.text = "虚位以待"
+            headerView.top3NameLabel.textColor = .white
             headerView.top3AvatarImageView.image = UIImage(named: "top-profile")
             headerView.top3CountLabel.attributedText = nil
         }

@@ -157,7 +157,7 @@ class ChargeViewController: UIViewController, LoadingStateType, IndicatorDisplay
             .first { $0.isCheck }
             .map { "\($0.charge)能量/分钟"}
         
-        let voicePrice =  RightDetailFormEntry(image: nil, text: "语音价格设置", detailText: voicePriceText ?? "1000能量/分钟", onTapped: { [unowned self] in
+        let voicePrice =  RightDetailFormEntry(image: nil, text: "语音价格设置", detailText: voicePriceText ?? "10能量/分钟", onTapped: { [unowned self] in
             self.picker(items: chargeInfo.config.voiceList, type: 2)
             
         })
@@ -176,7 +176,7 @@ class ChargeViewController: UIViewController, LoadingStateType, IndicatorDisplay
             .first { $0.isCheck }
             .map { "\($0.charge)能量/分钟" }
         
-        let videoPrice =  RightDetailFormEntry(image: nil, text: "视频价格设置", detailText: videoPriceText ?? "2500能量/分钟", onTapped: { [unowned self] in
+        let videoPrice =  RightDetailFormEntry(image: nil, text: "视频价格设置", detailText: videoPriceText ?? "25能量/分钟", onTapped: { [unowned self] in
             self.picker(items: chargeInfo.config.videoList, type: 1)
         })
         let video = FormSection(

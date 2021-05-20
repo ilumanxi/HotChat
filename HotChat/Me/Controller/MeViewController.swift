@@ -595,6 +595,15 @@ extension VipType: CustomStringConvertible {
     }
     
     
+    var nameToptColor: UIColor {
+        switch self {
+        case.empty:
+            return .white
+        default:
+            return UIColor(hexString: "#F1AC23")
+        }
+    }
+    
     
     var backgroundColor: UIColor? {
         switch self {

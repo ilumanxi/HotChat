@@ -61,33 +61,34 @@ class LoginViewController: UIViewController, IndicatorDisplay {
     
     
     @IBAction func phoneDidLogin(_ sender: Any) {
-        
-        #if DEBUG
-        let vc = PhoneSigninViewController.loadFromStoryboard()
-        navigationController?.pushViewController(vc, animated: true)
-        #else
-        if AppAudit.share.oneKeyLoginStatus {
+        DispatchQueue.main.async {
+            #if DEBUG
             let vc = PhoneSigninViewController.loadFromStoryboard()
-            navigationController?.pushViewController(vc, animated: true)
-        }
-        else {
-            UMCommonHandler.checkEnvAvailable(with: .loginToken) {  [unowned self] info in
-                Log.print("UMVerify: \(info as Any)")
-                
-                guard let code = info?["resultCode"] as? String else {
-                    self.pushSignup()
-                    return
-                }
-                
-                if code == PNSCodeSuccess {
-                    self.phoneLogin()
-                }
-                else {
-                    self.pushSignup()
+            self.navigationController?.pushViewController(vc, animated: true)
+            #else
+            if AppAudit.share.oneKeyLoginStatus {
+                let vc = PhoneSigninViewController.loadFromStoryboard()
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            else {
+                UMCommonHandler.checkEnvAvailable(with: .loginToken) {  [unowned self] info in
+                    Log.print("UMVerify: \(info as Any)")
+                    
+                    guard let code = info?["resultCode"] as? String else {
+                        self.pushSignup()
+                        return
+                    }
+                    
+                    if code == PNSCodeSuccess {
+                        self.phoneLogin()
+                    }
+                    else {
+                        self.pushSignup()
+                    }
                 }
             }
+            #endif
         }
-        #endif
     }
     
     private func phoneLogin() {

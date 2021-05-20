@@ -15,9 +15,9 @@ extension Sex {
         
         switch self {
         case .female:
-            return "类型"
+            return "Ta的类型"
         default:
-            return "喜欢的类型"
+            return "Ta喜欢的类型"
         }
     }
     

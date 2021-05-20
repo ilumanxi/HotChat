@@ -175,6 +175,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         TUIBubbleMessageCellData.outgoingBubble = TUIBubbleMessageCellData.outgoingBubble.tint(color, blendMode: .destinationIn).resizableImage(withCapInsets: NSCoder.uiEdgeInsets(for: "{30,20,22,20}"), resizingMode: .stretch)
         TUIBubbleMessageCellData.outgoingHighlightedBubble = TUIBubbleMessageCellData.outgoingHighlightedBubble.tint(color, blendMode: .destinationIn).resizableImage(withCapInsets: NSCoder.uiEdgeInsets(for: "{30,20,22,20}"), resizingMode: .stretch)
+
+        TUITextMessageCellData.outgoingTextColor = .white;
         
         CallManager.shareInstance()?.initCall()
     }
