@@ -92,6 +92,7 @@ class InterestedViewController: UIViewController, IndicatorDisplay, StoryboardCr
         kolodaView.swipe(.right)
         let message = data[kolodaView.currentCardIndex - 1]
         follow(message: message)
+        readUser(message: message)
 
     }
 }

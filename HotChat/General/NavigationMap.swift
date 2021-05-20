@@ -35,6 +35,21 @@ enum NavigationMap {
     }
     
     
+    navigator.register(HotChatURLString(path: "jump/chatDetail")) { url, values, context in
+        
+        guard let nick = url.queryParameters["nick"],
+              let userId = url.queryParameters["userId"]
+        else  {
+            return  nil
+        }
+        
+        let data = TUIConversationCellData()
+        data.userID = userId
+        data.title = nick
+        
+        return ChatViewController(conversation: data)
+    }
+    
     navigator.register(HotChatURLString(path: "jump/editProfile")) { url, values, context in
         return  UserInfoEditingViewController.loadFromStoryboard()
     }
