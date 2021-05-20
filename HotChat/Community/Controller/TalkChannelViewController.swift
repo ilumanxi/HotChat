@@ -202,7 +202,7 @@ extension TalkChannelViewController: UICollectionViewDataSource, UICollectionVie
     }
     
     var sectionInsets: UIEdgeInsets {
-        return UIEdgeInsets(top: 14, left: 12, bottom: 49, right: 12)
+        return UIEdgeInsets(top: 12, left: 14, bottom: 49, right: 14)
     }
     
     func configureVerticalLayout() {
@@ -240,7 +240,7 @@ extension TalkChannelViewController: UICollectionViewDataSource, UICollectionVie
             let cellWidth = widthForCellInCurrentLayout()
             return CGSize(width: cellWidth, height: cellWidth)
         case .banner:
-            let cellWidth = collectionView.frame.size.width - (sectionInsets.left + sectionInsets.right) - 0.1
+            let cellWidth = collectionView.frame.size.width - (sectionInsets.left + sectionInsets.right)
             let sacle: CGFloat = 345.0 / 98.0
             return CGSize(width: cellWidth, height: cellWidth / sacle + 8)
         default:
@@ -249,11 +249,23 @@ extension TalkChannelViewController: UICollectionViewDataSource, UICollectionVie
     }
 
     func widthForCellInCurrentLayout() -> CGFloat {
-        var cellWidth = collectionView.frame.size.width - (sectionInsets.left + sectionInsets.right) - 0.1
-        if itemsPerRow > 1 {
-            cellWidth -= minimumInteritemSpacing * (itemsPerRow - 1)
-        }
+        let cellWidth = collectionView.frame.size.width - sectionInsets.left - sectionInsets.right - minimumInteritemSpacing
+//        if itemsPerRow > 1 {
+//            cellWidth -= minimumInteritemSpacing * (itemsPerRow - 1)
+//        }
         return floor(cellWidth / itemsPerRow)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return minimumLineSpacing
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return minimumInteritemSpacing
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return sectionInsets
     }
     
     
