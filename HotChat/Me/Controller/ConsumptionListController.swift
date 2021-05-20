@@ -47,7 +47,7 @@ class ConsumptionListController: AquamanPageViewController {
             .switchStyle(.line),
             .sliderStyle(
                 SliderViewStyle(parts:
-                    .backgroundColor(.theme),
+                    .backgroundColor(UIColor(hexString: "#FF3F3F")),
                     .height(2.5),
                     .cornerRadius(1.5),
                     .position(.bottom),

@@ -184,10 +184,15 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
         scrollToTop()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if !channels.isEmpty {
+            setSelect(index: 0, animation: false)
+        }
+    }
+    
     func scrollToTop()  {
         mainScrollView.setContentOffset(.zero, animated: false)
-//        _ = scrollViewShouldScrollToTop(self.mainScrollView)
-        
         channels.forEach {channel in
             if viewController(for: channel).isViewLoaded {
                 viewController(for: channel).aquamanChildScrollView().setContentOffset(.zero, animated: false)

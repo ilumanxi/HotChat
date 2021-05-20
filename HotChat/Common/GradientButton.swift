@@ -101,7 +101,7 @@ class GradientButton: HotChatButton {
 class SexButton: GradientButton {
     
     @IBInspectable
-    var layoutSize: CGSize = CGSize(width: 28, height: 12) {
+    var layoutSize: CGSize = CGSize(width:30, height: 12) {
         didSet {
             invalidateIntrinsicContentSize()
             setNeedsLayout()
@@ -109,6 +109,11 @@ class SexButton: GradientButton {
     }
     
     override var intrinsicContentSize: CGSize {
+        
+        if super.intrinsicContentSize.width > layoutSize.width {
+            return CGSize(width: super.intrinsicContentSize.width, height: layoutSize.height)
+        }
+        
         return layoutSize
     }
     
@@ -129,11 +134,11 @@ extension SexButton {
     
     @objc
     func set(_ user: User) {
-        titleLabel?.adjustsFontSizeToFitWidth = true
-        titleLabel?.minimumScaleFactor = 0.5
         titleEdgeInsets = UIEdgeInsets(top: 0, left: 2, bottom: 0, right:0)
+        titleLabel?.font = .systemFont(ofSize: 10, weight: .regular)
+//        titleLabel?.adjustsFontSizeToFitWidth = true
+//        titleLabel?.minimumScaleFactor = 0.5
         setTitleColor(.white, for: .normal)
-        titleLabel?.font = .systemFont(ofSize: 10, weight: .medium)
         setTitle(user.age.description, for: .normal)
         setImage(user.sex.image, for: .normal)
         colors = user.sex.colors

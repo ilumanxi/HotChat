@@ -90,10 +90,10 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="NHL-MH-7RP">
-                                                    <rect key="frame" x="79" y="16.5" width="103" height="37.5"/>
+                                                    <rect key="frame" x="79" y="16.5" width="106.5" height="37.5"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="gU7-tH-qrd">
-                                                            <rect key="frame" x="0.0" y="0.0" width="103" height="17"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="106.5" height="17"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fq0-hA-C1R">
                                                                     <rect key="frame" x="0.0" y="0.0" width="35.5" height="17"/>
@@ -102,14 +102,14 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vph-dd-nzI" customClass="SexButton" customModule="HotChat" customModuleProvider="target">
-                                                                    <rect key="frame" x="40.5" y="0.5" width="29.5" height="16"/>
+                                                                    <rect key="frame" x="40.5" y="0.0" width="33" height="16.5"/>
                                                                     <color key="backgroundColor" red="0.56862745100000001" green="0.82352941180000006" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
                                                                     <inset key="contentEdgeInsets" minX="4" minY="2" maxX="4" maxY="2"/>
                                                                     <state key="normal" title="26" image="male"/>
                                                                 </button>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="28" placeholderIntrinsicHeight="12" translatesAutoresizingMaskIntoConstraints="NO" id="jur-sg-xo3">
-                                                                    <rect key="frame" x="75" y="2.5" width="28" height="12"/>
+                                                                    <rect key="frame" x="78.5" y="2.5" width="28" height="12"/>
                                                                 </imageView>
                                                             </subviews>
                                                         </stackView>
@@ -331,9 +331,9 @@
                                     <outlet property="delegate" destination="cda-O3-Keb" id="D2M-30-BkU"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lks-On-Hpq">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lks-On-Hpq" customClass="GradientButton" customModule="HotChat" customModuleProvider="target">
                                 <rect key="frame" x="30" y="812" width="354" height="50"/>
-                                <color key="backgroundColor" red="0.31764705882352939" green="0.34901960784313724" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="0.24705882352941178" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="SD6-pr-hHE"/>
                                 </constraints>
@@ -341,6 +341,13 @@
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="colorsString" value="#FA932E,#FF530F"/>
+                                    <userDefinedRuntimeAttribute type="point" keyPath="startPoint">
+                                        <point key="value" x="0.0" y="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="point" keyPath="endPoint">
+                                        <point key="value" x="1" y="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -631,7 +638,7 @@
         <image name="chat-skip" width="74.5" height="74.5"/>
         <image name="chat-topic" width="50" height="50"/>
         <image name="close-white-small" width="12" height="12"/>
-        <image name="male" width="8.5" height="8"/>
+        <image name="male" width="12" height="12.5"/>
         <image name="tabbar-message-normal" width="32" height="32"/>
         <image name="tabbar-message-selected" width="32" height="32"/>
         <systemColor name="groupTableViewBackgroundColor">
