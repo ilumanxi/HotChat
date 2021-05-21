@@ -18,6 +18,7 @@
 #import "TResponderTextView.h"
 
 @class InputBar;
+@class ResponderTextView;
 
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -170,7 +171,7 @@
 *  即在输入条中占据大部分面积的白色文本输入框
 *  继承自 UITextView
 */
-@property (nonatomic, strong) TResponderTextView *inputTextView;
+@property (nonatomic, strong) ResponderTextView *inputTextView;
 
 /**
 *  表情按钮

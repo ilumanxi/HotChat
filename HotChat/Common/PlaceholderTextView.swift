@@ -9,6 +9,8 @@
 import UIKit
 
 /// A light-weight UITextView subclass that adds support for placeholder.
+
+@objc
 class PlaceholderTextView: UITextView {
     
     // MARK: - Private Properties
@@ -95,6 +97,7 @@ class PlaceholderTextView: UITextView {
     open var isEmpty: Bool { return self.text.isEmpty }
     
     /// The string that is displayed when there is no other text in the placeholder text view. This value is `nil` by default.
+    @objc
     @IBInspectable open var placeholder: NSString? {
         
         get {
@@ -288,5 +291,27 @@ class PlaceholderTextView: UITextView {
         self.placeholderLayoutManager.ensureLayout(for: self.placeholderTextContainer)
         
         return self.placeholderLayoutManager.usedRect(for: self.placeholderTextContainer)
+    }
+}
+
+
+class ResponderTextView: PlaceholderTextView {
+    
+    @objc
+    weak var overrideNextResponder: UIResponder?
+    
+    override var next: UIResponder? {
+        if overrideNextResponder == nil {
+            return super.next;
+        }
+        return overrideNextResponder
+    }
+    
+    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+        if overrideNextResponder != nil {
+            return false
+        }
+        
+        return super.canPerformAction(action, withSender: sender)
     }
 }

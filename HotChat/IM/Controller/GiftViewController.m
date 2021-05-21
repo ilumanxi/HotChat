@@ -106,16 +106,27 @@
     
     self.coinLabel.text = [NSString stringWithFormat:@"T币：%ld",(long)[LoginManager shared].user.userTanbi];
     
-    [[GiftManager shared] getGiftList:^(NSArray<Gift *> * _Nonnull giftList) {
-        self.gifts = giftList;
-        self.selectedGift = giftList.firstObject;
+    if (self.gifts.count > 0) {
+        
+        self.selectedGift = self.gifts.firstObject;
         self.selectedGift.selected = YES;
         self.pageControl.numberOfPages = self.numberOfPages;
         [self.collectionView reloadData];
-        if (giftList.count > 0) {
-            [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] animated:0 scrollPosition:UICollectionViewScrollPositionNone];
-        }
-    }];
+        [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+    }
+    
+//    [[GiftManager shared] getGiftList:^(NSArray<Gift *> * _Nonnull giftList) {
+//        self.gifts = giftList;
+//        self.selectedGift = giftList.firstObject;
+//        self.selectedGift.selected = YES;
+//        self.pageControl.numberOfPages = self.numberOfPages;
+//        [self.collectionView reloadData];
+//
+//        NSIndexPath *indexPath = self.collectionView.indexPathsForSelectedItems.firstObject;
+//        if (indexPath) {
+//            [self.collectionView selectItemAtIndexPath:indexPath animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+//        }
+//    }];
 
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateUserInfo) name:@"com.friday.Chat.userDidChange" object:nil];

@@ -57,7 +57,8 @@
     [self addSubview:_lineView];
     
 
-    _inputTextView = [[TResponderTextView alloc] init];
+    _inputTextView = [[ResponderTextView alloc] init];
+    _inputTextView.placeholder = @"打个招呼吧~";
     _inputTextView.delegate = self;
     [_inputTextView setFont:[UIFont systemFontOfSize:16]];
     [_inputTextView.layer setMasksToBounds:YES];
