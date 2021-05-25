@@ -741,7 +741,7 @@
 }
 
 - (void)acceptClick {
-    
+    [self stopAlerm];
     if (self.manager.isCharge) {
         @weakify(self)
         [self.manager accept:^{
