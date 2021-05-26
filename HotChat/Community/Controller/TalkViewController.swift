@@ -176,19 +176,29 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
         
         onCallEnd()
         
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        scrollToTop()
-        scrollToTop()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        if !channels.isEmpty {
-            setSelect(index: 0, animation: false)
-        }
+        let selectedIndex = tabBarController?.rx.didSelect
+            .compactMap{ viewController in
+                viewController.parent?.children.firstIndex(of: viewController)
+            }
+            .share(replay: 1)
+        
+
+        selectedIndex?
+            .filter{ $0 == 0 }
+            .subscribe(onNext: { [weak self] index in
+                
+                guard let self = self else { return }
+                
+                if !self.channels.isEmpty {
+                    self.setSelect(index: 0, animation: false)
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    self.scrollToTop()
+                    self.scrollToTop()
+                }
+               
+            })
+            .disposed(by: rx.disposeBag)
     }
     
     func scrollToTop()  {
