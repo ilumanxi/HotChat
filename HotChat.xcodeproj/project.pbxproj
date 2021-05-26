@@ -261,7 +261,6 @@
 		267B98772505E1AC0008C81B /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267B986F2505E1AC0008C81B /* Platform.swift */; };
 		267B98802506012F0008C81B /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 267B987F2506012F0008C81B /* Account.storyboard */; };
 		267E36E92547C2E100EB2097 /* GiftView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 267E36E82547C2E100EB2097 /* GiftView.xib */; };
-		267F58F5264D25C60024D18E /* bg_welcome.png in Resources */ = {isa = PBXBuildFile; fileRef = 267F58F4264D25C60024D18E /* bg_welcome.png */; };
 		26808FDC2519D4B800C9803C /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26808FDB2519D4B800C9803C /* Request.swift */; };
 		26808FE12519D5BE00C9803C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26808FE02519D5BE00C9803C /* Constant.swift */; };
 		2681D14B263179930059CAFA /* PushItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2681D14A263179920059CAFA /* PushItem.swift */; };
@@ -883,7 +882,6 @@
 		267B987A2505E5BB0008C81B /* HotChat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HotChat-Bridging-Header.h"; sourceTree = "<group>"; };
 		267B987F2506012F0008C81B /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
 		267E36E82547C2E100EB2097 /* GiftView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiftView.xib; sourceTree = "<group>"; };
-		267F58F4264D25C60024D18E /* bg_welcome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_welcome.png; sourceTree = "<group>"; };
 		26808FDB2519D4B800C9803C /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		26808FE02519D5BE00C9803C /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		2681D14A263179920059CAFA /* PushItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushItem.swift; sourceTree = "<group>"; };
@@ -1614,7 +1612,6 @@
 			children = (
 				263F5490265D02B1003A40C3 /* launch-screen-logo-message@2x.png */,
 				263F5492265D02C1003A40C3 /* launch-screen-logo-message@3x.png */,
-				267F58F4264D25C60024D18E /* bg_welcome.png */,
 				26B7CCDD262994D9007805F1 /* publish.svga */,
 				2691AE352627EB4500EE05D7 /* dating.webp */,
 				26FD3311262582A400979B36 /* me.svga */,
@@ -2534,7 +2531,6 @@
 				262C5F6E255550BE00126359 /* AccountSecurityController.xib in Resources */,
 				264BF97F25A83BB200F873DD /* AccostViewCell.xib in Resources */,
 				26EDE7FA2591D11F002A2EC3 /* GuidedRechargeViewController.xib in Resources */,
-				267F58F5264D25C60024D18E /* bg_welcome.png in Resources */,
 				2623FC5E262029DD00764DFA /* AddressBookViewController.xib in Resources */,
 				26959042250B1DD900763061 /* InterestedCardOverlayView.xib in Resources */,
 				266B19652637D13D0012891B /* Readme.md in Resources */,
