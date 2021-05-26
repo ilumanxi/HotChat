@@ -116,7 +116,7 @@ extension InterestedViewController: KolodaViewDelegate {
         requestData()
             .subscribe(onSuccess: { [weak self] response in
                 guard let self = self else { return }
-                self.last = response.data
+//                self.last = response.data
                 let list = response.data?.list ?? []
                 
                 self.data.append(contentsOf:  list)

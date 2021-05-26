@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import Aquaman
-import Trident
+import Pageboy
+import Tabman
 
 enum Checklist: CaseIterable {
     case all
@@ -36,43 +36,10 @@ extension ChecklistType {
     }
 }
 
-class ConsumptionListController: AquamanPageViewController {
-    
-    lazy var menuView: TridentMenuView = {
-        let view = TridentMenuView(parts:
-            .normalTextColor(UIColor(hexString: "#666666")),
-            .selectedTextColor(UIColor(hexString: "#1B1B1B")),
-            .normalTextFont(UIFont.systemFont(ofSize: 14.0, weight: .medium)),
-            .selectedTextFont(UIFont.systemFont(ofSize: 19.0, weight: .bold)),
-            .switchStyle(.line),
-            .sliderStyle(
-                SliderViewStyle(parts:
-                    .backgroundColor(UIColor(hexString: "#FF3F3F")),
-                    .height(2.5),
-                    .cornerRadius(1.5),
-                    .position(.bottom),
-                    .extraWidth(0),
-                    .shape(.line)
-                )
-            ),
-            .bottomLineStyle(
-                BottomLineViewStyle(parts:
-                    .hidden(true)
-                )
-            )
-        )
-        view.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-        view.backgroundColor = .white
-        view.delegate = self
-        return view
-    }()
-    
-    let headerView = UIView()
-    let headerViewHeight: CGFloat = 1
-    private var menuViewHeight: CGFloat = 44.0
+class ConsumptionListController: TabmanViewController {
     
     
-    lazy var contentViewControllers: [ConsumerDetailsViewController] = {
+    lazy var viewControllers: [ConsumerDetailsViewController] = {
         return type.list
             .map {
                 let vc = ConsumerDetailsViewController(type: $0, dataType: type)
@@ -97,87 +64,76 @@ class ConsumptionListController: AquamanPageViewController {
         super.viewDidLoad()
         title = "明细"
         
-        menuView.titles = contentViewControllers.compactMap{ $0.title }
+        bounces = false
         
-        reloadData()
-
-        // Do any additional setup after loading the view.
-    }
-    
-    override func headerViewFor(_ pageController: AquamanPageViewController) -> UIView {
-        return headerView
-    }
-    
-    override func headerViewHeightFor(_ pageController: AquamanPageViewController) -> CGFloat {
-        return headerViewHeight
-    }
-    
-    override func numberOfViewControllers(in pageController: AquamanPageViewController) -> Int {
-        return contentViewControllers.count
-    }
-    
-    override func pageController(_ pageController: AquamanPageViewController, viewControllerAt index: Int) -> (UIViewController & AquamanChildViewController) {
-        
-        return contentViewControllers[index]
-    }
-    
-    // 默认显示的 ViewController 的 index
-    override func originIndexFor(_ pageController: AquamanPageViewController) -> Int {
-       return 0
-    }
-    
-    override func menuViewFor(_ pageController: AquamanPageViewController) -> UIView {
-        return menuView
-    }
-    
-    override func menuViewHeightFor(_ pageController: AquamanPageViewController) -> CGFloat {
-        return menuViewHeight
-    }
-    
-    override func menuViewPinHeightFor(_ pageController: AquamanPageViewController) -> CGFloat {
-        return 0
-    }
-
-    
-    override func pageController(_ pageController: AquamanPageViewController, mainScrollViewDidScroll scrollView: UIScrollView) {
-        
-    }
-    
-    override func pageController(_ pageController: AquamanPageViewController, contentScrollViewDidScroll scrollView: UIScrollView) {
-        menuView.updateLayout(scrollView)
-    }
-    
-    override func pageController(_ pageController: AquamanPageViewController,
-                                 contentScrollViewDidEndScroll scrollView: UIScrollView) {
-        
-    }
-    
-    override func pageController(_ pageController: AquamanPageViewController, menuView isAdsorption: Bool) {
-
-    }
-    
-    
-    override func pageController(_ pageController: AquamanPageViewController, willDisplay viewController: (UIViewController & AquamanChildViewController), forItemAt index: Int) {
-    }
-    
-    override func pageController(_ pageController: AquamanPageViewController, didDisplay viewController: (UIViewController & AquamanChildViewController), forItemAt index: Int) {
-        menuView.checkState(animation: true)
-    }
-    
-    override func contentInsetFor(_ pageController: AquamanPageViewController) -> UIEdgeInsets {
-        return .zero
-    }
-    
-}
-
-extension ConsumptionListController: TridentMenuViewDelegate {
-    func menuView(_ menuView: TridentMenuView, didSelectedItemAt index: Int) {
-        guard index < contentViewControllers.count else {
-            return
+        if let pageViewController = self.children.first as? UIPageViewController {
+            let scrollView =  pageViewController.view.subviews.first { $0 is UIScrollView } as? UIScrollView
+            if let popGesture = navigationController?.interactivePopGestureRecognizer {
+                scrollView?.panGestureRecognizer.require(toFail: popGesture)
+            }
         }
-        setSelect(index: index, animation: false)
+        // Set PageboyViewControllerDataSource dataSource to configure page view controller.
+        dataSource = self
+        
+        // Create a bar
+        let bar = TMBarView.ButtonBar()
+        // Customize bar properties including layout and other styling.
+        bar.layout.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        bar.layout.interButtonSpacing = 30
+        bar.layout.contentMode = .intrinsic
+        bar.indicator.weight = .custom(value: 2.5)
+        bar.indicator.cornerStyle = .eliptical
+        bar.indicator.overscrollBehavior = .none
+        bar.layout.showSeparators = false
+        bar.fadesContentEdges = true
+        bar.backgroundView.style = .flat(color: .white)
+        
+        // Set tint colors for the bar buttons and indicator.
+        bar.buttons.customize {
+            $0.tintColor = UIColor(hexString: "#666666")
+            $0.font = .systemFont(ofSize: 17, weight: .regular)
+            $0.selectedTintColor = UIColor(hexString: "#333333")
+            $0.selectedFont = .systemFont(ofSize: 19, weight: .bold)
+        }
+        bar.indicator.tintColor = UIColor(hexString: "#FF3F3F")
+
+        addBar(bar.hiding(trigger: .manual), dataSource: self, at: .top)
+
+    }
+    
+    
+    
+}
+
+
+extension ConsumptionListController: PageboyViewControllerDataSource, TMBarDataSource {
+    
+    // MARK: PageboyViewControllerDataSource
+    
+    func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
+        viewControllers.count // How many view controllers to display in the page view controller.
+    }
+    
+    func viewController(for pageboyViewController: PageboyViewController, at index: PageboyViewController.PageIndex) -> UIViewController? {
+        
+        // View controller to display at a specific index for the page view controller.
+        viewControllers[index]
+    }
+    
+    func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
+         // Default page to display in the page view controller (nil equals default/first index).
+        return nil
+    }
+
+    
+    // MARK: TMBarDataSource
+    
+    func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
+        
+        return TMBarItem(title: viewControllers[index].title!) // Item to display for a specific index in the bar.
     }
 }
+
 
 extension Checklist {
     

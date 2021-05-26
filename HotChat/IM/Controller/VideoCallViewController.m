@@ -174,9 +174,10 @@
     if (self.manager.isCharge) {
         [self.manager endCallChat];
     }
+    [self stopAlerm];
     [PIPWindow dismissViewControllerAnimated:YES completion:nil];
     
-    [self stopAlerm];
+   
 }
 
 - (void)dealloc {

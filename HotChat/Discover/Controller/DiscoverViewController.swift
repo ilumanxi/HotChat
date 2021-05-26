@@ -445,12 +445,12 @@ class DiscoverViewController: TabmanViewController, LoadingStateType, IndicatorD
     let authenticationAPI = Request<AuthenticationAPI>()
     
     func checkUserAttestation() {
-        showIndicator()
+        showIndicatorOnWindow()
         authenticationAPI.request(.checkUserAttestation, type: Response<Authentication>.self)
             .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in
                 guard let self = self else { return }
-                self.hideIndicator()
+                self.hideIndicatorFromWindow()
                 if response.data!.realNameStatus.isPresent {
                     let user = LoginManager.shared.user!
                     user.realNameStatus = response.data!.realNameStatus
@@ -465,28 +465,12 @@ class DiscoverViewController: TabmanViewController, LoadingStateType, IndicatorD
                     self.present(vc, animated: true, completion: nil)
                 }
             }, onError: { [weak self] error in
-                self?.hideIndicator()
+                self?.hideIndicatorFromWindow()
                 self?.show(error)
             })
             .disposed(by: rx.disposeBag)
     }
     
-//    let cache = NSCache<NSString, UIViewController>()
-//
-//    func viewController(at index: Int) -> UIViewController {
-//
-//        let channel  = channels[index]
-//
-//        guard let controller = cache.object(forKey: channel.labelId.description as NSString)  else {
-//            let vc = ChannelViewController()
-//            vc.channel = channel
-//            cache.setObject(vc, forKey: channel.labelId.description as NSString)
-//            return vc
-//        }
-//
-//        return controller
-//    }
-//
 }
 
 

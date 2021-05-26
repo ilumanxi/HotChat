@@ -16,15 +16,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch-screen-logo-message" translatesAutoresizingMaskIntoConstraints="NO" id="otc-yf-ZMf">
-                                <rect key="frame" x="136.33333333333337" y="783.33333333333337" width="155.66666666666663" height="58.666666666666629"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch-img" translatesAutoresizingMaskIntoConstraints="NO" id="Fez-v7-938">
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="otc-yf-ZMf" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="QQu-Jo-TxU"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="otc-yf-ZMf" secondAttribute="bottom" constant="50" id="UOs-GW-Fnx"/>
+                            <constraint firstItem="Fez-v7-938" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="4Ta-SJ-Wea"/>
+                            <constraint firstAttribute="trailing" secondItem="Fez-v7-938" secondAttribute="trailing" id="hvL-LZ-jEu"/>
+                            <constraint firstItem="Fez-v7-938" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="o7E-SN-jts"/>
+                            <constraint firstAttribute="bottom" secondItem="Fez-v7-938" secondAttribute="bottom" id="ukl-5e-Mlb"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -34,6 +36,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="launch-screen-logo-message" width="155.66667175292969" height="58.666667938232422"/>
+        <image name="launch-img" width="642" height="1389"/>
     </resources>
 </document>

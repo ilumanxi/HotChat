@@ -112,7 +112,6 @@
 		263A6BE925C2B3A200FD43B6 /* FateMatchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263A6BE825C2B3A200FD43B6 /* FateMatchAPI.swift */; };
 		263A6C3825C2DA4800FD43B6 /* PairCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263A6C3625C2DA4800FD43B6 /* PairCallViewController.swift */; };
 		263A6C3925C2DA4800FD43B6 /* PairCallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 263A6C3725C2DA4800FD43B6 /* PairCallViewController.xib */; };
-		263A6C3C25C2DDEB00FD43B6 /* pair.svga in Resources */ = {isa = PBXBuildFile; fileRef = 263A6BEE25C2D74900FD43B6 /* pair.svga */; };
 		263B8C022648FFEF003A4296 /* GiftEffectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263B8C002648FFEF003A4296 /* GiftEffectsViewController.swift */; };
 		263B8C032648FFEF003A4296 /* GiftEffectsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 263B8C012648FFEF003A4296 /* GiftEffectsViewController.xib */; };
 		263BC1E225494EA20081F5DF /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 263BC1E125494EA20081F5DF /* UIView+Additions.m */; };
@@ -124,6 +123,7 @@
 		263F5388261459010099D143 /* TUIMessageController+Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 263F5387261459010099D143 /* TUIMessageController+Group.m */; };
 		263F5491265D02B2003A40C3 /* launch-screen-logo-message@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 263F5490265D02B1003A40C3 /* launch-screen-logo-message@2x.png */; };
 		263F5493265D02C1003A40C3 /* launch-screen-logo-message@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 263F5492265D02C1003A40C3 /* launch-screen-logo-message@3x.png */; };
+		263F5495265DFD7C003A40C3 /* launch-img.png in Resources */ = {isa = PBXBuildFile; fileRef = 263F5494265DFD7B003A40C3 /* launch-img.png */; };
 		264219B5258B2AC600D46B9C /* GreetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264219B4258B2AC600D46B9C /* GreetingViewController.swift */; };
 		26425C16251DDF64006D2F4C /* UserBasicInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26425C15251DDF64006D2F4C /* UserBasicInformationViewController.swift */; };
 		2643EB3A2500AD7D00FBBE49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643EB392500AD7D00FBBE49 /* AppDelegate.swift */; };
@@ -288,7 +288,6 @@
 		2691AE2C2626DB0E00EE05D7 /* ChargeFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2691AE2B2626DB0E00EE05D7 /* ChargeFooterView.xib */; };
 		2691AE2F2627E9A400EE05D7 /* Dating.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2691AE2E2627E9A400EE05D7 /* Dating.storyboard */; };
 		2691AE332627EA6000EE05D7 /* DatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2691AE312627EA6000EE05D7 /* DatingViewController.swift */; };
-		2691AE362627EB4500EE05D7 /* dating.webp in Resources */ = {isa = PBXBuildFile; fileRef = 2691AE352627EB4500EE05D7 /* dating.webp */; };
 		2693697425555E06002E224B /* PhoneBindingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2693697225555E06002E224B /* PhoneBindingController.swift */; };
 		2693697525555E06002E224B /* PhoneBindingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2693697325555E06002E224B /* PhoneBindingController.xib */; };
 		2694580B253FF7B100EBCABB /* UserSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2694580A253FF7B100EBCABB /* UserSettingViewController.swift */; };
@@ -731,6 +730,7 @@
 		263F5387261459010099D143 /* TUIMessageController+Group.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TUIMessageController+Group.m"; sourceTree = "<group>"; };
 		263F5490265D02B1003A40C3 /* launch-screen-logo-message@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-screen-logo-message@2x.png"; sourceTree = "<group>"; };
 		263F5492265D02C1003A40C3 /* launch-screen-logo-message@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "launch-screen-logo-message@3x.png"; path = "HotChat/Assets.xcassets/LaunchScreen/launch-screen-logo-message.imageset/launch-screen-logo-message@3x.png"; sourceTree = SOURCE_ROOT; };
+		263F5494265DFD7B003A40C3 /* launch-img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-img.png"; sourceTree = "<group>"; };
 		264219B4258B2AC600D46B9C /* GreetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingViewController.swift; sourceTree = "<group>"; };
 		26425C15251DDF64006D2F4C /* UserBasicInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBasicInformationViewController.swift; sourceTree = "<group>"; };
 		2643EB362500AD7D00FBBE49 /* HotChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1610,6 +1610,7 @@
 		264C5C352609E5CF007FB123 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				263F5494265DFD7B003A40C3 /* launch-img.png */,
 				263F5490265D02B1003A40C3 /* launch-screen-logo-message@2x.png */,
 				263F5492265D02C1003A40C3 /* launch-screen-logo-message@3x.png */,
 				26B7CCDD262994D9007805F1 /* publish.svga */,
@@ -2550,7 +2551,6 @@
 				267155B0263572F600725EE5 /* IntimateTopCell.xib in Resources */,
 				2693697525555E06002E224B /* PhoneBindingController.xib in Resources */,
 				26AC0E332623FB4200F53951 /* CommunityViewController.xib in Resources */,
-				263A6C3C25C2DDEB00FD43B6 /* pair.svga in Resources */,
 				26AC0E312623EC4100F53951 /* NoteViewCell.xib in Resources */,
 				267955042507637600A72954 /* Community.storyboard in Resources */,
 				26C81EEE25480B1900C1D563 /* GiftViewCell.xib in Resources */,
@@ -2596,7 +2596,6 @@
 				2660F5F426172BB200F849B3 /* DynamicDetailViewCell.xib in Resources */,
 				2651FE1B25F7666A00A9F2E6 /* TopHeaderView.xib in Resources */,
 				26DFBF8C262EB6F800639C94 /* OnlineTipView.xib in Resources */,
-				2691AE362627EB4500EE05D7 /* dating.webp in Resources */,
 				2635216225C7EA4E00855487 /* VisitorsAvatarView.xib in Resources */,
 				26B22F1B2609F2C0006B0C49 /* ListViewCell.xib in Resources */,
 				26E5FE5125F089B800C96392 /* CommentViewCell.xib in Resources */,
@@ -2655,6 +2654,7 @@
 				26A377CF260DB75E002FF17E /* new_user_receive.svga in Resources */,
 				263953702541A38B00B5E3C0 /* FiledViewCell.xib in Resources */,
 				26ED000725C5731200480CEC /* MediaItemViewCell.xib in Resources */,
+				263F5495265DFD7C003A40C3 /* launch-img.png in Resources */,
 				26B7CCDE262994D9007805F1 /* publish.svga in Resources */,
 				26DF8780255A645C002162A9 /* SwitchViewCell.xib in Resources */,
 				26AE7C342520346500B55318 /* LabelViewCell.xib in Resources */,

@@ -7,15 +7,13 @@
 //
 
 import UIKit
-import Aquaman
 import RxSwift
 import RxCocoa
 import MJRefresh
 
-class ConsumerDetailsViewController: UIViewController, AquamanChildViewController, LoadingStateType, IndicatorDisplay {
+class ConsumerDetailsViewController: UIViewController, LoadingStateType, IndicatorDisplay {
 
-    
-    
+
     var state: LoadingState = .initial  {
         didSet {
             if isViewLoaded {
@@ -28,10 +26,6 @@ class ConsumerDetailsViewController: UIViewController, AquamanChildViewControlle
     
     let type: Checklist
     let dataType: ChecklistType
-    
-    @objc var scrollView: UIScrollView {
-        return tableView
-    }
     
     var pageIndex: Int = 1
     

@@ -53,7 +53,7 @@ class MeContactViewController: TabmanViewController {
     }
     
     var titles: [String] = []
-    var viewConrollers: [UIViewController] = []
+    var viewControllers: [UIViewController] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +61,7 @@ class MeContactViewController: TabmanViewController {
         title = "我的联系人"
         
         view.backgroundColor = .white
-        viewConrollers = [
+        viewControllers = [
             InterflowViewController(),
             MeRelationshipViewController(relationship: .follow),
             MeRelationshipViewController(relationship: .fans)
@@ -70,6 +70,12 @@ class MeContactViewController: TabmanViewController {
 
         bounces = false
         
+        if let pageViewController = self.children.first as? UIPageViewController {
+            let scrollView =  pageViewController.view.subviews.first { $0 is UIScrollView } as? UIScrollView
+            if let popGesture = navigationController?.interactivePopGestureRecognizer {
+                scrollView?.panGestureRecognizer.require(toFail: popGesture)
+            }
+        }
         // Set PageboyViewControllerDataSource dataSource to configure page view controller.
         dataSource = self
         
@@ -107,13 +113,13 @@ extension MeContactViewController: PageboyViewControllerDataSource, TMBarDataSou
     // MARK: PageboyViewControllerDataSource
     
     func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
-        viewConrollers.count // How many view controllers to display in the page view controller.
+        viewControllers.count // How many view controllers to display in the page view controller.
     }
     
     func viewController(for pageboyViewController: PageboyViewController, at index: PageboyViewController.PageIndex) -> UIViewController? {
         
         // View controller to display at a specific index for the page view controller.
-        viewConrollers[index]
+        viewControllers[index]
     }
     
     func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
