@@ -41,8 +41,8 @@ class NewcomerAwardViewController: UIViewController {
             $0?.alpha = 0
         }
         
-        let data = list[0..<4]
-        for index in 0..<data.count {
+        
+        for index in 0..<list.count where index < 4 {
             let button = buttons[index]
             button?.setTitle(list[index], for: .normal)
             button?.alpha = 1

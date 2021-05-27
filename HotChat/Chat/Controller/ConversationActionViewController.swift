@@ -98,6 +98,8 @@ class ConversationActionViewController: UITableViewController, StoryboardCreate 
         
         super.viewWillAppear(animated)
         
+        appAudit()
+        
         API.request(.countPeople, type: Response<[String : Any]>.self)
             .verifyResponse()
             .subscribe(onSuccess: { [weak self] response in
@@ -117,6 +119,20 @@ class ConversationActionViewController: UITableViewController, StoryboardCreate 
                     }
                 }
                 
+            }, onError: nil)
+            .disposed(by: rx.disposeBag)
+    }
+    
+    let userSettingsAPI = Request<UserSettingsAPI>()
+    func appAudit() {
+        userSettingsAPI.request(.appAudit, type: Response<AppAudit>.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { [weak self] respoonse in
+                if let data = respoonse.data, let self = self {
+                    AppAudit.share = data
+                    self.tableView.reloadData()
+                    self.onContentHeightUpaded.call(self)
+                }
             }, onError: nil)
             .disposed(by: rx.disposeBag)
     }

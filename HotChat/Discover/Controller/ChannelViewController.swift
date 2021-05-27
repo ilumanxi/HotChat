@@ -13,7 +13,7 @@ import MJRefresh
 import Kingfisher
 import FSPagerView
 import URLNavigator
-//import Blueprints
+import Blueprints
 
 
 class ChannelViewController: UIViewController, LoadingStateType, IndicatorDisplay {
