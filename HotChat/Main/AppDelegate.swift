@@ -11,7 +11,6 @@ import AuthenticationServices
 import SwiftyStoreKit
 import Bugly
 import Toast_Swift
-import PKHUD
 import RangersAppLog
 import URLNavigator
 import UMVerify
@@ -32,6 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //          .processor(WebPProcessor.default),
 //          .cacheSerializer(WebPSerializer.default)
 //        ]
+        
+        LaunchScreenViewController.show()
     
         // Initialize navigation map
         NavigationMap.initialize(navigator: Navigator.share)
@@ -44,8 +45,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         instruction()
         
         setupIM()
-        
-        HUD.registerForKeyboardNotifications()
         
         Appearance.default.configure()
         registerANPSNotification(application, didFinishLaunchingWithOptions: launchOptions)

@@ -57,7 +57,6 @@ PODS:
     - RxSwift (~> 5.1)
   - Pageboy (3.6.2)
   - PanModal (1.2.7)
-  - PKHUD (5.3.0)
   - pop (1.0.12)
   - PPBadgeViewSwift (3.1.0)
   - Protobuf (3.16.0)
@@ -191,7 +190,6 @@ DEPENDENCIES:
   - Moya/RxSwift
   - "NSObject+Rx"
   - PanModal
-  - PKHUD
   - PPBadgeViewSwift
   - RangersAppLog
   - Reusable
@@ -251,7 +249,6 @@ SPEC REPOS:
     - "NSObject+Rx"
     - Pageboy
     - PanModal
-    - PKHUD
     - pop
     - PPBadgeViewSwift
     - Protobuf
@@ -341,7 +338,6 @@ SPEC CHECKSUMS:
   "NSObject+Rx": fa6bbcc1ab1faa06b01466bc09b1e0692bbc5946
   Pageboy: cf121b9dd48c63f3f281b2a9ec93d02e0f23879b
   PanModal: 3e16ead1a907fb06f4df3f13492fd00149fa4974
-  PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   PPBadgeViewSwift: 18a219a9897f418342c22dd1a54f7b18ac56546b
   Protobuf: 8e78b4aabb47d17f379fb10b0d22ed5439e69b95
@@ -380,6 +376,6 @@ SPEC CHECKSUMS:
   YBImageBrowser: 7ecc8bf33ffa5f3b94c397c29b4f3638dd37f527
   YYImage: 20ec986d18a8d0ad421619d166a9e628097e2433
 
-PODFILE CHECKSUM: df0cdf04251754333830c2b42bf33461dade5446
+PODFILE CHECKSUM: fcd2de40dcb2227590c5beda7d746a99208efc21
 
 COCOAPODS: 1.10.1

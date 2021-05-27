@@ -28,7 +28,6 @@ target 'HotChat' do
     pod 'Toast-Swift'
     pod 'Moya', :subspecs => ['Core', 'RxSwift']
     pod 'SwiftDate'
-    pod 'PKHUD'
     pod 'URLNavigator'
     pod 'Tabman'
 #    pod 'IBPCollectionViewCompositionalLayout'

@@ -141,7 +141,7 @@ class DynamicViewController: UIViewController, IndicatorDisplay {
         let textSignal =  textView.rx.text.orEmpty.share(replay: 1)
         
         let textLengthSignal =  textSignal
-            .map{ ($0 as NSString).length }
+            .map{  $0.length }
             .share(replay: 1)
         
         textSignal

@@ -13,7 +13,7 @@ import MJRefresh
 import Kingfisher
 import FSPagerView
 import URLNavigator
-import Blueprints
+//import Blueprints
 
 
 class ChannelViewController: UIViewController, LoadingStateType, IndicatorDisplay {
@@ -206,23 +206,23 @@ extension ChannelViewController: UICollectionViewDataSource, UICollectionViewDel
         return UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)
     }
     
-    func configureVerticalLayout() {
-        let verticalBlueprintLayout = VerticalBlueprintLayout(
-          itemsPerRow: itemsPerRow,
-          height: 100,
-          minimumInteritemSpacing: minimumInteritemSpacing,
-          minimumLineSpacing: minimumLineSpacing,
-          sectionInset: sectionInsets,
-          stickyHeaders: false,
-          stickyFooters: false
-        )
-
-        UIView.animate(withDuration: 0.5) { [weak self] in
-            self?.collectionView.collectionViewLayout = verticalBlueprintLayout
-            self?.view.setNeedsLayout()
-            self?.view.layoutIfNeeded()
-        }
-    }
+//    func configureVerticalLayout() {
+//        let verticalBlueprintLayout = VerticalBlueprintLayout(
+//          itemsPerRow: itemsPerRow,
+//          height: 100,
+//          minimumInteritemSpacing: minimumInteritemSpacing,
+//          minimumLineSpacing: minimumLineSpacing,
+//          sectionInset: sectionInsets,
+//          stickyHeaders: false,
+//          stickyFooters: false
+//        )
+//
+//        UIView.animate(withDuration: 0.5) { [weak self] in
+//            self?.collectionView.collectionViewLayout = verticalBlueprintLayout
+//            self?.view.setNeedsLayout()
+//            self?.view.layoutIfNeeded()
+//        }
+//    }
     
     func layoutCellCalculatedSize(forItemAt indexPath: IndexPath) -> CGSize {
         

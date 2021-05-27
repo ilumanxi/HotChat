@@ -123,7 +123,8 @@
 		263F5388261459010099D143 /* TUIMessageController+Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 263F5387261459010099D143 /* TUIMessageController+Group.m */; };
 		263F5491265D02B2003A40C3 /* launch-screen-logo-message@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 263F5490265D02B1003A40C3 /* launch-screen-logo-message@2x.png */; };
 		263F5493265D02C1003A40C3 /* launch-screen-logo-message@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 263F5492265D02C1003A40C3 /* launch-screen-logo-message@3x.png */; };
-		263F5495265DFD7C003A40C3 /* launch-img.png in Resources */ = {isa = PBXBuildFile; fileRef = 263F5494265DFD7B003A40C3 /* launch-img.png */; };
+		263F5498265F395B003A40C3 /* LaunchScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 263F5496265F395B003A40C3 /* LaunchScreenViewController.xib */; };
+		263F5499265F395B003A40C3 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263F5497265F395B003A40C3 /* LaunchScreenViewController.swift */; };
 		264219B5258B2AC600D46B9C /* GreetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264219B4258B2AC600D46B9C /* GreetingViewController.swift */; };
 		26425C16251DDF64006D2F4C /* UserBasicInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26425C15251DDF64006D2F4C /* UserBasicInformationViewController.swift */; };
 		2643EB3A2500AD7D00FBBE49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643EB392500AD7D00FBBE49 /* AppDelegate.swift */; };
@@ -730,7 +731,8 @@
 		263F5387261459010099D143 /* TUIMessageController+Group.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TUIMessageController+Group.m"; sourceTree = "<group>"; };
 		263F5490265D02B1003A40C3 /* launch-screen-logo-message@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-screen-logo-message@2x.png"; sourceTree = "<group>"; };
 		263F5492265D02C1003A40C3 /* launch-screen-logo-message@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "launch-screen-logo-message@3x.png"; path = "HotChat/Assets.xcassets/LaunchScreen/launch-screen-logo-message.imageset/launch-screen-logo-message@3x.png"; sourceTree = SOURCE_ROOT; };
-		263F5494265DFD7B003A40C3 /* launch-img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-img.png"; sourceTree = "<group>"; };
+		263F5496265F395B003A40C3 /* LaunchScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreenViewController.xib; sourceTree = "<group>"; };
+		263F5497265F395B003A40C3 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		264219B4258B2AC600D46B9C /* GreetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingViewController.swift; sourceTree = "<group>"; };
 		26425C15251DDF64006D2F4C /* UserBasicInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBasicInformationViewController.swift; sourceTree = "<group>"; };
 		2643EB362500AD7D00FBBE49 /* HotChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1610,7 +1612,6 @@
 		264C5C352609E5CF007FB123 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				263F5494265DFD7B003A40C3 /* launch-img.png */,
 				263F5490265D02B1003A40C3 /* launch-screen-logo-message@2x.png */,
 				263F5492265D02C1003A40C3 /* launch-screen-logo-message@3x.png */,
 				26B7CCDD262994D9007805F1 /* publish.svga */,
@@ -2207,6 +2208,8 @@
 				26B4E05D2564FCBA004EDCFE /* AuthenticationGuideViewController.xib */,
 				26E48906257E087D006C2ACE /* CheckInViewController.swift */,
 				26E48907257E087D006C2ACE /* CheckInViewController.xib */,
+				263F5497265F395B003A40C3 /* LaunchScreenViewController.swift */,
+				263F5496265F395B003A40C3 /* LaunchScreenViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2632,6 +2635,7 @@
 				2651FE1725F759D300A9F2E6 /* TopViewController.xib in Resources */,
 				260ABAF125F2431E006A01C0 /* CommentReportViewController.xib in Resources */,
 				2639536925419E8300B5E3C0 /* CardViewCell.xib in Resources */,
+				263F5498265F395B003A40C3 /* LaunchScreenViewController.xib in Resources */,
 				26E48909257E087D006C2ACE /* CheckInViewController.xib in Resources */,
 				2679550A2507748C00A72954 /* UserInfoHeaderView.xib in Resources */,
 				26E291992553EABB0032AE99 /* GiftEarningsCell.xib in Resources */,
@@ -2654,7 +2658,6 @@
 				26A377CF260DB75E002FF17E /* new_user_receive.svga in Resources */,
 				263953702541A38B00B5E3C0 /* FiledViewCell.xib in Resources */,
 				26ED000725C5731200480CEC /* MediaItemViewCell.xib in Resources */,
-				263F5495265DFD7C003A40C3 /* launch-img.png in Resources */,
 				26B7CCDE262994D9007805F1 /* publish.svga in Resources */,
 				26DF8780255A645C002162A9 /* SwitchViewCell.xib in Resources */,
 				26AE7C342520346500B55318 /* LabelViewCell.xib in Resources */,
@@ -2871,6 +2874,7 @@
 				2643EBC12500B04100FBBE49 /* UITableView+App.swift in Sources */,
 				2668B09C25233C410073E25D /* WalletViewController.swift in Sources */,
 				26AB26E225401C0D00C16025 /* RemarkViewController.swift in Sources */,
+				263F5499265F395B003A40C3 /* LaunchScreenViewController.swift in Sources */,
 				263A6C3825C2DA4800FD43B6 /* PairCallViewController.swift in Sources */,
 				2635216725C7F18800855487 /* VisitorsController.swift in Sources */,
 				266B19662637D13D0012891B /* RxSelectors.swift in Sources */,
