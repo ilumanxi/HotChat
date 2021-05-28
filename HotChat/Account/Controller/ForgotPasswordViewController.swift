@@ -24,9 +24,9 @@ class ForgotPasswordViewController: LegalLiabilityViewController, IndicatorDispl
     
     @IBOutlet weak var resetActivityIndicatorView: UIActivityIndicatorView!
     
-    @IBOutlet weak var codeButton: UIButton!
+    @IBOutlet weak var codeButton: GradientButton!
     
-    @IBOutlet weak var resetButton: UIButton!
+    @IBOutlet weak var resetButton: GradientButton!
     
     static let codeTitle: String = "获取"
     
@@ -78,7 +78,7 @@ class ForgotPasswordViewController: LegalLiabilityViewController, IndicatorDispl
         viewModel.codeEnabled
             .drive(onNext: { [weak self] isEnabled in
                 self?.codeButton.isEnabled = isEnabled
-                self?.codeButton.backgroundColor = isEnabled ? .theme : .disabledGray
+                self?.codeButton.colorsString = isEnabled ? "#FF6A2F,#FF3F3F" : "#BDBDBD,#BDBDBD"
             })
             .disposed(by: rx.disposeBag)
         
@@ -96,7 +96,8 @@ class ForgotPasswordViewController: LegalLiabilityViewController, IndicatorDispl
         viewModel.resetEnabled
             .drive(onNext: { [weak self] isEnabled in
                 self?.resetButton.isEnabled = isEnabled
-                self?.resetButton.backgroundColor = isEnabled ? .theme : .disabledGray
+                
+                self?.resetButton.colorsString = isEnabled ? "#FF6A2F,#FF3F3F" : "#BDBDBD,#BDBDBD"
             })
             .disposed(by: rx.disposeBag)
         

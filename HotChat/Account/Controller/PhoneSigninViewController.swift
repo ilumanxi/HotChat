@@ -22,7 +22,7 @@ class PhoneSigninViewController: LegalLiabilityViewController, IndicatorDisplay,
     @IBOutlet weak var passwordTextField: UITextField!
     
     
-    @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var signInButton: GradientButton!
     
     
     @IBOutlet weak var signInActivityIndicatorView: UIActivityIndicatorView!
@@ -60,7 +60,7 @@ class PhoneSigninViewController: LegalLiabilityViewController, IndicatorDisplay,
         viewModel.signinEnabled
             .drive(onNext: { [weak self] isEnabled in
                 self?.signInButton.isEnabled = isEnabled
-                self?.signInButton.backgroundColor = isEnabled ? .theme : .disabledGray
+                self?.signInButton.colorsString = isEnabled ? "#FF6A2F,#FF3F3F" : "#BDBDBD,#BDBDBD"
             })
             .disposed(by: rx.disposeBag)
         
