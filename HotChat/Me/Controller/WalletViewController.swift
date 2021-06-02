@@ -148,12 +148,13 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
         let recordItem = UIBarButtonItem(title: "明细", style: .plain, target: self, action: #selector(pushExpensesRecord))
         navigationItem.rightBarButtonItem = recordItem
-        
+        self.tableView.separatorStyle = .none
+        self.tableView.separatorColor = .red
         tableView.register(UINib(nibName: "WalletEnergyViewCell", bundle: nil), forCellReuseIdentifier: "WalletEnergyViewCell")
         tableView.register(UINib(nibName: "WalletProductViewCell", bundle: nil), forCellReuseIdentifier: "WalletProductViewCell")
-        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 10))
-        tableView.sectionHeaderHeight = 5
-        tableView.sectionFooterHeight = 5
+//        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 10))
+        tableView.sectionHeaderHeight = 0.01
+        tableView.sectionFooterHeight = 0.01
         tableView.tableFooterView = textLabel
     }
     
@@ -272,7 +273,7 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         switch type {
         case .energy:
-            return 126
+            return 135
         default:
             return 357
         }
@@ -303,23 +304,9 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        
-        guard let inserCell = cell  as? InsetGroupedCell else { return  }
-        
-        if self.tableView(tableView, numberOfRowsInSection: indexPath.section) == 1 {
-            
-            inserCell.rectCorner = .allCorners
-        }
-        else if indexPath.row == 0 {
-            inserCell.rectCorner = [.topLeft, .topRight]
-        }
-        else if indexPath.row == (self.tableView(tableView, numberOfRowsInSection: indexPath.section) - 1) {
-            inserCell.rectCorner = [.bottomLeft, .bottomRight]
-        }
-        else {
-            inserCell.rectCorner = []
-        }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0.01
     }
     
     func payProduct(_ product: ItemProduct) {

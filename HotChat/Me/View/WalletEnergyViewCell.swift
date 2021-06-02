@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WalletEnergyViewCell: InsetGroupedCell {
+class WalletEnergyViewCell: UITableViewCell {
     
     @IBOutlet weak var energyLabel: UILabel!
     

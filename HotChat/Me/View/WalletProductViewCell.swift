@@ -9,7 +9,7 @@
 import UIKit
 import MagazineLayout
 
-class WalletProductViewCell: InsetGroupedCell {
+class WalletProductViewCell: UITableViewCell {
     
     let layout = MagazineLayout()
     
