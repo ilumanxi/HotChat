@@ -266,6 +266,7 @@ extension RelationViewController: UITableViewDataSource, UITableViewDelegate {
         let visibleCells = tableView.visibleCells
         
         if visibleCells.isEmpty {
+            self.playerManager.removePlayView()
             self.playerManager.stop()
             return
         }
@@ -295,6 +296,7 @@ extension RelationViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         if activateVideoCells.isEmpty {
+            self.playerManager.removePlayView()
             self.playerManager.stop()
             return
         }
@@ -316,17 +318,16 @@ extension RelationViewController: UITableViewDataSource, UITableViewDelegate {
         
         guard let index = self.playerManager.items.firstIndex (where: { $0.uid == item.uid }) else { return  }
         
-        if self.playerManager.currentIndex == index {
+        if self.playerManager.currentIndex == index, let _ = self.playerManager.playerView.superview {
             return
         }
         
         let containerView = playCell.collectionView.visibleCells.first!
-        
-        self.playerManager.removePlayView()
-        
-        self.playerManager.addPlayView(in: containerView)
+            
         self.playerManager.play(at: index)
-        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { // 解决本次播放看到上一次播放画面
+            self.playerManager.addPlayView(in: containerView)
+        }
     }
     
     
@@ -346,9 +347,9 @@ extension RelationViewController: UITableViewDataSource, UITableViewDelegate {
         
         self.playerManager.addPlayView(in: playCell)
         
-        self.playerManager.play(at: 0)
-        
-        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.playerManager.play(at: 0)
+        }
     }
     
     
