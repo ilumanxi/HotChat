@@ -24,13 +24,13 @@ class DynamicDetailViewController: UIViewController, IndicatorDisplay, UITableVi
         didSet {
             if isViewLoaded {
                 if state == .noContent  && user.userId == LoginManager.shared.user!.userId {
-                    showOrHideIndicator(loadingState: state, in: tableView, text: "发布你的第一条动态\n收获新的朋友", image: UIImage(), actionText: "发布")
+                    showOrHideIndicator(loadingState: state, in: tableView, text: "发布你的第一条动态\n收获新的朋友", image: UIImage(), actionText: "发布", backgroundColor: .white)
                 }
                 else if state == .noContent {
-                    showOrHideIndicator(loadingState: state, in: tableView, text: "还没发布消息......", image: UIImage(named: "no-content-dynamic"), actionText: nil)
+                    showOrHideIndicator(loadingState: state, in: tableView, text: "还没发布消息......", image: UIImage(named: "no-content-dynamic"), actionText: nil, backgroundColor: .white)
                 }
                 else {
-                    showOrHideIndicator(loadingState: state, in: tableView)
+                    showOrHideIndicator(loadingState: state, in: tableView, backgroundColor: .white)
                 }
             }
         }

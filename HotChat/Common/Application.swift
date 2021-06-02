@@ -14,7 +14,7 @@ import Reusable
 extension UIColor {
     
     
-    static let theme: UIColor = UIColor(hexString: "#525AF8")
+    static let theme: UIColor = UIColor(hexString: "#FF5437")
     
     static let separator: UIColor = UIColor(hexString: "#F7F6F6")
     

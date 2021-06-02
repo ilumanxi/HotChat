@@ -5,12 +5,12 @@
       "scale" : "1x"
     },
     {
-      "filename" : "icon-76@2x.png",
+      "filename" : "key-bg@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "icon-76@2x-1.png",
+      "filename" : "key-bg@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

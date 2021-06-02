@@ -24,36 +24,27 @@ class LegalLiabilityToolBar: UIView {
     
     let onPushing = Delegate<(), UINavigationController>()
     
-    public static let defaultHeight: CGFloat = 35
+    public static let defaultHeight: CGFloat = 14
     
     public static let defaultSpace: CGFloat = 16
     
     private var cachedIntrinsicContentSize: CGSize = CGSize(width: UIView.layoutFittingExpandedSize.width, height: LegalLiabilityToolBar.defaultHeight)
+    
+    override var intrinsicContentSize: CGSize {
+        return cachedIntrinsicContentSize
+    }
 
-    fileprivate let contentView = UIView()
-    
-    fileprivate let stackView: UIStackView = {
-        let view = UIStackView(arrangedSubviews: [])
-        view.spacing = defaultSpace
-        view.axis = .horizontal
-        view.alignment = .center
-        view.distribution = .fill
-        return view
-    }()
-    
-
-    
     fileprivate let spacer = UIView()
     
      lazy fileprivate var titleLabel: UILabel = {
         let label = ActiveLabel()
         
-        label.font = .systemFont(ofSize: 12)
+        label.font = .systemFont(ofSize: 12, weight: .medium)
         label.textAlignment = .center
-        label.textColor = .textGray
+        label.textColor = .white
         let agreementType = ActiveType.custom(pattern: "《用户协议》") //Regex that looks for "《用户协议》"
         let privacyType = ActiveType.custom(pattern: "《隐私政策》") //Regex that looks for "《隐私政策》"
-        let normalColor = UIColor(hexString: "#525AF8")
+        let normalColor = UIColor(hexString: "#FF5437")
         let selectedColor = normalColor.withAlphaComponent(0.7)
         label.customColor[agreementType] = normalColor
         label.customColor[privacyType] = normalColor
@@ -89,29 +80,13 @@ class LegalLiabilityToolBar: UIView {
     
     fileprivate func makeUI() {
 
-        preservesSuperviewLayoutMargins = true
+
+        addSubview(titleLabel)
         
-        addSubview(contentView)
-        contentView.snp.makeConstraints { maker in
-            maker.height.equalTo(LegalLiabilityToolBar.defaultHeight).priority(999)
-            maker.leadingMargin.trailingMargin.equalToSuperview()
-            maker.bottom.equalTo(self.safeBottom).priority(999)
-            maker.bottom.lessThanOrEqualToSuperview().offset(-34)
-            maker.top.greaterThanOrEqualToSuperview().priority(999)
-        }
-         
-        let views: [UIView]  = [titleLabel]
-          
-        for view in views {
-            stackView.addArrangedSubview(view)
-        }
-        
-        contentView.addSubview(stackView)
-        
-        stackView.snp.makeConstraints { maker in
+        titleLabel.snp.makeConstraints { maker in
             maker.leadingMargin.equalToSuperview()
             maker.trailingMargin.equalToSuperview()
-            maker.bottom.equalToSuperview()
+            maker.bottom.top.equalToSuperview()
         }
         
     }
@@ -123,12 +98,5 @@ class LegalLiabilityToolBar: UIView {
         navigationController.pushViewController(viewController, animated: true)
     }
     
-//    public override class var requiresConstraintBasedLayout: Bool {
-//        return true
-//    }
-    
-    public override var intrinsicContentSize: CGSize {
-        return self.cachedIntrinsicContentSize
-    }
 }
 

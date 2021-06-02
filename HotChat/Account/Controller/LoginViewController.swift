@@ -11,15 +11,20 @@ import ActiveLabel
 import AuthenticationServices
 import RxSwift
 import RxCocoa
-import MBProgressHUD
 
 class LoginViewController: UIViewController, IndicatorDisplay {
+    
+    @IBOutlet weak var loginStackView: UIStackView!
+    @IBOutlet weak var keyLogin: GradientButton!
+    
+    @IBOutlet weak var playerView: PlayerView!
     
     @IBOutlet weak var loginProviderStackView: UIStackView!
     
     
     @IBOutlet weak var toolBar: LegalLiabilityToolBar! {
         didSet {
+            toolBar.backgroundColor = .clear
             toolBar.onPushing.delegate(on: self) { (self, _) -> UINavigationController in
                 return self.navigationController!
             }
@@ -27,17 +32,80 @@ class LoginViewController: UIViewController, IndicatorDisplay {
     }
     
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationBarAlpha = 0
+        
+        keyLogin.colors = [UIColor(hexString: "#FF3F3F").withAlphaComponent(0.6), UIColor(hexString: "#FF6A2F").withAlphaComponent(0.5)]
+        
+        setupPlayer()
         
         if #available(iOS 13.0, *) {
             setupProviderLoginView()
         }
         
         observeAccountState()
+        loginStackView.isHidden = true
+//        UMCommonHandler.checkEnvAvailable(with: .loginToken) {  [unowned self] info in
+//            Log.print("UMVerify: \(info as Any)")
+//
+//            guard let code = info?["resultCode"] as? String else {
+//                return
+//            }
+//
+//            self.keyLogin.isHidden = code != PNSCodeSuccess
+//
+//        }
         
+        UMCommonHandler.accelerateLoginPage(withTimeout: 3) { [unowned self] info in
+            Log.print("UMVerify: \(info as Any)")
+            
+            guard let code = info["resultCode"] as? String else {
+                return
+            }
+            
+            self.loginStackView.isHidden = code != PNSCodeSuccess
+        }
+
     }
     
+    private func setupPlayer() {
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback)
+            try AVAudioSession.sharedInstance().setActive(true, options: [])
+        } catch let e {
+            print(e)
+        }
+        
+        let url = Bundle.main.url(forResource: "login", withExtension: "mov")!
+        let player = AVPlayer(url: url)
+        playerView.player = player
+        playerView.playerLayer.videoGravity = .resizeAspectFill
+        player.play()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(loopPlay), name: .AVPlayerItemDidPlayToEndTime, object: playerView.player?.currentItem)
+        NotificationCenter.default.addObserver(self, selector: #selector(continuePlay), name: UIApplication.willEnterForegroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(pause), name: UIApplication.didEnterBackgroundNotification, object: nil)
+    }
+    
+    
+    @objc func continuePlay() {
+        self.playerView.player?.play()
+    }
+    
+    @objc func pause() {
+        self.playerView.player?.pause()
+    }
+    
+    @objc func loopPlay() {
+        playerView.player?.seek(to: .zero)
+        playerView.player?.play()
+    }
     
     func observeAccountState() {
         
@@ -58,49 +126,30 @@ class LoginViewController: UIViewController, IndicatorDisplay {
     }
     
     
+    @IBAction func keyLoginTapped(_ sender: UIButton) {
+        self.phoneLogin(sender: sender)
+    }
     
     
     @IBAction func phoneDidLogin(_ sender: Any) {
         DispatchQueue.main.async {
-            #if DEBUG
-            let vc = PhoneSigninViewController.loadFromStoryboard()
-            self.navigationController?.pushViewController(vc, animated: true)
-            #else
-            if AppAudit.share.oneKeyLoginStatus {
-                let vc = PhoneSigninViewController.loadFromStoryboard()
-                self.navigationController?.pushViewController(vc, animated: true)
-            }
-            else {
-                UMCommonHandler.checkEnvAvailable(with: .loginToken) {  [unowned self] info in
-                    Log.print("UMVerify: \(info as Any)")
-                    
-                    guard let code = info?["resultCode"] as? String else {
-                        self.pushSignup()
-                        return
-                    }
-                    
-                    if code == PNSCodeSuccess {
-                        self.phoneLogin()
-                    }
-                    else {
-                        self.pushSignup()
-                    }
-                }
-            }
-            #endif
+            self.pushSignup()
         }
     }
     
-    private func phoneLogin() {
+    private func phoneLogin(sender: UIButton) {
+        sender.isUserInteractionEnabled = false
         
         let model = UMCustomModel()
         model.alertTitleBarColor = .white
         model.alertBlurViewAlpha = 0.2
         model.alertTitle = NSAttributedString(string: "免密码登录", attributes: [NSAttributedString.Key.foregroundColor : UIColor(hexString: "#333333")])
-        model.logoImage = UIImage(named: "login-logo")!
+        model.logoImage = UIImage(named: "um-login")!
         model.changeBtnIsHidden = true
         model.checkBoxIsChecked = true
+        model.loginBtnBgImgs = Array(repeating: UIImage(named: "key-bg")!, count: 3)
         model.alertCornerRadiusArray = [NSNumber(value: 10), NSNumber(value: 0), NSNumber(value: 0), NSNumber(value: 10)]
+        model.privacyColors = [UIColor(hexString: "#999999"), UIColor(hexString: "#FE5337")]
         let safeAreaInsetsBottom = self.safeAreaInsets.bottom
         
         model.contentViewFrameBlock = { (screenSize, superViewSize, frame) in
@@ -126,7 +175,7 @@ class LoginViewController: UIViewController, IndicatorDisplay {
             let logoViewFrame = CGRect(x: (superViewSize.width - 54) / 2, y: 33.5, width: 54, height: 54)
             let numberViewFrame =  CGRect(x: frame.minX, y: logoViewFrame.maxY + 8, width: frame.width, height: frame.height)
             let sloganViewFrame =  CGRect(x: frame.minX, y: numberViewFrame.maxY + 30, width: frame.width, height: frame.height)
-            return CGRect(x: frame.minX, y: sloganViewFrame.maxY - 30, width: frame.width, height: frame.height)
+            return CGRect(x: (screenSize.width - 300) / 2 , y: sloganViewFrame.maxY - 30, width:300, height: 45)
         }
         
     
@@ -142,24 +191,25 @@ class LoginViewController: UIViewController, IndicatorDisplay {
             self.phoneLoginButton.frame = CGRect(x: (contentViewFrame.width - self.phoneLoginButton.frame.width) / 2, y: loginFrame.maxY + 14, width: self.phoneLoginButton.frame.width, height: self.phoneLoginButton.frame.height)
         }
         
-        UMCommonHandler.getLoginToken(withTimeout: 1, controller: self, model: model) { info in
-         
+        UMCommonHandler.getLoginToken(withTimeout: 3, controller: self, model: model) { info in
+            sender.isUserInteractionEnabled = true
             guard let code = info["resultCode"] as? String else { return }
             
-            if code == PNSCodeInterfaceTimeout {
-                UMCommonHandler.cancelLoginVC(animated: false) {
-                    
-                }
-                self.pushSignup()
-            }
+//            if code == PNSCodeInterfaceTimeout {
+//                UMCommonHandler.cancelLoginVC(animated: false) {
+//
+//                }
+//                self.pushSignup()
+//            }
             if code == PNSCodeSuccess, let token = info["token"] as? String {
                 //点击登录按钮获取登录Token成功回调
                 self.login(token, tokenType: .um)
 
                 UMCommonHandler.cancelLoginVC(animated: true) {
-                    
+
                 }
             }
+            
         }
     }
     
@@ -168,10 +218,10 @@ class LoginViewController: UIViewController, IndicatorDisplay {
         let attrString = NSMutableAttributedString(string: "切换到手机验证码登录")
         let attr: [NSAttributedString.Key : Any] = [
             .font: UIFont.systemFont(ofSize: 12),
-            .foregroundColor: UIColor(red: 0.2, green: 0.2, blue: 0.2,alpha:1),
+            .foregroundColor: UIColor(hexString: "#333333"),
             .underlineStyle: NSUnderlineStyle.single.rawValue,
-            .underlineColor: UIColor(red: 0.2, green: 0.2, blue: 0.2,alpha:1
-            )]
+            .underlineColor: UIColor(hexString: "#333333")
+        ]
         attrString.addAttributes(attr, range: NSRange(location: 0, length: attrString.length))
         
         let button = UIButton(type: .custom)
@@ -191,7 +241,7 @@ class LoginViewController: UIViewController, IndicatorDisplay {
             return
         }
         
-        let vc = SignupViewController.loadFromStoryboard()
+        let vc = SignupViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -229,10 +279,24 @@ class LoginViewController: UIViewController, IndicatorDisplay {
     func setupProviderLoginView() {
         let authorizationButton = ASAuthorizationAppleIDButton(type: .signIn, style: .black)
         authorizationButton.translatesAutoresizingMaskIntoConstraints = false
-//        authorizationButton.cornerRadius = 25
+        authorizationButton.cornerRadius = 45.0 / 2
         authorizationButton.addTarget(self, action: #selector(handleAuthorizationAppleIDButtonPress), for: .touchUpInside)
-        self.loginProviderStackView.addArrangedSubview(authorizationButton)
-        authorizationButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        
+        let textLabel = UILabel()
+        textLabel.text = "Apple登录"
+        textLabel.textColor = UIColor(hexString: "#C5C5C5")
+        textLabel.font = .systemFont(ofSize: 14)
+        
+        let stackView = UIStackView(arrangedSubviews: [authorizationButton, textLabel])
+        stackView.spacing = 13
+        stackView.alignment = .center
+        stackView.axis = .vertical
+        
+        self.loginProviderStackView.addArrangedSubview(stackView)
+        authorizationButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+        authorizationButton.widthAnchor.constraint(equalToConstant: 45).isActive = true
+        
     }
     
     // - Tag: perform_appleid_password_request

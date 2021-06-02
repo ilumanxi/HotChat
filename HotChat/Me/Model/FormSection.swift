@@ -26,7 +26,7 @@ class FormSection {
 
 class FormSectionRenderer {
     
-    let section: FormSection
+    weak var section: FormSection?
     
     
     init(section: FormSection) {
@@ -43,7 +43,7 @@ class FormSectionRenderer {
     
     private func render(_ header: UserInfoEditingHeaderView) {
         
-        header.titleLabel.text = section.headerText
+        header.titleLabel.text = section?.headerText
     }
 }
 

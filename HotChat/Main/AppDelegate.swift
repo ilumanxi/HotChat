@@ -128,13 +128,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Log.print("UMVerify: \(info)")
         }
         
-        UMCommonHandler.accelerateVerify(withTimeout: 3) { info in
-            Log.print("UMVerify: \(info)")
-        }
-        
-        UMCommonHandler.accelerateVerify(withTimeout: 3) { info in
-            Log.print("UMVerify: \(info)")
-        }
+//        UMCommonHandler.accelerateVerify(withTimeout: 3) { info in
+//            Log.print("UMVerify: \(info)")
+//        }
+//        
+//        UMCommonHandler.accelerateVerify(withTimeout: 3) { info in
+//            Log.print("UMVerify: \(info)")
+//        }
         #if DEBUG
         UMConfigure.setLogEnabled(true)
         #endif

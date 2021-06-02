@@ -1,16 +1,15 @@
 {
   "images" : [
     {
+      "filename" : "launch-content.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "me-books@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "me-books@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

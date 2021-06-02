@@ -31,6 +31,12 @@ class TextFiled: UITextField {
 
 extension UIButton {
     
+    
+    var indicator: UIActivityIndicatorView? {
+        return  subviews.first(where: { $0 is UIActivityIndicatorView }) as? UIActivityIndicatorView
+    }
+    
+    
     func showLoader() {
         
         if subviews.contains(where: { $0 is UIActivityIndicatorView }) {
@@ -42,23 +48,15 @@ extension UIButton {
         }
         
         let indicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .white)
-        indicator.sizeToFit()
         addSubview(indicator)
-        
-        let size = indicator.bounds.size
-        indicator.frame = CGRect(
-            x: (bounds.width - size.width) / 2.0,
-            y: (bounds.height - size.height) / 2.0,
-            width: size.width,
-            height: size.height
-        )
-        
+        indicator.snp.makeConstraints { maker in
+            maker.center.equalToSuperview()
+        }
         indicator.startAnimating()
     }
     
-    
     func hideLoader()  {
-        guard let indicator = subviews.first(where: { $0 is UIActivityIndicatorView }) as? UIActivityIndicatorView  else {
+        guard let indicator = self.indicator  else {
             return
         }
         isUserInteractionEnabled = true

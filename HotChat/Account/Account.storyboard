@@ -18,85 +18,149 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="account-message" translatesAutoresizingMaskIntoConstraints="NO" id="koS-eR-3YD">
-                                <rect key="frame" x="153" y="148" width="108" height="139"/>
-                            </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="X3a-fq-rsw">
-                                <rect key="frame" x="30" y="682" width="354" height="115"/>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w38-4O-Hy6" customClass="PlayerView" customModule="HotChat" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qsf-6h-QsP">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="kDJ-Wg-xiD">
+                                <rect key="frame" x="51" y="605" width="312" height="101"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DzQ-D1-5Hh" customClass="GradientButton" customModule="HotChat" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="354" height="50"/>
-                                        <color key="backgroundColor" red="1" green="0.32549019607843138" blue="0.058823529411764705" alpha="1" colorSpace="calibratedRGB"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cns-1I-ibG" customClass="GradientButton" customModule="HotChat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="312" height="45"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="oWH-ek-eS8"/>
+                                            <constraint firstAttribute="height" constant="45" id="8wl-3N-Nx6"/>
+                                            <constraint firstAttribute="width" constant="312" id="90C-9k-YGA"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <state key="normal" title="手机登录">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                        <state key="normal" title="一键登录">
+                                            <color key="titleColor" red="0.77254901960784317" green="0.77254901960784317" blue="0.77254901960784317" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="colorsString" value="#FA932E,#FF530F"/>
-                                            <userDefinedRuntimeAttribute type="point" keyPath="startPoint">
-                                                <point key="value" x="0.0" y="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="point" keyPath="endPoint">
-                                                <point key="value" x="1" y="0.0"/>
+                                                <real key="value" value="22.5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="phoneDidLogin:" destination="nZ8-LB-QhU" eventType="touchUpInside" id="l9j-lx-fA7"/>
+                                            <action selector="keyLoginTapped:" destination="nZ8-LB-QhU" eventType="touchUpInside" id="qLP-cv-c4x"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8VN-Rm-IV3" customClass="GradientButton" customModule="HotChat" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="65" width="354" height="50"/>
-                                        <color key="backgroundColor" red="0.16862745098039217" green="0.792156862745098" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <state key="normal" title="微信登录">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="colorsString" value="#2BCA75, #04B857"/>
-                                            <userDefinedRuntimeAttribute type="point" keyPath="startPoint">
-                                                <point key="value" x="0.0" y="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="point" keyPath="endPoint">
-                                                <point key="value" x="1" y="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="weChatDidLogin:" destination="nZ8-LB-QhU" eventType="touchUpInside" id="gZt-4I-RAg"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="p2Q-wt-mK1">
+                                        <rect key="frame" x="17" y="85" width="278" height="16"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CUp-2Q-cca">
+                                                <rect key="frame" x="0.0" y="8" width="85" height="0.5"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="0.5" id="2O8-Om-fUv"/>
+                                                    <constraint firstAttribute="width" constant="85" id="UuK-EX-NwR"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="其他登录方式" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1M-XN-Md1">
+                                                <rect key="frame" x="99" y="0.0" width="80" height="16"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gji-8V-1v2">
+                                                <rect key="frame" x="193" y="8" width="85" height="0.5"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="0.5" id="dIt-F2-xHM"/>
+                                                    <constraint firstAttribute="width" constant="85" id="lZ4-SP-zP6"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
-                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="35" translatesAutoresizingMaskIntoConstraints="NO" id="WrV-bB-6ju" customClass="LegalLiabilityToolBar" customModule="HotChat" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="827" width="414" height="35"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="8mz-6a-8hX">
+                                <rect key="frame" x="126" y="728" width="162" height="80"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="47" translatesAutoresizingMaskIntoConstraints="NO" id="X3a-fq-rsw">
+                                        <rect key="frame" x="0.0" y="0.0" width="162" height="80"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="YKs-um-0j3">
+                                                <rect key="frame" x="0.0" y="0.0" width="57.5" height="80"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8VN-Rm-IV3">
+                                                        <rect key="frame" x="6.5" y="0.0" width="45" height="50"/>
+                                                        <state key="normal" image="wechat">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="weChatDidLogin:" destination="nZ8-LB-QhU" eventType="touchUpInside" id="gZt-4I-RAg"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微信登陆" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I0l-9b-LYw">
+                                                        <rect key="frame" x="0.0" y="63" width="57.5" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" red="0.77254901960784317" green="0.77254901960784317" blue="0.77254901960784317" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="0PR-k0-ifJ">
+                                                <rect key="frame" x="104.5" y="0.0" width="57.5" height="80"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DzQ-D1-5Hh">
+                                                        <rect key="frame" x="6.5" y="0.0" width="45" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="oWH-ek-eS8"/>
+                                                        </constraints>
+                                                        <state key="normal" image="phone">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="phoneDidLogin:" destination="nZ8-LB-QhU" eventType="touchUpInside" id="l9j-lx-fA7"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手机登录" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMp-xa-h7b">
+                                                        <rect key="frame" x="0.0" y="63" width="57.5" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" red="0.77254901960784317" green="0.77254901960784317" blue="0.77254901960784317" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="14" translatesAutoresizingMaskIntoConstraints="NO" id="WrV-bB-6ju" customClass="LegalLiabilityToolBar" customModule="HotChat" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="848" width="414" height="14"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uds-Ff-n4B"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="koS-eR-3YD" firstAttribute="centerX" secondItem="3xb-Od-2w9" secondAttribute="centerX" id="0Db-Wx-Srw"/>
-                            <constraint firstItem="X3a-fq-rsw" firstAttribute="leading" secondItem="uds-Ff-n4B" secondAttribute="leading" constant="30" id="0qj-sN-alc"/>
+                            <constraint firstAttribute="trailing" secondItem="Qsf-6h-QsP" secondAttribute="trailing" id="0XZ-RB-RJF"/>
+                            <constraint firstItem="w38-4O-Hy6" firstAttribute="leading" secondItem="3xb-Od-2w9" secondAttribute="leading" id="3LS-eA-WIp"/>
+                            <constraint firstItem="WrV-bB-6ju" firstAttribute="top" secondItem="8mz-6a-8hX" secondAttribute="bottom" constant="40" id="50u-oG-0a6"/>
+                            <constraint firstAttribute="bottom" secondItem="Qsf-6h-QsP" secondAttribute="bottom" id="9Cv-W1-Rra"/>
+                            <constraint firstAttribute="trailing" secondItem="w38-4O-Hy6" secondAttribute="trailing" id="9y4-US-Hpd"/>
                             <constraint firstItem="WrV-bB-6ju" firstAttribute="leading" secondItem="uds-Ff-n4B" secondAttribute="leading" id="GrT-Vr-M7b"/>
-                            <constraint firstItem="koS-eR-3YD" firstAttribute="top" secondItem="uds-Ff-n4B" secondAttribute="top" constant="60" id="dfk-f2-Jwu"/>
-                            <constraint firstItem="WrV-bB-6ju" firstAttribute="top" secondItem="X3a-fq-rsw" secondAttribute="bottom" constant="30" id="jiR-8g-fIa"/>
+                            <constraint firstItem="Qsf-6h-QsP" firstAttribute="top" secondItem="3xb-Od-2w9" secondAttribute="top" id="c0O-r4-AyN"/>
+                            <constraint firstItem="kDJ-Wg-xiD" firstAttribute="centerX" secondItem="3xb-Od-2w9" secondAttribute="centerX" id="dFw-Hb-yvF"/>
+                            <constraint firstItem="8mz-6a-8hX" firstAttribute="top" secondItem="kDJ-Wg-xiD" secondAttribute="bottom" constant="22" id="iaD-CD-psO"/>
                             <constraint firstItem="WrV-bB-6ju" firstAttribute="bottom" secondItem="uds-Ff-n4B" secondAttribute="bottom" priority="999" id="l6f-UX-oNF"/>
-                            <constraint firstItem="uds-Ff-n4B" firstAttribute="trailing" secondItem="X3a-fq-rsw" secondAttribute="trailing" constant="30" id="oK8-LZ-uEq"/>
+                            <constraint firstItem="8mz-6a-8hX" firstAttribute="centerX" secondItem="3xb-Od-2w9" secondAttribute="centerX" id="lCw-IE-Gsa"/>
                             <constraint firstItem="uds-Ff-n4B" firstAttribute="trailing" secondItem="WrV-bB-6ju" secondAttribute="trailing" id="qCX-nX-Bek"/>
-                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="WrV-bB-6ju" secondAttribute="bottom" constant="20" id="yeO-Ri-mdV"/>
+                            <constraint firstAttribute="bottom" secondItem="w38-4O-Hy6" secondAttribute="bottom" id="qb5-Ej-Xhi"/>
+                            <constraint firstItem="Qsf-6h-QsP" firstAttribute="leading" secondItem="3xb-Od-2w9" secondAttribute="leading" id="sk2-gH-Alr"/>
+                            <constraint firstItem="w38-4O-Hy6" firstAttribute="top" secondItem="3xb-Od-2w9" secondAttribute="top" id="tQT-9d-XGp"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="WrV-bB-6ju" secondAttribute="bottom" constant="30" id="yeO-Ri-mdV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Sbl-We-cx6"/>
                     <connections>
+                        <outlet property="keyLogin" destination="Cns-1I-ibG" id="xl3-yp-dLz"/>
                         <outlet property="loginProviderStackView" destination="X3a-fq-rsw" id="z54-n1-elN"/>
+                        <outlet property="loginStackView" destination="kDJ-Wg-xiD" id="Tku-VF-ECp"/>
+                        <outlet property="playerView" destination="w38-4O-Hy6" id="8Rs-iH-aCc"/>
                         <outlet property="toolBar" destination="WrV-bB-6ju" id="goz-Mt-P5s"/>
                     </connections>
                 </viewController>
@@ -591,187 +655,6 @@
             </objects>
             <point key="canvasLocation" x="3554" y="-133"/>
         </scene>
-        <!--登录-->
-        <scene sceneID="eMA-Vk-jbW">
-            <objects>
-                <tableViewController storyboardIdentifier="SignupViewController" title="登录" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UnV-M7-cPM" customClass="SignupViewController" customModule="HotChat" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="oqK-7h-TF2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="K5F-jN-QD8">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="47"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        </view>
-                        <sections>
-                            <tableViewSection id="Rn4-vH-rNx">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="55" id="9dB-4f-klB">
-                                        <rect key="frame" x="0.0" y="71.5" width="414" height="55"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9dB-4f-klB" id="KRg-Zw-1I7">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kP3-Se-cq0">
-                                                    <rect key="frame" x="48" y="10.5" width="318" height="34"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="34" id="0tT-rq-2KK"/>
-                                                    </constraints>
-                                                    <color key="textColor" red="0.20392156859999999" green="0.20392156859999999" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
-                                                </textField>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mtk-3K-OhU">
-                                                    <rect key="frame" x="48" y="54" width="318" height="0.5"/>
-                                                    <color key="backgroundColor" red="0.96862745100000003" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="0.5" id="h0z-fk-E3V"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="mtk-3K-OhU" secondAttribute="trailing" constant="28" id="CTw-Px-HHb"/>
-                                                <constraint firstItem="mtk-3K-OhU" firstAttribute="leading" secondItem="KRg-Zw-1I7" secondAttribute="leadingMargin" constant="28" id="DhN-Th-0dS"/>
-                                                <constraint firstAttribute="bottom" secondItem="mtk-3K-OhU" secondAttribute="bottom" constant="0.5" id="QzO-su-miA"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="kP3-Se-cq0" secondAttribute="trailing" constant="28" id="T8e-Uf-tIZ"/>
-                                                <constraint firstItem="kP3-Se-cq0" firstAttribute="centerY" secondItem="KRg-Zw-1I7" secondAttribute="centerY" id="eNf-g9-Kc3"/>
-                                                <constraint firstItem="kP3-Se-cq0" firstAttribute="leading" secondItem="KRg-Zw-1I7" secondAttribute="leadingMargin" constant="28" id="mOO-Vl-ouM"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <inset key="separatorInset" minX="48" minY="0.0" maxX="48" maxY="0.0"/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="55" id="bMM-Bg-Ffa">
-                                        <rect key="frame" x="0.0" y="126.5" width="414" height="55"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bMM-Bg-Ffa" id="tKz-IA-OOD">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w3U-uT-gEn">
-                                                    <rect key="frame" x="48" y="10.5" width="261" height="34"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="34" id="31X-MI-Zim"/>
-                                                    </constraints>
-                                                    <color key="textColor" red="0.20392156859999999" green="0.20392156859999999" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uxi-vW-6XW" customClass="GradientButton" customModule="HotChat" customModuleProvider="target">
-                                                    <rect key="frame" x="319" y="13" width="47" height="29"/>
-                                                    <color key="backgroundColor" red="1" green="0.32549019607843138" blue="0.058823529411764705" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="47" id="arb-db-NKW"/>
-                                                        <constraint firstAttribute="height" constant="29" id="wCX-QB-PQU"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <state key="normal" title="获取">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </state>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="5"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="colorsString" value="#FF3F3F,#FF6A2F"/>
-                                                        <userDefinedRuntimeAttribute type="point" keyPath="startPoint">
-                                                            <point key="value" x="0.0" y="0.0"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="point" keyPath="endPoint">
-                                                            <point key="value" x="0.0" y="1"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </button>
-                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="I2b-Pi-ugK">
-                                                    <rect key="frame" x="332.5" y="17.5" width="20" height="20"/>
-                                                </activityIndicatorView>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NeS-Zh-ur8">
-                                                    <rect key="frame" x="48" y="54" width="318" height="0.5"/>
-                                                    <color key="backgroundColor" red="0.96862745100000003" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="0.5" id="BaJ-HM-fAU"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="NeS-Zh-ur8" secondAttribute="trailing" constant="28" id="3S0-Z4-JQI"/>
-                                                <constraint firstItem="I2b-Pi-ugK" firstAttribute="centerX" secondItem="Uxi-vW-6XW" secondAttribute="centerX" id="3rz-PC-Puu"/>
-                                                <constraint firstItem="Uxi-vW-6XW" firstAttribute="leading" secondItem="w3U-uT-gEn" secondAttribute="trailing" constant="10" id="A9l-ne-evY"/>
-                                                <constraint firstItem="NeS-Zh-ur8" firstAttribute="leading" secondItem="tKz-IA-OOD" secondAttribute="leadingMargin" constant="28" id="EDK-cI-5um"/>
-                                                <constraint firstItem="w3U-uT-gEn" firstAttribute="leading" secondItem="tKz-IA-OOD" secondAttribute="leadingMargin" constant="28" id="JNT-O8-iCj"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Uxi-vW-6XW" secondAttribute="trailing" constant="28" id="O9q-J6-gXm"/>
-                                                <constraint firstItem="Uxi-vW-6XW" firstAttribute="centerY" secondItem="tKz-IA-OOD" secondAttribute="centerY" id="foA-Pi-wRu"/>
-                                                <constraint firstItem="I2b-Pi-ugK" firstAttribute="centerY" secondItem="Uxi-vW-6XW" secondAttribute="centerY" id="mMo-tU-JRb"/>
-                                                <constraint firstAttribute="bottom" secondItem="NeS-Zh-ur8" secondAttribute="bottom" constant="0.5" id="mYF-gP-HXt"/>
-                                                <constraint firstItem="w3U-uT-gEn" firstAttribute="centerY" secondItem="tKz-IA-OOD" secondAttribute="centerY" id="zTk-b3-Zd1"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <inset key="separatorInset" minX="48" minY="0.0" maxX="48" maxY="0.0"/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="102" id="M0x-mj-Swp">
-                                        <rect key="frame" x="0.0" y="181.5" width="414" height="102"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="M0x-mj-Swp" id="8ee-Ok-2Dj">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="102"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zi1-po-Lps" customClass="GradientButton" customModule="HotChat" customModuleProvider="target">
-                                                    <rect key="frame" x="48" y="40" width="318" height="50"/>
-                                                    <color key="backgroundColor" red="1" green="0.32549019607843138" blue="0.058823529411764705" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="2WJ-LT-GZl"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                    <state key="normal" title="登录">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </state>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="10"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="colorsString" value="#FA932E,#FF530F"/>
-                                                        <userDefinedRuntimeAttribute type="point" keyPath="startPoint">
-                                                            <point key="value" x="0.0" y="0.0"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="point" keyPath="endPoint">
-                                                            <point key="value" x="1" y="0.0"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </button>
-                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="MT7-th-nxd">
-                                                    <rect key="frame" x="68" y="55" width="20" height="20"/>
-                                                </activityIndicatorView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="MT7-th-nxd" firstAttribute="leading" secondItem="Zi1-po-Lps" secondAttribute="leading" constant="20" id="6pI-2Q-asw"/>
-                                                <constraint firstItem="Zi1-po-Lps" firstAttribute="leading" secondItem="8ee-Ok-2Dj" secondAttribute="leadingMargin" constant="28" id="Krg-3e-Cas"/>
-                                                <constraint firstItem="MT7-th-nxd" firstAttribute="centerY" secondItem="Zi1-po-Lps" secondAttribute="centerY" id="MUj-aH-ZfJ"/>
-                                                <constraint firstItem="Zi1-po-Lps" firstAttribute="top" secondItem="8ee-Ok-2Dj" secondAttribute="top" constant="40" id="hsV-Ap-APn"/>
-                                                <constraint firstItem="Zi1-po-Lps" firstAttribute="trailing" secondItem="8ee-Ok-2Dj" secondAttribute="trailingMargin" constant="-28" id="trf-cX-bqB"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="UnV-M7-cPM" id="Dxs-jB-ApB"/>
-                            <outlet property="delegate" destination="UnV-M7-cPM" id="V5F-1x-jjl"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="登录" id="1Z9-C2-XMa"/>
-                    <connections>
-                        <outlet property="codeActivityIndicatorView" destination="I2b-Pi-ugK" id="PN3-aJ-HUB"/>
-                        <outlet property="codeButton" destination="Uxi-vW-6XW" id="Syx-nB-dzM"/>
-                        <outlet property="codeTextField" destination="w3U-uT-gEn" id="UMX-xg-QRp"/>
-                        <outlet property="phoneTextField" destination="kP3-Se-cq0" id="w2Q-zo-1PW"/>
-                        <outlet property="signUpActivityIndicatorView" destination="MT7-th-nxd" id="NNb-LS-89D"/>
-                        <outlet property="signUpButton" destination="Zi1-po-Lps" id="Skj-Cu-Hjo"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="w5C-ip-AH2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2666" y="561"/>
-        </scene>
         <!--Date Picker View Controller-->
         <scene sceneID="ytH-bm-peE">
             <objects>
@@ -962,10 +845,11 @@
     </scenes>
     <color key="tintColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
     <resources>
-        <image name="account-message" width="108" height="139"/>
         <image name="for-you-selected" width="12.5" height="12.5"/>
         <image name="for-you-unselected" width="12.5" height="12.5"/>
         <image name="form-submit-succeed" width="74.5" height="74.5"/>
+        <image name="phone" width="45" height="45"/>
+        <image name="wechat" width="45" height="45"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

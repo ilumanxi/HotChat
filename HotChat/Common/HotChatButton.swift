@@ -41,3 +41,6 @@ class HotChatButton: UIButton {
     }
 
 }
+
+
+typealias InsertsButton = HotChatButton

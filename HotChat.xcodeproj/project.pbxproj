@@ -96,6 +96,7 @@
 		2637D876255B8E5300020E98 /* BlacklistController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2637D874255B8E5300020E98 /* BlacklistController.xib */; };
 		2637D879255B8EDF00020E98 /* BlacklistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637D877255B8EDF00020E98 /* BlacklistCell.swift */; };
 		2637D87A255B8EDF00020E98 /* BlacklistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2637D878255B8EDF00020E98 /* BlacklistCell.xib */; };
+		2637E032266638660076FE0A /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2637E031266638660076FE0A /* SignupViewController.xib */; };
 		2637F81F26316C0E0002E43B /* PushNoticeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637F81E26316C0E0002E43B /* PushNoticeAPI.swift */; };
 		2637F82226316FB30002E43B /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2637F82026316FB30002E43B /* RecommendViewController.swift */; };
 		2637F82326316FB30002E43B /* RecommendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2637F82126316FB30002E43B /* RecommendViewController.xib */; };
@@ -280,8 +281,6 @@
 		268BB25E251D9B3200001DF3 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268BB25D251D9B3200001DF3 /* UserAPI.swift */; };
 		268E3E602521D074000E4A33 /* RelationshipViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E3E5E2521D074000E4A33 /* RelationshipViewCell.swift */; };
 		268E3E612521D074000E4A33 /* RelationshipViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 268E3E5F2521D074000E4A33 /* RelationshipViewCell.xib */; };
-		268EF22D26526F6800EF71B3 /* MessageAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268EF22B26526F6800EF71B3 /* MessageAlertController.swift */; };
-		268EF22E26526F6800EF71B3 /* MessageAlertController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 268EF22C26526F6800EF71B3 /* MessageAlertController.xib */; };
 		26918C232626BAE2007B5F14 /* ChargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26918C212626BAE2007B5F14 /* ChargeViewController.swift */; };
 		26918C242626BAE2007B5F14 /* ChargeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26918C222626BAE2007B5F14 /* ChargeViewController.xib */; };
 		26918C262626CD9E007B5F14 /* ChargeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26918C252626CD9E007B5F14 /* ChargeConfig.swift */; };
@@ -301,6 +300,10 @@
 		26959042250B1DD900763061 /* InterestedCardOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26959041250B1DD900763061 /* InterestedCardOverlayView.xib */; };
 		269590BF250B5FE900763061 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 269590BE250B5FE900763061 /* StoreKit.framework */; };
 		2696341F2531942000493C3D /* DynamicAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2696341E2531942000493C3D /* DynamicAPI.swift */; };
+		2697D5852665D3B30051DECE /* login.mov in Resources */ = {isa = PBXBuildFile; fileRef = 2697D5842665D3B30051DECE /* login.mov */; };
+		2697D5882665D4A30051DECE /* MessageAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2697D5862665D4A30051DECE /* MessageAlertController.swift */; };
+		2697D5892665D4A30051DECE /* MessageAlertController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2697D5872665D4A30051DECE /* MessageAlertController.xib */; };
+		2697D58B2665D4F10051DECE /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2697D58A2665D4F10051DECE /* PlayerView.swift */; };
 		2697FDC4260893EE002CB9A2 /* ChatTopicNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2697FDC2260893EE002CB9A2 /* ChatTopicNoticeViewController.swift */; };
 		2697FDC5260893EE002CB9A2 /* ChatTopicNoticeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2697FDC3260893EE002CB9A2 /* ChatTopicNoticeViewController.xib */; };
 		269C9BE92632759800BD1A85 /* UIViewController+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269C9BE62632759800BD1A85 /* UIViewController+NavigationBar.swift */; };
@@ -699,6 +702,7 @@
 		2637D874255B8E5300020E98 /* BlacklistController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BlacklistController.xib; sourceTree = "<group>"; };
 		2637D877255B8EDF00020E98 /* BlacklistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlacklistCell.swift; sourceTree = "<group>"; };
 		2637D878255B8EDF00020E98 /* BlacklistCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BlacklistCell.xib; sourceTree = "<group>"; };
+		2637E031266638660076FE0A /* SignupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignupViewController.xib; sourceTree = "<group>"; };
 		2637F81E26316C0E0002E43B /* PushNoticeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNoticeAPI.swift; sourceTree = "<group>"; };
 		2637F82026316FB30002E43B /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
 		2637F82126316FB30002E43B /* RecommendViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendViewController.xib; sourceTree = "<group>"; };
@@ -904,8 +908,6 @@
 		268BB25D251D9B3200001DF3 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		268E3E5E2521D074000E4A33 /* RelationshipViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationshipViewCell.swift; sourceTree = "<group>"; };
 		268E3E5F2521D074000E4A33 /* RelationshipViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RelationshipViewCell.xib; sourceTree = "<group>"; };
-		268EF22B26526F6800EF71B3 /* MessageAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MessageAlertController.swift; path = ../../../../../../MessageAlertController.swift; sourceTree = "<group>"; };
-		268EF22C26526F6800EF71B3 /* MessageAlertController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MessageAlertController.xib; path = ../../../../../../MessageAlertController.xib; sourceTree = "<group>"; };
 		26918C212626BAE2007B5F14 /* ChargeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargeViewController.swift; sourceTree = "<group>"; };
 		26918C222626BAE2007B5F14 /* ChargeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChargeViewController.xib; sourceTree = "<group>"; };
 		26918C252626CD9E007B5F14 /* ChargeConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargeConfig.swift; sourceTree = "<group>"; };
@@ -928,6 +930,10 @@
 		269590BE250B5FE900763061 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		269590C0250B5FF900763061 /* HotChatRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HotChatRelease.entitlements; sourceTree = "<group>"; };
 		2696341E2531942000493C3D /* DynamicAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicAPI.swift; sourceTree = "<group>"; };
+		2697D5842665D3B30051DECE /* login.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = login.mov; sourceTree = "<group>"; };
+		2697D5862665D4A30051DECE /* MessageAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageAlertController.swift; sourceTree = "<group>"; };
+		2697D5872665D4A30051DECE /* MessageAlertController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageAlertController.xib; sourceTree = "<group>"; };
+		2697D58A2665D4F10051DECE /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		2697FDC2260893EE002CB9A2 /* ChatTopicNoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTopicNoticeViewController.swift; sourceTree = "<group>"; };
 		2697FDC3260893EE002CB9A2 /* ChatTopicNoticeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatTopicNoticeViewController.xib; sourceTree = "<group>"; };
 		269C9BE62632759800BD1A85 /* UIViewController+NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+NavigationBar.swift"; sourceTree = "<group>"; };
@@ -1482,11 +1488,11 @@
 				26202021261DA1E5006A5AD7 /* VipPhotoViewController.xib */,
 				2653733D2621A0AA005AE2F3 /* TipAlertController.swift */,
 				2653733E2621A0AA005AE2F3 /* TipAlertController.xib */,
-				268EF22B26526F6800EF71B3 /* MessageAlertController.swift */,
-				268EF22C26526F6800EF71B3 /* MessageAlertController.xib */,
 				26918C212626BAE2007B5F14 /* ChargeViewController.swift */,
 				26918C222626BAE2007B5F14 /* ChargeViewController.xib */,
 				26A7538F2636BB4A0070CA77 /* InterflowViewController.swift */,
+				2697D5862665D4A30051DECE /* MessageAlertController.swift */,
+				2697D5872665D4A30051DECE /* MessageAlertController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1574,6 +1580,7 @@
 				26FCB26725820149009D845F /* GradientView.swift */,
 				26710DEE25B28B33000F41BC /* GradientButton.swift */,
 				2630EA51261D828B0013EC0B /* VideoZoomCell.swift */,
+				2697D58A2665D4F10051DECE /* PlayerView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1612,6 +1619,7 @@
 		264C5C352609E5CF007FB123 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				2697D5842665D3B30051DECE /* login.mov */,
 				263F5490265D02B1003A40C3 /* launch-screen-logo-message@2x.png */,
 				263F5492265D02C1003A40C3 /* launch-screen-logo-message@3x.png */,
 				26B7CCDD262994D9007805F1 /* publish.svga */,
@@ -1661,6 +1669,7 @@
 				267954E72507311E00A72954 /* LegalLiabilityViewController.swift */,
 				26C31F2A25404D280000D09D /* ForYouViewController.swift */,
 				267954EB2507327B00A72954 /* SignupViewController.swift */,
+				2637E031266638660076FE0A /* SignupViewController.xib */,
 				26AC1E5125062568003EFB44 /* PhoneSigninViewController.swift */,
 				265C8A49251348E200E220BD /* ForgotPasswordViewController.swift */,
 				F370D276251CE65500C2F708 /* ResetPasswordViewController.swift */,
@@ -2528,6 +2537,7 @@
 				2679DA5E2611B469003F2443 /* AvatarRewardViewController.xib in Resources */,
 				263A6C3925C2DA4800FD43B6 /* PairCallViewController.xib in Resources */,
 				2660F5F626172E1F00F849B3 /* MediaViewCell.xib in Resources */,
+				2697D5852665D3B30051DECE /* login.mov in Resources */,
 				263BC22E254987770081F5DF /* BeautyViewController.xib in Resources */,
 				26395362254198DB00B5E3C0 /* RightDetailViewCell.xib in Resources */,
 				26DF8784255A7969002162A9 /* EarningsDetailViewController.xib in Resources */,
@@ -2546,6 +2556,7 @@
 				2637D876255B8E5300020E98 /* BlacklistController.xib in Resources */,
 				26F5537D2553D3CD00840735 /* GiftEarningsViewController.xib in Resources */,
 				26FD330E2625822700979B36 /* discover.svga in Resources */,
+				2637E032266638660076FE0A /* SignupViewController.xib in Resources */,
 				262BE7E92601D2E700C1B646 /* TopicListViewCell.xib in Resources */,
 				266640602577624500E30A09 /* SayHellowViewController.xib in Resources */,
 				26FBCF642558EF32001F3DFA /* ConsumerDetailsViewController.xib in Resources */,
@@ -2628,10 +2639,10 @@
 				26F45503256659750028ACC5 /* EarningCell.xib in Resources */,
 				26A377CD260D9554002FF17E /* HeadlineTipViewController.xib in Resources */,
 				267954FF250761B600A72954 /* Discover.storyboard in Resources */,
-				268EF22E26526F6800EF71B3 /* MessageAlertController.xib in Resources */,
 				266BDB6A25EF864600467611 /* UserCardCell.xib in Resources */,
 				266B19642637D13D0012891B /* LICENSE in Resources */,
 				26B7CCD226282211007805F1 /* DatingDetailViewController.xib in Resources */,
+				2697D5892665D4A30051DECE /* MessageAlertController.xib in Resources */,
 				2651FE1725F759D300A9F2E6 /* TopViewController.xib in Resources */,
 				260ABAF125F2431E006A01C0 /* CommentReportViewController.xib in Resources */,
 				2639536925419E8300B5E3C0 /* CardViewCell.xib in Resources */,
@@ -2856,6 +2867,7 @@
 				26B7CCCE26281CE8007805F1 /* VideoDatingAPI.swift in Sources */,
 				26E8A258261C4A900050608F /* UserInfoViewCell.swift in Sources */,
 				264BF97825A8366E00F873DD /* AccostViewController.swift in Sources */,
+				2697D5882665D4A30051DECE /* MessageAlertController.swift in Sources */,
 				2643EBA52500B04100FBBE49 /* ApplicationSettingsViewController.swift in Sources */,
 				268458E225342B7D002B9C6E /* DynamicDetailViewCell.swift in Sources */,
 				26FC88FA253ED66600E4D82F /* SearchViewCell.swift in Sources */,
@@ -2912,6 +2924,7 @@
 				2643EBBD2500B04100FBBE49 /* Helper.swift in Sources */,
 				26E14E68251C861A00645F08 /* DatePickerViewController.swift in Sources */,
 				26373C77250234D00066FF3B /* FormSection.swift in Sources */,
+				2697D58B2665D4F10051DECE /* PlayerView.swift in Sources */,
 				26373C732502340D0066FF3B /* FormEntry.swift in Sources */,
 				263A6BE925C2B3A200FD43B6 /* FateMatchAPI.swift in Sources */,
 				26E16620256B5DA200CF66BD /* CallHelper.swift in Sources */,
@@ -2949,7 +2962,6 @@
 				267954EC2507327B00A72954 /* SignupViewController.swift in Sources */,
 				26EB2DCA25593FCA006698F9 /* ConsumerAPI.swift in Sources */,
 				26FBCF632558EF32001F3DFA /* ConsumerDetailsViewController.swift in Sources */,
-				268EF22D26526F6800EF71B3 /* MessageAlertController.swift in Sources */,
 				26D1E58B253D5F17004B9B29 /* CallManager.m in Sources */,
 				2653733F2621A0AA005AE2F3 /* TipAlertController.swift in Sources */,
 				26CB6D3D25515D6B00A9F4DD /* BDFaceLivingConfigViewController.m in Sources */,
