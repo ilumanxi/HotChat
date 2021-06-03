@@ -51,16 +51,6 @@ class LoginViewController: UIViewController, IndicatorDisplay {
         
         observeAccountState()
         loginStackView.isHidden = true
-//        UMCommonHandler.checkEnvAvailable(with: .loginToken) {  [unowned self] info in
-//            Log.print("UMVerify: \(info as Any)")
-//
-//            guard let code = info?["resultCode"] as? String else {
-//                return
-//            }
-//
-//            self.keyLogin.isHidden = code != PNSCodeSuccess
-//
-//        }
         
         UMCommonHandler.accelerateLoginPage(withTimeout: 3) { [unowned self] info in
             Log.print("UMVerify: \(info as Any)")
@@ -132,7 +122,11 @@ class LoginViewController: UIViewController, IndicatorDisplay {
     
     
     @IBAction func phoneDidLogin(_ sender: Any) {
-        DispatchQueue.main.async {
+        if AppAudit.share.oneKeyLoginStatus {
+            let vc = PhoneSigninViewController.loadFromStoryboard()
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        else {
             self.pushSignup()
         }
     }
