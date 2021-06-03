@@ -319,10 +319,11 @@ class MeViewController: UITableViewController, Autorotate, IndicatorDisplay {
             userAPI.request(.userWallet, type: Response<Wallet>.self)
                 .verifyResponse()
                 .subscribe(onSuccess: { response in
-                    let user = LoginManager.shared.user!
-                    user.userTanbi = response.data!.userTanbi
-                    user.userEnergy = response.data!.userEnergy
-                    LoginManager.shared.update(user: user)
+                    if let user = LoginManager.shared.user {
+                        user.userTanbi = response.data!.userTanbi
+                        user.userEnergy = response.data!.userEnergy
+                        LoginManager.shared.update(user: user)
+                    }
                 }, onError: { error in
                     
                 })
