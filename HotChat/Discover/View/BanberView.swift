@@ -9,11 +9,33 @@
 import UIKit
 import FSPagerView
 import URLNavigator
+import SnapKit
+
+class BanberImageCell: FSPagerViewCell {
+    
+    var banberImageView: UIImageView
+    
+    override init(frame: CGRect) {
+        self.banberImageView = UIImageView()
+        super.init(frame: frame)
+        makeUI()
+    }
+    
+    private func makeUI() {
+        self.contentView.addSubview(banberImageView)
+        banberImageView.snp.makeConstraints { maker in
+            maker.edges.equalToSuperview().inset(UIEdgeInsets(top: 5, left: 12, bottom: 5, right: 12))
+        }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
 
 class BanberHeaderView: UITableViewHeaderFooterView {
     var banners: [Banner] = [] {
         didSet {
-            bannerView.itemSize = bannerView.frame.insetBy(dx: 12, dy: 5).size
             bannerView.reloadData()
         }
     }
@@ -25,8 +47,8 @@ class BanberHeaderView: UITableViewHeaderFooterView {
 //        bannerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         bannerView.bounces = false
         bannerView.itemSize = FSPagerViewAutomaticSize // Fill parent
-        bannerView.interitemSpacing = 24
-        bannerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "FSPagerViewCell")
+//        bannerView.interitemSpacing = 24
+        bannerView.register(BanberImageCell.self, forCellWithReuseIdentifier: "BanberImageCell")
         bannerView.backgroundColor = .clear
         bannerView.automaticSlidingInterval = 3
         bannerView.isInfinite = true
@@ -58,10 +80,9 @@ extension BanberHeaderView: FSPagerViewDataSource, FSPagerViewDelegate {
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         let model = banners[index]
         
-        let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "FSPagerViewCell", at: index)
+        let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "BanberImageCell", at: index) as! BanberImageCell
         cell.contentView.layer.shadowColor = UIColor.clear.cgColor
-        cell.imageView?.contentMode = .scaleToFill
-        cell.imageView?.kf.setImage(with: URL(string: model.img))
+        cell.banberImageView.kf.setImage(with: URL(string: model.img))
         return cell
     }
     
@@ -94,8 +115,8 @@ class BanberView: UICollectionReusableView {
         bannerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         bannerView.bounces = false
         bannerView.itemSize = FSPagerViewAutomaticSize // Fill parent
-        bannerView.interitemSpacing = 24
-        bannerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "FSPagerViewCell")
+//        bannerView.interitemSpacing = 24
+        bannerView.register(BanberImageCell.self, forCellWithReuseIdentifier: "BanberImageCell")
         bannerView.backgroundColor = .clear
         bannerView.automaticSlidingInterval = 3
         bannerView.isInfinite = true
@@ -122,9 +143,9 @@ extension BanberView: FSPagerViewDataSource, FSPagerViewDelegate {
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         let model = banners[index]
         
-        let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "FSPagerViewCell", at: index)
+        let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "BanberImageCell", at: index) as! BanberImageCell
         cell.contentView.layer.shadowColor = UIColor.clear.cgColor
-        cell.imageView?.kf.setImage(with: URL(string: model.img))
+        cell.banberImageView.kf.setImage(with: URL(string: model.img))
         return cell
     }
     
@@ -138,17 +159,3 @@ extension BanberView: FSPagerViewDataSource, FSPagerViewDelegate {
     
 }
 
-extension FSPagerViewCell {
-    
-    open override var isHighlighted: Bool {
-        didSet {
-            
-        }
-    }
-    
-    open override var isSelected: Bool {
-        didSet {
-            
-        }
-    }
-}
