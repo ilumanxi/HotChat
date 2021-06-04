@@ -74,10 +74,10 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
        label.numberOfLines = 0
        label.font = .systemFont(ofSize: 12)
        label.textAlignment = .center
-       label.textColor = .textGray
+       label.textColor = UIColor(hexString: "#333333")
        let agreementType = ActiveType.custom(pattern: "《用户充值协议》")
        let privacyType = ActiveType.custom(pattern: "联系客服>")
-       let normalColor = UIColor(hexString: "#525AF8")
+       let normalColor = UIColor.theme
        let selectedColor = normalColor.withAlphaComponent(0.7)
        label.customColor[agreementType] = normalColor
        label.customColor[privacyType] = normalColor
