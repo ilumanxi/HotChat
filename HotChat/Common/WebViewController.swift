@@ -273,7 +273,7 @@ extension WebViewController {
                 self?.callback(code: 1, msg: response.msg, callback: callback)
                 
             }, onError: {[weak self]  error in
-                self?.callback(code: 10002, msg: error.localizedDescription, callback: callback)
+                self?.callback(code: 10002, msg: message(error), callback: callback)
             })
             .disposed(by: rx.disposeBag)
             

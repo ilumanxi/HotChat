@@ -26,6 +26,15 @@ protocol IndicatorDisplay: NSObject {
 
 class IndicatorHolderView: UIView {}
 
+func message(_ error: Error) -> String {
+    var text = error.localizedDescription
+    text = text.replacingOccurrences(of: "URLSessionTask failed with error: ", with: "")
+    if text.contains(SKErrorDomain), let index = text.firstIndex(of: "。") {
+        text = String(text[text.startIndex...index])
+    }
+    return text
+}
+
 
 extension IndicatorDisplay where Self: UIViewController {
     
@@ -49,14 +58,6 @@ extension IndicatorDisplay where Self: UIViewController {
         return !invalidCodes.contains(error._code)
     }
     
-    private func message(_ error: Error) -> String {
-        var text = error.localizedDescription
-        text = text.replacingOccurrences(of: "URLSessionTask failed with error: ", with: "")
-        if text.contains(SKErrorDomain), let index = text.firstIndex(of: "。") {
-            text = String(text[text.startIndex...index])
-        }
-        return text
-    }
     
     func show(_ message: String?) {
         show(message, in: view)

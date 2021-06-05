@@ -12,7 +12,7 @@ import RxCocoa
 
 
 
-class PhoneSigninViewController: LegalLiabilityViewController, IndicatorDisplay, StoryboardCreate {
+class PhoneSigninViewController: UITableViewController, IndicatorDisplay, StoryboardCreate {
     
     static var storyboardNamed: String { return "Account"  }
     
