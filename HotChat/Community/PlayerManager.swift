@@ -36,6 +36,7 @@ class PlayerManager: NSObject {
         AliListPlayer.setEnableLog(false)
         
         listPlayer = AliListPlayer()
+        listPlayer.scalingMode = AVP_SCALINGMODE_SCALEASPECTFIT
         cacheConfig = AVPCacheConfig()
         cacheConfig.enable = true
         playerView = PlayerContainerView()

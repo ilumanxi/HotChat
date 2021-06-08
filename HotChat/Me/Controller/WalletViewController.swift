@@ -152,10 +152,10 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.tableView.separatorColor = .red
         tableView.register(UINib(nibName: "WalletEnergyViewCell", bundle: nil), forCellReuseIdentifier: "WalletEnergyViewCell")
         tableView.register(UINib(nibName: "WalletProductViewCell", bundle: nil), forCellReuseIdentifier: "WalletProductViewCell")
-//        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 10))
         tableView.sectionHeaderHeight = 0.01
         tableView.sectionFooterHeight = 0.01
         tableView.tableFooterView = textLabel
+        tableView.hiddenHeader()
     }
     
     @objc private func pushExpensesRecord() {

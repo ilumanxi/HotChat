@@ -224,7 +224,7 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
         endRefreshing(noContent: !page.hasNext)
         
         if page.page == 1 {
-            scrollViewDidEndDecelerating(self.tableView)
+//            scrollViewDidEndDecelerating(self.tableView)
         }
     }
     
@@ -355,21 +355,21 @@ extension CommunityViewController: UITableViewDataSource, UITableViewDelegate {
         
     }
     
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if decelerate == false {
-            playVideo()
-        }
-    }
-    
-    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        playVideo()
-    }
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        
-      
-        playVideo()
-    }
+//    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+//        if decelerate == false {
+//            playVideo()
+//        }
+//    }
+//
+//    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+//        playVideo()
+//    }
+//
+//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+//
+//
+//        playVideo()
+//    }
     
     func playVideo() {
         

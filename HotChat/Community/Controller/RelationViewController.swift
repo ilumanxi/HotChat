@@ -161,7 +161,7 @@ class RelationViewController: UIViewController, LoadingStateType, IndicatorDispl
         endRefreshing(noContent: !page.hasNext)
         
         if page.page == 1 {
-            scrollViewDidEndDecelerating(self.tableView)
+//            scrollViewDidEndDecelerating(self.tableView)
         }
     }
     
@@ -240,22 +240,22 @@ extension RelationViewController: UITableViewDataSource, UITableViewDelegate {
         
     }
     
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if decelerate == false {
-            playVideo()
-        }
-    }
-    
-    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        playVideo()
-    }
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        
-      
-        playVideo()
-    }
-    
+//    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+//        if decelerate == false {
+//            playVideo()
+//        }
+//    }
+//
+//    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+//        playVideo()
+//    }
+//
+//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+//
+//
+//        playVideo()
+//    }
+//
     func playVideo() {
         
         NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(findVideo), object: nil)

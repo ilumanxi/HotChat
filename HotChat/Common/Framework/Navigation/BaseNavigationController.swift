@@ -59,7 +59,7 @@ class BaseNavigationController: NavigationController {
         let backBarButtton = UIBarButtonItem(title: nil, style: .plain, target: nil, action: nil)
         viewController.navigationItem.backBarButtonItem = backBarButtton
         
-        if let tableViewController = viewController as? UITableViewController, tableViewController.tableView.style == .grouped {
+        if let tableViewController = viewController as? UITableViewController, tableViewController.tableView.style == .grouped, tableViewController.tableView.tableHeaderView == nil {
             tableViewController.tableView.hiddenHeader()
         }
 
