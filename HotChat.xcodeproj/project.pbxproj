@@ -122,8 +122,6 @@
 		263EC07E261ED5B9000A44A0 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263EC07C261ED5B9000A44A0 /* PickerViewController.swift */; };
 		263EC07F261ED5B9000A44A0 /* PickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 263EC07D261ED5B9000A44A0 /* PickerViewController.xib */; };
 		263F5388261459010099D143 /* TUIMessageController+Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 263F5387261459010099D143 /* TUIMessageController+Group.m */; };
-		263F5491265D02B2003A40C3 /* launch-screen-logo-message@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 263F5490265D02B1003A40C3 /* launch-screen-logo-message@2x.png */; };
-		263F5493265D02C1003A40C3 /* launch-screen-logo-message@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 263F5492265D02C1003A40C3 /* launch-screen-logo-message@3x.png */; };
 		263F5498265F395B003A40C3 /* LaunchScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 263F5496265F395B003A40C3 /* LaunchScreenViewController.xib */; };
 		263F5499265F395B003A40C3 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263F5497265F395B003A40C3 /* LaunchScreenViewController.swift */; };
 		264219B5258B2AC600D46B9C /* GreetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264219B4258B2AC600D46B9C /* GreetingViewController.swift */; };
@@ -164,6 +162,8 @@
 		2643EBCA2500DBF500FBBE49 /* MeRelationshipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643EBC92500DBF500FBBE49 /* MeRelationshipViewController.swift */; };
 		2643EBCC2500FDA300FBBE49 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643EBCB2500FDA300FBBE49 /* UserInfoViewController.swift */; };
 		264A20CF25109B5000A264BE /* AccountAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264A20CE25109B5000A264BE /* AccountAPI.swift */; };
+		264BA4E92671BA9900800F22 /* launch-screen-message@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 264BA4E72671BA9700800F22 /* launch-screen-message@2x.png */; };
+		264BA4EA2671BA9900800F22 /* launch-screen-message@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 264BA4E82671BA9800800F22 /* launch-screen-message@3x.png */; };
 		264BF97825A8366E00F873DD /* AccostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264BF97625A8366E00F873DD /* AccostViewController.swift */; };
 		264BF97925A8366E00F873DD /* AccostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 264BF97725A8366E00F873DD /* AccostViewController.xib */; };
 		264BF97E25A83BB200F873DD /* AccostViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264BF97C25A83BB200F873DD /* AccostViewCell.swift */; };
@@ -733,8 +733,6 @@
 		263EC07D261ED5B9000A44A0 /* PickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerViewController.xib; sourceTree = "<group>"; };
 		263F5386261459010099D143 /* TUIMessageController+Group.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TUIMessageController+Group.h"; sourceTree = "<group>"; };
 		263F5387261459010099D143 /* TUIMessageController+Group.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TUIMessageController+Group.m"; sourceTree = "<group>"; };
-		263F5490265D02B1003A40C3 /* launch-screen-logo-message@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-screen-logo-message@2x.png"; sourceTree = "<group>"; };
-		263F5492265D02C1003A40C3 /* launch-screen-logo-message@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "launch-screen-logo-message@3x.png"; path = "HotChat/Assets.xcassets/LaunchScreen/launch-screen-logo-message.imageset/launch-screen-logo-message@3x.png"; sourceTree = SOURCE_ROOT; };
 		263F5496265F395B003A40C3 /* LaunchScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreenViewController.xib; sourceTree = "<group>"; };
 		263F5497265F395B003A40C3 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		264219B4258B2AC600D46B9C /* GreetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingViewController.swift; sourceTree = "<group>"; };
@@ -782,6 +780,8 @@
 		2643EBC92500DBF500FBBE49 /* MeRelationshipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeRelationshipViewController.swift; sourceTree = "<group>"; };
 		2643EBCB2500FDA300FBBE49 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		264A20CE25109B5000A264BE /* AccountAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAPI.swift; sourceTree = "<group>"; };
+		264BA4E72671BA9700800F22 /* launch-screen-message@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-screen-message@2x.png"; sourceTree = "<group>"; };
+		264BA4E82671BA9800800F22 /* launch-screen-message@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-screen-message@3x.png"; sourceTree = "<group>"; };
 		264BF97625A8366E00F873DD /* AccostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccostViewController.swift; sourceTree = "<group>"; };
 		264BF97725A8366E00F873DD /* AccostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccostViewController.xib; sourceTree = "<group>"; };
 		264BF97C25A83BB200F873DD /* AccostViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccostViewCell.swift; sourceTree = "<group>"; };
@@ -1619,9 +1619,9 @@
 		264C5C352609E5CF007FB123 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				264BA4E72671BA9700800F22 /* launch-screen-message@2x.png */,
+				264BA4E82671BA9800800F22 /* launch-screen-message@3x.png */,
 				2697D5842665D3B30051DECE /* login.mov */,
-				263F5490265D02B1003A40C3 /* launch-screen-logo-message@2x.png */,
-				263F5492265D02C1003A40C3 /* launch-screen-logo-message@3x.png */,
 				26B7CCDD262994D9007805F1 /* publish.svga */,
 				2691AE352627EB4500EE05D7 /* dating.webp */,
 				26FD3311262582A400979B36 /* me.svga */,
@@ -2586,7 +2586,6 @@
 				26FD330C26257F5200979B36 /* community.svga in Resources */,
 				26E5FE4D25F089A500C96392 /* CommentsViewController.xib in Resources */,
 				266DA37C25F8C96D00BE4E74 /* TopViewCell.xib in Resources */,
-				263F5493265D02C1003A40C3 /* launch-screen-logo-message@3x.png in Resources */,
 				2637D86E255A895B00020E98 /* TalkEarningCell.xib in Resources */,
 				2679550E25079A4A00A72954 /* UserInfoChatView.xib in Resources */,
 				266E3C57258B737E00781E91 /* bell.mp3 in Resources */,
@@ -2609,6 +2608,7 @@
 				26F3EA3425F20A05001CF13D /* CommentFooterView.xib in Resources */,
 				2660F5F426172BB200F849B3 /* DynamicDetailViewCell.xib in Resources */,
 				2651FE1B25F7666A00A9F2E6 /* TopHeaderView.xib in Resources */,
+				264BA4EA2671BA9900800F22 /* launch-screen-message@3x.png in Resources */,
 				26DFBF8C262EB6F800639C94 /* OnlineTipView.xib in Resources */,
 				2635216225C7EA4E00855487 /* VisitorsAvatarView.xib in Resources */,
 				26B22F1B2609F2C0006B0C49 /* ListViewCell.xib in Resources */,
@@ -2621,9 +2621,9 @@
 				2643EB452500AD7E00FBBE49 /* Assets.xcassets in Resources */,
 				26E4C67F2592F440005EAAC3 /* AccountDestructionStatementController.xib in Resources */,
 				2668B0AA2523432A0073E25D /* WalletProductViewCell.xib in Resources */,
+				264BA4E92671BA9900800F22 /* launch-screen-message@2x.png in Resources */,
 				267B98802506012F0008C81B /* Account.storyboard in Resources */,
 				26DF877E255A63BA002162A9 /* BasicCell.xib in Resources */,
-				263F5491265D02B2003A40C3 /* launch-screen-logo-message@2x.png in Resources */,
 				26597668257792E200E4B6A2 /* SayHellowSettingViewController.xib in Resources */,
 				26C353BC260B24B500B80F62 /* TalkChannelCell.xib in Resources */,
 				26B22F122609E8A1006B0C49 /* video_match.svga in Resources */,
@@ -3340,7 +3340,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HotChat/HotChat.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TJ99XNWKL5;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3362,7 +3362,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 1.5.8;
+				MARKETING_VERSION = 1.5.9;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -3464,7 +3464,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HotChat/HotChatRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TJ99XNWKL5;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3486,7 +3486,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 1.5.8;
+				MARKETING_VERSION = 1.5.9;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
