@@ -540,7 +540,8 @@
 {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    picker.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+//    picker.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    picker.mediaTypes = [[NSArray alloc] initWithObjects: (NSString *) kUTTypeImage, nil];
     picker.delegate = self;
     [self presentViewController:picker animated:YES completion:nil];
 }
@@ -560,7 +561,7 @@
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.sourceType = UIImagePickerControllerSourceTypeCamera;
     picker.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeCamera];
-    picker.cameraCaptureMode =UIImagePickerControllerCameraCaptureModeVideo;
+    picker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModeVideo;
     picker.videoQuality = UIImagePickerControllerQualityTypeMedium;
     [picker setVideoMaximumDuration:15];
     picker.delegate = self;
@@ -599,18 +600,21 @@
             UIImageOrientation imageOrientation = image.imageOrientation;
             if(imageOrientation != UIImageOrientationUp)
             {
-                CGFloat aspectRatio = MIN ( 1920 / image.size.width, 1920 / image.size.height );
-                CGFloat aspectWidth = image.size.width * aspectRatio;
-                CGFloat aspectHeight = image.size.height * aspectRatio;
-
-                UIGraphicsBeginImageContext(CGSizeMake(aspectWidth, aspectHeight));
-                [image drawInRect:CGRectMake(0, 0, aspectWidth, aspectHeight)];
-                image = UIGraphicsGetImageFromCurrentImageContext();
-                UIGraphicsEndImageContext();
+//                CGFloat aspectRatio = MIN ( 1920 / image.size.width, 1920 / image.size.height );
+//                CGFloat aspectWidth = image.size.width * aspectRatio;
+//                CGFloat aspectHeight = image.size.height * aspectRatio;
+//
+//                UIGraphicsBeginImageContext(CGSizeMake(aspectWidth, aspectHeight));
+//                [image drawInRect:CGRectMake(0, 0, aspectWidth, aspectHeight)];
+//                image = UIGraphicsGetImageFromCurrentImageContext();
+//                UIGraphicsEndImageContext();
             }
-
-            NSData *data = UIImageJPEGRepresentation(image, 0.75);
-            NSString *path = [TUIKit_Image_Path stringByAppendingString:[THelper genImageName:nil]];
+//
+//            NSData *data = UIImageJPEGRepresentation(image, 0.5);
+                
+            NSData *data = [self zipNSDataWithImage:image];
+            NSString *fileName = [NSString stringWithFormat:@"%@.jpg", [THelper genImageName:nil]];
+            NSString *path = [TUIKit_Image_Path stringByAppendingString:fileName];
             [[NSFileManager defaultManager] createFileAtPath:path contents:data attributes:nil];
             
             TUIImageMessageCellData *uiImage = [[TUIImageMessageCellData alloc] initWithDirection:MsgDirectionOutgoing];
@@ -663,6 +667,55 @@
             }
         }
     }];
+}
+
+-(NSData *)zipNSDataWithImage:(UIImage *)sourceImage{
+    //进行图像尺寸的压缩
+    CGSize imageSize = sourceImage.size;//取出要压缩的image尺寸
+    CGFloat width = imageSize.width;    //图片宽度
+    CGFloat height = imageSize.height;  //图片高度
+    //1.宽高大于1280(宽高比不按照2来算，按照1来算)
+    if (width>1280||height>1280) {
+        if (width>height) {
+            CGFloat scale = height/width;
+            width = 1280;
+            height = width*scale;
+        }else{
+            CGFloat scale = width/height;
+            height = 1280;
+            width = height*scale;
+        }
+    //2.宽大于1280高小于1280
+    }else if(width>1280||height<1280){
+        CGFloat scale = height/width;
+        width = 1280;
+        height = width*scale;
+    //3.宽小于1280高大于1280
+    }else if(width<1280||height>1280){
+        CGFloat scale = width/height;
+        height = 1280;
+        width = height*scale;
+    //4.宽高都小于1280
+    }else{
+    }
+    UIGraphicsBeginImageContext(CGSizeMake(width, height));
+    [sourceImage drawInRect:CGRectMake(0,0,width,height)];
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    //进行图像的画面质量压缩
+    NSData *data=UIImageJPEGRepresentation(newImage, 1.0);
+    if (data.length>100*1024) {
+        if (data.length>1024*1024) {//1M以及以上
+            data=UIImageJPEGRepresentation(newImage, 0.7);
+        }else if (data.length>512*1024) {//0.5M-1M
+            data=UIImageJPEGRepresentation(newImage, 0.8);
+        }else if (data.length>200*1024) {
+            //0.25M-0.5M
+            data=UIImageJPEGRepresentation(newImage, 0.9);
+        }
+    }
+    return data;
 }
 
 - (void)sendVideoWithUrl:(NSURL*)url {

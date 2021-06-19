@@ -278,6 +278,9 @@
 		2684599325359B91002B9C6E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2684599225359B91002B9C6E /* Message.swift */; };
 		26884A4D2605C305006A13E5 /* SystemMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26884A4C2605C305006A13E5 /* SystemMessageCell.m */; };
 		26884A502605C38A006A13E5 /* SystemMessageCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = 26884A4F2605C38A006A13E5 /* SystemMessageCellData.m */; };
+		2689E8A8267C98F700862E17 /* violation.png in Resources */ = {isa = PBXBuildFile; fileRef = 2689E8A7267C98F700862E17 /* violation.png */; };
+		2689E8ED267D94C200862E17 /* WaitingMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2689E8EB267D94C200862E17 /* WaitingMessageViewController.swift */; };
+		2689E8EE267D94C200862E17 /* WaitingMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2689E8EC267D94C200862E17 /* WaitingMessageViewController.xib */; };
 		268BB25E251D9B3200001DF3 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268BB25D251D9B3200001DF3 /* UserAPI.swift */; };
 		268E3E602521D074000E4A33 /* RelationshipViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E3E5E2521D074000E4A33 /* RelationshipViewCell.swift */; };
 		268E3E612521D074000E4A33 /* RelationshipViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 268E3E5F2521D074000E4A33 /* RelationshipViewCell.xib */; };
@@ -905,6 +908,9 @@
 		26884A4C2605C305006A13E5 /* SystemMessageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SystemMessageCell.m; sourceTree = "<group>"; };
 		26884A4E2605C38A006A13E5 /* SystemMessageCellData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SystemMessageCellData.h; sourceTree = "<group>"; };
 		26884A4F2605C38A006A13E5 /* SystemMessageCellData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SystemMessageCellData.m; sourceTree = "<group>"; };
+		2689E8A7267C98F700862E17 /* violation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = violation.png; sourceTree = "<group>"; };
+		2689E8EB267D94C200862E17 /* WaitingMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingMessageViewController.swift; sourceTree = "<group>"; };
+		2689E8EC267D94C200862E17 /* WaitingMessageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaitingMessageViewController.xib; sourceTree = "<group>"; };
 		268BB25D251D9B3200001DF3 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		268E3E5E2521D074000E4A33 /* RelationshipViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationshipViewCell.swift; sourceTree = "<group>"; };
 		268E3E5F2521D074000E4A33 /* RelationshipViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RelationshipViewCell.xib; sourceTree = "<group>"; };
@@ -1619,6 +1625,7 @@
 		264C5C352609E5CF007FB123 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				2689E8A7267C98F700862E17 /* violation.png */,
 				264BA4E72671BA9700800F22 /* launch-screen-message@2x.png */,
 				264BA4E82671BA9800800F22 /* launch-screen-message@3x.png */,
 				2697D5842665D3B30051DECE /* login.mov */,
@@ -1728,6 +1735,8 @@
 		267954F3250756A400A72954 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2689E8EB267D94C200862E17 /* WaitingMessageViewController.swift */,
+				2689E8EC267D94C200862E17 /* WaitingMessageViewController.xib */,
 				267954F8250757FE00A72954 /* ConversationViewController.swift */,
 				26F25C97250A359300F808EA /* InterestedViewController.swift */,
 				26377FBD25303D2200D5A03D /* ConversationActionViewController.swift */,
@@ -2551,6 +2560,7 @@
 				26DFBF88262EADF900639C94 /* GiftTipView.xib in Resources */,
 				26CB6D4F25515D6B00A9F4DD /* idl-license.face-ios in Resources */,
 				2697FDC5260893EE002CB9A2 /* ChatTopicNoticeViewController.xib in Resources */,
+				2689E8EE267D94C200862E17 /* WaitingMessageViewController.xib in Resources */,
 				269D0AA826351B7400ED5301 /* IntimacyViewController.xib in Resources */,
 				26C81EE62547E9E300C1D563 /* VoiceView.xib in Resources */,
 				2637D876255B8E5300020E98 /* BlacklistController.xib in Resources */,
@@ -2646,6 +2656,7 @@
 				2651FE1725F759D300A9F2E6 /* TopViewController.xib in Resources */,
 				260ABAF125F2431E006A01C0 /* CommentReportViewController.xib in Resources */,
 				2639536925419E8300B5E3C0 /* CardViewCell.xib in Resources */,
+				2689E8A8267C98F700862E17 /* violation.png in Resources */,
 				263F5498265F395B003A40C3 /* LaunchScreenViewController.xib in Resources */,
 				26E48909257E087D006C2ACE /* CheckInViewController.xib in Resources */,
 				2679550A2507748C00A72954 /* UserInfoHeaderView.xib in Resources */,
@@ -2811,6 +2822,7 @@
 				26A753902636BB4A0070CA77 /* InterflowViewController.swift in Sources */,
 				269C9C102632D1FB00BD1A85 /* IntimacyTitleView.swift in Sources */,
 				26F8947B252083B800A45648 /* LabelView.swift in Sources */,
+				2689E8ED267D94C200862E17 /* WaitingMessageViewController.swift in Sources */,
 				2636A0D92564CDBF00664FFC /* UpgrateViewController.swift in Sources */,
 				26B3ADD425F7495200D7DFC4 /* TwicketSegmentedControl.swift in Sources */,
 				2637D86D255A895B00020E98 /* TalkEarningCell.swift in Sources */,

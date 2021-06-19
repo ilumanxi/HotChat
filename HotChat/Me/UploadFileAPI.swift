@@ -16,6 +16,7 @@ enum UploadFileAPI {
     
     case upload(URL)
     case uploadFile(URL)
+    case violate(file: URL, type: Int, voiceDuration: TimeInterval)
     
 }
 
@@ -27,6 +28,8 @@ extension UploadFileAPI: TargetType {
             return "upload/upload"
         case .uploadFile: 
             return "upload/uploadFile"
+        case .violate:
+            return "v1/violate/check"
         }
     }
     
@@ -36,6 +39,11 @@ extension UploadFileAPI: TargetType {
             return .uploadMultipart([MultipartFormData(provider: .file(url), name: "image")])
         case .uploadFile(let url):
             return .uploadMultipart([MultipartFormData(provider: .file(url), name: "file")])
+        case .violate(let file, let type, let voiceDuration):
+            var parameters: [String : Any] = [:]
+            parameters["type"] = type
+            parameters["voiceDuration"] = voiceDuration
+            return .uploadCompositeMultipart([MultipartFormData(provider: .file(file), name: "file")], urlParameters: parameters)
         }
     }
     
@@ -63,12 +71,23 @@ extension UploadFileAPI: TargetType {
 
 @objc class UploadHelper: NSObject {
     
-
     static let upload  = Request<UploadFileAPI>()
     
     static let disposeObject = DisposeBag()
     
-    @objc class func  uploadImage(_ image: UIImage, success: @escaping (RemoteFile) -> Void, failed: @escaping (NSError) -> Void) {
+    // 1:图片,2:语音
+    @objc class func violate(file: URL, type: Int, voiceDuration: TimeInterval, success: @escaping ([String : Any]) -> Void, failed: @escaping (NSError) -> Void) {
+        upload.request(.violate(file: file, type: type, voiceDuration: voiceDuration), type: Response<[String : Any]>.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { resonse in
+                success(resonse.data ?? [:])
+            }, onError: { error in
+                failed(error as NSError)
+            })
+            .disposed(by: disposeObject)
+    }
+    
+    @objc class func uploadImage(_ image: UIImage, success: @escaping (RemoteFile) -> Void, failed: @escaping (NSError) -> Void) {
         
         let url = writeImage(image)
         upload.request(.upload(url), type: Response<[RemoteFile]>.self)

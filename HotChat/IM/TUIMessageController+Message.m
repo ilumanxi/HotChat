@@ -19,6 +19,71 @@
 
 - (void)sendMessage:(TUIMessageCellData *)msg
 {
+    
+    if ([msg isKindOfClass:[TUIImageMessageCellData class]]) {
+        
+        WaitingMessageViewController *vc = [[WaitingMessageViewController alloc] init];
+        [self presentViewController:vc animated:YES completion:nil];
+        
+        TUIImageMessageCellData *imageMsg = (TUIImageMessageCellData *)msg;
+        NSURL *url = [NSURL fileURLWithPath:imageMsg.path];
+        [UploadHelper violateWithFile:url type:1 voiceDuration:0 success:^(NSDictionary<NSString *,id> * _Nonnull result) {
+            [vc dismiss];
+            if ([result[@"resultCode"] intValue] == 0 ) {
+                [self sendMessage2:msg];
+            }
+            else {
+                NSURL *url =  [[NSBundle mainBundle] URLForResource:@"violation.png" withExtension:nil];
+                NSData *data = [NSData dataWithContentsOfURL:url];
+                UIImage *image = [UIImage imageWithContentsOfFile:url.path];
+                imageMsg.path = url.path;
+                imageMsg.length = data.length;
+                imageMsg.thumbImage = image;
+                imageMsg.originImage = image;
+                imageMsg.largeImage = image;
+                [self sendMessage2:imageMsg];
+            }
+        } failed:^(NSError * _Nonnull error) {
+            [vc dismissViewControllerAnimated:NO completion:nil];
+            [THelper makeToast:error.localizedDescription];
+        }];
+    }
+    else if([msg isKindOfClass:[TUIVoiceMessageCellData class]]) {
+        
+        TUIVoiceMessageCellData *voicMsg = (TUIVoiceMessageCellData *)msg;
+        
+        if (voicMsg.duration > 5) {
+            WaitingMessageViewController *vc = [[WaitingMessageViewController alloc] init];
+            [self presentViewController:vc animated:YES completion:nil];
+            
+            
+            NSURL *url = [NSURL fileURLWithPath:voicMsg.path];
+            [UploadHelper violateWithFile:url type:2 voiceDuration:voicMsg.duration success:^(NSDictionary<NSString *,id> * _Nonnull result) {
+                if ([result[@"resultCode"] intValue] == 0 ) {
+                    [self sendMessage2:msg];
+                    [vc dismiss];
+                }
+                else {
+                    [vc dismissViewControllerAnimated:NO completion:nil];
+                    [THelper makeToast:result[@"resulutMsg"]];
+                }
+            } failed:^(NSError * _Nonnull error) {
+                [vc dismissViewControllerAnimated:NO completion:nil];
+                [THelper makeToast:error.localizedDescription];
+            }];
+        }
+        else {
+            [self sendMessage2:msg];
+        }
+       
+    }
+    else {
+        [self sendMessage2:msg];
+    }
+}
+
+- (void)sendMessage2:(TUIMessageCellData *)msg {
+    
     [self.tableView beginUpdates];
     V2TIMMessage *imMsg = msg.innerMessage;
     TUIMessageCellData *dateMsg = nil;

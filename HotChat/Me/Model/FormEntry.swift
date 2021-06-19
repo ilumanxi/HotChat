@@ -14,11 +14,18 @@ import TZImagePickerController
 
 func writeImage(_ image: UIImage) -> URL {
     
-    let image = image.compressed(quality: 0.5)
-    let fileName =  ProcessInfo.processInfo.globallyUniqueString.appending(".png").replacingOccurrences(of: "-", with: "")
+    let aspectRatio = min(1920 / image.size.width, 1920 / image.size.height)
+    let aspectWidth = image.size.width * aspectRatio
+    let aspectHeight = image.size.height * aspectRatio
+    UIGraphicsBeginImageContext(CGSize(width: aspectWidth, height: aspectHeight))
+    image.draw(in: CGRect(x: 0, y: 0, width: aspectWidth, height: aspectHeight))
+    let newImage = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    
+    let fileName =  ProcessInfo.processInfo.globallyUniqueString.appending(".jpeg").replacingOccurrences(of: "-", with: "")
     let fileURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
     
-    try! image?.pngData()?.write(to: fileURL)
+    try! newImage?.jpegData(compressionQuality:0.5)?.write(to: fileURL)
     return fileURL
 }
 
