@@ -72,4 +72,5 @@ target 'HotChat' do
     pod 'SVGAPlayer'
     pod 'PanModal'
     pod 'WMSegmentControl'
+    pod 'MarqueeLabel'
 end

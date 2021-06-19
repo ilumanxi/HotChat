@@ -131,6 +131,10 @@ extension Notification.Name {
     /// 亲密度变化
     static let intimacyDidChange = NSNotification.Name("com.friday.Chat.intimacyDidChange")
     
+    /// 聊天违规
+    static let chatViolation = NSNotification.Name("com.friday.Chat.chatViolation")
+    
+    
 }
 
 
@@ -151,6 +155,8 @@ extension IMDataType {
             return .onlineDidStatus
         case IMDataTypeIntimacy:
             return .intimacyDidChange
+        case IMDataTypeChatViolation:
+            return .chatViolation
         default:
             return nil
         }

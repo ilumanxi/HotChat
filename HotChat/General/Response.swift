@@ -22,12 +22,12 @@ struct ResponseStateType: HandyJSON, State {
     var msg: String = ""
     
     /// 通用
-    var resulutCode: Int = 0
-    var resulutMsg: String = ""
+    var resultCode: Int = 0
+    var resultMsg: String = ""
     
     var isSuccessd: Bool {
         
-        let codes = [faceCode, resulutCode]
+        let codes = [faceCode, resultCode]
         
         return codes.contains {  $0 == 1 || $0 == 1000 }
     }
@@ -38,11 +38,11 @@ struct ResponseStateType: HandyJSON, State {
             return nil
         }
         
-        let msgs = [msg, resulutMsg]
+        let msgs = [msg, resultMsg]
         
         let errorDescription = msgs.first { !$0.isEmpty } ?? "未知错误"
         
-        let code = [resulutCode, faceCode].first { $0 != 0 } ?? 0
+        let code = [resultCode, faceCode].first { $0 != 0 } ?? 0
         
         return NSError(domain: "", code: code, userInfo: [NSLocalizedDescriptionKey: errorDescription])
     }

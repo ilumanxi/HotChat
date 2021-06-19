@@ -65,7 +65,7 @@
                 }
                 else {
                     [vc dismissViewControllerAnimated:NO completion:nil];
-                    [THelper makeToast:result[@"resulutMsg"]];
+                    [THelper makeToast:result[@"resultMsg"]];
                 }
             } failed:^(NSError * _Nonnull error) {
                 [vc dismissViewControllerAnimated:NO completion:nil];
