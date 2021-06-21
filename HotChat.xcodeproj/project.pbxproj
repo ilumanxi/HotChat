@@ -483,6 +483,7 @@
 		26E291B125541C010032AE99 /* PIPWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E291B025541C010032AE99 /* PIPWindow.m */; };
 		26E291B62554FB810032AE99 /* AvatarAuthenticationResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E291B42554FB810032AE99 /* AvatarAuthenticationResultController.swift */; };
 		26E291B72554FB810032AE99 /* AvatarAuthenticationResultController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26E291B52554FB810032AE99 /* AvatarAuthenticationResultController.xib */; };
+		26E4141F2680441A004481CE /* UIImage+Data.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E4141E2680441A004481CE /* UIImage+Data.m */; };
 		26E48901257DDFD1006C2ACE /* GirdLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E488FF257DDFD1006C2ACE /* GirdLayout.m */; };
 		26E48908257E087D006C2ACE /* CheckInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E48906257E087D006C2ACE /* CheckInViewController.swift */; };
 		26E48909257E087D006C2ACE /* CheckInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26E48907257E087D006C2ACE /* CheckInViewController.xib */; };
@@ -1157,6 +1158,8 @@
 		26E291B025541C010032AE99 /* PIPWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PIPWindow.m; sourceTree = "<group>"; };
 		26E291B42554FB810032AE99 /* AvatarAuthenticationResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarAuthenticationResultController.swift; sourceTree = "<group>"; };
 		26E291B52554FB810032AE99 /* AvatarAuthenticationResultController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvatarAuthenticationResultController.xib; sourceTree = "<group>"; };
+		26E4141D2680441A004481CE /* UIImage+Data.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Data.h"; sourceTree = "<group>"; };
+		26E4141E2680441A004481CE /* UIImage+Data.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Data.m"; sourceTree = "<group>"; };
 		26E488FF257DDFD1006C2ACE /* GirdLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GirdLayout.m; sourceTree = "<group>"; };
 		26E48900257DDFD1006C2ACE /* GirdLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GirdLayout.h; sourceTree = "<group>"; };
 		26E48906257E087D006C2ACE /* CheckInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInViewController.swift; sourceTree = "<group>"; };
@@ -2287,6 +2290,8 @@
 				264C5C222608A72F007FB123 /* TConversationListViewModel+Single.m */,
 				263F5386261459010099D143 /* TUIMessageController+Group.h */,
 				263F5387261459010099D143 /* TUIMessageController+Group.m */,
+				26E4141D2680441A004481CE /* UIImage+Data.h */,
+				26E4141E2680441A004481CE /* UIImage+Data.m */,
 			);
 			path = IM;
 			sourceTree = "<group>";
@@ -2996,6 +3001,7 @@
 				265C1ED62542D84700110564 /* InviteViewController.swift in Sources */,
 				26C65FB325301737006B9B7E /* InformationCell.swift in Sources */,
 				26DFBF8A262EB6ED00639C94 /* OnlineTipView.swift in Sources */,
+				26E4141F2680441A004481CE /* UIImage+Data.m in Sources */,
 				2617D3EB25C54478009AAE16 /* ImageMessageCell.m in Sources */,
 				26AE7C2F2520309F00B55318 /* LabelViewCell.swift in Sources */,
 				26CB6D4725515D6B00A9F4DD /* BDFaceRemindAnimationView.m in Sources */,

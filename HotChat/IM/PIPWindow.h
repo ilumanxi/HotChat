@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PIPWindow : UIWindow
 
-@property(class, nonatomic, readonly) PIPWindow *share;
+@property(class, nonatomic, readonly, nullable) PIPWindow *share;
 
 
 + (void)presentViewController:(UIViewController *)viewControllerToPresent animated: (BOOL)flag completion:(void (^ __nullable)(void))completion API_AVAILABLE(ios(5.0));

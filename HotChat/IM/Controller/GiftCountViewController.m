@@ -44,13 +44,14 @@
 
 - (void)setupPreferredContentSize  {
     
-    self.preferredContentSize = CGSizeMake(90, 25 * self.data.count);
+    self.preferredContentSize = CGSizeMake(90, 30 * self.data.count);
 }
 
 - (void)setupViews {
-    self.tableView.rowHeight = 25;
+    self.tableView.rowHeight = 30;
     self.tableView.estimatedRowHeight = 0;
     self.tableView.bounces = NO;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerNib:[UINib nibWithNibName:@"GiftCountCell" bundle:nil] forCellReuseIdentifier:@"GiftCountCell"];
     
 }

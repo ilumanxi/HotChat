@@ -29,6 +29,7 @@
 #import "Marquee.h"
 #import "QMUIButton.h"
 #import "Gift.h"
+#import "UIImage+Data.h"
 
 #import <UMCommon/UMCommon.h>
 #import <UMVerify/UMVerify.h>

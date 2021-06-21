@@ -17,6 +17,7 @@
 #import "THelper.h"
 #import "PIPWindow.h"
 #import "HotChat-Swift.h"
+@import MarqueeLabel;
 
 typedef NS_ENUM(NSInteger,VideoUserRemoveReason){
     VideoUserRemoveReason_Leave = 0,
@@ -47,6 +48,47 @@ typedef NS_ENUM(NSInteger,VideoUserRemoveReason){
         g_sharedInstance = [[CallManager alloc] init];
     });
     return g_sharedInstance;
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chatViolation:) name:@"com.friday.Chat.chatViolation" object:nil];
+    }
+    return self;
+}
+
+- (void)chatViolation:(NSNotification *)note {
+    
+    NSString *msg = note.userInfo[@"msg"];
+    
+    if (self.callVC == nil || msg == nil) {
+        return;
+    }
+    
+    MarqueeLabel *label = [[MarqueeLabel alloc] init];
+//            label.type;
+//    label.speed = 15;
+    label.fadeLength = 10.0;
+    label.leadingBuffer = 30.0;
+    label.backgroundColor = [UIColor redColor];
+    label.textColor = [UIColor whiteColor];
+    label.font = [UIFont systemFontOfSize:13 weight: UIFontWeightMedium];
+    label.text = msg;
+    label.frame = CGRectMake(0, UIApplication.sharedApplication.statusBarFrame.size.height,  UIScreen.mainScreen.bounds.size.width, 28);
+    [self.callVC.view addSubview:label];
+    
+    NSTimeInterval duration = [note.userInfo[@"duration"] doubleValue];
+    
+    if (duration < 1) {
+        duration = 5;
+    }
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(duration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [label removeFromSuperview];
+    });
+    
 }
 
 - (void)initCall {

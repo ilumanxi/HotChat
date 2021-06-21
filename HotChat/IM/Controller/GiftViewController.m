@@ -88,6 +88,10 @@
     self.charmLabel.hidden = selectedGift.charm <= 0;
     self.richLabel.text = [NSString stringWithFormat:@"富豪值\n+%@", [NSNumber numberWithDouble:selectedGift.rich].intimacyString];
     self.richLabel.hidden = selectedGift.rich <= 0;
+    if (selectedGift.type == 0) {
+        self.count = 1;
+        [self.countButton setTitle:[NSString stringWithFormat:@"x%ld", self.count] forState: UIControlStateNormal];
+    }
 }
 
 - (void)viewDidLoad {
