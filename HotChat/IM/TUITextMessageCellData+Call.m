@@ -13,6 +13,7 @@
 #import "TUIKit.h"
 #import "THelper.h"
 #import "UIColor+TUIDarkMode.h"
+#import "UIImage+Transform.h"
 
 @implementation TUITextMessageCellData (Call)
 
@@ -61,10 +62,23 @@
         NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
         
         if ([data[@"call_type"] integerValue] == CallType_Audio) {
-            textAttachment.image = [UIImage imageNamed:@"call-audio"];
+            
+            if (self.innerMessage.isSelf) {
+                textAttachment.image = [[UIImage imageNamed:@"call-audio"] sd_tintedImageWithColor:[UIColor whiteColor]];
+            }
+            else {
+                textAttachment.image = [UIImage imageNamed:@"call-audio"];
+            }
+            
+           
         }
         else if ([data[@"call_type"] integerValue] == CallType_Video) {
-            textAttachment.image = [UIImage imageNamed:@"call-video"];
+            if (self.innerMessage.isSelf) {
+                textAttachment.image = [[UIImage imageNamed:@"call-video"] sd_tintedImageWithColor:[UIColor whiteColor]];
+            }
+            else {
+                textAttachment.image = [UIImage imageNamed:@"call-video"];
+            }
         }
         
         // 图片间距

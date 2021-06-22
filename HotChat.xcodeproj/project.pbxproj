@@ -452,6 +452,7 @@
 		26D1E594253D6000004B9B29 /* VideoCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D1E593253D6000004B9B29 /* VideoCallViewController.m */; };
 		26D7D2E52653AE05001B1311 /* HeadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D7D2E32653AE05001B1311 /* HeadViewController.swift */; };
 		26D7D2E62653AE05001B1311 /* HeadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26D7D2E42653AE05001B1311 /* HeadViewController.xib */; };
+		26D8959C2681F48C00999F2F /* TUIVoiceMessageCell+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D8959B2681F48C00999F2F /* TUIVoiceMessageCell+Color.m */; };
 		26D9E9FA260DC92F009EEDD2 /* UserActivityAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D9E9F9260DC92F009EEDD2 /* UserActivityAPI.swift */; };
 		26D9E9FC260DCB66009EEDD2 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D9E9FB260DCB66009EEDD2 /* ActivityView.swift */; };
 		26D9E9FE260DCB7E009EEDD2 /* ActivityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26D9E9FD260DCB7E009EEDD2 /* ActivityView.xib */; };
@@ -1123,6 +1124,8 @@
 		26D1E593253D6000004B9B29 /* VideoCallViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoCallViewController.m; sourceTree = "<group>"; };
 		26D7D2E32653AE05001B1311 /* HeadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadViewController.swift; sourceTree = "<group>"; };
 		26D7D2E42653AE05001B1311 /* HeadViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeadViewController.xib; sourceTree = "<group>"; };
+		26D8959A2681F48C00999F2F /* TUIVoiceMessageCell+Color.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TUIVoiceMessageCell+Color.h"; sourceTree = "<group>"; };
+		26D8959B2681F48C00999F2F /* TUIVoiceMessageCell+Color.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TUIVoiceMessageCell+Color.m"; sourceTree = "<group>"; };
 		26D9E9F9260DC92F009EEDD2 /* UserActivityAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActivityAPI.swift; sourceTree = "<group>"; };
 		26D9E9FB260DCB66009EEDD2 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		26D9E9FD260DCB7E009EEDD2 /* ActivityView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityView.xib; sourceTree = "<group>"; };
@@ -2290,6 +2293,8 @@
 				264C5C222608A72F007FB123 /* TConversationListViewModel+Single.m */,
 				263F5386261459010099D143 /* TUIMessageController+Group.h */,
 				263F5387261459010099D143 /* TUIMessageController+Group.m */,
+				26D8959A2681F48C00999F2F /* TUIVoiceMessageCell+Color.h */,
+				26D8959B2681F48C00999F2F /* TUIVoiceMessageCell+Color.m */,
 				26E4141D2680441A004481CE /* UIImage+Data.h */,
 				26E4141E2680441A004481CE /* UIImage+Data.m */,
 			);
@@ -3082,6 +3087,7 @@
 				26278B8D256CFD64007044E1 /* JPGiftOperation.m in Sources */,
 				2643EBBE2500B04100FBBE49 /* CollectionViewGridLayout.swift in Sources */,
 				2619D192256260A90071CC85 /* GiftCountCell.m in Sources */,
+				26D8959C2681F48C00999F2F /* TUIVoiceMessageCell+Color.m in Sources */,
 				266F28F625F8AF8000FD559E /* TopAPI.swift in Sources */,
 				2611E611260DD3C100563156 /* Activity.swift in Sources */,
 				26C31F2625403A9E0000D09D /* ReportUserViewController.swift in Sources */,
