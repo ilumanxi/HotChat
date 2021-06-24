@@ -246,7 +246,7 @@ class DiscoverViewController: TabmanViewController, LoadingStateType, IndicatorD
     
     func setupViews() {
         
-        if LoginManager.shared.user!.girlStatus && !AppAudit.share.energyStatus {
+        if let user = LoginManager.shared.user, user.girlStatus && !AppAudit.share.energyStatus {
 
             checkUserCallChat()
         }
@@ -259,7 +259,7 @@ class DiscoverViewController: TabmanViewController, LoadingStateType, IndicatorD
     
     func checkAccost() {
         
-        if LoginManager.shared.user!.girlStatus  || !isCheckAccost  || AppAudit.share.accostStatus  {
+        if let user = LoginManager.shared.user, user.girlStatus  || !isCheckAccost  || AppAudit.share.accostStatus  {
             return
         }
         

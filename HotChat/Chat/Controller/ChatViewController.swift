@@ -146,7 +146,7 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
         if isAdmin {
             return
         }
-        let hiddenSignal =  inputController.view.rx.observe(CGRect.self, #keyPath(UIView.frame), options: .new, retainSelf: false)
+        let hiddenSignal =  inputController.view.rx.observeWeakly(CGRect.self, #keyPath(UIView.frame), options: .new)
          .map{ _ in ()}
          
          Observable.merge(hiddenIntimacySignal,  hiddenSignal)

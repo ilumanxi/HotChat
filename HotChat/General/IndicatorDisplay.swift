@@ -29,6 +29,7 @@ class IndicatorHolderView: UIView {}
 func message(_ error: Error) -> String {
     var text = error.localizedDescription
     text = text.replacingOccurrences(of: "URLSessionTask failed with error: ", with: "")
+    text = text.replacingOccurrences(of: "（HotChat.HotChatError错误1。）", with: "")
     if text.contains(SKErrorDomain), let index = text.firstIndex(of: "。") {
         text = String(text[text.startIndex...index])
     }

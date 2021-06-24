@@ -317,8 +317,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             LoginManager.shared.logout()
         }))
-        
-        window?.rootViewController?.present(alert, animated: true, completion: nil)
+        window?.present(alert)
     }
     
     
