@@ -133,7 +133,7 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     
     
     func checkUserInitState() {
-        if let user = LoginManager.shared.user, user.isInit {
+        if let user = LoginManager.shared.user, !user.isInit {
             let vc = UserInformationViewController()
             navigationController?.pushViewController(vc, animated: false)
         }
