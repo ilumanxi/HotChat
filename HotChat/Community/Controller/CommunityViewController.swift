@@ -119,19 +119,6 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        checkUserInitState()
-    }
-    
-    
-    func checkUserInitState() {
-        if let user = LoginManager.shared.user, !user.isInit {
-            let vc = UserInformationViewController()
-            navigationController?.pushViewController(vc, animated: false)
-        }
-    }
-    
     
     func observePhoneState() {
         NotificationCenter.default.rx.notification(.userDidChange)

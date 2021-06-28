@@ -209,6 +209,18 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
             .disposed(by: rx.disposeBag)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        checkUserInitState()
+    }
+    
+    func checkUserInitState() {
+        if let user = LoginManager.shared.user, !user.isInit {
+            let vc = UserInformationViewController()
+            navigationController?.pushViewController(vc, animated: false)
+        }
+    }
+    
     func scrollToTop()  {
         mainScrollView.setContentOffset(.zero, animated: false)
         channels.forEach {channel in
