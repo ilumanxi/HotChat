@@ -44,7 +44,6 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     
     let dynamicAPI = Request<DynamicAPI>()
     
-    let upgradeAPI = Request<UpgradeAPI>()
     
     let checkInAPI = Request<CheckInAPI>()
     
@@ -112,13 +111,7 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
         refreshData()
         
         observePhoneState()
-        upgradeAPI.request(.updateChannel, type: Response<Upgrade>.self)
-            .verifyResponse()
-            .subscribe(onSuccess: { [weak self] response in
-                let vc = UpgrateViewController(upgrade: response.data!)
-                self?.present(vc, animated: true, completion: nil)
-            })
-            .disposed(by: rx.disposeBag)
+       
     }
     
     @objc func pairc() {

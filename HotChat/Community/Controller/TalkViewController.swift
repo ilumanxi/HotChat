@@ -118,7 +118,7 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
     var avgaAPlayer: SVGAPlayer!
     var rewardButton: UIButton!
     
-
+    let upgradeAPI = Request<UpgradeAPI>()
     
     let userAPI = Request<UserAPI>()
     
@@ -197,6 +197,14 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
                     self.scrollToTop()
                 }
                
+            })
+            .disposed(by: rx.disposeBag)
+        
+        upgradeAPI.request(.updateChannel, type: Response<Upgrade>.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { [weak self] response in
+                let vc = UpgrateViewController(upgrade: response.data!)
+                self?.presentTopMost(vc)
             })
             .disposed(by: rx.disposeBag)
     }

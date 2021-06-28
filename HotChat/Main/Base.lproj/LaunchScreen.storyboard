@@ -35,6 +35,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="launch-screen-message" width="119" height="47.5"/>
+        <image name="launch-screen-message" width="119" height="47.666667938232422"/>
     </resources>
 </document>

@@ -17,22 +17,22 @@ PODS:
     - AFNetworking/NSURLSession
   - Alamofire (5.4.3)
   - AlignedCollectionViewFlowLayout (1.1.2)
-  - AliPlayerSDK_iOS (5.3.2):
-    - AliPlayerSDK_iOS/AliPlayerSDK (= 5.3.2)
-  - AliPlayerSDK_iOS/AliPlayerSDK (5.3.2)
+  - AliPlayerSDK_iOS (5.4.1.2):
+    - AliPlayerSDK_iOS/AliPlayerSDK (= 5.4.1.2)
+  - AliPlayerSDK_iOS/AliPlayerSDK (5.4.1.2)
   - AMPopTip (4.5.3)
   - Aquaman (0.1.2)
   - Blueprints (0.13.1)
   - Bugly (2.5.90)
   - Cache (6.0.0)
-  - CryptoSwift (1.3.8)
+  - CryptoSwift (1.4.0)
   - DGCollectionViewLeftAlignFlowLayout (1.0.4)
   - DynamicColor (5.0.1)
   - FSPagerView (0.8.3)
-  - GKPhotoBrowser (2.2.0):
-    - GKPhotoBrowser/SD (= 2.2.0)
-  - GKPhotoBrowser/Core (2.2.0)
-  - GKPhotoBrowser/SD (2.2.0):
+  - GKPhotoBrowser (2.3.1):
+    - GKPhotoBrowser/SD (= 2.3.1)
+  - GKPhotoBrowser/Core (2.3.1)
+  - GKPhotoBrowser/SD (2.3.1):
     - GKPhotoBrowser/Core
     - SDWebImage (~> 5.0)
   - HandyJSON (5.0.3-beta)
@@ -46,8 +46,8 @@ PODS:
   - MarqueeLabel (4.1.0)
   - Masonry (1.1.0)
   - MBProgressHUD (1.2.0)
-  - MJExtension (3.2.4)
-  - MJRefresh (3.5.0)
+  - MJExtension (3.3.0)
+  - MJRefresh (3.6.1)
   - MMLayout (0.2.0)
   - Moya/Core (14.0.0):
     - Alamofire (~> 5.0)
@@ -60,7 +60,7 @@ PODS:
   - PanModal (1.2.7)
   - pop (1.0.12)
   - PPBadgeViewSwift (3.1.0)
-  - Protobuf (3.16.0)
+  - Protobuf (3.17.0)
   - RangersAppLog (4.4.4):
     - RangersAppLog/Core (= 4.4.4)
     - RangersAppLog/Picker (= 4.4.4)
@@ -90,7 +90,7 @@ PODS:
   - SDWebImage/Core (5.9.0)
   - SnapKit (5.0.1)
   - SPAlertController (4.0.0)
-  - SSZipArchive (2.2.3)
+  - SSZipArchive (2.4.2)
   - SVGAPlayer (2.5.6):
     - SVGAPlayer/Core (= 2.5.6)
     - SVGAPlayer/ProtoFiles (= 2.5.6)
@@ -131,7 +131,7 @@ PODS:
   - TagListView (1.4.1)
   - Toast (4.0.0)
   - Toast-Swift (5.0.1)
-  - TPNS-iOS (1.3.1.1)
+  - TPNS-iOS (1.3.2.1)
   - Trident (0.6.0)
   - TXIMSDK_iOS (5.1.60)
   - TXIMSDK_TUIKit_iOS (5.1.60):
@@ -143,9 +143,9 @@ PODS:
     - TXLiteAVSDK_TRTC (= 8.5.10022)
   - TXLiteAVSDK_TRTC (8.5.10022)
   - TZImagePickerController (3.6.0)
-  - UMCommon (7.2.8):
+  - UMCommon (7.3.0):
     - UMDevice
-  - UMDevice (1.2.0)
+  - UMDevice (2.0.1)
   - UMVerify (2.3.0):
     - UMCommon
   - URLNavigator (2.3.0)
@@ -209,7 +209,7 @@ DEPENDENCIES:
   - Toast-Swift
   - TPNS-iOS
   - Trident (from `https://github.com/bawn/Trident.git`, commit `2eed75e`)
-  - TXIMSDK_TUIKit_iOS
+  - TXIMSDK_TUIKit_iOS (= 5.1.60)
   - TZImagePickerController
   - UMVerify
   - URLNavigator
@@ -217,7 +217,7 @@ DEPENDENCIES:
   - WKWebViewJavascriptBridge
   - WMSegmentControl
   - YBImageBrowser/Video
-  - YYImage (from `https://github.com/QiuYeHong90/YYImage.git`)
+  - YYImage (from `https://github.com/QiuYeHong90/YYImage.git`, commit `6a756e9`)
 
 SPEC REPOS:
   trunk:
@@ -296,6 +296,7 @@ EXTERNAL SOURCES:
     :commit: 2eed75e
     :git: https://github.com/bawn/Trident.git
   YYImage:
+    :commit: 6a756e9
     :git: https://github.com/QiuYeHong90/YYImage.git
 
 CHECKOUT OPTIONS:
@@ -306,7 +307,7 @@ CHECKOUT OPTIONS:
     :commit: 2eed75e
     :git: https://github.com/bawn/Trident.git
   YYImage:
-    :commit: 4164acb76e8979c0612530bd874e099a1fa51e9d
+    :commit: 6a756e9
     :git: https://github.com/QiuYeHong90/YYImage.git
 
 SPEC CHECKSUMS:
@@ -314,17 +315,17 @@ SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   AlignedCollectionViewFlowLayout: ee2ef451e741ec08f8e0967d828001e2f051c20a
-  AliPlayerSDK_iOS: 6c74230e3375c41cc173e5f17d36962c2dbd3768
+  AliPlayerSDK_iOS: e868aee441bdd8f5b90bcc6ab1cd3a407f36240f
   AMPopTip: 77eef4793d50709bef83825b72da4f501263b91d
   Aquaman: a9f48d6b1c3049f3e511779a77a570bf541a2470
   Blueprints: ddd6ab1e455c98471aaef2fdd0b09b5f9b53af5b
   Bugly: 88bc32c0acc6fef7b74d610f0319ee7560d6b9fe
   Cache: 4ca7e00363fca5455f26534e5607634c820ffc2d
-  CryptoSwift: 01b0f0cba1d5c212e5a335ff6c054fb75a204f00
+  CryptoSwift: 7cc902df1784de3b389a387756c7d710f197730c
   DGCollectionViewLeftAlignFlowLayout: a0fa58797373ded039cafba8133e79373d048399
   DynamicColor: d049834ef86d8ecf150b0ca1ebe54ee733a0ec22
   FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
-  GKPhotoBrowser: 78ea3d219fc1e05ed8b5f452863174f370f548c7
+  GKPhotoBrowser: 3b87e4370b1e7bf83af5e6977d6d5db2be650eef
   HandyJSON: 88e8ea5f66ab65c3b8768499a1935d0509c460d4
   InputKitSwift: 5532ed4a41706aeebe6ad6dfafb3bee32e02f1c6
   Jelly: 0576a8fd3b3bea78f6c2d952acdc30b0835dda71
@@ -335,8 +336,8 @@ SPEC CHECKSUMS:
   MarqueeLabel: 47ee0c9b3f8da874bb376aef59e8f31c40feaeda
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
-  MJExtension: 88e0900751b6cac8de1cf724ca9838a0b28d5acb
-  MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
+  MJExtension: 01704cca2b60a214c10761b6491eab74069d68a9
+  MJRefresh: d2c1970d1cf6e77fcfcdfe76c943dfab8dbfa5c1
   MMLayout: 3fb59d58eeb8656c64e61d550fb0088e10666c11
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   "NSObject+Rx": fa6bbcc1ab1faa06b01466bc09b1e0692bbc5946
@@ -344,7 +345,7 @@ SPEC CHECKSUMS:
   PanModal: 3e16ead1a907fb06f4df3f13492fd00149fa4974
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   PPBadgeViewSwift: 18a219a9897f418342c22dd1a54f7b18ac56546b
-  Protobuf: 8e78b4aabb47d17f379fb10b0d22ed5439e69b95
+  Protobuf: 7327d4444215b5f18e560a97f879ff5503c4581c
   RangersAppLog: 3a8c9b31227ca2229a67a011cfcd80b5d88a404b
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
   Reusable: 53a9acf5c536f229b31b5865782414b508252ddb
@@ -355,7 +356,7 @@ SPEC CHECKSUMS:
   SDWebImage: 62ae4a18473520c67b79e9724c31a63599cc9423
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SPAlertController: b245d7a5e17d612da051f2612aca3703f21d108f
-  SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
+  SSZipArchive: e7b4f3d9e780c2acc1764cd88fbf2de28f26e5b2
   SVGAPlayer: f3b3792ae66f7cb3f944ae373a40864db9a04331
   SwiftDate: 72d28954e8e1c6c1c0f917ccc8005e4f83c7d4b2
   SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
@@ -364,22 +365,22 @@ SPEC CHECKSUMS:
   TagListView: a1c236d17960a0cf64156725a76ce6d73ebce2be
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
-  TPNS-iOS: 4d8069f16fd4593cd907e1dfc5a9e0506a76589a
+  TPNS-iOS: 95a3fba3f17a5beff1aa74b1decc44ad3fbefebc
   Trident: aa83273ba05bf77f434bb35925356c87bd4c2f75
   TXIMSDK_iOS: 015557374d46a549ec63f298e76d1aaf38611284
   TXIMSDK_TUIKit_iOS: 3b4fd0f969efc67dfe645cb3b030cb790d9de2c3
   TXLiteAVSDK_TRTC: 52c1085c546ca7871950a815edf733196af645c1
   TZImagePickerController: a37d7eec87c54436e896a67947033ad2178d498b
-  UMCommon: 87e2bf6a5c44df6f60509219a7279d9f94c31d24
-  UMDevice: da050ba77e5075b1ec08303065722d25f599e483
+  UMCommon: d654d43e83dcccb3dbb95d97f7b88045733a1380
+  UMDevice: f9ed639486a73620bc7c800d1657f110df50c3e1
   UMVerify: 562d38114f35ba0d8892a2b83e93e9921fc59e9c
   URLNavigator: 2593c0e2d293732ec5c44503cf54dceba1a68085
   WechatOpenSDK: 6a4d1436c15b3b5fe2a0bd383f3046010186da44
   WKWebViewJavascriptBridge: 07ad0cab27cd61ccdb90b5deb223f6df3a03c3d7
   WMSegmentControl: 4bb3a61e28cd0a0fcfcf932bec1f5795835b9f3f
   YBImageBrowser: 7ecc8bf33ffa5f3b94c397c29b4f3638dd37f527
-  YYImage: 20ec986d18a8d0ad421619d166a9e628097e2433
+  YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
 
-PODFILE CHECKSUM: 400da737c948000b0b841c29232ee88cf4d70013
+PODFILE CHECKSUM: f29ddf7fda19e0654074624fc7fb7c796f8bfe18
 
 COCOAPODS: 1.10.1

@@ -52,10 +52,10 @@ target 'HotChat' do
 #    pod 'KMNavigationBarTransition', :path => './HotChat/Common/Framework/KMNavigationBarTransition'
     pod 'PPBadgeViewSwift'
     pod 'AliPlayerSDK_iOS'
-    pod 'TXIMSDK_TUIKit_iOS'
+    pod 'TXIMSDK_TUIKit_iOS', "5.1.60"
     pod 'TPNS-iOS'
     pod 'YBImageBrowser/Video'
-    pod 'YYImage', :git => 'https://github.com/QiuYeHong90/YYImage.git'
+    pod 'YYImage', :git => 'https://github.com/QiuYeHong90/YYImage.git', :commit=> "6a756e9"
     pod 'GKPhotoBrowser'
     pod 'Masonry'
     pod 'AFNetworking'
