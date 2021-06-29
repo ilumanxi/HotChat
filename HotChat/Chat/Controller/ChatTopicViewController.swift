@@ -95,7 +95,7 @@ class ChatTopicViewController: ChatViewController, UIPopoverPresentationControll
         // 第一次来
         // 文明公告：本平台提倡健康文明交友，所有涉黄、诈骗、违法法规等行为，将被系统永久封禁账号及手机设备。
         
-        self.messageController.rx.observe(Bool.self, "firstLoad")
+        self.messageController.rx.observeWeakly(Bool.self, "firstLoad")
             .filter{
                 $0 == false
             }

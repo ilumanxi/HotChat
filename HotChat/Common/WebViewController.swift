@@ -184,17 +184,17 @@ class WebViewController: UIViewController {
     }
     
     func observeWebViewState() {
-        webView.rx.observe(String.self, #keyPath(WKWebView.title))
+        webView.rx.observeWeakly(String.self, #keyPath(WKWebView.title))
             .map{ $0 ?? "" }
             .bind(to: rx.title)
             .disposed(by: rx.disposeBag)
     
-        webView.rx.observe(Double.self, #keyPath(WKWebView.estimatedProgress))
+        webView.rx.observeWeakly(Double.self, #keyPath(WKWebView.estimatedProgress))
             .compactMap{ Float($0!) }
             .bind(to: progressView.rx.progress)
             .disposed(by: rx.disposeBag)
         
-        webView.rx.observe(Bool.self, #keyPath(WKWebView.isLoading))
+        webView.rx.observeWeakly(Bool.self, #keyPath(WKWebView.isLoading))
             .compactMap{ $0 }
             .compactMap{ !$0 }
             .bind(to: progressView.rx.isHidden)
