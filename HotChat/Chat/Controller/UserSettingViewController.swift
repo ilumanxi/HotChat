@@ -356,7 +356,23 @@ class UserSettingViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        return sections[indexPath.section].formEntries[indexPath.row].cell(tableView, indexPath: indexPath)
+        let cell = sections[indexPath.section].formEntries[indexPath.row].cell(tableView, indexPath: indexPath)
+        
+        if let tap = cell.contentView.gestureRecognizers?.first(where: { $0 is UITapGestureRecognizer }) {
+            cell.contentView.removeGestureRecognizer(tap)
+        }
+        return cell
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let form = sections[indexPath.section].formEntries[indexPath.row]
+        
+        if let touch = form as? UserFormEntry  {
+            touch.onTapped.call()
+        }
+        else  if let touch = form as? BasicFormEntry  {
+            touch.onTapped.call()
+        }
+    }
 }
