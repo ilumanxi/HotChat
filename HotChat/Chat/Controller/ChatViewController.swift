@@ -60,14 +60,18 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
     
     
     var isAdmin: Bool {
-        return conversationData.userID == "10001"
+        return conversationData.userID == "10001" || conversationData.userID == "10002"
     }
     
     override var inputBarHeight: CGFloat {
-        if isAdmin {
+        if conversationData.userID == "10001" {
             return 0
         }
-       
+        
+        if conversationData.userID == "10002" {
+            return 49
+        }
+        
         return super.inputBarHeight
     }
     

@@ -87,7 +87,7 @@
 {
     [super fillWithData:convData];
     self.convData = convData;
-    self.tagButton.hidden = ![convData.userID isEqualToString:@"10001"];
+    self.tagButton.hidden = !([convData.userID isEqualToString:@"10001"] || [convData.userID isEqualToString:@"10002"]);
     self.timeLabel.text = [convData.time tk_messageString];
     self.subTitleLabel.attributedText = convData.subTitle;
     [self.unReadView setNum:convData.unreadCount];
