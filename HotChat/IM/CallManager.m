@@ -333,6 +333,7 @@ typedef NS_ENUM(NSInteger,VideoUserRemoveReason){
 
 -(void)onCallEnd {
     NSLog(@"📳 onCallEnd");
+    [NSNotificationCenter.defaultCenter postNotificationName:@"onCallEnd" object:nil];
     if ([self.callVC isKindOfClass:[VideoCallViewController class]]) {
         [(VideoCallViewController *)self.callVC disMiss];
         [PIPWindow dismissViewControllerAnimated:YES completion:nil];
@@ -341,8 +342,6 @@ typedef NS_ENUM(NSInteger,VideoUserRemoveReason){
         [(AudioCallViewController *)self.callVC disMiss];
         [PIPWindow dismissViewControllerAnimated:YES completion:nil];
     }
-    
-    [NSNotificationCenter.defaultCenter postNotificationName:@"onCallEnd" object:nil];
 }
 
 
@@ -361,11 +360,23 @@ typedef NS_ENUM(NSInteger,VideoUserRemoveReason){
 //            "status": 1, 正常 2异常
 //            "minutes": 2//分钟
 //        }
+    
+    [NSNotificationCenter.defaultCenter postNotificationName:@"onCallEnd" object:nil];
 
+    if ([self.callVC isKindOfClass:[VideoCallViewController class]]) {
+        [(VideoCallViewController *)self.callVC disMiss];
+
+    }
+    if ([self.callVC isKindOfClass:[AudioCallViewController class]]) {
+        [(AudioCallViewController *)self.callVC disMiss];
+    }
     [PIPWindow dismissViewControllerAnimated:NO  completion:nil];
     
-    [[TUICall shareInstance] quitRoom];
-    
+//    [[TUICall shareInstance] quitRoom];
+    if (reason != 0) {
+        [[TUICall shareInstance] hangup];
+    }
+   
     if (LoginManager.shared.user.girlStatus && reason == 2) {
         [IMHelper getCallTime:self.curRoomID success:^(NSDictionary<NSString *,id> * _Nonnull dict) {
             

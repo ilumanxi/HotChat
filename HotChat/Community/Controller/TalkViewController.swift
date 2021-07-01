@@ -49,8 +49,7 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
     
     
     var headerViewHeight: CGFloat {
-        
-        return 231
+        return 208
     }
     private var menuViewHeight: CGFloat = 44.0
     
@@ -62,32 +61,35 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
         }
     }
     
-    var talkTop: TalkTop = TalkTop() {
-        didSet {
-            headerView.talkTop = talkTop
-        }
-    }
     
     private lazy var headerView: TalkHeaderView = {
         let headerView = TalkHeaderView.loadFromNib()
-        headerView.onVideo.delegate(on: self) { (self, _) in
+        headerView.onMatch.delegate(on: self) { (self, _) in
             let vc = WebViewController.H5(path: "h5/mate")
             self.navigationController?.pushViewController(vc, animated: true)
         }
-        headerView.onVoice.delegate(on: self) { (self, _) in
-            let vc = DatingViewController.loadFromStoryboard()
+
+        headerView.onTop.delegate(on: self) { (self, _) in
+            let vc = TopController(start: .estate)
             self.navigationController?.pushViewController(vc, animated: true)
         }
+        
+        headerView.onTask.delegate(on: self) { (self, _) in
+            let vc = WebViewController.H5(path: "h5/sign")
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        headerView.onVIP.delegate(on: self) { (self, _) in
+            let vc = WebViewController.H5(path: "h5/vip")
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
         headerView.onHeadline.delegate(on: self) { (self, _) in
             let vc = HeadlineViewController()
             self.present(vc, animated: true, completion: nil)
             
         }
-        headerView.onTop.delegate(on: self) { (self, top) in
-            let vc = TopController(start: top.type)
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
-        
+
         headerView.onUser.delegate(on: self) { (self, userID) in
             let user = User()
             user.userId = userID
@@ -128,8 +130,6 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
     
     let discoverAPI = Request<DiscoverAPI>()
     
-    let topAPI = Request<TopAPI>()
-    
     let activityAPI = Request<UserActivityAPI>()
     
     let userSettingsAPI = Request<UserSettingsAPI>()
@@ -158,13 +158,6 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
             self?.childViewConttrollerRefreshData()
             
         }
-        
-        talkTop = TalkTop()
-        Observable<Int>.interval(DispatchTimeInterval.seconds(60), scheduler: MainScheduler.instance)
-            .subscribe(onNext: { [weak self] _ in
-                self?.refreshTop()
-            })
-            .disposed(by: rx.disposeBag)
         
         NotificationCenter.default.rx.notification(.init(TUIKitNotification_TIMMessageListener))
             .subscribe(onNext: { [weak self] notification in
@@ -366,8 +359,6 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
         
         checkInState()
         
-        refreshTop()
-        
         if LoginManager.shared.user?.sex == Sex.male ||  (LoginManager.shared.user?.sex == Sex.female && !LoginManager.shared.user!.girlStatus) {
             userAPI.request(.checkUserHeadPic, type: Response<[String : Any]>.self)
                 .verifyResponse()
@@ -456,16 +447,6 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
                 
                 let vc = NewcomerAwardViewController(list: list)
                 UIApplication.shared.keyWindow?.present(vc)
-                
-            }, onError: nil)
-            .disposed(by: rx.disposeBag)
-    }
-    
-    func refreshTop()  {
-        topAPI.request(.vitalityList(type: 0), type: Response<TalkTop>.self)
-            .verifyResponse()
-            .subscribe(onSuccess: { [weak self] response in
-                self?.talkTop = response.data ?? TalkTop()
                 
             }, onError: nil)
             .disposed(by: rx.disposeBag)

@@ -35,7 +35,7 @@
 #import <Toast/Toast.h>
 
 
-@interface CallMenuViewController ()<GiftViewControllerDelegate, V2TIMAdvancedMsgListener>
+@interface CallMenuViewController ()<GiftViewControllerDelegate>
 
 ///  摄像头 📷
 @property(strong, nonatomic) QMUIButton *cameraButton;
@@ -100,11 +100,20 @@
     self.nameLabel.text = self.user.name ? : self.user.userId;
     [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:self.user.avatar]];
     
-    [[V2TIMManager sharedInstance]  addAdvancedMsgListener:self];
+//    [[V2TIMManager sharedInstance]  addAdvancedMsgListener:self];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(messageNotification:) name:TUIKitNotification_TIMMessageListener object:nil];
     
     if (self.style == CallMenuStyleVideo) {
         [BeautyViewController setDefaultBeauty];
     }
+    
+}
+
+-(void)messageNotification:(NSNotification *)notification {
+    V2TIMMessage *msg = (V2TIMMessage *) notification.object;
+    
+    [self onRecvNewMessage:msg];
     
 }
 

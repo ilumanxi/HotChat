@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupTrack()
         setupUMVerify()
         
-        Bugly.start(withAppId: nil)
+        setupBugly()
         
         instruction()
         
@@ -61,6 +61,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         store()
         
         return true
+    }
+    
+    func setupBugly() {
+        #if DEBUG
+        #else
+        Bugly.start(withAppId: nil)
+        #endif
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {

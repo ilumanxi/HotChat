@@ -170,17 +170,17 @@ class UserInfoViewController: AquamanPageViewController, LoadingStateType, Indic
     }
     
     func setupViewControllers() {
-        var temp: [UIViewController] = [information, dynamic]
+        let temp: [UIViewController] = [information, dynamic]
         information.title = "资料"
         information.user = user
         dynamic.title = "动态"
         dynamic.user = user
-        
-        if user.girlStatus {
-            addressBook.title = "联系方式"
-            addressBook.user = user
-            temp.append(addressBook)
-        }
+
+//        if user.girlStatus {
+//            addressBook.title = "联系方式"
+//            addressBook.user = user
+//            temp.append(addressBook)
+//        }
         self.viewControllers = temp
         menuView.titles = viewControllers.compactMap{ $0.title }
         reloadData()

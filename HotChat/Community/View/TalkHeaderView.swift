@@ -16,11 +16,6 @@ let svgaParser = SVGAParser()
 
 class TalkHeaderView: UIView {
     
-    
-    @IBOutlet weak var voiceMatchView: SVGAPlayer!
-    
-    @IBOutlet weak var videoMatchView: SVGAPlayer!
-    
     @IBOutlet weak var headlineView: UIView!
     
     @IBOutlet weak var headlineButton: UIButton!
@@ -33,55 +28,17 @@ class TalkHeaderView: UIView {
     
     @IBOutlet weak var marqueeView: UIView!
     
-    @IBOutlet weak var listView: UIView!
     
-    var bannerView: FSPagerView!
+    let onMatch = Delegate<Void, Void>()
+    let onTask = Delegate<Void, Void>()
+    let onTop = Delegate<Void, Void>()
+    let onVIP = Delegate<Void, Void>()
     
-    let onVoice = Delegate<Void, Void>()
-    let onVideo = Delegate<Void, Void>()
     let onHeadline = Delegate<Void, Void>()
-    let onTop = Delegate<TalkTypeTop, Void>()
+   
     let onUser = Delegate<String, Void>()
     
-    var talkTop: TalkTop! {
-        didSet {
-            bannerView.reloadData()
-        }
-    }
-    
     override func awakeFromNib() {
-        
-        svgaParser.parse(withNamed: "voice_match", in: nil) { videoItem in
-            self.voiceMatchView.videoItem = videoItem
-            self.voiceMatchView.startAnimation()
-        } failureBlock: { error in
-            print(error)
-        }
-        
-        svgaParser.parse(withNamed: "video_match", in: nil) { videoItem in
-            self.videoMatchView.videoItem = videoItem
-            self.videoMatchView.startAnimation()
-        } failureBlock: { error in
-            print(error)
-        }
-        
-        
-        bannerView =  FSPagerView(frame: listView.bounds)
-        bannerView.scrollDirection = .vertical
-        bannerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        bannerView.bounces = false
-        bannerView.isScrollEnabled = false
-        bannerView.itemSize = FSPagerViewAutomaticSize // Fill parent
-//        bannerView.interitemSpacing = 24
-        bannerView.register(UINib(nibName: "ListViewCell", bundle: nil), forCellWithReuseIdentifier: "ListViewCell")
-        
-        
-        bannerView.backgroundColor = .clear
-        bannerView.automaticSlidingInterval = 7
-        bannerView.isInfinite = true
-        bannerView.delegate = self
-        bannerView.dataSource = self
-        listView.addSubview(bannerView)
         
         marqueeVerticalCompleted()
         
@@ -321,44 +278,26 @@ class TalkHeaderView: UIView {
         return label
     }
 
-    @IBAction func voice(_ sender: Any) {
-        onVoice.call()
+    @IBAction func match(_ sender: Any) {
+        onMatch.call()
     }
     
     
+    @IBAction func top(_ sender: Any) {
+        onTop.call()
+    }
     
-    @IBAction func video(_ sender: Any) {
-        onVideo.call()
+    @IBAction func task(_ sender: Any) {
+        onTask.call()
+    }
+    
+    @IBAction func vip(_ sender: Any) {
+        onVIP.call()
     }
     
     
     @IBAction func headlineButtonTapped(_ sender: Any) {
         onHeadline.call()
-    }
-    
-}
-
-
-extension TalkHeaderView: FSPagerViewDataSource, FSPagerViewDelegate {
-    
-    
-    func numberOfItems(in pagerView: FSPagerView) -> Int {
-        return talkTop?.data.count ?? 0
-    }
-    
-    func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
-        
-        
-        let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "ListViewCell", at: index) as!  ListViewCell
-        
-        cell.set(model: talkTop.data[index])
-
-        return cell
-    }
-    
-    func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
-        
-        onTop.call(talkTop.data[index])
     }
     
 }

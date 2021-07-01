@@ -65,9 +65,11 @@ class InterestedViewController: UIViewController, IndicatorDisplay, StoryboardCr
     @IBAction func skipButtonTapped(_ sender: Any) {
         kolodaView.swipe(.left)
         
-        let message = data[kolodaView.currentCardIndex - 1]
+        if kolodaView.currentCardIndex - 1 < data.count {
+            let message = data[kolodaView.currentCardIndex - 1]
+            readUser(message: message)
+        }
         
-        readUser(message: message)
     }
     
     
@@ -90,10 +92,11 @@ class InterestedViewController: UIViewController, IndicatorDisplay, StoryboardCr
     
     @IBAction func followButtonTapped(_ sender: Any) {
         kolodaView.swipe(.right)
-        let message = data[kolodaView.currentCardIndex - 1]
-        follow(message: message)
-        readUser(message: message)
-
+        if kolodaView.currentCardIndex - 1 < data.count {
+            let message = data[kolodaView.currentCardIndex - 1]
+            follow(message: message)
+            readUser(message: message)
+        }
     }
 }
 

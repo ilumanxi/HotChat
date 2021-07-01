@@ -22,6 +22,7 @@
 #import "QMUIButton.h"
 #import "HotChat-Swift.h"
 #import "PIPWindow.h"
+#import "Toast/Toast.h"
 
 
 #define kSmallVideoWidth 100.0
@@ -181,6 +182,7 @@
 }
 
 - (void)dealloc {
+    self.manager = nil;
     [[TUICall shareInstance] closeCamara];
 }
 
@@ -698,18 +700,20 @@
         NSString *userId = (self.curSponsor ? : self.curInvite).userId;
         _manager = [[BillingManager alloc] initWithUserId:userId type:1];
         @weakify(self)
-        _manager.errorCall = ^(NSInteger callCode, NSString * _Nonnull msg) {
+        _manager.errorCall = ^(NSInteger callCode, NSString * _Nonnull msg, NSInteger roomId) {
             @strongify(self)
-            
+            if (self.manager.roomId != roomId) {
+                return;
+            }
             if (callCode == 2 || callCode== -1) {
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     NSString *message = @"你的余额不满三分钟!";
                     TipAlertController *alert =  [[TipAlertController alloc] initWithTitle:@"温馨提示" message:message leftButtonTitle:@"取消" rightButtonTitle:@"立即充值"];
                     alert.onRightClick = ^{
-                          UITabBarController *tabController =  (UITabBarController *) UIApplication.sharedApplication.keyWindow.rootViewController;
-                          UINavigationController *navController = (UINavigationController *) tabController.selectedViewController;
+//                          UITabBarController *tabController =  (UITabBarController *) UIApplication.sharedApplication.keyWindow.rootViewController;
+//                          UINavigationController *navController = (UINavigationController *) tabController.selectedViewController;
                           WalletViewController *walletController = [[WalletViewController alloc] init];
-                          [navController pushViewController:walletController animated:YES];
+                          [self.navigationController pushViewController:walletController animated:YES];
                     };
                     [PIPWindow.share.rootViewController presentViewController:alert animated:YES completion:nil];
                     
@@ -734,7 +738,8 @@
                 });
             }
             else {
-                [THelper makeToast:msg];
+                [self hangupClick];
+//                [THelper makeToast:msg];
             }
         };
     }

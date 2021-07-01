@@ -38,7 +38,7 @@
 #import "JPGiftShowManager.h"
 #import <SPAlertController/SPAlertController.h>
 
-@interface ChatController () <TMessageControllerDelegate, UIImagePickerControllerDelegate, UIDocumentPickerDelegate, UINavigationControllerDelegate, V2TIMAdvancedMsgListener>
+@interface ChatController () <TMessageControllerDelegate, UIImagePickerControllerDelegate, UIDocumentPickerDelegate, UINavigationControllerDelegate>
 @property (nonatomic, strong) TUIConversationCellData *conversationData;
 @property (nonatomic, strong) UIView *tipsView;
 @property (nonatomic, strong) UILabel *pendencyLabel;
@@ -150,7 +150,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupViews];
-    [[V2TIMManager sharedInstance]  addAdvancedMsgListener:self];
+//    [[V2TIMManager sharedInstance]  addAdvancedMsgListener:self];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(messageNotification:) name:TUIKitNotification_TIMMessageListener object:nil];
+}
+
+-(void)messageNotification:(NSNotification *)notification {
+    V2TIMMessage *msg = (V2TIMMessage *) notification.object;
+    
+    [self onRecvNewMessage:msg];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {

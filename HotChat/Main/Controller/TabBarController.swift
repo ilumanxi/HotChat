@@ -102,8 +102,8 @@ class TabBarController: UITabBarController, IndicatorDisplay {
         
        let controllerHidden = self.rx.didSelect
             .startWith(viewControllers!.first!)
-            .map { [unowned self] (viewController) -> Bool in
-                (self.viewControllers?.firstIndex(of: viewController) ?? 0) > showMaxIndex
+            .map { [weak self] (viewController) -> Bool in
+                (self?.viewControllers?.firstIndex(of: viewController) ?? 0) > showMaxIndex
             }
             
         
@@ -111,8 +111,8 @@ class TabBarController: UITabBarController, IndicatorDisplay {
                 $0 || $1 || $2
             }
             .distinctUntilChanged()
-            .subscribe(onNext: { [unowned self]  (isHidden) in
-                self.handelPassthroughViewController(!isHidden)
+            .subscribe(onNext: { [weak self]  (isHidden) in
+                self?.handelPassthroughViewController(!isHidden)
             })
             .disposed(by: self.rx.disposeBag)
     }

@@ -38,7 +38,9 @@ class ConversationActionViewController: UITableViewController, StoryboardCreate 
         if AppAudit.share.groupChatStatus {
             height -= Row.topic.height
         }
-       
+        
+        height -= Row.interested.height
+        
         return height
     }
     
@@ -84,14 +86,14 @@ class ConversationActionViewController: UITableViewController, StoryboardCreate 
     @IBOutlet weak var interestedImageView: UIImageView!
     
     
-    let API = Request<MessageAPI>()
+//    let API = Request<MessageAPI>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        interestedImageView.pp.badgeView.font = .systemFont(ofSize: 12)
-        interestedImageView.pp.setBadge(height: 18.5)
-        interestedImageView.pp.moveBadge(x: -9, y: 9)
-        interestedImageView.pp.hiddenBadge()
+//        interestedImageView.pp.badgeView.font = .systemFont(ofSize: 12)
+//        interestedImageView.pp.setBadge(height: 18.5)
+//        interestedImageView.pp.moveBadge(x: -9, y: 9)
+//        interestedImageView.pp.hiddenBadge()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -100,27 +102,27 @@ class ConversationActionViewController: UITableViewController, StoryboardCreate 
         
         appAudit()
         
-        API.request(.countPeople, type: Response<[String : Any]>.self)
-            .verifyResponse()
-            .subscribe(onSuccess: { [weak self] response in
-               
-                if let count = response.data?["count"] as? Int {
-                    if count > 99 {
-                        self?.interestedImageView.pp.addBadge(text: "99+")
-                    }
-                    else {
-                        self?.interestedImageView.pp.addBadge(text: count.description)
-                    }
-                    if count > 0 {
-                        self?.interestedImageView.pp.showBadge()
-                    }
-                    else {
-                        self?.interestedImageView.pp.hiddenBadge()
-                    }
-                }
-                
-            }, onError: nil)
-            .disposed(by: rx.disposeBag)
+//        API.request(.countPeople, type: Response<[String : Any]>.self)
+//            .verifyResponse()
+//            .subscribe(onSuccess: { [weak self] response in
+//
+//                if let count = response.data?["count"] as? Int {
+//                    if count > 99 {
+//                        self?.interestedImageView.pp.addBadge(text: "99+")
+//                    }
+//                    else {
+//                        self?.interestedImageView.pp.addBadge(text: count.description)
+//                    }
+//                    if count > 0 {
+//                        self?.interestedImageView.pp.showBadge()
+//                    }
+//                    else {
+//                        self?.interestedImageView.pp.hiddenBadge()
+//                    }
+//                }
+//
+//            }, onError: nil)
+//            .disposed(by: rx.disposeBag)
     }
     
     let userSettingsAPI = Request<UserSettingsAPI>()
@@ -151,6 +153,10 @@ class ConversationActionViewController: UITableViewController, StoryboardCreate 
         }
         
         if row == .topic && AppAudit.share.groupChatStatus {
+            return 0
+        }
+        
+        if row == .interested {
             return 0
         }
         

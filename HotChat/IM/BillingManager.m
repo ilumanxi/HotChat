@@ -27,7 +27,6 @@
 @property(assign, nonatomic, getter=isStartBilling) BOOL startBilling;
 
 
-
 @end
 
 @implementation BillingManager
@@ -36,6 +35,7 @@
     if (self =[super init]) {
         _userId = userId;
         _type = type;
+        _roomId = [TUICall shareInstance].curRoomID;
     }
     return  self;
 }
@@ -72,29 +72,31 @@
         @"type" : @(self.type),
         @"toUserId": self.userId
     };
-
+    @weakify(self)
     [self.manager
         POST:@"Im/call"
         parameters:parameters
         headers:headers
         progress:nil
         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        @strongify(self)
             NSString *callCode = [responseObject[@"data"][@"callCode"] stringValue];
          
              if (callCode != nil && [callCode intValue] != 1 ) {
                  NSString *msg = responseObject[@"data"][@"msg"];
-                 self.errorCall([callCode intValue], msg);
+                 self.errorCall([callCode intValue], msg, self.roomId );
              }
              else if ([responseObject[@"code"] intValue] != 1 ) {
                  NSString *msg = responseObject[@"msg"];
-                 self.errorCall([responseObject[@"code"] intValue], msg);
+                 self.errorCall([responseObject[@"code"] intValue], msg, self.roomId );
              }
              else {
                  block();
              }
         }
         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            self.errorCall(error.code, error.localizedDescription);
+        @strongify(self)
+            self.errorCall(error.code, error.localizedDescription, self.roomId);
 //            self.errorCall(10000, error.localizedDescription);
         }
      ];
@@ -112,32 +114,36 @@
     NSDictionary *headers = @{
         @"token" : LoginManager.shared.user.token
     };
+    
+   
 
     NSDictionary *parameters = @{
         @"type" : @(self.type),
         @"toUserId": self.userId,
-        @"roomId": @([TUICall shareInstance].curRoomID)
+        @"roomId": @(self.roomId)
     };
     
     NSLog(@"********roomId: %@", parameters);
-    
+    @weakify(self)
    [self.manager
         POST:@"Im/startCallChat"
         parameters:parameters      
         headers:headers
         progress:nil
         success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary  * _Nullable responseObject) {
+            @strongify(self)
            if ([responseObject[@"code"] intValue] == 1 ) {
                self.billingStatus = [BillingStatus mj_objectWithKeyValues:responseObject[@"data"]];
                [self startCallingTime];
            }
            else {
                NSString *msg = responseObject[@"msg"];
-               self.errorCall([responseObject[@"code"] intValue], msg);
+               self.errorCall([responseObject[@"code"] intValue], msg, self.roomId );
            }
         }
         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            self.errorCall(error.code, error.localizedDescription);
+            @strongify(self)
+            self.errorCall(error.code, error.localizedDescription, self.roomId);
         }
      ];
     
@@ -164,8 +170,13 @@
         });
     });
     dispatch_resume(self.minuteTimer);
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onCallEnd) name:@"onCallEnd" object:nil];
 }
 
+- (void)onCallEnd {
+    [self endCallingTime];
+}
 
 - (void)endCallingTime {
     
@@ -187,6 +198,10 @@
         return;
     }
     
+    if (self.billingStatus == nil) {
+        return;
+    }
+    
     NSDictionary *headers = @{
         @"token" : LoginManager.shared.user.token
     };
@@ -198,73 +213,94 @@
         @"nowTime": @(nowTime)
     };
     
+    NSLog(@"callContinued: %@", parameters);
+    @weakify(self)
    [self.manager
         POST:@"Im/callContinued"
         parameters:parameters
         headers:headers
         progress:nil
         success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary  * _Nullable responseObject) {
-       
+       @strongify(self)
           NSString *callCode = [responseObject[@"data"][@"callCode"] stringValue];
        
            if (callCode != nil && [callCode intValue] != 1 ) {
                NSString *msg = responseObject[@"data"][@"msg"];
-               self.errorCall([callCode intValue], msg);
+               self.errorCall([callCode intValue], msg, self.roomId);
            }
            else if ([responseObject[@"code"] intValue] != 1 ) {
                NSString *msg = responseObject[@"msg"];
-               self.errorCall([responseObject[@"code"] intValue], msg);
+               [self endCallingTime];
+               self.errorCall(1000, msg, self.roomId);
+               
            }
         }
         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            self.errorCall(error.code, error.localizedDescription);
-        }
+            @strongify(self)
+           if (error.code != -1005) {
+               self.errorCall(error.code, error.localizedDescription, self.roomId);
+               [self endCallingTime];
+           }
+           else {
+               NSLog(@"网络问题");
+           }
+       }
+           
      ];
     
+}
+
+- (void)dealloc
+{
+    [self endCallingTime];
 }
 
 
 - (void)endCallChat {
     
-    [self endCallingTime];
-    
-    self.startBilling = NO;
-    
-    NSDictionary *headers = @{
-        @"token" : LoginManager.shared.user.token
-    };
-    
     if (self.billingStatus == nil) {
         return;
     }
 
+    [self endCallingTime];
+    NSDictionary *headers = @{
+        @"token" : LoginManager.shared.user.token
+    };
     NSTimeInterval nowTime = self.billingStatus.callStartTime + self.callingTime;
     
     NSDictionary *parameters = @{
         @"callId" : self.billingStatus.callId,
         @"endTime": @(nowTime)
     };
-    
+    NSLog(@"endCallChat: %@", parameters);
+    @weakify(self)
    [self.manager
         POST:@"Im/endCallChat"
         parameters:parameters
         headers:headers
         progress:nil
         success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary  * _Nullable responseObject) {
+          @strongify(self)
        
-          NSString *callCode = [responseObject[@"data"][@"callCode"] stringValue];
-       
-           if (callCode != nil && [callCode intValue] != 1 ) {
-               NSString *msg = responseObject[@"data"][@"msg"];
-               self.errorCall([callCode intValue], msg);
+           if (self) {
+               NSString *callCode = [responseObject[@"data"][@"callCode"] stringValue];
+            
+                if (callCode != nil && [callCode intValue] != 1 ) {
+                    NSString *msg = responseObject[@"data"][@"msg"];
+                    self.errorCall([callCode intValue], msg, self.roomId);
+                }
+                else if ([responseObject[@"code"] intValue] != 1 ) {
+                    NSString *msg = responseObject[@"msg"];
+                    self.errorCall([responseObject[@"code"] intValue], msg, self.roomId);
+                }
            }
-           else if ([responseObject[@"code"] intValue] != 1 ) {
-               NSString *msg = responseObject[@"msg"];
-               self.errorCall([responseObject[@"code"] intValue], msg);
-           }
+          
         }
         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            self.errorCall(error.code, error.localizedDescription);
+            @strongify(self)
+           if (self) {
+               self.errorCall(error.code, error.localizedDescription, self.roomId);
+           }
         }
      ];
 }
