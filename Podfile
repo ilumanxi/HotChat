@@ -55,7 +55,7 @@ target 'HotChat' do
     pod 'TXIMSDK_TUIKit_iOS', "5.1.60"
     pod 'TPNS-iOS'
     pod 'YBImageBrowser/Video'
-    pod 'YYImage', :git => 'https://github.com/QiuYeHong90/YYImage.git', :commit=> "6a756e9"
+    pod 'YYImage', :git => 'https://github.com/QiuYeHong90/YYImage.git'#, :commit=> "6a756e9"
     pod 'GKPhotoBrowser'
     pod 'Masonry'
     pod 'AFNetworking'

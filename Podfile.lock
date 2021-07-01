@@ -217,7 +217,7 @@ DEPENDENCIES:
   - WKWebViewJavascriptBridge
   - WMSegmentControl
   - YBImageBrowser/Video
-  - YYImage (from `https://github.com/QiuYeHong90/YYImage.git`, commit `6a756e9`)
+  - YYImage (from `https://github.com/QiuYeHong90/YYImage.git`)
 
 SPEC REPOS:
   trunk:
@@ -296,7 +296,6 @@ EXTERNAL SOURCES:
     :commit: 2eed75e
     :git: https://github.com/bawn/Trident.git
   YYImage:
-    :commit: 6a756e9
     :git: https://github.com/QiuYeHong90/YYImage.git
 
 CHECKOUT OPTIONS:
@@ -307,7 +306,7 @@ CHECKOUT OPTIONS:
     :commit: 2eed75e
     :git: https://github.com/bawn/Trident.git
   YYImage:
-    :commit: 6a756e9
+    :commit: 4164acb76e8979c0612530bd874e099a1fa51e9d
     :git: https://github.com/QiuYeHong90/YYImage.git
 
 SPEC CHECKSUMS:
@@ -379,8 +378,8 @@ SPEC CHECKSUMS:
   WKWebViewJavascriptBridge: 07ad0cab27cd61ccdb90b5deb223f6df3a03c3d7
   WMSegmentControl: 4bb3a61e28cd0a0fcfcf932bec1f5795835b9f3f
   YBImageBrowser: 7ecc8bf33ffa5f3b94c397c29b4f3638dd37f527
-  YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
+  YYImage: 20ec986d18a8d0ad421619d166a9e628097e2433
 
-PODFILE CHECKSUM: f29ddf7fda19e0654074624fc7fb7c796f8bfe18
+PODFILE CHECKSUM: 869a63995af8b1d83f79ed30ca7c6cc76c0ac794
 
 COCOAPODS: 1.10.1

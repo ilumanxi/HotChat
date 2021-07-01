@@ -49,7 +49,7 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
     
     
     var headerViewHeight: CGFloat {
-        return 208
+        return 185
     }
     private var menuViewHeight: CGFloat = 44.0
     
