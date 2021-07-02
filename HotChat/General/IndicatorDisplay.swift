@@ -175,6 +175,7 @@ extension IndicatorDisplay where Self: UIViewController {
         let holderView = findHolderView ?? IndicatorHolderView()
         holderView.backgroundColor = backgroundColor ?? (view.backgroundColor ?? UIColor.white)
         
+        var contentView: UIView?
         switch loadingState {
         case .initial, .loadingContent, .refreshingContent:
             let indicator = UIActivityIndicatorView(style: .gray)
@@ -191,31 +192,33 @@ extension IndicatorDisplay where Self: UIViewController {
             stackView.alignment  = .center
             stackView.distribution = .fill
             stackView.axis = .vertical
-            
             holderView.addSubview(stackView)
-            stackView.snp.makeConstraints { maker in
-                maker.center.equalToSuperview()
-            }
+            contentView = stackView
         case .noContent:
             let stackView = showImageText(text: text ?? "暂无数据", image: image ??  UIImage(named: "no-content")!, actionText: actionText)
-            holderView.addSubview(stackView)
-            stackView.snp.makeConstraints { maker in
-                maker.center.equalToSuperview()
-            }
-            
+            contentView = stackView
             viewAddRefreshDataTap(holderView)
         case .error:
             let stackView = showImageText(text: text ?? "网络不给力，请稍后再试!", image: image ??  UIImage(named: "load-error")!, actionText: actionText)
-            holderView.addSubview(stackView)
-            stackView.snp.makeConstraints { maker in
+            contentView = stackView
+            viewAddRefreshDataTap(holderView)
+        default: break
+        }
+        
+        holderView.addSubview(contentView!)
+        view.addSubview(holderView)
+        
+        let isTop = (self is DynamicDetailViewController) ||  (self is InformationViewController)
+        
+        contentView?.snp.makeConstraints {  maker in
+            if isTop {
+                maker.top.equalToSuperview().offset(50)
+                maker.centerX.equalToSuperview()
+            }
+            else {
                 maker.center.equalToSuperview()
             }
-            viewAddRefreshDataTap(holderView)
-        default:
-            break
         }
-         
-        view.addSubview(holderView)
         
         if let scrollView = view as? UIScrollView {
             holderView.snp.makeConstraints { maker in

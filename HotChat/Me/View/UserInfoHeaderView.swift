@@ -116,6 +116,7 @@ class UserInfoHeaderView: UIView {
         collectionView.reloadData()
         pagerView.reloadData()
         nicknameLabel.text = user.nick
+        nicknameLabel.textColor = user.vipType.textColor
         sexButton.set(user)
         vipButton.setVIP(user.vipType)
         authenticationImageView.isHidden = user.authenticationStatus != .ok
