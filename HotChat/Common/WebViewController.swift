@@ -190,7 +190,7 @@ class WebViewController: UIViewController {
             .disposed(by: rx.disposeBag)
     
         webView.rx.observeWeakly(Double.self, #keyPath(WKWebView.estimatedProgress))
-            .compactMap{ Float($0!) }
+            .compactMap{ Float($0 ?? 0) }
             .bind(to: progressView.rx.progress)
             .disposed(by: rx.disposeBag)
         

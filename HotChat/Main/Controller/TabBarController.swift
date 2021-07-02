@@ -75,7 +75,12 @@ class TabBarController: UITabBarController, IndicatorDisplay {
             return
         }
         
-        let navigationControllers = viewControllers as! [BaseNavigationController]
+        guard  let navigationControllers = viewControllers as? [BaseNavigationController] else { return  }
+        
+       
+        for navigationController in navigationControllers {
+            _ = navigationController.view //提前访问，设置navigationController delegate 没有设置，到时监听出问题
+        }
         
         let controllersWillHidden = navigationControllers
             .compactMap { navigationController in
@@ -145,9 +150,11 @@ class TabBarController: UITabBarController, IndicatorDisplay {
    
     
     func removePassthroughViewController() {
-        noticeController.removeFromParent()
-        noticeController.view.removeFromSuperview()
-        noticeController.didMove(toParent: nil)
+        if noticeController.parent != nil || noticeController.view.superview != nil {
+            noticeController.removeFromParent()
+            noticeController.view.removeFromSuperview()
+            noticeController.didMove(toParent: nil)
+        }
     }
     
     func pushPair()  {
