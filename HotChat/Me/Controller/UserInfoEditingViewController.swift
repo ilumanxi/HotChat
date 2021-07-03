@@ -43,6 +43,7 @@ class UserInfoEditingViewController: UITableViewController, IndicatorDisplay, St
                 }
                 .subscribe(onSuccess: { [weak self] response in
                     self?.hideIndicatorFromWindow()
+                    self?.show(response.msg)
                     if response.isSuccessd {
                         self?.user = response.data!
                         if response.data!.resultCode == 1501 {

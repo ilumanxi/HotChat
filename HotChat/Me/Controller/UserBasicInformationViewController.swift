@@ -190,6 +190,7 @@ class UserBasicInformationViewController: UITableViewController, IndicatorDispla
                     return
                 }
                 if response.isSuccessd {
+                    self.showMessageOnWindow(response.msg)
                     self.onUpdated.call(response.data!)
                     self.navigationController?.popViewController(animated: true)
                 }

@@ -90,7 +90,9 @@ class TalkHeaderView: UIView {
         
     }
     
+    var horizontalDisposeObject = DisposeBag()
     private func addMarqueeHorizontal(_ marquee: Marquee) {
+        horizontalDisposeObject = DisposeBag()
         isHorizontalMarqueeFinished = false
         headlineView.isUserInteractionEnabled = true
         
@@ -109,25 +111,25 @@ class TalkHeaderView: UIView {
             .subscribe(onNext: { [weak self] _ in
                 self?.onUser.call(marquee.fromUserId)
             })
-            .disposed(by: rx.disposeBag)
+            .disposed(by: horizontalDisposeObject)
         headlineCotentLabel.addGestureRecognizer(tap)
         
         addMarqueeHorizontalAnimation()
         
         let countdown =  Observable<Int>.countdown(marquee.stayTime).share()
         countdown
-            .map { [unowned self] seconds in
-                return self.horizontalAttributedText(marquee: marquee, seconds: seconds)
+            .map { [weak self] seconds in
+                return self?.horizontalAttributedText(marquee: marquee, seconds: seconds) ?? NSAttributedString()
             }
             .bind(to: headlineCotentLabel.rx.attributedText)
-            .disposed(by: rx.disposeBag)
+            .disposed(by: horizontalDisposeObject)
         
         countdown
             .subscribe(onCompleted: { [weak self] in
                 self?.isHorizontalMarqueeFinished = true
                 self?.marqueeHorizontalCompleted()
             })
-            .disposed(by: rx.disposeBag)
+            .disposed(by: horizontalDisposeObject)
         
     }
     
@@ -180,7 +182,12 @@ class TalkHeaderView: UIView {
         
     }
     
+    var verticalDisposeObject = DisposeBag()
+    
     private func addMarqueeVertical(_ marquee: Marquee) {
+        
+        verticalDisposeObject = DisposeBag()
+        
         isVerticalMarqueeFinished = false
         
         let attributedText = verticalAttributedText(marquee: marquee, seconds: marquee.stayTime)
@@ -194,24 +201,24 @@ class TalkHeaderView: UIView {
             .subscribe(onNext: { [weak self] _ in
                 self?.onUser.call(marquee.fromUserId)
             })
-            .disposed(by: label.rx.disposeBag)
+            .disposed(by: verticalDisposeObject)
         label.addGestureRecognizer(tap)
         
         let countdown =  Observable<Int>.countdown(marquee.stayTime).share()
         
         countdown
-            .map { [unowned self] seconds in
-                return self.verticalAttributedText(marquee: marquee, seconds: seconds)
+            .map { [weak self] seconds in
+                return self?.verticalAttributedText(marquee: marquee, seconds: seconds) ?? NSAttributedString()
             }
             .bind(to: label.rx.attributedText)
-            .disposed(by: label.rx.disposeBag)
+            .disposed(by: verticalDisposeObject)
         
         countdown
             .subscribe(onCompleted: { [weak self] in
                 self?.isVerticalMarqueeFinished = true
                 self?.marqueeVerticalCompleted()
             })
-            .disposed(by: label.rx.disposeBag)
+            .disposed(by: verticalDisposeObject)
         
     }
     

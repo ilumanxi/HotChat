@@ -13,7 +13,7 @@ import RxSwift
 import RxCocoa
 import MJRefresh
 import SnapKit
-import DGCollectionViewLeftAlignFlowLayout
+import AlignedCollectionViewFlowLayout
 
 
 
@@ -64,7 +64,7 @@ class TalkChannelViewController: UIViewController, AquamanChildViewController, I
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureVerticalLayout()
+        
         
         loadSignal
             .subscribe(onNext: requestData)
@@ -83,10 +83,14 @@ class TalkChannelViewController: UIViewController, AquamanChildViewController, I
 
     
     func setupUI()  {
+//
+
+        let alignedFlowLayout = AlignedCollectionViewFlowLayout(horizontalAlignment: .left, verticalAlignment: .top)
+        alignedFlowLayout.minimumLineSpacing = minimumLineSpacing
+        alignedFlowLayout.minimumInteritemSpacing = minimumInteritemSpacing
+        alignedFlowLayout.sectionInset = sectionInsets
         
-        let layout = DGCollectionViewLeftAlignFlowLayout()
-        
-        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: alignedFlowLayout)
 //        collectionView.autoresizingMask = [.flexibleWidth, .flexibleWidth]
         collectionView.backgroundColor = .groupTableViewBackground
         view.addSubview(collectionView)
@@ -94,7 +98,6 @@ class TalkChannelViewController: UIViewController, AquamanChildViewController, I
             maker.edges.equalToSuperview()
         }
         
-        configureVerticalLayout()
         
         collectionView.register(UINib(nibName: "TalkChannelCell", bundle: nil), forCellWithReuseIdentifier: "TalkChannelCell")
         collectionView.register(BannerViewCell.self, forCellWithReuseIdentifier: "BannerViewCell")
@@ -203,32 +206,6 @@ extension TalkChannelViewController: UICollectionViewDataSource, UICollectionVie
     
     var sectionInsets: UIEdgeInsets {
         return UIEdgeInsets(top: 12, left: 14, bottom: 49, right: 14)
-    }
-    
-    func configureVerticalLayout() {
-        
-        guard let collectionViewFlowLayout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout  else { return  }
-        collectionViewFlowLayout.minimumLineSpacing = minimumLineSpacing
-        collectionViewFlowLayout.minimumInteritemSpacing = minimumInteritemSpacing
-        collectionViewFlowLayout.sectionInset = sectionInsets
-        
-        
-//
-//        let verticalBlueprintLayout = VerticalBlueprintLayout(
-//          itemsPerRow: itemsPerRow,
-//          height: 100,
-//          minimumInteritemSpacing: minimumInteritemSpacing,
-//          minimumLineSpacing: minimumLineSpacing,
-//          sectionInset: sectionInsets,
-//          stickyHeaders: false,
-//          stickyFooters: false
-//        )
-//
-//        UIView.animate(withDuration: 0.5) { [weak self] in
-//            self?.collectionView.collectionViewLayout = verticalBlueprintLayout
-//            self?.view.setNeedsLayout()
-//            self?.view.layoutIfNeeded()
-//        }
     }
     
     func layoutCellCalculatedSize(forItemAt indexPath: IndexPath) -> CGSize {

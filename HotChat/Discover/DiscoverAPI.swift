@@ -20,11 +20,11 @@ extension DiscoverAPI: TargetType {
     var path: String {
         switch self {
         case .labelList:
-            return "Discover/labelList"
+            return "v1/community/getTags"
         case .discoverList:
             return "Discover/discoverList"
         case .homeList:
-            return "Discover/homeList"
+            return "v1/community/getUserList"
         }
     }
     
