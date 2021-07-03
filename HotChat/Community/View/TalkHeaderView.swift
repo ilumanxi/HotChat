@@ -173,7 +173,9 @@ class TalkHeaderView: UIView {
     @objc func marqueeVerticalCompleted() {
         
         if verticalMarquees.isEmpty {
-            let _ = addMarqueeVerticalLabel(attributedText: NSAttributedString(string: "HI~留意接下来的动态信息，第一时间掌握交友秘诀"))
+            let style = NSMutableParagraphStyle()
+            style.lineSpacing = 9
+            let _ = addMarqueeVerticalLabel(attributedText: NSAttributedString(string: "HI~留意接下来的动态信息，第一时间掌握交友秘诀", attributes: [NSAttributedString.Key.paragraphStyle : style]))
             addMarqueeVerticalAnimation()
         }
         else {
@@ -236,6 +238,11 @@ class TalkHeaderView: UIView {
         if marquee.stayTime > 1 {
             string.append(NSAttributedString(string:"（\(seconds)s）", attributes: [NSAttributedString.Key.foregroundColor : UIColor(hexString: "#E3300D")]))
         }
+        
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 9
+        string.addAttributes([NSAttributedString.Key.paragraphStyle : style], range: NSRange(location: 0, length: string.length))
+        
         return string
     }
     
@@ -246,6 +253,9 @@ class TalkHeaderView: UIView {
         if marquee.stayTime > 1 {
             string.append(NSAttributedString(string:"（\(seconds)s）", attributes: [NSAttributedString.Key.foregroundColor : UIColor(hexString: "#E3300D")]))
         }
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 9
+        string.addAttributes([NSAttributedString.Key.paragraphStyle : style], range: NSRange(location: 0, length: string.length))
         return string
     }
     
