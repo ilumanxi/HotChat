@@ -21,7 +21,7 @@ import HandyJSON
     @objc var greetStatus = false
     
     /// 按钮上的能量价格
-    @objc var energyStatus = false
+    @objc var energyStatus = true
     
     /// 按钮上的能量价格
     @objc var onekeyStatus = false

@@ -57,7 +57,7 @@
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TEj-Wx-RHr" userLabel="Corner View">
                                     <rect key="frame" x="0.0" y="0.0" width="347" height="59"/>
-                                    <color key="backgroundColor" red="0.96470588235294119" green="0.96862745098039216" blue="0.97647058823529409" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="0.96470588235294119" green="0.96862745098039216" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                             <real key="value" value="10"/>
@@ -66,6 +66,7 @@
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MCF-1O-ZKD" userLabel="Marquee View">
                                     <rect key="frame" x="11" y="0.0" width="284" height="59"/>
+                                    <color key="backgroundColor" red="0.96470588235294119" green="0.96862745098039216" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                                     <rect key="contentStretch" x="0.050000000000000003" y="0.0" width="1" height="1"/>
                                 </view>
                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eKu-d7-2s9" userLabel="Headline View">
@@ -81,13 +82,16 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.96470588235294119" green="0.96862745098039216" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.5725490196078431" green="0.53333333333333333" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="9xI-n2-gGr" firstAttribute="top" secondItem="Aa9-TS-uuf" secondAttribute="top" id="9zt-Hf-3Cy"/>
                                                 <constraint firstAttribute="bottom" secondItem="9xI-n2-gGr" secondAttribute="bottom" id="Rdd-g2-4JZ"/>
                                                 <constraint firstItem="9xI-n2-gGr" firstAttribute="leading" secondItem="Aa9-TS-uuf" secondAttribute="leading" constant="12" id="Rrw-AR-u7z"/>
                                                 <constraint firstAttribute="trailing" secondItem="9xI-n2-gGr" secondAttribute="trailing" constant="58" id="uYL-ly-uH5"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="colorsString" value="#B7A2F8,#9288FF"/>
+                                            </userDefinedRuntimeAttributes>
                                         </view>
                                     </subviews>
                                     <constraints>
