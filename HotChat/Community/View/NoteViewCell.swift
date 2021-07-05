@@ -122,7 +122,7 @@ class NoteViewCell: UITableViewCell {
         }
         
         
-//        giveButton.setTitle(dynamic.giftNum.description, for: .normal)
+        giveButton.setTitle(dynamic.giftCount > 0 ? dynamic.giftCount.description : nil, for: .normal)
         accostButton.isHidden = dynamic.isGreet
         chatButton.isHidden = !dynamic.isGreet
         

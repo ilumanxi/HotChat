@@ -134,7 +134,7 @@ class DynamicDetailViewCell: UITableViewCell {
         
         sexButton.set(dynamic.userInfo)
         
-//        giveButton.setTitle(dynamic.giftNum.description, for: .normal)
+        giveButton.setTitle(dynamic.giftCount > 0 ? dynamic.giftCount.description : nil, for: .normal)
         dateLabel.text = dynamic.timeFormat
         
         accostButton.isHidden = dynamic.isGreet
