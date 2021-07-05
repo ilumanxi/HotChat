@@ -188,7 +188,10 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                     self.scrollToTop()
                     self.scrollToTop()
-                    self.mainScrollView.mj_header?.beginRefreshing()
+                    if !(self.mainScrollView.mj_header?.isRefreshing ?? false) {
+                        self.mainScrollView.mj_header?.beginRefreshing()
+                    }
+                   
                 }
                
             })
