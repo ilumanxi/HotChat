@@ -126,7 +126,7 @@
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="iSf-1n-vRh">
-                    <rect key="frame" x="68" y="695" width="278" height="113"/>
+                    <rect key="frame" x="68" y="725" width="278" height="83"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="LWi-7o-XXb">
                             <rect key="frame" x="0.0" y="0.0" width="278" height="16"/>
@@ -156,28 +156,17 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="47" translatesAutoresizingMaskIntoConstraints="NO" id="fI4-EM-Mw7">
-                            <rect key="frame" x="110.5" y="38" width="57.5" height="75"/>
+                            <rect key="frame" x="116.5" y="38" width="45" height="45"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Udb-vu-j23">
-                                    <rect key="frame" x="0.0" y="0.0" width="57.5" height="75"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aqD-gL-adv">
-                                            <rect key="frame" x="6" y="0.0" width="45" height="45"/>
-                                            <state key="normal" image="wechat">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="weChatDidLogin:" destination="-1" eventType="touchUpInside" id="XTn-PO-pV1"/>
-                                            </connections>
-                                        </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微信登陆" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQZ-VS-zyB">
-                                            <rect key="frame" x="0.0" y="58" width="57.5" height="17"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </stackView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aqD-gL-adv">
+                                    <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
+                                    <state key="normal" image="wechat">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="weChatDidLogin:" destination="-1" eventType="touchUpInside" id="XTn-PO-pV1"/>
+                                    </connections>
+                                </button>
                             </subviews>
                         </stackView>
                     </subviews>

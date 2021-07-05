@@ -27,7 +27,7 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="kDJ-Wg-xiD">
-                                <rect key="frame" x="51" y="605" width="312" height="101"/>
+                                <rect key="frame" x="51" y="635" width="312" height="101"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cns-1I-ibG" customClass="GradientButton" customModule="HotChat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="312" height="45"/>
@@ -78,54 +78,32 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="8mz-6a-8hX">
-                                <rect key="frame" x="126" y="728" width="162" height="80"/>
+                                <rect key="frame" x="138.5" y="758" width="137" height="50"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="47" translatesAutoresizingMaskIntoConstraints="NO" id="X3a-fq-rsw">
-                                        <rect key="frame" x="0.0" y="0.0" width="162" height="80"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="137" height="50"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="YKs-um-0j3">
-                                                <rect key="frame" x="0.0" y="0.0" width="57.5" height="80"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8VN-Rm-IV3">
-                                                        <rect key="frame" x="6.5" y="0.0" width="45" height="50"/>
-                                                        <state key="normal" image="wechat">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="weChatDidLogin:" destination="nZ8-LB-QhU" eventType="touchUpInside" id="gZt-4I-RAg"/>
-                                                        </connections>
-                                                    </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微信登陆" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I0l-9b-LYw">
-                                                        <rect key="frame" x="0.0" y="63" width="57.5" height="17"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <color key="textColor" red="0.77254901960784317" green="0.77254901960784317" blue="0.77254901960784317" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="0PR-k0-ifJ">
-                                                <rect key="frame" x="104.5" y="0.0" width="57.5" height="80"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DzQ-D1-5Hh">
-                                                        <rect key="frame" x="6.5" y="0.0" width="45" height="50"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="50" id="oWH-ek-eS8"/>
-                                                        </constraints>
-                                                        <state key="normal" image="phone">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="phoneDidLogin:" destination="nZ8-LB-QhU" eventType="touchUpInside" id="l9j-lx-fA7"/>
-                                                        </connections>
-                                                    </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手机登录" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMp-xa-h7b">
-                                                        <rect key="frame" x="0.0" y="63" width="57.5" height="17"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <color key="textColor" red="0.77254901960784317" green="0.77254901960784317" blue="0.77254901960784317" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8VN-Rm-IV3">
+                                                <rect key="frame" x="0.0" y="0.0" width="45" height="50"/>
+                                                <state key="normal" image="wechat">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="weChatDidLogin:" destination="nZ8-LB-QhU" eventType="touchUpInside" id="gZt-4I-RAg"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DzQ-D1-5Hh">
+                                                <rect key="frame" x="92" y="0.0" width="45" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="oWH-ek-eS8"/>
+                                                </constraints>
+                                                <state key="normal" image="phone">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="phoneDidLogin:" destination="nZ8-LB-QhU" eventType="touchUpInside" id="l9j-lx-fA7"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>

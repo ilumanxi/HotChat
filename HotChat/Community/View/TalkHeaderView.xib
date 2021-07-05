@@ -71,7 +71,7 @@
                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eKu-d7-2s9" userLabel="Headline View">
                                     <rect key="frame" x="0.0" y="0.0" width="347" height="59"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aa9-TS-uuf">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aa9-TS-uuf" customClass="GradientView" customModule="HotChat" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="347" height="59"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9xI-n2-gGr">
@@ -81,7 +81,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.97647058823529409" green="0.93333333333333335" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.96470588235294119" green="0.96862745098039216" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="9xI-n2-gGr" firstAttribute="top" secondItem="Aa9-TS-uuf" secondAttribute="top" id="9zt-Hf-3Cy"/>
                                                 <constraint firstAttribute="bottom" secondItem="9xI-n2-gGr" secondAttribute="bottom" id="Rdd-g2-4JZ"/>

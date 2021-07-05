@@ -103,7 +103,7 @@
         audioButton.titleLabel.font = [UIFont systemFontOfSize:13 weight:UIFontWeightMedium];
         [audioButton setTitleColor:[UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1.0] forState:UIControlStateNormal];
         [audioButton addTarget:self action:@selector(clickAudioBtn:) forControlEvents:UIControlEventTouchUpInside];
-        
+        audioButton.hidden = AppAudit.share.energyStatus;
         
         UIButton *videoButton = [HotChatButton buttonWithType:UIButtonTypeCustom];
         [videoButton setImage:[UIImage imageNamed:@"video"] forState:UIControlStateNormal];
@@ -111,7 +111,7 @@
         videoButton.titleLabel.font = [UIFont systemFontOfSize:13 weight:UIFontWeightMedium];
         [videoButton setTitleColor:[UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1.0] forState:UIControlStateNormal];
         [videoButton addTarget:self action:@selector(clickVideoBtn:) forControlEvents:UIControlEventTouchUpInside];
-        
+        videoButton.hidden = AppAudit.share.energyStatus;
         
         UIButton *photoButton = [HotChatButton buttonWithType:UIButtonTypeCustom];
         [photoButton setImage:[UIImage imageNamed:@"camera"] forState:UIControlStateNormal];
@@ -119,6 +119,7 @@
         photoButton.titleLabel.font = [UIFont systemFontOfSize:13 weight:UIFontWeightMedium];
         [photoButton setTitleColor:[UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1.0] forState:UIControlStateNormal];
         [photoButton addTarget:self action:@selector(clickPhotoBtn:) forControlEvents:UIControlEventTouchUpInside];
+        photoButton.hidden = AppAudit.share.energyStatus;
         
         UIView *spaceView = [UIView new];
         

@@ -243,19 +243,8 @@ extension SignupViewController {
         authorizationButton.translatesAutoresizingMaskIntoConstraints = false
         authorizationButton.cornerRadius = 45.0 / 2
         authorizationButton.addTarget(self, action: #selector(handleAuthorizationAppleIDButtonPress), for: .touchUpInside)
-        
-        
-        let textLabel = UILabel()
-        textLabel.text = "Apple登录"
-        textLabel.textColor = .white
-        textLabel.font = .systemFont(ofSize: 14)
-        
-        let stackView = UIStackView(arrangedSubviews: [authorizationButton, textLabel])
-        stackView.spacing = 13
-        stackView.alignment = .center
-        stackView.axis = .vertical
-        
-        self.loginProviderStackView.addArrangedSubview(stackView)
+
+        self.loginProviderStackView.insertArrangedSubview(authorizationButton, at: 0)
         authorizationButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
         authorizationButton.widthAnchor.constraint(equalToConstant: 45).isActive = true
         
