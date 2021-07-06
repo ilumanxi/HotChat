@@ -226,8 +226,6 @@ class UserInfoViewController: AquamanPageViewController, LoadingStateType, Indic
             }
 //            subView.layer.cornerRadius = 33.5
         }
-        
-        stackView.isHidden = AppAudit.share.energyStatus
     }
     
     func followState() {

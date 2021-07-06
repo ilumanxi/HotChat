@@ -47,9 +47,6 @@ class DatingDetailViewController: UIViewController {
         priceButton.setTitle("\(user.videoCharge)能量/分钟", for: .normal)
         priceButton.isHidden =  AppAudit.share.energyStatus
         
-        if AppAudit.share.energyStatus {
-            datingButton.setTitle("开始聊天", for: .normal)
-        }
     }
 
     @objc func back() {
@@ -59,18 +56,7 @@ class DatingDetailViewController: UIViewController {
     @IBAction func datingButtonTapped(_ sender: Any) {
         
         let user = dynamic.userInfo!
-        if AppAudit.share.energyStatus {
-            let data = TUIConversationCellData()
-            data.userID = user.userId
-
-            let vc =  ChatViewController(conversation: data)!
-            vc.title = user.nick
-            navigationController?.pushViewController(vc, animated: true)
-        }
-        else {
-            CallHelper.share.call(userID: user.userId, callType: .video)
-        
-        }
+        CallHelper.share.call(userID: user.userId, callType: .video)
     }
     
 
