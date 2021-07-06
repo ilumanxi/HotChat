@@ -17,9 +17,6 @@ PODS:
     - AFNetworking/NSURLSession
   - Alamofire (5.4.3)
   - AlignedCollectionViewFlowLayout (1.1.2)
-  - AliPlayerSDK_iOS (5.4.1.2):
-    - AliPlayerSDK_iOS/AliPlayerSDK (= 5.4.1.2)
-  - AliPlayerSDK_iOS/AliPlayerSDK (5.4.1.2)
   - AMPopTip (4.5.3)
   - Aquaman (0.1.2)
   - Blueprints (0.13.1)
@@ -165,7 +162,6 @@ DEPENDENCIES:
   - ActiveLabel
   - AFNetworking
   - AlignedCollectionViewFlowLayout
-  - AliPlayerSDK_iOS
   - AMPopTip
   - Aquaman (from `https://github.com/bawn/Aquaman.git`, commit `f97de87`)
   - Blueprints
@@ -225,7 +221,6 @@ SPEC REPOS:
     - AFNetworking
     - Alamofire
     - AlignedCollectionViewFlowLayout
-    - AliPlayerSDK_iOS
     - AMPopTip
     - Blueprints
     - Bugly
@@ -314,7 +309,6 @@ SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   AlignedCollectionViewFlowLayout: ee2ef451e741ec08f8e0967d828001e2f051c20a
-  AliPlayerSDK_iOS: e868aee441bdd8f5b90bcc6ab1cd3a407f36240f
   AMPopTip: 77eef4793d50709bef83825b72da4f501263b91d
   Aquaman: a9f48d6b1c3049f3e511779a77a570bf541a2470
   Blueprints: ddd6ab1e455c98471aaef2fdd0b09b5f9b53af5b
@@ -380,6 +374,6 @@ SPEC CHECKSUMS:
   YBImageBrowser: 7ecc8bf33ffa5f3b94c397c29b4f3638dd37f527
   YYImage: 20ec986d18a8d0ad421619d166a9e628097e2433
 
-PODFILE CHECKSUM: 869a63995af8b1d83f79ed30ca7c6cc76c0ac794
+PODFILE CHECKSUM: 23064063e4b1e402525d64995a6f11d505f7944e
 
 COCOAPODS: 1.10.1

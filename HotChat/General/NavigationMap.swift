@@ -37,18 +37,14 @@ enum NavigationMap {
     
     navigator.register(HotChatURLString(path: "jump/chatDetail")) { url, values, context in
         
-        guard let nick = url.queryParameters["nick"],
-              let userId = url.queryParameters["userId"]
-        else  {
-            return  nil
-        }
+        guard let userId = url.queryParameters["userId"]
+        else { return  nil }
         
         let data = TUIConversationCellData()
         data.userID = userId
+        data.title = url.queryParameters["nick"] ?? ""
 
         let vc =  ChatViewController(conversation: data)
-        vc?.title = nick
-        
         return vc
     }
     

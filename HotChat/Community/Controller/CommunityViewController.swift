@@ -71,14 +71,14 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     
     @IBOutlet weak var phoneBindingView: UIView!
     
-    let playerManager = PlayerManager()
+//    let playerManager = PlayerManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.leftBarButtonItem?.setTitleTextAttributes(UINavigationBar.appearance().titleTextAttributes, for: .normal)
         
-        playerManager.listPlayer.volume = 0
+//        playerManager.listPlayer.volume = 0
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             LoginManager.shared.getLocation { _ in
@@ -211,21 +211,21 @@ class CommunityViewController: UIViewController, LoadingStateType, IndicatorDisp
     func refreshData(_ data: [Dynamic]) {
         if !data.isEmpty {
             dynamics = data
-            self.playerManager.clear()
+//            self.playerManager.clear()
             
-            let videos = data.filter {
-                $0.type == .video
-            }
-            self.playerManager.add(playList: videos)
+//            let videos = data.filter {
+//                $0.type == .video
+//            }
+//            self.playerManager.add(playList: videos)
         }
     }
     
     func appendData(_ data: [Dynamic]) {
         dynamics = dynamics + data
-        let videos = data.filter {
-            $0.type == .video
-        }
-        self.playerManager.add(playList: videos)
+//        let videos = data.filter {
+//            $0.type == .video
+//        }
+//        self.playerManager.add(playList: videos)
     }
     
     func handlerError(_ error: Error) {
@@ -351,99 +351,99 @@ extension CommunityViewController: UITableViewDataSource, UITableViewDelegate {
 //        playVideo()
 //    }
     
-    func playVideo() {
-        
-        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(findVideo), object: nil)
-        perform(#selector(findVideo), with: nil, afterDelay: 0.1)
-    }
+//    func playVideo() {
+//
+//        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(findVideo), object: nil)
+//        perform(#selector(findVideo), with: nil, afterDelay: 0.1)
+//    }
+//
+//    @objc func findVideo() {
+//        let visibleCells = tableView.visibleCells
+//
+//        if visibleCells.isEmpty {
+//            self.playerManager.stop()
+//            return
+//        }
+//
+//        let indexPaths =  visibleCells.compactMap { [unowned self] in
+//            self.tableView.indexPath(for: $0)
+//        }
+//
+//
+//        let videoIndexPaths = indexPaths.filter {[unowned self] indexPath in
+//           return self.dynamics[indexPath.row].type == .video
+//        }
+//
+//        let playFrame = self.view.frame.inset(by: self.view.safeAreaInsets)
+//
+//        var activateVideoCells: [DynamicDetailViewCell] = []
+//
+//        for indexPath in videoIndexPaths {
+//
+//            if let videoCell = tableView.cellForRow(at: indexPath) as? DynamicDetailViewCell, let videoView =  videoCell.collectionView.visibleCells.first {
+//
+//                let videoViewFrame = videoView.convert(videoView.bounds, to: self.view)
+//                if playFrame.contains(videoViewFrame) {
+//                    activateVideoCells.append(videoCell)
+//                }
+//            }
+//        }
+//
+//        if activateVideoCells.isEmpty {
+//            self.playerManager.removePlayView()
+//            self.playerManager.stop()
+//            return
+//        }
+//
+//
+//        let videoCells = activateVideoCells.sorted {
+//            $0.frame .minY < $1.frame.minY
+//        }
+//
+//
+//        let playCell = videoCells.first!
+//
+//        guard let playIndexPath = tableView.indexPath(for: playCell) else {
+//            return
+//        }
+//
+//        let item = self.dynamics[playIndexPath.row]
+//
+//
+//        guard let index = self.playerManager.items.firstIndex (where: { $0.uid == item.uid }) else { return  }
+//
+//        if self.playerManager.currentIndex == index, let _ = self.playerManager.playerView.superview {
+//            return
+//        }
+//
+//        let containerView = playCell.collectionView.visibleCells.first!
+//
+//        self.playerManager.play(at: index)
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { // 解决本次播放看到上一次播放画面
+//            self.playerManager.addPlayView(in: containerView)
+//        }
+//    }
     
-    @objc func findVideo() {
-        let visibleCells = tableView.visibleCells
-        
-        if visibleCells.isEmpty {
-            self.playerManager.stop()
-            return
-        }
-        
-        let indexPaths =  visibleCells.compactMap { [unowned self] in
-            self.tableView.indexPath(for: $0)
-        }
-        
-        
-        let videoIndexPaths = indexPaths.filter {[unowned self] indexPath in
-           return self.dynamics[indexPath.row].type == .video
-        }
-        
-        let playFrame = self.view.frame.inset(by: self.view.safeAreaInsets)
-        
-        var activateVideoCells: [DynamicDetailViewCell] = []
-        
-        for indexPath in videoIndexPaths {
-            
-            if let videoCell = tableView.cellForRow(at: indexPath) as? DynamicDetailViewCell, let videoView =  videoCell.collectionView.visibleCells.first {
-                
-                let videoViewFrame = videoView.convert(videoView.bounds, to: self.view)
-                if playFrame.contains(videoViewFrame) {
-                    activateVideoCells.append(videoCell)
-                }
-            }
-        }
-        
-        if activateVideoCells.isEmpty {
-            self.playerManager.removePlayView()
-            self.playerManager.stop()
-            return
-        }
-        
-        
-        let videoCells = activateVideoCells.sorted {
-            $0.frame .minY < $1.frame.minY
-        }
-       
-        
-        let playCell = videoCells.first!
-  
-        guard let playIndexPath = tableView.indexPath(for: playCell) else {
-            return
-        }
-        
-        let item = self.dynamics[playIndexPath.row]
-        
-        
-        guard let index = self.playerManager.items.firstIndex (where: { $0.uid == item.uid }) else { return  }
-        
-        if self.playerManager.currentIndex == index, let _ = self.playerManager.playerView.superview {
-            return
-        }
-        
-        let containerView = playCell.collectionView.visibleCells.first!
-        
-        self.playerManager.play(at: index)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { // 解决本次播放看到上一次播放画面
-            self.playerManager.addPlayView(in: containerView)
-        }
-    }
     
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        
-        let data = self.dynamics[indexPath.row]
-        if data.type == .image {
-            return
-        }
-        
-        guard let cell = tableView.cellForRow(at: indexPath) as? DynamicDetailViewCell else {
-            return
-        }
-        
-        guard let playCell = cell.collectionView.visibleCells.first else { return  }
-        
-        self.playerManager.addPlayView(in: playCell)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            self.playerManager.play(at: 0)
-        }
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        
+//        
+//        let data = self.dynamics[indexPath.row]
+//        if data.type == .image {
+//            return
+//        }
+//        
+//        guard let cell = tableView.cellForRow(at: indexPath) as? DynamicDetailViewCell else {
+//            return
+//        }
+//        
+//        guard let playCell = cell.collectionView.visibleCells.first else { return  }
+//        
+//        self.playerManager.addPlayView(in: playCell)
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+//            self.playerManager.play(at: 0)
+//        }
+//    }
     
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

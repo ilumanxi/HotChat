@@ -51,7 +51,7 @@ target 'HotChat' do
     pod 'Jelly'
 #    pod 'KMNavigationBarTransition', :path => './HotChat/Common/Framework/KMNavigationBarTransition'
     pod 'PPBadgeViewSwift'
-    pod 'AliPlayerSDK_iOS'
+#    pod 'AliPlayerSDK_iOS'
     pod 'TXIMSDK_TUIKit_iOS', "5.1.60"
     pod 'TPNS-iOS'
     pod 'YBImageBrowser/Video'

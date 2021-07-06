@@ -75,6 +75,20 @@ class ChatViewController: ChatController, IndicatorDisplay, UIImagePickerControl
         return super.inputBarHeight
     }
     
+    override var placeholder: String! {
+        
+        get {
+            if conversationData.userID == "10002" {
+                return "请用一句话简要、准确的描述您的问题"
+            }
+            return "打个招呼吧"
+        }
+        set {
+            
+        }
+    }
+    
+    
     var user: User? {
         didSet {
             userView.set(user!)

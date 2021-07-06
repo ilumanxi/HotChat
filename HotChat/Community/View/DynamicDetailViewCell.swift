@@ -62,16 +62,16 @@ class DynamicDetailViewCell: UITableViewCell {
     
     let onChatButtonTapped = Delegate<DynamicDetailViewCell, Void>()
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        
-        player: for cell in self.collectionView.visibleCells {
-            for item in cell.subviews where item is PlayerContainerView {
-                item.removeFromSuperview()
-                break player
-            }
-        }
-    }
+//    override func prepareForReuse() {
+//        super.prepareForReuse()
+//        
+//        player: for cell in self.collectionView.visibleCells {
+//            for item in cell.subviews where item is PlayerContainerView {
+//                item.removeFromSuperview()
+//                break player
+//            }
+//        }
+//    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

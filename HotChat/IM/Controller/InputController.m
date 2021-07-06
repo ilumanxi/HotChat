@@ -76,6 +76,7 @@ typedef NS_ENUM(NSUInteger, InputStatus) {
     _status = Input_Status_Input;
 
     _inputBar = [[InputBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.inputBarHeight)];
+    _inputBar.inputTextView.placeholder = self.placeholder;
     _inputBar.delegate = self;
     [self.view addSubview:_inputBar];
 }

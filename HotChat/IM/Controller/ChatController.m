@@ -185,6 +185,10 @@
 - (void)setupViews
 {
     self.view.backgroundColor = [UIColor d_colorWithColorLight:TController_Background_Color dark:TController_Background_Color_Dark];
+    
+    RAC(self, title) = [RACObserve(_conversationData, title) distinctUntilChanged];
+    
+    [self checkTitle:NO];
 
     @weakify(self)
     //message
@@ -203,6 +207,7 @@
     if (self.inputBarHeight > 0) {
         //input
         _inputController = [[InputController alloc] init];
+        _inputController.placeholder = self.placeholder;
         [self addChildViewController:_inputController];
         [self.view addSubview:_inputController.view];
         _inputController.view.frame = CGRectMake(0, self.view.frame.size.height - self.inputBarHeight - Bottom_SafeHeight, self.view.frame.size.width, self.inputBarHeight + Bottom_SafeHeight);
@@ -267,6 +272,40 @@
 //        [self.atBtn addTarget:self action:@selector(loadMessageToAT) forControlEvents:UIControlEventTouchUpInside];
 //        [self.view addSubview:_atBtn];
 //    }
+}
+
+- (void)checkTitle:(BOOL)force {
+    if (force || _conversationData.title.length == 0) {
+        if (_conversationData.userID.length > 0) {
+            _conversationData.title = _conversationData.userID;
+             @weakify(self)
+            [[V2TIMManager sharedInstance] getFriendsInfo:@[_conversationData.userID] succ:^(NSArray<V2TIMFriendInfoResult *> *resultList) {
+                @strongify(self)
+                V2TIMFriendInfoResult *result = resultList.firstObject;
+                if (result.friendInfo && result.friendInfo.friendRemark.length > 0) {
+                    self.conversationData.title = result.friendInfo.friendRemark;
+                } else {
+                    [[V2TIMManager sharedInstance] getUsersInfo:@[self.conversationData.userID] succ:^(NSArray<V2TIMUserFullInfo *> *infoList) {
+                        V2TIMUserFullInfo *info = infoList.firstObject;
+                        if (info && info.nickName.length > 0) {
+                            self.conversationData.title = info.nickName;
+                        }
+                    } fail:nil];
+                }
+            } fail:nil];
+        }
+        if (_conversationData.groupID.length > 0) {
+            _conversationData.title = _conversationData.groupID;
+             @weakify(self)
+            [[V2TIMManager sharedInstance] getGroupsInfo:@[_conversationData.groupID] succ:^(NSArray<V2TIMGroupInfoResult *> *groupResultList) {
+                @strongify(self)
+                V2TIMGroupInfoResult *result = groupResultList.firstObject;
+                if (result.info && result.info.groupName.length > 0) {
+                    self.conversationData.title = result.info.groupName;
+                }
+            } fail:nil];
+        }
+    }
 }
 
 - (void)getPendencyList

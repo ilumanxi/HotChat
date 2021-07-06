@@ -53,16 +53,16 @@ class DynamicVideo: NSObject, HandyJSON {
     }
 }
 
-extension Dynamic: PlayerItem {
-    
-    var url: String {
-        video?.url ?? ""
-    }
-    
-    var uid: String {
-        return dynamicId
-    }
-}
+//extension Dynamic: PlayerItem {
+//    
+//    var url: String {
+//        video?.url ?? ""
+//    }
+//    
+//    var uid: String {
+//        return dynamicId
+//    }
+//}
 
 class DynamicInfo: NSObject, HandyJSON {
     
