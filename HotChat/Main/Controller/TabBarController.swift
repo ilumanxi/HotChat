@@ -168,7 +168,7 @@ class TabBarController: UITabBarController, IndicatorDisplay {
 
     
     func setupUI(){
-        setValue(customTabBar, forKey: "tabBar")
+//        setValue(customTabBar, forKey: "tabBar")
         if #available(iOS 13.0, *) {
             let standardAppearance = customTabBar.standardAppearance
             standardAppearance.shadowColor = .clear
@@ -181,11 +181,11 @@ class TabBarController: UITabBarController, IndicatorDisplay {
             customTabBar.backgroundImage = UIImage(color: .white, size: tabBar.bounds.size)
         }
         
-        if LoginManager.shared.user!.girlStatus {
-            var viewControllers  = self.viewControllers ?? []
-            viewControllers.remove(at: 2)
-            setViewControllers(viewControllers, animated: false)
-        }
+//        if LoginManager.shared.user!.girlStatus {
+//            var viewControllers  = self.viewControllers ?? []
+//            viewControllers.remove(at: 2)
+//            setViewControllers(viewControllers, animated: false)
+//        }
     }
     
     func observerUnReadCount() {
@@ -263,7 +263,7 @@ class TabBarController: UITabBarController, IndicatorDisplay {
         }
     }
 
-    let svgas = ["community", "discover", "", "message" , "me"]
+    let svgas = ["community", "discover", "message" , "me"]
 }
 
 extension TabBarController: UITabBarControllerDelegate {
@@ -271,18 +271,18 @@ extension TabBarController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         
         
-        var tempSvgas = svgas
-        
-        if LoginManager.shared.user!.girlStatus {
-            tempSvgas.remove(at: 2)
-        }
+//        var tempSvgas = svgas
+//
+//        if LoginManager.shared.user!.girlStatus {
+//            tempSvgas.remove(at: 2)
+//        }
         
         let selectIndex = children.firstIndex{ $0 == viewController }!
         
-        if selectIndex == 2 &&  !LoginManager.shared.user!.girlStatus {
-            svgaPlayer.isHidden = true
-            return
-        }
+//        if selectIndex == 2 &&  !LoginManager.shared.user!.girlStatus {
+//            svgaPlayer.isHidden = true
+//            return
+//        }
         svgaPlayer.isHidden = false
         
         let tabBarItem = tabBar.items?[selectIndex]
@@ -300,7 +300,7 @@ extension TabBarController: UITabBarControllerDelegate {
             self.svgaPlayer.clear()
             self.svgaPlayer.frame = imageView.bounds
             imageView.addSubview(self.svgaPlayer)
-            svgaParser.parse(withNamed: tempSvgas[selectIndex], in: nil) { videoItem in
+            svgaParser.parse(withNamed: svgas[selectIndex], in: nil) { videoItem in
                 self.svgaPlayer.loops = 1
                 self.svgaPlayer.videoItem =  videoItem
                 self.svgaPlayer.clearsAfterStop = false

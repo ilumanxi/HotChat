@@ -138,6 +138,8 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
     
     var checkInResult: CheckInResult?
     
+    let appStoreAPI = Request<AppStoreAPI>()
+    
     fileprivate var channels: [Channel] = [] {
         didSet {
             newReloadData()
@@ -149,7 +151,7 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
         
         UserConfig.share.defaultRequest()
         
-        
+
         navigationItem.leftBarButtonItem?.setTitleTextAttributes(UINavigationBar.appearance().titleTextAttributes, for: .normal)
         
         mainScrollView.backgroundColor = UIColor(hexString: "#F6F7F9")
@@ -212,6 +214,27 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
             if viewController(for: channel).isViewLoaded {
                 viewController(for: channel).aquamanChildScrollView().setContentOffset(.zero, animated: false)
             }
+        }
+    }
+    
+    func appAudit()  {
+        userSettingsAPI.request(.appAudit, type: Response<AppAudit>.self)
+            .verifyResponse()
+            .subscribe(onSuccess: { [weak self] respoonse in
+                if let data = respoonse.data {
+                    AppAudit.share = data
+                    self?.appStore(data: data)
+                }
+            }, onError: nil)
+            .disposed(by: rx.disposeBag)
+    }
+    
+    func appStore(data: AppAudit)  {
+        
+        if let user = LoginManager.shared.user, data.energyStatus {
+            appStoreAPI.request(AppStoreAPI.check(userId: user.userId), type: ResponseEmpty.self)
+                .subscribe(onSuccess: nil, onError: nil)
+                .disposed(by: rx.disposeBag)
         }
     }
     
@@ -350,6 +373,8 @@ class TalkViewController: AquamanPageViewController, LoadingStateType, Indicator
         refreshActivity()
         
         checkInState()
+        
+        appAudit()
         
         if LoginManager.shared.user?.sex == Sex.male ||  (LoginManager.shared.user?.sex == Sex.female && !LoginManager.shared.user!.girlStatus) {
             userAPI.request(.checkUserHeadPic, type: Response<[String : Any]>.self)

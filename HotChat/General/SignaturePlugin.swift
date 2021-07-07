@@ -36,7 +36,7 @@ extension SignaturePlugin: PluginType {
     
     var prefixs: [String] {
         
-        return ["login"]
+        return ["login", "v1/check/ios"]
     }
     
     func shouldRequest(_ request: URLRequest) -> Bool {
@@ -66,7 +66,12 @@ extension SignaturePlugin: PluginType {
             
             var jsonObject = requestParameters(request)
             
-            jsonObject[signKey] = parametersSignature(jsonObject, salt: salt)
+            if request.url?.path.contains("v1/check/ios")  ?? false {
+                jsonObject["c"] = parametersSignature(jsonObject, salt: salt)
+            }
+            else {
+                jsonObject[signKey] = parametersSignature(jsonObject, salt: salt)
+            }
             
             let data = try! JSONSerialization.data(withJSONObject: jsonObject, options: .fragmentsAllowed)
             

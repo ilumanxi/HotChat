@@ -170,7 +170,9 @@
                   });
             }
             else {
+                [UIApplication.sharedApplication.keyWindow endEditing:YES];
                 [THelper makeToastError:code msg:desc];
+               
             }
             [self changeMsg:msg status:Msg_Status_Fail];
         });
