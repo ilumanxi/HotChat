@@ -96,8 +96,10 @@
         }
         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         @strongify(self)
-            self.errorCall(error.code, error.localizedDescription, self.roomId);
-//            self.errorCall(10000, error.localizedDescription);
+            if (self) {
+                self.errorCall(error.code, error.localizedDescription, self.roomId);
+    //            self.errorCall(10000, error.localizedDescription);
+            }
         }
      ];
     
@@ -143,7 +145,10 @@
         }
         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             @strongify(self)
-            self.errorCall(error.code, error.localizedDescription, self.roomId);
+           if (self) {
+               self.errorCall(error.code, error.localizedDescription, self.roomId);
+           }
+           
         }
      ];
     
