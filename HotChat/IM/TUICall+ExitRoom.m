@@ -13,7 +13,7 @@
 - (void)onExitRoom:(NSInteger)reason {
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(onCallEnd:)]) {
-        [self.delegate performSelector:@selector(onCallEnd:) withObject:@(reason)];
+        [self.delegate performSelector:@selector(onCallEnd:) withObject:[NSNumber numberWithInteger:reason]];
     }
 }
 

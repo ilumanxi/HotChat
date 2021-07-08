@@ -349,7 +349,7 @@ typedef NS_ENUM(NSInteger,VideoUserRemoveReason){
  *  reason 离开原因，0表示用户主动退出房间，1表示用户超时退出，2表示被踢出房间。
  */
 
--(void)onCallEnd:(int)reason {
+-(void)onCallEnd:(NSNumber *)reason {
 //    if (reason == 2) {
 //        int roomId = [TUICall shareInstance].curRoomID;
 //        [THelper makeToast:[NSString stringWithFormat:@"未知异常中断通话"]];
@@ -372,12 +372,12 @@ typedef NS_ENUM(NSInteger,VideoUserRemoveReason){
     }
     [PIPWindow dismissViewControllerAnimated:NO  completion:nil];
     
-//    [[TUICall shareInstance] quitRoom];
-    if (reason != 0) {
+
+    if (reason.intValue != 0) {
         [[TUICall shareInstance] hangup];
     }
    
-    if (LoginManager.shared.user.girlStatus && reason != 0) {
+    if (LoginManager.shared.user.girlStatus && reason.intValue != 0) {
         [IMHelper getCallTime:self.curRoomID success:^(NSDictionary<NSString *,id> * _Nonnull dict) {
             
             if ([dict[@"status"] intValue]  == 2) {
