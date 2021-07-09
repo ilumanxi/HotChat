@@ -511,6 +511,8 @@ extension DynamicDetailViewController: GiftViewControllerDelegate {
                 
                 let  user  = LoginManager.shared.user!
                 user.userEnergy = giveGift.userEnergy
+                user.freeGifts = giveGift.freeGifts
+                user.userTanbi = giveGift.userTanbi
                 LoginManager.shared.update(user: user)
                 
                 let cellData = GiftCellData(direction: .MsgDirectionOutgoing)
