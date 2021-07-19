@@ -23,6 +23,7 @@ enum IMAPI {
     case checkUserCall(type: Int, toUserId: String)
     case getCallTime(roomId: Int)
     case imChatStatus(toUserId: String)
+    case callend(userId: String, roomId: Int)
 }
 
 extension IMAPI: TargetType {
@@ -37,6 +38,8 @@ extension IMAPI: TargetType {
             return "Im/getCallTime"
         case .imChatStatus:
             return "Im/imChatStatus"
+        case .callend(let userId, _):
+            return "v1/imcall/callend/\(userId)"
         }
     }
     
@@ -63,8 +66,11 @@ extension IMAPI: TargetType {
             parameters = [
                 "toUserId" : toUserId
             ]
+        case .callend(_ , let roomId):
+            parameters = [
+                "roomId" : roomId
+            ]
         }
-        
         return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
     }
 }
@@ -105,6 +111,13 @@ extension IMAPI: TargetType {
             })
             .disposed(by: disposeObject)
     }
+    
+    @objc class func  callend(_ userID: String, roomId: Int) {
+        userAPI.request(.userinfo(userId: userID), type: ResponseEmpty.self)
+            .verifyResponse()
+            .subscribe(onSuccess: nil, onError: nil)
+            .disposed(by: disposeObject)
+    }
 }
 
 
@@ -134,6 +147,10 @@ extension Notification.Name {
     /// 聊天违规
     static let chatViolation = NSNotification.Name("com.friday.Chat.chatViolation")
     
+    /// 聊天违规
+    static let otherChatViolation = NSNotification.Name("com.friday.Chat.otherChatViolation")
+    
+    
     
 }
 
@@ -157,6 +174,8 @@ extension IMDataType {
             return .intimacyDidChange
         case IMDataTypeChatViolation:
             return .chatViolation
+        case IMDataTypeOtherChatViolation:
+            return .otherChatViolation
         default:
             return nil
         }

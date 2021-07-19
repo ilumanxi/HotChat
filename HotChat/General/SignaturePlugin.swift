@@ -27,7 +27,7 @@ extension SignaturePlugin: PluginType {
     func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
         
         if shouldRequest(request) {
-            return prepareSignRequest(request)
+            return prepareSign(request)
         }
         
         return request
@@ -56,7 +56,7 @@ extension SignaturePlugin: PluginType {
     }
     
 
-    func prepareSignRequest(_ request: URLRequest) -> URLRequest {
+    func prepareSign(_ request: URLRequest) -> URLRequest {
         
         let httpMethod = (request.httpMethod ?? "").uppercased()
         

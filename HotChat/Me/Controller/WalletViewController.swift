@@ -90,8 +90,11 @@ class WalletViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self?.navigationController?.pushViewController(vc, animated: true)
        }
        label.handleCustomTap(for: privacyType) { [weak self] element in
-            let vc = WebViewController.H5(path: "h5/customer")
-            self?.navigationController?.pushViewController(vc, animated: true)
+                   
+        let data = TUIConversationCellData()
+        data.userID = "10002"
+        let vc =  ChatViewController(conversation: data)
+        self?.navigationController?.pushViewController(vc!, animated: true)
        }
         
         label.lineSpacing = 9

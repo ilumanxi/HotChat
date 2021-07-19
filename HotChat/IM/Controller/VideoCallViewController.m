@@ -51,6 +51,11 @@
 @property(nonatomic,strong) UIView *localPreView;
 @property(nonatomic,strong) UIView *sponsorPanel;
 @property(nonatomic,strong) NSMutableArray<TUIVideoRenderView *> *renderViews;
+
+@property(nonatomic,strong) NSTimer *remoteTimer;;
+
+@property(nonatomic,strong) UIView *remoteTipView;
+@property(nonatomic,strong) UILabel *remoteTipLabel;
 @property(nonatomic,strong) dispatch_source_t timer;
 @property(nonatomic,assign) UInt32 callingTime;
 @property(nonatomic,assign) BOOL playingAlerm; // 播放响铃
@@ -146,6 +151,9 @@
     } failed:^(NSError * _Nonnull error) {
         
     }];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chatViolation:) name:@"com.friday.Chat.otherChatViolation" object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -161,6 +169,32 @@
     }
     [self playAlerm];
 }
+
+- (void)chatViolation:(NSNotification *)note {
+    
+    if (self.remoteTimer) {
+        [self.remoteTimer invalidate];
+        self.remoteTimer = nil;
+    }
+    
+    NSString *msg = note.userInfo[@"msg"];
+    
+    NSTimeInterval duration = [note.userInfo[@"duration"] doubleValue];
+    self.remoteTipLabel.text = msg;
+    self.remoteTipView.hidden = NO;
+    
+    @weakify(self)
+    self.remoteTimer = [NSTimer scheduledTimerWithTimeInterval:duration repeats:NO block:^(NSTimer * _Nonnull timer) {
+        @strongify(self)
+        self.remoteTipView.hidden = YES;
+        if (self.remoteTimer) {
+            [self.remoteTimer invalidate];
+            self.remoteTimer = nil;
+        }
+    }];
+    
+}
+
 
 - (void)disMiss {
     if (self.timer) {
@@ -181,6 +215,32 @@
    
 }
 
+- (UIView *)remoteTipView {
+    
+    if (!_remoteTipView) {
+        _remoteTipView = [UIView new];
+        _remoteTipView.hidden = YES;
+        _remoteTipView.backgroundColor = [UIColor colorWithRed:39/255.0 green:39/255.0 blue:39/255.0 alpha:1.0];
+    }
+    
+    return _remoteTipView;
+}
+
+
+- (UILabel *)remoteTipLabel {
+    
+    if (!_remoteTipLabel) {
+        _remoteTipLabel = [UILabel new];
+        _remoteTipLabel.textAlignment = NSTextAlignmentCenter;
+        _remoteTipLabel.numberOfLines = 0;
+        _remoteTipLabel.text = @"视频网络不稳定，正在加速中...";
+        _remoteTipLabel.textColor = [UIColor whiteColor];
+        _remoteTipLabel.font = [UIFont systemFontOfSize:15];
+
+    }
+    return _remoteTipLabel;
+}
+
 - (void)dealloc {
     self.manager = nil;
     [[TUICall shareInstance] closeCamara];
@@ -198,6 +258,20 @@
         [self.renderViews addObject:renderView];
         [[TUICall shareInstance] startRemoteView:user.userId view:renderView];
         [self stopAlerm];
+        
+        [renderView addSubview:self.remoteTipView];
+        
+        [self.remoteTipView addSubview:self.remoteTipLabel];
+        
+        [self.remoteTipView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(renderView);
+        }];
+        
+        [self.remoteTipLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self.remoteTipView).offset(8);
+            make.trailing.equalTo(self.remoteTipView).offset(-8);
+            make.centerY.equalTo(self.remoteTipView);
+        }];
         
         if (self.pairController != nil ) {
             [self.pairController.view removeFromSuperview];

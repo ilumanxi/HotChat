@@ -150,7 +150,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setupTrack()  {
         let config = BDAutoTrackConfig()
         config.serviceVendor = .CN
-        config.appID = 211417.description
+        config.appID = "211417"
         config.appName = "tanliaoios"
         config.channel = "App Store"
         

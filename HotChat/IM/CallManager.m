@@ -378,13 +378,14 @@ typedef NS_ENUM(NSInteger,VideoUserRemoveReason){
     }
    
     if (LoginManager.shared.user.girlStatus && reason.intValue != 0) {
+        
         [IMHelper getCallTime:self.curRoomID success:^(NSDictionary<NSString *,id> * _Nonnull dict) {
             
             if ([dict[@"status"] intValue]  == 2) {
                 
                 NSString *message = [NSString stringWithFormat:@"本次有效通话时间为: %@分钟",dict[@"minutes"]];
                 
-                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"对方异常挂断" message: message preferredStyle: UIAlertControllerStyleAlert];
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"异常挂断" message: message preferredStyle: UIAlertControllerStyleAlert];
                 [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                     
                 }]];
@@ -395,6 +396,8 @@ typedef NS_ENUM(NSInteger,VideoUserRemoveReason){
         } failed:^(NSError * _Nonnull error) {
             
         }];
+        
+        [IMHelper callend:LoginManager.shared.user.userId roomId:self.curRoomID];
     }
     
 }

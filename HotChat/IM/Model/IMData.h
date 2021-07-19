@@ -28,6 +28,8 @@ typedef enum : NSUInteger {
     IMDataTypeIntimacy = 10005,
     /// 聊天违规
     IMDataTypeChatViolation = 10006,
+    /// 对方聊天违规
+    IMDataTypeOtherChatViolation = 10007
     
 } IMDataType;
 

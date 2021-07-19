@@ -172,7 +172,7 @@ DEPENDENCIES:
   - DynamicColor
   - FSPagerView
   - GKPhotoBrowser
-  - HandyJSON (~> 5.0.3-beta)
+  - HandyJSON (from `https://github.com/alibaba/HandyJSON.git`, branch `develop`)
   - InputKitSwift
   - Jelly
   - Kingfisher
@@ -230,7 +230,6 @@ SPEC REPOS:
     - DynamicColor
     - FSPagerView
     - GKPhotoBrowser
-    - HandyJSON
     - InputKitSwift
     - Jelly
     - Kingfisher
@@ -287,6 +286,9 @@ EXTERNAL SOURCES:
   Aquaman:
     :commit: f97de87
     :git: https://github.com/bawn/Aquaman.git
+  HandyJSON:
+    :branch: develop
+    :git: https://github.com/alibaba/HandyJSON.git
   Trident:
     :commit: 2eed75e
     :git: https://github.com/bawn/Trident.git
@@ -297,6 +299,9 @@ CHECKOUT OPTIONS:
   Aquaman:
     :commit: f97de87
     :git: https://github.com/bawn/Aquaman.git
+  HandyJSON:
+    :commit: 785a6273bc1b75046087f4afade9f0d7bd355e08
+    :git: https://github.com/alibaba/HandyJSON.git
   Trident:
     :commit: 2eed75e
     :git: https://github.com/bawn/Trident.git
@@ -374,6 +379,6 @@ SPEC CHECKSUMS:
   YBImageBrowser: 7ecc8bf33ffa5f3b94c397c29b4f3638dd37f527
   YYImage: 20ec986d18a8d0ad421619d166a9e628097e2433
 
-PODFILE CHECKSUM: 23064063e4b1e402525d64995a6f11d505f7944e
+PODFILE CHECKSUM: 27df1751a88f07039b023a1fbed0aa242453ec0c
 
 COCOAPODS: 1.10.1

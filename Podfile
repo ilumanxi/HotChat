@@ -19,7 +19,10 @@ target 'HotChat' do
 #    pod 'RxCoreLocation'
     pod 'CryptoSwift'
     pod 'DynamicColor'
-    pod 'HandyJSON', "~> 5.0.3-beta"
+#    pod 'HandyJSON', "~> 5.0.3-beta"
+#iOS 15 beta3
+    pod 'HandyJSON', :git=> "https://github.com/alibaba/HandyJSON.git", :branch => 'develop'
+    
     pod 'Reusable'
     pod 'Kingfisher'
 #    pod "KingfisherWebP"

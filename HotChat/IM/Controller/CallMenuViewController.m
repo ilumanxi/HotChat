@@ -406,7 +406,15 @@
 
 
 - (void)hangupButtonTapped {
+    
+    NSInteger curRoomID = [TUICall shareInstance].curRoomID;
+    
     [[TUICall shareInstance] hangup];
+    
+    if (LoginManager.shared.user.girlStatus) {
+        [IMHelper callend:LoginManager.shared.user.userId roomId:curRoomID];
+    }
+    
     if (_delegate && [_delegate respondsToSelector:@selector(callMenuViewControllerDidHangup:)]) {
         [_delegate callMenuViewControllerDidHangup:self];
     }
