@@ -26,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic,assign) NSInteger roomId;
 
+@property(nonatomic,assign) NSTimeInterval callingTime;
+
 
 - (instancetype)initWithUserId:(NSString *)userId type:(NSInteger) type;
 

@@ -135,9 +135,9 @@
         self.dismissBlock();
     }
     
-    if (self.manager.isCharge) {
+//    if (self.manager.isCharge) {
         [self.manager endCallChat];
-    }
+//    }
     [self stopAlerm];
     [PIPWindow dismissViewControllerAnimated:YES completion:nil];
     
@@ -414,6 +414,7 @@
             self.callTimeLabel.text = [NSString stringWithFormat:@"%02d:%02d",(int)self.callingTime / 60, (int)self.callingTime % 60];
             self.callMenu.timeLabel.text = [NSString stringWithFormat:@"%02d:%02d",(int)self.callingTime / 60, (int)self.callingTime % 60];
             self.callingTime += 1;
+            self.manager.callingTime = self.callingTime;
         });
     });
     dispatch_resume(self.timer);

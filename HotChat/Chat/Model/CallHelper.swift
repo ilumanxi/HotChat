@@ -199,6 +199,7 @@ import AVFoundation
             .subscribe(onSuccess: { [weak self] response in
                 guard let self = self else {return }
                 if response.data!.isSuccessd  && response.data!.callCode == 1{
+                    TUICallUtils.setGenerateRoomID( response.data!.roomId)
                     CallManager.shareInstance()?.call(nil, userID: userID, callType: callType, callSubType: callSubType)
                 }
                 else if response.data!.callCode == 4 {

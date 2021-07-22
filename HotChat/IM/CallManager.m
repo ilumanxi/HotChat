@@ -138,6 +138,21 @@ typedef NS_ENUM(NSInteger,VideoUserRemoveReason){
         };
     } else {
         [TUICallUtils getCallUserModel:self.userId finished:^(CallUserModel * _Nonnull model) {
+            
+            if(model == nil ) {
+                [[TUICall shareInstance] hangup];
+                if ([self.callVC isKindOfClass:[VideoCallViewController class]]) {
+                    [(VideoCallViewController *)self.callVC disMiss];
+
+                }
+                if ([self.callVC isKindOfClass:[AudioCallViewController class]]) {
+                    [(AudioCallViewController *)self.callVC disMiss];
+                }
+                [PIPWindow dismissViewControllerAnimated:NO  completion:nil];
+                [THelper makeToast:@"网络异常"];
+                return;
+            }
+            
             NSMutableArray *inviteeList = [NSMutableArray array];
             model.userId = self.userId;
             [inviteeList addObject:model];
@@ -234,6 +249,22 @@ typedef NS_ENUM(NSInteger,VideoUserRemoveReason){
         if (model) {
             model.isEnter = YES;
         }
+        else {
+            
+            [[TUICall shareInstance] hangup];
+            if ([self.callVC isKindOfClass:[VideoCallViewController class]]) {
+                [(VideoCallViewController *)self.callVC disMiss];
+
+            }
+            if ([self.callVC isKindOfClass:[AudioCallViewController class]]) {
+                [(AudioCallViewController *)self.callVC disMiss];
+            }
+            [PIPWindow dismissViewControllerAnimated:NO  completion:nil];
+            [THelper makeToast:@"网络异常"];
+            return;
+        }
+        
+        
         if ([self.callVC isKindOfClass:[VideoCallViewController class]]) {
             
             VideoCallViewController *videoVC = (VideoCallViewController *)self.callVC;
@@ -381,9 +412,10 @@ typedef NS_ENUM(NSInteger,VideoUserRemoveReason){
         
         [IMHelper getCallTime:self.curRoomID success:^(NSDictionary<NSString *,id> * _Nonnull dict) {
             
-            if ([dict[@"status"] intValue]  == 2) {
+            if ([dict[@"resultCode"] intValue]  == 1) {
+               
                 
-                NSString *message = [NSString stringWithFormat:@"本次有效通话时间为: %@分钟",dict[@"minutes"]];
+                NSString *message = dict[@"resultMsg"];
                 
                 UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"异常挂断" message: message preferredStyle: UIAlertControllerStyleAlert];
                 [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {

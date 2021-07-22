@@ -35,7 +35,7 @@ extension IMAPI: TargetType {
         case .checkUserCall:
             return "Im/checkUserCall"
         case .getCallTime:
-            return "Im/getCallTime"
+            return "v1/imcall/getcallmsg/\(LoginManager.shared.user?.userId ?? "")"
         case .imChatStatus:
             return "Im/imChatStatus"
         case .callend(let userId, _):
@@ -113,7 +113,7 @@ extension IMAPI: TargetType {
     }
     
     @objc class func  callend(_ userID: String, roomId: Int) {
-        userAPI.request(.userinfo(userId: userID), type: ResponseEmpty.self)
+        API.request(.callend(userId: userID, roomId: roomId), type: ResponseEmpty.self)
             .verifyResponse()
             .subscribe(onSuccess: nil, onError: nil)
             .disposed(by: disposeObject)

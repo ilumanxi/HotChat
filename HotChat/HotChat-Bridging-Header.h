@@ -30,6 +30,7 @@
 #import "QMUIButton.h"
 #import "Gift.h"
 #import "UIImage+Data.h"
+#import "TUICallUtils+RoomID.h"
 
 #import <UMCommon/UMCommon.h>
 #import <UMVerify/UMVerify.h>

@@ -451,6 +451,7 @@
 		26D0034F25A6E97C00168796 /* UserInformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26D0034E25A6E97C00168796 /* UserInformationViewController.xib */; };
 		26D1E58B253D5F17004B9B29 /* CallManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D1E58A253D5F17004B9B29 /* CallManager.m */; };
 		26D1E594253D6000004B9B29 /* VideoCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D1E593253D6000004B9B29 /* VideoCallViewController.m */; };
+		26D536B826A57BB600F30D1A /* TUICallUtils+RoomID.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D536B726A57BB600F30D1A /* TUICallUtils+RoomID.m */; };
 		26D7D2E52653AE05001B1311 /* HeadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D7D2E32653AE05001B1311 /* HeadViewController.swift */; };
 		26D7D2E62653AE05001B1311 /* HeadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26D7D2E42653AE05001B1311 /* HeadViewController.xib */; };
 		26D8959C2681F48C00999F2F /* TUIVoiceMessageCell+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D8959B2681F48C00999F2F /* TUIVoiceMessageCell+Color.m */; };
@@ -1124,6 +1125,8 @@
 		26D1E58A253D5F17004B9B29 /* CallManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CallManager.m; sourceTree = "<group>"; };
 		26D1E592253D6000004B9B29 /* VideoCallViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoCallViewController.h; sourceTree = "<group>"; };
 		26D1E593253D6000004B9B29 /* VideoCallViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoCallViewController.m; sourceTree = "<group>"; };
+		26D536B626A57BB600F30D1A /* TUICallUtils+RoomID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TUICallUtils+RoomID.h"; sourceTree = "<group>"; };
+		26D536B726A57BB600F30D1A /* TUICallUtils+RoomID.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TUICallUtils+RoomID.m"; sourceTree = "<group>"; };
 		26D7D2E32653AE05001B1311 /* HeadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadViewController.swift; sourceTree = "<group>"; };
 		26D7D2E42653AE05001B1311 /* HeadViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeadViewController.xib; sourceTree = "<group>"; };
 		26D8959A2681F48C00999F2F /* TUIVoiceMessageCell+Color.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TUIVoiceMessageCell+Color.h"; sourceTree = "<group>"; };
@@ -2298,6 +2301,8 @@
 				263F5387261459010099D143 /* TUIMessageController+Group.m */,
 				26D8959A2681F48C00999F2F /* TUIVoiceMessageCell+Color.h */,
 				26D8959B2681F48C00999F2F /* TUIVoiceMessageCell+Color.m */,
+				26D536B626A57BB600F30D1A /* TUICallUtils+RoomID.h */,
+				26D536B726A57BB600F30D1A /* TUICallUtils+RoomID.m */,
 				26E4141D2680441A004481CE /* UIImage+Data.h */,
 				26E4141E2680441A004481CE /* UIImage+Data.m */,
 			);
@@ -3147,6 +3152,7 @@
 				26377FBE25303D2200D5A03D /* ConversationActionViewController.swift in Sources */,
 				2626E4E4261C0F32007B57D2 /* DynamicListViewController.swift in Sources */,
 				26F3EA3225F209F5001CF13D /* CommentFooterView.swift in Sources */,
+				26D536B826A57BB600F30D1A /* TUICallUtils+RoomID.m in Sources */,
 				269DED1B254AAC4D000AD5D9 /* GiftViewController.m in Sources */,
 				26F8893A25318681001A14F2 /* DynamicViewController.swift in Sources */,
 				267B98752505E1AC0008C81B /* PlatformAuthorization.swift in Sources */,

@@ -18,9 +18,7 @@
 
 @property(strong, nonatomic) BillingStatus *billingStatus;
 
-@property(nonatomic,assign) NSTimeInterval callingTime;
-
-@property(nonatomic,strong) dispatch_source_t secondTimer;
+//@property(nonatomic,strong) dispatch_source_t secondTimer;
 
 @property(nonatomic,strong) dispatch_source_t minuteTimer;
 
@@ -80,6 +78,10 @@
         progress:nil
         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         @strongify(self)
+        
+            if (self == nil) {
+                return;
+            }
             NSString *callCode = [responseObject[@"data"][@"callCode"] stringValue];
          
              if (callCode != nil && [callCode intValue] != 1 ) {
@@ -128,20 +130,26 @@
     NSLog(@"********roomId: %@", parameters);
     @weakify(self)
    [self.manager
-        POST:@"Im/startCallChat"
+        POST:[NSString stringWithFormat:@"v1/imcall/startcallchat/%@", LoginManager.shared.user.userId]
         parameters:parameters      
         headers:headers
         progress:nil
         success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary  * _Nullable responseObject) {
             @strongify(self)
-           if ([responseObject[@"code"] intValue] == 1 ) {
-               self.billingStatus = [BillingStatus mj_objectWithKeyValues:responseObject[@"data"]];
-               [self startCallingTime];
-           }
-           else {
-               NSString *msg = responseObject[@"msg"];
-               self.errorCall([responseObject[@"code"] intValue], msg, self.roomId );
-           }
+               if (self == nil) {
+                   return;
+               }
+           
+               if ([responseObject[@"code"] intValue] == 1 ) {
+                   self.billingStatus = [BillingStatus mj_objectWithKeyValues:responseObject[@"data"]];
+                   [self startCallingTime];
+               }
+               else {
+                   NSString *msg = responseObject[@"msg"];
+                   self.errorCall([responseObject[@"code"] intValue], msg, self.roomId );
+               }
+           
+    
         }
         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             @strongify(self)
@@ -157,15 +165,15 @@
 
 - (void)startCallingTime {
     
-    self.callingTime = 0;
-    self.secondTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_global_queue(0, 0));
-    dispatch_source_set_timer(self.secondTimer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
-    dispatch_source_set_event_handler(self.secondTimer, ^{
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.callingTime += 1;
-        });
-    });
-    dispatch_resume(self.secondTimer);
+//    self.callingTime = 0;
+//    self.secondTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_global_queue(0, 0));
+//    dispatch_source_set_timer(self.secondTimer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
+//    dispatch_source_set_event_handler(self.secondTimer, ^{
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            self.callingTime += 1;
+//        });
+//    });
+//    dispatch_resume(self.secondTimer);
     
     self.minuteTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_global_queue(0, 0));
     dispatch_source_set_timer(self.minuteTimer, DISPATCH_TIME_NOW, 6 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
@@ -185,10 +193,10 @@
 
 - (void)endCallingTime {
     
-    if (self.secondTimer) {
-        dispatch_cancel(self.secondTimer);
-        self.secondTimer = nil;
-    }
+//    if (self.secondTimer) {
+//        dispatch_cancel(self.secondTimer);
+//        self.secondTimer = nil;
+//    }
     
     if (self.minuteTimer) {
         dispatch_cancel(self.minuteTimer);
@@ -221,12 +229,15 @@
     NSLog(@"callContinued: %@", parameters);
     @weakify(self)
    [self.manager
-        POST:@"Im/callContinued"
+        POST:[NSString stringWithFormat:@"v1/imcall/callcontinued/%@", LoginManager.shared.user.userId]
         parameters:parameters
         headers:headers
         progress:nil
         success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary  * _Nullable responseObject) {
        @strongify(self)
+           if (self == nil) {
+               return;
+           }
           NSString *callCode = [responseObject[@"data"][@"callCode"] stringValue];
        
            if (callCode != nil && [callCode intValue] != 1 ) {
@@ -263,7 +274,8 @@
 
 - (void)endCallChat {
     
-    if (self.billingStatus == nil) {
+    
+    if (!LoginManager.shared.user.girlStatus && self.billingStatus == nil) {
         return;
     }
 
@@ -273,14 +285,25 @@
     };
     NSTimeInterval nowTime = self.billingStatus.callStartTime + self.callingTime;
     
-    NSDictionary *parameters = @{
-        @"callId" : self.billingStatus.callId,
-        @"endTime": @(nowTime)
-    };
+    NSDictionary *parameters = @{};
+    
+    if (self.billingStatus) {
+        parameters = @{
+            @"callId" : self.billingStatus.callId,
+            @"endTime": @(nowTime)
+        };
+    }
+    else {
+        parameters = @{
+            @"callId" : [NSString stringWithFormat:@"%ld", self.roomId],
+            @"endTime": @(nowTime)
+        };
+    }
+    
     NSLog(@"endCallChat: %@", parameters);
     @weakify(self)
    [self.manager
-        POST:@"Im/endCallChat"
+        POST:[NSString stringWithFormat:@"v1/imcall/callend/%@", LoginManager.shared.user.userId]
         parameters:parameters
         headers:headers
         progress:nil
